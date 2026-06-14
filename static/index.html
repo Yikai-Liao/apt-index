@@ -53,6 +53,7 @@
         linear-gradient(180deg, var(--panel-2), var(--bg) 18rem);
       color: var(--text);
       font-family: var(--sans);
+      font-synthesis-weight: none;
       letter-spacing: 0;
     }
 
@@ -77,7 +78,7 @@
       align-items: center;
       gap: 12px;
       font-size: 16px;
-      font-weight: 760;
+      font-weight: 600;
       line-height: 1;
     }
 
@@ -93,7 +94,7 @@
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
       font-family: var(--mono);
       font-size: 14px;
-      font-weight: 760;
+      font-weight: 700;
     }
 
     nav {
@@ -112,7 +113,7 @@
       border-radius: 8px;
       background: color-mix(in srgb, var(--panel) 88%, transparent);
       color: var(--text);
-      font: 680 13px/1 var(--sans);
+      font: 500 13px/1 var(--sans);
       cursor: pointer;
     }
 
@@ -154,6 +155,7 @@
       margin: 0;
       max-width: 740px;
       font-size: clamp(40px, 6vw, 76px);
+      font-weight: 500;
       line-height: 1.02;
       letter-spacing: 0;
     }
@@ -181,7 +183,7 @@
       min-height: 42px;
       padding: 0 15px;
       border-radius: 8px;
-      font-weight: 720;
+      font-weight: 500;
     }
 
     .primary {
@@ -225,7 +227,7 @@
       background: rgba(255, 255, 255, 0.08);
       color: #e8f6f4;
       padding: 0 10px;
-      font: 720 12px var(--sans);
+      font: 500 12px var(--sans);
     }
 
     .copy-command:hover {
@@ -268,8 +270,9 @@
 
     .metric-value {
       font-size: 28px;
-      font-weight: 780;
+      font-weight: 500;
       line-height: 1;
+      white-space: nowrap;
     }
 
     .metric-label {
@@ -374,7 +377,7 @@
     th {
       color: var(--muted);
       font-size: 12px;
-      font-weight: 760;
+      font-weight: 500;
       text-transform: uppercase;
     }
 
@@ -431,7 +434,7 @@
       border-radius: 8px;
       padding: 0 9px;
       background: var(--panel-2);
-      font: 700 12px var(--sans);
+      font: 500 12px var(--sans);
       white-space: nowrap;
     }
 
@@ -537,7 +540,7 @@
         content: attr(data-label);
         color: var(--muted);
         font-size: 12px;
-        font-weight: 760;
+        font-weight: 500;
       }
 
       td:first-child {
@@ -580,6 +583,7 @@
       <nav aria-label="Repository links">
         <a class="nav-link" href="#install" data-i18n="navInstall">安装</a>
         <a class="nav-link" href="#packages" data-i18n="navPackages">软件包</a>
+        <a class="nav-link" href="https://github.com/Yikai-Liao/apt-index" data-i18n="navGitHub">GitHub</a>
         <button class="icon-button language-button" id="languageButton" type="button" aria-label="Switch language">中/EN</button>
         <button class="icon-button" id="themeButton" type="button" aria-label="Switch theme">◐</button>
       </nav>
@@ -717,6 +721,7 @@ sudo apt update</pre>
       zh: {
         navInstall: "安装",
         navPackages: "软件包",
+        navGitHub: "GitHub",
         headline: "一个轻量的个人 APT 索引。",
         lead: "为 Debian 和 Ubuntu 发布签名 APT 元数据，软件包下载重定向到可信的上游 .deb 文件，不重新分发二进制包。",
         copyInstall: "复制",
@@ -755,6 +760,7 @@ sudo apt update</pre>
       en: {
         navInstall: "Install",
         navPackages: "Packages",
+        navGitHub: "GitHub",
         headline: "A lightweight personal APT index.",
         lead: "Signed APT metadata for Debian and Ubuntu, with package downloads redirected to trusted upstream .deb files instead of redistributing binaries.",
         copyInstall: "Copy",
@@ -862,14 +868,19 @@ sudo apt update</pre>
 
     function formatBytes(bytes) {
       if (!Number.isFinite(bytes) || bytes <= 0) return "--";
-      const units = ["B", "KB", "MB", "GB"];
+      const units = ["B", "KB", "MB", "GB", "TB", "PB"];
       let value = bytes;
       let unit = 0;
       while (value >= 1024 && unit < units.length - 1) {
         value /= 1024;
         unit += 1;
       }
-      return `${value.toFixed(value >= 10 || unit === 0 ? 0 : 1)} ${units[unit]}`;
+      const fractionDigits = value >= 10 || unit === 0 ? 0 : 1;
+      const number = new Intl.NumberFormat("en", {
+        maximumFractionDigits: fractionDigits,
+        minimumFractionDigits: 0,
+      }).format(value);
+      return `${number}\u00a0${units[unit]}`;
     }
 
     function formatDate(value) {
