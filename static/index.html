@@ -145,16 +145,25 @@
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
-      gap: 30px;
-      align-items: center;
-      padding: 50px 0 42px;
+      grid-template-columns: minmax(0, 1fr) minmax(390px, 1fr);
+      gap: 40px;
+      align-items: start;
+      padding: 64px 0 54px;
+    }
+
+    .hero-copy {
+      padding-top: 22px;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 16px;
     }
 
     h1 {
       margin: 0;
       max-width: 740px;
-      font-size: clamp(40px, 6vw, 76px);
+      font-size: clamp(40px, 5vw, 68px);
       font-weight: 500;
       line-height: 1.02;
       letter-spacing: 0;
@@ -242,18 +251,19 @@
 
     pre {
       margin: 0;
-      overflow-x: auto;
+      overflow-x: hidden;
       padding: 20px;
       font-size: 13px;
       line-height: 1.75;
-      white-space: pre;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
     }
 
     .status-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 12px;
-      margin: 18px 0 0;
+      margin: 0;
     }
 
     .metric,
@@ -545,6 +555,15 @@
         grid-template-columns: 1fr;
       }
 
+      .hero {
+        gap: 28px;
+        padding: 40px 0 44px;
+      }
+
+      .hero-copy {
+        padding-top: 0;
+      }
+
       .status-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -603,7 +622,7 @@
       }
       .language-button { min-width: 58px; }
       .hero { padding-top: 28px; }
-      .status-grid { grid-template-columns: 1fr; }
+      .status-grid { grid-template-columns: repeat(2, 1fr); }
       h1 { font-size: 42px; }
       pre { font-size: 12px; }
       .primary, .secondary { width: 100%; }
@@ -628,12 +647,26 @@
 
     <main>
       <section class="hero">
-        <div>
-          <h1 data-i18n="headline">一个轻量的个人 APT 索引。</h1>
+        <div class="hero-copy">
+          <h1 data-i18n="headline">一个轻量的个人 APT 索引</h1>
           <p class="lead" data-i18n="lead">为 Debian 和 Ubuntu 发布签名 APT 元数据，软件包下载重定向到可信的上游 .deb 文件，不重新分发二进制包。</p>
           <div class="actions">
             <a class="secondary" href="#packages" data-i18n="browsePackages">查看软件包</a>
           </div>
+        </div>
+
+        <div class="hero-side">
+          <section class="terminal" id="install" aria-label="Install command">
+            <div class="terminal-top">
+              <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+              <span class="terminal-title">install.sh</span>
+              <button class="copy-command" id="copyCommandButton" type="button" data-i18n="copyInstall">复制</button>
+            </div>
+            <pre id="installCommand">curl -fsSL __BASE_URL__/key.asc | sudo gpg --dearmor -o /usr/share/keyrings/lyk-ai-apt.gpg
+echo "deb [signed-by=/usr/share/keyrings/lyk-ai-apt.gpg] __BASE_URL__ __SUITE__ __COMPONENT__" | sudo tee /etc/apt/sources.list.d/lyk-ai.list
+sudo apt update</pre>
+          </section>
+
           <div class="status-grid" aria-label="Repository summary">
             <div class="metric">
               <div class="metric-value" id="packageCount">--</div>
@@ -657,17 +690,6 @@
             </div>
           </div>
         </div>
-
-        <section class="terminal" id="install" aria-label="Install command">
-          <div class="terminal-top">
-            <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
-            <span class="terminal-title">install.sh</span>
-            <button class="copy-command" id="copyCommandButton" type="button" data-i18n="copyInstall">复制</button>
-          </div>
-          <pre id="installCommand">curl -fsSL __BASE_URL__/key.asc | sudo gpg --dearmor -o /usr/share/keyrings/lyk-ai-apt.gpg
-echo "deb [signed-by=/usr/share/keyrings/lyk-ai-apt.gpg] __BASE_URL__ __SUITE__ __COMPONENT__" | sudo tee /etc/apt/sources.list.d/lyk-ai.list
-sudo apt update</pre>
-        </section>
       </section>
 
       <section class="section" id="packages">
@@ -768,7 +790,7 @@ sudo apt update</pre>
         navInstall: "安装",
         navPackages: "软件包",
         navGitHub: "GitHub",
-        headline: "一个轻量的个人 APT 索引。",
+        headline: "一个轻量的个人 APT 索引",
         lead: "为 Debian 和 Ubuntu 发布签名 APT 元数据，软件包下载重定向到可信的上游 .deb 文件，不重新分发二进制包。",
         copyInstall: "复制",
         browsePackages: "查看软件包",
@@ -809,7 +831,7 @@ sudo apt update</pre>
         navInstall: "Install",
         navPackages: "Packages",
         navGitHub: "GitHub",
-        headline: "A lightweight personal APT index.",
+        headline: "A lightweight personal APT index",
         lead: "Signed APT metadata for Debian and Ubuntu, with package downloads redirected to trusted upstream .deb files instead of redistributing binaries.",
         copyInstall: "Copy",
         browsePackages: "Browse packages",
