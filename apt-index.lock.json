@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T16:53:35+00:00",
+  "generated_at": "2026-06-14T16:58:03+00:00",
   "packages": {
     "bat": {
       "artifacts": {
@@ -27,7 +27,7 @@
         }
       },
       "homepage": "https://github.com/sharkdp/bat",
-      "resolved_at": "2026-06-14T16:52:37+00:00",
+      "resolved_at": "2026-06-14T16:57:01+00:00",
       "source": "github",
       "update_policy": "track"
     },
@@ -58,7 +58,7 @@
         }
       },
       "homepage": "https://github.com/clementtsang/bottom",
-      "resolved_at": "2026-06-14T16:52:39+00:00",
+      "resolved_at": "2026-06-14T16:57:02+00:00",
       "source": "github",
       "update_policy": "track"
     },
@@ -88,7 +88,7 @@
         }
       },
       "homepage": "https://github.com/bootandy/dust",
-      "resolved_at": "2026-06-14T16:52:36+00:00",
+      "resolved_at": "2026-06-14T16:57:00+00:00",
       "source": "github",
       "update_policy": "track"
     },
@@ -118,7 +118,7 @@
         }
       },
       "homepage": "https://github.com/fastfetch-cli/fastfetch",
-      "resolved_at": "2026-06-14T16:52:38+00:00",
+      "resolved_at": "2026-06-14T16:57:01+00:00",
       "source": "github",
       "update_policy": "track"
     },
@@ -150,7 +150,7 @@
         }
       },
       "homepage": "https://www.feishu.cn/",
-      "resolved_at": "2026-06-14T16:53:31+00:00",
+      "resolved_at": "2026-06-14T16:57:22+00:00",
       "source": "aur",
       "update_policy": "track"
     },
@@ -179,7 +179,7 @@
         }
       },
       "homepage": "https://github.com/lsd-rs/lsd",
-      "resolved_at": "2026-06-14T16:52:37+00:00",
+      "resolved_at": "2026-06-14T16:57:01+00:00",
       "source": "github",
       "update_policy": "track"
     },
@@ -212,7 +212,7 @@
         }
       },
       "homepage": "https://im.qq.com/index/#/linux",
-      "resolved_at": "2026-06-14T16:53:35+00:00",
+      "resolved_at": "2026-06-14T16:58:03+00:00",
       "source": "aur",
       "update_policy": "track"
     },
@@ -243,7 +243,7 @@
         }
       },
       "homepage": "https://weixin.qq.com/",
-      "resolved_at": "2026-06-14T16:52:41+00:00",
+      "resolved_at": "2026-06-14T16:57:14+00:00",
       "source": "aur",
       "update_policy": "track"
     }
