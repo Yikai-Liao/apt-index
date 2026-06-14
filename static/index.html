@@ -409,6 +409,17 @@
 
     tr:last-child td { border-bottom: 0; }
 
+    .detail-stack {
+      display: grid;
+      gap: 5px;
+    }
+
+    .detail-line {
+      min-height: 26px;
+      line-height: 26px;
+      white-space: nowrap;
+    }
+
     .pager {
       display: flex;
       align-items: center;
@@ -749,6 +760,7 @@ sudo apt update</pre>
       trackHealth: null,
       artifactHealth: null,
       downloadStats: null,
+      artifactCount: 0,
     };
 
     const copy = {
@@ -899,36 +911,90 @@ sudo apt update</pre>
 
     function collectRows() {
       const packages = state.lock?.packages || {};
+      state.artifactCount = 0;
       return Object.entries(packages).flatMap(([entryName, entry]) => {
-        return Object.entries(entry.artifacts || {}).map(([arch, artifact]) => {
+        const groups = new Map();
+        Object.entries(entry.artifacts || {}).forEach(([arch, artifact]) => {
+          state.artifactCount += 1;
           const control = artifact.control || {};
           const downloads = downloadStatsFor(entryName, arch);
-          return {
+          const packageName = control.Package || entryName;
+          const key = packageName;
+          const row = groups.get(key) || {
             entryName,
-            arch,
+            arch: "",
+            arches: [],
             source: entry.source || "",
             policy: entry.update_policy || "",
-            packageName: control.Package || entryName,
-            version: control.Version || "",
+            packageName,
+            version: "",
             description: (control.Description || "").split("\n")[0].trim(),
             homepage: entry.homepage || control.Homepage || artifact.url || "#",
+            artifacts: [],
+            size: 0,
+            downloads: 0,
+            downloadsLast7Days: 0,
+            statuses: [],
+            status: { text: "unknown", className: "bad" },
+          };
+          const status = statusFor(entryName, arch);
+          row.artifacts.push({
+            arch,
+            version: control.Version || "",
+            source: entry.source || "",
             size: artifact.size || 0,
             downloads: downloads?.downloads || 0,
             downloadsLast7Days: downloads?.last_7_days || 0,
-            status: statusFor(entryName, arch),
-          };
+            status,
+          });
+          row.arches.push(arch);
+          row.arch = row.arches.join(", ");
+          row.version = summarizeValues(row.artifacts.map((item) => item.version));
+          row.source = summarizeValues(row.artifacts.map((item) => item.source));
+          row.size += artifact.size || 0;
+          row.downloads += downloads?.downloads || 0;
+          row.downloadsLast7Days += downloads?.last_7_days || 0;
+          row.statuses.push(status);
+          row.status = combineStatuses(row.statuses);
+          groups.set(key, row);
+        });
+        return Array.from(groups.values()).map((row) => {
+          delete row.statuses;
+          return row;
         });
       }).sort((a, b) => a.packageName.localeCompare(b.packageName));
+    }
+
+    function summarizeValues(values) {
+      const uniqueValues = [...new Set(values.filter(Boolean))];
+      return uniqueValues.length === 1 ? uniqueValues[0] : uniqueValues.join(", ");
+    }
+
+    function combineStatuses(statuses) {
+      if (!statuses.length) return { text: "unknown", className: "bad" };
+      const uniqueTexts = [...new Set(statuses.map((status) => status.text))];
+      const className = statuses.some((status) => status.className === "bad")
+        ? "bad"
+        : statuses.some((status) => status.className === "warn") ? "warn" : "ok";
+      return {
+        text: uniqueTexts.length === 1 ? uniqueTexts[0] : "mixed",
+        className,
+      };
     }
 
     const collator = new Intl.Collator("en", { numeric: true, sensitivity: "base" });
 
     function sortValue(row, key) {
-      if (key === "status") return row.status.text;
+      if (key === "arch") return row.artifacts[0]?.arch || row.arch;
       return row[key];
     }
 
     function compareRows(a, b, key) {
+      if (key === "status") {
+        const severity = { ok: 0, warn: 1, bad: 2 };
+        const result = (severity[a.status.className] ?? 3) - (severity[b.status.className] ?? 3);
+        return result || collator.compare(a.status.text, b.status.text);
+      }
       const aValue = sortValue(a, key);
       const bValue = sortValue(b, key);
       if (["size", "downloads"].includes(key)) return (aValue || 0) - (bValue || 0);
@@ -1003,7 +1069,7 @@ sudo apt update</pre>
       const packageEntries = Object.keys(state.lock?.packages || {}).length;
       const allOk = rows.length > 0 && rows.every((row) => row.status.className === "ok");
       $("#packageCount").textContent = packageEntries || "--";
-      $("#artifactCount").textContent = rows.length || "--";
+      $("#artifactCount").textContent = state.artifactCount || "--";
       $("#totalSize").textContent = formatBytes(rows.reduce((sum, row) => sum + row.size, 0));
       $("#downloadCount").textContent = formatNumber(state.downloadStats?.totals?.last_days || 0);
       $("#healthState").textContent = allOk ? t("allHealthy") : t("degraded");
@@ -1015,7 +1081,10 @@ sudo apt update</pre>
       updateSortHeaders();
       const query = ($("#search").value || "").trim().toLowerCase();
       const rows = state.rows.filter((row) => {
-        return [row.packageName, row.entryName, row.version, row.source, row.description]
+        const artifactText = row.artifacts
+          .map((item) => [item.version, item.source, item.arch, item.status.text].join(" "))
+          .join(" ");
+        return [row.packageName, row.entryName, row.version, row.source, row.arch, row.description, artifactText]
           .join(" ")
           .toLowerCase()
           .includes(query);
@@ -1038,12 +1107,12 @@ sudo apt update</pre>
               <span>${escapeHtml(row.description || row.entryName)}</span>
             </a>
           </td>
-          <td data-label="${t("thVersion")}"><code>${escapeHtml(row.version)}</code></td>
-          <td data-label="${t("thSource")}"><span class="pill">${escapeHtml(row.source)}</span></td>
-          <td data-label="${t("thArch")}"><code>${escapeHtml(row.arch)}</code></td>
-          <td data-label="${t("thStatus")}"><span class="${row.status.className}">${escapeHtml(row.status.text)}</span></td>
-          <td data-label="${t("thSize")}">${formatBytes(row.size)}</td>
-          <td data-label="${t("thDownloads")}">${formatNumber(row.downloads)}</td>
+          <td data-label="${t("thVersion")}">${renderUniqueDetail(row.artifacts, "version", (value) => `<code>${escapeHtml(value)}</code>`)}</td>
+          <td data-label="${t("thSource")}">${renderUniqueDetail(row.artifacts, "source", (value) => `<span class="pill">${escapeHtml(value)}</span>`)}</td>
+          <td data-label="${t("thArch")}">${renderDetailStack(row.artifacts, (item) => `<code>${escapeHtml(item.arch)}</code>`)}</td>
+          <td data-label="${t("thStatus")}">${renderDetailStack(row.artifacts, (item) => `<span class="${item.status.className}">${escapeHtml(item.status.text)}</span>`)}</td>
+          <td data-label="${t("thSize")}">${renderDetailStack(row.artifacts, (item) => formatBytes(item.size))}</td>
+          <td data-label="${t("thDownloads")}">${renderDetailStack(row.artifacts, (item) => formatNumber(item.downloads))}</td>
         </tr>
       `).join("");
       $("#pager").hidden = false;
@@ -1069,6 +1138,16 @@ sudo apt update</pre>
         '"': "&quot;",
         "'": "&#39;",
       })[char]);
+    }
+
+    function renderUniqueDetail(items, key, renderValue) {
+      const values = [...new Set(items.map((item) => item[key]).filter(Boolean))];
+      if (values.length <= 1) return renderValue(values[0] || "");
+      return renderDetailStack(items, (item) => renderValue(item[key] || ""));
+    }
+
+    function renderDetailStack(items, renderItem) {
+      return `<div class="detail-stack">${items.map((item) => `<div class="detail-line">${renderItem(item)}</div>`).join("")}</div>`;
     }
 
     async function copyInstallCommand(event) {
