@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23007b68'/%3E%3Ctext x='32' y='38' text-anchor='middle' font-family='monospace' font-size='20' font-weight='700' fill='white'%3Edeb%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="https://cn-font.claude-code-best.win/packages/lywkpmydb/dist/LXGWWenKaiScreen/result.css">
   <title>deb.lyk-ai.com</title>
   <style>
     :root {
@@ -23,7 +24,7 @@
       --bad: #be2e38;
       --shadow: 0 24px 70px rgba(27, 45, 73, 0.13);
       --mono: "SFMono-Regular", "Cascadia Code", "Liberation Mono", Menlo, monospace;
-      --sans: Inter, "Noto Sans CJK SC", "Source Han Sans SC", "Microsoft YaHei", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --sans: "LXGW WenKai Screen", Inter, "Noto Sans CJK SC", "Source Han Sans SC", "Microsoft YaHei", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     [data-theme="dark"] {
@@ -616,7 +617,7 @@
           <div class="terminal-top">
             <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
             <span class="terminal-title">install.sh</span>
-            <button class="copy-command" id="copyCommandButton" type="button" data-i18n="copyInstall">复制安装命令</button>
+            <button class="copy-command" id="copyCommandButton" type="button" data-i18n="copyInstall">复制</button>
           </div>
           <pre id="installCommand">curl -fsSL __BASE_URL__/key.asc | sudo gpg --dearmor -o /usr/share/keyrings/lyk-ai-apt.gpg
 echo "deb [signed-by=/usr/share/keyrings/lyk-ai-apt.gpg] __BASE_URL__ __SUITE__ __COMPONENT__" | sudo tee /etc/apt/sources.list.d/lyk-ai.list
@@ -718,7 +719,7 @@ sudo apt update</pre>
         navPackages: "软件包",
         headline: "一个轻量的个人 APT 索引。",
         lead: "为 Debian 和 Ubuntu 发布签名 APT 元数据，软件包下载重定向到可信的上游 .deb 文件，不重新分发二进制包。",
-        copyInstall: "复制安装命令",
+        copyInstall: "复制",
         browsePackages: "查看软件包",
         packageCount: "软件包条目",
         artifactCount: "已解析构件",
@@ -756,7 +757,7 @@ sudo apt update</pre>
         navPackages: "Packages",
         headline: "A lightweight personal APT index.",
         lead: "Signed APT metadata for Debian and Ubuntu, with package downloads redirected to trusted upstream .deb files instead of redistributing binaries.",
-        copyInstall: "Copy install command",
+        copyInstall: "Copy",
         browsePackages: "Browse packages",
         packageCount: "Package entries",
         artifactCount: "Resolved artifacts",
