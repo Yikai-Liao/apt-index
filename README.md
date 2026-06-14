@@ -73,8 +73,8 @@ In that case the APT package name is `bytedance-feishu-stable`.
 The main configuration is a single TOML file. Each package entry has:
 
 - an `update_policy`
-- a `source.type`
-- source-specific fields
+- a `source` resolver key
+- resolver-specific fields
 - architecture-specific artifact selection
 
 Supported source resolver keys:
@@ -96,27 +96,10 @@ optional_architectures = ["arm64"]
 
 [packages.dust]
 update_policy = "track"
-
-[packages.dust.source]
-type = "github"
+source = "github"
 repo = "bootandy/dust"
 asset_patterns.amd64 = "*.deb"
 asset_patterns.arm64 = "*.deb"
-
-[packages.feishu]
-update_policy = "track"
-
-[packages.feishu.source]
-type = "aur"
-package = "feishu-bin"
-
-[packages.some-vendor-app]
-update_policy = "fixed"
-
-[packages.some-vendor-app.source]
-type = "url"
-urls.amd64 = "https://example.com/vendor-app_1.2.3_amd64.deb"
-urls.arm64 = "https://example.com/vendor-app_1.2.3_arm64.deb"
 ```
 
 ## Update Policies
