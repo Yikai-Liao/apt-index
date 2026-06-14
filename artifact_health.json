@@ -1,11 +1,17 @@
 {
-  "generated_at": "2026-06-14T16:58:03+00:00",
+  "generated_at": "2026-06-14T17:15:22+00:00",
   "packages": {
     "bat": {
       "artifacts": {
         "amd64": {
-          "sha256": "ad59954aa1540e526f97267f60557ea5ef4c7dcf91a0811254134537cb353a3c",
+          "check": "head",
           "size": 3037592,
+          "status": "ok"
+        },
+        "arm64": {
+          "check": "full",
+          "sha256": "4a70c3f6236f2c621bd68357257e21b78c9497de4de1e803301ec0209f168653",
+          "size": 2862796,
           "status": "ok"
         }
       }
@@ -13,8 +19,14 @@
     "bottom": {
       "artifacts": {
         "amd64": {
-          "sha256": "75dd4aa31eeb61087925c434627191062d9811b5da91c75ed28b83137a42ff27",
+          "check": "head",
           "size": 1456900,
+          "status": "ok"
+        },
+        "arm64": {
+          "check": "full",
+          "sha256": "6247af81c0f5befe46d95f8e34444e8f1aae04a525c571565fce4e1a0d3682a0",
+          "size": 1235296,
           "status": "ok"
         }
       }
@@ -22,7 +34,7 @@
     "dust": {
       "artifacts": {
         "amd64": {
-          "sha256": "c1bd69dc1cd05bbc84d3581d6d355fe60063c235f2bfec5bd46d551e5baacc66",
+          "check": "head",
           "size": 992896,
           "status": "ok"
         }
@@ -31,8 +43,14 @@
     "fastfetch": {
       "artifacts": {
         "amd64": {
-          "sha256": "af061369d6413677f55f01517b21c029207503e845a4575d3f128b75a425f83f",
+          "check": "head",
           "size": 5815366,
+          "status": "ok"
+        },
+        "arm64": {
+          "check": "full",
+          "sha256": "16aaf8629d13bc67ab3c370181be0034cb3d5a8bcb01ba5fa332c515a3f76926",
+          "size": 5774576,
           "status": "ok"
         }
       }
@@ -40,8 +58,14 @@
     "feishu": {
       "artifacts": {
         "amd64": {
-          "sha256": "ebc58a7d3e1d6e540e403779d67f749f20333b1ae4044491d29a9b8dbc2b3aca",
+          "check": "head",
           "size": 437630064,
+          "status": "ok"
+        },
+        "arm64": {
+          "check": "full",
+          "sha256": "05e87475827de81bb02704cc3c5eb51fa47dbbdf49720e29cc4175ac53a3f560",
+          "size": 395054284,
           "status": "ok"
         }
       }
@@ -49,8 +73,14 @@
     "lsd": {
       "artifacts": {
         "amd64": {
-          "sha256": "b212d4c941fa0960c44d94d44039645802a5b7cc8554900e4d53bab5b2574f07",
+          "check": "head",
           "size": 1385024,
+          "status": "ok"
+        },
+        "arm64": {
+          "check": "full",
+          "sha256": "9f799c1258b6acbefbb2135b6128ab4369ea3872fb1d402cb5375aa7184dd677",
+          "size": 1252736,
           "status": "ok"
         }
       }
@@ -58,8 +88,14 @@
     "qq": {
       "artifacts": {
         "amd64": {
-          "sha256": "1e3828079673c94994bc0f4780d5d8528647639920659862d49d1c2f2a198e25",
+          "check": "head",
           "size": 182597964,
+          "status": "ok"
+        },
+        "arm64": {
+          "check": "full",
+          "sha256": "5bcd8ccda401fbfa1821a7c3c758f84a253c317568f0b9c2d74426a24749e9a6",
+          "size": 201728544,
           "status": "ok"
         }
       }
@@ -67,8 +103,14 @@
     "wechat": {
       "artifacts": {
         "amd64": {
-          "sha256": "af28ffa501d6eb1db769eeaf895b10fedcd4bf4ee7764a22d5b3af50e53f5be5",
+          "check": "head",
           "size": 212391880,
+          "status": "ok"
+        },
+        "arm64": {
+          "check": "full",
+          "sha256": "2870123ee5e0202711210d82e3435f0a4712ca593eb0480f6d9db4589a288810",
+          "size": 189791016,
           "status": "ok"
         }
       }

@@ -12,23 +12,25 @@ The current release is published at:
 https://deb.lyk-ai.com
 ```
 
-Published package entries for `amd64`:
+Published package entries:
 
-| Software entry | Source | Update policy | Installable upstream package name | Version |
-| --- | --- | --- | --- | --- |
-| `bat` | GitHub Releases | `track` | `bat` | `0.26.1` |
-| `bottom` | GitHub Releases | `track` | `bottom` | `0.12.3-1` |
-| `dust` | GitHub Releases | `track` | `du-dust` | `1.2.4-1` |
-| `fastfetch` | GitHub Releases | `track` | `fastfetch` | `2.64.2` |
-| `feishu` | AUR `.SRCINFO` upstream `.deb` discovery | `track` | `bytedance-feishu-stable` | `7.66.10-0` |
-| `lsd` | GitHub Releases | `track` | `lsd` | `1.2.0` |
-| `qq` | AUR `.SRCINFO` upstream `.deb` discovery | `track` | `linuxqq` | `3.2.29-49738` |
-| `wechat` | AUR `.SRCINFO` upstream `.deb` discovery | `track` | `wechat` | `4.1.1.7` |
+| Software entry | Source | Update policy | Architectures | Installable upstream package name | Version |
+| --- | --- | --- | --- | --- | --- |
+| `bat` | GitHub Releases | `track` | `amd64`, `arm64` | `bat` | `0.26.1` |
+| `bottom` | GitHub Releases | `track` | `amd64`, `arm64` | `bottom` on `amd64`; `bottom-arm64` on `arm64` | `0.12.3-1` |
+| `dust` | GitHub Releases | `track` | `amd64` | `du-dust` | `1.2.4-1` |
+| `fastfetch` | GitHub Releases | `track` | `amd64`, `arm64` | `fastfetch` | `2.64.2` |
+| `feishu` | AUR `.SRCINFO` upstream `.deb` discovery | `track` | `amd64`, `arm64` | `bytedance-feishu-stable` | `7.66.10-0` |
+| `lsd` | GitHub Releases | `track` | `amd64`, `arm64` | `lsd` | `1.2.0` |
+| `qq` | AUR `.SRCINFO` upstream `.deb` discovery | `track` | `amd64`, `arm64` | `linuxqq` | `3.2.29-49738` |
+| `wechat` | AUR `.SRCINFO` upstream `.deb` discovery | `track` | `amd64`, `arm64` | `wechat` | `4.1.1.7` |
 
 The current release has been validated with a Debian 12 `linux/amd64` Docker build:
 
 - `apt-get install bat bottom du-dust fastfetch lsd`
 - `apt-get download bytedance-feishu-stable linuxqq wechat`
+
+The generated APT tree has also been validated to include `binary-arm64` metadata for all current entries with upstream arm64 `.deb` artifacts.
 
 Requested entries currently skipped because their latest GitHub releases do not publish `.deb` assets:
 
@@ -84,6 +86,7 @@ Python refresh/build tools
 Generated deployable APT tree
     |
     +--> dists/stable/main/binary-amd64/Packages.gz
+    +--> dists/stable/main/binary-arm64/Packages.gz
     +--> dists/stable/Release
     +--> dists/stable/InRelease
     +--> redirect_rules.json
@@ -142,12 +145,12 @@ component = "main"
 required_architectures = ["amd64"]
 optional_architectures = ["arm64"]
 
-[packages.dust]
+[packages.bat]
 update_policy = "track"
 source = "github"
-repo = "bootandy/dust"
-asset_patterns.amd64 = "*.deb"
-asset_patterns.arm64 = "*.deb"
+repo = "sharkdp/bat"
+asset_patterns.amd64 = "bat_*_amd64.deb"
+asset_patterns.arm64 = "bat_*_arm64.deb"
 ```
 
 ## Update Policies
@@ -170,12 +173,12 @@ For AUR sources:
 
 ## Architectures
 
-The current first release targets:
+The current release targets:
 
 - `amd64` as a required architecture
-- no optional architectures
+- `arm64` as an optional architecture where the upstream source publishes a compatible `.deb`
 
-If a package cannot resolve an `amd64` artifact, that package cannot be newly published. Optional architectures can be added later without changing the shared-suite model.
+If a package cannot resolve an `amd64` artifact, that package cannot be newly published. Optional architectures are resolved only for package entries that declare an architecture-specific artifact selector, so packages without upstream arm64 `.deb` assets can stay published for `amd64`.
 
 ## Generated State
 

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T16:58:03+00:00",
+  "generated_at": "2026-06-14T17:15:22+00:00",
   "packages": {
     "bat": {
       "artifacts": {
@@ -24,10 +24,32 @@
           "size": 3037592,
           "upstream_version": "v0.26.1",
           "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat_0.26.1_amd64.deb"
+        },
+        "arm64": {
+          "asset_name": "bat_0.26.1_arm64.deb",
+          "control": {
+            "Architecture": "arm64",
+            "Conflicts": "bat-musl",
+            "Description": "cat(1) clone with wings.\n  A cat(1) clone with syntax highlighting and Git integration.",
+            "Homepage": "https://github.com/sharkdp/bat",
+            "Maintainer": "David Peter <mail@david-peter.de>",
+            "Package": "bat",
+            "Priority": "optional",
+            "Provides": "bat",
+            "Section": "utils",
+            "Version": "0.26.1"
+          },
+          "filename": "bat_0.26.1_arm64.deb",
+          "md5": "f45743c81770dabff2abd8c263e5759f",
+          "sha1": "7729dc4d8dab58934b08aede000cd39945169d53",
+          "sha256": "4a70c3f6236f2c621bd68357257e21b78c9497de4de1e803301ec0209f168653",
+          "size": 2862796,
+          "upstream_version": "v0.26.1",
+          "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat_0.26.1_arm64.deb"
         }
       },
       "homepage": "https://github.com/sharkdp/bat",
-      "resolved_at": "2026-06-14T16:57:01+00:00",
+      "resolved_at": "2026-06-14T17:15:01+00:00",
       "source": "github",
       "update_policy": "track"
     },
@@ -55,10 +77,33 @@
           "size": 1456900,
           "upstream_version": "0.12.3",
           "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_0.12.3-1_amd64.deb"
+        },
+        "arm64": {
+          "asset_name": "bottom_0.12.3-1_arm64.deb",
+          "control": {
+            "Architecture": "arm64",
+            "Conflicts": "btm",
+            "Depends": "libc6:arm64 (>= 2.28)",
+            "Description": "A customizable cross-platform graphical process/system monitor for the\n terminal. Supports Linux, macOS, and Windows.\n .\n By default, bottom will look for a config file in ~/.config/bottom/bottom.toml.\n A config file can be specified using `-C`. If a config file does not exist at\n the specified or default location, a default one will be created for the user\n there.",
+            "Homepage": "https://bottom.pages.dev/stable",
+            "Installed-Size": "4247",
+            "Maintainer": "Clement Tsang <cjhtsang@uwaterloo.ca>",
+            "Package": "bottom-arm64",
+            "Priority": "optional",
+            "Section": "utility",
+            "Version": "0.12.3-1"
+          },
+          "filename": "bottom_0.12.3-1_arm64.deb",
+          "md5": "6478d763465f5499934e67f687c0e6e1",
+          "sha1": "a27470007aa3bb2c1723d21585099b5d22773c98",
+          "sha256": "6247af81c0f5befe46d95f8e34444e8f1aae04a525c571565fce4e1a0d3682a0",
+          "size": 1235296,
+          "upstream_version": "0.12.3",
+          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_0.12.3-1_arm64.deb"
         }
       },
       "homepage": "https://github.com/clementtsang/bottom",
-      "resolved_at": "2026-06-14T16:57:02+00:00",
+      "resolved_at": "2026-06-14T17:15:08+00:00",
       "source": "github",
       "update_policy": "track"
     },
@@ -115,10 +160,32 @@
           "size": 5815366,
           "upstream_version": "2.64.2",
           "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.64.2/fastfetch-linux-amd64.deb"
+        },
+        "arm64": {
+          "asset_name": "fastfetch-linux-aarch64.deb",
+          "control": {
+            "Architecture": "arm64",
+            "Depends": "libc6 (>= 2.35)",
+            "Description": "Fast neofetch-like system information tool\n fastfetch is a neofetch-like tool for fetching system information and displaying them in a pretty way. It is written mostly in C to achieve much better performance.",
+            "Homepage": "https://github.com/fastfetch-cli/fastfetch",
+            "Installed-Size": "15921",
+            "Maintainer": "Carter Li <zhangsongcui@live.cn>",
+            "Package": "fastfetch",
+            "Priority": "optional",
+            "Section": "devel",
+            "Version": "2.64.2"
+          },
+          "filename": "fastfetch_2.64.2_arm64.deb",
+          "md5": "7d4e7c765f341656ad1b6b69757c1ee1",
+          "sha1": "208999b67925223d1de8bf44dbb6765553eaec61",
+          "sha256": "16aaf8629d13bc67ab3c370181be0034cb3d5a8bcb01ba5fa332c515a3f76926",
+          "size": 5774576,
+          "upstream_version": "2.64.2",
+          "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.64.2/fastfetch-linux-aarch64.deb"
         }
       },
       "homepage": "https://github.com/fastfetch-cli/fastfetch",
-      "resolved_at": "2026-06-14T16:57:01+00:00",
+      "resolved_at": "2026-06-14T17:15:07+00:00",
       "source": "github",
       "update_policy": "track"
     },
@@ -147,10 +214,34 @@
           "size": 437630064,
           "upstream_version": "7.66.10",
           "url": "https://sf3-cn.feishucdn.com/obj/ee-appcenter/289abaac/Feishu-linux_x64-7.66.10.deb"
+        },
+        "arm64": {
+          "asset_name": "Feishu-linux_arm64-7.66.10.deb",
+          "control": {
+            "Architecture": "arm64",
+            "Depends": "ca-certificates, libc6 (>= 2.18), libgcc1 (>= 1:3.0), libnss3 (>= 3.14), libx11-6 (>= 2:1.4.99.1), libxcb1, libxext6, xdg-utils (>= 1.0.2), libgomp1, pulseaudio-utils",
+            "Description": "\u98de\u4e66(Feishu)\n \u98de\u4e66\u6574\u5408\u5373\u65f6\u6d88\u606f\u3001\u65e5\u5386\u3001\u97f3\u89c6\u9891\u4f1a\u8bae\u3001\u4e91\u6587\u6863\u3001\u5de5\u4f5c\u53f0\u7b49\u529f\u80fd\u4e8e\u4e00\u4f53\uff0c\u6210\u5c31\u56e2\u961f\u548c\u4e2a\u4eba\uff0c\u66f4\u9ad8\u6548\u3001\u66f4\u6109\u60a6\u3002",
+            "Installed-Size": "1637548",
+            "Maintainer": "Feishu Linux Team <contact@feishu.cn>",
+            "Package": "bytedance-feishu-stable",
+            "Pre-Depends": "dpkg (>= 1.14.0)",
+            "Priority": "optional",
+            "Recommends": "libu2f-udev, libvulkan1",
+            "Replaces": "bytedance-feishu-alpha, bytedance-feishu-beta, bytedance-feishu-dev, bytedance-feishu-release",
+            "Section": "web",
+            "Version": "7.66.10-0"
+          },
+          "filename": "Feishu-linux_arm64-7.66.10.deb",
+          "md5": "2d485bb219619e11d2c6f82ae53a950f",
+          "sha1": "14f95d1d4cd93910a2f3331ca4a9a08de78bd6d0",
+          "sha256": "05e87475827de81bb02704cc3c5eb51fa47dbbdf49720e29cc4175ac53a3f560",
+          "size": 395054284,
+          "upstream_version": "7.66.10",
+          "url": "https://sf3-cn.feishucdn.com/obj/ee-appcenter/382a3d72/Feishu-linux_arm64-7.66.10.deb"
         }
       },
       "homepage": "https://www.feishu.cn/",
-      "resolved_at": "2026-06-14T16:57:22+00:00",
+      "resolved_at": "2026-06-14T17:15:22+00:00",
       "source": "aur",
       "update_policy": "track"
     },
@@ -176,10 +267,31 @@
           "size": 1385024,
           "upstream_version": "v1.2.0",
           "url": "https://github.com/lsd-rs/lsd/releases/download/v1.2.0/lsd_1.2.0_amd64.deb"
+        },
+        "arm64": {
+          "asset_name": "lsd_1.2.0_arm64.deb",
+          "control": {
+            "Architecture": "arm64",
+            "Conflicts": "lsd-musl",
+            "Description": "An ls command with a lot of pretty colors.",
+            "Maintainer": "Peltoche <peltoche@halium.fr>",
+            "Package": "lsd",
+            "Priority": "optional",
+            "Provides": "lsd",
+            "Section": "utils",
+            "Version": "1.2.0"
+          },
+          "filename": "lsd_1.2.0_arm64.deb",
+          "md5": "e05d7d7d4de42442b9a6486cb546597d",
+          "sha1": "c62b8ee7b853c17710176da885eb69d44821736b",
+          "sha256": "9f799c1258b6acbefbb2135b6128ab4369ea3872fb1d402cb5375aa7184dd677",
+          "size": 1252736,
+          "upstream_version": "v1.2.0",
+          "url": "https://github.com/lsd-rs/lsd/releases/download/v1.2.0/lsd_1.2.0_arm64.deb"
         }
       },
       "homepage": "https://github.com/lsd-rs/lsd",
-      "resolved_at": "2026-06-14T16:57:01+00:00",
+      "resolved_at": "2026-06-14T17:14:59+00:00",
       "source": "github",
       "update_policy": "track"
     },
@@ -209,10 +321,35 @@
           "size": 182597964,
           "upstream_version": "3.2.29_49738",
           "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.31/beta/00e6a3e7/linuxqq_3.2.29-49738_amd64.deb"
+        },
+        "arm64": {
+          "asset_name": "linuxqq_3.2.29-49738_arm64.deb",
+          "control": {
+            "Architecture": "arm64",
+            "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
+            "Description": "\n  QQ",
+            "Homepage": "https://im.qq.com",
+            "Installed-Size": "631369",
+            "License": "unknown",
+            "Maintainer": "Tencent <QQ-Team@tencent.com>",
+            "Package": "linuxqq",
+            "Priority": "optional",
+            "Recommends": "libappindicator3-1",
+            "Section": "default",
+            "Vendor": "Tencent <QQ-Team@tencent.com>",
+            "Version": "3.2.29-49738"
+          },
+          "filename": "linuxqq_3.2.29-49738_arm64.deb",
+          "md5": "9fabeeec036b3bcc1b0b16a747af0fd1",
+          "sha1": "813ed478dcdab18cd5c1a519a5b89f15c220f549",
+          "sha256": "5bcd8ccda401fbfa1821a7c3c758f84a253c317568f0b9c2d74426a24749e9a6",
+          "size": 201728544,
+          "upstream_version": "3.2.29_49738",
+          "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.31/beta/00e6a3e7/linuxqq_3.2.29-49738_arm64.deb"
         }
       },
       "homepage": "https://im.qq.com/index/#/linux",
-      "resolved_at": "2026-06-14T16:58:03+00:00",
+      "resolved_at": "2026-06-14T17:14:53+00:00",
       "source": "aur",
       "update_policy": "track"
     },
@@ -240,10 +377,33 @@
           "size": 212391880,
           "upstream_version": "4.1.1.7",
           "url": "https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.deb"
+        },
+        "arm64": {
+          "asset_name": "wechat-arm-4.1.1.7.deb",
+          "control": {
+            "Architecture": "arm64",
+            "Depends": "fonts-noto-cjk | google-noto-cjk-fonts",
+            "Description": "wechat from Tencent",
+            "Installed-Size": "682040",
+            "Maintainer": "WeChat Team <>",
+            "Package": "wechat",
+            "Pre-Depends": "dpkg (>= 1.14.0)",
+            "Priority": "optional",
+            "Provides": "wechat",
+            "Source": "wechat-stable",
+            "Version": "4.1.1.7"
+          },
+          "filename": "wechat_4.1.1.7_arm64.deb",
+          "md5": "ad001b1e51131edc7e5cd0b0c17ea600",
+          "sha1": "56fa9da51c5e43d7706884e9c4df60d1e04d73b4",
+          "sha256": "2870123ee5e0202711210d82e3435f0a4712ca593eb0480f6d9db4589a288810",
+          "size": 189791016,
+          "upstream_version": "4.1.1.7",
+          "url": "https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_arm64.deb"
         }
       },
       "homepage": "https://weixin.qq.com/",
-      "resolved_at": "2026-06-14T16:57:14+00:00",
+      "resolved_at": "2026-06-14T17:14:55+00:00",
       "source": "aur",
       "update_policy": "track"
     }

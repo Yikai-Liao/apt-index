@@ -108,6 +108,53 @@ class ResolveEntryTests(unittest.TestCase):
         self.assertEqual(resolved.entry["artifacts"]["amd64"]["sha256"], "new-sha256")
         self.assertEqual(resolved.full_checked_arches, {"amd64"})
 
+    def test_skips_optional_architecture_without_selector(self) -> None:
+        config = {"required_architectures": ["amd64"], "optional_architectures": ["arm64"]}
+        entry = package_entry() | {"asset_patterns": {"amd64": "pkg_*_amd64.deb"}}
+        candidate = cli.ArtifactCandidate(
+            "https://example.test/pkg.deb",
+            "1.0.0",
+            "pkg_1.0.0_amd64.deb",
+        )
+
+        with patch.object(cli, "resolve_candidate", return_value=candidate) as resolve_candidate:
+            resolved = cli.resolve_entry(config, "pkg", entry, {"artifacts": {"amd64": locked_artifact()}})
+
+        resolve_candidate.assert_called_once_with(entry, "amd64")
+        self.assertEqual(resolved.entry["artifacts"].keys(), {"amd64"})
+
+    def test_resolves_optional_architecture_with_selector(self) -> None:
+        config = {"required_architectures": ["amd64"], "optional_architectures": ["arm64"]}
+        entry = package_entry() | {"asset_patterns": {"amd64": "pkg_*_amd64.deb", "arm64": "pkg_*_arm64.deb"}}
+        candidates = {
+            "amd64": cli.ArtifactCandidate("https://example.test/pkg-amd64.deb", "1.0.0", "pkg_1.0.0_amd64.deb"),
+            "arm64": cli.ArtifactCandidate("https://example.test/pkg-arm64.deb", "1.0.0", "pkg_1.0.0_arm64.deb"),
+        }
+
+        def fake_resolve_candidate(entry: dict[str, object], arch: str) -> cli.ArtifactCandidate:
+            return candidates[arch]
+
+        def fake_inspect_deb(path: Path) -> dict[str, object]:
+            arch = "arm64" if path.name == "pkg-arm64.deb" else "amd64"
+            return {
+                "control": {"Package": "pkg", "Version": "1.0.0", "Architecture": arch},
+                "size": 123,
+                "md5": "md5",
+                "sha1": "sha1",
+                "sha256": f"sha256-{arch}",
+            }
+
+        with (
+            patch.object(cli, "resolve_candidate", side_effect=fake_resolve_candidate),
+            patch.object(cli, "download", side_effect=lambda url, _: Path("/tmp") / Path(url).name),
+            patch.object(cli, "inspect_deb", side_effect=fake_inspect_deb),
+        ):
+            resolved = cli.resolve_entry(config, "pkg", entry)
+
+        self.assertEqual(resolved.entry["artifacts"].keys(), {"amd64", "arm64"})
+        self.assertEqual(resolved.entry["artifacts"]["arm64"]["sha256"], "sha256-arm64")
+        self.assertEqual(resolved.full_checked_arches, {"amd64", "arm64"})
+
 
 class ArtifactHealthTests(unittest.TestCase):
     def test_light_health_uses_head_and_compares_content_length(self) -> None:
