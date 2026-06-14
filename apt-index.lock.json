@@ -1,6 +1,65 @@
 {
-  "generated_at": "2026-06-14T15:39:26+00:00",
+  "generated_at": "2026-06-14T16:02:38+00:00",
   "packages": {
+    "bat": {
+      "artifacts": {
+        "amd64": {
+          "asset_name": "bat_0.26.1_amd64.deb",
+          "control": {
+            "Architecture": "amd64",
+            "Conflicts": "bat-musl",
+            "Description": "cat(1) clone with wings.\n  A cat(1) clone with syntax highlighting and Git integration.",
+            "Homepage": "https://github.com/sharkdp/bat",
+            "Maintainer": "David Peter <mail@david-peter.de>",
+            "Package": "bat",
+            "Priority": "optional",
+            "Provides": "bat",
+            "Section": "utils",
+            "Version": "0.26.1"
+          },
+          "filename": "bat_0.26.1_amd64.deb",
+          "md5": "03b9305cca73527a683c5bb6c67a9788",
+          "sha1": "a83665d81c2ff50c2fa5018e2543be67b67ece9f",
+          "sha256": "ad59954aa1540e526f97267f60557ea5ef4c7dcf91a0811254134537cb353a3c",
+          "size": 3037592,
+          "upstream_version": "v0.26.1",
+          "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat_0.26.1_amd64.deb"
+        }
+      },
+      "resolved_at": "2026-06-14T16:02:32+00:00",
+      "source": "github",
+      "update_policy": "track"
+    },
+    "bottom": {
+      "artifacts": {
+        "amd64": {
+          "asset_name": "bottom_0.12.3-1_amd64.deb",
+          "control": {
+            "Architecture": "amd64",
+            "Conflicts": "btm",
+            "Depends": "libc6 (>= 2.34)",
+            "Description": "A customizable cross-platform graphical process/system monitor for the\n terminal. Supports Linux, macOS, and Windows.\n .\n By default, bottom will look for a config file in ~/.config/bottom/bottom.toml.\n A config file can be specified using `-C`. If a config file does not exist at\n the specified or default location, a default one will be created for the user\n there.",
+            "Homepage": "https://bottom.pages.dev/stable",
+            "Installed-Size": "4920",
+            "Maintainer": "Clement Tsang <cjhtsang@uwaterloo.ca>",
+            "Package": "bottom",
+            "Priority": "optional",
+            "Section": "utility",
+            "Version": "0.12.3-1"
+          },
+          "filename": "bottom_0.12.3-1_amd64.deb",
+          "md5": "83da5c669b6f0289b4f62ce87602d2cf",
+          "sha1": "bf0ffb7b55b3b218b18c916d2244366811a61198",
+          "sha256": "75dd4aa31eeb61087925c434627191062d9811b5da91c75ed28b83137a42ff27",
+          "size": 1456900,
+          "upstream_version": "0.12.3",
+          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_0.12.3-1_amd64.deb"
+        }
+      },
+      "resolved_at": "2026-06-14T16:02:38+00:00",
+      "source": "github",
+      "update_policy": "track"
+    },
     "dust": {
       "artifacts": {
         "amd64": {
@@ -26,7 +85,36 @@
           "url": "https://github.com/bootandy/dust/releases/download/v1.2.4/du-dust_1.2.4-1_amd64.deb"
         }
       },
-      "resolved_at": "2026-06-14T15:39:23+00:00",
+      "resolved_at": "2026-06-14T16:00:24+00:00",
+      "source": "github",
+      "update_policy": "track"
+    },
+    "fastfetch": {
+      "artifacts": {
+        "amd64": {
+          "asset_name": "fastfetch-linux-amd64.deb",
+          "control": {
+            "Architecture": "amd64",
+            "Depends": "libc6 (>= 2.35)",
+            "Description": "Fast neofetch-like system information tool\n fastfetch is a neofetch-like tool for fetching system information and displaying them in a pretty way. It is written mostly in C to achieve much better performance.",
+            "Homepage": "https://github.com/fastfetch-cli/fastfetch",
+            "Installed-Size": "15524",
+            "Maintainer": "Carter Li <zhangsongcui@live.cn>",
+            "Package": "fastfetch",
+            "Priority": "optional",
+            "Section": "devel",
+            "Version": "2.64.2"
+          },
+          "filename": "fastfetch-linux-amd64.deb",
+          "md5": "57e09a717e10f9904dfccbb8275b68a8",
+          "sha1": "d6b843b3b9618a033aa78465bd13f52373355b8d",
+          "sha256": "af061369d6413677f55f01517b21c029207503e845a4575d3f128b75a425f83f",
+          "size": 5815366,
+          "upstream_version": "2.64.2",
+          "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.64.2/fastfetch-linux-amd64.deb"
+        }
+      },
+      "resolved_at": "2026-06-14T16:02:35+00:00",
       "source": "github",
       "update_policy": "track"
     },
@@ -57,7 +145,7 @@
           "url": "https://sf3-cn.feishucdn.com/obj/ee-appcenter/289abaac/Feishu-linux_x64-7.66.10.deb"
         }
       },
-      "resolved_at": "2026-06-14T15:39:25+00:00",
+      "resolved_at": "2026-06-14T16:00:26+00:00",
       "source": "aur",
       "update_policy": "track"
     },
@@ -85,9 +173,71 @@
           "url": "https://github.com/lsd-rs/lsd/releases/download/v1.2.0/lsd_1.2.0_amd64.deb"
         }
       },
-      "resolved_at": "2026-06-14T15:39:26+00:00",
+      "resolved_at": "2026-06-14T16:02:27+00:00",
       "source": "github",
-      "update_policy": "fixed"
+      "update_policy": "track"
+    },
+    "qq": {
+      "artifacts": {
+        "amd64": {
+          "asset_name": "linuxqq_3.2.29-49738_amd64.deb",
+          "control": {
+            "Architecture": "amd64",
+            "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
+            "Description": "\n  QQ",
+            "Homepage": "https://im.qq.com",
+            "Installed-Size": "600565",
+            "License": "unknown",
+            "Maintainer": "Tencent <QQ-Team@tencent.com>",
+            "Package": "linuxqq",
+            "Priority": "optional",
+            "Recommends": "libappindicator3-1",
+            "Section": "default",
+            "Vendor": "Tencent <QQ-Team@tencent.com>",
+            "Version": "3.2.29-49738"
+          },
+          "filename": "linuxqq_3.2.29-49738_amd64.deb",
+          "md5": "00e6a3e73e809da3c5f4fcab90b4d88b",
+          "sha1": "85783d872888fa872aa499cc76ee22e1e264a283",
+          "sha256": "1e3828079673c94994bc0f4780d5d8528647639920659862d49d1c2f2a198e25",
+          "size": 182597964,
+          "upstream_version": "3.2.29_49738",
+          "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.31/beta/00e6a3e7/linuxqq_3.2.29-49738_amd64.deb"
+        }
+      },
+      "resolved_at": "2026-06-14T16:02:24+00:00",
+      "source": "aur",
+      "update_policy": "track"
+    },
+    "wechat": {
+      "artifacts": {
+        "amd64": {
+          "asset_name": "wechat-x86-4.1.1.7.deb",
+          "control": {
+            "Architecture": "amd64",
+            "Depends": "fonts-noto-cjk | google-noto-cjk-fonts",
+            "Description": "wechat from Tencent",
+            "Installed-Size": "734025",
+            "Maintainer": "WeChat Team <>",
+            "Package": "wechat",
+            "Pre-Depends": "dpkg (>= 1.14.0)",
+            "Priority": "optional",
+            "Provides": "wechat",
+            "Source": "wechat-stable",
+            "Version": "4.1.1.7"
+          },
+          "filename": "wechat_4.1.1.7_amd64.deb",
+          "md5": "7a687ca1853d0bcb1ad00f6a2d115965",
+          "sha1": "5655dca348c1f14aa5a3909b1587a17c04d2005c",
+          "sha256": "af28ffa501d6eb1db769eeaf895b10fedcd4bf4ee7764a22d5b3af50e53f5be5",
+          "size": 212391880,
+          "upstream_version": "4.1.1.7",
+          "url": "https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.deb"
+        }
+      },
+      "resolved_at": "2026-06-14T16:01:01+00:00",
+      "source": "aur",
+      "update_policy": "track"
     }
   },
   "version": 1

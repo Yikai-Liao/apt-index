@@ -24,10 +24,38 @@ source = "aur"
 aur_package = "feishu-bin"
 aur_architectures.amd64 = "x86_64"
 
+[packages.wechat]
+update_policy = "track"
+source = "aur"
+aur_package = "wechat-bin"
+aur_architectures.amd64 = "x86_64"
+
+[packages.qq]
+update_policy = "track"
+source = "aur"
+aur_package = "linuxqq"
+aur_architectures.amd64 = "x86_64"
+
 [packages.lsd]
-update_policy = "fixed"
+update_policy = "track"
 source = "github"
 repo = "lsd-rs/lsd"
-release_tag = "v1.2.0"
-asset_patterns.amd64 = "lsd_1.2.0_amd64.deb"
+asset_patterns.amd64 = "lsd_*_amd64.deb"
 
+[packages.bat]
+update_policy = "track"
+source = "github"
+repo = "sharkdp/bat"
+asset_patterns.amd64 = "bat_*_amd64.deb"
+
+[packages.fastfetch]
+update_policy = "track"
+source = "github"
+repo = "fastfetch-cli/fastfetch"
+asset_patterns.amd64 = "fastfetch-linux-amd64.deb"
+
+[packages.bottom]
+update_policy = "track"
+source = "github"
+repo = "clementtsang/bottom"
+asset_patterns.amd64 = "bottom_*_amd64.deb"

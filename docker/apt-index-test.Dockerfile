@@ -16,8 +16,9 @@ RUN curl -fsSL https://deb.lyk-ai.com/key.asc \
  && echo "deb [signed-by=/usr/share/keyrings/lyk-ai-apt.gpg] https://deb.lyk-ai.com stable main" > /etc/apt/sources.list.d/lyk-ai.list
 
 RUN apt-get update \
- && apt-get install -y --no-install-recommends du-dust lsd \
- && apt-get download bytedance-feishu-stable \
+ && apt-get install -y --no-install-recommends bat bottom du-dust fastfetch lsd \
+ && apt-get download bytedance-feishu-stable linuxqq wechat \
  && test -s bytedance-feishu-stable_*.deb \
+ && test -s linuxqq_*.deb \
+ && test -s wechat_*.deb \
  && rm -rf /var/lib/apt/lists/*
-

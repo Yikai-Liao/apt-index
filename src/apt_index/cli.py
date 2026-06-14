@@ -202,7 +202,8 @@ def resolve_candidate(entry: dict[str, Any], arch: str) -> ArtifactCandidate:
         sha256 = fields.get(f"sha256sums_{aur_arch}")
         if not url:
             raise RuntimeError(f"AUR source_{aur_arch} is missing")
-        return ArtifactCandidate(url, fields.get("pkgver", "unknown"), Path(url).name, sha256)
+        asset_name, artifact_url = split_aur_source(url)
+        return ArtifactCandidate(artifact_url, fields.get("pkgver", "unknown"), asset_name, sha256)
     raise RuntimeError(f"unsupported source resolver {source!r}")
 
 
@@ -236,6 +237,13 @@ def parse_srcinfo(text: str) -> dict[str, str]:
         key, value = line.split("=", 1)
         fields.setdefault(key.strip(), value.strip())
     return fields
+
+
+def split_aur_source(value: str) -> tuple[str, str]:
+    if "::" in value:
+        asset_name, url = value.split("::", 1)
+        return asset_name, url
+    return Path(value).name, value
 
 
 def download(url: str, expected_sha256: str | None = None) -> Path:

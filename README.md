@@ -6,7 +6,7 @@ The repository publishes standard APT metadata, while package downloads are serv
 
 ## Current Status
 
-The first release is published at:
+The current release is published at:
 
 ```text
 https://deb.lyk-ai.com
@@ -16,14 +16,25 @@ Published package entries for `amd64`:
 
 | Software entry | Source | Update policy | Installable upstream package name | Version |
 | --- | --- | --- | --- | --- |
+| `bat` | GitHub Releases | `track` | `bat` | `0.26.1` |
+| `bottom` | GitHub Releases | `track` | `bottom` | `0.12.3-1` |
 | `dust` | GitHub Releases | `track` | `du-dust` | `1.2.4-1` |
+| `fastfetch` | GitHub Releases | `track` | `fastfetch` | `2.64.2` |
 | `feishu` | AUR `.SRCINFO` upstream `.deb` discovery | `track` | `bytedance-feishu-stable` | `7.66.10-0` |
-| `lsd` | GitHub Releases | `fixed` | `lsd` | `1.2.0` |
+| `lsd` | GitHub Releases | `track` | `lsd` | `1.2.0` |
+| `qq` | AUR `.SRCINFO` upstream `.deb` discovery | `track` | `linuxqq` | `3.2.29-49738` |
+| `wechat` | AUR `.SRCINFO` upstream `.deb` discovery | `track` | `wechat` | `4.1.1.7` |
 
-The first release has been validated with a Debian 12 `linux/amd64` Docker build:
+The current release has been validated with a Debian 12 `linux/amd64` Docker build:
 
-- `apt-get install du-dust lsd`
-- `apt-get download bytedance-feishu-stable`
+- `apt-get install bat bottom du-dust fastfetch lsd`
+- `apt-get download bytedance-feishu-stable linuxqq wechat`
+
+Requested entries currently skipped because their latest GitHub releases do not publish `.deb` assets:
+
+- `jesseduffield/lazydocker`
+- `jesseduffield/lazygit`
+- `xampprocky/tokei`
 
 ## Usage
 
@@ -35,8 +46,8 @@ echo "deb [signed-by=/usr/share/keyrings/lyk-ai-apt.gpg] https://deb.lyk-ai.com 
   | sudo tee /etc/apt/sources.list.d/lyk-ai.list
 
 sudo apt update
-sudo apt install du-dust lsd
-apt download bytedance-feishu-stable
+sudo apt install bat bottom du-dust fastfetch lsd
+apt download bytedance-feishu-stable linuxqq wechat
 ```
 
 ## Goals
@@ -73,7 +84,6 @@ Python refresh/build tools
 Generated deployable APT tree
     |
     +--> dists/stable/main/binary-amd64/Packages.gz
-    +--> dists/stable/main/binary-arm64/Packages.gz
     +--> dists/stable/Release
     +--> dists/stable/InRelease
     +--> redirect_rules.json
