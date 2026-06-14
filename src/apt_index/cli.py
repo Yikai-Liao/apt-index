@@ -15,6 +15,7 @@ import tempfile
 import tomllib
 import urllib.error
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -34,6 +35,7 @@ CACHE_DIR = ROOT / ".apt-index-cache"
 DIST_DIR = ROOT / "dist"
 GNUPG_DIR = ROOT / ".apt-index-gnupg"
 USER_AGENT = "apt-index/0.1"
+DEFAULT_JOBS = 4
 app = typer.Typer(no_args_is_help=True)
 
 
@@ -46,9 +48,11 @@ class ArtifactCandidate:
 
 
 @app.command("refresh")
-def refresh_command() -> None:
+def refresh_command(
+    jobs: int | None = typer.Option(None, "--jobs", "-j", help="Maximum package refresh workers."),
+) -> None:
     """Resolve upstream artifacts and write generated state."""
-    refresh()
+    refresh(jobs)
 
 
 @app.command("build")
@@ -58,26 +62,46 @@ def build_command() -> None:
 
 
 @app.command("all")
-def all_command() -> None:
+def all_command(
+    jobs: int | None = typer.Option(None, "--jobs", "-j", help="Maximum package refresh workers."),
+) -> None:
     """Refresh state and build the deployable APT tree."""
-    refresh()
+    refresh(jobs)
     build()
 
 
-def refresh() -> None:
+def refresh(jobs: int | None = None) -> None:
     config = load_config()
     lock = load_json(LOCK_PATH, {"version": 1, "generated_at": None, "packages": {}})
     previous_packages = lock.get("packages", {})
     locked_packages: dict[str, Any] = {}
     track_health: dict[str, Any] = {"version": 1, "generated_at": now_iso(), "packages": {}}
+    package_entries = list(config["packages"].items())
+    max_workers = worker_count(len(package_entries), jobs)
 
-    for entry_name, entry in config["packages"].items():
-        try:
-            logger.info("resolving {}", entry_name)
-            resolved = resolve_entry(config, entry_name, entry)
+    logger.info("refreshing {} package entries with {} workers", len(package_entries), max_workers)
+    resolved_entries: dict[str, Any] = {}
+    errors: dict[str, Exception] = {}
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = {
+            executor.submit(resolve_entry, config, entry_name, entry): entry_name
+            for entry_name, entry in package_entries
+        }
+        for future in as_completed(futures):
+            entry_name = futures[future]
+            try:
+                resolved_entries[entry_name] = future.result()
+            except Exception as exc:
+                errors[entry_name] = exc
+
+    for entry_name, _ in package_entries:
+        if entry_name in resolved_entries:
+            resolved = resolved_entries[entry_name]
             locked_packages[entry_name] = resolved
             track_health["packages"][entry_name] = {"status": "ok", "artifacts": list(resolved["artifacts"].keys())}
-        except Exception as exc:
+            continue
+        if entry_name in errors:
+            exc = errors[entry_name]
             if entry_name in previous_packages:
                 locked_packages[entry_name] = previous_packages[entry_name]
                 status = "kept_previous"
@@ -88,7 +112,7 @@ def refresh() -> None:
 
     lock = {"version": 1, "generated_at": now_iso(), "packages": locked_packages}
     write_json(LOCK_PATH, lock)
-    artifact_health = check_artifacts(lock)
+    artifact_health = check_artifacts(lock, max_workers)
     write_json(TRACK_HEALTH_PATH, track_health)
     write_json(ARTIFACT_HEALTH_PATH, artifact_health)
 
@@ -151,6 +175,7 @@ def build() -> None:
 
 
 def resolve_entry(config: dict[str, Any], entry_name: str, entry: dict[str, Any]) -> dict[str, Any]:
+    logger.info("resolving {}", entry_name)
     artifacts: dict[str, Any] = {}
     for arch in config["required_architectures"] + config.get("optional_architectures", []):
         candidate = resolve_candidate(entry, arch)
@@ -253,8 +278,18 @@ def download(url: str, expected_sha256: str | None = None) -> Path:
     if not path.exists():
         logger.info("downloading {}", url)
         request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-        with urllib.request.urlopen(request, timeout=120) as response:
-            path.write_bytes(response.read())
+        tmp_path: Path | None = None
+        try:
+            with urllib.request.urlopen(request, timeout=120) as response:
+                with tempfile.NamedTemporaryFile(dir=CACHE_DIR, delete=False) as tmp:
+                    tmp_path = Path(tmp.name)
+                    shutil.copyfileobj(response, tmp, length=1024 * 1024)
+            if tmp_path:
+                tmp_path.replace(path)
+        except Exception:
+            if tmp_path:
+                tmp_path.unlink(missing_ok=True)
+            raise
     if expected_sha256 and file_hash(path, "sha256") != expected_sha256:
         path.unlink(missing_ok=True)
         raise RuntimeError(f"sha256 mismatch for {url}")
@@ -373,22 +408,43 @@ def safe_deb_filename(control: dict[str, str], asset_name: str) -> str:
     return f"{package}_{version}_{arch}.deb"
 
 
-def check_artifacts(lock: dict[str, Any]) -> dict[str, Any]:
+def check_artifacts(lock: dict[str, Any], jobs: int) -> dict[str, Any]:
     health = {"version": 1, "generated_at": now_iso(), "packages": {}}
-    for entry_name, entry in lock["packages"].items():
-        artifacts = {}
-        for arch, artifact in entry["artifacts"].items():
+    artifact_entries = [
+        (entry_name, arch, artifact)
+        for entry_name, entry in lock["packages"].items()
+        for arch, artifact in entry["artifacts"].items()
+    ]
+    max_workers = worker_count(len(artifact_entries), jobs)
+    checked: dict[tuple[str, str], dict[str, Any]] = {}
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = {
+            executor.submit(check_artifact, artifact): (entry_name, arch)
+            for entry_name, arch, artifact in artifact_entries
+        }
+        for future in as_completed(futures):
+            key = futures[future]
             try:
-                path = download(artifact["url"], artifact["sha256"])
-                artifacts[arch] = {
-                    "status": "ok",
-                    "size": path.stat().st_size,
-                    "sha256": file_hash(path, "sha256"),
-                }
+                checked[key] = future.result()
             except Exception as exc:
-                artifacts[arch] = {"status": "failed", "error": str(exc)}
-        health["packages"][entry_name] = {"artifacts": artifacts}
+                checked[key] = {"status": "failed", "error": str(exc)}
+    for entry_name, entry in lock["packages"].items():
+        health["packages"][entry_name] = {
+            "artifacts": {
+                arch: checked[(entry_name, arch)]
+                for arch in entry["artifacts"]
+            }
+        }
     return health
+
+
+def check_artifact(artifact: dict[str, Any]) -> dict[str, Any]:
+    path = download(artifact["url"], artifact["sha256"])
+    return {
+        "status": "ok",
+        "size": path.stat().st_size,
+        "sha256": file_hash(path, "sha256"),
+    }
 
 
 def write_release(config: dict[str, Any], archs: list[str]) -> None:
@@ -563,6 +619,15 @@ def gpg_env() -> dict[str, str]:
     env = os.environ.copy()
     env["GNUPGHOME"] = str(GNUPG_DIR)
     return env
+
+
+def worker_count(total: int, requested: int | None) -> int:
+    if requested is None:
+        env_value = os.environ.get("APT_INDEX_JOBS")
+        requested = int(env_value) if env_value else DEFAULT_JOBS
+    if requested < 1:
+        raise typer.BadParameter("jobs must be at least 1")
+    return max(1, min(total or 1, requested))
 
 
 def now_iso() -> str:

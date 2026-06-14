@@ -23,7 +23,7 @@ jobs:
       - name: Refresh lockfile and health reports
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: uv run apt-index refresh
+        run: uv run apt-index refresh --jobs 4
 
       - name: Commit generated state
         run: |

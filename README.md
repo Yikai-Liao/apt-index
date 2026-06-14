@@ -193,7 +193,7 @@ The deployable `dist/` tree is generated in CI and uploaded to Cloudflare Pages,
 The daily GitHub Actions workflow:
 
 1. Reads `packages.toml`.
-2. Resolves tracked package updates.
+2. Resolves tracked package updates with limited parallel workers.
 3. Keeps the previous lock entry for a package if that package's track refresh fails.
 4. Continues refreshing unrelated packages.
 5. Checks artifact health for both fixed and tracked packages.
@@ -232,6 +232,7 @@ Cloudflare Worker code handles redirected package download paths and reads gener
 ## Implementation Notes
 
 - Refresh/build tools are written in Python with `uv`, `typer`, and `loguru`.
+- `apt-index refresh` and `apt-index all` accept `--jobs`/`-j`; the default is 4 workers, or `APT_INDEX_JOBS` when set.
 - The current Worker is generated JavaScript in the deployable APT tree.
 - `dist/` is a deploy artifact, not source-controlled state.
 - The shared suite is expected to be `stable main` unless the configuration says otherwise.
