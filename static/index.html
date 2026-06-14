@@ -1,0 +1,1020 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23007b68'/%3E%3Ctext x='32' y='38' text-anchor='middle' font-family='monospace' font-size='20' font-weight='700' fill='white'%3Edeb%3C/text%3E%3C/svg%3E">
+  <title>deb.lyk-ai.com</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f9fc;
+      --panel: #ffffff;
+      --panel-2: #f0f5fa;
+      --text: #122033;
+      --muted: #607087;
+      --line: #d9e2ec;
+      --strong-line: #b9c7d6;
+      --accent: #007b68;
+      --accent-2: #2367d1;
+      --ok: #0b8f5a;
+      --warn: #a46900;
+      --bad: #be2e38;
+      --shadow: 0 24px 70px rgba(27, 45, 73, 0.13);
+      --mono: "SFMono-Regular", "Cascadia Code", "Liberation Mono", Menlo, monospace;
+      --sans: Inter, "Noto Sans CJK SC", "Source Han Sans SC", "Microsoft YaHei", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    [data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #09111d;
+      --panel: #101b2a;
+      --panel-2: #0d1725;
+      --text: #e7eef8;
+      --muted: #9aaabd;
+      --line: #263548;
+      --strong-line: #3a4b61;
+      --accent: #32c59f;
+      --accent-2: #78a6ff;
+      --ok: #3ed296;
+      --warn: #e0a340;
+      --bad: #ff6b78;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 18% -8%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 32rem),
+        linear-gradient(180deg, var(--panel-2), var(--bg) 18rem);
+      color: var(--text);
+      font-family: var(--sans);
+      letter-spacing: 0;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    code, pre { font-family: var(--mono); }
+
+    .shell {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 20px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 16px;
+      font-weight: 760;
+      line-height: 1;
+    }
+
+    .mark {
+      display: grid;
+      width: 32px;
+      height: 32px;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--accent);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+      font-family: var(--mono);
+      font-size: 14px;
+      font-weight: 760;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: var(--muted);
+    }
+
+    .nav-link,
+    button {
+      min-height: 34px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: color-mix(in srgb, var(--panel) 88%, transparent);
+      color: var(--text);
+      font: 680 13px/1 var(--sans);
+      cursor: pointer;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 0 13px;
+    }
+
+    .icon-button {
+      display: inline-grid;
+      width: 36px;
+      place-items: center;
+      padding: 0;
+      font-size: 15px;
+    }
+
+    .language-button {
+      width: auto;
+      min-width: 58px;
+      padding: 0 10px;
+    }
+
+    button:hover,
+    .nav-link:hover {
+      border-color: var(--strong-line);
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+      gap: 30px;
+      align-items: center;
+      padding: 50px 0 42px;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 740px;
+      font-size: clamp(40px, 6vw, 76px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 650px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .primary,
+    .secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 15px;
+      border-radius: 8px;
+      font-weight: 720;
+    }
+
+    .primary {
+      background: var(--text);
+      color: var(--bg);
+    }
+
+    .secondary {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--text);
+    }
+
+    .terminal {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #07111f;
+      color: #d8f1ee;
+      box-shadow: var(--shadow);
+    }
+
+    .terminal-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 13px 14px;
+      color: #8da2b8;
+      font: 650 12px var(--mono);
+    }
+
+    .terminal-title {
+      margin-left: auto;
+    }
+
+    .copy-command {
+      min-height: 30px;
+      border-color: rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.08);
+      color: #e8f6f4;
+      padding: 0 10px;
+      font: 720 12px var(--sans);
+    }
+
+    .copy-command:hover {
+      border-color: rgba(255, 255, 255, 0.32);
+      transform: none;
+    }
+
+    .dots { display: flex; gap: 7px; }
+    .dots i { width: 10px; height: 10px; border-radius: 50%; background: #ef5f5f; }
+    .dots i:nth-child(2) { background: #e9bc4d; }
+    .dots i:nth-child(3) { background: #56c476; }
+
+    pre {
+      margin: 0;
+      overflow-x: auto;
+      padding: 20px;
+      font-size: 13px;
+      line-height: 1.75;
+      white-space: pre;
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 18px 0 0;
+    }
+
+    .metric,
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: color-mix(in srgb, var(--panel) 94%, transparent);
+      box-shadow: 0 12px 38px rgba(21, 36, 58, 0.06);
+    }
+
+    .metric {
+      padding: 16px;
+    }
+
+    .metric-value {
+      font-size: 28px;
+      font-weight: 780;
+      line-height: 1;
+    }
+
+    .metric-label {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .ok { color: var(--ok); }
+    .warn { color: var(--warn); }
+    .bad { color: var(--bad); }
+
+    .section {
+      padding: 36px 0 52px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(26px, 4vw, 42px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      max-width: 540px;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .panel {
+      overflow: hidden;
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--line);
+      padding: 14px;
+    }
+
+    .toolbar-meta {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .page-size {
+      height: 34px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--bg);
+      color: var(--text);
+      padding: 0 8px;
+      font: 650 13px var(--sans);
+    }
+
+    .search {
+      width: min(420px, 100%);
+      height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--bg);
+      color: var(--text);
+      padding: 0 12px;
+      font: 500 14px var(--sans);
+    }
+
+    .updated {
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid var(--line);
+      padding: 14px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 760;
+      text-transform: uppercase;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    .pager {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-top: 1px solid var(--line);
+      padding: 12px 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .pager-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .pager button {
+      min-height: 34px;
+      padding: 0 11px;
+    }
+
+    .pager button:disabled {
+      cursor: not-allowed;
+      opacity: 0.48;
+      transform: none;
+    }
+
+    .pkg {
+      display: grid;
+      gap: 5px;
+    }
+
+    .pkg strong {
+      font-size: 15px;
+    }
+
+    .pkg span,
+    .small {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0 9px;
+      background: var(--panel-2);
+      font: 700 12px var(--sans);
+      white-space: nowrap;
+    }
+
+    .technical-panel {
+      margin-top: 16px;
+      padding: 18px;
+    }
+
+    .technical-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .technical-item h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+    }
+
+    .technical-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.58;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 24px 0 34px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .raw-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .raw-links a {
+      display: inline-flex;
+      min-height: 32px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0 10px;
+      background: var(--panel);
+      color: var(--text);
+      font-weight: 650;
+    }
+
+    .loading td {
+      height: 112px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 880px) {
+      header,
+      .section-head,
+      .toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav { flex-wrap: wrap; }
+
+      .hero,
+      .technical-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .status-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      table,
+      thead,
+      tbody,
+      tr,
+      th,
+      td {
+        display: block;
+      }
+
+      thead { display: none; }
+
+      tr {
+        border-bottom: 1px solid var(--line);
+        padding: 12px 0;
+      }
+
+      td {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        border: 0;
+        padding: 8px 14px;
+      }
+
+      td::before {
+        content: attr(data-label);
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 760;
+      }
+
+      td:first-child {
+        display: block;
+      }
+
+      td:first-child::before {
+        display: none;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .shell { width: min(100% - 20px, 1180px); }
+      header { gap: 12px; padding: 16px 0; }
+      .brand { gap: 10px; font-size: 15px; }
+      .mark { width: 30px; height: 30px; font-size: 13px; }
+      nav { width: 100%; gap: 7px; }
+      .nav-link {
+        flex: 0 1 auto;
+        justify-content: center;
+        min-height: 34px;
+        padding: 0 16px;
+      }
+      .language-button { min-width: 58px; }
+      .hero { padding-top: 28px; }
+      .status-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 42px; }
+      pre { font-size: 12px; }
+      .primary, .secondary { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <a class="brand" href="/">
+        <span class="mark">deb</span>
+        <span>deb.lyk-ai.com</span>
+      </a>
+      <nav aria-label="Repository links">
+        <a class="nav-link" href="#install" data-i18n="navInstall">安装</a>
+        <a class="nav-link" href="#packages" data-i18n="navPackages">软件包</a>
+        <button class="icon-button language-button" id="languageButton" type="button" aria-label="Switch language">中/EN</button>
+        <button class="icon-button" id="themeButton" type="button" aria-label="Switch theme">◐</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <h1 data-i18n="headline">一个轻量的个人 APT 索引。</h1>
+          <p class="lead" data-i18n="lead">为 Debian 和 Ubuntu 发布签名 APT 元数据，软件包下载重定向到可信的上游 .deb 文件，不重新分发二进制包。</p>
+          <div class="actions">
+            <a class="secondary" href="#packages" data-i18n="browsePackages">查看软件包</a>
+          </div>
+          <div class="status-grid" aria-label="Repository summary">
+            <div class="metric">
+              <div class="metric-value" id="packageCount">--</div>
+              <div class="metric-label" data-i18n="packageCount">软件包条目</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value" id="artifactCount">--</div>
+              <div class="metric-label" data-i18n="artifactCount">已解析构件</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value" id="totalSize">--</div>
+              <div class="metric-label" data-i18n="totalSize">上游下载体积</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value" id="healthState">--</div>
+              <div class="metric-label" data-i18n="health">健康状态</div>
+            </div>
+          </div>
+        </div>
+
+        <section class="terminal" id="install" aria-label="Install command">
+          <div class="terminal-top">
+            <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <span class="terminal-title">install.sh</span>
+            <button class="copy-command" id="copyCommandButton" type="button" data-i18n="copyInstall">复制安装命令</button>
+          </div>
+          <pre id="installCommand">curl -fsSL __BASE_URL__/key.asc | sudo gpg --dearmor -o /usr/share/keyrings/lyk-ai-apt.gpg
+echo "deb [signed-by=/usr/share/keyrings/lyk-ai-apt.gpg] __BASE_URL__ __SUITE__ __COMPONENT__" | sudo tee /etc/apt/sources.list.d/lyk-ai.list
+sudo apt update</pre>
+        </section>
+      </section>
+
+      <section class="section" id="packages">
+        <div class="section-head">
+          <h2 data-i18n="packagesTitle">当前发布的软件包</h2>
+          <p data-i18n="packagesCopy">页面直接读取发布到 Cloudflare Pages 的 lock 与 health JSON。自动刷新后，这里会随数据变化而更新。</p>
+        </div>
+
+        <div class="panel">
+          <div class="toolbar">
+            <input class="search" id="search" type="search" autocomplete="off" data-i18n-placeholder="search" placeholder="搜索软件包、来源或版本">
+            <div class="toolbar-meta">
+              <label class="small">
+                <span data-i18n="pageSize">每页</span>
+                <select class="page-size" id="pageSize">
+                  <option value="10">10</option>
+                  <option value="25">25</option>
+                  <option value="50">50</option>
+                </select>
+              </label>
+              <span class="updated" id="updatedAt">--</span>
+            </div>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th data-i18n="thPackage">Package</th>
+                <th data-i18n="thVersion">Version</th>
+                <th data-i18n="thSource">Source</th>
+                <th data-i18n="thArch">Arch</th>
+                <th data-i18n="thStatus">Status</th>
+                <th data-i18n="thSize">Size</th>
+              </tr>
+            </thead>
+            <tbody id="packageRows">
+              <tr class="loading"><td colspan="6" data-i18n="loading">正在读取发布状态...</td></tr>
+            </tbody>
+          </table>
+          <div class="pager" id="pager" hidden>
+            <span id="pageInfo">--</span>
+            <div class="pager-actions">
+              <button type="button" id="prevPage" data-i18n="prevPage">上一页</button>
+              <button type="button" id="nextPage" data-i18n="nextPage">下一页</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel technical-panel">
+          <div class="technical-grid">
+            <section class="technical-item">
+              <h3 data-i18n="modelTitle">发布模型</h3>
+              <p data-i18n="modelCopy">APT 元数据由本仓库生成并签名；软件包文件不经本站托管，下载请求会重定向到对应的上游发布地址。</p>
+            </section>
+            <section class="technical-item">
+              <h3 data-i18n="securityTitle">校验边界</h3>
+              <p data-i18n="securityCopy">客户端通过仓库公钥验证索引签名，并由 APT 校验包文件大小与哈希；建议使用 signed-by 绑定密钥。</p>
+            </section>
+            <section class="technical-item">
+              <h3 data-i18n="rawTitle">APT 原始文件</h3>
+              <p data-i18n="rawCopy">以下文件用于 APT 客户端、排障和审计；常规使用无需手动打开。</p>
+              <div class="raw-links">
+                <a href="/key.asc">key.asc</a>
+                <a href="/dists/stable/InRelease">InRelease</a>
+                <a href="/dists/stable/main/binary-amd64/Packages">Packages</a>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span data-i18n="footer">Static Cloudflare Pages frontend. Data source: apt-index.lock.json, track_health.json, artifact_health.json.</span>
+    </footer>
+  </div>
+
+  <script>
+    const savedLang = localStorage.getItem("lang");
+    const preferredLang = (navigator.language || "").toLowerCase().startsWith("zh") ? "zh" : "en";
+    const state = {
+      lang: savedLang || preferredLang,
+      theme: localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"),
+      rows: [],
+      page: 1,
+      pageSize: 10,
+      lock: null,
+      trackHealth: null,
+      artifactHealth: null,
+    };
+
+    const copy = {
+      zh: {
+        navInstall: "安装",
+        navPackages: "软件包",
+        headline: "一个轻量的个人 APT 索引。",
+        lead: "为 Debian 和 Ubuntu 发布签名 APT 元数据，软件包下载重定向到可信的上游 .deb 文件，不重新分发二进制包。",
+        copyInstall: "复制安装命令",
+        browsePackages: "查看软件包",
+        packageCount: "软件包条目",
+        artifactCount: "已解析构件",
+        totalSize: "上游下载体积",
+        health: "健康状态",
+        packagesTitle: "当前发布的软件包",
+        packagesCopy: "基于当前发布状态生成，支持搜索与分页，适合随包数量增长继续使用。",
+        search: "搜索软件包、来源或版本",
+        pageSize: "每页",
+        thPackage: "软件包",
+        thVersion: "版本",
+        thSource: "来源",
+        thArch: "架构",
+        thStatus: "状态",
+        thSize: "大小",
+        loading: "正在读取发布状态...",
+        modelTitle: "发布模型",
+        modelCopy: "APT 元数据由本仓库生成并签名；软件包文件不经本站托管，下载请求会重定向到对应的上游发布地址。",
+        securityTitle: "校验边界",
+        securityCopy: "客户端通过仓库公钥验证索引签名，并由 APT 校验包文件大小与哈希；建议使用 signed-by 绑定密钥。",
+        rawTitle: "APT 原始文件",
+        rawCopy: "以下文件用于 APT 客户端、排障和审计；常规使用无需手动打开。",
+        footer: "静态 Cloudflare Pages 前端。数据源：apt-index.lock.json、track_health.json、artifact_health.json。",
+        updated: "更新时间",
+        pageInfo: "第 {page} / {pages} 页，共 {count} 项",
+        prevPage: "上一页",
+        nextPage: "下一页",
+        allHealthy: "正常",
+        degraded: "异常",
+        noRows: "没有匹配的软件包。",
+        failedLoad: "无法读取发布状态 JSON。",
+      },
+      en: {
+        navInstall: "Install",
+        navPackages: "Packages",
+        headline: "A lightweight personal APT index.",
+        lead: "Signed APT metadata for Debian and Ubuntu, with package downloads redirected to trusted upstream .deb files instead of redistributing binaries.",
+        copyInstall: "Copy install command",
+        browsePackages: "Browse packages",
+        packageCount: "Package entries",
+        artifactCount: "Resolved artifacts",
+        totalSize: "Upstream download size",
+        health: "Health",
+        packagesTitle: "Published packages",
+        packagesCopy: "Generated from the current published state, with search and pagination for larger package sets.",
+        search: "Search package, source, or version",
+        pageSize: "Per page",
+        thPackage: "Package",
+        thVersion: "Version",
+        thSource: "Source",
+        thArch: "Arch",
+        thStatus: "Status",
+        thSize: "Size",
+        loading: "Reading published state...",
+        modelTitle: "Publishing model",
+        modelCopy: "APT metadata is generated and signed by this repository. Package files are not hosted here; download requests redirect to upstream release URLs.",
+        securityTitle: "Verification boundary",
+        securityCopy: "Clients verify repository metadata with the signing key, then APT checks package sizes and hashes. Use signed-by to scope trust to this source.",
+        rawTitle: "Raw APT files",
+        rawCopy: "These files are for APT clients, troubleshooting, and auditing. Normal use does not require opening them manually.",
+        footer: "Static Cloudflare Pages frontend. Data source: apt-index.lock.json, track_health.json, artifact_health.json.",
+        updated: "Updated",
+        pageInfo: "Page {page} of {pages}, {count} items",
+        prevPage: "Previous",
+        nextPage: "Next",
+        allHealthy: "OK",
+        degraded: "Degraded",
+        noRows: "No matching packages.",
+        failedLoad: "Unable to read published state JSON.",
+      },
+    };
+
+    const $ = (selector) => document.querySelector(selector);
+
+    function t(key) {
+      return copy[state.lang][key] || key;
+    }
+
+    function applyLanguage() {
+      document.documentElement.lang = state.lang === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-i18n]").forEach((node) => {
+        node.textContent = t(node.dataset.i18n);
+      });
+      document.querySelectorAll("[data-i18n-placeholder]").forEach((node) => {
+        node.placeholder = t(node.dataset.i18nPlaceholder);
+      });
+      render();
+    }
+
+    function applyTheme() {
+      document.documentElement.dataset.theme = state.theme;
+      $("#themeButton").textContent = state.theme === "dark" ? "☀" : "◐";
+    }
+
+    async function loadJson(path) {
+      const candidates = location.protocol === "file:"
+        ? [`../${path.replace(/^\//, "")}`]
+        : [path];
+      let lastError;
+      for (const candidate of candidates) {
+        try {
+          const response = await fetch(candidate, { cache: "no-store" });
+          if (!response.ok) throw new Error(`${candidate}: ${response.status}`);
+          return response.json();
+        } catch (error) {
+          lastError = error;
+        }
+      }
+      throw lastError;
+    }
+
+    function statusFor(entryName, arch) {
+      const track = state.trackHealth?.packages?.[entryName]?.status || "unknown";
+      const artifact = state.artifactHealth?.packages?.[entryName]?.artifacts?.[arch]?.status || "unknown";
+      if (track === "ok" && artifact === "ok") return { text: "ok", className: "ok" };
+      if (track === "kept_previous" && artifact === "ok") return { text: "kept previous", className: "warn" };
+      return { text: `${track}/${artifact}`, className: "bad" };
+    }
+
+    function collectRows() {
+      const packages = state.lock?.packages || {};
+      return Object.entries(packages).flatMap(([entryName, entry]) => {
+        return Object.entries(entry.artifacts || {}).map(([arch, artifact]) => {
+          const control = artifact.control || {};
+          return {
+            entryName,
+            arch,
+            source: entry.source || "",
+            policy: entry.update_policy || "",
+            packageName: control.Package || entryName,
+            version: control.Version || "",
+            description: (control.Description || "").split("\n")[0].trim(),
+            homepage: control.Homepage || artifact.url || "#",
+            size: artifact.size || 0,
+            status: statusFor(entryName, arch),
+          };
+        });
+      }).sort((a, b) => a.packageName.localeCompare(b.packageName));
+    }
+
+    function formatBytes(bytes) {
+      if (!Number.isFinite(bytes) || bytes <= 0) return "--";
+      const units = ["B", "KB", "MB", "GB"];
+      let value = bytes;
+      let unit = 0;
+      while (value >= 1024 && unit < units.length - 1) {
+        value /= 1024;
+        unit += 1;
+      }
+      return `${value.toFixed(value >= 10 || unit === 0 ? 0 : 1)} ${units[unit]}`;
+    }
+
+    function formatDate(value) {
+      if (!value) return "--";
+      return new Intl.DateTimeFormat(state.lang === "zh" ? "zh-CN" : "en", {
+        dateStyle: "medium",
+        timeStyle: "short",
+      }).format(new Date(value));
+    }
+
+    function renderSummary() {
+      const rows = state.rows;
+      const packageEntries = Object.keys(state.lock?.packages || {}).length;
+      const allOk = rows.length > 0 && rows.every((row) => row.status.className === "ok");
+      $("#packageCount").textContent = packageEntries || "--";
+      $("#artifactCount").textContent = rows.length || "--";
+      $("#totalSize").textContent = formatBytes(rows.reduce((sum, row) => sum + row.size, 0));
+      $("#healthState").textContent = allOk ? t("allHealthy") : t("degraded");
+      $("#healthState").className = `metric-value ${allOk ? "ok" : "bad"}`;
+      $("#updatedAt").textContent = `${t("updated")}: ${formatDate(state.lock?.generated_at)}`;
+    }
+
+    function renderRows() {
+      const query = ($("#search").value || "").trim().toLowerCase();
+      const rows = state.rows.filter((row) => {
+        return [row.packageName, row.entryName, row.version, row.source, row.description]
+          .join(" ")
+          .toLowerCase()
+          .includes(query);
+      });
+      const tbody = $("#packageRows");
+      if (!rows.length) {
+        tbody.innerHTML = `<tr class="loading"><td colspan="6">${t("noRows")}</td></tr>`;
+        $("#pager").hidden = true;
+        return;
+      }
+      const pageCount = Math.max(1, Math.ceil(rows.length / state.pageSize));
+      state.page = Math.min(state.page, pageCount);
+      const start = (state.page - 1) * state.pageSize;
+      const pageRows = rows.slice(start, start + state.pageSize);
+      tbody.innerHTML = pageRows.map((row) => `
+        <tr>
+          <td data-label="${t("thPackage")}">
+            <a class="pkg" href="${row.homepage}">
+              <strong>${escapeHtml(row.packageName)}</strong>
+              <span>${escapeHtml(row.description || row.entryName)}</span>
+            </a>
+          </td>
+          <td data-label="${t("thVersion")}"><code>${escapeHtml(row.version)}</code></td>
+          <td data-label="${t("thSource")}"><span class="pill">${escapeHtml(row.source)}</span></td>
+          <td data-label="${t("thArch")}"><code>${escapeHtml(row.arch)}</code></td>
+          <td data-label="${t("thStatus")}"><span class="${row.status.className}">${escapeHtml(row.status.text)}</span></td>
+          <td data-label="${t("thSize")}">${formatBytes(row.size)}</td>
+        </tr>
+      `).join("");
+      $("#pager").hidden = false;
+      $("#pageInfo").textContent = t("pageInfo")
+        .replace("{page}", state.page)
+        .replace("{pages}", pageCount)
+        .replace("{count}", rows.length);
+      $("#prevPage").disabled = state.page <= 1;
+      $("#nextPage").disabled = state.page >= pageCount;
+    }
+
+    function render() {
+      if (!state.lock) return;
+      renderSummary();
+      renderRows();
+    }
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;",
+      })[char]);
+    }
+
+    async function copyInstallCommand(event) {
+      event.preventDefault();
+      await navigator.clipboard.writeText($("#installCommand").textContent.trim());
+      event.currentTarget.textContent = state.lang === "zh" ? "已复制" : "Copied";
+      setTimeout(() => event.currentTarget.textContent = t("copyInstall"), 1200);
+    }
+
+    function normalizeInstallCommand() {
+      const command = $("#installCommand");
+      command.textContent = command.textContent
+        .replaceAll("__BASE_URL__", "https://deb.lyk-ai.com")
+        .replaceAll("__SUITE__", "stable")
+        .replaceAll("__COMPONENT__", "main");
+    }
+
+    async function init() {
+      applyTheme();
+      applyLanguage();
+      normalizeInstallCommand();
+      $("#languageButton").addEventListener("click", () => {
+        state.lang = state.lang === "zh" ? "en" : "zh";
+        localStorage.setItem("lang", state.lang);
+        applyLanguage();
+      });
+      $("#themeButton").addEventListener("click", () => {
+        state.theme = state.theme === "dark" ? "light" : "dark";
+        localStorage.setItem("theme", state.theme);
+        applyTheme();
+      });
+      $("#copyCommandButton").addEventListener("click", copyInstallCommand);
+      $("#search").addEventListener("input", () => {
+        state.page = 1;
+        renderRows();
+      });
+      $("#pageSize").addEventListener("change", (event) => {
+        state.pageSize = Number(event.currentTarget.value);
+        state.page = 1;
+        renderRows();
+      });
+      $("#prevPage").addEventListener("click", () => {
+        state.page = Math.max(1, state.page - 1);
+        renderRows();
+      });
+      $("#nextPage").addEventListener("click", () => {
+        state.page += 1;
+        renderRows();
+      });
+
+      try {
+        const [lock, trackHealth, artifactHealth] = await Promise.all([
+          loadJson("/apt-index.lock.json"),
+          loadJson("/track_health.json"),
+          loadJson("/artifact_health.json"),
+        ]);
+        state.lock = lock;
+        state.trackHealth = trackHealth;
+        state.artifactHealth = artifactHealth;
+        state.rows = collectRows();
+        render();
+      } catch (error) {
+        console.error(error);
+        $("#packageRows").innerHTML = `<tr class="loading"><td colspan="6">${t("failedLoad")}</td></tr>`;
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>

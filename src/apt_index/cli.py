@@ -31,6 +31,7 @@ CONFIG_PATH = ROOT / "packages.toml"
 LOCK_PATH = ROOT / "apt-index.lock.json"
 TRACK_HEALTH_PATH = ROOT / "track_health.json"
 ARTIFACT_HEALTH_PATH = ROOT / "artifact_health.json"
+STATIC_DIR = ROOT / "static"
 CACHE_DIR = ROOT / ".apt-index-cache"
 DIST_DIR = ROOT / "dist"
 GNUPG_DIR = ROOT / ".apt-index-gnupg"
@@ -166,6 +167,7 @@ def build() -> None:
 
     (DIST_DIR / "redirect_rules.json").write_text(json.dumps(redirect_rules, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     (DIST_DIR / "key.asc").write_text(ensure_signing_key(config), encoding="utf-8")
+    copy_state_files()
     write_worker(DIST_DIR / "_worker.js")
     write_routes(DIST_DIR / "_routes.json")
     write_index_page(config, lock)
@@ -556,24 +558,19 @@ def write_routes(path: Path) -> None:
 
 def write_index_page(config: dict[str, Any], lock: dict[str, Any]) -> None:
     base_url = config["repository"]["base_url"]
-    packages = []
-    for entry in lock["packages"].values():
-        for artifact in entry["artifacts"].values():
-            control = artifact["control"]
-            packages.append(f"<li><code>{control['Package']}</code> {control['Version']} ({control['Architecture']})</li>")
-    html = f"""<!doctype html>
-<meta charset="utf-8">
-<title>Apt Index</title>
-<h1>Apt Index</h1>
-<p>APT source:</p>
-<pre>curl -fsSL {base_url}/key.asc | sudo gpg --dearmor -o /usr/share/keyrings/lyk-ai-apt.gpg
-echo "deb [signed-by=/usr/share/keyrings/lyk-ai-apt.gpg] {base_url} {config['suite']} {config['component']}" | sudo tee /etc/apt/sources.list.d/lyk-ai.list
-sudo apt update</pre>
-<ul>
-{''.join(packages)}
-</ul>
-"""
+    template = (STATIC_DIR / "index.html").read_text(encoding="utf-8")
+    html = (
+        template
+        .replace("__BASE_URL__", base_url)
+        .replace("__SUITE__", config["suite"])
+        .replace("__COMPONENT__", config["component"])
+    )
     (DIST_DIR / "index.html").write_text(html, encoding="utf-8")
+
+
+def copy_state_files() -> None:
+    for path in (LOCK_PATH, TRACK_HEALTH_PATH, ARTIFACT_HEALTH_PATH):
+        shutil.copy2(path, DIST_DIR / path.name)
 
 
 def load_config() -> dict[str, Any]:
