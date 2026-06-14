@@ -15,47 +15,55 @@ key_name = "Apt Index <apt-index@lyk-ai.com>"
 [packages.dust]
 update_policy = "track"
 source = "github"
+homepage = "https://github.com/bootandy/dust"
 repo = "bootandy/dust"
 asset_patterns.amd64 = "du-dust_*_amd64.deb"
 
 [packages.feishu]
 update_policy = "track"
 source = "aur"
+homepage = "https://www.feishu.cn/"
 aur_package = "feishu-bin"
 aur_architectures.amd64 = "x86_64"
 
 [packages.wechat]
 update_policy = "track"
 source = "aur"
+homepage = "https://weixin.qq.com/"
 aur_package = "wechat-bin"
 aur_architectures.amd64 = "x86_64"
 
 [packages.qq]
 update_policy = "track"
 source = "aur"
+homepage = "https://im.qq.com/index/#/linux"
 aur_package = "linuxqq"
 aur_architectures.amd64 = "x86_64"
 
 [packages.lsd]
 update_policy = "track"
 source = "github"
+homepage = "https://github.com/lsd-rs/lsd"
 repo = "lsd-rs/lsd"
 asset_patterns.amd64 = "lsd_*_amd64.deb"
 
 [packages.bat]
 update_policy = "track"
 source = "github"
+homepage = "https://github.com/sharkdp/bat"
 repo = "sharkdp/bat"
 asset_patterns.amd64 = "bat_*_amd64.deb"
 
 [packages.fastfetch]
 update_policy = "track"
 source = "github"
+homepage = "https://github.com/fastfetch-cli/fastfetch"
 repo = "fastfetch-cli/fastfetch"
 asset_patterns.amd64 = "fastfetch-linux-amd64.deb"
 
 [packages.bottom]
 update_policy = "track"
 source = "github"
+homepage = "https://github.com/clementtsang/bottom"
 repo = "clementtsang/bottom"
 asset_patterns.amd64 = "bottom_*_amd64.deb"

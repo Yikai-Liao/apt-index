@@ -202,6 +202,7 @@ def resolve_entry(config: dict[str, Any], entry_name: str, entry: dict[str, Any]
     return {
         "update_policy": entry["update_policy"],
         "source": entry["source"],
+        "homepage": entry.get("homepage"),
         "resolved_at": now_iso(),
         "artifacts": artifacts,
     }

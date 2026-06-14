@@ -858,7 +858,7 @@ sudo apt update</pre>
             packageName: control.Package || entryName,
             version: control.Version || "",
             description: (control.Description || "").split("\n")[0].trim(),
-            homepage: control.Homepage || artifact.url || "#",
+            homepage: entry.homepage || control.Homepage || artifact.url || "#",
             size: artifact.size || 0,
             status: statusFor(entryName, arch),
           };
