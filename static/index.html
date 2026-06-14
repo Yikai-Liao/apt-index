@@ -381,6 +381,32 @@
       text-transform: uppercase;
     }
 
+    .sort-button {
+      display: inline-flex;
+      min-height: auto;
+      align-items: center;
+      gap: 5px;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      color: inherit;
+      padding: 0;
+      font: inherit;
+      text-transform: inherit;
+    }
+
+    .sort-button::after {
+      content: attr(data-sort-indicator);
+      min-width: 0.8em;
+      color: var(--accent);
+      font-size: 11px;
+    }
+
+    .sort-button:hover {
+      border-color: transparent;
+      transform: none;
+    }
+
     tr:last-child td { border-bottom: 0; }
 
     .pager {
@@ -653,12 +679,12 @@ sudo apt update</pre>
           <table>
             <thead>
               <tr>
-                <th data-i18n="thPackage">Package</th>
-                <th data-i18n="thVersion">Version</th>
-                <th data-i18n="thSource">Source</th>
-                <th data-i18n="thArch">Arch</th>
-                <th data-i18n="thStatus">Status</th>
-                <th data-i18n="thSize">Size</th>
+                <th aria-sort="ascending"><button class="sort-button" type="button" data-sort="packageName" data-i18n="thPackage">Package</button></th>
+                <th><button class="sort-button" type="button" data-sort="version" data-i18n="thVersion">Version</button></th>
+                <th><button class="sort-button" type="button" data-sort="source" data-i18n="thSource">Source</button></th>
+                <th><button class="sort-button" type="button" data-sort="arch" data-i18n="thArch">Arch</button></th>
+                <th><button class="sort-button" type="button" data-sort="status" data-i18n="thStatus">Status</button></th>
+                <th><button class="sort-button" type="button" data-sort="size" data-i18n="thSize">Size</button></th>
               </tr>
             </thead>
             <tbody id="packageRows">
@@ -712,6 +738,8 @@ sudo apt update</pre>
       rows: [],
       page: 1,
       pageSize: 10,
+      sortKey: "packageName",
+      sortDirection: "asc",
       lock: null,
       trackHealth: null,
       artifactHealth: null,
@@ -866,6 +894,51 @@ sudo apt update</pre>
       }).sort((a, b) => a.packageName.localeCompare(b.packageName));
     }
 
+    const collator = new Intl.Collator("en", { numeric: true, sensitivity: "base" });
+
+    function sortValue(row, key) {
+      if (key === "status") return row.status.text;
+      return row[key];
+    }
+
+    function compareRows(a, b, key) {
+      const aValue = sortValue(a, key);
+      const bValue = sortValue(b, key);
+      if (key === "size") return (aValue || 0) - (bValue || 0);
+      return collator.compare(String(aValue || ""), String(bValue || ""));
+    }
+
+    function sortRows(key) {
+      const direction = state.sortKey === key && state.sortDirection === "asc" ? "desc" : "asc";
+      state.sortKey = key;
+      state.sortDirection = direction;
+      const multiplier = direction === "asc" ? 1 : -1;
+      state.rows = state.rows
+        .map((row, index) => ({ row, index }))
+        .sort((a, b) => {
+          const result = compareRows(a.row, b.row, key) * multiplier;
+          return result || a.index - b.index;
+        })
+        .map((item) => item.row);
+      state.page = 1;
+      renderRows();
+    }
+
+    function updateSortHeaders() {
+      document.querySelectorAll(".sort-button").forEach((button) => {
+        const active = button.dataset.sort === state.sortKey;
+        const indicator = active ? (state.sortDirection === "asc" ? "↑" : "↓") : "";
+        button.dataset.sortIndicator = indicator;
+        const th = button.closest("th");
+        if (th) {
+          th.setAttribute(
+            "aria-sort",
+            active ? (state.sortDirection === "asc" ? "ascending" : "descending") : "none",
+          );
+        }
+      });
+    }
+
     function formatBytes(bytes) {
       if (!Number.isFinite(bytes) || bytes <= 0) return "--";
       const units = ["B", "KB", "MB", "GB", "TB", "PB"];
@@ -904,6 +977,7 @@ sudo apt update</pre>
     }
 
     function renderRows() {
+      updateSortHeaders();
       const query = ($("#search").value || "").trim().toLowerCase();
       const rows = state.rows.filter((row) => {
         return [row.packageName, row.entryName, row.version, row.source, row.description]
@@ -1007,6 +1081,9 @@ sudo apt update</pre>
       $("#nextPage").addEventListener("click", () => {
         state.page += 1;
         renderRows();
+      });
+      document.querySelectorAll(".sort-button").forEach((button) => {
+        button.addEventListener("click", () => sortRows(button.dataset.sort));
       });
 
       try {
