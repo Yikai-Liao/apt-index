@@ -184,7 +184,7 @@ The repository keeps generated state files that are useful for review, automatio
 
 `track_health.json` records whether tracked package refresh checks succeeded.
 
-`artifact_health.json` records whether resolved upstream package files are still downloadable and still match the recorded hashes and sizes.
+`artifact_health.json` records whether resolved upstream package files are still reachable. Daily refreshes use a lightweight `HEAD` or range request for unchanged artifacts and compare the remote size when available. New artifacts and explicit full checks download the package and verify the recorded hash and size.
 
 The deployable `dist/` tree is generated in CI and uploaded to Cloudflare Pages, but it is not committed.
 
@@ -193,10 +193,10 @@ The deployable `dist/` tree is generated in CI and uploaded to Cloudflare Pages,
 The daily GitHub Actions workflow:
 
 1. Reads `packages.toml`.
-2. Resolves tracked package updates with limited parallel workers.
+2. Resolves tracked package updates with limited parallel workers, reusing lockfile metadata when the upstream artifact URL, version, and asset name are unchanged.
 3. Keeps the previous lock entry for a package if that package's track refresh fails.
 4. Continues refreshing unrelated packages.
-5. Checks artifact health for both fixed and tracked packages.
+5. Checks artifact health for both fixed and tracked packages. Daily checks are lightweight for unchanged artifacts; `apt-index refresh --full-artifact-check` downloads and hashes every locked artifact.
 6. Commits changed generated state files directly to the default branch.
 7. Builds and signs the deployable APT tree.
 8. Uploads the generated tree to Cloudflare Pages.
@@ -233,6 +233,7 @@ Cloudflare Worker code handles redirected package download paths and reads gener
 
 - Refresh/build tools are written in Python with `uv`, `typer`, and `loguru`.
 - `apt-index refresh` and `apt-index all` accept `--jobs`/`-j`; the default is 4 workers, or `APT_INDEX_JOBS` when set.
+- `apt-index refresh --full-artifact-check` and `apt-index all --full-artifact-check` force a full artifact download and hash verification for every locked artifact.
 - The current Worker is generated JavaScript in the deployable APT tree.
 - `dist/` is a deploy artifact, not source-controlled state.
 - The shared suite is expected to be `stable main` unless the configuration says otherwise.

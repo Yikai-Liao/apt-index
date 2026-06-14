@@ -48,12 +48,19 @@ class ArtifactCandidate:
     expected_sha256: str | None = None
 
 
+@dataclass(frozen=True)
+class ResolvedEntry:
+    entry: dict[str, Any]
+    full_checked_arches: set[str]
+
+
 @app.command("refresh")
 def refresh_command(
     jobs: int | None = typer.Option(None, "--jobs", "-j", help="Maximum package refresh workers."),
+    full_artifact_check: bool = typer.Option(False, "--full-artifact-check", help="Download and hash every locked artifact during health checks."),
 ) -> None:
     """Resolve upstream artifacts and write generated state."""
-    refresh(jobs)
+    refresh(jobs, full_artifact_check)
 
 
 @app.command("build")
@@ -65,17 +72,19 @@ def build_command() -> None:
 @app.command("all")
 def all_command(
     jobs: int | None = typer.Option(None, "--jobs", "-j", help="Maximum package refresh workers."),
+    full_artifact_check: bool = typer.Option(False, "--full-artifact-check", help="Download and hash every locked artifact during health checks."),
 ) -> None:
     """Refresh state and build the deployable APT tree."""
-    refresh(jobs)
+    refresh(jobs, full_artifact_check)
     build()
 
 
-def refresh(jobs: int | None = None) -> None:
+def refresh(jobs: int | None = None, full_artifact_check: bool = False) -> None:
     config = load_config()
     lock = load_json(LOCK_PATH, {"version": 1, "generated_at": None, "packages": {}})
     previous_packages = lock.get("packages", {})
     locked_packages: dict[str, Any] = {}
+    full_checked_artifacts: set[tuple[str, str]] = set()
     track_health: dict[str, Any] = {"version": 1, "generated_at": now_iso(), "packages": {}}
     package_entries = list(config["packages"].items())
     max_workers = worker_count(len(package_entries), jobs)
@@ -85,7 +94,7 @@ def refresh(jobs: int | None = None) -> None:
     errors: dict[str, Exception] = {}
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         futures = {
-            executor.submit(resolve_entry, config, entry_name, entry): entry_name
+            executor.submit(resolve_entry, config, entry_name, entry, previous_packages.get(entry_name)): entry_name
             for entry_name, entry in package_entries
         }
         for future in as_completed(futures):
@@ -98,8 +107,9 @@ def refresh(jobs: int | None = None) -> None:
     for entry_name, _ in package_entries:
         if entry_name in resolved_entries:
             resolved = resolved_entries[entry_name]
-            locked_packages[entry_name] = resolved
-            track_health["packages"][entry_name] = {"status": "ok", "artifacts": list(resolved["artifacts"].keys())}
+            locked_packages[entry_name] = resolved.entry
+            full_checked_artifacts.update((entry_name, arch) for arch in resolved.full_checked_arches)
+            track_health["packages"][entry_name] = {"status": "ok", "artifacts": list(resolved.entry["artifacts"].keys())}
             continue
         if entry_name in errors:
             exc = errors[entry_name]
@@ -113,7 +123,7 @@ def refresh(jobs: int | None = None) -> None:
 
     lock = {"version": 1, "generated_at": now_iso(), "packages": locked_packages}
     write_json(LOCK_PATH, lock)
-    artifact_health = check_artifacts(lock, max_workers)
+    artifact_health = check_artifacts(lock, max_workers, full_artifact_check, full_checked_artifacts)
     write_json(TRACK_HEALTH_PATH, track_health)
     write_json(ARTIFACT_HEALTH_PATH, artifact_health)
 
@@ -176,11 +186,18 @@ def build() -> None:
     logger.info("built deployable tree at {}", DIST_DIR)
 
 
-def resolve_entry(config: dict[str, Any], entry_name: str, entry: dict[str, Any]) -> dict[str, Any]:
+def resolve_entry(config: dict[str, Any], entry_name: str, entry: dict[str, Any], previous_entry: dict[str, Any] | None = None) -> ResolvedEntry:
     logger.info("resolving {}", entry_name)
     artifacts: dict[str, Any] = {}
+    full_checked_arches: set[str] = set()
     for arch in config["required_architectures"] + config.get("optional_architectures", []):
         candidate = resolve_candidate(entry, arch)
+        previous_artifact = (previous_entry or {}).get("artifacts", {}).get(arch)
+        if previous_artifact and artifact_matches_candidate(previous_artifact, candidate):
+            logger.info("reusing locked artifact {}:{} {}", entry_name, arch, candidate.upstream_version)
+            artifacts[arch] = previous_artifact
+            continue
+
         deb_path = download(candidate.url, candidate.expected_sha256)
         metadata = inspect_deb(deb_path)
         control = metadata["control"]
@@ -198,14 +215,31 @@ def resolve_entry(config: dict[str, Any], entry_name: str, entry: dict[str, Any]
             "sha1": metadata["sha1"],
             "sha256": metadata["sha256"],
         }
+        full_checked_arches.add(arch)
 
-    return {
+    resolved = {
         "update_policy": entry["update_policy"],
         "source": entry["source"],
         "homepage": entry.get("homepage"),
         "resolved_at": now_iso(),
         "artifacts": artifacts,
     }
+    if previous_entry and not full_checked_arches:
+        comparable = dict(resolved)
+        previous_comparable = dict(previous_entry)
+        comparable.pop("resolved_at", None)
+        previous_comparable.pop("resolved_at", None)
+        if comparable == previous_comparable:
+            resolved = previous_entry
+    return ResolvedEntry(resolved, full_checked_arches)
+
+
+def artifact_matches_candidate(artifact: dict[str, Any], candidate: ArtifactCandidate) -> bool:
+    return (
+        artifact.get("url") == candidate.url
+        and artifact.get("upstream_version") == candidate.upstream_version
+        and artifact.get("asset_name") == candidate.asset_name
+    )
 
 
 def resolve_candidate(entry: dict[str, Any], arch: str) -> ArtifactCandidate:
@@ -411,8 +445,14 @@ def safe_deb_filename(control: dict[str, str], asset_name: str) -> str:
     return f"{package}_{version}_{arch}.deb"
 
 
-def check_artifacts(lock: dict[str, Any], jobs: int) -> dict[str, Any]:
+def check_artifacts(
+    lock: dict[str, Any],
+    jobs: int,
+    full_artifact_check: bool = False,
+    full_checked_artifacts: set[tuple[str, str]] | None = None,
+) -> dict[str, Any]:
     health = {"version": 1, "generated_at": now_iso(), "packages": {}}
+    full_checked_artifacts = full_checked_artifacts or set()
     artifact_entries = [
         (entry_name, arch, artifact)
         for entry_name, entry in lock["packages"].items()
@@ -421,10 +461,14 @@ def check_artifacts(lock: dict[str, Any], jobs: int) -> dict[str, Any]:
     max_workers = worker_count(len(artifact_entries), jobs)
     checked: dict[tuple[str, str], dict[str, Any]] = {}
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        futures = {
-            executor.submit(check_artifact, artifact): (entry_name, arch)
-            for entry_name, arch, artifact in artifact_entries
-        }
+        futures = {}
+        for entry_name, arch, artifact in artifact_entries:
+            key = (entry_name, arch)
+            if key in full_checked_artifacts:
+                checked[key] = full_artifact_health(artifact)
+                continue
+            check = check_artifact if full_artifact_check else check_artifact_light
+            futures[executor.submit(check, artifact)] = key
         for future in as_completed(futures):
             key = futures[future]
             try:
@@ -443,11 +487,69 @@ def check_artifacts(lock: dict[str, Any], jobs: int) -> dict[str, Any]:
 
 def check_artifact(artifact: dict[str, Any]) -> dict[str, Any]:
     path = download(artifact["url"], artifact["sha256"])
+    size = path.stat().st_size
+    sha256 = file_hash(path, "sha256")
+    if size != artifact["size"]:
+        raise RuntimeError(f"size mismatch for {artifact['url']}: expected {artifact['size']}, got {size}")
+    if sha256 != artifact["sha256"]:
+        raise RuntimeError(f"sha256 mismatch for {artifact['url']}")
     return {
         "status": "ok",
-        "size": path.stat().st_size,
-        "sha256": file_hash(path, "sha256"),
+        "check": "full",
+        "size": size,
+        "sha256": sha256,
     }
+
+
+def full_artifact_health(artifact: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "status": "ok",
+        "check": "full",
+        "size": artifact["size"],
+        "sha256": artifact["sha256"],
+    }
+
+
+def check_artifact_light(artifact: dict[str, Any]) -> dict[str, Any]:
+    try:
+        size = fetch_artifact_size(artifact["url"], "HEAD")
+        check = "head"
+    except urllib.error.HTTPError:
+        size = fetch_artifact_size(artifact["url"], "GET", {"Range": "bytes=0-0"})
+        check = "range"
+
+    if size is not None and size != artifact["size"]:
+        raise RuntimeError(f"size mismatch for {artifact['url']}: expected {artifact['size']}, got {size}")
+
+    result: dict[str, Any] = {"status": "ok", "check": check}
+    if size is not None:
+        result["size"] = size
+    return result
+
+
+def fetch_artifact_size(url: str, method: str, headers: dict[str, str] | None = None) -> int | None:
+    request_headers = {"User-Agent": USER_AGENT}
+    request_headers.update(headers or {})
+    request = urllib.request.Request(url, headers=request_headers, method=method)
+    with urllib.request.urlopen(request, timeout=60) as response:
+        return response_size(response)
+
+
+def response_size(response: Any) -> int | None:
+    content_range = response.getheader("Content-Range")
+    if content_range and "/" in content_range:
+        total = content_range.rsplit("/", 1)[1]
+        if total.isdigit():
+            return int(total)
+    status = getattr(response, "status", None)
+    if status is None and hasattr(response, "getcode"):
+        status = response.getcode()
+    if status == 206:
+        return None
+    content_length = response.getheader("Content-Length")
+    if content_length and content_length.isdigit():
+        return int(content_length)
+    return None
 
 
 def write_release(config: dict[str, Any], archs: list[str]) -> None:
