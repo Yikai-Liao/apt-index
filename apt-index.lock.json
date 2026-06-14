@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T16:49:39+00:00",
+  "generated_at": "2026-06-14T16:53:35+00:00",
   "packages": {
     "bat": {
       "artifacts": {
@@ -26,7 +26,8 @@
           "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat_0.26.1_amd64.deb"
         }
       },
-      "resolved_at": "2026-06-14T16:48:38+00:00",
+      "homepage": "https://github.com/sharkdp/bat",
+      "resolved_at": "2026-06-14T16:52:37+00:00",
       "source": "github",
       "update_policy": "track"
     },
@@ -56,7 +57,8 @@
           "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_0.12.3-1_amd64.deb"
         }
       },
-      "resolved_at": "2026-06-14T16:48:39+00:00",
+      "homepage": "https://github.com/clementtsang/bottom",
+      "resolved_at": "2026-06-14T16:52:39+00:00",
       "source": "github",
       "update_policy": "track"
     },
@@ -85,7 +87,8 @@
           "url": "https://github.com/bootandy/dust/releases/download/v1.2.4/du-dust_1.2.4-1_amd64.deb"
         }
       },
-      "resolved_at": "2026-06-14T16:48:37+00:00",
+      "homepage": "https://github.com/bootandy/dust",
+      "resolved_at": "2026-06-14T16:52:36+00:00",
       "source": "github",
       "update_policy": "track"
     },
@@ -114,7 +117,8 @@
           "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.64.2/fastfetch-linux-amd64.deb"
         }
       },
-      "resolved_at": "2026-06-14T16:48:39+00:00",
+      "homepage": "https://github.com/fastfetch-cli/fastfetch",
+      "resolved_at": "2026-06-14T16:52:38+00:00",
       "source": "github",
       "update_policy": "track"
     },
@@ -145,7 +149,8 @@
           "url": "https://sf3-cn.feishucdn.com/obj/ee-appcenter/289abaac/Feishu-linux_x64-7.66.10.deb"
         }
       },
-      "resolved_at": "2026-06-14T16:48:59+00:00",
+      "homepage": "https://www.feishu.cn/",
+      "resolved_at": "2026-06-14T16:53:31+00:00",
       "source": "aur",
       "update_policy": "track"
     },
@@ -173,7 +178,8 @@
           "url": "https://github.com/lsd-rs/lsd/releases/download/v1.2.0/lsd_1.2.0_amd64.deb"
         }
       },
-      "resolved_at": "2026-06-14T16:48:38+00:00",
+      "homepage": "https://github.com/lsd-rs/lsd",
+      "resolved_at": "2026-06-14T16:52:37+00:00",
       "source": "github",
       "update_policy": "track"
     },
@@ -205,7 +211,8 @@
           "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.31/beta/00e6a3e7/linuxqq_3.2.29-49738_amd64.deb"
         }
       },
-      "resolved_at": "2026-06-14T16:49:39+00:00",
+      "homepage": "https://im.qq.com/index/#/linux",
+      "resolved_at": "2026-06-14T16:53:35+00:00",
       "source": "aur",
       "update_policy": "track"
     },
@@ -235,7 +242,8 @@
           "url": "https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.deb"
         }
       },
-      "resolved_at": "2026-06-14T16:48:48+00:00",
+      "homepage": "https://weixin.qq.com/",
+      "resolved_at": "2026-06-14T16:52:41+00:00",
       "source": "aur",
       "update_policy": "track"
     }
