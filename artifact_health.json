@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-06-14T15:39:26+00:00",
+  "packages": {
+    "dust": {
+      "artifacts": {
+        "amd64": {
+          "sha256": "c1bd69dc1cd05bbc84d3581d6d355fe60063c235f2bfec5bd46d551e5baacc66",
+          "size": 992896,
+          "status": "ok"
+        }
+      }
+    },
+    "feishu": {
+      "artifacts": {
+        "amd64": {
+          "sha256": "ebc58a7d3e1d6e540e403779d67f749f20333b1ae4044491d29a9b8dbc2b3aca",
+          "size": 437630064,
+          "status": "ok"
+        }
+      }
+    },
+    "lsd": {
+      "artifacts": {
+        "amd64": {
+          "sha256": "b212d4c941fa0960c44d94d44039645802a5b7cc8554900e4d53bab5b2574f07",
+          "size": 1385024,
+          "status": "ok"
+        }
+      }
+    }
+  },
+  "version": 1
+}

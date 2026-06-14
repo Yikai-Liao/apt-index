@@ -1,0 +1,94 @@
+{
+  "generated_at": "2026-06-14T15:39:26+00:00",
+  "packages": {
+    "dust": {
+      "artifacts": {
+        "amd64": {
+          "asset_name": "du-dust_1.2.4-1_amd64.deb",
+          "control": {
+            "Architecture": "amd64",
+            "Depends": "",
+            "Description": "A more intuitive version of du\n Dust is meant to give you an instant overview of which directories are using\n disk space without requiring sort or head. Dust will print a maximum of one\n 'Did not have permissions message'.",
+            "Homepage": "https://github.com/bootandy/dust",
+            "Installed-Size": "3122",
+            "Maintainer": "bootandy <bootandy@gmail.com>",
+            "Package": "du-dust",
+            "Priority": "optional",
+            "Section": "utils",
+            "Version": "1.2.4-1"
+          },
+          "filename": "du-dust_1.2.4-1_amd64.deb",
+          "md5": "3f637b632b90f268df37c805aa075888",
+          "sha1": "027a389f1c0db58948b673984d5e5af1f6104ee1",
+          "sha256": "c1bd69dc1cd05bbc84d3581d6d355fe60063c235f2bfec5bd46d551e5baacc66",
+          "size": 992896,
+          "upstream_version": "v1.2.4",
+          "url": "https://github.com/bootandy/dust/releases/download/v1.2.4/du-dust_1.2.4-1_amd64.deb"
+        }
+      },
+      "resolved_at": "2026-06-14T15:39:23+00:00",
+      "source": "github",
+      "update_policy": "track"
+    },
+    "feishu": {
+      "artifacts": {
+        "amd64": {
+          "asset_name": "Feishu-linux_x64-7.66.10.deb",
+          "control": {
+            "Architecture": "amd64",
+            "Depends": "ca-certificates, libc6 (>= 2.18), libgcc1 (>= 1:3.0), libnss3 (>= 3.14), libx11-6 (>= 2:1.4.99.1), libxcb1, libxext6, xdg-utils (>= 1.0.2), libgomp1, pulseaudio-utils",
+            "Description": "\u98de\u4e66(Feishu)\n \u98de\u4e66\u6574\u5408\u5373\u65f6\u6d88\u606f\u3001\u65e5\u5386\u3001\u97f3\u89c6\u9891\u4f1a\u8bae\u3001\u4e91\u6587\u6863\u3001\u5de5\u4f5c\u53f0\u7b49\u529f\u80fd\u4e8e\u4e00\u4f53\uff0c\u6210\u5c31\u56e2\u961f\u548c\u4e2a\u4eba\uff0c\u66f4\u9ad8\u6548\u3001\u66f4\u6109\u60a6\u3002",
+            "Installed-Size": "1733410",
+            "Maintainer": "Feishu Linux Team <contact@feishu.cn>",
+            "Package": "bytedance-feishu-stable",
+            "Pre-Depends": "dpkg (>= 1.14.0)",
+            "Priority": "optional",
+            "Recommends": "libu2f-udev, libvulkan1",
+            "Replaces": "bytedance-feishu-alpha, bytedance-feishu-beta, bytedance-feishu-dev, bytedance-feishu-release",
+            "Section": "web",
+            "Version": "7.66.10-0"
+          },
+          "filename": "bytedance-feishu-stable_7.66.10-0_amd64.deb",
+          "md5": "fdf4882352e05476843c15bd7797a2a6",
+          "sha1": "784837bc0551a767887cd5bdade2503ea3a27c08",
+          "sha256": "ebc58a7d3e1d6e540e403779d67f749f20333b1ae4044491d29a9b8dbc2b3aca",
+          "size": 437630064,
+          "upstream_version": "7.66.10",
+          "url": "https://sf3-cn.feishucdn.com/obj/ee-appcenter/289abaac/Feishu-linux_x64-7.66.10.deb"
+        }
+      },
+      "resolved_at": "2026-06-14T15:39:25+00:00",
+      "source": "aur",
+      "update_policy": "track"
+    },
+    "lsd": {
+      "artifacts": {
+        "amd64": {
+          "asset_name": "lsd_1.2.0_amd64.deb",
+          "control": {
+            "Architecture": "amd64",
+            "Conflicts": "lsd-musl",
+            "Description": "An ls command with a lot of pretty colors.",
+            "Maintainer": "Peltoche <peltoche@halium.fr>",
+            "Package": "lsd",
+            "Priority": "optional",
+            "Provides": "lsd",
+            "Section": "utils",
+            "Version": "1.2.0"
+          },
+          "filename": "lsd_1.2.0_amd64.deb",
+          "md5": "079ecc610a507472ddbbb1270c7ebf44",
+          "sha1": "45c2f5749eb807e165b5414d8374c4533ee262ec",
+          "sha256": "b212d4c941fa0960c44d94d44039645802a5b7cc8554900e4d53bab5b2574f07",
+          "size": 1385024,
+          "upstream_version": "v1.2.0",
+          "url": "https://github.com/lsd-rs/lsd/releases/download/v1.2.0/lsd_1.2.0_amd64.deb"
+        }
+      },
+      "resolved_at": "2026-06-14T15:39:26+00:00",
+      "source": "github",
+      "update_policy": "fixed"
+    }
+  },
+  "version": 1
+}

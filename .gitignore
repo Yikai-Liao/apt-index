@@ -1,0 +1,9 @@
+dist/
+.apt-index-cache/
+.apt-index-gnupg/
+.wrangler/
+.env
+node_modules/
+.venv/
+__pycache__/
+*.py[cod]

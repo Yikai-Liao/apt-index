@@ -1,0 +1,11 @@
+.env
+.git
+.venv
+.apt-index-cache
+.apt-index-gnupg
+.wrangler
+dist
+node_modules
+__pycache__
+*.py[cod]
+

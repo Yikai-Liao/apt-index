@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-06-14T15:39:21+00:00",
+  "packages": {
+    "dust": {
+      "artifacts": [
+        "amd64"
+      ],
+      "status": "ok"
+    },
+    "feishu": {
+      "artifacts": [
+        "amd64"
+      ],
+      "status": "ok"
+    },
+    "lsd": {
+      "artifacts": [
+        "amd64"
+      ],
+      "status": "ok"
+    }
+  },
+  "version": 1
+}

@@ -1,0 +1,18 @@
+[project]
+name = "apt-index"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+  "loguru>=0.7.3",
+  "typer>=0.20.0",
+]
+
+[project.scripts]
+apt-index = "apt_index.cli:app"
+
+[tool.uv]
+package = true
+
+[build-system]
+requires = ["uv_build>=0.9.0,<0.10.0"]
+build-backend = "uv_build"
