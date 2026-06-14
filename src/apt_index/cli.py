@@ -8,6 +8,7 @@ import hashlib
 import json
 import lzma
 import os
+import re
 import shutil
 import subprocess
 import tarfile
@@ -34,9 +35,11 @@ ARTIFACT_HEALTH_PATH = ROOT / "artifact_health.json"
 STATIC_DIR = ROOT / "static"
 CACHE_DIR = ROOT / ".apt-index-cache"
 DIST_DIR = ROOT / "dist"
+DOWNLOAD_STATS_FILENAME = "download_stats.json"
 GNUPG_DIR = ROOT / ".apt-index-gnupg"
 USER_AGENT = "apt-index/0.1"
 DEFAULT_JOBS = 4
+DEFAULT_DOWNLOAD_STATS_DATASET = "apt_index_downloads"
 app = typer.Typer(no_args_is_help=True)
 
 
@@ -67,6 +70,17 @@ def refresh_command(
 def build_command() -> None:
     """Build the deployable APT tree from the lockfile."""
     build()
+
+
+@app.command("download-stats")
+def download_stats_command(
+    output: Path | None = typer.Option(None, "--output", "-o", help="Output JSON path."),
+    dataset: str = typer.Option(DEFAULT_DOWNLOAD_STATS_DATASET, "--dataset", help="Workers Analytics Engine dataset name."),
+    days: int = typer.Option(30, "--days", min=1, help="Number of days to publish in the public summary."),
+    strict: bool = typer.Option(False, "--strict", help="Fail instead of writing empty stats when Analytics Engine cannot be queried."),
+) -> None:
+    """Write public download statistics from Workers Analytics Engine."""
+    write_download_stats(output or DIST_DIR / DOWNLOAD_STATS_FILENAME, dataset, days, strict)
 
 
 @app.command("all")
@@ -176,6 +190,7 @@ def build() -> None:
             f.write(packages_text.encode("utf-8"))
 
     (DIST_DIR / "redirect_rules.json").write_text(json.dumps(redirect_rules, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    write_json(DIST_DIR / DOWNLOAD_STATS_FILENAME, empty_download_stats("not_generated"))
     (DIST_DIR / "key.asc").write_text(ensure_signing_key(config), encoding="utf-8")
     copy_state_files()
     write_worker(DIST_DIR / "_worker.js")
@@ -646,9 +661,36 @@ def write_worker(path: Path) -> None:
     if (!target) {
       return new Response("package redirect not found", { status: 404 });
     }
+    recordDownload(request, env, url, target);
     return Response.redirect(target, 302);
   },
 };
+
+function recordDownload(request, env, url, target) {
+  if (!env.DOWNLOADS || !["GET", "HEAD"].includes(request.method)) return;
+  const parts = url.pathname.split("/");
+  const entryName = parts.length >= 4 ? parts[3] : "";
+  const filename = parts.at(-1) || "";
+  env.DOWNLOADS.writeDataPoint({
+    blobs: [
+      url.pathname,
+      request.method,
+      entryName,
+      filename,
+      packageArchitecture(filename),
+      new URL(target).host,
+      request.cf?.colo || "",
+      request.cf?.country || "",
+    ],
+    doubles: [1],
+    indexes: [entryName || url.pathname],
+  });
+}
+
+function packageArchitecture(filename) {
+  const match = filename.match(/_([^_]+)\\.deb$/);
+  return match ? match[1] : "";
+}
 """,
         encoding="utf-8",
     )
@@ -674,6 +716,164 @@ def write_index_page(config: dict[str, Any], lock: dict[str, Any]) -> None:
 def copy_state_files() -> None:
     for path in (LOCK_PATH, TRACK_HEALTH_PATH, ARTIFACT_HEALTH_PATH):
         shutil.copy2(path, DIST_DIR / path.name)
+
+
+def write_download_stats(path: Path, dataset: str = DEFAULT_DOWNLOAD_STATS_DATASET, days: int = 30, strict: bool = False) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    account_id = os.environ.get("CLOUDFLARE_ACCOUNT_ID")
+    token = os.environ.get("CLOUDFLARE_API_TOKEN")
+    if not account_id or not token:
+        logger.warning("Cloudflare credentials are missing; writing empty download stats")
+        write_json(path, empty_download_stats("missing_cloudflare_credentials", days))
+        return
+
+    try:
+        stats = fetch_download_stats(account_id, token, dataset, days)
+    except (RuntimeError, TimeoutError, urllib.error.URLError) as exc:
+        if strict:
+            raise
+        logger.warning("Analytics Engine query failed; writing empty download stats: {}", exc)
+        stats = empty_download_stats("analytics_query_failed", days)
+    write_json(path, stats)
+
+
+def fetch_download_stats(account_id: str, token: str, dataset: str, days: int = 30) -> dict[str, Any]:
+    if not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", dataset):
+        raise typer.BadParameter("dataset must be a valid Analytics Engine dataset identifier")
+
+    package_rows = analytics_sql(
+        account_id,
+        token,
+        f"""
+SELECT blob3 AS entry_name, blob5 AS arch, COUNT() AS downloads
+FROM {dataset}
+WHERE blob2 = 'GET' AND timestamp >= NOW() - INTERVAL '{days}' DAY
+GROUP BY entry_name, arch
+ORDER BY downloads DESC
+""".strip(),
+    )
+    seven_day_rows = analytics_sql(
+        account_id,
+        token,
+        f"""
+SELECT blob3 AS entry_name, blob5 AS arch, COUNT() AS downloads
+FROM {dataset}
+WHERE blob2 = 'GET' AND timestamp >= NOW() - INTERVAL '7' DAY
+GROUP BY entry_name, arch
+""".strip(),
+    )
+    daily_rows = analytics_sql(
+        account_id,
+        token,
+        f"""
+SELECT toStartOfDay(timestamp) AS day, COUNT() AS downloads
+FROM {dataset}
+WHERE blob2 = 'GET' AND timestamp >= NOW() - INTERVAL '{days}' DAY
+GROUP BY day
+ORDER BY day
+""".strip(),
+    )
+    total_rows = analytics_sql(
+        account_id,
+        token,
+        f"SELECT COUNT() AS downloads FROM {dataset} WHERE blob2 = 'GET'",
+    )
+    return format_download_stats(package_rows, seven_day_rows, daily_rows, total_rows, dataset, days)
+
+
+def analytics_sql(account_id: str, token: str, sql: str) -> list[dict[str, Any]]:
+    url = f"https://api.cloudflare.com/client/v4/accounts/{account_id}/analytics_engine/sql"
+    if " FORMAT " not in f" {sql.upper()} ":
+        sql = f"{sql}\nFORMAT JSON"
+    body = post_text(
+        url,
+        sql,
+        {
+            "Authorization": f"Bearer {token}",
+            "Content-Type": "text/plain",
+        },
+    )
+    payload = json.loads(body)
+    if isinstance(payload, dict) and "data" in payload:
+        return payload["data"]
+    if isinstance(payload, list):
+        return payload
+    raise RuntimeError(f"unexpected Analytics Engine SQL response: {payload!r}")
+
+
+def format_download_stats(
+    package_rows: list[dict[str, Any]],
+    seven_day_rows: list[dict[str, Any]],
+    daily_rows: list[dict[str, Any]],
+    total_rows: list[dict[str, Any]],
+    dataset: str,
+    days: int,
+) -> dict[str, Any]:
+    seven_day_counts = {
+        (str(row.get("entry_name") or ""), str(row.get("arch") or "")): int(row.get("downloads") or 0)
+        for row in seven_day_rows
+    }
+    packages = []
+    for row in package_rows:
+        entry_name = str(row.get("entry_name") or "")
+        arch = str(row.get("arch") or "")
+        downloads = int(row.get("downloads") or 0)
+        packages.append(
+            {
+                "entry_name": entry_name,
+                "arch": arch,
+                "downloads": downloads,
+                "last_7_days": seven_day_counts.get((entry_name, arch), 0),
+            }
+        )
+
+    daily = [
+        {
+            "date": normalize_day(row.get("day")),
+            "downloads": int(row.get("downloads") or 0),
+        }
+        for row in daily_rows
+    ]
+    last_days = sum(row["downloads"] for row in packages)
+    last_7_days = sum(row["last_7_days"] for row in packages)
+    total = int((total_rows[0] if total_rows else {}).get("downloads") or 0)
+    return {
+        "version": 1,
+        "generated_at": now_iso(),
+        "source": "workers_analytics_engine",
+        "dataset": dataset,
+        "window_days": days,
+        "totals": {
+            "downloads": total,
+            "last_days": last_days,
+            "last_7_days": last_7_days,
+        },
+        "packages": packages,
+        "daily": daily,
+    }
+
+
+def normalize_day(value: Any) -> str:
+    text = str(value or "")
+    return text[:10] if len(text) >= 10 else text
+
+
+def empty_download_stats(reason: str, days: int = 30) -> dict[str, Any]:
+    return {
+        "version": 1,
+        "generated_at": now_iso(),
+        "source": "none",
+        "reason": reason,
+        "dataset": DEFAULT_DOWNLOAD_STATS_DATASET,
+        "window_days": days,
+        "totals": {
+            "downloads": 0,
+            "last_days": 0,
+            "last_7_days": 0,
+        },
+        "packages": [],
+        "daily": [],
+    }
 
 
 def load_config() -> dict[str, Any]:
@@ -705,6 +905,18 @@ def fetch_text(url: str, headers: dict[str, str] | None = None) -> str:
     except urllib.error.HTTPError as exc:
         body = exc.read().decode("utf-8", errors="replace")
         raise RuntimeError(f"GET {url} failed: HTTP {exc.code}: {body}") from exc
+
+
+def post_text(url: str, body: str, headers: dict[str, str] | None = None) -> str:
+    request_headers = {"User-Agent": USER_AGENT}
+    request_headers.update(headers or {})
+    request = urllib.request.Request(url, data=body.encode("utf-8"), headers=request_headers, method="POST")
+    try:
+        with urllib.request.urlopen(request, timeout=60) as response:
+            return response.read().decode("utf-8")
+    except urllib.error.HTTPError as exc:
+        response_body = exc.read().decode("utf-8", errors="replace")
+        raise RuntimeError(f"POST {url} failed: HTTP {exc.code}: {response_body}") from exc
 
 
 def file_hash(path: Path, algorithm: str) -> str:

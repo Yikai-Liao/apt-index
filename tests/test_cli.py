@@ -180,5 +180,62 @@ class ArtifactHealthTests(unittest.TestCase):
         self.assertEqual(health["packages"]["pkg"]["artifacts"]["amd64"], {"status": "ok", "check": "full"})
 
 
+class DownloadStatsTests(unittest.TestCase):
+    def test_formats_download_stats_for_public_json(self) -> None:
+        stats = cli.format_download_stats(
+            [{"entry_name": "bat", "arch": "amd64", "downloads": 12}],
+            [{"entry_name": "bat", "arch": "amd64", "downloads": 3}],
+            [{"day": "2026-06-14T00:00:00Z", "downloads": 5}],
+            [{"downloads": 20}],
+            "apt_index_downloads",
+            30,
+        )
+
+        self.assertEqual(stats["source"], "workers_analytics_engine")
+        self.assertEqual(stats["dataset"], "apt_index_downloads")
+        self.assertEqual(stats["totals"], {"downloads": 20, "last_days": 12, "last_7_days": 3})
+        self.assertEqual(stats["packages"], [{"entry_name": "bat", "arch": "amd64", "downloads": 12, "last_7_days": 3}])
+        self.assertEqual(stats["daily"], [{"date": "2026-06-14", "downloads": 5}])
+
+    def test_write_download_stats_writes_empty_file_without_cloudflare_credentials(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp, patch.dict(cli.os.environ, {}, clear=True):
+            output = Path(tmp) / "nested" / "download_stats.json"
+            cli.write_download_stats(output, days=14)
+
+            stats = cli.load_json(output, None)
+
+        self.assertEqual(stats["source"], "none")
+        self.assertEqual(stats["reason"], "missing_cloudflare_credentials")
+        self.assertEqual(stats["window_days"], 14)
+
+    def test_write_download_stats_writes_empty_file_when_query_fails(self) -> None:
+        env = {"CLOUDFLARE_ACCOUNT_ID": "account", "CLOUDFLARE_API_TOKEN": "token"}
+        with (
+            tempfile.TemporaryDirectory() as tmp,
+            patch.dict(cli.os.environ, env, clear=True),
+            patch.object(cli, "fetch_download_stats", side_effect=RuntimeError("dataset not found")),
+        ):
+            output = Path(tmp) / "download_stats.json"
+            cli.write_download_stats(output)
+
+            stats = cli.load_json(output, None)
+
+        self.assertEqual(stats["source"], "none")
+        self.assertEqual(stats["reason"], "analytics_query_failed")
+
+
+class WorkerGenerationTests(unittest.TestCase):
+    def test_worker_records_optional_download_analytics_before_redirect(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "_worker.js"
+            cli.write_worker(path)
+
+            worker = path.read_text(encoding="utf-8")
+
+        self.assertIn("env.DOWNLOADS.writeDataPoint", worker)
+        self.assertIn("request.method", worker)
+        self.assertIn("Response.redirect(target, 302)", worker)
+
+
 if __name__ == "__main__":
     unittest.main()

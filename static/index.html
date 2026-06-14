@@ -251,7 +251,7 @@
 
     .status-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
       gap: 12px;
       margin: 18px 0 0;
     }
@@ -637,6 +637,10 @@
               <div class="metric-label" data-i18n="totalSize">上游下载体积</div>
             </div>
             <div class="metric">
+              <div class="metric-value" id="downloadCount">--</div>
+              <div class="metric-label" data-i18n="downloadCount">30 天下载请求</div>
+            </div>
+            <div class="metric">
               <div class="metric-value" id="healthState">--</div>
               <div class="metric-label" data-i18n="health">健康状态</div>
             </div>
@@ -685,10 +689,11 @@ sudo apt update</pre>
                 <th><button class="sort-button" type="button" data-sort="arch" data-i18n="thArch">Arch</button></th>
                 <th><button class="sort-button" type="button" data-sort="status" data-i18n="thStatus">Status</button></th>
                 <th><button class="sort-button" type="button" data-sort="size" data-i18n="thSize">Size</button></th>
+                <th><button class="sort-button" type="button" data-sort="downloads" data-i18n="thDownloads">Downloads</button></th>
               </tr>
             </thead>
             <tbody id="packageRows">
-              <tr class="loading"><td colspan="6" data-i18n="loading">正在读取发布状态...</td></tr>
+              <tr class="loading"><td colspan="7" data-i18n="loading">正在读取发布状态...</td></tr>
             </tbody>
           </table>
           <div class="pager" id="pager" hidden>
@@ -725,7 +730,7 @@ sudo apt update</pre>
     </main>
 
     <footer>
-      <span data-i18n="footer">Static Cloudflare Pages frontend. Data source: apt-index.lock.json, track_health.json, artifact_health.json.</span>
+      <span data-i18n="footer">Static Cloudflare Pages frontend. Data source: apt-index.lock.json, track_health.json, artifact_health.json, download_stats.json.</span>
     </footer>
   </div>
 
@@ -743,6 +748,7 @@ sudo apt update</pre>
       lock: null,
       trackHealth: null,
       artifactHealth: null,
+      downloadStats: null,
     };
 
     const copy = {
@@ -757,6 +763,7 @@ sudo apt update</pre>
         packageCount: "软件包条目",
         artifactCount: "已解析构件",
         totalSize: "上游下载体积",
+        downloadCount: "30 天下载请求",
         health: "健康状态",
         packagesTitle: "当前发布的软件包",
         packagesCopy: "基于当前发布状态生成，支持搜索与分页，适合随包数量增长继续使用。",
@@ -768,6 +775,7 @@ sudo apt update</pre>
         thArch: "架构",
         thStatus: "状态",
         thSize: "大小",
+        thDownloads: "30 天",
         loading: "正在读取发布状态...",
         modelTitle: "发布模型",
         modelCopy: "APT 元数据由本仓库生成并签名；软件包文件不经本站托管，下载请求会重定向到对应的上游发布地址。",
@@ -775,7 +783,7 @@ sudo apt update</pre>
         securityCopy: "客户端通过仓库公钥验证索引签名，并由 APT 校验包文件大小与哈希；建议使用 signed-by 绑定密钥。",
         rawTitle: "APT 原始文件",
         rawCopy: "以下文件用于 APT 客户端、排障和审计；常规使用无需手动打开。",
-        footer: "静态 Cloudflare Pages 前端。数据源：apt-index.lock.json、track_health.json、artifact_health.json。",
+        footer: "静态 Cloudflare Pages 前端。数据源：apt-index.lock.json、track_health.json、artifact_health.json、download_stats.json。",
         updated: "更新时间",
         pageInfo: "第 {page} / {pages} 页，共 {count} 项",
         prevPage: "上一页",
@@ -796,6 +804,7 @@ sudo apt update</pre>
         packageCount: "Package entries",
         artifactCount: "Resolved artifacts",
         totalSize: "Upstream download size",
+        downloadCount: "30d download requests",
         health: "Health",
         packagesTitle: "Published packages",
         packagesCopy: "Generated from the current published state, with search and pagination for larger package sets.",
@@ -807,6 +816,7 @@ sudo apt update</pre>
         thArch: "Arch",
         thStatus: "Status",
         thSize: "Size",
+        thDownloads: "30d",
         loading: "Reading published state...",
         modelTitle: "Publishing model",
         modelCopy: "APT metadata is generated and signed by this repository. Package files are not hosted here; download requests redirect to upstream release URLs.",
@@ -814,7 +824,7 @@ sudo apt update</pre>
         securityCopy: "Clients verify repository metadata with the signing key, then APT checks package sizes and hashes. Use signed-by to scope trust to this source.",
         rawTitle: "Raw APT files",
         rawCopy: "These files are for APT clients, troubleshooting, and auditing. Normal use does not require opening them manually.",
-        footer: "Static Cloudflare Pages frontend. Data source: apt-index.lock.json, track_health.json, artifact_health.json.",
+        footer: "Static Cloudflare Pages frontend. Data source: apt-index.lock.json, track_health.json, artifact_health.json, download_stats.json.",
         updated: "Updated",
         pageInfo: "Page {page} of {pages}, {count} items",
         prevPage: "Previous",
@@ -865,6 +875,15 @@ sudo apt update</pre>
       throw lastError;
     }
 
+    async function loadOptionalJson(path) {
+      try {
+        return await loadJson(path);
+      } catch (error) {
+        console.warn(`optional JSON unavailable: ${path}`, error);
+        return null;
+      }
+    }
+
     function statusFor(entryName, arch) {
       const track = state.trackHealth?.packages?.[entryName]?.status || "unknown";
       const artifact = state.artifactHealth?.packages?.[entryName]?.artifacts?.[arch]?.status || "unknown";
@@ -873,11 +892,17 @@ sudo apt update</pre>
       return { text: `${track}/${artifact}`, className: "bad" };
     }
 
+    function downloadStatsFor(entryName, arch) {
+      const packages = state.downloadStats?.packages || [];
+      return packages.find((item) => item.entry_name === entryName && item.arch === arch) || null;
+    }
+
     function collectRows() {
       const packages = state.lock?.packages || {};
       return Object.entries(packages).flatMap(([entryName, entry]) => {
         return Object.entries(entry.artifacts || {}).map(([arch, artifact]) => {
           const control = artifact.control || {};
+          const downloads = downloadStatsFor(entryName, arch);
           return {
             entryName,
             arch,
@@ -888,6 +913,8 @@ sudo apt update</pre>
             description: (control.Description || "").split("\n")[0].trim(),
             homepage: entry.homepage || control.Homepage || artifact.url || "#",
             size: artifact.size || 0,
+            downloads: downloads?.downloads || 0,
+            downloadsLast7Days: downloads?.last_7_days || 0,
             status: statusFor(entryName, arch),
           };
         });
@@ -904,7 +931,7 @@ sudo apt update</pre>
     function compareRows(a, b, key) {
       const aValue = sortValue(a, key);
       const bValue = sortValue(b, key);
-      if (key === "size") return (aValue || 0) - (bValue || 0);
+      if (["size", "downloads"].includes(key)) return (aValue || 0) - (bValue || 0);
       return collator.compare(String(aValue || ""), String(bValue || ""));
     }
 
@@ -956,6 +983,13 @@ sudo apt update</pre>
       return `${number}\u00a0${units[unit]}`;
     }
 
+    function formatNumber(value) {
+      if (!Number.isFinite(value) || value <= 0) return "--";
+      return new Intl.NumberFormat(state.lang === "zh" ? "zh-CN" : "en", {
+        maximumFractionDigits: 0,
+      }).format(value);
+    }
+
     function formatDate(value) {
       if (!value) return "--";
       return new Intl.DateTimeFormat(state.lang === "zh" ? "zh-CN" : "en", {
@@ -971,6 +1005,7 @@ sudo apt update</pre>
       $("#packageCount").textContent = packageEntries || "--";
       $("#artifactCount").textContent = rows.length || "--";
       $("#totalSize").textContent = formatBytes(rows.reduce((sum, row) => sum + row.size, 0));
+      $("#downloadCount").textContent = formatNumber(state.downloadStats?.totals?.last_days || 0);
       $("#healthState").textContent = allOk ? t("allHealthy") : t("degraded");
       $("#healthState").className = `metric-value ${allOk ? "ok" : "bad"}`;
       $("#updatedAt").textContent = `${t("updated")}: ${formatDate(state.lock?.generated_at)}`;
@@ -987,7 +1022,7 @@ sudo apt update</pre>
       });
       const tbody = $("#packageRows");
       if (!rows.length) {
-        tbody.innerHTML = `<tr class="loading"><td colspan="6">${t("noRows")}</td></tr>`;
+        tbody.innerHTML = `<tr class="loading"><td colspan="7">${t("noRows")}</td></tr>`;
         $("#pager").hidden = true;
         return;
       }
@@ -1008,6 +1043,7 @@ sudo apt update</pre>
           <td data-label="${t("thArch")}"><code>${escapeHtml(row.arch)}</code></td>
           <td data-label="${t("thStatus")}"><span class="${row.status.className}">${escapeHtml(row.status.text)}</span></td>
           <td data-label="${t("thSize")}">${formatBytes(row.size)}</td>
+          <td data-label="${t("thDownloads")}">${formatNumber(row.downloads)}</td>
         </tr>
       `).join("");
       $("#pager").hidden = false;
@@ -1087,19 +1123,21 @@ sudo apt update</pre>
       });
 
       try {
-        const [lock, trackHealth, artifactHealth] = await Promise.all([
+        const [lock, trackHealth, artifactHealth, downloadStats] = await Promise.all([
           loadJson("/apt-index.lock.json"),
           loadJson("/track_health.json"),
           loadJson("/artifact_health.json"),
+          loadOptionalJson("/download_stats.json"),
         ]);
         state.lock = lock;
         state.trackHealth = trackHealth;
         state.artifactHealth = artifactHealth;
+        state.downloadStats = downloadStats;
         state.rows = collectRows();
         render();
       } catch (error) {
         console.error(error);
-        $("#packageRows").innerHTML = `<tr class="loading"><td colspan="6">${t("failedLoad")}</td></tr>`;
+        $("#packageRows").innerHTML = `<tr class="loading"><td colspan="7">${t("failedLoad")}</td></tr>`;
       }
     }
 
