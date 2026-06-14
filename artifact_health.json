@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T17:15:22+00:00",
+  "generated_at": "2026-06-14T17:29:53+00:00",
   "packages": {
     "bat": {
       "artifacts": {
@@ -9,8 +9,7 @@
           "status": "ok"
         },
         "arm64": {
-          "check": "full",
-          "sha256": "4a70c3f6236f2c621bd68357257e21b78c9497de4de1e803301ec0209f168653",
+          "check": "head",
           "size": 2862796,
           "status": "ok"
         }
@@ -24,8 +23,7 @@
           "status": "ok"
         },
         "arm64": {
-          "check": "full",
-          "sha256": "6247af81c0f5befe46d95f8e34444e8f1aae04a525c571565fce4e1a0d3682a0",
+          "check": "head",
           "size": 1235296,
           "status": "ok"
         }
@@ -48,8 +46,7 @@
           "status": "ok"
         },
         "arm64": {
-          "check": "full",
-          "sha256": "16aaf8629d13bc67ab3c370181be0034cb3d5a8bcb01ba5fa332c515a3f76926",
+          "check": "head",
           "size": 5774576,
           "status": "ok"
         }
@@ -63,8 +60,7 @@
           "status": "ok"
         },
         "arm64": {
-          "check": "full",
-          "sha256": "05e87475827de81bb02704cc3c5eb51fa47dbbdf49720e29cc4175ac53a3f560",
+          "check": "head",
           "size": 395054284,
           "status": "ok"
         }
@@ -78,8 +74,7 @@
           "status": "ok"
         },
         "arm64": {
-          "check": "full",
-          "sha256": "9f799c1258b6acbefbb2135b6128ab4369ea3872fb1d402cb5375aa7184dd677",
+          "check": "head",
           "size": 1252736,
           "status": "ok"
         }
@@ -93,8 +88,7 @@
           "status": "ok"
         },
         "arm64": {
-          "check": "full",
-          "sha256": "5bcd8ccda401fbfa1821a7c3c758f84a253c317568f0b9c2d74426a24749e9a6",
+          "check": "head",
           "size": 201728544,
           "status": "ok"
         }
@@ -108,8 +102,7 @@
           "status": "ok"
         },
         "arm64": {
-          "check": "full",
-          "sha256": "2870123ee5e0202711210d82e3435f0a4712ca593eb0480f6d9db4589a288810",
+          "check": "head",
           "size": 189791016,
           "status": "ok"
         }
