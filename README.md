@@ -4,6 +4,41 @@ Apt Index is a personal APT repository for installing selected third-party Debia
 
 The repository publishes standard APT metadata, while package downloads are served through generated redirect rules that point clients to the original upstream package files.
 
+## Current Status
+
+The first release is published at:
+
+```text
+https://deb.lyk-ai.com
+```
+
+Published package entries for `amd64`:
+
+| Software entry | Source | Update policy | Installable upstream package name | Version |
+| --- | --- | --- | --- | --- |
+| `dust` | GitHub Releases | `track` | `du-dust` | `1.2.4-1` |
+| `feishu` | AUR `.SRCINFO` upstream `.deb` discovery | `track` | `bytedance-feishu-stable` | `7.66.10-0` |
+| `lsd` | GitHub Releases | `fixed` | `lsd` | `1.2.0` |
+
+The first release has been validated with a Debian 12 `linux/amd64` Docker build:
+
+- `apt-get install du-dust lsd`
+- `apt-get download bytedance-feishu-stable`
+
+## Usage
+
+```sh
+curl -fsSL https://deb.lyk-ai.com/key.asc \
+  | sudo gpg --dearmor -o /usr/share/keyrings/lyk-ai-apt.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/lyk-ai-apt.gpg] https://deb.lyk-ai.com stable main" \
+  | sudo tee /etc/apt/sources.list.d/lyk-ai.list
+
+sudo apt update
+sudo apt install du-dust lsd
+apt download bytedance-feishu-stable
+```
+
 ## Goals
 
 - Provide a normal `apt install <package>` workflow for packages that are not available in the official Debian or Ubuntu repositories.
@@ -42,12 +77,14 @@ Generated deployable APT tree
     +--> dists/stable/Release
     +--> dists/stable/InRelease
     +--> redirect_rules.json
+    +--> _routes.json
+    +--> _worker.js
     |
     v
 Cloudflare Pages + Worker
 ```
 
-Cloudflare Pages serves the static APT metadata and generated redirect data. The Worker handles virtual package download paths and redirects them to the original upstream `.deb` URLs.
+Cloudflare Pages serves the static APT metadata, signing key, and generated redirect data. `_routes.json` routes only `/pool/*` package download paths to the Worker; `/dists/*` and `/key.asc` are served directly as static files. The Worker reads `redirect_rules.json` and redirects virtual package download paths to the original upstream `.deb` URLs.
 
 ## Package Identity
 
@@ -122,12 +159,12 @@ For AUR sources:
 
 ## Architectures
 
-The first release targets:
+The current first release targets:
 
 - `amd64` as a required architecture
-- `arm64` as an optional architecture
+- no optional architectures
 
-If a package cannot resolve an `amd64` artifact, that package cannot be newly published. If `arm64` is unavailable, the refresh can continue without blocking the `amd64` package.
+If a package cannot resolve an `amd64` artifact, that package cannot be newly published. Optional architectures can be added later without changing the shared-suite model.
 
 ## Generated State
 
@@ -184,10 +221,11 @@ Cloudflare Worker code handles redirected package download paths and reads gener
 
 ## Implementation Notes
 
-- Refresh/build tools are written in Python.
-- Worker code can use TypeScript.
+- Refresh/build tools are written in Python with `uv`, `typer`, and `loguru`.
+- The current Worker is generated JavaScript in the deployable APT tree.
 - `dist/` is a deploy artifact, not source-controlled state.
 - The shared suite is expected to be `stable main` unless the configuration says otherwise.
+- Local verification is available with `docker/apt-index-test.Dockerfile`.
 
 ## Design Records
 
