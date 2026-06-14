@@ -1,15 +1,17 @@
 {
-  "generated_at": "2026-06-14T16:57:00+00:00",
+  "generated_at": "2026-06-14T17:13:07+00:00",
   "packages": {
     "bat": {
       "artifacts": [
-        "amd64"
+        "amd64",
+        "arm64"
       ],
       "status": "ok"
     },
     "bottom": {
       "artifacts": [
-        "amd64"
+        "amd64",
+        "arm64"
       ],
       "status": "ok"
     },
@@ -21,31 +23,36 @@
     },
     "fastfetch": {
       "artifacts": [
-        "amd64"
+        "amd64",
+        "arm64"
       ],
       "status": "ok"
     },
     "feishu": {
       "artifacts": [
-        "amd64"
+        "amd64",
+        "arm64"
       ],
       "status": "ok"
     },
     "lsd": {
       "artifacts": [
-        "amd64"
+        "amd64",
+        "arm64"
       ],
       "status": "ok"
     },
     "qq": {
       "artifacts": [
-        "amd64"
+        "amd64",
+        "arm64"
       ],
       "status": "ok"
     },
     "wechat": {
       "artifacts": [
-        "amd64"
+        "amd64",
+        "arm64"
       ],
       "status": "ok"
     }

@@ -190,7 +190,7 @@ def resolve_entry(config: dict[str, Any], entry_name: str, entry: dict[str, Any]
     logger.info("resolving {}", entry_name)
     artifacts: dict[str, Any] = {}
     full_checked_arches: set[str] = set()
-    for arch in config["required_architectures"] + config.get("optional_architectures", []):
+    for arch in entry_architectures(config, entry):
         candidate = resolve_candidate(entry, arch)
         previous_artifact = (previous_entry or {}).get("artifacts", {}).get(arch)
         if previous_artifact and artifact_matches_candidate(previous_artifact, candidate):
@@ -232,6 +232,25 @@ def resolve_entry(config: dict[str, Any], entry_name: str, entry: dict[str, Any]
         if comparable == previous_comparable:
             resolved = previous_entry
     return ResolvedEntry(resolved, full_checked_arches)
+
+
+def entry_architectures(config: dict[str, Any], entry: dict[str, Any]) -> list[str]:
+    required = config["required_architectures"]
+    optional = [
+        arch
+        for arch in config.get("optional_architectures", [])
+        if has_architecture_selector(entry, arch)
+    ]
+    return required + optional
+
+
+def has_architecture_selector(entry: dict[str, Any], arch: str) -> bool:
+    source = entry["source"]
+    if source == "github":
+        return arch in entry.get("asset_patterns", {})
+    if source == "aur":
+        return arch in entry.get("aur_architectures", {})
+    return True
 
 
 def artifact_matches_candidate(artifact: dict[str, Any], candidate: ArtifactCandidate) -> bool:
