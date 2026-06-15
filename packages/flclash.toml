@@ -1,0 +1,11 @@
+homepage = "https://github.com/chen08209/FlClash"
+architectures = ["amd64", "arm64"]
+source = "github"
+update_policy = "track"
+
+[sources.github]
+repo = "chen08209/FlClash"
+
+[sources.github.asset_patterns]
+amd64 = "FlClash-*-linux-amd64.deb"
+arm64 = "FlClash-*-linux-arm64.deb"
