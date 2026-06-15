@@ -5,6 +5,7 @@ import json
 import tempfile
 import unittest
 import urllib.error
+from datetime import datetime
 from pathlib import Path
 from unittest.mock import patch
 
@@ -697,6 +698,46 @@ class DownloadStatsTests(unittest.TestCase):
         )
 
         self.assertEqual(rows, [{"entry_name": "bat", "arch": "amd64", "downloads": 6}])
+
+    def test_fetch_download_stats_splits_cloudflare_queries_into_daily_windows(self) -> None:
+        calls: list[dict[str, object]] = []
+        rows_by_call = [
+            [{"count": 1, "dimensions": {"clientRequestPath": "/pool/main/bat/bat_1.0_amd64.deb"}}],
+            [{"count": 2, "dimensions": {"clientRequestPath": "/pool/main/bat/bat_1.0_arm64.deb"}}],
+        ]
+
+        def fake_graphql(token: str, query: str, variables: dict[str, object]) -> dict[str, object]:
+            calls.append(variables)
+            return {
+                "data": {
+                    "viewer": {
+                        "zones": [
+                            {
+                                "packageRows": rows_by_call[len(calls) - 1],
+                            }
+                        ]
+                    }
+                }
+            }
+
+        with patch.object(cli, "cloudflare_graphql", side_effect=fake_graphql):
+            stats = cli.fetch_download_stats("zone", "token", "deb.example.test", days=2)
+
+        self.assertEqual(len(calls), 2)
+        for variables in calls:
+            package_filter = variables["packageFilter"]
+            start = datetime.fromisoformat(package_filter["datetime_geq"])
+            end = datetime.fromisoformat(package_filter["datetime_lt"])
+            self.assertLessEqual((end - start).total_seconds(), 24 * 60 * 60)
+        self.assertEqual(stats["totals"], {"downloads": 3, "last_days": 3, "last_7_days": 3})
+        self.assertEqual(
+            stats["packages"],
+            [
+                {"entry_name": "bat", "arch": "arm64", "downloads": 2, "last_7_days": 2},
+                {"entry_name": "bat", "arch": "amd64", "downloads": 1, "last_7_days": 1},
+            ],
+        )
+        self.assertEqual([row["downloads"] for row in stats["daily"]], [1, 2])
 
     def test_write_download_stats_writes_empty_file_without_cloudflare_credentials(self) -> None:
         with tempfile.TemporaryDirectory() as tmp, patch.dict(cli.os.environ, {}, clear=True):

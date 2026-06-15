@@ -1238,21 +1238,56 @@ def fetch_download_stats(zone_id: str, token: str, hostname: str, days: int = 30
     end = datetime.now(timezone.utc).replace(microsecond=0)
     start = end - timedelta(days=days)
     seven_day_start = end - timedelta(days=7)
+    package_counts: dict[tuple[str, str], int] = {}
+    seven_day_counts: dict[tuple[str, str], int] = {}
+    daily_rows: list[dict[str, Any]] = []
+
+    for window_start, window_end in daily_time_windows(start, end):
+        rows = fetch_download_path_rows(zone_id, token, hostname, window_start, window_end)
+        counts = aggregate_path_download_counts(rows)
+        merge_download_counts(package_counts, counts)
+        if window_start >= seven_day_start:
+            merge_download_counts(seven_day_counts, counts)
+        daily_rows.append(
+            {
+                "day": window_start.date().isoformat(),
+                "downloads": sum(counts.values()),
+            }
+        )
+
+    return format_download_stats(
+        download_counts_to_rows(package_counts),
+        download_counts_to_rows(seven_day_counts),
+        daily_rows,
+        hostname,
+        days,
+    )
+
+
+def daily_time_windows(start: datetime, end: datetime) -> list[tuple[datetime, datetime]]:
+    windows = []
+    cursor = start
+    while cursor < end:
+        window_end = min(cursor + timedelta(days=1), end)
+        windows.append((cursor, window_end))
+        cursor = window_end
+    return windows
+
+
+def fetch_download_path_rows(
+    zone_id: str,
+    token: str,
+    hostname: str,
+    start: datetime,
+    end: datetime,
+) -> list[dict[str, Any]]:
     query = """
-query AptIndexDownloadStats($zoneTag: string, $packageFilter: filter, $sevenDayFilter: filter, $dailyFilter: filter) {
+query AptIndexDownloadStats($zoneTag: string, $packageFilter: filter) {
   viewer {
     zones(filter: {zoneTag: $zoneTag}) {
       packageRows: httpRequestsAdaptiveGroups(limit: 10000, filter: $packageFilter, orderBy: [count_DESC]) {
         count
         dimensions { clientRequestPath }
-      }
-      sevenDayRows: httpRequestsAdaptiveGroups(limit: 10000, filter: $sevenDayFilter, orderBy: [count_DESC]) {
-        count
-        dimensions { clientRequestPath }
-      }
-      dailyRows: httpRequestsAdaptiveGroups(limit: 1000, filter: $dailyFilter, orderBy: [date_ASC]) {
-        count
-        dimensions { date }
       }
     }
   }
@@ -1261,24 +1296,12 @@ query AptIndexDownloadStats($zoneTag: string, $packageFilter: filter, $sevenDayF
     variables = {
         "zoneTag": zone_id,
         "packageFilter": http_download_filter(hostname, start, end),
-        "sevenDayFilter": http_download_filter(hostname, seven_day_start, end),
-        "dailyFilter": http_download_filter(hostname, start, end),
     }
     payload = cloudflare_graphql(token, query, variables)
     zones = payload.get("data", {}).get("viewer", {}).get("zones", [])
     if not zones:
         raise RuntimeError(f"Cloudflare zone {zone_id!r} returned no HTTP analytics rows")
-    zone = zones[0]
-    package_rows = aggregate_path_download_rows(zone.get("packageRows", []))
-    seven_day_rows = aggregate_path_download_rows(zone.get("sevenDayRows", []))
-    daily_rows = [
-        {
-            "day": row.get("dimensions", {}).get("date"),
-            "downloads": int(row.get("count") or 0),
-        }
-        for row in zone.get("dailyRows", [])
-    ]
-    return format_download_stats(package_rows, seven_day_rows, daily_rows, hostname, days)
+    return list(zones[0].get("packageRows", []))
 
 
 def http_download_filter(hostname: str, start: datetime, end: datetime) -> dict[str, Any]:
@@ -1309,6 +1332,10 @@ def cloudflare_graphql(token: str, query: str, variables: dict[str, Any]) -> dic
 
 
 def aggregate_path_download_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return download_counts_to_rows(aggregate_path_download_counts(rows))
+
+
+def aggregate_path_download_counts(rows: list[dict[str, Any]]) -> dict[tuple[str, str], int]:
     counts: dict[tuple[str, str], int] = {}
     for row in rows:
         path = str(row.get("dimensions", {}).get("clientRequestPath") or "")
@@ -1318,6 +1345,15 @@ def aggregate_path_download_rows(rows: list[dict[str, Any]]) -> list[dict[str, A
         _component, entry_name, filename = parsed
         key = (entry_name, package_architecture(filename))
         counts[key] = counts.get(key, 0) + int(row.get("count") or 0)
+    return counts
+
+
+def merge_download_counts(target: dict[tuple[str, str], int], source: dict[tuple[str, str], int]) -> None:
+    for key, value in source.items():
+        target[key] = target.get(key, 0) + value
+
+
+def download_counts_to_rows(counts: dict[tuple[str, str], int]) -> list[dict[str, Any]]:
     return [
         {"entry_name": entry_name, "arch": arch, "downloads": downloads}
         for (entry_name, arch), downloads in sorted(counts.items(), key=lambda item: (-item[1], item[0]))
