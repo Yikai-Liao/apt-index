@@ -44,6 +44,7 @@ REDIRECT_SNAPSHOT_FILENAME = "snapshot.json.zst"
 REDIRECT_EDGE_TTL_SECONDS = 60 * 60 * 24 * 30
 REDIRECT_BROWSER_TTL_SECONDS = 60 * 5
 LEGACY_REDIRECT_RULES_PATHS = ("/redirect_rules.json",)
+CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS = 7
 GNUPG_DIR = ROOT / ".apt-index-gnupg"
 ENV_PATH = ROOT / ".env"
 USER_AGENT = "apt-index/0.1"
@@ -1235,9 +1236,10 @@ def write_download_stats(path: Path, hostname: str | None, days: int = 30, stric
 
 
 def fetch_download_stats(zone_id: str, token: str, hostname: str, days: int = 30) -> dict[str, Any]:
+    query_days = min(days, CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS)
     end = datetime.now(timezone.utc).replace(microsecond=0)
-    start = end - timedelta(days=days)
-    seven_day_start = end - timedelta(days=7)
+    start = end - timedelta(days=query_days)
+    seven_day_start = end - timedelta(days=min(7, query_days))
     package_counts: dict[tuple[str, str], int] = {}
     seven_day_counts: dict[tuple[str, str], int] = {}
     daily_rows: list[dict[str, Any]] = []
@@ -1260,7 +1262,7 @@ def fetch_download_stats(zone_id: str, token: str, hostname: str, days: int = 30
         download_counts_to_rows(seven_day_counts),
         daily_rows,
         hostname,
-        days,
+        query_days,
     )
 
 

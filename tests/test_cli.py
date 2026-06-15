@@ -739,6 +739,19 @@ class DownloadStatsTests(unittest.TestCase):
         )
         self.assertEqual([row["downloads"] for row in stats["daily"]], [1, 2])
 
+    def test_fetch_download_stats_caps_window_to_cloudflare_retention(self) -> None:
+        calls: list[dict[str, object]] = []
+
+        def fake_graphql(token: str, query: str, variables: dict[str, object]) -> dict[str, object]:
+            calls.append(variables)
+            return {"data": {"viewer": {"zones": [{"packageRows": []}]}}}
+
+        with patch.object(cli, "cloudflare_graphql", side_effect=fake_graphql):
+            stats = cli.fetch_download_stats("zone", "token", "deb.example.test", days=30)
+
+        self.assertEqual(len(calls), cli.CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS)
+        self.assertEqual(stats["window_days"], cli.CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS)
+
     def test_write_download_stats_writes_empty_file_without_cloudflare_credentials(self) -> None:
         with tempfile.TemporaryDirectory() as tmp, patch.dict(cli.os.environ, {}, clear=True):
             output = Path(tmp) / "nested" / "download_stats.json"
