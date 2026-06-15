@@ -4,41 +4,13 @@ Apt Index is a personal APT repository for installing selected third-party Debia
 
 The repository publishes standard APT metadata, while package downloads are served through generated redirect rules that point clients to the original upstream package files.
 
-## Current Status
+## Usage
 
-The current release is published at:
+The repository is published at:
 
 ```text
 https://deb.lyk-ai.com
 ```
-
-Published package entries:
-
-| Software entry | Source | Update policy | Architectures | Installable upstream package name | Version |
-| --- | --- | --- | --- | --- | --- |
-| `bat` | GitHub Releases | `track` | `amd64`, `arm64` | `bat` | `0.26.1` |
-| `bottom` | GitHub Releases | `track` | `amd64`, `arm64` | `bottom` on `amd64`; `bottom-arm64` on `arm64` | `0.12.3-1` |
-| `dust` | GitHub Releases | `track` | `amd64` | `du-dust` | `1.2.4-1` |
-| `fastfetch` | GitHub Releases | `track` | `amd64`, `arm64` | `fastfetch` | `2.64.2` |
-| `feishu` | AUR `.SRCINFO` upstream `.deb` discovery | `track` | `amd64`, `arm64` | `bytedance-feishu-stable` | `7.66.10-0` |
-| `lsd` | GitHub Releases | `track` | `amd64`, `arm64` | `lsd` | `1.2.0` |
-| `qq` | AUR `.SRCINFO` upstream `.deb` discovery | `track` | `amd64`, `arm64` | `linuxqq` | `3.2.29-49738` |
-| `wechat` | AUR `.SRCINFO` upstream `.deb` discovery | `track` | `amd64`, `arm64` | `wechat` | `4.1.1.7` |
-
-The current release has been validated with a Debian 12 `linux/amd64` Docker build:
-
-- `apt-get install bat bottom du-dust fastfetch lsd`
-- `apt-get download bytedance-feishu-stable linuxqq wechat`
-
-The generated APT tree has also been validated to include `binary-arm64` metadata for all current entries with upstream arm64 `.deb` artifacts.
-
-Requested entries currently skipped because their latest GitHub releases do not publish `.deb` assets:
-
-- `jesseduffield/lazydocker`
-- `jesseduffield/lazygit`
-- `xampprocky/tokei`
-
-## Usage
 
 ```sh
 curl -fsSL https://deb.lyk-ai.com/key.asc \
@@ -48,9 +20,10 @@ echo "deb [signed-by=/usr/share/keyrings/lyk-ai-apt.gpg] https://deb.lyk-ai.com 
   | sudo tee /etc/apt/sources.list.d/lyk-ai.list
 
 sudo apt update
-sudo apt install bat bottom du-dust fastfetch lsd
-apt download bytedance-feishu-stable linuxqq wechat
+sudo apt install <package-name>
 ```
+
+Package selection is maintained in [`packages.toml`](./packages.toml). The resolved upstream artifacts and installable Debian package names are recorded in [`apt-index.lock.json`](./apt-index.lock.json).
 
 ## Goals
 

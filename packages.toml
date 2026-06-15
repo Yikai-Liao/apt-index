@@ -74,3 +74,26 @@ homepage = "https://github.com/clementtsang/bottom"
 repo = "clementtsang/bottom"
 asset_patterns.amd64 = "bottom_*_amd64.deb"
 asset_patterns.arm64 = "bottom_*_arm64.deb"
+
+[packages.lazydocker]
+update_policy = "track"
+source = "github"
+homepage = "https://github.com/dariogriffo/lazydocker-debian"
+repo = "dariogriffo/lazydocker-debian"
+asset_patterns.amd64 = "lazydocker_*+bookworm_amd64.deb"
+asset_patterns.arm64 = "lazydocker_*+bookworm_arm64.deb"
+
+[packages.fd]
+update_policy = "track"
+source = "github"
+homepage = "https://github.com/sharkdp/fd"
+repo = "sharkdp/fd"
+asset_patterns.amd64 = "fd_*_amd64.deb"
+asset_patterns.arm64 = "fd_*_arm64.deb"
+
+[packages.ripgrep]
+update_policy = "track"
+source = "github"
+homepage = "https://github.com/BurntSushi/ripgrep"
+repo = "BurntSushi/ripgrep"
+asset_patterns.amd64 = "ripgrep_*_amd64.deb"

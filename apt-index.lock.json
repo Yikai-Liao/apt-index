@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T17:51:04+00:00",
+  "generated_at": "2026-06-15T02:35:49+00:00",
   "packages": {
     "bat": {
       "artifacts": {
@@ -189,6 +189,58 @@
       "source": "github",
       "update_policy": "track"
     },
+    "fd": {
+      "artifacts": {
+        "amd64": {
+          "asset_name": "fd_10.4.2_amd64.deb",
+          "control": {
+            "Architecture": "amd64",
+            "Conflicts": "fd-musl, fd-find",
+            "Description": "simple, fast and user-friendly alternative to find\n  fd is a program to find entries in your filesystem.\n  It is a simple, fast and user-friendly alternative to find.\n  While it does not aim to support all of finds powerful functionality, it provides\n  sensible (opinionated) defaults for a majority of use cases.",
+            "Homepage": "https://github.com/sharkdp/fd",
+            "Maintainer": "David Peter <mail@david-peter.de>",
+            "Package": "fd",
+            "Priority": "optional",
+            "Provides": "fd",
+            "Section": "utils",
+            "Version": "10.4.2"
+          },
+          "filename": "fd_10.4.2_amd64.deb",
+          "md5": "dcd1d05b84fad841723f7322282f2258",
+          "sha1": "3ab5f2aa81b953b5f569e38aeaa2da926ee32c41",
+          "sha256": "0e44eb5fca93f09bc6f5430b90acdf44c8e069d0a903700aeb4820629337b67b",
+          "size": 1399120,
+          "upstream_version": "v10.4.2",
+          "url": "https://github.com/sharkdp/fd/releases/download/v10.4.2/fd_10.4.2_amd64.deb"
+        },
+        "arm64": {
+          "asset_name": "fd_10.4.2_arm64.deb",
+          "control": {
+            "Architecture": "arm64",
+            "Conflicts": "fd-musl, fd-find",
+            "Description": "simple, fast and user-friendly alternative to find\n  fd is a program to find entries in your filesystem.\n  It is a simple, fast and user-friendly alternative to find.\n  While it does not aim to support all of finds powerful functionality, it provides\n  sensible (opinionated) defaults for a majority of use cases.",
+            "Homepage": "https://github.com/sharkdp/fd",
+            "Maintainer": "David Peter <mail@david-peter.de>",
+            "Package": "fd",
+            "Priority": "optional",
+            "Provides": "fd",
+            "Section": "utils",
+            "Version": "10.4.2"
+          },
+          "filename": "fd_10.4.2_arm64.deb",
+          "md5": "a478463c467395bf1b05cf81e27d9e0f",
+          "sha1": "a1ca7ea71da429ea3b26b32e5cfec9194b337761",
+          "sha256": "caa91b8c0fad7ba1964a78e4932a82e3a5deb747fa40d0922a8c692b6d5e0ce1",
+          "size": 1277486,
+          "upstream_version": "v10.4.2",
+          "url": "https://github.com/sharkdp/fd/releases/download/v10.4.2/fd_10.4.2_arm64.deb"
+        }
+      },
+      "homepage": "https://github.com/sharkdp/fd",
+      "resolved_at": "2026-06-15T02:35:48+00:00",
+      "source": "github",
+      "update_policy": "track"
+    },
     "feishu": {
       "artifacts": {
         "amd64": {
@@ -243,6 +295,58 @@
       "homepage": "https://www.feishu.cn/",
       "resolved_at": "2026-06-14T17:15:22+00:00",
       "source": "aur",
+      "update_policy": "track"
+    },
+    "lazydocker": {
+      "artifacts": {
+        "amd64": {
+          "asset_name": "lazydocker_0.25.2-1+bookworm_amd64.deb",
+          "control": {
+            "Architecture": "amd64",
+            "Depends": "",
+            "Description": "A simple terminal UI for both docker and docker-compose, written in Go with the gocui library.",
+            "Homepage": "https://github.com/jesseduffield/lazydocker",
+            "Maintainer": "Dario Griffo <dariogriffo@gmail.com>",
+            "Package": "lazydocker",
+            "Priority": "optional",
+            "Section": "utils",
+            "Source": "lazydocker",
+            "Version": "0.25.2-1+bookworm"
+          },
+          "filename": "lazydocker_0.25.2-1+bookworm_amd64.deb",
+          "md5": "f1219c70474cfca91baf2f0ee348c672",
+          "sha1": "6a0d330d5e709fd2f98dcb4f388bd9ea8b2e3c71",
+          "sha256": "66634007919f9c1dc7a34bac7ee73c4b0d5b8bfec360ff2c687e83ddb872824a",
+          "size": 3683940,
+          "upstream_version": "0.25.2+1",
+          "url": "https://github.com/dariogriffo/lazydocker-debian/releases/download/0.25.2%2B1/lazydocker_0.25.2-1%2Bbookworm_amd64.deb"
+        },
+        "arm64": {
+          "asset_name": "lazydocker_0.25.2-1+bookworm_arm64.deb",
+          "control": {
+            "Architecture": "arm64",
+            "Depends": "",
+            "Description": "A simple terminal UI for both docker and docker-compose, written in Go with the gocui library.",
+            "Homepage": "https://github.com/jesseduffield/lazydocker",
+            "Maintainer": "Dario Griffo <dariogriffo@gmail.com>",
+            "Package": "lazydocker",
+            "Priority": "optional",
+            "Section": "utils",
+            "Source": "lazydocker",
+            "Version": "0.25.2-1+bookworm"
+          },
+          "filename": "lazydocker_0.25.2-1+bookworm_arm64.deb",
+          "md5": "aa19aff938ef55f03101e198a7daed0f",
+          "sha1": "5f7179b60ee72ee98d8feaeadbc2d7a35eb4cd4f",
+          "sha256": "cfb99034a5129d8d717ab09ec51a7811331bc31f680730f00adc6e875c203ac0",
+          "size": 3157984,
+          "upstream_version": "0.25.2+1",
+          "url": "https://github.com/dariogriffo/lazydocker-debian/releases/download/0.25.2%2B1/lazydocker_0.25.2-1%2Bbookworm_arm64.deb"
+        }
+      },
+      "homepage": "https://github.com/dariogriffo/lazydocker-debian",
+      "resolved_at": "2026-06-15T02:35:49+00:00",
+      "source": "github",
       "update_policy": "track"
     },
     "lsd": {
@@ -351,6 +455,36 @@
       "homepage": "https://im.qq.com/index/#/linux",
       "resolved_at": "2026-06-14T17:14:53+00:00",
       "source": "aur",
+      "update_policy": "track"
+    },
+    "ripgrep": {
+      "artifacts": {
+        "amd64": {
+          "asset_name": "ripgrep_15.1.0-1_amd64.deb",
+          "control": {
+            "Architecture": "amd64",
+            "Depends": "",
+            "Description": "ripgrep is a line-oriented search tool that recursively searches the current\n directory for a regex pattern while respecting gitignore rules. ripgrep has\n first class support on Windows, macOS and Linux.\n ripgrep (rg) recursively searches your current directory for a regex pattern.\n By default, ripgrep will respect your .gitignore and automatically skip hidden\n files/directories and binary files.",
+            "Homepage": "https://github.com/BurntSushi/ripgrep",
+            "Installed-Size": "5599",
+            "Maintainer": "Andrew Gallant <jamslam@gmail.com>",
+            "Package": "ripgrep",
+            "Priority": "optional",
+            "Section": "utils",
+            "Version": "15.1.0-1"
+          },
+          "filename": "ripgrep_15.1.0-1_amd64.deb",
+          "md5": "d3762f14bfd4554e0dbfaf9ba98f4e8d",
+          "sha1": "5d4dcc6ed538c752202ed639a4e5a9828c1a89c8",
+          "sha256": "62ce186675c71edbc7c48a67dc36f986974551354d6ce63726adc2d85aad802c",
+          "size": 1704160,
+          "upstream_version": "15.1.0",
+          "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep_15.1.0-1_amd64.deb"
+        }
+      },
+      "homepage": "https://github.com/BurntSushi/ripgrep",
+      "resolved_at": "2026-06-15T02:35:47+00:00",
+      "source": "github",
       "update_policy": "track"
     },
     "wechat": {
