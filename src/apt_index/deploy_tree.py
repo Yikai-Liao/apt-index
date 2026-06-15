@@ -8,12 +8,12 @@ import html as html_module
 import json
 import os
 import shutil
-import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable
 
 from loguru import logger
+from pydantic import BaseModel, ConfigDict
 
 from apt_index import deb, download_stats as download_stats_module, publish, redirect, site_data as site_data_module
 from apt_index.paths import ARTIFACT_HEALTH_PATH, DIST_DIR, ENV_PATH, GNUPG_DIR, STATIC_DIR, TRACK_HEALTH_PATH, WORKER_SCRIPT_PATH
@@ -42,12 +42,43 @@ SIGNING_PASSPHRASE_ENV = "APT_INDEX_GPG_PASSPHRASE"
 DOTENV_LOADED = False
 
 
+class DeployRepository(BaseModel):
+    model_config = ConfigDict(frozen=True)
+
+    origin: str = ""
+    label: str = ""
+    description: str = ""
+    base_url: str
+
+
+class DeploySigning(BaseModel):
+    model_config = ConfigDict(frozen=True)
+
+    key_name: str
+
+
+class DeployConfig(BaseModel):
+    model_config = ConfigDict(frozen=True)
+
+    suite: str = ""
+    component: str = ""
+    repository: DeployRepository
+    signing: DeploySigning | None = None
+
+    @property
+    def signing_key_name(self) -> str:
+        if not self.signing:
+            raise RuntimeError("signing.key_name is required")
+        return self.signing.key_name
+
+
 def build_deployable_tree(
     config: dict[str, Any],
     state: PublishedState,
     *,
     dist_dir: Path = DIST_DIR,
 ) -> None:
+    deploy_config = DeployConfig.model_validate(config)
     if dist_dir.exists():
         shutil.rmtree(dist_dir)
     dist_dir.mkdir(parents=True)
@@ -57,7 +88,7 @@ def build_deployable_tree(
         for artifact in state.artifacts_for_arch(arch):
             package_stanzas.append(deb.format_control(artifact.package_stanza()))
 
-        packages_dir = dist_dir / "dists" / config["suite"] / state.component / f"binary-{arch}"
+        packages_dir = dist_dir / "dists" / deploy_config.suite / state.component / f"binary-{arch}"
         packages_dir.mkdir(parents=True, exist_ok=True)
         packages_text = "\n".join(package_stanzas)
         (packages_dir / "Packages").write_text(packages_text, encoding="utf-8")
@@ -72,7 +103,7 @@ def build_deployable_tree(
         write_json=write_json,
     )
     write_json(dist_dir / DOWNLOAD_STATS_FILENAME, download_stats_module.empty_download_stats("not_generated", 30, now_iso))
-    (dist_dir / "key.asc").write_text(ensure_signing_key(config), encoding="utf-8")
+    (dist_dir / "key.asc").write_text(ensure_signing_key(deploy_config), encoding="utf-8")
     site_data_module.copy_state_files(
         state,
         track_health_path=TRACK_HEALTH_PATH,
@@ -89,7 +120,7 @@ def build_deployable_tree(
         artifact_health_path=ARTIFACT_HEALTH_PATH,
         load_json=load_json,
         write_json=write_json,
-        empty_download_stats=lambda reason: download_stats_module.empty_download_stats(reason, 30, now_iso),
+        empty_download_stats=empty_30_day_download_stats,
         now_iso=now_iso,
     )
     publish.write_headers(
@@ -103,15 +134,15 @@ def build_deployable_tree(
     )
     publish.write_worker(dist_dir / "_worker.js", WORKER_SCRIPT_PATH)
     publish.write_routes(dist_dir / "_routes.json")
-    write_index_page(config, state, dist_dir=dist_dir)
-    write_release(config, state.architectures(), dist_dir=dist_dir)
-    sign_release(config, dist_dir=dist_dir)
+    write_index_page(deploy_config, state, dist_dir=dist_dir)
+    write_release(deploy_config, state.architectures(), dist_dir=dist_dir)
+    sign_release(deploy_config, dist_dir=dist_dir)
     logger.info("built deployable tree at {}", dist_dir)
 
 
-def write_release(config: dict[str, Any], archs: list[str], *, dist_dir: Path = DIST_DIR) -> None:
-    suite = config["suite"]
-    component = config["component"]
+def write_release(config: DeployConfig, archs: list[str], *, dist_dir: Path = DIST_DIR) -> None:
+    suite = config.suite
+    component = config.component
     release_path = dist_dir / "dists" / suite / "Release"
     files = []
     for path in sorted((dist_dir / "dists" / suite).rglob("*")):
@@ -125,16 +156,15 @@ def write_release(config: dict[str, Any], archs: list[str], *, dist_dir: Path = 
         "SHA1": [(sha1, size, rel) for rel, size, _, sha1, _ in files],
         "SHA256": [(sha256, size, rel) for rel, size, _, _, sha256 in files],
     }
-    repo = config["repository"]
     lines = [
-        f"Origin: {repo['origin']}",
-        f"Label: {repo['label']}",
+        f"Origin: {config.repository.origin}",
+        f"Label: {config.repository.label}",
         f"Suite: {suite}",
         f"Codename: {suite}",
         f"Date: {email.utils.format_datetime(datetime.now(timezone.utc), usegmt=True)}",
         f"Architectures: {' '.join(archs)}",
         f"Components: {component}",
-        f"Description: {repo['description']}",
+        f"Description: {config.repository.description}",
     ]
     for name, values in sections.items():
         lines.append(f"{name}:")
@@ -167,12 +197,28 @@ def load_dotenv() -> None:
         os.environ[name] = value
 
 
-def has_secret_key(key_name: str, env: dict[str, str]) -> bool:
-    list_result = subprocess.run(["gpg", "--list-secret-keys", key_name], env=env, text=True, capture_output=True)
-    return list_result.returncode == 0
+def gpg_module() -> Any:
+    try:
+        import gpg
+    except ModuleNotFoundError as exc:
+        raise RuntimeError("python3-gpg is required for signing; install the python3-gpg system package") from exc
+    return gpg
 
 
-def import_signing_key_from_env(env: dict[str, str]) -> None:
+def signing_context(*, armor: bool = True, signers: list[Any] | None = None) -> Any:
+    GNUPG_DIR.mkdir(mode=0o700, exist_ok=True)
+    gpg = gpg_module()
+    context_kwargs: dict[str, Any] = {"armor": armor, "home_dir": str(GNUPG_DIR)}
+    if signers is not None:
+        context_kwargs["signers"] = signers
+
+    pinentry_mode = getattr(gpg.constants, "PINENTRY_MODE_LOOPBACK", None)
+    if pinentry_mode is not None:
+        context_kwargs["pinentry_mode"] = pinentry_mode
+    return gpg.Context(**context_kwargs)
+
+
+def signing_private_key_material() -> str:
     key_material = os.environ.get(SIGNING_PRIVATE_KEY_ENV)
     key_material_b64 = os.environ.get(SIGNING_PRIVATE_KEY_B64_ENV)
     if not key_material and key_material_b64:
@@ -182,95 +228,68 @@ def import_signing_key_from_env(env: dict[str, str]) -> None:
             "missing signing private key; set "
             f"{SIGNING_PRIVATE_KEY_B64_ENV} or {SIGNING_PRIVATE_KEY_ENV} before running apt-index build"
         )
-
-    subprocess.run(
-        [
-            "gpg",
-            "--batch",
-            "--yes",
-            "--pinentry-mode",
-            "loopback",
-            "--passphrase",
-            os.environ.get(SIGNING_PASSPHRASE_ENV, ""),
-            "--import",
-        ],
-        input=key_material,
-        env=env,
-        text=True,
-        check=True,
-    )
+    return key_material
 
 
-def ensure_signing_key(config: dict[str, Any]) -> str:
+def matching_secret_keys(key_name: str) -> list[Any]:
+    return list(signing_context().keylist(pattern=key_name, secret=True))
+
+
+def has_secret_key(key_name: str) -> bool:
+    return bool(matching_secret_keys(key_name))
+
+
+def import_signing_key_from_env() -> None:
+    context = signing_context()
+    context.op_import(signing_private_key_material().encode("utf-8"))
+
+
+def ensure_signing_key(config: DeployConfig) -> str:
     load_dotenv()
-    GNUPG_DIR.mkdir(mode=0o700, exist_ok=True)
-    key_name = config["signing"]["key_name"]
-    env = gpg_env()
-    if not has_secret_key(key_name, env):
-        import_signing_key_from_env(env)
-    if not has_secret_key(key_name, env):
+    key_name = config.signing_key_name
+    if not has_secret_key(key_name):
+        import_signing_key_from_env()
+    if not has_secret_key(key_name):
         raise RuntimeError(f"imported signing key does not contain secret key for {key_name!r}")
-    result = subprocess.run(["gpg", "--armor", "--export", key_name], env=env, check=True, text=True, capture_output=True)
-    return result.stdout
+    public_key = signing_context(armor=True).key_export(pattern=key_name)
+    if isinstance(public_key, bytes):
+        return public_key.decode("utf-8")
+    return str(public_key)
 
 
-def sign_release(config: dict[str, Any], *, dist_dir: Path = DIST_DIR) -> None:
+def signing_key(key_name: str) -> Any:
+    keys = matching_secret_keys(key_name)
+    if not keys:
+        raise RuntimeError(f"signing key {key_name!r} is not available")
+    return keys[0]
+
+
+def sign_release_bytes(data: bytes, *, key: Any, mode: Any) -> bytes:
+    passphrase = os.environ.get(SIGNING_PASSPHRASE_ENV)
+    sign_kwargs: dict[str, Any] = {"mode": mode}
+    if passphrase:
+        sign_kwargs["passphrase"] = passphrase.encode("utf-8")
+    signed_data, _ = signing_context(armor=True, signers=[key]).sign(data, **sign_kwargs)
+    return signed_data
+
+
+def sign_release(config: DeployConfig, *, dist_dir: Path = DIST_DIR) -> None:
     ensure_signing_key(config)
-    key_name = config["signing"]["key_name"]
-    release_path = dist_dir / "dists" / config["suite"] / "Release"
+    key_name = config.signing_key_name
+    release_path = dist_dir / "dists" / config.suite / "Release"
     inrelease_path = release_path.parent / "InRelease"
     release_gpg_path = release_path.parent / "Release.gpg"
-    env = gpg_env()
-    passphrase = os.environ.get(SIGNING_PASSPHRASE_ENV, "")
-    subprocess.run(
-        [
-            "gpg",
-            "--batch",
-            "--yes",
-            "--pinentry-mode",
-            "loopback",
-            "--passphrase",
-            passphrase,
-            "--local-user",
-            key_name,
-            "--clearsign",
-            "--digest-algo",
-            "SHA256",
-            "--output",
-            str(inrelease_path),
-            str(release_path),
-        ],
-        env=env,
-        check=True,
-    )
-    subprocess.run(
-        [
-            "gpg",
-            "--batch",
-            "--yes",
-            "--pinentry-mode",
-            "loopback",
-            "--passphrase",
-            passphrase,
-            "--local-user",
-            key_name,
-            "--detach-sign",
-            "--armor",
-            "--digest-algo",
-            "SHA256",
-            "--output",
-            str(release_gpg_path),
-            str(release_path),
-        ],
-        env=env,
-        check=True,
-    )
+    key = signing_key(key_name)
+    data = release_path.read_bytes()
+    sign_mode = gpg_module().constants.sig.mode
+    inrelease_path.write_bytes(sign_release_bytes(data, key=key, mode=sign_mode.CLEAR))
+    release_gpg_path.write_bytes(sign_release_bytes(data, key=key, mode=sign_mode.DETACH))
 
 
-def write_index_page(config: dict[str, Any], state: PublishedState, *, dist_dir: Path = DIST_DIR) -> None:
-    base_url = config["repository"]["base_url"]
-    suite = html_module.escape(config["suite"])
-    component = html_module.escape(config["component"])
+def write_index_page(config: DeployConfig, state: PublishedState, *, dist_dir: Path = DIST_DIR) -> None:
+    base_url = config.repository.base_url
+    suite = html_module.escape(config.suite)
+    component = html_module.escape(config.component)
     package_index_links = "\n                ".join(
         f'<a href="/dists/{suite}/{component}/binary-{html_module.escape(arch)}/Packages">Packages {html_module.escape(arch)}</a>'
         for arch in state.architectures()
@@ -279,8 +298,8 @@ def write_index_page(config: dict[str, Any], state: PublishedState, *, dist_dir:
     html = (
         template
         .replace("__BASE_URL__", base_url)
-        .replace("__SUITE__", config["suite"])
-        .replace("__COMPONENT__", config["component"])
+        .replace("__SUITE__", config.suite)
+        .replace("__COMPONENT__", config.component)
         .replace("__PACKAGE_INDEX_LINKS__", package_index_links)
     )
     (dist_dir / "index.html").write_text(html, encoding="utf-8")
@@ -294,14 +313,12 @@ def load_json(path: Path, default: Any) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def empty_30_day_download_stats(reason: str) -> dict[str, Any]:
+    return download_stats_module.empty_download_stats(reason, 30, now_iso)
+
+
 def write_json(path: Path, data: Any) -> None:
     path.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-
-
-def gpg_env() -> dict[str, str]:
-    env = os.environ.copy()
-    env["GNUPGHOME"] = str(GNUPG_DIR)
-    return env
 
 
 def now_iso() -> str:

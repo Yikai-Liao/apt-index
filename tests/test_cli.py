@@ -82,6 +82,13 @@ def entry_json(entry: LockedEntry) -> dict[str, object]:
     return entry.model_dump(mode="json")
 
 
+def signing_deploy_config() -> deploy_tree.DeployConfig:
+    return deploy_tree.DeployConfig(
+        repository=deploy_tree.DeployRepository(base_url="https://example.test"),
+        signing=deploy_tree.DeploySigning(key_name="Apt Index <apt-index@lyk-ai.com>"),
+    )
+
+
 def write_repository_config(root: Path) -> None:
     root.joinpath("apt-index.toml").write_text(
         """
@@ -354,9 +361,9 @@ class ResolveEntryTests(unittest.TestCase):
             },
         }
         candidate = sources.ArtifactCandidate(
-            "https://example.test/pkg.deb",
-            "1.0.0",
-            "pkg_1.0.0_amd64.deb",
+            url="https://example.test/pkg.deb",
+            upstream_version="1.0.0",
+            asset_name="pkg_1.0.0_amd64.deb",
         )
         candidate_resolver = Mock(return_value=candidate)
 
@@ -380,9 +387,9 @@ class ResolveEntryTests(unittest.TestCase):
             },
         }
         candidate = sources.ArtifactCandidate(
-            "https://example.test/pkg-2.deb",
-            "2.0.0",
-            "pkg_2.0.0_amd64.deb",
+            url="https://example.test/pkg-2.deb",
+            upstream_version="2.0.0",
+            asset_name="pkg_2.0.0_amd64.deb",
         )
         candidate_resolver = Mock(return_value=candidate)
         metadata = {
@@ -426,11 +433,11 @@ class ResolveEntryTests(unittest.TestCase):
             },
         }
         candidate = sources.ArtifactCandidate(
-            "https://example.test/pkg.deb",
-            "1.0.0",
-            "pkg_1.0.0_amd64.deb",
-            "different-sha1",
-            "sha1",
+            url="https://example.test/pkg.deb",
+            upstream_version="1.0.0",
+            asset_name="pkg_1.0.0_amd64.deb",
+            expected_hash="different-sha1",
+            hash_algorithm="sha1",
         )
         candidate_resolver = Mock(return_value=candidate)
         metadata = {
@@ -475,7 +482,7 @@ class ResolveEntryTests(unittest.TestCase):
         resolved = cli.resolve_entry("pkg", package_entry(), locked_entry(previous_entry), candidate_resolver=candidate_resolver)
 
         self.assertEqual(resolved.entry.architectures["amd64"].model_dump(mode="json"), previous_entry["architectures"]["amd64"])
-        self.assertEqual(resolved.architecture_health["amd64"].status, "kept_previous")
+        self.assertEqual(resolved.architecture_health["amd64"].status, cli.ArchitectureHealthStatus.KEPT_PREVIOUS)
         self.assertEqual(resolved.architecture_health["amd64"].error, "no asset")
 
     def test_one_architecture_can_update_while_another_fails(self) -> None:
@@ -488,7 +495,11 @@ class ResolveEntryTests(unittest.TestCase):
             ),
         )
         candidates = {
-            "amd64": sources.ArtifactCandidate("https://example.test/pkg-amd64.deb", "1.0.0", "pkg_1.0.0_amd64.deb"),
+            "amd64": sources.ArtifactCandidate(
+                url="https://example.test/pkg-amd64.deb",
+                upstream_version="1.0.0",
+                asset_name="pkg_1.0.0_amd64.deb",
+            ),
         }
 
         def fake_candidate_resolver(architecture: EntryArchitecture) -> sources.ArtifactCandidate:
@@ -516,7 +527,7 @@ class ResolveEntryTests(unittest.TestCase):
 
         self.assertEqual(resolved.entry.architectures.keys(), {"amd64"})
         self.assertEqual(resolved.entry.architectures["amd64"].artifact.sha256, "sha256-amd64")
-        self.assertEqual(resolved.architecture_health["arm64"].status, "failed")
+        self.assertEqual(resolved.architecture_health["arm64"].status, cli.ArchitectureHealthStatus.FAILED)
         self.assertEqual(resolved.full_checked_arches, {"amd64"})
 
     def test_reuses_locked_artifact_when_aur_sha512_candidate_is_unchanged(self) -> None:
@@ -547,11 +558,11 @@ class ResolveEntryTests(unittest.TestCase):
             },
         )
         candidate = sources.ArtifactCandidate(
-            "https://example.test/pkg.deb",
-            "1.0.0",
-            "pkg_1.0.0_amd64.deb",
-            "aur-sha512",
-            "sha512",
+            url="https://example.test/pkg.deb",
+            upstream_version="1.0.0",
+            asset_name="pkg_1.0.0_amd64.deb",
+            expected_hash="aur-sha512",
+            hash_algorithm="sha512",
         )
         candidate_resolver = Mock(return_value=candidate)
 
@@ -584,7 +595,13 @@ class RefreshTests(unittest.TestCase):
         resolved = cli.ResolvedEntry(
             locked_entry(previous_entry),
             set(),
-            {"amd64": cli.ArchitectureHealth("ok", "github", "track")},
+            {
+                "amd64": cli.ArchitectureHealth(
+                    status=cli.ArchitectureHealthStatus.OK,
+                    source="github",
+                    update_policy="track",
+                )
+            },
         )
         typed_config = SimpleNamespace(component="main", packages={"pkg": package_entry()})
         candidate_resolver = object()
@@ -647,7 +664,13 @@ class RefreshTests(unittest.TestCase):
         resolved = cli.ResolvedEntry(
             locked_entry(updated_entry),
             {"amd64"},
-            {"amd64": cli.ArchitectureHealth("ok", "github", "track")},
+            {
+                "amd64": cli.ArchitectureHealth(
+                    status=cli.ArchitectureHealthStatus.OK,
+                    source="github",
+                    update_policy="track",
+                )
+            },
         )
         typed_config = SimpleNamespace(component="main", packages={"pkg": package_entry()})
         candidate_resolver = object()
@@ -1708,7 +1731,7 @@ class SigningKeyTests(unittest.TestCase):
             patch.dict(cli.os.environ, env, clear=True),
             patch.object(deploy_tree.subprocess, "run", side_effect=fake_run),
         ):
-            public_key = deploy_tree.ensure_signing_key({"signing": {"key_name": "Apt Index <apt-index@lyk-ai.com>"}})
+            public_key = deploy_tree.ensure_signing_key(signing_deploy_config())
 
         self.assertEqual(public_key, "public-key")
         self.assertIn(
@@ -1732,7 +1755,7 @@ class SigningKeyTests(unittest.TestCase):
             patch.object(deploy_tree.subprocess, "run", return_value=Result()),
         ):
             with self.assertRaisesRegex(RuntimeError, "missing signing private key"):
-                deploy_tree.ensure_signing_key({"signing": {"key_name": "Apt Index <apt-index@lyk-ai.com>"}})
+                deploy_tree.ensure_signing_key(signing_deploy_config())
 
 
 if __name__ == "__main__":

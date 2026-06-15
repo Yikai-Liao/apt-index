@@ -9,6 +9,7 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from datetime import datetime, timezone
+from enum import Enum
 from pathlib import Path
 from typing import Any
 
@@ -16,7 +17,7 @@ import typer
 from loguru import logger
 
 from apt_index import deb, deploy_tree, download_stats as download_stats_module, health, redirect, site_data as site_data_module, sources
-from apt_index.config import ConfigError, EntryConfig, load_configuration
+from apt_index.config import ConfigError, EntryConfig, ResolverKey, UpdatePolicy, load_configuration
 from apt_index.paths import ARTIFACT_HEALTH_PATH, CACHE_DIR, DIST_DIR, LOCK_PATH, ROOT, TRACK_HEALTH_PATH
 from apt_index.published_state import LockedArchitecture, LockedArtifact, LockedEntry, LockfileState, PublishedState
 
@@ -34,16 +35,22 @@ class ResolvedEntry:
     architecture_health: dict[str, "ArchitectureHealth"]
 
 
-@dataclass(frozen=True)
+class ArchitectureHealthStatus(str, Enum):
+    OK = "ok"
+    KEPT_PREVIOUS = "kept_previous"
+    FAILED = "failed"
+
+
+@dataclass(frozen=True, kw_only=True)
 class ArchitectureHealth:
-    status: str
-    source: str
-    update_policy: str
+    status: ArchitectureHealthStatus
+    source: ResolverKey
+    update_policy: UpdatePolicy
     error: str | None = None
 
     def to_json(self) -> dict[str, str]:
         data = {
-            "status": self.status,
+            "status": self.status.value,
             "source": self.source,
             "update_policy": self.update_policy,
         }
@@ -84,25 +91,9 @@ def download_stats_command(
         days=days,
         strict=strict,
         write_json=write_json,
-        empty_download_stats=lambda reason, stats_days: download_stats_module.empty_download_stats(reason, stats_days, now_iso),
-        resolve_cloudflare_zone_id=lambda token, host: redirect.resolve_cloudflare_zone_id(token, host, fetch_json=fetch_json),
-        fetch_download_stats=lambda zone_id, token, stats_hostname, stats_days, path_index: download_stats_module.fetch_download_stats(
-            zone_id,
-            token,
-            stats_hostname,
-            days=stats_days,
-            path_index=path_index,
-            max_days=CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS,
-            cloudflare_graphql=lambda graphql_token, query, variables: download_stats_module.cloudflare_graphql(
-                graphql_token,
-                query,
-                variables,
-                post_json=post_json,
-            ),
-            now=lambda: datetime.now(timezone.utc),
-            now_iso=now_iso,
-            graphql_time=graphql_time,
-        ),
+        empty_download_stats=empty_download_stats,
+        resolve_cloudflare_zone_id=resolve_cloudflare_zone_id,
+        fetch_download_stats=fetch_download_stats,
         state=load_published_state(config["component"]),
     )
 
@@ -122,7 +113,7 @@ def site_data_command(
         artifact_health_path=ARTIFACT_HEALTH_PATH,
         load_json=load_json,
         write_json=write_json,
-        empty_download_stats=lambda reason: download_stats_module.empty_download_stats(reason, 30, now_iso),
+        empty_download_stats=empty_30_day_download_stats,
         now_iso=now_iso,
     )
 
@@ -143,13 +134,7 @@ def plan_redirect_purge_command(
         redirect_rules_dirname=deploy_tree.REDIRECT_RULES_DIRNAME,
         redirect_snapshot_filename=deploy_tree.REDIRECT_SNAPSHOT_FILENAME,
         legacy_redirect_rules_paths=LEGACY_REDIRECT_RULES_PATHS,
-        fetch_previous_redirect_snapshot=lambda snapshot_base_url, snapshot_strict: redirect.fetch_previous_redirect_snapshot(
-            snapshot_base_url,
-            redirect_rules_dirname=deploy_tree.REDIRECT_RULES_DIRNAME,
-            redirect_snapshot_filename=deploy_tree.REDIRECT_SNAPSHOT_FILENAME,
-            fetch_bytes=fetch_bytes,
-            strict=snapshot_strict,
-        ),
+        fetch_previous_redirect_snapshot=fetch_previous_redirect_snapshot,
         strict=strict,
     )
 
@@ -163,9 +148,9 @@ def purge_redirect_cache_command(
     redirect.purge_redirect_cache(
         urls,
         redirect_rules_dirname=deploy_tree.REDIRECT_RULES_DIRNAME,
-        resolve_cloudflare_zone_id=lambda token, host: redirect.resolve_cloudflare_zone_id(token, host, fetch_json=fetch_json),
-        purge_cloudflare_urls=lambda zone_id, token, batch: redirect.purge_cloudflare_urls(zone_id, token, batch, post_json=post_json),
-        purge_cloudflare_prefixes=lambda zone_id, token, prefixes: redirect.purge_cloudflare_prefixes(zone_id, token, prefixes, post_json=post_json),
+        resolve_cloudflare_zone_id=resolve_cloudflare_zone_id,
+        purge_cloudflare_urls=purge_cloudflare_urls,
+        purge_cloudflare_prefixes=purge_cloudflare_prefixes,
         strict=strict,
     )
 
@@ -178,6 +163,65 @@ def all_command(
     """Refresh state and build the deployable APT tree."""
     refresh(jobs, full_artifact_check)
     build()
+
+
+def empty_download_stats(reason: str, days: int) -> dict[str, Any]:
+    return download_stats_module.empty_download_stats(reason, days, now_iso)
+
+
+def empty_30_day_download_stats(reason: str) -> dict[str, Any]:
+    return empty_download_stats(reason, 30)
+
+
+def resolve_cloudflare_zone_id(token: str, hostname: str) -> str | None:
+    return redirect.resolve_cloudflare_zone_id(token, hostname, fetch_json=fetch_json)
+
+
+def fetch_download_stats(
+    zone_id: str,
+    token: str,
+    hostname: str,
+    days: int,
+    path_index: dict[str, tuple[str, str]] | None,
+) -> dict[str, Any]:
+    return download_stats_module.fetch_download_stats(
+        zone_id,
+        token,
+        hostname,
+        days=days,
+        path_index=path_index,
+        max_days=CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS,
+        cloudflare_graphql=cloudflare_graphql,
+        now=utc_now,
+        now_iso=now_iso,
+        graphql_time=graphql_time,
+    )
+
+
+def cloudflare_graphql(token: str, query: str, variables: dict[str, Any]) -> dict[str, Any]:
+    return download_stats_module.cloudflare_graphql(token, query, variables, post_json=post_json)
+
+
+def utc_now() -> datetime:
+    return datetime.now(timezone.utc)
+
+
+def fetch_previous_redirect_snapshot(base_url: str, strict: bool) -> dict[str, str]:
+    return redirect.fetch_previous_redirect_snapshot(
+        base_url,
+        redirect_rules_dirname=deploy_tree.REDIRECT_RULES_DIRNAME,
+        redirect_snapshot_filename=deploy_tree.REDIRECT_SNAPSHOT_FILENAME,
+        fetch_bytes=fetch_bytes,
+        strict=strict,
+    )
+
+
+def purge_cloudflare_urls(zone_id: str, token: str, batch: list[str]) -> None:
+    redirect.purge_cloudflare_urls(zone_id, token, batch, post_json=post_json)
+
+
+def purge_cloudflare_prefixes(zone_id: str, token: str, prefixes: list[str]) -> None:
+    redirect.purge_cloudflare_prefixes(zone_id, token, prefixes, post_json=post_json)
 
 
 def refresh(jobs: int | None = None, full_artifact_check: bool = False) -> None:
@@ -298,7 +342,11 @@ def resolve_entry(
             if previous_artifact and previous_artifact.matches_candidate(candidate):
                 logger.info("reusing locked artifact {}:{} {}", entry_name, arch, candidate.upstream_version)
                 architectures[arch] = previous_architecture
-                architecture_health[arch] = ArchitectureHealth("ok", source_name, update_policy)
+                architecture_health[arch] = ArchitectureHealth(
+                    status=ArchitectureHealthStatus.OK,
+                    source=source_name,
+                    update_policy=update_policy,
+                )
                 continue
 
             deb_path = deb.download(
@@ -326,17 +374,26 @@ def resolve_entry(
                 sha512=metadata["sha512"],
             )
             architectures[arch] = locked_architecture(source_name, update_policy, artifact)
-            architecture_health[arch] = ArchitectureHealth("ok", source_name, update_policy)
+            architecture_health[arch] = ArchitectureHealth(
+                status=ArchitectureHealthStatus.OK,
+                source=source_name,
+                update_policy=update_policy,
+            )
             full_checked_arches.add(arch)
         except Exception as exc:
             previous_architecture = previous_architecture_entry(previous_entry, arch, source_name, update_policy)
             if previous_architecture:
                 architectures[arch] = previous_architecture
-                status = "kept_previous"
+                status = ArchitectureHealthStatus.KEPT_PREVIOUS
             else:
-                status = "failed"
-            architecture_health[arch] = ArchitectureHealth(status, source_name, update_policy, str(exc))
-            logger.warning("{}:{} refresh {}: {}", entry_name, arch, status, exc)
+                status = ArchitectureHealthStatus.FAILED
+            architecture_health[arch] = ArchitectureHealth(
+                status=status,
+                source=source_name,
+                update_policy=update_policy,
+                error=str(exc),
+            )
+            logger.warning("{}:{} refresh {}: {}", entry_name, arch, status.value, exc)
 
     return ResolvedEntry(
         LockedEntry(homepage=entry.homepage, architectures=architectures),
@@ -376,11 +433,11 @@ def previous_architecture_entry(
 def package_health_status(architecture_health: dict[str, ArchitectureHealth]) -> str:
     statuses = [health.status for health in architecture_health.values()]
     if not statuses:
-        return "failed"
-    if all(status == "ok" for status in statuses):
-        return "ok"
-    if all(status == "failed" for status in statuses):
-        return "failed"
+        return ArchitectureHealthStatus.FAILED.value
+    if all(status is ArchitectureHealthStatus.OK for status in statuses):
+        return ArchitectureHealthStatus.OK.value
+    if all(status is ArchitectureHealthStatus.FAILED for status in statuses):
+        return ArchitectureHealthStatus.FAILED.value
     return "partial"
 
 

@@ -12,4 +12,8 @@ class UrlResolver(SourceResolver):
         source = architecture.source
         if not isinstance(source, UrlArchSource):
             raise RuntimeError(f"{self.key} resolver requires url source")
-        return ArtifactCandidate(source.url, "fixed", source.url.rsplit("/", 1)[-1])
+        return ArtifactCandidate(
+            url=source.url,
+            upstream_version="fixed",
+            asset_name=source.url.rsplit("/", 1)[-1],
+        )

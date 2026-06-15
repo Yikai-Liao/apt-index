@@ -23,22 +23,22 @@ def copy_state_files(
     copy_or_write_health_report(
         track_health_path,
         dist_dir / track_health_path.name,
-        lambda: not_generated_track_health(state, now_iso),
+        not_generated_track_health(state, now_iso),
         write_json,
     )
     copy_or_write_health_report(
         artifact_health_path,
         dist_dir / artifact_health_path.name,
-        lambda: not_generated_artifact_health(state, now_iso),
+        not_generated_artifact_health(state, now_iso),
         write_json,
     )
 
 
-def copy_or_write_health_report(source: Path, target: Path, fallback_factory: Callable[[], dict[str, Any]], write_json: JsonWriter) -> None:
+def copy_or_write_health_report(source: Path, target: Path, fallback: dict[str, Any], write_json: JsonWriter) -> None:
     if source.exists():
         shutil.copy2(source, target)
         return
-    write_json(target, fallback_factory())
+    write_json(target, fallback)
 
 
 def write_site_data(
