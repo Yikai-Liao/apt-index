@@ -1,0 +1,10 @@
+homepage = "https://www.spotify.com/"
+architectures = ["amd64"]
+source = "aur"
+update_policy = "track"
+
+[sources.aur]
+package = "spotify"
+
+[sources.aur.asset_patterns]
+amd64 = "spotify-*-x86_64.deb"
