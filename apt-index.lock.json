@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T11:36:13+00:00",
+  "generated_at": "2026-06-15T11:53:32+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -417,11 +417,12 @@
             "md5": "87bc20ede3ff98de5726574666cda9ee",
             "sha1": "517f95cb9c8927282aebe5178f63e4fba56c83d2",
             "sha256": "195bde858f9ee6d84cde71d831077fb88f074e78ef2ffc3c51e469516a2ece50",
+            "sha512": "668009d76e81dd83a3a69c9260c613e6577aa851ffc7a726331c2b1581d879c50a50cd655cf9de166080bfffea6acec68ccf6ba0f80496a3b734f0fca542224c",
             "size": 130424340,
             "upstream_version": "149.0.7827.114",
             "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_149.0.7827.114-1_amd64.deb"
           },
-          "resolved_at": "2026-06-15T11:34:07+00:00",
+          "resolved_at": "2026-06-15T11:51:26+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -568,11 +569,12 @@
             "md5": "00e6a3e73e809da3c5f4fcab90b4d88b",
             "sha1": "85783d872888fa872aa499cc76ee22e1e264a283",
             "sha256": "1e3828079673c94994bc0f4780d5d8528647639920659862d49d1c2f2a198e25",
+            "sha512": "3e214621b34b5eb3706451c94d19d4a09a59ad6b415e9a719db8d635bcb0900445cd6d468ffdb293b9b2c032e6b551d8d8090b390979ce782db5de30791f467d",
             "size": 182597964,
             "upstream_version": "3.2.29_49738",
             "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.31/beta/00e6a3e7/linuxqq_3.2.29-49738_amd64.deb"
           },
-          "resolved_at": "2026-06-15T11:35:06+00:00",
+          "resolved_at": "2026-06-15T11:52:25+00:00",
           "source": "aur",
           "update_policy": "track"
         },
@@ -598,11 +600,12 @@
             "md5": "9fabeeec036b3bcc1b0b16a747af0fd1",
             "sha1": "813ed478dcdab18cd5c1a519a5b89f15c220f549",
             "sha256": "5bcd8ccda401fbfa1821a7c3c758f84a253c317568f0b9c2d74426a24749e9a6",
+            "sha512": "a0e7773b111ffb76f403fb322d4bd7e865b5b10ce70b2b3163b7db42218d960d212a585fe2ac9b09f4dcdeb783013d29fd9e2d534bff4c5414e63bf49e789648",
             "size": 201728544,
             "upstream_version": "3.2.29_49738",
             "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.31/beta/00e6a3e7/linuxqq_3.2.29-49738_arm64.deb"
           },
-          "resolved_at": "2026-06-15T11:36:13+00:00",
+          "resolved_at": "2026-06-15T11:53:32+00:00",
           "source": "aur",
           "update_policy": "track"
         }
