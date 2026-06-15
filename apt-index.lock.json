@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T13:47:38+00:00",
+  "generated_at": "2026-06-15T15:54:45+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -1358,6 +1358,73 @@
         }
       },
       "homepage": "https://code.visualstudio.com/"
+    },
+    "vutronmusic": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "VutronMusic-3.2.0_linux_amd64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
+              "Description": "\n .",
+              "Homepage": "https://github.com/stark81",
+              "Installed-Size": "496218",
+              "License": "MIT",
+              "Maintainer": "stark81 <qq2995734001@gmail.com>",
+              "Package": "vutronmusic",
+              "Priority": "optional",
+              "Recommends": "libappindicator3-1",
+              "Section": "default",
+              "Vendor": "stark81 <qq2995734001@gmail.com>",
+              "Version": "3.2.0"
+            },
+            "filename": "vutronmusic_3.2.0_amd64.deb",
+            "md5": "e133765fa871cdd2705f8ca2d577d93d",
+            "sha1": "6c07e655006cd142275328037316637d2952b5b8",
+            "sha256": "97c0b5cadc3f5a6b6c3b5d44d9bc13346a5eb6c21577453c17382759b9a8a4fe",
+            "sha512": "a2440a473c774d87ccddfff90b9f8b6971e5c64f72c9ab2ff23eb66354abba1d8e5afc35c95e6fdb9cbec22b0e58b567104e6087b0e6de17046c4a7d19b2cbb5",
+            "size": 142405532,
+            "upstream_version": "v3.2.0",
+            "url": "https://github.com/stark81/VutronMusic/releases/download/v3.2.0/VutronMusic-3.2.0_linux_amd64.deb"
+          },
+          "resolved_at": "2026-06-15T15:54:38+00:00",
+          "source": "github",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "artifact": {
+            "asset_name": "VutronMusic-3.2.0_linux_arm64.deb",
+            "control": {
+              "Architecture": "arm64",
+              "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
+              "Description": "\n .",
+              "Homepage": "https://github.com/stark81",
+              "Installed-Size": "500171",
+              "License": "MIT",
+              "Maintainer": "stark81 <qq2995734001@gmail.com>",
+              "Package": "vutronmusic",
+              "Priority": "optional",
+              "Recommends": "libappindicator3-1",
+              "Section": "default",
+              "Vendor": "stark81 <qq2995734001@gmail.com>",
+              "Version": "3.2.0"
+            },
+            "filename": "vutronmusic_3.2.0_arm64.deb",
+            "md5": "7f1b2020561e970e23fc40004adc5433",
+            "sha1": "c2b35c582e1c6d6e6259fa5bba79ef481abc35d7",
+            "sha256": "fc5293b9afaaec4aa1fbd73fbbdf6c2aacbc21e3e5ec0f21f5b52f7c9a419191",
+            "sha512": "6eb900720f8b7cadefd1395d3a872e30d70c11d346ebe89bb97aba2819e813b6768ec7a02a991435aa9c3360325bcfa4ff9d47bfdbf6671153d95f1a900ae1b8",
+            "size": 136479844,
+            "upstream_version": "v3.2.0",
+            "url": "https://github.com/stark81/VutronMusic/releases/download/v3.2.0/VutronMusic-3.2.0_linux_arm64.deb"
+          },
+          "resolved_at": "2026-06-15T15:54:41+00:00",
+          "source": "github",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://github.com/stark81/VutronMusic"
     },
     "wechat": {
       "architectures": {
