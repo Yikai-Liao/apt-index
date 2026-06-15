@@ -59,6 +59,7 @@ LEGACY_REDIRECT_RULES_PATHS = ("/redirect_rules.json",)
 CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS = 7
 USER_AGENT = "apt-index/0.1"
 DEFAULT_JOBS = 4
+STATIC_ASSET_FILENAMES = ("logo.webp",)
 SIGNING_PRIVATE_KEY_ENV = "APT_INDEX_GPG_PRIVATE_KEY"
 SIGNING_PRIVATE_KEY_B64_ENV = "APT_INDEX_GPG_PRIVATE_KEY_B64"
 SIGNING_PASSPHRASE_ENV = "APT_INDEX_GPG_PASSPHRASE"
@@ -689,6 +690,8 @@ def write_index_page(config: dict[str, Any], lock: dict[str, Any]) -> None:
         .replace("__PACKAGE_INDEX_LINKS__", package_index_links)
     )
     (DIST_DIR / "index.html").write_text(html, encoding="utf-8")
+    for filename in STATIC_ASSET_FILENAMES:
+        shutil.copy2(STATIC_DIR / filename, DIST_DIR / filename)
 
 
 def load_config() -> dict[str, Any]:

@@ -955,6 +955,7 @@ class BuildStateFileTests(unittest.TestCase):
                 "__BASE_URL__ __SUITE__ __COMPONENT__ __PACKAGE_INDEX_LINKS__\n",
                 encoding="utf-8",
             )
+            static_dir.joinpath("logo.webp").write_bytes(b"webp")
             lock_path.write_text(json.dumps(lock), encoding="utf-8")
 
             with (
@@ -972,6 +973,7 @@ class BuildStateFileTests(unittest.TestCase):
                 cli.build()
 
             self.assertFalse(dist.joinpath("apt-index.lock.json").exists())
+            self.assertEqual(dist.joinpath("logo.webp").read_bytes(), b"webp")
             self.assertTrue(dist.joinpath("site-data.json").exists())
             site_data = json.loads(dist.joinpath("site-data.json").read_text(encoding="utf-8"))
 
