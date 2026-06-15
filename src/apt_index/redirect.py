@@ -157,7 +157,7 @@ def fetch_previous_redirect_snapshot(
     snapshot_url = f"{snapshot_url}{separator}run={cache_bust}"
     try:
         data = fetch_bytes(snapshot_url, {"Cache-Control": "no-cache"})
-        payload = json.loads(zstd_decompress(data).decode("utf-8"))
+        payload = decode_redirect_snapshot_payload(data)
     except (RuntimeError, subprocess.CalledProcessError, json.JSONDecodeError, UnicodeDecodeError) as exc:
         if strict:
             raise
@@ -166,6 +166,13 @@ def fetch_previous_redirect_snapshot(
     if payload.get("version") != 1 or not isinstance(payload.get("redirects"), dict):
         raise RuntimeError(f"{snapshot_url}: unsupported redirect snapshot format")
     return {str(key): str(value) for key, value in payload["redirects"].items()}
+
+
+def decode_redirect_snapshot_payload(data: bytes) -> dict[str, Any]:
+    try:
+        return json.loads(data.decode("utf-8"))
+    except (json.JSONDecodeError, UnicodeDecodeError):
+        return json.loads(zstd_decompress(data).decode("utf-8"))
 
 
 def purge_redirect_cache(

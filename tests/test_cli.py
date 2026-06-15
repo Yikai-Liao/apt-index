@@ -1244,6 +1244,28 @@ class RedirectRulesTests(unittest.TestCase):
 
         self.assertEqual(redirects, {})
 
+    def test_fetch_previous_redirect_snapshot_accepts_plain_json_payload(self) -> None:
+        payload = json.dumps(
+            {
+                "version": 1,
+                "redirects": {
+                    "/pool/main/pkg/pkg_1.0.0_amd64.deb": "https://example.test/pkg.deb",
+                },
+            }
+        ).encode("utf-8")
+
+        redirects = redirect.fetch_previous_redirect_snapshot(
+            "https://deb.example.test",
+            redirect_rules_dirname=cli.REDIRECT_RULES_DIRNAME,
+            redirect_snapshot_filename=cli.REDIRECT_SNAPSHOT_FILENAME,
+            fetch_bytes=lambda url, headers=None: payload,
+        )
+
+        self.assertEqual(
+            redirects,
+            {"/pool/main/pkg/pkg_1.0.0_amd64.deb": "https://example.test/pkg.deb"},
+        )
+
     def test_purge_redirect_cache_skips_purge_errors_by_default(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             urls = Path(tmp) / "urls.txt"
