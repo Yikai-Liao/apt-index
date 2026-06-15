@@ -1,0 +1,774 @@
+{
+  "generated_at": "2026-06-15T11:36:13+00:00",
+  "packages": {
+    "bat": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "bat_0.26.1_amd64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Conflicts": "bat-musl",
+              "Description": "cat(1) clone with wings.\n  A cat(1) clone with syntax highlighting and Git integration.",
+              "Homepage": "https://github.com/sharkdp/bat",
+              "Maintainer": "David Peter <mail@david-peter.de>",
+              "Package": "bat",
+              "Priority": "optional",
+              "Provides": "bat",
+              "Section": "utils",
+              "Version": "0.26.1"
+            },
+            "filename": "bat_0.26.1_amd64.deb",
+            "md5": "03b9305cca73527a683c5bb6c67a9788",
+            "sha1": "a83665d81c2ff50c2fa5018e2543be67b67ece9f",
+            "sha256": "ad59954aa1540e526f97267f60557ea5ef4c7dcf91a0811254134537cb353a3c",
+            "size": 3037592,
+            "upstream_version": "v0.26.1",
+            "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat_0.26.1_amd64.deb"
+          },
+          "resolved_at": "2026-06-14T17:15:01+00:00",
+          "source": "github",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "artifact": {
+            "asset_name": "bat_0.26.1_arm64.deb",
+            "control": {
+              "Architecture": "arm64",
+              "Conflicts": "bat-musl",
+              "Description": "cat(1) clone with wings.\n  A cat(1) clone with syntax highlighting and Git integration.",
+              "Homepage": "https://github.com/sharkdp/bat",
+              "Maintainer": "David Peter <mail@david-peter.de>",
+              "Package": "bat",
+              "Priority": "optional",
+              "Provides": "bat",
+              "Section": "utils",
+              "Version": "0.26.1"
+            },
+            "filename": "bat_0.26.1_arm64.deb",
+            "md5": "f45743c81770dabff2abd8c263e5759f",
+            "sha1": "7729dc4d8dab58934b08aede000cd39945169d53",
+            "sha256": "4a70c3f6236f2c621bd68357257e21b78c9497de4de1e803301ec0209f168653",
+            "size": 2862796,
+            "upstream_version": "v0.26.1",
+            "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat_0.26.1_arm64.deb"
+          },
+          "resolved_at": "2026-06-14T17:15:01+00:00",
+          "source": "github",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://github.com/sharkdp/bat"
+    },
+    "bottom": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "bottom_0.12.3-1_amd64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Conflicts": "btm",
+              "Depends": "libc6 (>= 2.34)",
+              "Description": "A customizable cross-platform graphical process/system monitor for the\n terminal. Supports Linux, macOS, and Windows.\n .\n By default, bottom will look for a config file in ~/.config/bottom/bottom.toml.\n A config file can be specified using `-C`. If a config file does not exist at\n the specified or default location, a default one will be created for the user\n there.",
+              "Homepage": "https://bottom.pages.dev/stable",
+              "Installed-Size": "4920",
+              "Maintainer": "Clement Tsang <cjhtsang@uwaterloo.ca>",
+              "Package": "bottom",
+              "Priority": "optional",
+              "Section": "utility",
+              "Version": "0.12.3-1"
+            },
+            "filename": "bottom_0.12.3-1_amd64.deb",
+            "md5": "83da5c669b6f0289b4f62ce87602d2cf",
+            "sha1": "bf0ffb7b55b3b218b18c916d2244366811a61198",
+            "sha256": "75dd4aa31eeb61087925c434627191062d9811b5da91c75ed28b83137a42ff27",
+            "size": 1456900,
+            "upstream_version": "0.12.3",
+            "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_0.12.3-1_amd64.deb"
+          },
+          "resolved_at": "2026-06-14T17:15:08+00:00",
+          "source": "github",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "artifact": {
+            "asset_name": "bottom_0.12.3-1_arm64.deb",
+            "control": {
+              "Architecture": "arm64",
+              "Conflicts": "btm",
+              "Depends": "libc6:arm64 (>= 2.28)",
+              "Description": "A customizable cross-platform graphical process/system monitor for the\n terminal. Supports Linux, macOS, and Windows.\n .\n By default, bottom will look for a config file in ~/.config/bottom/bottom.toml.\n A config file can be specified using `-C`. If a config file does not exist at\n the specified or default location, a default one will be created for the user\n there.",
+              "Homepage": "https://bottom.pages.dev/stable",
+              "Installed-Size": "4247",
+              "Maintainer": "Clement Tsang <cjhtsang@uwaterloo.ca>",
+              "Package": "bottom-arm64",
+              "Priority": "optional",
+              "Section": "utility",
+              "Version": "0.12.3-1"
+            },
+            "filename": "bottom_0.12.3-1_arm64.deb",
+            "md5": "6478d763465f5499934e67f687c0e6e1",
+            "sha1": "a27470007aa3bb2c1723d21585099b5d22773c98",
+            "sha256": "6247af81c0f5befe46d95f8e34444e8f1aae04a525c571565fce4e1a0d3682a0",
+            "size": 1235296,
+            "upstream_version": "0.12.3",
+            "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_0.12.3-1_arm64.deb"
+          },
+          "resolved_at": "2026-06-14T17:15:08+00:00",
+          "source": "github",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://github.com/clementtsang/bottom"
+    },
+    "deadbeef": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "deadbeef-static_1.10.3~alpha-1_amd64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Depends": "libasound2 (>> 1.0.16), libc6 (>= 2.7-1), libcairo2 (>= 1.2.4), libgcc1 (>= 1:4.1.1), libglib2.0-0 (>= 2.16.0), libgtk2.0-0 (>= 2.12.0), libx11-6",
+              "Description": "The Ultimate Music Player\n DeaDBeeF (as in 0xDEADBEEF) is a cross-platform audio player\n .\n Features:\n .\n  * mp3, ogg vorbis, flac, ape, wv, wav\n  * ID3v1, ID3v2.2, ID3v2.3, ID3v2.4, APEv2, xing/info tags support\n  * character set detection for non-unicode ID3 tags - supports cp1251\n    and iso8859-1\n  * unicode tags are fully supported as well (both utf8 and ucs2)\n  * cuesheet support for mp3, ogg, flac, ape\n  * autodetection of utf8/cp1251/iso8859-1 charsets in cuesheets\n  * sid and some popular chiptune formats like nsf\n  * tracker modules like mod, s3m, it, xm, etc\n  * HVSC song length database support for sid\n  * gtk2 interface with custom highly speed/memory optimized widgets\n  * no GNOME or KDE dependencies - just gtk2 and several small libraries\n  * minimize to tray, with scrollwheel volume control\n  * drag and drop, both inside of playlist, and from filemanagers and such\n  * control playback from command line (allows global hotkeys using xbindkeys)\n  * seeking works in all supported formats\n  * plugin support; ships with several standard plugins, such as global hotkeys\n    and last.fm scrobbler; sdk is included\n  * duration calculation is as precise as possible for vbr mp3\n    files (with and without xing/info tags)",
+              "Homepage": "http://deadbeef.sourceforge.net/",
+              "Installed-Size": "27906",
+              "Maintainer": "Oleksiy Yakovenko <waker@users.sf.net>",
+              "Package": "deadbeef-static",
+              "Priority": "optional",
+              "Recommends": "libpulse0, libdbus-1-3",
+              "Section": "sound",
+              "Version": "1.10.3-alpha-1"
+            },
+            "filename": "deadbeef-static_1.10.3~alpha-1_amd64.deb",
+            "md5": "a374276acf9a81b20131b71db494a868",
+            "sha1": "448114beb6df6ce8c2e2cc9c78148272410756dc",
+            "sha256": "412f2930ffb4287fbe958e81b9f42fd1402f3a5a77a9edb17de9e45fc8edebd2",
+            "size": 11850030,
+            "upstream_version": "deadbeef-static_1.10.3~alpha-1_amd64.deb",
+            "url": "https://sourceforge.net/projects/deadbeef/files/Builds/master/linux/deadbeef-static_1.10.3~alpha-1_amd64.deb/download"
+          },
+          "resolved_at": "2026-06-15T09:55:12+00:00",
+          "source": "sourceforge",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "artifact": {
+            "asset_name": "deadbeef-static_1.10.3~alpha-1_arm64.deb",
+            "control": {
+              "Architecture": "arm64",
+              "Depends": "libasound2 (>> 1.0.16), libc6 (>= 2.7-1), libcairo2 (>= 1.2.4), libgcc1 (>= 1:4.1.1), libglib2.0-0 (>= 2.16.0), libgtk2.0-0 (>= 2.12.0), libx11-6",
+              "Description": "The Ultimate Music Player\n DeaDBeeF (as in 0xDEADBEEF) is a cross-platform audio player\n .\n Features:\n .\n  * mp3, ogg vorbis, flac, ape, wv, wav\n  * ID3v1, ID3v2.2, ID3v2.3, ID3v2.4, APEv2, xing/info tags support\n  * character set detection for non-unicode ID3 tags - supports cp1251\n    and iso8859-1\n  * unicode tags are fully supported as well (both utf8 and ucs2)\n  * cuesheet support for mp3, ogg, flac, ape\n  * autodetection of utf8/cp1251/iso8859-1 charsets in cuesheets\n  * sid and some popular chiptune formats like nsf\n  * tracker modules like mod, s3m, it, xm, etc\n  * HVSC song length database support for sid\n  * gtk2 interface with custom highly speed/memory optimized widgets\n  * no GNOME or KDE dependencies - just gtk2 and several small libraries\n  * minimize to tray, with scrollwheel volume control\n  * drag and drop, both inside of playlist, and from filemanagers and such\n  * control playback from command line (allows global hotkeys using xbindkeys)\n  * seeking works in all supported formats\n  * plugin support; ships with several standard plugins, such as global hotkeys\n    and last.fm scrobbler; sdk is included\n  * duration calculation is as precise as possible for vbr mp3\n    files (with and without xing/info tags)",
+              "Homepage": "http://deadbeef.sourceforge.net/",
+              "Installed-Size": "26549",
+              "Maintainer": "Oleksiy Yakovenko <waker@users.sf.net>",
+              "Package": "deadbeef-static",
+              "Priority": "optional",
+              "Recommends": "libpulse0, libdbus-1-3",
+              "Section": "sound",
+              "Version": "1.10.3-alpha-1"
+            },
+            "filename": "deadbeef-static_1.10.3~alpha-1_arm64.deb",
+            "md5": "97d3f1bba1d6232c188c3ed8daff65f0",
+            "sha1": "f7f09632637435925b06babdd7073b905659b40c",
+            "sha256": "2ccd66cf713ab1f7974aada807930d997d5bbdebb794c006cc9df5b464ca7378",
+            "size": 11433450,
+            "upstream_version": "deadbeef-static_1.10.3~alpha-1_arm64.deb",
+            "url": "https://sourceforge.net/projects/deadbeef/files/Builds/master/linux/deadbeef-static_1.10.3~alpha-1_arm64.deb/download"
+          },
+          "resolved_at": "2026-06-15T09:55:13+00:00",
+          "source": "sourceforge",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://deadbeef.sourceforge.io/"
+    },
+    "dust": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "du-dust_1.2.4-1_amd64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Depends": "",
+              "Description": "A more intuitive version of du\n Dust is meant to give you an instant overview of which directories are using\n disk space without requiring sort or head. Dust will print a maximum of one\n 'Did not have permissions message'.",
+              "Homepage": "https://github.com/bootandy/dust",
+              "Installed-Size": "3122",
+              "Maintainer": "bootandy <bootandy@gmail.com>",
+              "Package": "du-dust",
+              "Priority": "optional",
+              "Section": "utils",
+              "Version": "1.2.4-1"
+            },
+            "filename": "du-dust_1.2.4-1_amd64.deb",
+            "md5": "3f637b632b90f268df37c805aa075888",
+            "sha1": "027a389f1c0db58948b673984d5e5af1f6104ee1",
+            "sha256": "c1bd69dc1cd05bbc84d3581d6d355fe60063c235f2bfec5bd46d551e5baacc66",
+            "size": 992896,
+            "upstream_version": "v1.2.4",
+            "url": "https://github.com/bootandy/dust/releases/download/v1.2.4/du-dust_1.2.4-1_amd64.deb"
+          },
+          "resolved_at": "2026-06-14T16:57:00+00:00",
+          "source": "github",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://github.com/bootandy/dust"
+    },
+    "fastfetch": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "fastfetch-linux-amd64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Depends": "libc6 (>= 2.35)",
+              "Description": "Fast neofetch-like system information tool\n fastfetch is a neofetch-like tool for fetching system information and displaying them in a pretty way. It is written mostly in C to achieve much better performance.",
+              "Homepage": "https://github.com/fastfetch-cli/fastfetch",
+              "Installed-Size": "15524",
+              "Maintainer": "Carter Li <zhangsongcui@live.cn>",
+              "Package": "fastfetch",
+              "Priority": "optional",
+              "Section": "devel",
+              "Version": "2.64.2"
+            },
+            "filename": "fastfetch-linux-amd64.deb",
+            "md5": "57e09a717e10f9904dfccbb8275b68a8",
+            "sha1": "d6b843b3b9618a033aa78465bd13f52373355b8d",
+            "sha256": "af061369d6413677f55f01517b21c029207503e845a4575d3f128b75a425f83f",
+            "size": 5815366,
+            "upstream_version": "2.64.2",
+            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.64.2/fastfetch-linux-amd64.deb"
+          },
+          "resolved_at": "2026-06-14T17:15:07+00:00",
+          "source": "github",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "artifact": {
+            "asset_name": "fastfetch-linux-aarch64.deb",
+            "control": {
+              "Architecture": "arm64",
+              "Depends": "libc6 (>= 2.35)",
+              "Description": "Fast neofetch-like system information tool\n fastfetch is a neofetch-like tool for fetching system information and displaying them in a pretty way. It is written mostly in C to achieve much better performance.",
+              "Homepage": "https://github.com/fastfetch-cli/fastfetch",
+              "Installed-Size": "15921",
+              "Maintainer": "Carter Li <zhangsongcui@live.cn>",
+              "Package": "fastfetch",
+              "Priority": "optional",
+              "Section": "devel",
+              "Version": "2.64.2"
+            },
+            "filename": "fastfetch_2.64.2_arm64.deb",
+            "md5": "7d4e7c765f341656ad1b6b69757c1ee1",
+            "sha1": "208999b67925223d1de8bf44dbb6765553eaec61",
+            "sha256": "16aaf8629d13bc67ab3c370181be0034cb3d5a8bcb01ba5fa332c515a3f76926",
+            "size": 5774576,
+            "upstream_version": "2.64.2",
+            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.64.2/fastfetch-linux-aarch64.deb"
+          },
+          "resolved_at": "2026-06-14T17:15:07+00:00",
+          "source": "github",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://github.com/fastfetch-cli/fastfetch"
+    },
+    "fd": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "fd_10.4.2_amd64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Conflicts": "fd-musl, fd-find",
+              "Description": "simple, fast and user-friendly alternative to find\n  fd is a program to find entries in your filesystem.\n  It is a simple, fast and user-friendly alternative to find.\n  While it does not aim to support all of finds powerful functionality, it provides\n  sensible (opinionated) defaults for a majority of use cases.",
+              "Homepage": "https://github.com/sharkdp/fd",
+              "Maintainer": "David Peter <mail@david-peter.de>",
+              "Package": "fd",
+              "Priority": "optional",
+              "Provides": "fd",
+              "Section": "utils",
+              "Version": "10.4.2"
+            },
+            "filename": "fd_10.4.2_amd64.deb",
+            "md5": "dcd1d05b84fad841723f7322282f2258",
+            "sha1": "3ab5f2aa81b953b5f569e38aeaa2da926ee32c41",
+            "sha256": "0e44eb5fca93f09bc6f5430b90acdf44c8e069d0a903700aeb4820629337b67b",
+            "size": 1399120,
+            "upstream_version": "v10.4.2",
+            "url": "https://github.com/sharkdp/fd/releases/download/v10.4.2/fd_10.4.2_amd64.deb"
+          },
+          "resolved_at": "2026-06-15T02:35:48+00:00",
+          "source": "github",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "artifact": {
+            "asset_name": "fd_10.4.2_arm64.deb",
+            "control": {
+              "Architecture": "arm64",
+              "Conflicts": "fd-musl, fd-find",
+              "Description": "simple, fast and user-friendly alternative to find\n  fd is a program to find entries in your filesystem.\n  It is a simple, fast and user-friendly alternative to find.\n  While it does not aim to support all of finds powerful functionality, it provides\n  sensible (opinionated) defaults for a majority of use cases.",
+              "Homepage": "https://github.com/sharkdp/fd",
+              "Maintainer": "David Peter <mail@david-peter.de>",
+              "Package": "fd",
+              "Priority": "optional",
+              "Provides": "fd",
+              "Section": "utils",
+              "Version": "10.4.2"
+            },
+            "filename": "fd_10.4.2_arm64.deb",
+            "md5": "a478463c467395bf1b05cf81e27d9e0f",
+            "sha1": "a1ca7ea71da429ea3b26b32e5cfec9194b337761",
+            "sha256": "caa91b8c0fad7ba1964a78e4932a82e3a5deb747fa40d0922a8c692b6d5e0ce1",
+            "size": 1277486,
+            "upstream_version": "v10.4.2",
+            "url": "https://github.com/sharkdp/fd/releases/download/v10.4.2/fd_10.4.2_arm64.deb"
+          },
+          "resolved_at": "2026-06-15T02:35:48+00:00",
+          "source": "github",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://github.com/sharkdp/fd"
+    },
+    "feishu": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "Feishu-linux_x64-7.66.10.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Depends": "ca-certificates, libc6 (>= 2.18), libgcc1 (>= 1:3.0), libnss3 (>= 3.14), libx11-6 (>= 2:1.4.99.1), libxcb1, libxext6, xdg-utils (>= 1.0.2), libgomp1, pulseaudio-utils",
+              "Description": "\u98de\u4e66(Feishu)\n \u98de\u4e66\u6574\u5408\u5373\u65f6\u6d88\u606f\u3001\u65e5\u5386\u3001\u97f3\u89c6\u9891\u4f1a\u8bae\u3001\u4e91\u6587\u6863\u3001\u5de5\u4f5c\u53f0\u7b49\u529f\u80fd\u4e8e\u4e00\u4f53\uff0c\u6210\u5c31\u56e2\u961f\u548c\u4e2a\u4eba\uff0c\u66f4\u9ad8\u6548\u3001\u66f4\u6109\u60a6\u3002",
+              "Installed-Size": "1733410",
+              "Maintainer": "Feishu Linux Team <contact@feishu.cn>",
+              "Package": "bytedance-feishu-stable",
+              "Pre-Depends": "dpkg (>= 1.14.0)",
+              "Priority": "optional",
+              "Recommends": "libu2f-udev, libvulkan1",
+              "Replaces": "bytedance-feishu-alpha, bytedance-feishu-beta, bytedance-feishu-dev, bytedance-feishu-release",
+              "Section": "web",
+              "Version": "7.66.10-0"
+            },
+            "filename": "bytedance-feishu-stable_7.66.10-0_amd64.deb",
+            "md5": "fdf4882352e05476843c15bd7797a2a6",
+            "sha1": "784837bc0551a767887cd5bdade2503ea3a27c08",
+            "sha256": "ebc58a7d3e1d6e540e403779d67f749f20333b1ae4044491d29a9b8dbc2b3aca",
+            "size": 437630064,
+            "upstream_version": "7.66.10",
+            "url": "https://sf3-cn.feishucdn.com/obj/ee-appcenter/289abaac/Feishu-linux_x64-7.66.10.deb"
+          },
+          "resolved_at": "2026-06-14T17:15:22+00:00",
+          "source": "aur",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "artifact": {
+            "asset_name": "Feishu-linux_arm64-7.66.10.deb",
+            "control": {
+              "Architecture": "arm64",
+              "Depends": "ca-certificates, libc6 (>= 2.18), libgcc1 (>= 1:3.0), libnss3 (>= 3.14), libx11-6 (>= 2:1.4.99.1), libxcb1, libxext6, xdg-utils (>= 1.0.2), libgomp1, pulseaudio-utils",
+              "Description": "\u98de\u4e66(Feishu)\n \u98de\u4e66\u6574\u5408\u5373\u65f6\u6d88\u606f\u3001\u65e5\u5386\u3001\u97f3\u89c6\u9891\u4f1a\u8bae\u3001\u4e91\u6587\u6863\u3001\u5de5\u4f5c\u53f0\u7b49\u529f\u80fd\u4e8e\u4e00\u4f53\uff0c\u6210\u5c31\u56e2\u961f\u548c\u4e2a\u4eba\uff0c\u66f4\u9ad8\u6548\u3001\u66f4\u6109\u60a6\u3002",
+              "Installed-Size": "1637548",
+              "Maintainer": "Feishu Linux Team <contact@feishu.cn>",
+              "Package": "bytedance-feishu-stable",
+              "Pre-Depends": "dpkg (>= 1.14.0)",
+              "Priority": "optional",
+              "Recommends": "libu2f-udev, libvulkan1",
+              "Replaces": "bytedance-feishu-alpha, bytedance-feishu-beta, bytedance-feishu-dev, bytedance-feishu-release",
+              "Section": "web",
+              "Version": "7.66.10-0"
+            },
+            "filename": "Feishu-linux_arm64-7.66.10.deb",
+            "md5": "2d485bb219619e11d2c6f82ae53a950f",
+            "sha1": "14f95d1d4cd93910a2f3331ca4a9a08de78bd6d0",
+            "sha256": "05e87475827de81bb02704cc3c5eb51fa47dbbdf49720e29cc4175ac53a3f560",
+            "size": 395054284,
+            "upstream_version": "7.66.10",
+            "url": "https://sf3-cn.feishucdn.com/obj/ee-appcenter/382a3d72/Feishu-linux_arm64-7.66.10.deb"
+          },
+          "resolved_at": "2026-06-14T17:15:22+00:00",
+          "source": "aur",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://www.feishu.cn/"
+    },
+    "google-chrome": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "google-chrome-stable_149.0.7827.114-1_amd64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Depends": "ca-certificates, fonts-liberation, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.25), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.35), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libvulkan1, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxrandr2, wget, xdg-utils (>= 1.0.2)",
+              "Description": "The web browser from Google\n Google Chrome is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier.",
+              "Installed-Size": "411995",
+              "Maintainer": "Chrome Linux Team <chromium-dev@chromium.org>",
+              "Package": "google-chrome-stable",
+              "Pre-Depends": "dpkg (>= 1.14.0)",
+              "Priority": "optional",
+              "Provides": "www-browser",
+              "Section": "web",
+              "Version": "149.0.7827.114-1"
+            },
+            "filename": "google-chrome-stable_149.0.7827.114-1_amd64.deb",
+            "md5": "87bc20ede3ff98de5726574666cda9ee",
+            "sha1": "517f95cb9c8927282aebe5178f63e4fba56c83d2",
+            "sha256": "195bde858f9ee6d84cde71d831077fb88f074e78ef2ffc3c51e469516a2ece50",
+            "size": 130424340,
+            "upstream_version": "149.0.7827.114",
+            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_149.0.7827.114-1_amd64.deb"
+          },
+          "resolved_at": "2026-06-15T11:34:07+00:00",
+          "source": "aur",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://www.google.com/chrome/"
+    },
+    "lazydocker": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "lazydocker_0.25.2-1+bookworm_amd64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Depends": "",
+              "Description": "A simple terminal UI for both docker and docker-compose, written in Go with the gocui library.",
+              "Homepage": "https://github.com/jesseduffield/lazydocker",
+              "Maintainer": "Dario Griffo <dariogriffo@gmail.com>",
+              "Package": "lazydocker",
+              "Priority": "optional",
+              "Section": "utils",
+              "Source": "lazydocker",
+              "Version": "0.25.2-1+bookworm"
+            },
+            "filename": "lazydocker_0.25.2-1+bookworm_amd64.deb",
+            "md5": "f1219c70474cfca91baf2f0ee348c672",
+            "sha1": "6a0d330d5e709fd2f98dcb4f388bd9ea8b2e3c71",
+            "sha256": "66634007919f9c1dc7a34bac7ee73c4b0d5b8bfec360ff2c687e83ddb872824a",
+            "size": 3683940,
+            "upstream_version": "0.25.2+1",
+            "url": "https://github.com/dariogriffo/lazydocker-debian/releases/download/0.25.2%2B1/lazydocker_0.25.2-1%2Bbookworm_amd64.deb"
+          },
+          "resolved_at": "2026-06-15T02:35:49+00:00",
+          "source": "github",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "artifact": {
+            "asset_name": "lazydocker_0.25.2-1+bookworm_arm64.deb",
+            "control": {
+              "Architecture": "arm64",
+              "Depends": "",
+              "Description": "A simple terminal UI for both docker and docker-compose, written in Go with the gocui library.",
+              "Homepage": "https://github.com/jesseduffield/lazydocker",
+              "Maintainer": "Dario Griffo <dariogriffo@gmail.com>",
+              "Package": "lazydocker",
+              "Priority": "optional",
+              "Section": "utils",
+              "Source": "lazydocker",
+              "Version": "0.25.2-1+bookworm"
+            },
+            "filename": "lazydocker_0.25.2-1+bookworm_arm64.deb",
+            "md5": "aa19aff938ef55f03101e198a7daed0f",
+            "sha1": "5f7179b60ee72ee98d8feaeadbc2d7a35eb4cd4f",
+            "sha256": "cfb99034a5129d8d717ab09ec51a7811331bc31f680730f00adc6e875c203ac0",
+            "size": 3157984,
+            "upstream_version": "0.25.2+1",
+            "url": "https://github.com/dariogriffo/lazydocker-debian/releases/download/0.25.2%2B1/lazydocker_0.25.2-1%2Bbookworm_arm64.deb"
+          },
+          "resolved_at": "2026-06-15T02:35:49+00:00",
+          "source": "github",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://github.com/dariogriffo/lazydocker-debian"
+    },
+    "lsd": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "lsd_1.2.0_amd64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Conflicts": "lsd-musl",
+              "Description": "An ls command with a lot of pretty colors.",
+              "Maintainer": "Peltoche <peltoche@halium.fr>",
+              "Package": "lsd",
+              "Priority": "optional",
+              "Provides": "lsd",
+              "Section": "utils",
+              "Version": "1.2.0"
+            },
+            "filename": "lsd_1.2.0_amd64.deb",
+            "md5": "079ecc610a507472ddbbb1270c7ebf44",
+            "sha1": "45c2f5749eb807e165b5414d8374c4533ee262ec",
+            "sha256": "b212d4c941fa0960c44d94d44039645802a5b7cc8554900e4d53bab5b2574f07",
+            "size": 1385024,
+            "upstream_version": "v1.2.0",
+            "url": "https://github.com/lsd-rs/lsd/releases/download/v1.2.0/lsd_1.2.0_amd64.deb"
+          },
+          "resolved_at": "2026-06-14T17:14:59+00:00",
+          "source": "github",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "artifact": {
+            "asset_name": "lsd_1.2.0_arm64.deb",
+            "control": {
+              "Architecture": "arm64",
+              "Conflicts": "lsd-musl",
+              "Description": "An ls command with a lot of pretty colors.",
+              "Maintainer": "Peltoche <peltoche@halium.fr>",
+              "Package": "lsd",
+              "Priority": "optional",
+              "Provides": "lsd",
+              "Section": "utils",
+              "Version": "1.2.0"
+            },
+            "filename": "lsd_1.2.0_arm64.deb",
+            "md5": "e05d7d7d4de42442b9a6486cb546597d",
+            "sha1": "c62b8ee7b853c17710176da885eb69d44821736b",
+            "sha256": "9f799c1258b6acbefbb2135b6128ab4369ea3872fb1d402cb5375aa7184dd677",
+            "size": 1252736,
+            "upstream_version": "v1.2.0",
+            "url": "https://github.com/lsd-rs/lsd/releases/download/v1.2.0/lsd_1.2.0_arm64.deb"
+          },
+          "resolved_at": "2026-06-14T17:14:59+00:00",
+          "source": "github",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://github.com/lsd-rs/lsd"
+    },
+    "qq": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "linuxqq_3.2.29-49738_amd64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
+              "Description": "\n  QQ",
+              "Homepage": "https://im.qq.com",
+              "Installed-Size": "600565",
+              "License": "unknown",
+              "Maintainer": "Tencent <QQ-Team@tencent.com>",
+              "Package": "linuxqq",
+              "Priority": "optional",
+              "Recommends": "libappindicator3-1",
+              "Section": "default",
+              "Vendor": "Tencent <QQ-Team@tencent.com>",
+              "Version": "3.2.29-49738"
+            },
+            "filename": "linuxqq_3.2.29-49738_amd64.deb",
+            "md5": "00e6a3e73e809da3c5f4fcab90b4d88b",
+            "sha1": "85783d872888fa872aa499cc76ee22e1e264a283",
+            "sha256": "1e3828079673c94994bc0f4780d5d8528647639920659862d49d1c2f2a198e25",
+            "size": 182597964,
+            "upstream_version": "3.2.29_49738",
+            "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.31/beta/00e6a3e7/linuxqq_3.2.29-49738_amd64.deb"
+          },
+          "resolved_at": "2026-06-15T11:35:06+00:00",
+          "source": "aur",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "artifact": {
+            "asset_name": "linuxqq_3.2.29-49738_arm64.deb",
+            "control": {
+              "Architecture": "arm64",
+              "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
+              "Description": "\n  QQ",
+              "Homepage": "https://im.qq.com",
+              "Installed-Size": "631369",
+              "License": "unknown",
+              "Maintainer": "Tencent <QQ-Team@tencent.com>",
+              "Package": "linuxqq",
+              "Priority": "optional",
+              "Recommends": "libappindicator3-1",
+              "Section": "default",
+              "Vendor": "Tencent <QQ-Team@tencent.com>",
+              "Version": "3.2.29-49738"
+            },
+            "filename": "linuxqq_3.2.29-49738_arm64.deb",
+            "md5": "9fabeeec036b3bcc1b0b16a747af0fd1",
+            "sha1": "813ed478dcdab18cd5c1a519a5b89f15c220f549",
+            "sha256": "5bcd8ccda401fbfa1821a7c3c758f84a253c317568f0b9c2d74426a24749e9a6",
+            "size": 201728544,
+            "upstream_version": "3.2.29_49738",
+            "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.31/beta/00e6a3e7/linuxqq_3.2.29-49738_arm64.deb"
+          },
+          "resolved_at": "2026-06-15T11:36:13+00:00",
+          "source": "aur",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://im.qq.com/index/#/linux"
+    },
+    "ripgrep": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "ripgrep_15.1.0-1_amd64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Depends": "",
+              "Description": "ripgrep is a line-oriented search tool that recursively searches the current\n directory for a regex pattern while respecting gitignore rules. ripgrep has\n first class support on Windows, macOS and Linux.\n ripgrep (rg) recursively searches your current directory for a regex pattern.\n By default, ripgrep will respect your .gitignore and automatically skip hidden\n files/directories and binary files.",
+              "Homepage": "https://github.com/BurntSushi/ripgrep",
+              "Installed-Size": "5599",
+              "Maintainer": "Andrew Gallant <jamslam@gmail.com>",
+              "Package": "ripgrep",
+              "Priority": "optional",
+              "Section": "utils",
+              "Version": "15.1.0-1"
+            },
+            "filename": "ripgrep_15.1.0-1_amd64.deb",
+            "md5": "d3762f14bfd4554e0dbfaf9ba98f4e8d",
+            "sha1": "5d4dcc6ed538c752202ed639a4e5a9828c1a89c8",
+            "sha256": "62ce186675c71edbc7c48a67dc36f986974551354d6ce63726adc2d85aad802c",
+            "size": 1704160,
+            "upstream_version": "15.1.0",
+            "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep_15.1.0-1_amd64.deb"
+          },
+          "resolved_at": "2026-06-15T02:35:47+00:00",
+          "source": "github",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://github.com/BurntSushi/ripgrep"
+    },
+    "vscode": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "code_1.124.2_amd64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Conflicts": "visual-studio-code",
+              "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.15), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
+              "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
+              "Homepage": "https://code.visualstudio.com/",
+              "Installed-Size": "800231",
+              "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
+              "Package": "code",
+              "Priority": "optional",
+              "Provides": "visual-studio-code",
+              "Recommends": "libvulkan1, bubblewrap, socat",
+              "Replaces": "visual-studio-code",
+              "Section": "devel",
+              "Version": "1.124.2-1781225536"
+            },
+            "filename": "code_1.124.2_amd64.deb",
+            "md5": "2a4b8993ff8b25ec1f7ff8d6daf25abb",
+            "sha1": "f2b1b1a321f461e16c14d32ef43c060a2d6d5ec5",
+            "sha256": "818b26cf63c020b89e27ed94edadb46e04ed546786d62286ef88ded0bfe4b596",
+            "size": 175563106,
+            "upstream_version": "1.124.2",
+            "url": "https://update.code.visualstudio.com/1.124.2/linux-deb-x64/stable"
+          },
+          "resolved_at": "2026-06-15T05:12:16+00:00",
+          "source": "aur",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "artifact": {
+            "asset_name": "code_1.124.2_arm64.deb",
+            "control": {
+              "Architecture": "arm64",
+              "Conflicts": "visual-studio-code",
+              "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.17), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libstdc++6 (>= 4.1.1), libstdc++6 (>= 5), libstdc++6 (>= 5.2), libstdc++6 (>= 6), libstdc++6 (>= 9), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
+              "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
+              "Homepage": "https://code.visualstudio.com/",
+              "Installed-Size": "780762",
+              "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
+              "Package": "code",
+              "Priority": "optional",
+              "Provides": "visual-studio-code",
+              "Recommends": "libvulkan1, bubblewrap, socat",
+              "Replaces": "visual-studio-code",
+              "Section": "devel",
+              "Version": "1.124.2-1781225203"
+            },
+            "filename": "code_1.124.2_arm64.deb",
+            "md5": "06f5997cd878bb3a9e39174a0e4df361",
+            "sha1": "f6e51f1640ad0fbe8125a4450f6f802c262fbbab",
+            "sha256": "3e1a4314ba0376c8f10bba629d040daafec9829bc64a484184b42429fa726774",
+            "size": 164741670,
+            "upstream_version": "1.124.2",
+            "url": "https://update.code.visualstudio.com/1.124.2/linux-deb-arm64/stable"
+          },
+          "resolved_at": "2026-06-15T05:12:16+00:00",
+          "source": "aur",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://code.visualstudio.com/"
+    },
+    "wechat": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "wechat-x86-4.1.1.7.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Depends": "fonts-noto-cjk | google-noto-cjk-fonts",
+              "Description": "wechat from Tencent",
+              "Installed-Size": "734025",
+              "Maintainer": "WeChat Team <>",
+              "Package": "wechat",
+              "Pre-Depends": "dpkg (>= 1.14.0)",
+              "Priority": "optional",
+              "Provides": "wechat",
+              "Source": "wechat-stable",
+              "Version": "4.1.1.7"
+            },
+            "filename": "wechat_4.1.1.7_amd64.deb",
+            "md5": "7a687ca1853d0bcb1ad00f6a2d115965",
+            "sha1": "5655dca348c1f14aa5a3909b1587a17c04d2005c",
+            "sha256": "af28ffa501d6eb1db769eeaf895b10fedcd4bf4ee7764a22d5b3af50e53f5be5",
+            "size": 212391880,
+            "upstream_version": "4.1.1.7",
+            "url": "https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.deb"
+          },
+          "resolved_at": "2026-06-14T17:14:55+00:00",
+          "source": "aur",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "artifact": {
+            "asset_name": "wechat-arm-4.1.1.7.deb",
+            "control": {
+              "Architecture": "arm64",
+              "Depends": "fonts-noto-cjk | google-noto-cjk-fonts",
+              "Description": "wechat from Tencent",
+              "Installed-Size": "682040",
+              "Maintainer": "WeChat Team <>",
+              "Package": "wechat",
+              "Pre-Depends": "dpkg (>= 1.14.0)",
+              "Priority": "optional",
+              "Provides": "wechat",
+              "Source": "wechat-stable",
+              "Version": "4.1.1.7"
+            },
+            "filename": "wechat_4.1.1.7_arm64.deb",
+            "md5": "ad001b1e51131edc7e5cd0b0c17ea600",
+            "sha1": "56fa9da51c5e43d7706884e9c4df60d1e04d73b4",
+            "sha256": "2870123ee5e0202711210d82e3435f0a4712ca593eb0480f6d9db4589a288810",
+            "size": 189791016,
+            "upstream_version": "4.1.1.7",
+            "url": "https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_arm64.deb"
+          },
+          "resolved_at": "2026-06-14T17:14:55+00:00",
+          "source": "aur",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://weixin.qq.com/"
+    }
+  },
+  "version": 2
+}
