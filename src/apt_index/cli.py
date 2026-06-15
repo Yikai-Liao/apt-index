@@ -15,11 +15,12 @@ import shutil
 import subprocess
 import tarfile
 import tempfile
+import urllib.parse
 import urllib.error
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
@@ -38,11 +39,14 @@ STATIC_DIR = ROOT / "static"
 CACHE_DIR = ROOT / ".apt-index-cache"
 DIST_DIR = ROOT / "dist"
 DOWNLOAD_STATS_FILENAME = "download_stats.json"
+REDIRECT_RULES_DIRNAME = "redirect-rules"
+REDIRECT_SNAPSHOT_FILENAME = "snapshot.json.zst"
+REDIRECT_EDGE_TTL_SECONDS = 60 * 60 * 24 * 30
+REDIRECT_BROWSER_TTL_SECONDS = 60 * 5
 GNUPG_DIR = ROOT / ".apt-index-gnupg"
 ENV_PATH = ROOT / ".env"
 USER_AGENT = "apt-index/0.1"
 DEFAULT_JOBS = 4
-DEFAULT_DOWNLOAD_STATS_DATASET = "apt_index_downloads"
 SIGNING_PRIVATE_KEY_ENV = "APT_INDEX_GPG_PRIVATE_KEY"
 SIGNING_PRIVATE_KEY_B64_ENV = "APT_INDEX_GPG_PRIVATE_KEY_B64"
 SIGNING_PASSPHRASE_ENV = "APT_INDEX_GPG_PASSPHRASE"
@@ -84,12 +88,39 @@ def build_command() -> None:
 @app.command("download-stats")
 def download_stats_command(
     output: Path | None = typer.Option(None, "--output", "-o", help="Output JSON path."),
-    dataset: str = typer.Option(DEFAULT_DOWNLOAD_STATS_DATASET, "--dataset", help="Workers Analytics Engine dataset name."),
+    hostname: str | None = typer.Option(None, "--hostname", help="Hostname to filter Cloudflare HTTP request analytics."),
     days: int = typer.Option(30, "--days", min=1, help="Number of days to publish in the public summary."),
-    strict: bool = typer.Option(False, "--strict", help="Fail instead of writing empty stats when Analytics Engine cannot be queried."),
+    strict: bool = typer.Option(False, "--strict", help="Fail instead of writing empty stats when Cloudflare HTTP analytics cannot be queried."),
 ) -> None:
-    """Write public download statistics from Workers Analytics Engine."""
-    write_download_stats(output or DIST_DIR / DOWNLOAD_STATS_FILENAME, dataset, days, strict)
+    """Write public download statistics from Cloudflare HTTP request analytics."""
+    if hostname is None:
+        hostname = urllib.parse.urlparse(load_config()["repository"]["base_url"]).hostname
+    write_download_stats(output or DIST_DIR / DOWNLOAD_STATS_FILENAME, hostname, days, strict)
+
+
+@app.command("plan-redirect-purge")
+def plan_redirect_purge_command(
+    output: Path = typer.Option(Path("redirect-purge-urls.txt"), "--output", "-o", help="Output file for changed package download URLs."),
+    snapshot: Path | None = typer.Option(None, "--snapshot", help="New local redirect snapshot path."),
+    base_url: str | None = typer.Option(None, "--base-url", help="Published repository base URL."),
+    strict: bool = typer.Option(False, "--strict", help="Fail when the previous deployed snapshot cannot be fetched."),
+) -> None:
+    """Plan which cached package redirects should be purged after deployment."""
+    config = load_config()
+    plan_redirect_purge(
+        output,
+        snapshot or DIST_DIR / REDIRECT_RULES_DIRNAME / REDIRECT_SNAPSHOT_FILENAME,
+        base_url or config["repository"]["base_url"],
+        strict,
+    )
+
+
+@app.command("purge-redirect-cache")
+def purge_redirect_cache_command(
+    urls: Path = typer.Option(Path("redirect-purge-urls.txt"), "--urls", help="File containing package download URLs to purge."),
+) -> None:
+    """Purge changed package redirect responses from Cloudflare cache."""
+    purge_redirect_cache(urls)
 
 
 @app.command("all")
@@ -177,7 +208,6 @@ def build() -> None:
     suite = config["suite"]
     component = config["component"]
     archs = lock_architectures(lock)
-    redirect_rules: dict[str, str] = {}
 
     for arch in archs:
         package_stanzas: list[str] = []
@@ -185,9 +215,7 @@ def build() -> None:
             artifact = entry.get("architectures", {}).get(arch, {}).get("artifact")
             if not artifact:
                 continue
-            filename = artifact["filename"]
-            virtual_path = f"pool/{component}/{entry_name}/{filename}"
-            redirect_rules["/" + virtual_path] = artifact["url"]
+            virtual_path = package_virtual_path(component, entry_name, artifact["filename"])
             stanza = dict(artifact["control"])
             stanza["Filename"] = virtual_path
             stanza["Size"] = str(artifact["size"])
@@ -203,7 +231,7 @@ def build() -> None:
         with gzip.open(packages_dir / "Packages.gz", "wb", compresslevel=9) as f:
             f.write(packages_text.encode("utf-8"))
 
-    (DIST_DIR / "redirect_rules.json").write_text(json.dumps(redirect_rules, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    write_redirect_rules(lock, component)
     write_json(DIST_DIR / DOWNLOAD_STATS_FILENAME, empty_download_stats("not_generated"))
     (DIST_DIR / "key.asc").write_text(ensure_signing_key(config), encoding="utf-8")
     copy_state_files(lock)
@@ -340,6 +368,140 @@ def lock_architectures(lock: dict[str, Any]) -> list[str]:
             if architecture.get("artifact")
         }
     )
+
+
+def package_virtual_path(component: str, entry_name: str, filename: str) -> str:
+    return f"pool/{component}/{entry_name}/{filename}"
+
+
+def redirect_maps(lock: dict[str, Any], component: str) -> tuple[dict[str, str], dict[tuple[str, str], dict[str, str]]]:
+    redirects: dict[str, str] = {}
+    shards: dict[tuple[str, str], dict[str, str]] = {}
+    for entry_name, entry in lock["packages"].items():
+        shard: dict[str, str] = {}
+        for architecture in entry.get("architectures", {}).values():
+            artifact = architecture.get("artifact")
+            if not artifact:
+                continue
+            filename = artifact["filename"]
+            target = artifact["url"]
+            virtual_path = "/" + package_virtual_path(component, entry_name, filename)
+            existing_target = redirects.get(virtual_path)
+            if existing_target and existing_target != target:
+                raise RuntimeError(f"conflicting redirect target for {virtual_path}")
+            existing_filename_target = shard.get(filename)
+            if existing_filename_target and existing_filename_target != target:
+                raise RuntimeError(f"conflicting redirect target for {entry_name}/{filename}")
+            redirects[virtual_path] = target
+            shard[filename] = target
+        if shard:
+            shards[(component, entry_name)] = dict(sorted(shard.items()))
+    return dict(sorted(redirects.items())), shards
+
+
+def write_redirect_rules(lock: dict[str, Any], component: str) -> dict[str, str]:
+    redirects, shards = redirect_maps(lock, component)
+    redirect_dir = DIST_DIR / REDIRECT_RULES_DIRNAME
+    for (shard_component, entry_name), shard in shards.items():
+        shard_path = redirect_dir / shard_component / f"{entry_name}.json"
+        shard_path.parent.mkdir(parents=True, exist_ok=True)
+        write_json(shard_path, shard)
+    write_redirect_snapshot(redirect_dir / REDIRECT_SNAPSHOT_FILENAME, redirects)
+    return redirects
+
+
+def write_redirect_snapshot(path: Path, redirects: dict[str, str]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    payload = json.dumps({"version": 1, "redirects": redirects}, indent=2, sort_keys=True) + "\n"
+    path.write_bytes(zstd_compress(payload.encode("utf-8")))
+
+
+def read_redirect_snapshot(path: Path) -> dict[str, str]:
+    payload = json.loads(zstd_decompress(path.read_bytes()).decode("utf-8"))
+    if payload.get("version") != 1 or not isinstance(payload.get("redirects"), dict):
+        raise RuntimeError(f"{path}: unsupported redirect snapshot format")
+    return {str(key): str(value) for key, value in payload["redirects"].items()}
+
+
+def zstd_compress(data: bytes) -> bytes:
+    zstd = shutil.which("zstd")
+    if not zstd:
+        raise RuntimeError("zstd is required to write redirect snapshots")
+    result = subprocess.run([zstd, "-q", "-19", "-c"], input=data, check=True, capture_output=True)
+    return result.stdout
+
+
+def zstd_decompress(data: bytes) -> bytes:
+    zstd = shutil.which("zstd")
+    if not zstd:
+        raise RuntimeError("zstd is required to read redirect snapshots")
+    result = subprocess.run([zstd, "-d", "-q", "-c"], input=data, check=True, capture_output=True)
+    return result.stdout
+
+
+def plan_redirect_purge(output: Path, snapshot: Path, base_url: str, strict: bool = False) -> list[str]:
+    base_url = base_url.rstrip("/")
+    new_redirects = read_redirect_snapshot(snapshot)
+    old_redirects = fetch_previous_redirect_snapshot(base_url, strict)
+    changed_paths = [
+        path
+        for path, old_target in old_redirects.items()
+        if new_redirects.get(path) != old_target
+    ]
+    urls = [base_url + path for path in sorted(changed_paths)]
+    output.write_text("\n".join(urls) + ("\n" if urls else ""), encoding="utf-8")
+    logger.info("planned {} redirect cache purge URLs at {}", len(urls), output)
+    return urls
+
+
+def fetch_previous_redirect_snapshot(base_url: str, strict: bool = False) -> dict[str, str]:
+    snapshot_url = f"{base_url.rstrip('/')}/{REDIRECT_RULES_DIRNAME}/{REDIRECT_SNAPSHOT_FILENAME}"
+    cache_bust = os.environ.get("GITHUB_RUN_ID") or str(int(datetime.now(timezone.utc).timestamp()))
+    separator = "&" if "?" in snapshot_url else "?"
+    snapshot_url = f"{snapshot_url}{separator}run={cache_bust}"
+    try:
+        data = fetch_bytes(snapshot_url, {"Cache-Control": "no-cache"})
+        payload = json.loads(zstd_decompress(data).decode("utf-8"))
+    except (RuntimeError, subprocess.CalledProcessError, json.JSONDecodeError, UnicodeDecodeError) as exc:
+        if strict:
+            raise
+        logger.warning("previous redirect snapshot unavailable; treating as first deploy: {}", exc)
+        return {}
+    if payload.get("version") != 1 or not isinstance(payload.get("redirects"), dict):
+        raise RuntimeError(f"{snapshot_url}: unsupported redirect snapshot format")
+    return {str(key): str(value) for key, value in payload["redirects"].items()}
+
+
+def purge_redirect_cache(urls_path: Path) -> None:
+    urls = [line.strip() for line in urls_path.read_text(encoding="utf-8").splitlines() if line.strip()]
+    if not urls:
+        logger.info("no redirect cache URLs to purge")
+        return
+    zone_id = os.environ.get("CLOUDFLARE_ZONE_ID")
+    token = os.environ.get("CLOUDFLARE_API_TOKEN")
+    if not zone_id or not token:
+        raise RuntimeError("CLOUDFLARE_ZONE_ID and CLOUDFLARE_API_TOKEN are required to purge redirect cache")
+    for batch in batched(urls, 30):
+        purge_cloudflare_urls(zone_id, token, batch)
+    logger.info("purged {} redirect cache URLs", len(urls))
+
+
+def purge_cloudflare_urls(zone_id: str, token: str, urls: list[str]) -> None:
+    payload = {"files": urls}
+    response = post_json(
+        f"https://api.cloudflare.com/client/v4/zones/{zone_id}/purge_cache",
+        payload,
+        {
+            "Authorization": f"Bearer {token}",
+            "Content-Type": "application/json",
+        },
+    )
+    if not response.get("success"):
+        raise RuntimeError(f"Cloudflare cache purge failed: {response!r}")
+
+
+def batched(items: list[str], size: int) -> list[list[str]]:
+    return [items[index : index + size] for index in range(0, len(items), size)]
 
 
 def artifact_matches_candidate(artifact: dict[str, Any], candidate: ArtifactCandidate) -> bool:
@@ -855,53 +1017,41 @@ def sign_release(config: dict[str, Any]) -> None:
 
 
 def write_worker(path: Path) -> None:
-    path.write_text(
-        """export default {
+    worker = """export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    const rulesUrl = new URL("/redirect_rules.json", url);
+    const match = url.pathname.match(/^\\/pool\\/([^/]+)\\/([^/]+)\\/([^/]+)$/);
+    if (!match) {
+      return new Response("package redirect not found", { status: 404 });
+    }
+
+    const [, component, entryName, filename] = match;
+    const rulesUrl = new URL(`/redirect-rules/${component}/${entryName}.json`, url);
     const rulesResponse = await env.ASSETS.fetch(rulesUrl.toString());
     if (!rulesResponse.ok) {
-      return new Response("redirect rules unavailable", { status: 503 });
+      return new Response("package redirect not found", { status: 404 });
     }
+
     const rules = await rulesResponse.json();
-    const target = rules[url.pathname];
+    const target = rules[filename];
     if (!target) {
       return new Response("package redirect not found", { status: 404 });
     }
-    recordDownload(request, env, url, target);
-    return Response.redirect(target, 302);
+
+    return new Response(null, {
+      status: 302,
+      headers: {
+        "Location": target,
+        "Cache-Control": "public, max-age=__REDIRECT_BROWSER_TTL_SECONDS__",
+        "Cloudflare-CDN-Cache-Control": "public, max-age=__REDIRECT_EDGE_TTL_SECONDS__",
+      },
+    });
   },
 };
-
-function recordDownload(request, env, url, target) {
-  if (!env.DOWNLOADS || !["GET", "HEAD"].includes(request.method)) return;
-  const parts = url.pathname.split("/");
-  const entryName = parts.length >= 4 ? parts[3] : "";
-  const filename = parts.at(-1) || "";
-  env.DOWNLOADS.writeDataPoint({
-    blobs: [
-      url.pathname,
-      request.method,
-      entryName,
-      filename,
-      packageArchitecture(filename),
-      new URL(target).host,
-      request.cf?.colo || "",
-      request.cf?.country || "",
-    ],
-    doubles: [1],
-    indexes: [entryName || url.pathname],
-  });
-}
-
-function packageArchitecture(filename) {
-  const match = filename.match(/_([^_]+)\\.deb$/);
-  return match ? match[1] : "";
-}
-""",
-        encoding="utf-8",
-    )
+"""
+    worker = worker.replace("__REDIRECT_BROWSER_TTL_SECONDS__", str(REDIRECT_BROWSER_TTL_SECONDS))
+    worker = worker.replace("__REDIRECT_EDGE_TTL_SECONDS__", str(REDIRECT_EDGE_TTL_SECONDS))
+    path.write_text(worker, encoding="utf-8")
 
 
 def write_routes(path: Path) -> None:
@@ -987,95 +1137,132 @@ def not_checked_artifact_health(artifact: dict[str, Any]) -> dict[str, Any]:
     return health
 
 
-def write_download_stats(path: Path, dataset: str = DEFAULT_DOWNLOAD_STATS_DATASET, days: int = 30, strict: bool = False) -> None:
+def write_download_stats(path: Path, hostname: str | None, days: int = 30, strict: bool = False) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    account_id = os.environ.get("CLOUDFLARE_ACCOUNT_ID")
+    zone_id = os.environ.get("CLOUDFLARE_ZONE_ID")
     token = os.environ.get("CLOUDFLARE_API_TOKEN")
-    if not account_id or not token:
+    if not zone_id or not token or not hostname:
         logger.warning("Cloudflare credentials are missing; writing empty download stats")
         write_json(path, empty_download_stats("missing_cloudflare_credentials", days))
         return
 
     try:
-        stats = fetch_download_stats(account_id, token, dataset, days)
+        stats = fetch_download_stats(zone_id, token, hostname, days)
     except (RuntimeError, TimeoutError, urllib.error.URLError) as exc:
         if strict:
             raise
-        logger.warning("Analytics Engine query failed; writing empty download stats: {}", exc)
+        logger.warning("Cloudflare HTTP analytics query failed; writing empty download stats: {}", exc)
         stats = empty_download_stats("analytics_query_failed", days)
     write_json(path, stats)
 
 
-def fetch_download_stats(account_id: str, token: str, dataset: str, days: int = 30) -> dict[str, Any]:
-    if not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", dataset):
-        raise typer.BadParameter("dataset must be a valid Analytics Engine dataset identifier")
+def fetch_download_stats(zone_id: str, token: str, hostname: str, days: int = 30) -> dict[str, Any]:
+    end = datetime.now(timezone.utc).replace(microsecond=0)
+    start = end - timedelta(days=days)
+    seven_day_start = end - timedelta(days=7)
+    query = """
+query AptIndexDownloadStats($zoneTag: string, $packageFilter: filter, $sevenDayFilter: filter, $dailyFilter: filter) {
+  viewer {
+    zones(filter: {zoneTag: $zoneTag}) {
+      packageRows: httpRequestsAdaptiveGroups(limit: 10000, filter: $packageFilter, orderBy: [count_DESC]) {
+        count
+        dimensions { clientRequestPath }
+      }
+      sevenDayRows: httpRequestsAdaptiveGroups(limit: 10000, filter: $sevenDayFilter, orderBy: [count_DESC]) {
+        count
+        dimensions { clientRequestPath }
+      }
+      dailyRows: httpRequestsAdaptiveGroups(limit: 1000, filter: $dailyFilter, orderBy: [date_ASC]) {
+        count
+        dimensions { date }
+      }
+    }
+  }
+}
+""".strip()
+    variables = {
+        "zoneTag": zone_id,
+        "packageFilter": http_download_filter(hostname, start, end),
+        "sevenDayFilter": http_download_filter(hostname, seven_day_start, end),
+        "dailyFilter": http_download_filter(hostname, start, end),
+    }
+    payload = cloudflare_graphql(token, query, variables)
+    zones = payload.get("data", {}).get("viewer", {}).get("zones", [])
+    if not zones:
+        raise RuntimeError(f"Cloudflare zone {zone_id!r} returned no HTTP analytics rows")
+    zone = zones[0]
+    package_rows = aggregate_path_download_rows(zone.get("packageRows", []))
+    seven_day_rows = aggregate_path_download_rows(zone.get("sevenDayRows", []))
+    daily_rows = [
+        {
+            "day": row.get("dimensions", {}).get("date"),
+            "downloads": int(row.get("count") or 0),
+        }
+        for row in zone.get("dailyRows", [])
+    ]
+    return format_download_stats(package_rows, seven_day_rows, daily_rows, hostname, days)
 
-    package_rows = analytics_sql(
-        account_id,
-        token,
-        f"""
-SELECT blob3 AS entry_name, blob5 AS arch, COUNT() AS downloads
-FROM {dataset}
-WHERE blob2 = 'GET' AND timestamp >= NOW() - INTERVAL '{days}' DAY
-GROUP BY entry_name, arch
-ORDER BY downloads DESC
-""".strip(),
-    )
-    seven_day_rows = analytics_sql(
-        account_id,
-        token,
-        f"""
-SELECT blob3 AS entry_name, blob5 AS arch, COUNT() AS downloads
-FROM {dataset}
-WHERE blob2 = 'GET' AND timestamp >= NOW() - INTERVAL '7' DAY
-GROUP BY entry_name, arch
-""".strip(),
-    )
-    daily_rows = analytics_sql(
-        account_id,
-        token,
-        f"""
-SELECT toStartOfDay(timestamp) AS day, COUNT() AS downloads
-FROM {dataset}
-WHERE blob2 = 'GET' AND timestamp >= NOW() - INTERVAL '{days}' DAY
-GROUP BY day
-ORDER BY day
-""".strip(),
-    )
-    total_rows = analytics_sql(
-        account_id,
-        token,
-        f"SELECT COUNT() AS downloads FROM {dataset} WHERE blob2 = 'GET'",
-    )
-    return format_download_stats(package_rows, seven_day_rows, daily_rows, total_rows, dataset, days)
+
+def http_download_filter(hostname: str, start: datetime, end: datetime) -> dict[str, Any]:
+    return {
+        "datetime_geq": graphql_time(start),
+        "datetime_lt": graphql_time(end),
+        "requestSource": "eyeball",
+        "clientRequestHTTPHost": hostname,
+        "clientRequestHTTPMethodName": "GET",
+        "clientRequestPath_like": "/pool/%",
+    }
 
 
-def analytics_sql(account_id: str, token: str, sql: str) -> list[dict[str, Any]]:
-    url = f"https://api.cloudflare.com/client/v4/accounts/{account_id}/analytics_engine/sql"
-    if " FORMAT " not in f" {sql.upper()} ":
-        sql = f"{sql}\nFORMAT JSON"
-    body = post_text(
-        url,
-        sql,
+def cloudflare_graphql(token: str, query: str, variables: dict[str, Any]) -> dict[str, Any]:
+    payload = post_json(
+        "https://api.cloudflare.com/client/v4/graphql",
+        {"query": query, "variables": variables},
         {
             "Authorization": f"Bearer {token}",
-            "Content-Type": "text/plain",
+            "Accept": "application/json",
+            "Content-Type": "application/json",
         },
     )
-    payload = json.loads(body)
-    if isinstance(payload, dict) and "data" in payload:
-        return payload["data"]
-    if isinstance(payload, list):
-        return payload
-    raise RuntimeError(f"unexpected Analytics Engine SQL response: {payload!r}")
+    errors = payload.get("errors")
+    if errors:
+        raise RuntimeError(f"Cloudflare GraphQL query failed: {errors!r}")
+    return payload
+
+
+def aggregate_path_download_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    counts: dict[tuple[str, str], int] = {}
+    for row in rows:
+        path = str(row.get("dimensions", {}).get("clientRequestPath") or "")
+        parsed = parse_package_download_path(path)
+        if not parsed:
+            continue
+        _component, entry_name, filename = parsed
+        key = (entry_name, package_architecture(filename))
+        counts[key] = counts.get(key, 0) + int(row.get("count") or 0)
+    return [
+        {"entry_name": entry_name, "arch": arch, "downloads": downloads}
+        for (entry_name, arch), downloads in sorted(counts.items(), key=lambda item: (-item[1], item[0]))
+    ]
+
+
+def parse_package_download_path(path: str) -> tuple[str, str, str] | None:
+    parts = path.split("/")
+    if len(parts) != 5 or parts[0] or parts[1] != "pool":
+        return None
+    return parts[2], parts[3], parts[4]
+
+
+def package_architecture(filename: str) -> str:
+    match = re.search(r"_([^_]+)\.deb$", filename)
+    return match.group(1) if match else ""
 
 
 def format_download_stats(
     package_rows: list[dict[str, Any]],
     seven_day_rows: list[dict[str, Any]],
     daily_rows: list[dict[str, Any]],
-    total_rows: list[dict[str, Any]],
-    dataset: str,
+    hostname: str,
     days: int,
 ) -> dict[str, Any]:
     seven_day_counts = {
@@ -1105,15 +1292,14 @@ def format_download_stats(
     ]
     last_days = sum(row["downloads"] for row in packages)
     last_7_days = sum(row["last_7_days"] for row in packages)
-    total = int((total_rows[0] if total_rows else {}).get("downloads") or 0)
     return {
         "version": 1,
         "generated_at": now_iso(),
-        "source": "workers_analytics_engine",
-        "dataset": dataset,
+        "source": "cloudflare_http_requests",
+        "hostname": hostname,
         "window_days": days,
         "totals": {
-            "downloads": total,
+            "downloads": last_days,
             "last_days": last_days,
             "last_7_days": last_7_days,
         },
@@ -1133,7 +1319,6 @@ def empty_download_stats(reason: str, days: int = 30) -> dict[str, Any]:
         "generated_at": now_iso(),
         "source": "none",
         "reason": reason,
-        "dataset": DEFAULT_DOWNLOAD_STATS_DATASET,
         "window_days": days,
         "totals": {
             "downloads": 0,
@@ -1166,16 +1351,24 @@ def fetch_json(url: str, headers: dict[str, str] | None = None) -> Any:
     return json.loads(fetch_text(url, headers))
 
 
-def fetch_text(url: str, headers: dict[str, str] | None = None) -> str:
+def fetch_bytes(url: str, headers: dict[str, str] | None = None) -> bytes:
     request_headers = {"User-Agent": USER_AGENT}
     request_headers.update(headers or {})
     request = urllib.request.Request(url, headers=request_headers)
     try:
         with urllib.request.urlopen(request, timeout=60) as response:
-            return response.read().decode("utf-8")
+            return response.read()
     except urllib.error.HTTPError as exc:
         body = exc.read().decode("utf-8", errors="replace")
         raise RuntimeError(f"GET {url} failed: HTTP {exc.code}: {body}") from exc
+
+
+def fetch_text(url: str, headers: dict[str, str] | None = None) -> str:
+    return fetch_bytes(url, headers).decode("utf-8")
+
+
+def post_json(url: str, payload: Any, headers: dict[str, str] | None = None) -> Any:
+    return json.loads(post_text(url, json.dumps(payload), headers))
 
 
 def post_text(url: str, body: str, headers: dict[str, str] | None = None) -> str:
@@ -1215,6 +1408,10 @@ def worker_count(total: int, requested: int | None) -> int:
 
 def now_iso() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+
+
+def graphql_time(value: datetime) -> str:
+    return value.astimezone(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 
 if __name__ == "__main__":

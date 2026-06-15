@@ -117,8 +117,12 @@ The static `.SRCINFO` data read from an AUR package repository to discover upstr
 _Avoid_: PKGBUILD execution
 
 **Redirect rules**:
-A generated static data file that maps repository package download paths to upstream package file URLs.
-_Avoid_: Worker routing code
+Generated static data that maps redirected package download requests to upstream package file URLs. Redirect rules are organized by APT component and software entry rather than as one global table.
+_Avoid_: Worker routing code, global redirect table
+
+**Download statistics**:
+Public aggregate counts of redirected package download `GET` requests derived from Cloudflare HTTP request analytics for package download paths.
+_Avoid_: Worker event counter, resolver health
 
 **Deployable APT tree**:
 The generated static APT repository directory uploaded to Cloudflare Pages.

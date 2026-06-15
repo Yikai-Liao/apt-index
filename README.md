@@ -64,7 +64,8 @@ Generated deployable APT tree
     +--> dists/stable/main/binary-arm64/Packages.gz
     +--> dists/stable/Release
     +--> dists/stable/InRelease
-    +--> redirect_rules.json
+    +--> redirect-rules/main/<entry>.json
+    +--> redirect-rules/snapshot.json.zst
     +--> download_stats.json
     +--> _routes.json
     +--> _worker.js
@@ -75,7 +76,7 @@ Cloudflare Pages + Worker
 
 `track_health.json` and `artifact_health.json` are generated diagnostics. They are published with the generated `dist/` tree, but they are ignored by Git and are not source-controlled state.
 
-Cloudflare Pages serves the static APT metadata, signing key, generated redirect data, and public download statistics. `_routes.json` routes only `/pool/*` package download paths to the Worker; `/dists/*` and `/key.asc` are served directly as static files. The Worker reads `redirect_rules.json` and redirects virtual package download paths to the original upstream `.deb` URLs. If the `DOWNLOADS` Workers Analytics Engine binding is configured, the Worker also records successful package redirect requests.
+Cloudflare Pages serves the static APT metadata, signing key, generated redirect data, and public download statistics. `_routes.json` routes only `/pool/*` package download paths to the Worker; `/dists/*` and `/key.asc` are served directly as static files. The Worker reads the per-entry redirect shard for the requested virtual package path and returns a cacheable `302` redirect to the original upstream `.deb` URL.
 
 ## Package Identity
 
@@ -165,7 +166,7 @@ The repository keeps generated state files that are useful for review, automatio
 
 `artifact_health.json` records whether resolved upstream package files are still reachable. Daily refreshes use a lightweight `HEAD` or range request for unchanged artifacts and compare the remote size when available. New artifacts and explicit full checks download the package and verify the recorded hash and size.
 
-`download_stats.json` records public, aggregated download request counts exported from Workers Analytics Engine. It is a deploy artifact, not committed generated state.
+`download_stats.json` records public, aggregated `GET /pool/*` request counts exported from Cloudflare HTTP request analytics. It is a deploy artifact, not committed generated state.
 
 The deployable `dist/` tree is generated in CI and uploaded to Cloudflare Pages, but it is not committed.
 
@@ -179,9 +180,11 @@ The daily GitHub Actions workflow:
 4. Continues refreshing unrelated packages.
 5. Checks artifact health for both fixed and tracked packages. Daily checks are lightweight for unchanged artifacts; `apt-index refresh --full-artifact-check` downloads and hashes every locked artifact.
 6. Commits changed generated state files directly to the default branch.
-7. Builds and signs the deployable APT tree.
-8. Exports public download statistics to `dist/download_stats.json`.
-9. Uploads the generated tree to Cloudflare Pages.
+7. Builds and signs the deployable APT tree, including per-entry redirect shards and `redirect-rules/snapshot.json.zst`.
+8. Compares the new redirect snapshot with the previously deployed Cloudflare snapshot and plans which cached `302` redirect URLs need purging.
+9. Exports public download statistics to `dist/download_stats.json`.
+10. Uploads the generated tree to Cloudflare Pages.
+11. Purges cached package redirect URLs whose redirect target changed.
 
 This repository intentionally uses a rolling self-managed model. Successful refreshes are committed directly instead of opening pull requests.
 
@@ -225,15 +228,14 @@ The upstream source controls the actual `.deb` contents. Artifact health checks 
 
 Cloudflare Pages hosts the generated static APT tree.
 
-Cloudflare Worker code handles redirected package download paths and reads generated static redirect rules. Redirect rules are data, not Worker code, so daily package updates do not require redeploying the Worker bundle.
+Cloudflare Worker code handles redirected package download paths and reads generated static redirect shards. Redirect rules are data, not Worker code, so daily package updates do not require redeploying the Worker bundle. Package redirect responses are cacheable `302` responses; the publish workflow purges only cached package download URLs whose redirect target changed.
 
-Download request statistics use Workers Analytics Engine:
+Download request statistics use Cloudflare HTTP request analytics:
 
-- Configure an Analytics Engine binding named `DOWNLOADS` on the Cloudflare Pages project.
-- Use the dataset name `apt_index_downloads`.
-- The Worker records `GET` and `HEAD` redirect requests; the public JSON and page counts only aggregate `GET` requests.
-- Enable Workers Analytics Engine for the Cloudflare account before deploying the binding.
-- The GitHub Actions `CLOUDFLARE_API_TOKEN` must include `Account > Account Analytics > Read` so it can query the Analytics Engine SQL API.
+- Set `CLOUDFLARE_ZONE_ID` for the zone that serves the repository.
+- The public JSON and page counts aggregate only `GET /pool/*` requests.
+- `HEAD` requests are excluded because they can represent probes, checks, or cache validation rather than a package download.
+- The GitHub Actions `CLOUDFLARE_API_TOKEN` must be able to query GraphQL HTTP request analytics and purge cached URLs for the zone.
 
 ## Implementation Notes
 

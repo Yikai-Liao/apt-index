@@ -581,27 +581,101 @@ class BuildStateFileTests(unittest.TestCase):
         self.assertEqual(artifact_health["packages"]["pkg"]["artifacts"]["amd64"]["check"], "not_generated")
 
 
+class RedirectRulesTests(unittest.TestCase):
+    def test_write_redirect_rules_writes_entry_shards_and_snapshot(self) -> None:
+        lock = {
+            "packages": {
+                "pkg": {
+                    "architectures": {
+                        "amd64": {"artifact": locked_artifact()},
+                    }
+                }
+            }
+        }
+
+        with tempfile.TemporaryDirectory() as tmp, patch.object(cli, "DIST_DIR", Path(tmp) / "dist"):
+            cli.DIST_DIR.mkdir()
+            redirects = cli.write_redirect_rules(lock, "main")
+            shard = json.loads(cli.DIST_DIR.joinpath("redirect-rules", "main", "pkg.json").read_text(encoding="utf-8"))
+            snapshot = cli.read_redirect_snapshot(cli.DIST_DIR / "redirect-rules" / "snapshot.json.zst")
+
+        self.assertEqual(shard, {"pkg_1.0.0_amd64.deb": "https://example.test/pkg.deb"})
+        self.assertEqual(redirects, {"/pool/main/pkg/pkg_1.0.0_amd64.deb": "https://example.test/pkg.deb"})
+        self.assertEqual(snapshot, redirects)
+
+    def test_plan_redirect_purge_outputs_changed_and_removed_urls(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            snapshot = root / "snapshot.json.zst"
+            output = root / "purge.txt"
+            cli.write_redirect_snapshot(
+                snapshot,
+                {
+                    "/pool/main/pkg/new.deb": "https://example.test/new.deb",
+                    "/pool/main/pkg/unchanged.deb": "https://example.test/unchanged.deb",
+                },
+            )
+
+            with patch.object(
+                cli,
+                "fetch_previous_redirect_snapshot",
+                return_value={
+                    "/pool/main/pkg/old.deb": "https://example.test/old.deb",
+                    "/pool/main/pkg/new.deb": "https://example.test/old-target.deb",
+                    "/pool/main/pkg/unchanged.deb": "https://example.test/unchanged.deb",
+                },
+            ):
+                urls = cli.plan_redirect_purge(output, snapshot, "https://deb.example.test")
+
+            lines = output.read_text(encoding="utf-8").splitlines()
+
+        self.assertEqual(
+            urls,
+            [
+                "https://deb.example.test/pool/main/pkg/new.deb",
+                "https://deb.example.test/pool/main/pkg/old.deb",
+            ],
+        )
+        self.assertEqual(lines, urls)
+
+    def test_fetch_previous_redirect_snapshot_tolerates_invalid_first_deploy_asset(self) -> None:
+        with patch.object(cli, "fetch_bytes", return_value=b"not zstd"):
+            redirects = cli.fetch_previous_redirect_snapshot("https://deb.example.test")
+
+        self.assertEqual(redirects, {})
+
+
 class DownloadStatsTests(unittest.TestCase):
     def test_formats_download_stats_for_public_json(self) -> None:
         stats = cli.format_download_stats(
             [{"entry_name": "bat", "arch": "amd64", "downloads": 12}],
             [{"entry_name": "bat", "arch": "amd64", "downloads": 3}],
             [{"day": "2026-06-14T00:00:00Z", "downloads": 5}],
-            [{"downloads": 20}],
-            "apt_index_downloads",
+            "deb.example.test",
             30,
         )
 
-        self.assertEqual(stats["source"], "workers_analytics_engine")
-        self.assertEqual(stats["dataset"], "apt_index_downloads")
-        self.assertEqual(stats["totals"], {"downloads": 20, "last_days": 12, "last_7_days": 3})
+        self.assertEqual(stats["source"], "cloudflare_http_requests")
+        self.assertEqual(stats["hostname"], "deb.example.test")
+        self.assertEqual(stats["totals"], {"downloads": 12, "last_days": 12, "last_7_days": 3})
         self.assertEqual(stats["packages"], [{"entry_name": "bat", "arch": "amd64", "downloads": 12, "last_7_days": 3}])
         self.assertEqual(stats["daily"], [{"date": "2026-06-14", "downloads": 5}])
+
+    def test_aggregates_cloudflare_path_rows_by_entry_and_arch(self) -> None:
+        rows = cli.aggregate_path_download_rows(
+            [
+                {"count": 4, "dimensions": {"clientRequestPath": "/pool/main/bat/bat_1.0_amd64.deb"}},
+                {"count": 2, "dimensions": {"clientRequestPath": "/pool/main/bat/bat_1.0_amd64.deb"}},
+                {"count": 1, "dimensions": {"clientRequestPath": "/dists/stable/InRelease"}},
+            ]
+        )
+
+        self.assertEqual(rows, [{"entry_name": "bat", "arch": "amd64", "downloads": 6}])
 
     def test_write_download_stats_writes_empty_file_without_cloudflare_credentials(self) -> None:
         with tempfile.TemporaryDirectory() as tmp, patch.dict(cli.os.environ, {}, clear=True):
             output = Path(tmp) / "nested" / "download_stats.json"
-            cli.write_download_stats(output, days=14)
+            cli.write_download_stats(output, "deb.example.test", days=14)
 
             stats = cli.load_json(output, None)
 
@@ -610,14 +684,14 @@ class DownloadStatsTests(unittest.TestCase):
         self.assertEqual(stats["window_days"], 14)
 
     def test_write_download_stats_writes_empty_file_when_query_fails(self) -> None:
-        env = {"CLOUDFLARE_ACCOUNT_ID": "account", "CLOUDFLARE_API_TOKEN": "token"}
+        env = {"CLOUDFLARE_ZONE_ID": "zone", "CLOUDFLARE_API_TOKEN": "token"}
         with (
             tempfile.TemporaryDirectory() as tmp,
             patch.dict(cli.os.environ, env, clear=True),
             patch.object(cli, "fetch_download_stats", side_effect=RuntimeError("dataset not found")),
         ):
             output = Path(tmp) / "download_stats.json"
-            cli.write_download_stats(output)
+            cli.write_download_stats(output, "deb.example.test")
 
             stats = cli.load_json(output, None)
 
@@ -626,16 +700,18 @@ class DownloadStatsTests(unittest.TestCase):
 
 
 class WorkerGenerationTests(unittest.TestCase):
-    def test_worker_records_optional_download_analytics_before_redirect(self) -> None:
+    def test_worker_reads_redirect_shard_and_returns_cacheable_redirect(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "_worker.js"
             cli.write_worker(path)
 
             worker = path.read_text(encoding="utf-8")
 
-        self.assertIn("env.DOWNLOADS.writeDataPoint", worker)
-        self.assertIn("request.method", worker)
-        self.assertIn("Response.redirect(target, 302)", worker)
+        self.assertIn("/redirect-rules/${component}/${entryName}.json", worker)
+        self.assertIn("const target = rules[filename]", worker)
+        self.assertIn('"Cloudflare-CDN-Cache-Control": "public, max-age=2592000"', worker)
+        self.assertIn("status: 302", worker)
+        self.assertNotIn("env.DOWNLOADS", worker)
 
 
 class SigningKeyTests(unittest.TestCase):

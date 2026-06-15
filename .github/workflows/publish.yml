@@ -45,10 +45,13 @@ jobs:
           APT_INDEX_GPG_PASSPHRASE: ${{ secrets.APT_INDEX_GPG_PASSPHRASE }}
         run: uv run apt-index build
 
+      - name: Plan redirect cache purge
+        run: uv run apt-index plan-redirect-purge --output redirect-purge-urls.txt
+
       - name: Export download stats
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
         run: uv run apt-index download-stats --output dist/download_stats.json
 
       - name: Publish to Cloudflare Pages
@@ -56,3 +59,9 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: npx wrangler pages deploy dist --project-name apt-index --branch main --commit-dirty=true
+
+      - name: Purge changed package redirects
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+        run: uv run apt-index purge-redirect-cache --urls redirect-purge-urls.txt
