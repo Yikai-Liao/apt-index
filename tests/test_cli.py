@@ -5,11 +5,11 @@ import json
 import tempfile
 import unittest
 import urllib.error
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
-from apt_index import cli
+from apt_index import cli, deb, download_stats, health as health_module, paths, publish, redirect, site_data as site_data_module, sources
 from apt_index.config import ConfigError, load_configuration
 
 
@@ -307,6 +307,15 @@ amd64 = "v1"
                 load_configuration(root)
 
 
+class PathResolutionTests(unittest.TestCase):
+    def test_current_project_directory_takes_priority_over_package_location(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            root.joinpath("apt-index.toml").write_text("", encoding="utf-8")
+            with patch.object(paths.Path, "cwd", return_value=root):
+                self.assertEqual(paths.resolve_root(), root)
+
+
 class ResolveEntryTests(unittest.TestCase):
     def test_reuses_locked_artifact_when_candidate_is_unchanged(self) -> None:
         previous_entry = {
@@ -320,13 +329,13 @@ class ResolveEntryTests(unittest.TestCase):
                 }
             },
         }
-        candidate = cli.ArtifactCandidate(
+        candidate = sources.ArtifactCandidate(
             "https://example.test/pkg.deb",
             "1.0.0",
             "pkg_1.0.0_amd64.deb",
         )
 
-        with patch.object(cli, "resolve_candidate", return_value=candidate), patch.object(cli, "download") as download:
+        with patch.object(sources, "resolve_candidate", return_value=candidate), patch.object(deb, "download") as download:
             resolved = cli.resolve_entry("pkg", package_entry(), previous_entry)
 
         download.assert_not_called()
@@ -345,7 +354,7 @@ class ResolveEntryTests(unittest.TestCase):
                 }
             },
         }
-        candidate = cli.ArtifactCandidate(
+        candidate = sources.ArtifactCandidate(
             "https://example.test/pkg-2.deb",
             "2.0.0",
             "pkg_2.0.0_amd64.deb",
@@ -359,13 +368,19 @@ class ResolveEntryTests(unittest.TestCase):
         }
 
         with (
-            patch.object(cli, "resolve_candidate", return_value=candidate),
-            patch.object(cli, "download", return_value=Path("/tmp/pkg.deb")) as download,
-            patch.object(cli, "inspect_deb", return_value=metadata),
+            patch.object(sources, "resolve_candidate", return_value=candidate),
+            patch.object(deb, "download", return_value=Path("/tmp/pkg.deb")) as download,
+            patch.object(deb, "inspect_deb", return_value=metadata),
         ):
             resolved = cli.resolve_entry("pkg", package_entry(), previous_entry)
 
-        download.assert_called_once_with("https://example.test/pkg-2.deb", None, "sha256")
+        download.assert_called_once_with(
+            "https://example.test/pkg-2.deb",
+            cache_dir=cli.CACHE_DIR,
+            user_agent=cli.USER_AGENT,
+            expected_hash=None,
+            hash_algorithm="sha256",
+        )
         artifact = resolved.entry["architectures"]["amd64"]["artifact"]
         self.assertEqual(artifact["url"], "https://example.test/pkg-2.deb")
         self.assertEqual(artifact["sha256"], "new-sha256")
@@ -383,7 +398,7 @@ class ResolveEntryTests(unittest.TestCase):
                 }
             },
         }
-        candidate = cli.ArtifactCandidate(
+        candidate = sources.ArtifactCandidate(
             "https://example.test/pkg.deb",
             "1.0.0",
             "pkg_1.0.0_amd64.deb",
@@ -399,13 +414,19 @@ class ResolveEntryTests(unittest.TestCase):
         }
 
         with (
-            patch.object(cli, "resolve_candidate", return_value=candidate),
-            patch.object(cli, "download", return_value=Path("/tmp/pkg.deb")) as download,
-            patch.object(cli, "inspect_deb", return_value=metadata),
+            patch.object(sources, "resolve_candidate", return_value=candidate),
+            patch.object(deb, "download", return_value=Path("/tmp/pkg.deb")) as download,
+            patch.object(deb, "inspect_deb", return_value=metadata),
         ):
             resolved = cli.resolve_entry("pkg", package_entry(), previous_entry)
 
-        download.assert_called_once_with("https://example.test/pkg.deb", "different-sha1", "sha1")
+        download.assert_called_once_with(
+            "https://example.test/pkg.deb",
+            cache_dir=cli.CACHE_DIR,
+            user_agent=cli.USER_AGENT,
+            expected_hash="different-sha1",
+            hash_algorithm="sha1",
+        )
         self.assertEqual(resolved.full_checked_arches, {"amd64"})
 
     def test_keeps_previous_architecture_when_refresh_fails(self) -> None:
@@ -421,7 +442,7 @@ class ResolveEntryTests(unittest.TestCase):
             },
         }
 
-        with patch.object(cli, "resolve_candidate", side_effect=RuntimeError("no asset")):
+        with patch.object(sources, "resolve_candidate", side_effect=RuntimeError("no asset")):
             resolved = cli.resolve_entry("pkg", package_entry(), previous_entry)
 
         self.assertEqual(resolved.entry["architectures"]["amd64"], previous_entry["architectures"]["amd64"])
@@ -439,10 +460,10 @@ class ResolveEntryTests(unittest.TestCase):
             },
         }
         candidates = {
-            "amd64": cli.ArtifactCandidate("https://example.test/pkg-amd64.deb", "1.0.0", "pkg_1.0.0_amd64.deb"),
+            "amd64": sources.ArtifactCandidate("https://example.test/pkg-amd64.deb", "1.0.0", "pkg_1.0.0_amd64.deb"),
         }
 
-        def fake_resolve_candidate(architecture: dict[str, object]) -> cli.ArtifactCandidate:
+        def fake_resolve_candidate(architecture: dict[str, object], **kwargs: object) -> sources.ArtifactCandidate:
             source = architecture["source"]
             pattern = source["asset_pattern"]
             if "arm64" in pattern:
@@ -459,9 +480,9 @@ class ResolveEntryTests(unittest.TestCase):
             }
 
         with (
-            patch.object(cli, "resolve_candidate", side_effect=fake_resolve_candidate),
-            patch.object(cli, "download", side_effect=lambda url, expected_hash, hash_algorithm: Path("/tmp") / Path(url).name),
-            patch.object(cli, "inspect_deb", side_effect=fake_inspect_deb),
+            patch.object(sources, "resolve_candidate", side_effect=fake_resolve_candidate),
+            patch.object(deb, "download", side_effect=lambda url, **kwargs: Path("/tmp") / Path(url).name),
+            patch.object(deb, "inspect_deb", side_effect=fake_inspect_deb),
         ):
             resolved = cli.resolve_entry("pkg", entry)
 
@@ -494,8 +515,12 @@ pkgbase = google-chrome
             },
         }
 
-        with patch.object(cli, "fetch_text", return_value=srcinfo):
-            candidate = cli.resolve_candidate(architecture)
+        candidate = sources.resolve_candidate(
+            architecture,
+            fetch_json=cli.fetch_json,
+            fetch_text=lambda url, headers=None: srcinfo,
+            root=cli.ROOT,
+        )
 
         self.assertEqual(candidate.url, "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_149.0.7827.114-1_amd64.deb")
         self.assertEqual(candidate.asset_name, "google-chrome-stable_149.0.7827.114-1_amd64.deb")
@@ -522,8 +547,12 @@ pkgbase = example-bin
             },
         }
 
-        with patch.object(cli, "fetch_text", return_value=srcinfo):
-            candidate = cli.resolve_candidate(architecture)
+        candidate = sources.resolve_candidate(
+            architecture,
+            fetch_json=cli.fetch_json,
+            fetch_text=lambda url, headers=None: srcinfo,
+            root=cli.ROOT,
+        )
 
         self.assertEqual(candidate.url, "https://example.test/example-arm64.deb")
         self.assertEqual(candidate.asset_name, "example.deb")
@@ -546,8 +575,12 @@ net.sf.files = {"deadbeef-static_1.10.3~alpha-1_amd64.deb":{"name":"deadbeef-sta
             },
         }
 
-        with patch.object(cli, "fetch_text", return_value=html):
-            candidate = cli.resolve_candidate(architecture)
+        candidate = sources.resolve_candidate(
+            architecture,
+            fetch_json=cli.fetch_json,
+            fetch_text=lambda url, headers=None: html,
+            root=cli.ROOT,
+        )
 
         self.assertEqual(
             candidate.url,
@@ -568,8 +601,8 @@ class ArtifactHealthTests(unittest.TestCase):
             self.assertEqual(timeout, 60)
             return FakeResponse({"Content-Length": "123"})
 
-        with patch.object(cli.urllib.request, "urlopen", side_effect=fake_urlopen):
-            result = cli.check_artifact_light(artifact)
+        with patch.object(health_module.urllib.request, "urlopen", side_effect=fake_urlopen):
+            result = health_module.check_artifact_light(artifact, user_agent=cli.USER_AGENT)
 
         self.assertEqual(result, {"status": "ok", "check": "head", "size": 123})
 
@@ -584,8 +617,8 @@ class ArtifactHealthTests(unittest.TestCase):
             self.assertEqual(request.headers["Range"], "bytes=0-0")
             return FakeResponse({"Content-Range": "bytes 0-0/123"})
 
-        with patch.object(cli.urllib.request, "urlopen", side_effect=fake_urlopen):
-            result = cli.check_artifact_light(artifact)
+        with patch.object(health_module.urllib.request, "urlopen", side_effect=fake_urlopen):
+            result = health_module.check_artifact_light(artifact, user_agent=cli.USER_AGENT)
 
         self.assertEqual(calls, ["HEAD", "GET"])
         self.assertEqual(result, {"status": "ok", "check": "range", "size": 123})
@@ -598,8 +631,8 @@ class ArtifactHealthTests(unittest.TestCase):
                 raise urllib.error.HTTPError(artifact["url"], 405, "Method Not Allowed", {}, None)
             return FakeResponse({"Content-Length": "1"}, status=206)
 
-        with patch.object(cli.urllib.request, "urlopen", side_effect=fake_urlopen):
-            result = cli.check_artifact_light(artifact)
+        with patch.object(health_module.urllib.request, "urlopen", side_effect=fake_urlopen):
+            result = health_module.check_artifact_light(artifact, user_agent=cli.USER_AGENT)
 
         self.assertEqual(result, {"status": "ok", "check": "range"})
 
@@ -611,12 +644,21 @@ class ArtifactHealthTests(unittest.TestCase):
             artifact["size"] = 3
             artifact["sha256"] = "actual-sha256"
             with (
-                patch.object(cli, "download", return_value=path) as download,
-                patch.object(cli, "file_hash", return_value="actual-sha256") as file_hash,
+                patch.object(deb, "download", return_value=path) as download,
+                patch.object(deb, "file_hash", return_value="actual-sha256") as file_hash,
             ):
-                result = cli.check_artifact(artifact)
+                result = health_module.check_artifact(
+                    artifact,
+                    cache_dir=cli.CACHE_DIR,
+                    user_agent=cli.USER_AGENT,
+                )
 
-        download.assert_called_once_with("https://example.test/pkg.deb", "actual-sha256")
+        download.assert_called_once_with(
+            "https://example.test/pkg.deb",
+            cache_dir=cli.CACHE_DIR,
+            user_agent=cli.USER_AGENT,
+            expected_hash="actual-sha256",
+        )
         file_hash.assert_called_once_with(path, "sha256")
         self.assertEqual(result, {"status": "ok", "check": "full", "size": 3, "sha256": "actual-sha256"})
 
@@ -635,8 +677,17 @@ class ArtifactHealthTests(unittest.TestCase):
             }
         }
 
-        with patch.object(cli, "check_artifact", return_value={"status": "ok", "check": "full"}) as check_artifact:
-            health = cli.check_artifacts(lock, jobs=1, full_artifact_check=True)
+        with patch.object(health_module, "check_artifact", return_value={"status": "ok", "check": "full"}) as check_artifact:
+            health = health_module.check_artifacts(
+                lock,
+                jobs=1,
+                full_artifact_check=True,
+                full_checked_artifacts=None,
+                now_iso=cli.now_iso,
+                worker_count=cli.worker_count,
+                cache_dir=cli.CACHE_DIR,
+                user_agent=cli.USER_AGENT,
+            )
 
         check_artifact.assert_called_once()
         self.assertEqual(health["packages"]["pkg"]["artifacts"]["amd64"], {"status": "ok", "check": "full"})
@@ -665,13 +716,14 @@ class BuildStateFileTests(unittest.TestCase):
             artifact_health_path = root / "artifact_health.json"
             lock_path.write_text(json.dumps(lock), encoding="utf-8")
 
-            with (
-                patch.object(cli, "LOCK_PATH", lock_path),
-                patch.object(cli, "TRACK_HEALTH_PATH", track_health_path),
-                patch.object(cli, "ARTIFACT_HEALTH_PATH", artifact_health_path),
-                patch.object(cli, "DIST_DIR", dist),
-            ):
-                cli.copy_state_files(lock)
+            site_data_module.copy_state_files(
+                lock,
+                track_health_path=track_health_path,
+                artifact_health_path=artifact_health_path,
+                dist_dir=dist,
+                write_json=cli.write_json,
+                now_iso=cli.now_iso,
+            )
 
             self.assertFalse(dist.joinpath("apt-index.lock.json").exists())
             self.assertFalse(track_health_path.exists())
@@ -726,7 +778,7 @@ class BuildStateFileTests(unittest.TestCase):
                 patch.object(cli, "STATIC_DIR", static_dir),
                 patch.object(cli, "load_config", return_value=config),
                 patch.object(cli, "ensure_signing_key", return_value="key"),
-                patch.object(cli, "write_redirect_rules"),
+                patch.object(redirect, "write_redirect_rules"),
                 patch.object(cli, "write_release"),
                 patch.object(cli, "sign_release"),
             ):
@@ -795,7 +847,7 @@ class SiteDataTests(unittest.TestCase):
             ],
         }
 
-        site_data = cli.format_site_data(lock, track_health, artifact_health, download_stats)
+        site_data = site_data_module.format_site_data(lock, track_health, artifact_health, download_stats)
 
         self.assertEqual(site_data["summary"]["entry_count"], 1)
         self.assertEqual(site_data["summary"]["row_count"], 1)
@@ -837,7 +889,12 @@ class SiteDataTests(unittest.TestCase):
             },
         }
 
-        site_data = cli.format_site_data(lock, {"packages": {}}, {"packages": {}}, cli.empty_download_stats("not_generated"))
+        site_data = site_data_module.format_site_data(
+            lock,
+            {"packages": {}},
+            {"packages": {}},
+            download_stats.empty_download_stats("not_generated", 30, cli.now_iso),
+        )
 
         self.assertEqual(site_data["summary"]["row_count"], 2)
         self.assertEqual([row["package_name"] for row in site_data["packages"]], ["bottom", "bottom-arm64"])
@@ -865,12 +922,17 @@ class SiteDataTests(unittest.TestCase):
             lock_path = root / "apt-index.lock.json"
             lock_path.write_text(json.dumps(lock), encoding="utf-8")
 
-            with (
-                patch.object(cli, "LOCK_PATH", lock_path),
-                patch.object(cli, "TRACK_HEALTH_PATH", root / "track_health.json"),
-                patch.object(cli, "ARTIFACT_HEALTH_PATH", root / "artifact_health.json"),
-            ):
-                cli.write_site_data(output, root / "missing-download-stats.json")
+            site_data_module.write_site_data(
+                output,
+                root / "missing-download-stats.json",
+                lock_path=lock_path,
+                track_health_path=root / "track_health.json",
+                artifact_health_path=root / "artifact_health.json",
+                load_json=cli.load_json,
+                write_json=cli.write_json,
+                empty_download_stats=lambda reason: download_stats.empty_download_stats(reason, 30, cli.now_iso),
+                now_iso=cli.now_iso,
+            )
 
             site_data = json.loads(output.read_text(encoding="utf-8"))
 
@@ -893,11 +955,20 @@ class RedirectRulesTests(unittest.TestCase):
             }
         }
 
-        with tempfile.TemporaryDirectory() as tmp, patch.object(cli, "DIST_DIR", Path(tmp) / "dist"):
-            cli.DIST_DIR.mkdir()
-            redirects = cli.write_redirect_rules(lock, "main")
-            shard = json.loads(cli.DIST_DIR.joinpath("redirect-rules", "main", "pkg.json").read_text(encoding="utf-8"))
-            snapshot = cli.read_redirect_snapshot(cli.DIST_DIR / "redirect-rules" / "snapshot.json.zst")
+        with tempfile.TemporaryDirectory() as tmp:
+            dist = Path(tmp) / "dist"
+            dist.mkdir()
+            redirects = redirect.write_redirect_rules(
+                lock,
+                "main",
+                dist_dir=dist,
+                redirect_rules_dirname=cli.REDIRECT_RULES_DIRNAME,
+                redirect_snapshot_filename=cli.REDIRECT_SNAPSHOT_FILENAME,
+                write_json=cli.write_json,
+                package_virtual_path=cli.package_virtual_path,
+            )
+            shard = json.loads(dist.joinpath("redirect-rules", "main", "pkg.json").read_text(encoding="utf-8"))
+            snapshot = redirect.read_redirect_snapshot(dist / "redirect-rules" / "snapshot.json.zst")
 
         self.assertEqual(shard, {"pkg_1.0.0_amd64.deb": "https://example.test/pkg.deb"})
         self.assertEqual(redirects, {"/pool/main/pkg/pkg_1.0.0_amd64.deb": "https://example.test/pkg.deb"})
@@ -908,7 +979,7 @@ class RedirectRulesTests(unittest.TestCase):
             root = Path(tmp)
             snapshot = root / "snapshot.json.zst"
             output = root / "purge.txt"
-            cli.write_redirect_snapshot(
+            redirect.write_redirect_snapshot(
                 snapshot,
                 {
                     "/pool/main/pkg/new.deb": "https://example.test/new.deb",
@@ -916,16 +987,19 @@ class RedirectRulesTests(unittest.TestCase):
                 },
             )
 
-            with patch.object(
-                cli,
-                "fetch_previous_redirect_snapshot",
-                return_value={
+            urls = redirect.plan_redirect_purge(
+                output,
+                snapshot,
+                "https://deb.example.test",
+                redirect_rules_dirname=cli.REDIRECT_RULES_DIRNAME,
+                redirect_snapshot_filename=cli.REDIRECT_SNAPSHOT_FILENAME,
+                legacy_redirect_rules_paths=cli.LEGACY_REDIRECT_RULES_PATHS,
+                fetch_previous_redirect_snapshot=lambda base_url, strict: {
                     "/pool/main/pkg/old.deb": "https://example.test/old.deb",
                     "/pool/main/pkg/new.deb": "https://example.test/old-target.deb",
                     "/pool/main/pkg/unchanged.deb": "https://example.test/unchanged.deb",
                 },
-            ):
-                urls = cli.plan_redirect_purge(output, snapshot, "https://deb.example.test")
+            )
 
             lines = output.read_text(encoding="utf-8").splitlines()
 
@@ -946,15 +1020,22 @@ class RedirectRulesTests(unittest.TestCase):
             root = Path(tmp)
             snapshot = root / "snapshot.json.zst"
             output = root / "purge.txt"
-            cli.write_redirect_snapshot(
+            redirect.write_redirect_snapshot(
                 snapshot,
                 {
                     "/pool/main/pkg/new-only.deb": "https://example.test/new-only.deb",
                 },
             )
 
-            with patch.object(cli, "fetch_previous_redirect_snapshot", return_value={}):
-                urls = cli.plan_redirect_purge(output, snapshot, "https://deb.example.test")
+            urls = redirect.plan_redirect_purge(
+                output,
+                snapshot,
+                "https://deb.example.test",
+                redirect_rules_dirname=cli.REDIRECT_RULES_DIRNAME,
+                redirect_snapshot_filename=cli.REDIRECT_SNAPSHOT_FILENAME,
+                legacy_redirect_rules_paths=cli.LEGACY_REDIRECT_RULES_PATHS,
+                fetch_previous_redirect_snapshot=lambda base_url, strict: {},
+            )
 
         self.assertEqual(
             urls,
@@ -967,8 +1048,12 @@ class RedirectRulesTests(unittest.TestCase):
         )
 
     def test_fetch_previous_redirect_snapshot_tolerates_invalid_first_deploy_asset(self) -> None:
-        with patch.object(cli, "fetch_bytes", return_value=b"not zstd"):
-            redirects = cli.fetch_previous_redirect_snapshot("https://deb.example.test")
+        redirects = redirect.fetch_previous_redirect_snapshot(
+            "https://deb.example.test",
+            redirect_rules_dirname=cli.REDIRECT_RULES_DIRNAME,
+            redirect_snapshot_filename=cli.REDIRECT_SNAPSHOT_FILENAME,
+            fetch_bytes=lambda url, headers=None: b"not zstd",
+        )
 
         self.assertEqual(redirects, {})
 
@@ -977,25 +1062,30 @@ class RedirectRulesTests(unittest.TestCase):
             urls = Path(tmp) / "urls.txt"
             urls.write_text("https://deb.example.test/redirect_rules.json\n", encoding="utf-8")
 
-            with (
-                patch.dict(cli.os.environ, {"CLOUDFLARE_API_TOKEN": "token"}, clear=True),
-                patch.object(cli, "resolve_cloudflare_zone_id", return_value="zone"),
-                patch.object(cli, "purge_cloudflare_urls", side_effect=RuntimeError("Authentication error")),
-            ):
-                cli.purge_redirect_cache(urls)
+            with patch.dict(cli.os.environ, {"CLOUDFLARE_API_TOKEN": "token"}, clear=True):
+                redirect.purge_redirect_cache(
+                    urls,
+                    redirect_rules_dirname=cli.REDIRECT_RULES_DIRNAME,
+                    resolve_cloudflare_zone_id=lambda token, hostname: "zone",
+                    purge_cloudflare_urls=Mock(side_effect=RuntimeError("Authentication error")),
+                    purge_cloudflare_prefixes=Mock(),
+                )
 
     def test_purge_redirect_cache_also_purges_redirect_rules_prefix(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             urls = Path(tmp) / "urls.txt"
             urls.write_text("https://deb.example.test/redirect_rules.json\n", encoding="utf-8")
 
-            with (
-                patch.dict(cli.os.environ, {"CLOUDFLARE_API_TOKEN": "token"}, clear=True),
-                patch.object(cli, "resolve_cloudflare_zone_id", return_value="zone"),
-                patch.object(cli, "purge_cloudflare_urls") as purge_urls,
-                patch.object(cli, "purge_cloudflare_prefixes") as purge_prefixes,
-            ):
-                cli.purge_redirect_cache(urls)
+            purge_urls = Mock()
+            purge_prefixes = Mock()
+            with patch.dict(cli.os.environ, {"CLOUDFLARE_API_TOKEN": "token"}, clear=True):
+                redirect.purge_redirect_cache(
+                    urls,
+                    redirect_rules_dirname=cli.REDIRECT_RULES_DIRNAME,
+                    resolve_cloudflare_zone_id=lambda token, hostname: "zone",
+                    purge_cloudflare_urls=purge_urls,
+                    purge_cloudflare_prefixes=purge_prefixes,
+                )
 
         purge_urls.assert_called_once_with("zone", "token", ["https://deb.example.test/redirect_rules.json"])
         purge_prefixes.assert_called_once_with("zone", "token", ["deb.example.test/redirect-rules"])
@@ -1007,21 +1097,27 @@ class RedirectRulesTests(unittest.TestCase):
 
             with (
                 patch.dict(cli.os.environ, {"CLOUDFLARE_API_TOKEN": "token"}, clear=True),
-                patch.object(cli, "resolve_cloudflare_zone_id", return_value="zone"),
-                patch.object(cli, "purge_cloudflare_urls", side_effect=RuntimeError("Authentication error")),
                 self.assertRaisesRegex(RuntimeError, "Authentication error"),
             ):
-                cli.purge_redirect_cache(urls, strict=True)
+                redirect.purge_redirect_cache(
+                    urls,
+                    redirect_rules_dirname=cli.REDIRECT_RULES_DIRNAME,
+                    resolve_cloudflare_zone_id=lambda token, hostname: "zone",
+                    purge_cloudflare_urls=Mock(side_effect=RuntimeError("Authentication error")),
+                    purge_cloudflare_prefixes=Mock(),
+                    strict=True,
+                )
 
 
 class DownloadStatsTests(unittest.TestCase):
     def test_formats_download_stats_for_public_json(self) -> None:
-        stats = cli.format_download_stats(
+        stats = download_stats.format_download_stats(
             [{"entry_name": "bat", "arch": "amd64", "downloads": 12}],
             [{"entry_name": "bat", "arch": "amd64", "downloads": 3}],
             [{"day": "2026-06-14T00:00:00Z", "downloads": 5}],
             "deb.example.test",
             30,
+            cli.now_iso,
         )
 
         self.assertEqual(stats["source"], "cloudflare_http_requests")
@@ -1034,7 +1130,7 @@ class DownloadStatsTests(unittest.TestCase):
         path_index = {
             "/pool/main/bat/bat_1.0_amd64.deb": ("bat", "amd64"),
         }
-        rows = cli.aggregate_path_download_rows(
+        rows = download_stats.aggregate_path_download_rows(
             [
                 {"count": 4, "dimensions": {"clientRequestPath": "/pool/main/bat/bat_1.0_amd64.deb"}},
                 {"count": 2, "dimensions": {"clientRequestPath": "/pool/main/bat/bat_1.0_amd64.deb"}},
@@ -1061,7 +1157,7 @@ class DownloadStatsTests(unittest.TestCase):
             }
         }
 
-        index = cli.package_download_path_index(lock, "main")
+        index = download_stats.package_download_path_index(lock, "main", cli.package_virtual_path)
 
         self.assertEqual(index, {"/pool/main/fastfetch/fastfetch-linux-amd64.deb": ("fastfetch", "amd64")})
 
@@ -1090,8 +1186,18 @@ class DownloadStatsTests(unittest.TestCase):
                 }
             }
 
-        with patch.object(cli, "cloudflare_graphql", side_effect=fake_graphql):
-            stats = cli.fetch_download_stats("zone", "token", "deb.example.test", days=2, path_index=path_index)
+        stats = download_stats.fetch_download_stats(
+            "zone",
+            "token",
+            "deb.example.test",
+            days=2,
+            path_index=path_index,
+            max_days=cli.CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS,
+            cloudflare_graphql=fake_graphql,
+            now=lambda: datetime(2026, 6, 15, tzinfo=timezone.utc),
+            now_iso=cli.now_iso,
+            graphql_time=cli.graphql_time,
+        )
 
         self.assertEqual(len(calls), 2)
         for variables in calls:
@@ -1116,8 +1222,18 @@ class DownloadStatsTests(unittest.TestCase):
             calls.append(variables)
             return {"data": {"viewer": {"zones": [{"packageRows": []}]}}}
 
-        with patch.object(cli, "cloudflare_graphql", side_effect=fake_graphql):
-            stats = cli.fetch_download_stats("zone", "token", "deb.example.test", days=30, path_index={})
+        stats = download_stats.fetch_download_stats(
+            "zone",
+            "token",
+            "deb.example.test",
+            days=30,
+            path_index={},
+            max_days=cli.CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS,
+            cloudflare_graphql=fake_graphql,
+            now=lambda: datetime(2026, 6, 15, tzinfo=timezone.utc),
+            now_iso=cli.now_iso,
+            graphql_time=cli.graphql_time,
+        )
 
         self.assertEqual(len(calls), cli.CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS)
         self.assertEqual(stats["window_days"], cli.CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS)
@@ -1125,7 +1241,20 @@ class DownloadStatsTests(unittest.TestCase):
     def test_write_download_stats_writes_empty_file_without_cloudflare_credentials(self) -> None:
         with tempfile.TemporaryDirectory() as tmp, patch.dict(cli.os.environ, {}, clear=True):
             output = Path(tmp) / "nested" / "download_stats.json"
-            cli.write_download_stats(output, "deb.example.test", days=14)
+            download_stats.write_download_stats(
+                output,
+                "deb.example.test",
+                days=14,
+                strict=False,
+                load_json=cli.load_json,
+                load_config=cli.load_config,
+                write_json=cli.write_json,
+                empty_download_stats=lambda reason, days: download_stats.empty_download_stats(reason, days, cli.now_iso),
+                resolve_cloudflare_zone_id=lambda token, hostname: "zone",
+                fetch_download_stats=Mock(),
+                lock_path=cli.LOCK_PATH,
+                package_virtual_path=cli.package_virtual_path,
+            )
 
             stats = cli.load_json(output, None)
 
@@ -1138,10 +1267,22 @@ class DownloadStatsTests(unittest.TestCase):
         with (
             tempfile.TemporaryDirectory() as tmp,
             patch.dict(cli.os.environ, env, clear=True),
-            patch.object(cli, "fetch_download_stats", side_effect=RuntimeError("dataset not found")),
         ):
             output = Path(tmp) / "download_stats.json"
-            cli.write_download_stats(output, "deb.example.test")
+            download_stats.write_download_stats(
+                output,
+                "deb.example.test",
+                days=30,
+                strict=False,
+                load_json=cli.load_json,
+                load_config=lambda: {"component": "main"},
+                write_json=cli.write_json,
+                empty_download_stats=lambda reason, days: download_stats.empty_download_stats(reason, days, cli.now_iso),
+                resolve_cloudflare_zone_id=lambda token, hostname: "zone",
+                fetch_download_stats=Mock(side_effect=RuntimeError("dataset not found")),
+                lock_path=Path(tmp) / "missing-lock.json",
+                package_virtual_path=cli.package_virtual_path,
+            )
 
             stats = cli.load_json(output, None)
 
@@ -1159,9 +1300,12 @@ class DownloadStatsTests(unittest.TestCase):
 
         with (
             patch.dict(cli.os.environ, {}, clear=True),
-            patch.object(cli, "fetch_json", side_effect=lambda url, headers=None: payloads[url]),
         ):
-            zone_id = cli.resolve_cloudflare_zone_id("token", "deb.example.test")
+            zone_id = redirect.resolve_cloudflare_zone_id(
+                "token",
+                "deb.example.test",
+                fetch_json=lambda url, headers=None: payloads[url],
+            )
 
         self.assertEqual(zone_id, "zone-id")
 
@@ -1170,11 +1314,24 @@ class DownloadStatsTests(unittest.TestCase):
         with (
             tempfile.TemporaryDirectory() as tmp,
             patch.dict(cli.os.environ, env, clear=True),
-            patch.object(cli, "resolve_cloudflare_zone_id", return_value="zone") as resolve_zone,
-            patch.object(cli, "fetch_download_stats", return_value={"source": "cloudflare_http_requests"}),
         ):
             output = Path(tmp) / "download_stats.json"
-            cli.write_download_stats(output, "deb.example.test")
+            resolve_zone = Mock(return_value="zone")
+            fetch_stats = Mock(return_value={"source": "cloudflare_http_requests"})
+            download_stats.write_download_stats(
+                output,
+                "deb.example.test",
+                days=30,
+                strict=False,
+                load_json=cli.load_json,
+                load_config=lambda: {"component": "main"},
+                write_json=cli.write_json,
+                empty_download_stats=lambda reason, days: download_stats.empty_download_stats(reason, days, cli.now_iso),
+                resolve_cloudflare_zone_id=resolve_zone,
+                fetch_download_stats=fetch_stats,
+                lock_path=Path(tmp) / "missing-lock.json",
+                package_virtual_path=cli.package_virtual_path,
+            )
 
             stats = cli.load_json(output, None)
 
@@ -1186,7 +1343,15 @@ class WorkerGenerationTests(unittest.TestCase):
     def test_write_headers_sets_long_edge_ttl_for_redirect_rules_assets(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "_headers"
-            cli.write_headers(path)
+            publish.write_headers(
+                path,
+                site_data_filename=cli.SITE_DATA_FILENAME,
+                site_data_browser_ttl_policy=cli.SITE_DATA_BROWSER_TTL_POLICY,
+                site_data_cdn_ttl_policy=cli.SITE_DATA_CDN_TTL_POLICY,
+                redirect_rules_dirname=cli.REDIRECT_RULES_DIRNAME,
+                static_redirect_rules_browser_ttl_policy=cli.STATIC_REDIRECT_RULES_BROWSER_TTL_POLICY,
+                static_redirect_rules_cdn_ttl_policy=cli.STATIC_REDIRECT_RULES_CDN_TTL_POLICY,
+            )
 
             headers = path.read_text(encoding="utf-8")
 
@@ -1202,7 +1367,7 @@ class WorkerGenerationTests(unittest.TestCase):
     def test_worker_reads_redirect_shard_and_caches_redirect_response(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "_worker.js"
-            cli.write_worker(path)
+            publish.write_worker(path, cli.WORKER_SCRIPT_PATH)
 
             worker = path.read_text(encoding="utf-8")
 

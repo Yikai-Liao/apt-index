@@ -3,48 +3,50 @@ from __future__ import annotations
 
 import base64
 import email.utils
-import fnmatch
 import gzip
 import html as html_module
 import hashlib
 import json
-import lzma
 import os
-import re
 import shutil
 import subprocess
-import tarfile
-import tempfile
 import urllib.parse
 import urllib.error
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 import typer
 from loguru import logger
 
+from apt_index import deb
+from apt_index import download_stats as download_stats_module
+from apt_index import health
 from apt_index.config import ConfigError, load_configuration
+from apt_index import publish
+from apt_index import redirect
+from apt_index import sources
+from apt_index.paths import (
+    ARTIFACT_HEALTH_PATH,
+    CACHE_DIR,
+    DIST_DIR,
+    ENV_PATH,
+    GNUPG_DIR,
+    LOCK_PATH,
+    ROOT,
+    STATIC_DIR,
+    TRACK_HEALTH_PATH,
+    WORKER_SCRIPT_PATH,
+)
+from apt_index import site_data as site_data_module
 
-ROOT = Path(__file__).resolve().parents[1]
-if not (ROOT / "apt-index.toml").exists():
-    ROOT = Path(__file__).resolve().parents[2]
-LOCK_PATH = ROOT / "apt-index.lock.json"
-TRACK_HEALTH_PATH = ROOT / "track_health.json"
-ARTIFACT_HEALTH_PATH = ROOT / "artifact_health.json"
-STATIC_DIR = ROOT / "static"
-CACHE_DIR = ROOT / ".apt-index-cache"
-DIST_DIR = ROOT / "dist"
 DOWNLOAD_STATS_FILENAME = "download_stats.json"
 SITE_DATA_FILENAME = "site-data.json"
 REDIRECT_RULES_DIRNAME = "redirect-rules"
 REDIRECT_SNAPSHOT_FILENAME = "snapshot.json.zst"
-REDIRECT_EDGE_TTL_SECONDS = 60 * 60 * 24 * 30
-REDIRECT_BROWSER_TTL_SECONDS = 60 * 5
-REDIRECT_NEGATIVE_CACHE_TTL_SECONDS = 60
 SITE_DATA_TTL_SECONDS = 60 * 5
 STATIC_REDIRECT_RULES_EDGE_TTL_SECONDS = 60 * 60 * 24 * 365
 STATIC_REDIRECT_RULES_BROWSER_TTL_POLICY = "public, max-age=0, must-revalidate"
@@ -55,8 +57,6 @@ SITE_DATA_BROWSER_TTL_POLICY = f"public, max-age={SITE_DATA_TTL_SECONDS}, must-r
 SITE_DATA_CDN_TTL_POLICY = f"public, max-age={SITE_DATA_TTL_SECONDS}"
 LEGACY_REDIRECT_RULES_PATHS = ("/redirect_rules.json",)
 CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS = 7
-GNUPG_DIR = ROOT / ".apt-index-gnupg"
-ENV_PATH = ROOT / ".env"
 USER_AGENT = "apt-index/0.1"
 DEFAULT_JOBS = 4
 SIGNING_PRIVATE_KEY_ENV = "APT_INDEX_GPG_PRIVATE_KEY"
@@ -64,15 +64,6 @@ SIGNING_PRIVATE_KEY_B64_ENV = "APT_INDEX_GPG_PRIVATE_KEY_B64"
 SIGNING_PASSPHRASE_ENV = "APT_INDEX_GPG_PASSPHRASE"
 DOTENV_LOADED = False
 app = typer.Typer(no_args_is_help=True)
-
-
-@dataclass(frozen=True)
-class ArtifactCandidate:
-    url: str
-    upstream_version: str
-    asset_name: str
-    expected_hash: str | None = None
-    hash_algorithm: str = "sha256"
 
 
 @dataclass(frozen=True)
@@ -107,7 +98,36 @@ def download_stats_command(
     """Write public download statistics from Cloudflare HTTP request analytics."""
     if hostname is None:
         hostname = urllib.parse.urlparse(load_config()["repository"]["base_url"]).hostname
-    write_download_stats(output or DIST_DIR / DOWNLOAD_STATS_FILENAME, hostname, days, strict)
+    download_stats_module.write_download_stats(
+        output or DIST_DIR / DOWNLOAD_STATS_FILENAME,
+        hostname,
+        days=days,
+        strict=strict,
+        load_json=load_json,
+        load_config=load_config,
+        write_json=write_json,
+        empty_download_stats=lambda reason, stats_days: download_stats_module.empty_download_stats(reason, stats_days, now_iso),
+        resolve_cloudflare_zone_id=lambda token, host: redirect.resolve_cloudflare_zone_id(token, host, fetch_json=fetch_json),
+        fetch_download_stats=lambda zone_id, token, stats_hostname, stats_days, path_index: download_stats_module.fetch_download_stats(
+            zone_id,
+            token,
+            stats_hostname,
+            days=stats_days,
+            path_index=path_index,
+            max_days=CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS,
+            cloudflare_graphql=lambda graphql_token, query, variables: download_stats_module.cloudflare_graphql(
+                graphql_token,
+                query,
+                variables,
+                post_json=post_json,
+            ),
+            now=lambda: datetime.now(timezone.utc),
+            now_iso=now_iso,
+            graphql_time=graphql_time,
+        ),
+        lock_path=LOCK_PATH,
+        package_virtual_path=package_virtual_path,
+    )
 
 
 @app.command("site-data")
@@ -116,7 +136,17 @@ def site_data_command(
     download_stats: Path | None = typer.Option(None, "--download-stats", help="Download stats JSON path."),
 ) -> None:
     """Write the published site data consumed by the static homepage."""
-    write_site_data(output or DIST_DIR / SITE_DATA_FILENAME, download_stats or DIST_DIR / DOWNLOAD_STATS_FILENAME)
+    site_data_module.write_site_data(
+        output or DIST_DIR / SITE_DATA_FILENAME,
+        download_stats or DIST_DIR / DOWNLOAD_STATS_FILENAME,
+        lock_path=LOCK_PATH,
+        track_health_path=TRACK_HEALTH_PATH,
+        artifact_health_path=ARTIFACT_HEALTH_PATH,
+        load_json=load_json,
+        write_json=write_json,
+        empty_download_stats=lambda reason: download_stats_module.empty_download_stats(reason, 30, now_iso),
+        now_iso=now_iso,
+    )
 
 
 @app.command("plan-redirect-purge")
@@ -128,11 +158,21 @@ def plan_redirect_purge_command(
 ) -> None:
     """Plan which cached package redirects should be purged after deployment."""
     config = load_config()
-    plan_redirect_purge(
+    redirect.plan_redirect_purge(
         output,
         snapshot or DIST_DIR / REDIRECT_RULES_DIRNAME / REDIRECT_SNAPSHOT_FILENAME,
         base_url or config["repository"]["base_url"],
-        strict,
+        redirect_rules_dirname=REDIRECT_RULES_DIRNAME,
+        redirect_snapshot_filename=REDIRECT_SNAPSHOT_FILENAME,
+        legacy_redirect_rules_paths=LEGACY_REDIRECT_RULES_PATHS,
+        fetch_previous_redirect_snapshot=lambda snapshot_base_url, snapshot_strict: redirect.fetch_previous_redirect_snapshot(
+            snapshot_base_url,
+            redirect_rules_dirname=REDIRECT_RULES_DIRNAME,
+            redirect_snapshot_filename=REDIRECT_SNAPSHOT_FILENAME,
+            fetch_bytes=fetch_bytes,
+            strict=snapshot_strict,
+        ),
+        strict=strict,
     )
 
 
@@ -142,7 +182,14 @@ def purge_redirect_cache_command(
     strict: bool = typer.Option(False, "--strict", help="Fail when Cloudflare cache purge cannot be completed."),
 ) -> None:
     """Purge changed package redirect responses from Cloudflare cache."""
-    purge_redirect_cache(urls, strict)
+    redirect.purge_redirect_cache(
+        urls,
+        redirect_rules_dirname=REDIRECT_RULES_DIRNAME,
+        resolve_cloudflare_zone_id=lambda token, host: redirect.resolve_cloudflare_zone_id(token, host, fetch_json=fetch_json),
+        purge_cloudflare_urls=lambda zone_id, token, batch: redirect.purge_cloudflare_urls(zone_id, token, batch, post_json=post_json),
+        purge_cloudflare_prefixes=lambda zone_id, token, prefixes: redirect.purge_cloudflare_prefixes(zone_id, token, prefixes, post_json=post_json),
+        strict=strict,
+    )
 
 
 @app.command("all")
@@ -203,7 +250,16 @@ def refresh(jobs: int | None = None, full_artifact_check: bool = False) -> None:
 
     lock = {"version": 2, "generated_at": now_iso(), "packages": locked_packages}
     write_json(LOCK_PATH, lock)
-    artifact_health = check_artifacts(lock, max_workers, full_artifact_check, full_checked_artifacts)
+    artifact_health = health.check_artifacts(
+        lock,
+        max_workers,
+        full_artifact_check=full_artifact_check,
+        full_checked_artifacts=full_checked_artifacts,
+        now_iso=now_iso,
+        worker_count=worker_count,
+        cache_dir=CACHE_DIR,
+        user_agent=USER_AGENT,
+    )
     write_json(TRACK_HEALTH_PATH, track_health)
     write_json(ARTIFACT_HEALTH_PATH, artifact_health)
 
@@ -244,7 +300,7 @@ def build() -> None:
             stanza["MD5sum"] = artifact["md5"]
             stanza["SHA1"] = artifact["sha1"]
             stanza["SHA256"] = artifact["sha256"]
-            package_stanzas.append(format_control(stanza))
+            package_stanzas.append(deb.format_control(stanza))
 
         packages_dir = DIST_DIR / "dists" / suite / component / f"binary-{arch}"
         packages_dir.mkdir(parents=True, exist_ok=True)
@@ -253,14 +309,47 @@ def build() -> None:
         with gzip.open(packages_dir / "Packages.gz", "wb", compresslevel=9) as f:
             f.write(packages_text.encode("utf-8"))
 
-    write_redirect_rules(lock, component)
-    write_json(DIST_DIR / DOWNLOAD_STATS_FILENAME, empty_download_stats("not_generated"))
+    redirect.write_redirect_rules(
+        lock,
+        component,
+        dist_dir=DIST_DIR,
+        redirect_rules_dirname=REDIRECT_RULES_DIRNAME,
+        redirect_snapshot_filename=REDIRECT_SNAPSHOT_FILENAME,
+        write_json=write_json,
+        package_virtual_path=package_virtual_path,
+    )
+    write_json(DIST_DIR / DOWNLOAD_STATS_FILENAME, download_stats_module.empty_download_stats("not_generated", 30, now_iso))
     (DIST_DIR / "key.asc").write_text(ensure_signing_key(config), encoding="utf-8")
-    copy_state_files(lock)
-    write_site_data(DIST_DIR / SITE_DATA_FILENAME, DIST_DIR / DOWNLOAD_STATS_FILENAME)
-    write_headers(DIST_DIR / "_headers")
-    write_worker(DIST_DIR / "_worker.js")
-    write_routes(DIST_DIR / "_routes.json")
+    site_data_module.copy_state_files(
+        lock,
+        track_health_path=TRACK_HEALTH_PATH,
+        artifact_health_path=ARTIFACT_HEALTH_PATH,
+        dist_dir=DIST_DIR,
+        write_json=write_json,
+        now_iso=now_iso,
+    )
+    site_data_module.write_site_data(
+        DIST_DIR / SITE_DATA_FILENAME,
+        DIST_DIR / DOWNLOAD_STATS_FILENAME,
+        lock_path=LOCK_PATH,
+        track_health_path=TRACK_HEALTH_PATH,
+        artifact_health_path=ARTIFACT_HEALTH_PATH,
+        load_json=load_json,
+        write_json=write_json,
+        empty_download_stats=lambda reason: download_stats_module.empty_download_stats(reason, 30, now_iso),
+        now_iso=now_iso,
+    )
+    publish.write_headers(
+        DIST_DIR / "_headers",
+        site_data_filename=SITE_DATA_FILENAME,
+        site_data_browser_ttl_policy=SITE_DATA_BROWSER_TTL_POLICY,
+        site_data_cdn_ttl_policy=SITE_DATA_CDN_TTL_POLICY,
+        redirect_rules_dirname=REDIRECT_RULES_DIRNAME,
+        static_redirect_rules_browser_ttl_policy=STATIC_REDIRECT_RULES_BROWSER_TTL_POLICY,
+        static_redirect_rules_cdn_ttl_policy=STATIC_REDIRECT_RULES_CDN_TTL_POLICY,
+    )
+    publish.write_worker(DIST_DIR / "_worker.js", WORKER_SCRIPT_PATH)
+    publish.write_routes(DIST_DIR / "_routes.json")
     write_index_page(config, lock)
     write_release(config, archs)
     sign_release(config)
@@ -276,7 +365,12 @@ def resolve_entry(entry_name: str, entry: dict[str, Any], previous_entry: dict[s
         source_name = architecture["source"]["type"]
         update_policy = architecture["update_policy"]
         try:
-            candidate = resolve_candidate(architecture)
+            candidate = sources.resolve_candidate(
+                architecture,
+                fetch_json=fetch_json,
+                fetch_text=fetch_text,
+                root=ROOT,
+            )
             previous_architecture = previous_architecture_entry(previous_entry, arch, source_name, update_policy)
             previous_artifact = (previous_architecture or {}).get("artifact")
             if previous_artifact and artifact_matches_candidate(previous_artifact, candidate):
@@ -289,8 +383,14 @@ def resolve_entry(entry_name: str, entry: dict[str, Any], previous_entry: dict[s
                 }
                 continue
 
-            deb_path = download(candidate.url, candidate.expected_hash, candidate.hash_algorithm)
-            metadata = inspect_deb(deb_path)
+            deb_path = deb.download(
+                candidate.url,
+                cache_dir=CACHE_DIR,
+                user_agent=USER_AGENT,
+                expected_hash=candidate.expected_hash,
+                hash_algorithm=candidate.hash_algorithm,
+            )
+            metadata = deb.inspect_deb(deb_path)
             control = metadata["control"]
             package_arch = control.get("Architecture")
             if package_arch not in {arch, "all"}:
@@ -299,7 +399,7 @@ def resolve_entry(entry_name: str, entry: dict[str, Any], previous_entry: dict[s
                 "url": candidate.url,
                 "upstream_version": candidate.upstream_version,
                 "asset_name": candidate.asset_name,
-                "filename": safe_deb_filename(control, candidate.asset_name),
+                "filename": deb.safe_deb_filename(control, candidate.asset_name),
                 "control": control,
                 "size": metadata["size"],
                 "md5": metadata["md5"],
@@ -398,236 +498,7 @@ def package_virtual_path(component: str, entry_name: str, filename: str) -> str:
     return f"pool/{component}/{entry_name}/{filename}"
 
 
-def redirect_maps(lock: dict[str, Any], component: str) -> tuple[dict[str, str], dict[tuple[str, str], dict[str, str]]]:
-    redirects: dict[str, str] = {}
-    shards: dict[tuple[str, str], dict[str, str]] = {}
-    for entry_name, entry in lock["packages"].items():
-        shard: dict[str, str] = {}
-        for architecture in entry.get("architectures", {}).values():
-            artifact = architecture.get("artifact")
-            if not artifact:
-                continue
-            filename = artifact["filename"]
-            target = artifact["url"]
-            virtual_path = "/" + package_virtual_path(component, entry_name, filename)
-            existing_target = redirects.get(virtual_path)
-            if existing_target and existing_target != target:
-                raise RuntimeError(f"conflicting redirect target for {virtual_path}")
-            existing_filename_target = shard.get(filename)
-            if existing_filename_target and existing_filename_target != target:
-                raise RuntimeError(f"conflicting redirect target for {entry_name}/{filename}")
-            redirects[virtual_path] = target
-            shard[filename] = target
-        if shard:
-            shards[(component, entry_name)] = dict(sorted(shard.items()))
-    return dict(sorted(redirects.items())), shards
-
-
-def write_redirect_rules(lock: dict[str, Any], component: str) -> dict[str, str]:
-    redirects, shards = redirect_maps(lock, component)
-    redirect_dir = DIST_DIR / REDIRECT_RULES_DIRNAME
-    for (shard_component, entry_name), shard in shards.items():
-        shard_path = redirect_dir / shard_component / f"{entry_name}.json"
-        shard_path.parent.mkdir(parents=True, exist_ok=True)
-        write_json(shard_path, shard)
-    write_redirect_snapshot(redirect_dir / REDIRECT_SNAPSHOT_FILENAME, redirects)
-    return redirects
-
-
-def write_headers(path: Path) -> None:
-    content = "\n".join(
-        [
-            f"/{SITE_DATA_FILENAME}",
-            f"  Cache-Control: {SITE_DATA_BROWSER_TTL_POLICY}",
-            f"  Cloudflare-CDN-Cache-Control: {SITE_DATA_CDN_TTL_POLICY}",
-            "  Content-Type: application/json; charset=utf-8",
-            "",
-            f"/{REDIRECT_RULES_DIRNAME}/*.json.zst",
-            f"  Cache-Control: {STATIC_REDIRECT_RULES_BROWSER_TTL_POLICY}",
-            f"  Cloudflare-CDN-Cache-Control: {STATIC_REDIRECT_RULES_CDN_TTL_POLICY}",
-            "  Content-Type: application/json; charset=utf-8",
-            "  Content-Encoding: zstd",
-            "",
-            f"/{REDIRECT_RULES_DIRNAME}/*.json",
-            f"  Cache-Control: {STATIC_REDIRECT_RULES_BROWSER_TTL_POLICY}",
-            f"  Cloudflare-CDN-Cache-Control: {STATIC_REDIRECT_RULES_CDN_TTL_POLICY}",
-            "  Content-Type: application/json; charset=utf-8",
-            "",
-        ]
-    )
-    path.write_text(content, encoding="utf-8")
-
-
-def write_redirect_snapshot(path: Path, redirects: dict[str, str]) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    payload = json.dumps({"version": 1, "redirects": redirects}, indent=2, sort_keys=True) + "\n"
-    path.write_bytes(zstd_compress(payload.encode("utf-8")))
-
-
-def read_redirect_snapshot(path: Path) -> dict[str, str]:
-    payload = json.loads(zstd_decompress(path.read_bytes()).decode("utf-8"))
-    if payload.get("version") != 1 or not isinstance(payload.get("redirects"), dict):
-        raise RuntimeError(f"{path}: unsupported redirect snapshot format")
-    return {str(key): str(value) for key, value in payload["redirects"].items()}
-
-
-def zstd_compress(data: bytes) -> bytes:
-    zstd = shutil.which("zstd")
-    if not zstd:
-        raise RuntimeError("zstd is required to write redirect snapshots")
-    result = subprocess.run([zstd, "-q", "-19", "-c"], input=data, check=True, capture_output=True)
-    return result.stdout
-
-
-def zstd_decompress(data: bytes) -> bytes:
-    zstd = shutil.which("zstd")
-    if not zstd:
-        raise RuntimeError("zstd is required to read redirect snapshots")
-    result = subprocess.run([zstd, "-d", "-q", "-c"], input=data, check=True, capture_output=True)
-    return result.stdout
-
-
-def plan_redirect_purge(output: Path, snapshot: Path, base_url: str, strict: bool = False) -> list[str]:
-    base_url = base_url.rstrip("/")
-    new_redirects = read_redirect_snapshot(snapshot)
-    old_redirects = fetch_previous_redirect_snapshot(base_url, strict)
-    removed_or_changed_paths = {
-        path for path, old_target in old_redirects.items() if new_redirects.get(path) != old_target
-    }
-    added_or_changed_paths = {
-        path for path, new_target in new_redirects.items() if old_redirects.get(path) != new_target
-    }
-    purge_paths = removed_or_changed_paths | added_or_changed_paths
-    shard_paths = {
-        shard_path
-        for path in purge_paths
-        if (shard_path := redirect_shard_path_for_virtual_path(path)) is not None
-    }
-    if purge_paths:
-        shard_paths.add(f"/{REDIRECT_RULES_DIRNAME}/{REDIRECT_SNAPSHOT_FILENAME}")
-    purge_paths.update(shard_paths)
-    purge_paths.update(LEGACY_REDIRECT_RULES_PATHS)
-    urls = [base_url + path for path in sorted(purge_paths)]
-    output.write_text("\n".join(urls) + ("\n" if urls else ""), encoding="utf-8")
-    logger.info("planned {} redirect cache purge URLs at {}", len(urls), output)
-    return urls
-
-
-def redirect_shard_path_for_virtual_path(path: str) -> str | None:
-    match = re.fullmatch(r"/pool/([^/]+)/([^/]+)/[^/]+", path)
-    if not match:
-        return None
-    component, entry_name = match.groups()
-    return f"/{REDIRECT_RULES_DIRNAME}/{component}/{entry_name}.json"
-
-
-def fetch_previous_redirect_snapshot(base_url: str, strict: bool = False) -> dict[str, str]:
-    snapshot_url = f"{base_url.rstrip('/')}/{REDIRECT_RULES_DIRNAME}/{REDIRECT_SNAPSHOT_FILENAME}"
-    cache_bust = os.environ.get("GITHUB_RUN_ID") or str(int(datetime.now(timezone.utc).timestamp()))
-    separator = "&" if "?" in snapshot_url else "?"
-    snapshot_url = f"{snapshot_url}{separator}run={cache_bust}"
-    try:
-        data = fetch_bytes(snapshot_url, {"Cache-Control": "no-cache"})
-        payload = json.loads(zstd_decompress(data).decode("utf-8"))
-    except (RuntimeError, subprocess.CalledProcessError, json.JSONDecodeError, UnicodeDecodeError) as exc:
-        if strict:
-            raise
-        logger.warning("previous redirect snapshot unavailable; treating as first deploy: {}", exc)
-        return {}
-    if payload.get("version") != 1 or not isinstance(payload.get("redirects"), dict):
-        raise RuntimeError(f"{snapshot_url}: unsupported redirect snapshot format")
-    return {str(key): str(value) for key, value in payload["redirects"].items()}
-
-
-def purge_redirect_cache(urls_path: Path, strict: bool = False) -> None:
-    urls = [line.strip() for line in urls_path.read_text(encoding="utf-8").splitlines() if line.strip()]
-    if not urls:
-        logger.info("no redirect cache URLs to purge")
-        return
-    token = os.environ.get("CLOUDFLARE_API_TOKEN")
-    hostname = urllib.parse.urlparse(urls[0]).hostname
-    if not token or not hostname:
-        message = "CLOUDFLARE_API_TOKEN and purge URL hostname are required to purge redirect cache"
-        if strict:
-            raise RuntimeError(message)
-        logger.warning("{}; skipping {} redirect cache purge URLs", message, len(urls))
-        return
-    try:
-        zone_id = resolve_cloudflare_zone_id(token, hostname)
-        if not zone_id:
-            raise RuntimeError(f"could not resolve Cloudflare zone for {hostname!r}")
-        for batch in batched(urls, 30):
-            purge_cloudflare_urls(zone_id, token, batch)
-        purge_cloudflare_prefixes(zone_id, token, [f"{hostname}/{REDIRECT_RULES_DIRNAME}"])
-    except (RuntimeError, TimeoutError, urllib.error.URLError) as exc:
-        if strict:
-            raise
-        logger.warning("Cloudflare redirect cache purge failed; skipping {} URLs: {}", len(urls), exc)
-        return
-    logger.info("purged {} redirect cache URLs and redirect-rules prefix", len(urls))
-
-
-def resolve_cloudflare_zone_id(token: str, hostname: str) -> str | None:
-    configured_zone_id = os.environ.get("CLOUDFLARE_ZONE_ID")
-    if configured_zone_id:
-        return configured_zone_id
-
-    headers = {
-        "Authorization": f"Bearer {token}",
-        "Accept": "application/json",
-    }
-    for zone_name in cloudflare_zone_name_candidates(hostname):
-        query = urllib.parse.urlencode({"name": zone_name})
-        payload = fetch_json(f"https://api.cloudflare.com/client/v4/zones?{query}", headers)
-        if not payload.get("success"):
-            raise RuntimeError(f"Cloudflare zone lookup failed: {payload.get('errors')!r}")
-        for zone in payload.get("result", []):
-            if zone.get("name") == zone_name and (hostname == zone_name or hostname.endswith("." + zone_name)):
-                zone_id = zone.get("id")
-                if zone_id:
-                    return str(zone_id)
-    return None
-
-
-def cloudflare_zone_name_candidates(hostname: str) -> list[str]:
-    labels = [label for label in hostname.lower().strip(".").split(".") if label]
-    return [
-        ".".join(labels[index:])
-        for index in range(max(len(labels) - 1, 0))
-        if len(labels[index:]) >= 2
-    ]
-
-
-def purge_cloudflare_urls(zone_id: str, token: str, urls: list[str]) -> None:
-    payload = {"files": urls}
-    response = purge_cloudflare_cache_payload(zone_id, token, payload)
-    if not response.get("success"):
-        raise RuntimeError(f"Cloudflare cache purge failed: {response!r}")
-
-
-def purge_cloudflare_prefixes(zone_id: str, token: str, prefixes: list[str]) -> None:
-    payload = {"prefixes": prefixes}
-    response = purge_cloudflare_cache_payload(zone_id, token, payload)
-    if not response.get("success"):
-        raise RuntimeError(f"Cloudflare cache prefix purge failed: {response!r}")
-
-
-def purge_cloudflare_cache_payload(zone_id: str, token: str, payload: dict[str, list[str]]) -> Any:
-    return post_json(
-        f"https://api.cloudflare.com/client/v4/zones/{zone_id}/purge_cache",
-        payload,
-        {
-            "Authorization": f"Bearer {token}",
-            "Content-Type": "application/json",
-        },
-    )
-
-
-def batched(items: list[str], size: int) -> list[list[str]]:
-    return [items[index : index + size] for index in range(0, len(items), size)]
-
-
-def artifact_matches_candidate(artifact: dict[str, Any], candidate: ArtifactCandidate) -> bool:
+def artifact_matches_candidate(artifact: dict[str, Any], candidate: sources.ArtifactCandidate) -> bool:
     if not (
         artifact.get("url") == candidate.url
         and artifact.get("upstream_version") == candidate.upstream_version
@@ -637,394 +508,6 @@ def artifact_matches_candidate(artifact: dict[str, Any], candidate: ArtifactCand
     if candidate.expected_hash is None:
         return True
     return artifact.get(candidate.hash_algorithm) == candidate.expected_hash
-
-
-def resolve_candidate(architecture: dict[str, Any]) -> ArtifactCandidate:
-    source_config = architecture["source"]
-    source = source_config["type"]
-    if source == "github":
-        release = github_release(source_config, architecture["update_policy"])
-        pattern = source_config["asset_pattern"]
-        for asset in release.get("assets", []):
-            name = asset["name"]
-            if fnmatch.fnmatch(name, pattern):
-                return ArtifactCandidate(asset["browser_download_url"], release["tag_name"], name)
-        raise RuntimeError(f"no GitHub asset matched {pattern!r}")
-    if source == "aur":
-        srcinfo = fetch_text(f"https://aur.archlinux.org/cgit/aur.git/plain/.SRCINFO?h={source_config['package']}")
-        fields = parse_srcinfo(srcinfo)
-        source_key, source_index, source_value = select_aur_source(fields, source_config["asset_pattern"])
-        checksum_algorithm, checksum = aur_checksum_for(fields, source_key, source_index)
-        asset_name, artifact_url = split_aur_source(source_value)
-        return ArtifactCandidate(artifact_url, first_srcinfo_value(fields, "pkgver", "unknown"), asset_name, checksum, checksum_algorithm)
-    if source == "sourceforge":
-        files = sourceforge_files(source_config["project"], source_config["path"])
-        matched = [file for file in files if sourceforge_asset_matches(file["name"], source_config["asset_regex"])]
-        if not matched:
-            raise RuntimeError(f"no SourceForge asset matched {source_config['asset_regex']!r}")
-        if len(matched) > 1:
-            matched_names = ", ".join(file["name"] for file in matched)
-            raise RuntimeError(f"multiple SourceForge assets matched {source_config['asset_regex']!r}: {matched_names}")
-        file = matched[0]
-        hash_algorithm = "sha1" if file.get("sha1") else "md5"
-        expected_hash = file.get(hash_algorithm)
-        return ArtifactCandidate(file["download_url"], file["name"], file["name"], expected_hash, hash_algorithm)
-    if source == "url":
-        url = source_config["url"]
-        return ArtifactCandidate(url, "fixed", Path(url).name)
-    raise RuntimeError(f"unsupported source resolver {source!r}")
-
-
-def github_release(source_config: dict[str, Any], update_policy: str) -> dict[str, Any]:
-    repo = source_config["repo"]
-    if update_policy == "fixed":
-        path = f"repos/{repo}/releases/tags/{source_config['release_tag']}"
-    else:
-        path = f"repos/{repo}/releases/latest"
-
-    headers = {}
-    token = os.environ.get("GITHUB_TOKEN")
-    if token:
-        headers["Authorization"] = f"Bearer {token}"
-        return fetch_json(f"https://api.github.com/{path}", headers=headers)
-
-    gh = shutil.which("gh")
-    if gh:
-        result = subprocess.run([gh, "api", path], cwd=ROOT, check=True, text=True, capture_output=True)
-        return json.loads(result.stdout)
-
-    return fetch_json(f"https://api.github.com/{path}", headers=headers)
-
-
-def parse_srcinfo(text: str) -> dict[str, list[str]]:
-    fields: dict[str, list[str]] = {}
-    for raw_line in text.splitlines():
-        line = raw_line.strip()
-        if not line or "=" not in line:
-            continue
-        key, value = line.split("=", 1)
-        fields.setdefault(key.strip(), []).append(value.strip())
-    return fields
-
-
-def first_srcinfo_value(fields: dict[str, list[str]], key: str, default: str = "") -> str:
-    values = fields.get(key)
-    return values[0] if values else default
-
-
-def select_aur_source(fields: dict[str, list[str]], asset_pattern: str) -> tuple[str, int, str]:
-    for key, values in fields.items():
-        if key != "source" and not key.startswith("source_"):
-            continue
-        for index, value in enumerate(values):
-            asset_name, url = split_aur_source(value)
-            if aur_source_matches(asset_pattern, value, asset_name, url):
-                return key, index, value
-    raise RuntimeError(f"no AUR source matched {asset_pattern!r}")
-
-
-def aur_source_matches(pattern: str, raw_value: str, asset_name: str, url: str) -> bool:
-    return any(
-        fnmatch.fnmatch(value, pattern)
-        for value in (asset_name, url, raw_value)
-    )
-
-
-def aur_checksum_for(
-    fields: dict[str, list[str]],
-    source_key: str,
-    source_index: int,
-) -> tuple[str, str | None]:
-    suffix = source_key.removeprefix("source")
-    checksum_source_keys = [f"{algorithm}sums{suffix}" for algorithm in ("sha256", "sha512")]
-    for checksum_key in checksum_source_keys:
-        values = fields.get(checksum_key, [])
-        if source_index < len(values) and values[source_index] != "SKIP":
-            return checksum_key.split("sums", 1)[0], values[source_index]
-    return "sha256", None
-
-
-def split_aur_source(value: str) -> tuple[str, str]:
-    if "::" in value:
-        asset_name, url = value.split("::", 1)
-        return asset_name, url
-    return Path(value).name, value
-
-
-def sourceforge_files(project: str, path: str) -> list[dict[str, str]]:
-    url = f"https://sourceforge.net/projects/{project}/files/{path.strip('/')}/"
-    html = fetch_text(url)
-    match = re.search(r"net\.sf\.files\s*=\s*(\{.*?\});", html, re.DOTALL)
-    if match is None:
-        raise RuntimeError(f"could not parse SourceForge file listing for {project}/{path}")
-    payload = json.loads(match.group(1))
-    files: list[dict[str, str]] = []
-    for file in payload.values():
-        if not isinstance(file, dict) or not file.get("downloadable"):
-            continue
-        name = str(file.get("name", ""))
-        download_url = str(file.get("download_url", ""))
-        if not name or not download_url:
-            continue
-        files.append(
-            {
-                "name": name,
-                "download_url": download_url,
-                "md5": str(file.get("md5", "")),
-                "sha1": str(file.get("sha1", "")),
-            }
-        )
-    return files
-
-
-def sourceforge_asset_matches(name: str, asset_regex: str) -> bool:
-    return re.fullmatch(asset_regex, name) is not None
-
-
-def download(url: str, expected_hash: str | None = None, hash_algorithm: str = "sha256") -> Path:
-    CACHE_DIR.mkdir(exist_ok=True)
-    cache_key = hashlib.sha256(url.encode("utf-8")).hexdigest()
-    path = CACHE_DIR / f"{cache_key}.deb"
-    if not path.exists():
-        logger.info("downloading {}", url)
-        request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-        tmp_path: Path | None = None
-        try:
-            with urllib.request.urlopen(request, timeout=120) as response:
-                with tempfile.NamedTemporaryFile(dir=CACHE_DIR, delete=False) as tmp:
-                    tmp_path = Path(tmp.name)
-                    shutil.copyfileobj(response, tmp, length=1024 * 1024)
-            if tmp_path:
-                tmp_path.replace(path)
-        except Exception:
-            if tmp_path:
-                tmp_path.unlink(missing_ok=True)
-            raise
-    if expected_hash and file_hash(path, hash_algorithm) != expected_hash:
-        path.unlink(missing_ok=True)
-        raise RuntimeError(f"{hash_algorithm} mismatch for {url}")
-    return path
-
-
-def inspect_deb(path: Path) -> dict[str, Any]:
-    members = read_ar(path)
-    control_name = next((name for name in members if name.startswith("control.tar")), None)
-    if not control_name:
-        raise RuntimeError(f"{path.name} has no control.tar member")
-    control_bytes = extract_control_tar(members[control_name], control_name)
-    control = read_control_file(control_bytes, control_name)
-    data = path.read_bytes()
-    return {
-        "control": control,
-        "size": len(data),
-        "md5": hashlib.md5(data).hexdigest(),
-        "sha1": hashlib.sha1(data).hexdigest(),
-        "sha256": hashlib.sha256(data).hexdigest(),
-    }
-
-
-def read_ar(path: Path) -> dict[str, bytes]:
-    data = path.read_bytes()
-    if not data.startswith(b"!<arch>\n"):
-        raise RuntimeError(f"{path.name} is not a Debian ar archive")
-    offset = 8
-    members: dict[str, bytes] = {}
-    while offset + 60 <= len(data):
-        header = data[offset : offset + 60]
-        name = header[:16].decode("utf-8").strip().rstrip("/")
-        size = int(header[48:58].decode("utf-8").strip())
-        start = offset + 60
-        end = start + size
-        members[name] = data[start:end]
-        offset = end + (size % 2)
-    return members
-
-
-def extract_control_tar(data: bytes, name: str) -> bytes:
-    if name.endswith(".gz"):
-        return gzip.decompress(data)
-    if name.endswith(".xz"):
-        return lzma.decompress(data)
-    if name.endswith(".zst"):
-        zstd = shutil.which("zstd")
-        if not zstd:
-            raise RuntimeError("zstd is required to read control.tar.zst")
-        result = subprocess.run([zstd, "-d", "-q", "-c"], input=data, check=True, capture_output=True)
-        return result.stdout
-    if name.endswith(".tar"):
-        return data
-    raise RuntimeError(f"unsupported control archive format {name}")
-
-
-def read_control_file(tar_bytes: bytes, member_name: str) -> dict[str, str]:
-    with tempfile.TemporaryDirectory() as tmp:
-        tar_path = Path(tmp) / member_name
-        tar_path.write_bytes(tar_bytes)
-        with tarfile.open(tar_path) as archive:
-            control_member = next((m for m in archive.getmembers() if m.name in {"control", "./control"}), None)
-            if not control_member:
-                raise RuntimeError("control file is missing")
-            extracted = archive.extractfile(control_member)
-            if not extracted:
-                raise RuntimeError("control file could not be read")
-            return parse_control(extracted.read().decode("utf-8", errors="replace"))
-
-
-def parse_control(text: str) -> dict[str, str]:
-    fields: dict[str, str] = {}
-    current_key: str | None = None
-    for line in text.splitlines():
-        if not line:
-            continue
-        if line[0].isspace() and current_key:
-            fields[current_key] += "\n" + line
-            continue
-        key, value = line.split(":", 1)
-        current_key = key
-        fields[key] = value.strip()
-    return fields
-
-
-def format_control(fields: dict[str, str]) -> str:
-    preferred = [
-        "Package",
-        "Version",
-        "Architecture",
-        "Maintainer",
-        "Installed-Size",
-        "Depends",
-        "Recommends",
-        "Suggests",
-        "Section",
-        "Priority",
-        "Homepage",
-        "Description",
-        "Filename",
-        "Size",
-        "MD5sum",
-        "SHA1",
-        "SHA256",
-    ]
-    keys = preferred + sorted(k for k in fields if k not in preferred)
-    return "\n".join(f"{key}: {fields[key]}" for key in keys if fields.get(key)) + "\n"
-
-
-def safe_deb_filename(control: dict[str, str], asset_name: str) -> str:
-    package = control["Package"].replace("/", "_")
-    version = control["Version"].replace(":", "%3a").replace("/", "_")
-    arch = control["Architecture"]
-    if asset_name.endswith(".deb") and all(part in asset_name for part in [arch]):
-        return asset_name
-    return f"{package}_{version}_{arch}.deb"
-
-
-def check_artifacts(
-    lock: dict[str, Any],
-    jobs: int,
-    full_artifact_check: bool = False,
-    full_checked_artifacts: set[tuple[str, str]] | None = None,
-) -> dict[str, Any]:
-    health = {"version": 2, "generated_at": now_iso(), "packages": {}}
-    full_checked_artifacts = full_checked_artifacts or set()
-    artifact_entries = [
-        (entry_name, arch, artifact)
-        for entry_name, entry in lock["packages"].items()
-        for arch, architecture in entry.get("architectures", {}).items()
-        if (artifact := architecture.get("artifact"))
-    ]
-    max_workers = worker_count(len(artifact_entries), jobs)
-    checked: dict[tuple[str, str], dict[str, Any]] = {}
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        futures = {}
-        for entry_name, arch, artifact in artifact_entries:
-            key = (entry_name, arch)
-            if key in full_checked_artifacts:
-                checked[key] = full_artifact_health(artifact)
-                continue
-            check = check_artifact if full_artifact_check else check_artifact_light
-            futures[executor.submit(check, artifact)] = key
-        for future in as_completed(futures):
-            key = futures[future]
-            try:
-                checked[key] = future.result()
-            except Exception as exc:
-                checked[key] = {"status": "failed", "error": str(exc)}
-    for entry_name, entry in lock["packages"].items():
-        health["packages"][entry_name] = {
-            "artifacts": {
-                arch: checked[(entry_name, arch)]
-                for arch, architecture in entry.get("architectures", {}).items()
-                if architecture.get("artifact")
-            }
-        }
-    return health
-
-
-def check_artifact(artifact: dict[str, Any]) -> dict[str, Any]:
-    path = download(artifact["url"], artifact["sha256"])
-    size = path.stat().st_size
-    sha256 = file_hash(path, "sha256")
-    if size != artifact["size"]:
-        raise RuntimeError(f"size mismatch for {artifact['url']}: expected {artifact['size']}, got {size}")
-    if sha256 != artifact["sha256"]:
-        raise RuntimeError(f"sha256 mismatch for {artifact['url']}")
-    return {
-        "status": "ok",
-        "check": "full",
-        "size": size,
-        "sha256": sha256,
-    }
-
-
-def full_artifact_health(artifact: dict[str, Any]) -> dict[str, Any]:
-    return {
-        "status": "ok",
-        "check": "full",
-        "size": artifact["size"],
-        "sha256": artifact["sha256"],
-    }
-
-
-def check_artifact_light(artifact: dict[str, Any]) -> dict[str, Any]:
-    try:
-        size = fetch_artifact_size(artifact["url"], "HEAD")
-        check = "head"
-    except urllib.error.HTTPError:
-        size = fetch_artifact_size(artifact["url"], "GET", {"Range": "bytes=0-0"})
-        check = "range"
-
-    if size is not None and size != artifact["size"]:
-        raise RuntimeError(f"size mismatch for {artifact['url']}: expected {artifact['size']}, got {size}")
-
-    result: dict[str, Any] = {"status": "ok", "check": check}
-    if size is not None:
-        result["size"] = size
-    return result
-
-
-def fetch_artifact_size(url: str, method: str, headers: dict[str, str] | None = None) -> int | None:
-    request_headers = {"User-Agent": USER_AGENT}
-    request_headers.update(headers or {})
-    request = urllib.request.Request(url, headers=request_headers, method=method)
-    with urllib.request.urlopen(request, timeout=60) as response:
-        return response_size(response)
-
-
-def response_size(response: Any) -> int | None:
-    content_range = response.getheader("Content-Range")
-    if content_range and "/" in content_range:
-        total = content_range.rsplit("/", 1)[1]
-        if total.isdigit():
-            return int(total)
-    status = getattr(response, "status", None)
-    if status is None and hasattr(response, "getcode"):
-        status = response.getcode()
-    if status == 206:
-        return None
-    content_length = response.getheader("Content-Length")
-    if content_length and content_length.isdigit():
-        return int(content_length)
-    return None
 
 
 def write_release(config: dict[str, Any], archs: list[str]) -> None:
@@ -1185,98 +668,6 @@ def sign_release(config: dict[str, Any]) -> None:
     )
 
 
-def write_worker(path: Path) -> None:
-    worker = """export default {
-  async fetch(request, env, ctx) {
-    const url = new URL(request.url);
-    const match = url.pathname.match(/^\\/pool\\/([^/]+)\\/([^/]+)\\/([^/]+)$/);
-    const notFound = () => new Response("package redirect not found", {
-      status: 404,
-      headers: {
-        "Cache-Control": "public, max-age=__REDIRECT_NEGATIVE_CACHE_TTL_SECONDS__, s-maxage=__REDIRECT_NEGATIVE_CACHE_TTL_SECONDS__",
-        "Cloudflare-CDN-Cache-Control": "public, max-age=__REDIRECT_NEGATIVE_CACHE_TTL_SECONDS__",
-        "X-Apt-Index-Redirect-Cache": "MISS",
-      },
-    });
-    if (!match) {
-      return notFound();
-    }
-
-    if (request.method !== "GET" && request.method !== "HEAD") {
-      return new Response("method not allowed", {
-        status: 405,
-        headers: { "Allow": "GET, HEAD" },
-      });
-    }
-
-    const cacheUrl = new URL(url);
-    cacheUrl.search = "";
-    const cacheKey = new Request(cacheUrl.toString(), { method: "GET" });
-    const cache = caches.default;
-    const cacheGetResponse = (response) => {
-      if (request.method === "GET") {
-        ctx.waitUntil(cache.put(cacheKey, response.clone()).catch((error) => {
-          console.warn("redirect cache put failed", error);
-        }));
-      }
-      return response;
-    };
-    let cached = await cache.match(cacheKey);
-    if (cached) {
-      cached = new Response(cached.body, cached);
-      cached.headers.set("X-Apt-Index-Redirect-Cache", "HIT");
-      return cached;
-    }
-
-    const [, component, entryName, filename] = match;
-    const rulesUrl = new URL(`/redirect-rules/${component}/${entryName}.json`, url);
-    let rules;
-    try {
-      const rulesResponse = await env.ASSETS.fetch(rulesUrl.toString());
-      if (!rulesResponse || !rulesResponse.ok) {
-        return cacheGetResponse(notFound());
-      }
-      rules = await rulesResponse.json();
-    } catch (error) {
-      console.warn("redirect shard fetch failed", error);
-      return cacheGetResponse(notFound());
-    }
-    const target = rules[filename];
-    if (!target) {
-      return cacheGetResponse(notFound());
-    }
-
-    const redirectResponse = new Response(null, {
-      status: 302,
-      headers: {
-        "Location": target,
-        "Cache-Control": "public, max-age=__REDIRECT_BROWSER_TTL_SECONDS__, s-maxage=__REDIRECT_EDGE_TTL_SECONDS__",
-        "Cloudflare-CDN-Cache-Control": "public, max-age=__REDIRECT_EDGE_TTL_SECONDS__",
-        "X-Apt-Index-Redirect-Cache": "MISS",
-      },
-    });
-
-    if (request.method === "GET") {
-      ctx.waitUntil(cache.put(cacheKey, redirectResponse.clone()).catch((error) => {
-        console.warn("redirect cache put failed", error);
-      }));
-    }
-
-    return redirectResponse;
-  },
-};
-"""
-    worker = worker.replace("__REDIRECT_BROWSER_TTL_SECONDS__", str(REDIRECT_BROWSER_TTL_SECONDS))
-    worker = worker.replace("__REDIRECT_EDGE_TTL_SECONDS__", str(REDIRECT_EDGE_TTL_SECONDS))
-    worker = worker.replace("__REDIRECT_NEGATIVE_CACHE_TTL_SECONDS__", str(REDIRECT_NEGATIVE_CACHE_TTL_SECONDS))
-    path.write_text(worker, encoding="utf-8")
-
-
-def write_routes(path: Path) -> None:
-    routes = {"version": 1, "include": ["/pool/*"], "exclude": []}
-    path.write_text(json.dumps(routes, indent=2) + "\n", encoding="utf-8")
-
-
 def write_index_page(config: dict[str, Any], lock: dict[str, Any]) -> None:
     base_url = config["repository"]["base_url"]
     suite = html_module.escape(config["suite"])
@@ -1294,431 +685,6 @@ def write_index_page(config: dict[str, Any], lock: dict[str, Any]) -> None:
         .replace("__PACKAGE_INDEX_LINKS__", package_index_links)
     )
     (DIST_DIR / "index.html").write_text(html, encoding="utf-8")
-
-
-def copy_state_files(lock: dict[str, Any]) -> None:
-    copy_or_write_health_report(TRACK_HEALTH_PATH, DIST_DIR / TRACK_HEALTH_PATH.name, lambda: not_generated_track_health(lock))
-    copy_or_write_health_report(ARTIFACT_HEALTH_PATH, DIST_DIR / ARTIFACT_HEALTH_PATH.name, lambda: not_generated_artifact_health(lock))
-
-
-def copy_or_write_health_report(source: Path, target: Path, fallback_factory: Any) -> None:
-    if source.exists():
-        shutil.copy2(source, target)
-        return
-    logger.warning("{} is missing; writing not_generated report to {}", source.name, target)
-    write_json(target, fallback_factory())
-
-
-def not_generated_track_health(lock: dict[str, Any]) -> dict[str, Any]:
-    return {
-        "version": 2,
-        "generated_at": now_iso(),
-        "status": "not_generated",
-        "packages": {
-            entry_name: {
-                "status": "not_checked",
-                "architectures": {
-                    arch: {"status": "not_checked"}
-                    for arch, architecture in entry.get("architectures", {}).items()
-                    if architecture.get("artifact")
-                },
-            }
-            for entry_name, entry in lock.get("packages", {}).items()
-        },
-    }
-
-
-def not_generated_artifact_health(lock: dict[str, Any]) -> dict[str, Any]:
-    return {
-        "version": 2,
-        "generated_at": now_iso(),
-        "status": "not_generated",
-        "packages": {
-            entry_name: {
-                "artifacts": {
-                    arch: not_checked_artifact_health(architecture["artifact"])
-                    for arch, architecture in entry.get("architectures", {}).items()
-                    if architecture.get("artifact")
-                }
-            }
-            for entry_name, entry in lock.get("packages", {}).items()
-        },
-    }
-
-
-def not_checked_artifact_health(artifact: dict[str, Any]) -> dict[str, Any]:
-    health: dict[str, Any] = {"status": "not_checked", "check": "not_generated"}
-    for key in ("size", "sha256"):
-        if key in artifact:
-            health[key] = artifact[key]
-    return health
-
-
-def write_site_data(output: Path, download_stats_path: Path) -> None:
-    lock = load_json(LOCK_PATH, None)
-    if not lock:
-        raise SystemExit("apt-index.lock.json is missing; run refresh first")
-    track_health = load_json(TRACK_HEALTH_PATH, None) or not_generated_track_health(lock)
-    artifact_health = load_json(ARTIFACT_HEALTH_PATH, None) or not_generated_artifact_health(lock)
-    download_stats = load_json(download_stats_path, None) or empty_download_stats("not_generated")
-    output.parent.mkdir(parents=True, exist_ok=True)
-    write_json(output, format_site_data(lock, track_health, artifact_health, download_stats))
-
-
-def format_site_data(
-    lock: dict[str, Any],
-    track_health: dict[str, Any],
-    artifact_health: dict[str, Any],
-    download_stats: dict[str, Any],
-) -> dict[str, Any]:
-    downloads_by_identity = {
-        (str(row.get("entry_name") or ""), str(row.get("arch") or "")): {
-            "downloads": int(row.get("downloads") or 0),
-            "last_7_days": int(row.get("last_7_days") or 0),
-        }
-        for row in download_stats.get("packages", [])
-    }
-    packages: list[dict[str, Any]] = []
-    artifact_count = 0
-    total_size = 0
-    downloads_last_days = 0
-    downloads_last_7_days = 0
-
-    for entry_name, entry in sorted(lock.get("packages", {}).items()):
-        grouped_rows: dict[str, dict[str, Any]] = {}
-        for arch, architecture in sorted(entry.get("architectures", {}).items()):
-            artifact = architecture.get("artifact")
-            if not artifact:
-                continue
-            control = artifact.get("control", {})
-            package_name = str(control.get("Package") or entry_name)
-            row = grouped_rows.setdefault(
-                package_name,
-                {
-                    "entry_name": entry_name,
-                    "package_name": package_name,
-                    "description": first_line(control.get("Description")),
-                    "homepage": preferred_homepage(entry, control, artifact),
-                    "artifacts": [],
-                },
-            )
-            download_row = downloads_by_identity.get((entry_name, arch), {})
-            track_status = str(track_health.get("packages", {}).get(entry_name, {}).get("architectures", {}).get(arch, {}).get("status") or "unknown")
-            artifact_status = str(artifact_health.get("packages", {}).get(entry_name, {}).get("artifacts", {}).get(arch, {}).get("status") or "unknown")
-            row["artifacts"].append(
-                {
-                    "arch": arch,
-                    "version": str(control.get("Version") or ""),
-                    "source": str(architecture.get("source") or ""),
-                    "update_policy": str(architecture.get("update_policy") or ""),
-                    "size": int(artifact.get("size") or 0),
-                    "downloads": int(download_row.get("downloads") or 0),
-                    "downloads_last_7_days": int(download_row.get("last_7_days") or 0),
-                    "track_status": track_status,
-                    "artifact_status": artifact_status,
-                    "status_class": status_class_for(track_status, artifact_status),
-                }
-            )
-            artifact_count += 1
-            total_size += int(artifact.get("size") or 0)
-            downloads_last_days += int(download_row.get("downloads") or 0)
-            downloads_last_7_days += int(download_row.get("last_7_days") or 0)
-        for row in grouped_rows.values():
-            row["artifacts"] = sorted(row["artifacts"], key=lambda item: str(item["arch"]))
-        packages.extend(grouped_rows.values())
-
-    packages = sorted(packages, key=lambda row: (str(row["package_name"]).casefold(), str(row["entry_name"]).casefold()))
-    all_healthy = bool(packages) and all(
-        artifact["status_class"] == "ok"
-        for row in packages
-        for artifact in row.get("artifacts", [])
-    )
-    return {
-        "version": 1,
-        "generated_at": lock.get("generated_at"),
-        "window_days": int(download_stats.get("window_days") or 30),
-        "summary": {
-            "entry_count": len(lock.get("packages", {})),
-            "row_count": len(packages),
-            "artifact_count": artifact_count,
-            "total_size": total_size,
-            "downloads_last_days": downloads_last_days,
-            "downloads_last_7_days": downloads_last_7_days,
-            "all_healthy": all_healthy,
-        },
-        "packages": packages,
-    }
-
-
-def preferred_homepage(entry: dict[str, Any], control: dict[str, Any], artifact: dict[str, Any]) -> str:
-    return str(entry.get("homepage") or control.get("Homepage") or artifact.get("url") or "#")
-
-
-def first_line(value: Any) -> str:
-    return str(value or "").splitlines()[0].strip() if value else ""
-
-
-def status_class_for(track_status: str, artifact_status: str) -> str:
-    if track_status == "ok" and artifact_status == "ok":
-        return "ok"
-    if track_status == "kept_previous" and artifact_status == "ok":
-        return "warn"
-    return "bad"
-
-
-def write_download_stats(path: Path, hostname: str | None, days: int = 30, strict: bool = False) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    token = os.environ.get("CLOUDFLARE_API_TOKEN")
-    if not token or not hostname:
-        if strict:
-            raise RuntimeError("CLOUDFLARE_API_TOKEN and repository hostname are required to export download stats")
-        logger.warning("Cloudflare credentials are missing; writing empty download stats")
-        write_json(path, empty_download_stats("missing_cloudflare_credentials", days))
-        return
-
-    try:
-        zone_id = resolve_cloudflare_zone_id(token, hostname)
-        if not zone_id:
-            raise RuntimeError(f"could not resolve Cloudflare zone for {hostname!r}")
-        path_index = package_download_path_index(load_json(LOCK_PATH, {"packages": {}}), load_config()["component"])
-        stats = fetch_download_stats(zone_id, token, hostname, days, path_index)
-    except (RuntimeError, TimeoutError, urllib.error.URLError) as exc:
-        if strict:
-            raise
-        logger.warning("Cloudflare HTTP analytics query failed; writing empty download stats: {}", exc)
-        stats = empty_download_stats("analytics_query_failed", days)
-    write_json(path, stats)
-
-
-def fetch_download_stats(
-    zone_id: str,
-    token: str,
-    hostname: str,
-    days: int = 30,
-    path_index: dict[str, tuple[str, str]] | None = None,
-) -> dict[str, Any]:
-    path_index = path_index or {}
-    query_days = min(days, CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS)
-    end = datetime.now(timezone.utc).replace(microsecond=0)
-    start = end - timedelta(days=query_days)
-    seven_day_start = end - timedelta(days=min(7, query_days))
-    package_counts: dict[tuple[str, str], int] = {}
-    seven_day_counts: dict[tuple[str, str], int] = {}
-    daily_rows: list[dict[str, Any]] = []
-
-    for window_start, window_end in daily_time_windows(start, end):
-        rows = fetch_download_path_rows(zone_id, token, hostname, window_start, window_end)
-        counts = aggregate_path_download_counts(rows, path_index)
-        merge_download_counts(package_counts, counts)
-        if window_start >= seven_day_start:
-            merge_download_counts(seven_day_counts, counts)
-        daily_rows.append(
-            {
-                "day": window_start.date().isoformat(),
-                "downloads": sum(counts.values()),
-            }
-        )
-
-    return format_download_stats(
-        download_counts_to_rows(package_counts),
-        download_counts_to_rows(seven_day_counts),
-        daily_rows,
-        hostname,
-        query_days,
-    )
-
-
-def daily_time_windows(start: datetime, end: datetime) -> list[tuple[datetime, datetime]]:
-    windows = []
-    cursor = start
-    while cursor < end:
-        window_end = min(cursor + timedelta(days=1), end)
-        windows.append((cursor, window_end))
-        cursor = window_end
-    return windows
-
-
-def fetch_download_path_rows(
-    zone_id: str,
-    token: str,
-    hostname: str,
-    start: datetime,
-    end: datetime,
-) -> list[dict[str, Any]]:
-    query = """
-query AptIndexDownloadStats($zoneTag: string, $packageFilter: filter) {
-  viewer {
-    zones(filter: {zoneTag: $zoneTag}) {
-      packageRows: httpRequestsAdaptiveGroups(limit: 10000, filter: $packageFilter, orderBy: [count_DESC]) {
-        count
-        dimensions { clientRequestPath }
-      }
-    }
-  }
-}
-""".strip()
-    variables = {
-        "zoneTag": zone_id,
-        "packageFilter": http_download_filter(hostname, start, end),
-    }
-    payload = cloudflare_graphql(token, query, variables)
-    zones = payload.get("data", {}).get("viewer", {}).get("zones", [])
-    if not zones:
-        raise RuntimeError(f"Cloudflare zone {zone_id!r} returned no HTTP analytics rows")
-    return list(zones[0].get("packageRows", []))
-
-
-def http_download_filter(hostname: str, start: datetime, end: datetime) -> dict[str, Any]:
-    return {
-        "datetime_geq": graphql_time(start),
-        "datetime_lt": graphql_time(end),
-        "requestSource": "eyeball",
-        "clientRequestHTTPHost": hostname,
-        "clientRequestHTTPMethodName": "GET",
-        "clientRequestPath_like": "/pool/%",
-    }
-
-
-def cloudflare_graphql(token: str, query: str, variables: dict[str, Any]) -> dict[str, Any]:
-    payload = post_json(
-        "https://api.cloudflare.com/client/v4/graphql",
-        {"query": query, "variables": variables},
-        {
-            "Authorization": f"Bearer {token}",
-            "Accept": "application/json",
-            "Content-Type": "application/json",
-        },
-    )
-    errors = payload.get("errors")
-    if errors:
-        raise RuntimeError(f"Cloudflare GraphQL query failed: {errors!r}")
-    return payload
-
-
-def aggregate_path_download_rows(
-    rows: list[dict[str, Any]],
-    path_index: dict[str, tuple[str, str]],
-) -> list[dict[str, Any]]:
-    return download_counts_to_rows(aggregate_path_download_counts(rows, path_index))
-
-
-def aggregate_path_download_counts(
-    rows: list[dict[str, Any]],
-    path_index: dict[str, tuple[str, str]],
-) -> dict[tuple[str, str], int]:
-    counts: dict[tuple[str, str], int] = {}
-    for row in rows:
-        path = str(row.get("dimensions", {}).get("clientRequestPath") or "")
-        package_identity = path_index.get(path)
-        if not package_identity:
-            continue
-        counts[package_identity] = counts.get(package_identity, 0) + int(row.get("count") or 0)
-    return counts
-
-
-def merge_download_counts(target: dict[tuple[str, str], int], source: dict[tuple[str, str], int]) -> None:
-    for key, value in source.items():
-        target[key] = target.get(key, 0) + value
-
-
-def download_counts_to_rows(counts: dict[tuple[str, str], int]) -> list[dict[str, Any]]:
-    return [
-        {"entry_name": entry_name, "arch": arch, "downloads": downloads}
-        for (entry_name, arch), downloads in sorted(counts.items(), key=lambda item: (-item[1], item[0]))
-    ]
-
-
-def parse_package_download_path(path: str) -> tuple[str, str, str] | None:
-    parts = path.split("/")
-    if len(parts) != 5 or parts[0] or parts[1] != "pool":
-        return None
-    return parts[2], parts[3], parts[4]
-
-
-def package_download_path_index(lock: dict[str, Any], component: str) -> dict[str, tuple[str, str]]:
-    index: dict[str, tuple[str, str]] = {}
-    for entry_name, entry in lock.get("packages", {}).items():
-        for configured_arch, architecture in entry.get("architectures", {}).items():
-            artifact = architecture.get("artifact")
-            if not artifact:
-                continue
-            control = artifact.get("control", {})
-            package_arch = str(control.get("Architecture") or configured_arch)
-            path = "/" + package_virtual_path(component, entry_name, artifact["filename"])
-            index[path] = (entry_name, package_arch)
-    return index
-
-
-def format_download_stats(
-    package_rows: list[dict[str, Any]],
-    seven_day_rows: list[dict[str, Any]],
-    daily_rows: list[dict[str, Any]],
-    hostname: str,
-    days: int,
-) -> dict[str, Any]:
-    seven_day_counts = {
-        (str(row.get("entry_name") or ""), str(row.get("arch") or "")): int(row.get("downloads") or 0)
-        for row in seven_day_rows
-    }
-    packages = []
-    for row in package_rows:
-        entry_name = str(row.get("entry_name") or "")
-        arch = str(row.get("arch") or "")
-        downloads = int(row.get("downloads") or 0)
-        packages.append(
-            {
-                "entry_name": entry_name,
-                "arch": arch,
-                "downloads": downloads,
-                "last_7_days": seven_day_counts.get((entry_name, arch), 0),
-            }
-        )
-
-    daily = [
-        {
-            "date": normalize_day(row.get("day")),
-            "downloads": int(row.get("downloads") or 0),
-        }
-        for row in daily_rows
-    ]
-    last_days = sum(row["downloads"] for row in packages)
-    last_7_days = sum(row["last_7_days"] for row in packages)
-    return {
-        "version": 1,
-        "generated_at": now_iso(),
-        "source": "cloudflare_http_requests",
-        "hostname": hostname,
-        "window_days": days,
-        "totals": {
-            "downloads": last_days,
-            "last_days": last_days,
-            "last_7_days": last_7_days,
-        },
-        "packages": packages,
-        "daily": daily,
-    }
-
-
-def normalize_day(value: Any) -> str:
-    text = str(value or "")
-    return text[:10] if len(text) >= 10 else text
-
-
-def empty_download_stats(reason: str, days: int = 30) -> dict[str, Any]:
-    return {
-        "version": 1,
-        "generated_at": now_iso(),
-        "source": "none",
-        "reason": reason,
-        "window_days": days,
-        "totals": {
-            "downloads": 0,
-            "last_days": 0,
-            "last_7_days": 0,
-        },
-        "packages": [],
-        "daily": [],
-    }
 
 
 def load_config() -> dict[str, Any]:
@@ -1772,14 +738,6 @@ def post_text(url: str, body: str, headers: dict[str, str] | None = None) -> str
     except urllib.error.HTTPError as exc:
         response_body = exc.read().decode("utf-8", errors="replace")
         raise RuntimeError(f"POST {url} failed: HTTP {exc.code}: {response_body}") from exc
-
-
-def file_hash(path: Path, algorithm: str) -> str:
-    h = hashlib.new(algorithm)
-    with path.open("rb") as f:
-        for chunk in iter(lambda: f.read(1024 * 1024), b""):
-            h.update(chunk)
-    return h.hexdigest()
 
 
 def gpg_env() -> dict[str, str]:
