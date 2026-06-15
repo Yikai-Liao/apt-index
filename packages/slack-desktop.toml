@@ -1,0 +1,10 @@
+homepage = "https://slack.com/downloads"
+architectures = ["amd64"]
+source = "aur"
+update_policy = "track"
+
+[sources.aur]
+package = "slack-desktop"
+
+[sources.aur.asset_patterns]
+amd64 = "slack-desktop-*-amd64.deb"
