@@ -8,6 +8,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 from apt_index import cli
+from apt_index.config import ConfigError, load_configuration
 
 
 class FakeResponse:
@@ -25,18 +26,19 @@ class FakeResponse:
         return self.headers.get(name)
 
 
-def package_config() -> dict[str, object]:
-    return {
-        "required_architectures": ["amd64"],
-        "optional_architectures": [],
-    }
-
-
 def package_entry() -> dict[str, object]:
     return {
-        "update_policy": "track",
-        "source": "github",
         "homepage": "https://example.test/pkg",
+        "architectures": {
+            "amd64": {
+                "update_policy": "track",
+                "source": {
+                    "type": "github",
+                    "repo": "example/pkg",
+                    "asset_pattern": "pkg_*_amd64.deb",
+                },
+            }
+        },
     }
 
 
@@ -54,14 +56,230 @@ def locked_artifact() -> dict[str, object]:
     }
 
 
+def write_repository_config(root: Path) -> None:
+    root.joinpath("apt-index.toml").write_text(
+        """
+suite = "stable"
+component = "main"
+
+[repository]
+origin = "Apt Index"
+label = "test index"
+description = "Test index"
+base_url = "https://example.test"
+
+[signing]
+key_name = "Apt Index <apt-index@example.test>"
+""".strip()
+        + "\n",
+        encoding="utf-8",
+    )
+
+
+class ConfigLoadingTests(unittest.TestCase):
+    def test_shorthand_entry_expands_to_per_architecture_runtime_config(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_repository_config(root)
+            packages = root / "packages"
+            packages.mkdir()
+            packages.joinpath("bat.toml").write_text(
+                """
+homepage = "https://github.com/sharkdp/bat"
+architectures = ["amd64", "arm64"]
+source = "github"
+update_policy = "track"
+
+[sources.github]
+repo = "sharkdp/bat"
+
+[sources.github.asset_patterns]
+amd64 = "bat_*_amd64.deb"
+arm64 = "bat_*_arm64.deb"
+""".strip()
+                + "\n",
+                encoding="utf-8",
+            )
+
+            config = load_configuration(root).to_runtime_dict()
+
+        self.assertEqual(config["packages"]["bat"]["architectures"].keys(), {"amd64", "arm64"})
+        amd64 = config["packages"]["bat"]["architectures"]["amd64"]
+        self.assertEqual(amd64["update_policy"], "track")
+        self.assertEqual(amd64["source"], {"type": "github", "repo": "sharkdp/bat", "asset_pattern": "bat_*_amd64.deb"})
+
+    def test_explicit_mixed_source_entry_normalizes_selected_sources_only(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_repository_config(root)
+            package_dir = root / "packages" / "mixed"
+            package_dir.mkdir(parents=True)
+            package_dir.joinpath("index.toml").write_text(
+                """
+homepage = "https://example.test/pkg"
+
+[architectures]
+amd64 = { source = "aur", update_policy = "track" }
+arm64 = { source = "github", update_policy = "fixed" }
+
+[sources.aur]
+package = "example-bin"
+
+[sources.aur.asset_patterns]
+amd64 = "example_*_amd64.deb"
+
+[sources.github]
+repo = "example/pkg"
+
+[sources.github.asset_patterns]
+arm64 = "pkg_*_arm64.deb"
+
+[sources.github.release_tags]
+arm64 = "v1.2.3"
+""".strip()
+                + "\n",
+                encoding="utf-8",
+            )
+
+            config = load_configuration(root).to_runtime_dict()
+
+        entry = config["packages"]["mixed"]
+        self.assertEqual(entry["architectures"]["amd64"]["source"], {"type": "aur", "package": "example-bin", "asset_pattern": "example_*_amd64.deb"})
+        self.assertEqual(
+            entry["architectures"]["arm64"]["source"],
+            {"type": "github", "repo": "example/pkg", "asset_pattern": "pkg_*_arm64.deb", "release_tag": "v1.2.3"},
+        )
+
+    def test_unselected_source_option_is_accepted_and_dropped(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_repository_config(root)
+            packages = root / "packages"
+            packages.mkdir()
+            packages.joinpath("pkg.toml").write_text(
+                """
+homepage = "https://example.test/pkg"
+architectures = ["amd64"]
+source = "github"
+update_policy = "track"
+
+[sources.github]
+repo = "example/pkg"
+
+[sources.github.asset_patterns]
+amd64 = "pkg_*_amd64.deb"
+
+[sources.aur]
+package = "unused-bin"
+
+[sources.aur.asset_patterns]
+amd64 = "unused_*_amd64.deb"
+""".strip()
+                + "\n",
+                encoding="utf-8",
+            )
+
+            config = load_configuration(root).to_runtime_dict()
+
+        self.assertEqual(config["packages"]["pkg"]["architectures"]["amd64"]["source"]["type"], "github")
+        self.assertNotIn("sources", config["packages"]["pkg"])
+
+    def test_flat_old_resolver_fields_fail_validation(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_repository_config(root)
+            packages = root / "packages"
+            packages.mkdir()
+            packages.joinpath("pkg.toml").write_text(
+                """
+homepage = "https://example.test/pkg"
+architectures = ["amd64"]
+source = "github"
+update_policy = "track"
+repo = "example/pkg"
+""".strip()
+                + "\n",
+                encoding="utf-8",
+            )
+
+            with self.assertRaisesRegex(ConfigError, "Extra inputs are not permitted"):
+                load_configuration(root)
+
+    def test_release_tag_and_release_tags_cannot_be_combined(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_repository_config(root)
+            packages = root / "packages"
+            packages.mkdir()
+            packages.joinpath("pkg.toml").write_text(
+                """
+homepage = "https://example.test/pkg"
+architectures = ["amd64"]
+source = "github"
+update_policy = "fixed"
+
+[sources.github]
+repo = "example/pkg"
+release_tag = "v1"
+
+[sources.github.asset_patterns]
+amd64 = "pkg_*_amd64.deb"
+
+[sources.github.release_tags]
+amd64 = "v1"
+""".strip()
+                + "\n",
+                encoding="utf-8",
+            )
+
+            with self.assertRaisesRegex(ConfigError, "use release_tag or release_tags"):
+                load_configuration(root)
+
+    def test_old_packages_toml_entry_point_fails(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_repository_config(root)
+            root.joinpath("packages.toml").write_text("suite = \"stable\"\n", encoding="utf-8")
+
+            with self.assertRaisesRegex(ConfigError, "packages.toml is not a valid configuration entry point"):
+                load_configuration(root)
+
+    def test_duplicate_entry_layouts_fail(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_repository_config(root)
+            packages = root / "packages"
+            packages.joinpath("pkg").mkdir(parents=True)
+            packages.joinpath("pkg.toml").write_text("homepage = \"https://example.test\"\n", encoding="utf-8")
+            packages.joinpath("pkg", "index.toml").write_text("homepage = \"https://example.test\"\n", encoding="utf-8")
+
+            with self.assertRaisesRegex(ConfigError, "duplicate software entry"):
+                load_configuration(root)
+
+    def test_nested_entry_paths_fail(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_repository_config(root)
+            nested = root / "packages" / "vendor" / "pkg"
+            nested.mkdir(parents=True)
+            nested.joinpath("index.toml").write_text("homepage = \"https://example.test\"\n", encoding="utf-8")
+
+            with self.assertRaisesRegex(ConfigError, "nested entry path is not allowed"):
+                load_configuration(root)
+
+
 class ResolveEntryTests(unittest.TestCase):
     def test_reuses_locked_artifact_when_candidate_is_unchanged(self) -> None:
         previous_entry = {
-            "update_policy": "track",
-            "source": "github",
             "homepage": "https://example.test/pkg",
-            "resolved_at": "previous",
-            "artifacts": {"amd64": locked_artifact()},
+            "architectures": {
+                "amd64": {
+                    "source": "github",
+                    "update_policy": "track",
+                    "resolved_at": "previous",
+                    "artifact": locked_artifact(),
+                }
+            },
         }
         candidate = cli.ArtifactCandidate(
             "https://example.test/pkg.deb",
@@ -70,7 +288,7 @@ class ResolveEntryTests(unittest.TestCase):
         )
 
         with patch.object(cli, "resolve_candidate", return_value=candidate), patch.object(cli, "download") as download:
-            resolved = cli.resolve_entry(package_config(), "pkg", package_entry(), previous_entry)
+            resolved = cli.resolve_entry("pkg", package_entry(), previous_entry)
 
         download.assert_not_called()
         self.assertEqual(resolved.entry, previous_entry)
@@ -78,11 +296,15 @@ class ResolveEntryTests(unittest.TestCase):
 
     def test_downloads_and_updates_artifact_when_candidate_changes(self) -> None:
         previous_entry = {
-            "update_policy": "track",
-            "source": "github",
             "homepage": "https://example.test/pkg",
-            "resolved_at": "previous",
-            "artifacts": {"amd64": locked_artifact()},
+            "architectures": {
+                "amd64": {
+                    "source": "github",
+                    "update_policy": "track",
+                    "resolved_at": "previous",
+                    "artifact": locked_artifact(),
+                }
+            },
         }
         candidate = cli.ArtifactCandidate(
             "https://example.test/pkg-2.deb",
@@ -102,59 +324,135 @@ class ResolveEntryTests(unittest.TestCase):
             patch.object(cli, "download", return_value=Path("/tmp/pkg.deb")) as download,
             patch.object(cli, "inspect_deb", return_value=metadata),
         ):
-            resolved = cli.resolve_entry(package_config(), "pkg", package_entry(), previous_entry)
+            resolved = cli.resolve_entry("pkg", package_entry(), previous_entry)
 
-        download.assert_called_once_with("https://example.test/pkg-2.deb", None)
-        self.assertEqual(resolved.entry["artifacts"]["amd64"]["url"], "https://example.test/pkg-2.deb")
-        self.assertEqual(resolved.entry["artifacts"]["amd64"]["sha256"], "new-sha256")
+        download.assert_called_once_with("https://example.test/pkg-2.deb", None, "sha256")
+        artifact = resolved.entry["architectures"]["amd64"]["artifact"]
+        self.assertEqual(artifact["url"], "https://example.test/pkg-2.deb")
+        self.assertEqual(artifact["sha256"], "new-sha256")
         self.assertEqual(resolved.full_checked_arches, {"amd64"})
 
-    def test_skips_optional_architecture_without_selector(self) -> None:
-        config = {"required_architectures": ["amd64"], "optional_architectures": ["arm64"]}
-        entry = package_entry() | {"asset_patterns": {"amd64": "pkg_*_amd64.deb"}}
-        candidate = cli.ArtifactCandidate(
-            "https://example.test/pkg.deb",
-            "1.0.0",
-            "pkg_1.0.0_amd64.deb",
-        )
-
-        with patch.object(cli, "resolve_candidate", return_value=candidate) as resolve_candidate:
-            resolved = cli.resolve_entry(config, "pkg", entry, {"artifacts": {"amd64": locked_artifact()}})
-
-        resolve_candidate.assert_called_once_with(entry, "amd64")
-        self.assertEqual(resolved.entry["artifacts"].keys(), {"amd64"})
-
-    def test_resolves_optional_architecture_with_selector(self) -> None:
-        config = {"required_architectures": ["amd64"], "optional_architectures": ["arm64"]}
-        entry = package_entry() | {"asset_patterns": {"amd64": "pkg_*_amd64.deb", "arm64": "pkg_*_arm64.deb"}}
-        candidates = {
-            "amd64": cli.ArtifactCandidate("https://example.test/pkg-amd64.deb", "1.0.0", "pkg_1.0.0_amd64.deb"),
-            "arm64": cli.ArtifactCandidate("https://example.test/pkg-arm64.deb", "1.0.0", "pkg_1.0.0_arm64.deb"),
+    def test_keeps_previous_architecture_when_refresh_fails(self) -> None:
+        previous_entry = {
+            "homepage": "https://example.test/pkg",
+            "architectures": {
+                "amd64": {
+                    "source": "github",
+                    "update_policy": "track",
+                    "resolved_at": "previous",
+                    "artifact": locked_artifact(),
+                }
+            },
         }
 
-        def fake_resolve_candidate(entry: dict[str, object], arch: str) -> cli.ArtifactCandidate:
-            return candidates[arch]
+        with patch.object(cli, "resolve_candidate", side_effect=RuntimeError("no asset")):
+            resolved = cli.resolve_entry("pkg", package_entry(), previous_entry)
+
+        self.assertEqual(resolved.entry["architectures"]["amd64"], previous_entry["architectures"]["amd64"])
+        self.assertEqual(resolved.architecture_health["amd64"]["status"], "kept_previous")
+        self.assertEqual(resolved.architecture_health["amd64"]["error"], "no asset")
+
+    def test_one_architecture_can_update_while_another_fails(self) -> None:
+        entry = package_entry()
+        entry["architectures"]["arm64"] = {
+            "update_policy": "track",
+            "source": {
+                "type": "github",
+                "repo": "example/pkg",
+                "asset_pattern": "pkg_*_arm64.deb",
+            },
+        }
+        candidates = {
+            "amd64": cli.ArtifactCandidate("https://example.test/pkg-amd64.deb", "1.0.0", "pkg_1.0.0_amd64.deb"),
+        }
+
+        def fake_resolve_candidate(architecture: dict[str, object]) -> cli.ArtifactCandidate:
+            source = architecture["source"]
+            pattern = source["asset_pattern"]
+            if "arm64" in pattern:
+                raise RuntimeError("no arm64 asset")
+            return candidates["amd64"]
 
         def fake_inspect_deb(path: Path) -> dict[str, object]:
-            arch = "arm64" if path.name == "pkg-arm64.deb" else "amd64"
             return {
-                "control": {"Package": "pkg", "Version": "1.0.0", "Architecture": arch},
+                "control": {"Package": "pkg", "Version": "1.0.0", "Architecture": "amd64"},
                 "size": 123,
                 "md5": "md5",
                 "sha1": "sha1",
-                "sha256": f"sha256-{arch}",
+                "sha256": "sha256-amd64",
             }
 
         with (
             patch.object(cli, "resolve_candidate", side_effect=fake_resolve_candidate),
-            patch.object(cli, "download", side_effect=lambda url, _: Path("/tmp") / Path(url).name),
+            patch.object(cli, "download", side_effect=lambda url, expected_hash, hash_algorithm: Path("/tmp") / Path(url).name),
             patch.object(cli, "inspect_deb", side_effect=fake_inspect_deb),
         ):
-            resolved = cli.resolve_entry(config, "pkg", entry)
+            resolved = cli.resolve_entry("pkg", entry)
 
-        self.assertEqual(resolved.entry["artifacts"].keys(), {"amd64", "arm64"})
-        self.assertEqual(resolved.entry["artifacts"]["arm64"]["sha256"], "sha256-arm64")
-        self.assertEqual(resolved.full_checked_arches, {"amd64", "arm64"})
+        self.assertEqual(resolved.entry["architectures"].keys(), {"amd64"})
+        self.assertEqual(resolved.entry["architectures"]["amd64"]["artifact"]["sha256"], "sha256-amd64")
+        self.assertEqual(resolved.architecture_health["arm64"]["status"], "failed")
+        self.assertEqual(resolved.full_checked_arches, {"amd64"})
+
+
+class ResolveCandidateTests(unittest.TestCase):
+    def test_aur_generic_source_selects_deb_and_matching_sha512(self) -> None:
+        srcinfo = """
+pkgbase = google-chrome
+    pkgver = 149.0.7827.114
+    arch = x86_64
+    source = https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_149.0.7827.114-1_amd64.deb
+    source = eula_text.html
+    source = google-chrome-stable.sh
+    sha512sums = deb-sha512
+    sha512sums = eula-sha512
+    sha512sums = script-sha512
+""".strip()
+
+        architecture = {
+            "update_policy": "track",
+            "source": {
+                "type": "aur",
+                "package": "google-chrome",
+                "asset_pattern": "google-chrome-stable_*_amd64.deb",
+            },
+        }
+
+        with patch.object(cli, "fetch_text", return_value=srcinfo):
+            candidate = cli.resolve_candidate(architecture)
+
+        self.assertEqual(candidate.url, "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_149.0.7827.114-1_amd64.deb")
+        self.assertEqual(candidate.asset_name, "google-chrome-stable_149.0.7827.114-1_amd64.deb")
+        self.assertEqual(candidate.upstream_version, "149.0.7827.114")
+        self.assertEqual(candidate.expected_hash, "deb-sha512")
+        self.assertEqual(candidate.hash_algorithm, "sha512")
+
+    def test_aur_asset_pattern_matches_arch_specific_source_and_sha256(self) -> None:
+        srcinfo = """
+pkgbase = example-bin
+    pkgver = 1.2.3
+    source = helper.txt
+    sha256sums = helper-sha256
+    source_aarch64 = example.deb::https://example.test/example-arm64.deb
+    sha256sums_aarch64 = deb-sha256
+""".strip()
+
+        architecture = {
+            "update_policy": "track",
+            "source": {
+                "type": "aur",
+                "package": "example-bin",
+                "asset_pattern": "example.deb",
+            },
+        }
+
+        with patch.object(cli, "fetch_text", return_value=srcinfo):
+            candidate = cli.resolve_candidate(architecture)
+
+        self.assertEqual(candidate.url, "https://example.test/example-arm64.deb")
+        self.assertEqual(candidate.asset_name, "example.deb")
+        self.assertEqual(candidate.expected_hash, "deb-sha256")
+        self.assertEqual(candidate.hash_algorithm, "sha256")
 
 
 class ArtifactHealthTests(unittest.TestCase):
@@ -219,7 +517,19 @@ class ArtifactHealthTests(unittest.TestCase):
         self.assertEqual(result, {"status": "ok", "check": "full", "size": 3, "sha256": "actual-sha256"})
 
     def test_check_artifacts_uses_full_check_when_requested(self) -> None:
-        lock = {"packages": {"pkg": {"artifacts": {"amd64": locked_artifact()}}}}
+        lock = {
+            "packages": {
+                "pkg": {
+                    "architectures": {
+                        "amd64": {
+                            "source": "github",
+                            "update_policy": "track",
+                            "artifact": locked_artifact(),
+                        }
+                    }
+                }
+            }
+        }
 
         with patch.object(cli, "check_artifact", return_value={"status": "ok", "check": "full"}) as check_artifact:
             health = cli.check_artifacts(lock, jobs=1, full_artifact_check=True)

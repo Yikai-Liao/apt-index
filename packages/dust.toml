@@ -1,0 +1,10 @@
+homepage = "https://github.com/bootandy/dust"
+architectures = ["amd64"]
+source = "github"
+update_policy = "track"
+
+[sources.github]
+repo = "bootandy/dust"
+
+[sources.github.asset_patterns]
+amd64 = "du-dust_*_amd64.deb"

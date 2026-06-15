@@ -1,88 +1,186 @@
 {
-  "generated_at": "2026-06-15T05:11:59+00:00",
+  "generated_at": "2026-06-15T06:26:59+00:00",
   "packages": {
     "bat": {
-      "artifacts": [
-        "amd64",
-        "arm64"
-      ],
+      "architectures": {
+        "amd64": {
+          "source": "github",
+          "status": "ok",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "source": "github",
+          "status": "ok",
+          "update_policy": "track"
+        }
+      },
       "status": "ok"
     },
     "bottom": {
-      "artifacts": [
-        "amd64",
-        "arm64"
-      ],
+      "architectures": {
+        "amd64": {
+          "source": "github",
+          "status": "ok",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "source": "github",
+          "status": "ok",
+          "update_policy": "track"
+        }
+      },
       "status": "ok"
     },
     "dust": {
-      "artifacts": [
-        "amd64"
-      ],
+      "architectures": {
+        "amd64": {
+          "source": "github",
+          "status": "ok",
+          "update_policy": "track"
+        }
+      },
       "status": "ok"
     },
     "fastfetch": {
-      "artifacts": [
-        "amd64",
-        "arm64"
-      ],
+      "architectures": {
+        "amd64": {
+          "source": "github",
+          "status": "ok",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "source": "github",
+          "status": "ok",
+          "update_policy": "track"
+        }
+      },
       "status": "ok"
     },
     "fd": {
-      "artifacts": [
-        "amd64",
-        "arm64"
-      ],
+      "architectures": {
+        "amd64": {
+          "source": "github",
+          "status": "ok",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "source": "github",
+          "status": "ok",
+          "update_policy": "track"
+        }
+      },
       "status": "ok"
     },
     "feishu": {
-      "artifacts": [
-        "amd64",
-        "arm64"
-      ],
+      "architectures": {
+        "amd64": {
+          "source": "aur",
+          "status": "ok",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "source": "aur",
+          "status": "ok",
+          "update_policy": "track"
+        }
+      },
+      "status": "ok"
+    },
+    "google-chrome": {
+      "architectures": {
+        "amd64": {
+          "source": "aur",
+          "status": "ok",
+          "update_policy": "track"
+        }
+      },
       "status": "ok"
     },
     "lazydocker": {
-      "artifacts": [
-        "amd64",
-        "arm64"
-      ],
+      "architectures": {
+        "amd64": {
+          "source": "github",
+          "status": "ok",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "source": "github",
+          "status": "ok",
+          "update_policy": "track"
+        }
+      },
       "status": "ok"
     },
     "lsd": {
-      "artifacts": [
-        "amd64",
-        "arm64"
-      ],
+      "architectures": {
+        "amd64": {
+          "source": "github",
+          "status": "ok",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "source": "github",
+          "status": "ok",
+          "update_policy": "track"
+        }
+      },
       "status": "ok"
     },
     "qq": {
-      "artifacts": [
-        "amd64",
-        "arm64"
-      ],
+      "architectures": {
+        "amd64": {
+          "source": "aur",
+          "status": "ok",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "source": "aur",
+          "status": "ok",
+          "update_policy": "track"
+        }
+      },
       "status": "ok"
     },
     "ripgrep": {
-      "artifacts": [
-        "amd64"
-      ],
+      "architectures": {
+        "amd64": {
+          "source": "github",
+          "status": "ok",
+          "update_policy": "track"
+        }
+      },
       "status": "ok"
     },
     "vscode": {
-      "artifacts": [
-        "amd64",
-        "arm64"
-      ],
+      "architectures": {
+        "amd64": {
+          "source": "aur",
+          "status": "ok",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "source": "aur",
+          "status": "ok",
+          "update_policy": "track"
+        }
+      },
       "status": "ok"
     },
     "wechat": {
-      "artifacts": [
-        "amd64",
-        "arm64"
-      ],
+      "architectures": {
+        "amd64": {
+          "source": "aur",
+          "status": "ok",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "source": "aur",
+          "status": "ok",
+          "update_policy": "track"
+        }
+      },
       "status": "ok"
     }
   },
-  "version": 1
+  "version": 2
 }

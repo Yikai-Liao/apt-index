@@ -1,150 +1,47 @@
-# Configuration Model
-
-This document describes the split configuration model.
-
-## Files
-
-Repository configuration lives in `apt-index.toml`. It contains only repository-level settings such as the suite, component, repository metadata, and signing configuration. It does not define software entries.
-
-Software entries live under `packages/` in one of two layouts:
-
-```text
-packages/<entry-name>.toml
-packages/<entry-name>/index.toml
-```
-
-An entry must choose one layout. If both `packages/wechat.toml` and `packages/wechat/index.toml` exist, configuration loading fails. Entry names are flat; nested names such as `packages/tencent/wechat/index.toml` are not valid entry names.
-
-Entry names use only lowercase letters, digits, hyphens, and underscores, and must start and end with a letter or digit:
-
-```text
-^[a-z0-9](?:[a-z0-9_-]*[a-z0-9])?$
-```
-
-## Entry Schema
-
-A software entry has:
-
-- `homepage`, which describes the software entry itself.
-- an architecture plan, which states which architectures the entry publishes, which source resolver each architecture uses, and which update policy each architecture follows.
-- `sources`, which contains resolver-specific source options.
-
-Source-specific fields are only valid under `sources.<resolver>`. Old flat fields such as `source`, `repo`, `asset_patterns`, `aur_package`, and `aur_architectures` are not valid as resolver configuration fields in the new schema.
-
-Supported source resolver keys remain `url`, `github`, `aur`, and `script`.
-
-A software entry may keep source options that no architecture currently selects. Those unselected source options are valid raw configuration, but normalization drops them; refresh and build code only receive the active source selected by each architecture.
-
-## Shorthand Entry
-
-Use the shorthand when every architecture uses the same source resolver and update policy.
-
-```toml
-# packages/bat.toml
-homepage = "https://github.com/sharkdp/bat"
-architectures = ["amd64", "arm64"]
-source = "github"
-update_policy = "track"
-
-[sources.github]
-repo = "sharkdp/bat"
-
-[sources.github.asset_patterns]
-amd64 = "bat_*_amd64.deb"
-arm64 = "bat_*_arm64.deb"
-```
-
-The loader normalizes this to the same internal architecture plan as:
-
-```toml
-[architectures]
-amd64 = { source = "github", update_policy = "track" }
-arm64 = { source = "github", update_policy = "track" }
-```
-
-For a fixed GitHub release where all architectures use the same release tag, keep `release_tag` scalar:
-
-```toml
-# packages/example-fixed.toml
-homepage = "https://github.com/example/app"
-architectures = ["amd64", "arm64"]
-source = "github"
-update_policy = "fixed"
-
-[sources.github]
-repo = "example/app"
-release_tag = "v1.2.3"
-
-[sources.github.asset_patterns]
-amd64 = "app_*_amd64.deb"
-arm64 = "app_*_arm64.deb"
-```
-
-## Explicit Entry
-
-Use the explicit architecture plan when different architectures use different source resolvers, different update policies, or different fixed release tags.
-
-```toml
-# packages/example-mixed/index.toml
-homepage = "https://example.test/app"
-
-[architectures]
-amd64 = { source = "aur", update_policy = "track" }
-arm64 = { source = "github", update_policy = "fixed" }
-
-[sources.aur]
-package = "example-app-bin"
-
-[sources.aur.asset_patterns]
-amd64 = "example-app_*_amd64.deb"
-
-[sources.github]
-repo = "example/app"
-
-[sources.github.asset_patterns]
-arm64 = "app_*_arm64.deb"
-
-[sources.github.release_tags]
-arm64 = "v1.2.3"
-```
-
-The explicit plan and shorthand are mutually exclusive. If `architectures` is a list, top-level `source` and `update_policy` are required. If `architectures` is a map, top-level `source` and `update_policy` are forbidden.
-
-## Validation Rules
-
-- Each software entry must declare at least one architecture.
-- Every architecture plan must reference a configured source resolver under `sources`.
-- The update policy must be compatible with the selected source resolver for that architecture.
-- Unselected source options are allowed and are omitted from the normalized entry model.
-- `url` supports `fixed`.
-- `github` supports `fixed` and `track`.
-- `aur` supports `track`.
-- `script` is reserved for future custom resolvers and supports `track`.
-- Source identity fields are validated when a source option exists. Per-architecture resolver fields are validated only for architectures that select that source.
-- Extra fields are forbidden at every model layer.
-
-## Pydantic Prototype
-
-The configuration loader should use two model layers:
-
-- a raw model that accepts TOML syntax, including shorthand fields.
-- a normalized architecture-centric model that refresh and build code use exclusively.
-
-The normalized model should not preserve source-level shorthand. For example, raw GitHub TOML may contain `release_tag` or `release_tags`, but the normalized per-architecture GitHub source contains only the release tag selected for that architecture.
-
-```python
 from __future__ import annotations
 
+import re
+import tomllib
 from collections.abc import Callable, Mapping
-from typing import Annotated, Literal, Self, TypeVar, cast
+from pathlib import Path
+from typing import Annotated, Any, Literal, Self, TypeVar, cast
 
-from pydantic import BaseModel, ConfigDict, Field, model_validator
-
+from pydantic import BaseModel, ConfigDict, Field, ValidationError, model_validator
 
 Arch = Literal["amd64", "arm64"]
 ResolverKey = Literal["url", "github", "aur", "script"]
 UpdatePolicy = Literal["fixed", "track"]
 T = TypeVar("T")
+
+ENTRY_NAME_RE = re.compile(r"^[a-z0-9](?:[a-z0-9_-]*[a-z0-9])?$")
+
+
+class ConfigError(ValueError):
+    pass
+
+
+class RepositoryMetadata(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    origin: str
+    label: str
+    description: str
+    base_url: str
+
+
+class SigningConfig(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    key_name: str
+
+
+class RepositoryConfig(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    suite: str
+    component: str
+    repository: RepositoryMetadata
+    signing: SigningConfig
 
 
 class ArchitecturePlan(BaseModel):
@@ -203,6 +100,13 @@ class EntryConfig(BaseModel):
 
     homepage: str
     architectures: dict[Arch, EntryArchitecture]
+
+
+class AptIndexConfig(RepositoryConfig):
+    packages: dict[str, EntryConfig]
+
+    def to_runtime_dict(self) -> dict[str, Any]:
+        return self.model_dump(mode="json", exclude_none=True)
 
 
 class RawUrlSource(BaseModel):
@@ -288,6 +192,64 @@ SOURCE_CAPABILITIES: Mapping[ResolverKey, frozenset[UpdatePolicy]] = {
     "script": frozenset({"track"}),
 }
 
+
+def load_configuration(root: Path) -> AptIndexConfig:
+    repository_config_path = root / "apt-index.toml"
+    old_config_path = root / "packages.toml"
+    if old_config_path.exists():
+        raise ConfigError("packages.toml is not a valid configuration entry point; use apt-index.toml and packages/")
+    if not repository_config_path.exists():
+        raise ConfigError("apt-index.toml is missing")
+
+    repository_config = validate_model(
+        RepositoryConfig,
+        read_toml(repository_config_path),
+        repository_config_path,
+    )
+    return AptIndexConfig(
+        **repository_config.model_dump(),
+        packages=load_entries(root / "packages"),
+    )
+
+
+def load_entries(packages_dir: Path) -> dict[str, EntryConfig]:
+    if not packages_dir.exists():
+        return {}
+    if not packages_dir.is_dir():
+        raise ConfigError("packages must be a directory")
+
+    entry_files = discover_entry_files(packages_dir)
+    entries: dict[str, EntryConfig] = {}
+    for name, path in entry_files.items():
+        raw_entry = validate_model(RawEntryConfig, read_toml(path), path)
+        try:
+            entries[name] = raw_entry.normalize()
+        except ValueError as exc:
+            raise ConfigError(f"{path}: {exc}") from exc
+    return entries
+
+
+def discover_entry_files(packages_dir: Path) -> dict[str, Path]:
+    entries: dict[str, Path] = {}
+    for path in sorted(packages_dir.rglob("*.toml")):
+        relative = path.relative_to(packages_dir)
+        parts = relative.parts
+        if len(parts) == 1:
+            name = path.stem
+        elif len(parts) == 2 and parts[1] == "index.toml":
+            name = parts[0]
+        else:
+            raise ConfigError(f"nested entry path is not allowed: {path}")
+
+        if not ENTRY_NAME_RE.fullmatch(name):
+            raise ConfigError(f"invalid software entry name {name!r}")
+        existing = entries.get(name)
+        if existing is not None:
+            raise ConfigError(f"duplicate software entry {name!r}: {existing} and {path}")
+        entries[name] = path
+    return entries
+
+
 def normalize_architecture_plans(
     raw_architectures: list[Arch] | dict[Arch, ArchitecturePlan],
     shorthand_source: ResolverKey | None,
@@ -296,6 +258,8 @@ def normalize_architecture_plans(
     if isinstance(raw_architectures, list):
         if shorthand_source is None or shorthand_update_policy is None:
             raise ValueError("architecture shorthand requires source and update_policy")
+        if len(set(raw_architectures)) != len(raw_architectures):
+            raise ValueError("architecture shorthand contains duplicate entries")
         return {
             arch: ArchitecturePlan(
                 source=shorthand_source,
@@ -380,6 +344,11 @@ def normalize_script_source(
     return ScriptArchSource(command=raw.command)
 
 
+def read_toml(path: Path) -> dict[str, Any]:
+    with path.open("rb") as file:
+        return tomllib.load(file)
+
+
 def required_arch_value(values: Mapping[Arch, str], arch: Arch, label: str) -> str:
     try:
         return values[arch]
@@ -393,6 +362,13 @@ def expect_source(source: object, model: type[T]) -> T:
     return cast(T, source)
 
 
+def validate_model(model: type[T], data: dict[str, Any], path: Path) -> T:
+    try:
+        return model.model_validate(data)
+    except ValidationError as exc:
+        raise ConfigError(f"{path}: {exc}") from exc
+
+
 SourceNormalizer = Callable[[object, Arch, UpdatePolicy], ActiveSource]
 
 SOURCE_NORMALIZERS: Mapping[ResolverKey, SourceNormalizer] = {
@@ -401,4 +377,3 @@ SOURCE_NORMALIZERS: Mapping[ResolverKey, SourceNormalizer] = {
     "aur": normalize_aur_source,
     "script": normalize_script_source,
 }
-```

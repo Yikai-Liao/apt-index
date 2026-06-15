@@ -1,0 +1,10 @@
+homepage = "https://github.com/BurntSushi/ripgrep"
+architectures = ["amd64"]
+source = "github"
+update_policy = "track"
+
+[sources.github]
+repo = "BurntSushi/ripgrep"
+
+[sources.github.asset_patterns]
+amd64 = "ripgrep_*_amd64.deb"

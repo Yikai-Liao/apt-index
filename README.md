@@ -23,7 +23,7 @@ sudo apt update
 sudo apt install <package-name>
 ```
 
-The current implementation reads package selection from [`packages.toml`](./packages.toml). The target split configuration model moves repository settings to `apt-index.toml` and software entries to `packages/`; see [`docs/configuration.md`](./docs/configuration.md).
+The repository reads repository settings from [`apt-index.toml`](./apt-index.toml) and software entries from [`packages/`](./packages/); see [`docs/configuration.md`](./docs/configuration.md).
 
 The resolved upstream artifacts and installable Debian package names are recorded in [`apt-index.lock.json`](./apt-index.lock.json).
 
@@ -48,7 +48,7 @@ The resolved upstream artifacts and installable Debian package names are recorde
 ## Architecture
 
 ```text
-packages.toml
+apt-index.toml + packages/
     |
     v
 Python refresh/build tools
@@ -96,14 +96,13 @@ In that case the APT package name is `bytedance-feishu-stable`.
 
 ## Configuration Model
 
-The current implementation uses a single TOML file. The target split configuration model, including shorthand and explicit entry examples plus the Pydantic validation prototype, is documented in [`docs/configuration.md`](./docs/configuration.md).
+The split configuration model, including shorthand and explicit entry examples plus the Pydantic validation prototype, is documented in [`docs/configuration.md`](./docs/configuration.md).
 
-Each current package entry has:
+Each software entry has:
 
-- an `update_policy`
-- a `source` resolver key
-- resolver-specific fields
-- architecture-specific artifact selection
+- an entry homepage
+- an architecture plan
+- source options under `sources`
 
 Supported source resolver keys:
 
@@ -117,17 +116,18 @@ Supported source resolver keys:
 Example:
 
 ```toml
-suite = "stable"
-component = "main"
-required_architectures = ["amd64"]
-optional_architectures = ["arm64"]
-
-[packages.bat]
-update_policy = "track"
+# packages/bat.toml
+homepage = "https://github.com/sharkdp/bat"
+architectures = ["amd64", "arm64"]
 source = "github"
+update_policy = "track"
+
+[sources.github]
 repo = "sharkdp/bat"
-asset_patterns.amd64 = "bat_*_amd64.deb"
-asset_patterns.arm64 = "bat_*_arm64.deb"
+
+[sources.github.asset_patterns]
+amd64 = "bat_*_amd64.deb"
+arm64 = "bat_*_arm64.deb"
 ```
 
 ## Update Policies
@@ -145,17 +145,13 @@ For AUR sources:
 
 - the resolver reads static `.SRCINFO`
 - the resolver uses AUR only to discover upstream `.deb` URLs and checksums
+- every enabled architecture must have an `asset_patterns.<arch>` glob that matches the `.deb` source asset name or URL
 - `PKGBUILD` is never executed
 - AUR package metadata such as `provides`, `conflicts`, install scripts, and file modifications is not inherited
 
 ## Architectures
 
-The current implementation targets:
-
-- `amd64` as a required architecture
-- `arm64` as an optional architecture where the upstream source publishes a compatible `.deb`
-
-If a package cannot resolve an `amd64` artifact, that package cannot be newly published. Optional architectures are resolved only for package entries that declare an architecture-specific artifact selector, so packages without upstream arm64 `.deb` assets can stay published for `amd64`.
+Each software entry declares the entry architectures it publishes. Refresh failures are recorded per entry architecture: one architecture can update while another keeps its previous architecture artifact or fails without blocking unrelated architectures.
 
 ## Generated State
 
@@ -175,9 +171,9 @@ The deployable `dist/` tree is generated in CI and uploaded to Cloudflare Pages,
 
 The daily GitHub Actions workflow:
 
-1. Reads `packages.toml`.
-2. Resolves tracked package updates with limited parallel workers, reusing lockfile metadata when the upstream artifact URL, version, and asset name are unchanged.
-3. Keeps the previous lock entry for a package if that package's track refresh fails.
+1. Reads `apt-index.toml` and `packages/`.
+2. Resolves tracked entry architecture updates with limited parallel workers, reusing lockfile metadata when the upstream artifact URL, version, and asset name are unchanged.
+3. Keeps the previous architecture artifact if that entry architecture's track refresh fails.
 4. Continues refreshing unrelated packages.
 5. Checks artifact health for both fixed and tracked packages. Daily checks are lightweight for unchanged artifacts; `apt-index refresh --full-artifact-check` downloads and hashes every locked artifact.
 6. Commits changed generated state files directly to the default branch.

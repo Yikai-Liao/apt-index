@@ -1,0 +1,11 @@
+homepage = "https://www.feishu.cn/"
+architectures = ["amd64", "arm64"]
+source = "aur"
+update_policy = "track"
+
+[sources.aur]
+package = "feishu-bin"
+
+[sources.aur.asset_patterns]
+amd64 = "Feishu-linux_x64-*.deb"
+arm64 = "Feishu-linux_arm64-*.deb"

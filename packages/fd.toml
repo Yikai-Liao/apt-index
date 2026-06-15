@@ -1,0 +1,11 @@
+homepage = "https://github.com/sharkdp/fd"
+architectures = ["amd64", "arm64"]
+source = "github"
+update_policy = "track"
+
+[sources.github]
+repo = "sharkdp/fd"
+
+[sources.github.asset_patterns]
+amd64 = "fd_*_amd64.deb"
+arm64 = "fd_*_arm64.deb"

@@ -1,0 +1,11 @@
+homepage = "https://weixin.qq.com/"
+architectures = ["amd64", "arm64"]
+source = "aur"
+update_policy = "track"
+
+[sources.aur]
+package = "wechat-bin"
+
+[sources.aur.asset_patterns]
+amd64 = "wechat-x86-*.deb"
+arm64 = "wechat-arm-*.deb"

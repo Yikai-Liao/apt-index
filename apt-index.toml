@@ -1,0 +1,11 @@
+suite = "stable"
+component = "main"
+
+[repository]
+origin = "Apt Index"
+label = "lyk-ai personal apt index"
+description = "Personal APT index for selected upstream Debian packages"
+base_url = "https://deb.lyk-ai.com"
+
+[signing]
+key_name = "Apt Index <apt-index@lyk-ai.com>"

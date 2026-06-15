@@ -1,0 +1,10 @@
+homepage = "https://www.google.com/chrome/"
+architectures = ["amd64"]
+source = "aur"
+update_policy = "track"
+
+[sources.aur]
+package = "google-chrome"
+
+[sources.aur.asset_patterns]
+amd64 = "google-chrome-stable_*_amd64.deb"

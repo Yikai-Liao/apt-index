@@ -1,0 +1,11 @@
+homepage = "https://github.com/dariogriffo/lazydocker-debian"
+architectures = ["amd64", "arm64"]
+source = "github"
+update_policy = "track"
+
+[sources.github]
+repo = "dariogriffo/lazydocker-debian"
+
+[sources.github.asset_patterns]
+amd64 = "lazydocker_*+bookworm_amd64.deb"
+arm64 = "lazydocker_*+bookworm_arm64.deb"

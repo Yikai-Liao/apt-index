@@ -753,8 +753,8 @@ sudo apt update</pre>
               <p data-i18n="rawCopy">以下文件用于 APT 客户端、排障和审计；常规使用无需手动打开。</p>
               <div class="raw-links">
                 <a href="/key.asc">key.asc</a>
-                <a href="/dists/stable/InRelease">InRelease</a>
-                <a href="/dists/stable/main/binary-amd64/Packages">Packages</a>
+                <a href="/dists/__SUITE__/InRelease">InRelease</a>
+                __PACKAGE_INDEX_LINKS__
               </div>
             </section>
           </div>
@@ -919,7 +919,7 @@ sudo apt update</pre>
     }
 
     function statusFor(entryName, arch) {
-      const track = state.trackHealth?.packages?.[entryName]?.status || "unknown";
+      const track = state.trackHealth?.packages?.[entryName]?.architectures?.[arch]?.status || "unknown";
       const artifact = state.artifactHealth?.packages?.[entryName]?.artifacts?.[arch]?.status || "unknown";
       if (track === "ok" && artifact === "ok") return { text: "ok", className: "ok" };
       if (track === "kept_previous" && artifact === "ok") return { text: "kept previous", className: "warn" };
@@ -936,7 +936,9 @@ sudo apt update</pre>
       state.artifactCount = 0;
       return Object.entries(packages).flatMap(([entryName, entry]) => {
         const groups = new Map();
-        Object.entries(entry.artifacts || {}).forEach(([arch, artifact]) => {
+        Object.entries(entry.architectures || {}).forEach(([arch, architecture]) => {
+          const artifact = architecture.artifact;
+          if (!artifact) return;
           state.artifactCount += 1;
           const control = artifact.control || {};
           const downloads = downloadStatsFor(entryName, arch);
@@ -946,8 +948,8 @@ sudo apt update</pre>
             entryName,
             arch: "",
             arches: [],
-            source: entry.source || "",
-            policy: entry.update_policy || "",
+            source: architecture.source || "",
+            policy: architecture.update_policy || "",
             packageName,
             version: "",
             description: (control.Description || "").split("\n")[0].trim(),
@@ -963,7 +965,8 @@ sudo apt update</pre>
           row.artifacts.push({
             arch,
             version: control.Version || "",
-            source: entry.source || "",
+            source: architecture.source || "",
+            policy: architecture.update_policy || "",
             size: artifact.size || 0,
             downloads: downloads?.downloads || 0,
             downloadsLast7Days: downloads?.last_7_days || 0,

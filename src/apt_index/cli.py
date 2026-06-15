@@ -5,6 +5,7 @@ import base64
 import email.utils
 import fnmatch
 import gzip
+import html as html_module
 import hashlib
 import json
 import lzma
@@ -14,7 +15,6 @@ import shutil
 import subprocess
 import tarfile
 import tempfile
-import tomllib
 import urllib.error
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -26,10 +26,11 @@ from typing import Any
 import typer
 from loguru import logger
 
+from apt_index.config import ConfigError, load_configuration
+
 ROOT = Path(__file__).resolve().parents[1]
-if not (ROOT / "packages.toml").exists():
+if not (ROOT / "apt-index.toml").exists():
     ROOT = Path(__file__).resolve().parents[2]
-CONFIG_PATH = ROOT / "packages.toml"
 LOCK_PATH = ROOT / "apt-index.lock.json"
 TRACK_HEALTH_PATH = ROOT / "track_health.json"
 ARTIFACT_HEALTH_PATH = ROOT / "artifact_health.json"
@@ -54,13 +55,15 @@ class ArtifactCandidate:
     url: str
     upstream_version: str
     asset_name: str
-    expected_sha256: str | None = None
+    expected_hash: str | None = None
+    hash_algorithm: str = "sha256"
 
 
 @dataclass(frozen=True)
 class ResolvedEntry:
     entry: dict[str, Any]
     full_checked_arches: set[str]
+    architecture_health: dict[str, Any]
 
 
 @app.command("refresh")
@@ -101,11 +104,11 @@ def all_command(
 
 def refresh(jobs: int | None = None, full_artifact_check: bool = False) -> None:
     config = load_config()
-    lock = load_json(LOCK_PATH, {"version": 1, "generated_at": None, "packages": {}})
+    lock = load_json(LOCK_PATH, {"version": 2, "generated_at": None, "packages": {}})
     previous_packages = lock.get("packages", {})
     locked_packages: dict[str, Any] = {}
     full_checked_artifacts: set[tuple[str, str]] = set()
-    track_health: dict[str, Any] = {"version": 1, "generated_at": now_iso(), "packages": {}}
+    track_health: dict[str, Any] = {"version": 2, "generated_at": now_iso(), "packages": {}}
     package_entries = list(config["packages"].items())
     max_workers = worker_count(len(package_entries), jobs)
 
@@ -114,7 +117,7 @@ def refresh(jobs: int | None = None, full_artifact_check: bool = False) -> None:
     errors: dict[str, Exception] = {}
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         futures = {
-            executor.submit(resolve_entry, config, entry_name, entry, previous_packages.get(entry_name)): entry_name
+            executor.submit(resolve_entry, entry_name, entry, previous_packages.get(entry_name)): entry_name
             for entry_name, entry in package_entries
         }
         for future in as_completed(futures):
@@ -127,9 +130,13 @@ def refresh(jobs: int | None = None, full_artifact_check: bool = False) -> None:
     for entry_name, _ in package_entries:
         if entry_name in resolved_entries:
             resolved = resolved_entries[entry_name]
-            locked_packages[entry_name] = resolved.entry
+            if resolved.entry["architectures"]:
+                locked_packages[entry_name] = resolved.entry
             full_checked_artifacts.update((entry_name, arch) for arch in resolved.full_checked_arches)
-            track_health["packages"][entry_name] = {"status": "ok", "artifacts": list(resolved.entry["artifacts"].keys())}
+            track_health["packages"][entry_name] = {
+                "status": package_health_status(resolved.architecture_health),
+                "architectures": resolved.architecture_health,
+            }
             continue
         if entry_name in errors:
             exc = errors[entry_name]
@@ -138,22 +145,23 @@ def refresh(jobs: int | None = None, full_artifact_check: bool = False) -> None:
                 status = "kept_previous"
             else:
                 status = "failed"
-            track_health["packages"][entry_name] = {"status": status, "error": str(exc)}
+            track_health["packages"][entry_name] = {"status": status, "error": str(exc), "architectures": {}}
             logger.warning("{} refresh {}: {}", entry_name, status, exc)
 
-    lock = {"version": 1, "generated_at": now_iso(), "packages": locked_packages}
+    lock = {"version": 2, "generated_at": now_iso(), "packages": locked_packages}
     write_json(LOCK_PATH, lock)
     artifact_health = check_artifacts(lock, max_workers, full_artifact_check, full_checked_artifacts)
     write_json(TRACK_HEALTH_PATH, track_health)
     write_json(ARTIFACT_HEALTH_PATH, artifact_health)
 
-    failed_required = [
-        name
+    failed_architectures = [
+        f"{name}:{arch}"
         for name, health in track_health["packages"].items()
-        if health["status"] == "failed"
+        for arch, arch_health in health.get("architectures", {}).items()
+        if arch_health["status"] == "failed"
     ]
-    if failed_required:
-        raise SystemExit(f"failed to resolve required package entries: {', '.join(failed_required)}")
+    if failed_architectures:
+        raise SystemExit(f"failed to resolve entry architectures: {', '.join(failed_architectures)}")
 
 
 def build() -> None:
@@ -168,13 +176,13 @@ def build() -> None:
 
     suite = config["suite"]
     component = config["component"]
-    archs = config["required_architectures"] + config.get("optional_architectures", [])
+    archs = lock_architectures(lock)
     redirect_rules: dict[str, str] = {}
 
     for arch in archs:
         package_stanzas: list[str] = []
         for entry_name, entry in lock["packages"].items():
-            artifact = entry["artifacts"].get(arch)
+            artifact = entry.get("architectures", {}).get(arch, {}).get("artifact")
             if not artifact:
                 continue
             filename = artifact["filename"]
@@ -207,71 +215,131 @@ def build() -> None:
     logger.info("built deployable tree at {}", DIST_DIR)
 
 
-def resolve_entry(config: dict[str, Any], entry_name: str, entry: dict[str, Any], previous_entry: dict[str, Any] | None = None) -> ResolvedEntry:
+def resolve_entry(entry_name: str, entry: dict[str, Any], previous_entry: dict[str, Any] | None = None) -> ResolvedEntry:
     logger.info("resolving {}", entry_name)
-    artifacts: dict[str, Any] = {}
+    architectures: dict[str, Any] = {}
+    architecture_health: dict[str, Any] = {}
     full_checked_arches: set[str] = set()
-    for arch in entry_architectures(config, entry):
-        candidate = resolve_candidate(entry, arch)
-        previous_artifact = (previous_entry or {}).get("artifacts", {}).get(arch)
-        if previous_artifact and artifact_matches_candidate(previous_artifact, candidate):
-            logger.info("reusing locked artifact {}:{} {}", entry_name, arch, candidate.upstream_version)
-            artifacts[arch] = previous_artifact
-            continue
+    for arch, architecture in entry["architectures"].items():
+        source_name = architecture["source"]["type"]
+        update_policy = architecture["update_policy"]
+        try:
+            candidate = resolve_candidate(architecture)
+            previous_architecture = previous_architecture_entry(previous_entry, arch, source_name, update_policy)
+            previous_artifact = (previous_architecture or {}).get("artifact")
+            if previous_artifact and artifact_matches_candidate(previous_artifact, candidate):
+                logger.info("reusing locked artifact {}:{} {}", entry_name, arch, candidate.upstream_version)
+                architectures[arch] = previous_architecture
+                architecture_health[arch] = {
+                    "status": "ok",
+                    "source": source_name,
+                    "update_policy": update_policy,
+                }
+                continue
 
-        deb_path = download(candidate.url, candidate.expected_sha256)
-        metadata = inspect_deb(deb_path)
-        control = metadata["control"]
-        package_arch = control.get("Architecture")
-        if package_arch not in {arch, "all"}:
-            raise RuntimeError(f"{entry_name}:{arch} resolved package architecture {package_arch!r}")
-        artifacts[arch] = {
-            "url": candidate.url,
-            "upstream_version": candidate.upstream_version,
-            "asset_name": candidate.asset_name,
-            "filename": safe_deb_filename(control, candidate.asset_name),
-            "control": control,
-            "size": metadata["size"],
-            "md5": metadata["md5"],
-            "sha1": metadata["sha1"],
-            "sha256": metadata["sha256"],
-        }
-        full_checked_arches.add(arch)
+            deb_path = download(candidate.url, candidate.expected_hash, candidate.hash_algorithm)
+            metadata = inspect_deb(deb_path)
+            control = metadata["control"]
+            package_arch = control.get("Architecture")
+            if package_arch not in {arch, "all"}:
+                raise RuntimeError(f"{entry_name}:{arch} resolved package architecture {package_arch!r}")
+            artifact = {
+                "url": candidate.url,
+                "upstream_version": candidate.upstream_version,
+                "asset_name": candidate.asset_name,
+                "filename": safe_deb_filename(control, candidate.asset_name),
+                "control": control,
+                "size": metadata["size"],
+                "md5": metadata["md5"],
+                "sha1": metadata["sha1"],
+                "sha256": metadata["sha256"],
+            }
+            architectures[arch] = locked_architecture(source_name, update_policy, artifact)
+            architecture_health[arch] = {
+                "status": "ok",
+                "source": source_name,
+                "update_policy": update_policy,
+            }
+            full_checked_arches.add(arch)
+        except Exception as exc:
+            previous_architecture = previous_architecture_entry(previous_entry, arch, source_name, update_policy)
+            if previous_architecture:
+                architectures[arch] = previous_architecture
+                status = "kept_previous"
+            else:
+                status = "failed"
+            architecture_health[arch] = {
+                "status": status,
+                "source": source_name,
+                "update_policy": update_policy,
+                "error": str(exc),
+            }
+            logger.warning("{}:{} refresh {}: {}", entry_name, arch, status, exc)
 
-    resolved = {
-        "update_policy": entry["update_policy"],
-        "source": entry["source"],
-        "homepage": entry.get("homepage"),
+    return ResolvedEntry(
+        {
+            "homepage": entry.get("homepage"),
+            "architectures": architectures,
+        },
+        full_checked_arches,
+        architecture_health,
+    )
+
+
+def locked_architecture(source_name: str, update_policy: str, artifact: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "source": source_name,
+        "update_policy": update_policy,
         "resolved_at": now_iso(),
-        "artifacts": artifacts,
+        "artifact": artifact,
     }
-    if previous_entry and not full_checked_arches:
-        comparable = dict(resolved)
-        previous_comparable = dict(previous_entry)
-        comparable.pop("resolved_at", None)
-        previous_comparable.pop("resolved_at", None)
-        if comparable == previous_comparable:
-            resolved = previous_entry
-    return ResolvedEntry(resolved, full_checked_arches)
 
 
-def entry_architectures(config: dict[str, Any], entry: dict[str, Any]) -> list[str]:
-    required = config["required_architectures"]
-    optional = [
-        arch
-        for arch in config.get("optional_architectures", [])
-        if has_architecture_selector(entry, arch)
-    ]
-    return required + optional
+def previous_architecture_entry(
+    previous_entry: dict[str, Any] | None,
+    arch: str,
+    source_name: str,
+    update_policy: str,
+) -> dict[str, Any] | None:
+    if not previous_entry:
+        return None
+    if "architectures" in previous_entry:
+        previous_architecture = previous_entry["architectures"].get(arch)
+        if not previous_architecture:
+            return None
+        if (
+            previous_architecture.get("source") == source_name
+            and previous_architecture.get("update_policy") == update_policy
+        ):
+            return previous_architecture
+        return None
+
+    artifact = previous_entry.get("artifacts", {}).get(arch)
+    if not artifact:
+        return None
+    return locked_architecture(source_name, update_policy, artifact)
 
 
-def has_architecture_selector(entry: dict[str, Any], arch: str) -> bool:
-    source = entry["source"]
-    if source == "github":
-        return arch in entry.get("asset_patterns", {})
-    if source == "aur":
-        return arch in entry.get("aur_architectures", {})
-    return True
+def package_health_status(architecture_health: dict[str, Any]) -> str:
+    statuses = [health["status"] for health in architecture_health.values()]
+    if not statuses:
+        return "failed"
+    if all(status == "ok" for status in statuses):
+        return "ok"
+    if all(status == "failed" for status in statuses):
+        return "failed"
+    return "partial"
+
+
+def lock_architectures(lock: dict[str, Any]) -> list[str]:
+    return sorted(
+        {
+            arch
+            for entry in lock["packages"].values()
+            for arch, architecture in entry.get("architectures", {}).items()
+            if architecture.get("artifact")
+        }
+    )
 
 
 def artifact_matches_candidate(artifact: dict[str, Any], candidate: ArtifactCandidate) -> bool:
@@ -282,37 +350,34 @@ def artifact_matches_candidate(artifact: dict[str, Any], candidate: ArtifactCand
     )
 
 
-def resolve_candidate(entry: dict[str, Any], arch: str) -> ArtifactCandidate:
-    source = entry["source"]
+def resolve_candidate(architecture: dict[str, Any]) -> ArtifactCandidate:
+    source_config = architecture["source"]
+    source = source_config["type"]
     if source == "github":
-        release = github_release(entry)
-        pattern = entry.get("asset_patterns", {}).get(arch)
-        if not pattern:
-            raise RuntimeError(f"missing GitHub asset pattern for {arch}")
+        release = github_release(source_config, architecture["update_policy"])
+        pattern = source_config["asset_pattern"]
         for asset in release.get("assets", []):
             name = asset["name"]
             if fnmatch.fnmatch(name, pattern):
                 return ArtifactCandidate(asset["browser_download_url"], release["tag_name"], name)
         raise RuntimeError(f"no GitHub asset matched {pattern!r}")
     if source == "aur":
-        srcinfo = fetch_text(f"https://aur.archlinux.org/cgit/aur.git/plain/.SRCINFO?h={entry['aur_package']}")
-        aur_arch = entry.get("aur_architectures", {}).get(arch)
-        if not aur_arch:
-            raise RuntimeError(f"missing AUR architecture mapping for {arch}")
+        srcinfo = fetch_text(f"https://aur.archlinux.org/cgit/aur.git/plain/.SRCINFO?h={source_config['package']}")
         fields = parse_srcinfo(srcinfo)
-        url = fields.get(f"source_{aur_arch}")
-        sha256 = fields.get(f"sha256sums_{aur_arch}")
-        if not url:
-            raise RuntimeError(f"AUR source_{aur_arch} is missing")
-        asset_name, artifact_url = split_aur_source(url)
-        return ArtifactCandidate(artifact_url, fields.get("pkgver", "unknown"), asset_name, sha256)
+        source_key, source_index, source_value = select_aur_source(fields, source_config["asset_pattern"])
+        checksum_algorithm, checksum = aur_checksum_for(fields, source_key, source_index)
+        asset_name, artifact_url = split_aur_source(source_value)
+        return ArtifactCandidate(artifact_url, first_srcinfo_value(fields, "pkgver", "unknown"), asset_name, checksum, checksum_algorithm)
+    if source == "url":
+        url = source_config["url"]
+        return ArtifactCandidate(url, "fixed", Path(url).name)
     raise RuntimeError(f"unsupported source resolver {source!r}")
 
 
-def github_release(entry: dict[str, Any]) -> dict[str, Any]:
-    repo = entry["repo"]
-    if entry["update_policy"] == "fixed":
-        path = f"repos/{repo}/releases/tags/{entry['release_tag']}"
+def github_release(source_config: dict[str, Any], update_policy: str) -> dict[str, Any]:
+    repo = source_config["repo"]
+    if update_policy == "fixed":
+        path = f"repos/{repo}/releases/tags/{source_config['release_tag']}"
     else:
         path = f"repos/{repo}/releases/latest"
 
@@ -330,15 +395,52 @@ def github_release(entry: dict[str, Any]) -> dict[str, Any]:
     return fetch_json(f"https://api.github.com/{path}", headers=headers)
 
 
-def parse_srcinfo(text: str) -> dict[str, str]:
-    fields: dict[str, str] = {}
+def parse_srcinfo(text: str) -> dict[str, list[str]]:
+    fields: dict[str, list[str]] = {}
     for raw_line in text.splitlines():
         line = raw_line.strip()
         if not line or "=" not in line:
             continue
         key, value = line.split("=", 1)
-        fields.setdefault(key.strip(), value.strip())
+        fields.setdefault(key.strip(), []).append(value.strip())
     return fields
+
+
+def first_srcinfo_value(fields: dict[str, list[str]], key: str, default: str = "") -> str:
+    values = fields.get(key)
+    return values[0] if values else default
+
+
+def select_aur_source(fields: dict[str, list[str]], asset_pattern: str) -> tuple[str, int, str]:
+    for key, values in fields.items():
+        if key != "source" and not key.startswith("source_"):
+            continue
+        for index, value in enumerate(values):
+            asset_name, url = split_aur_source(value)
+            if aur_source_matches(asset_pattern, value, asset_name, url):
+                return key, index, value
+    raise RuntimeError(f"no AUR source matched {asset_pattern!r}")
+
+
+def aur_source_matches(pattern: str, raw_value: str, asset_name: str, url: str) -> bool:
+    return any(
+        fnmatch.fnmatch(value, pattern)
+        for value in (asset_name, url, raw_value)
+    )
+
+
+def aur_checksum_for(
+    fields: dict[str, list[str]],
+    source_key: str,
+    source_index: int,
+) -> tuple[str, str | None]:
+    suffix = source_key.removeprefix("source")
+    checksum_source_keys = [f"{algorithm}sums{suffix}" for algorithm in ("sha256", "sha512")]
+    for checksum_key in checksum_source_keys:
+        values = fields.get(checksum_key, [])
+        if source_index < len(values) and values[source_index] != "SKIP":
+            return checksum_key.split("sums", 1)[0], values[source_index]
+    return "sha256", None
 
 
 def split_aur_source(value: str) -> tuple[str, str]:
@@ -348,7 +450,7 @@ def split_aur_source(value: str) -> tuple[str, str]:
     return Path(value).name, value
 
 
-def download(url: str, expected_sha256: str | None = None) -> Path:
+def download(url: str, expected_hash: str | None = None, hash_algorithm: str = "sha256") -> Path:
     CACHE_DIR.mkdir(exist_ok=True)
     cache_key = hashlib.sha256(url.encode("utf-8")).hexdigest()
     path = CACHE_DIR / f"{cache_key}.deb"
@@ -367,9 +469,9 @@ def download(url: str, expected_sha256: str | None = None) -> Path:
             if tmp_path:
                 tmp_path.unlink(missing_ok=True)
             raise
-    if expected_sha256 and file_hash(path, "sha256") != expected_sha256:
+    if expected_hash and file_hash(path, hash_algorithm) != expected_hash:
         path.unlink(missing_ok=True)
-        raise RuntimeError(f"sha256 mismatch for {url}")
+        raise RuntimeError(f"{hash_algorithm} mismatch for {url}")
     return path
 
 
@@ -491,12 +593,13 @@ def check_artifacts(
     full_artifact_check: bool = False,
     full_checked_artifacts: set[tuple[str, str]] | None = None,
 ) -> dict[str, Any]:
-    health = {"version": 1, "generated_at": now_iso(), "packages": {}}
+    health = {"version": 2, "generated_at": now_iso(), "packages": {}}
     full_checked_artifacts = full_checked_artifacts or set()
     artifact_entries = [
         (entry_name, arch, artifact)
         for entry_name, entry in lock["packages"].items()
-        for arch, artifact in entry["artifacts"].items()
+        for arch, architecture in entry.get("architectures", {}).items()
+        if (artifact := architecture.get("artifact"))
     ]
     max_workers = worker_count(len(artifact_entries), jobs)
     checked: dict[tuple[str, str], dict[str, Any]] = {}
@@ -519,7 +622,8 @@ def check_artifacts(
         health["packages"][entry_name] = {
             "artifacts": {
                 arch: checked[(entry_name, arch)]
-                for arch in entry["artifacts"]
+                for arch, architecture in entry.get("architectures", {}).items()
+                if architecture.get("artifact")
             }
         }
     return health
@@ -807,12 +911,19 @@ def write_routes(path: Path) -> None:
 
 def write_index_page(config: dict[str, Any], lock: dict[str, Any]) -> None:
     base_url = config["repository"]["base_url"]
+    suite = html_module.escape(config["suite"])
+    component = html_module.escape(config["component"])
+    package_index_links = "\n                ".join(
+        f'<a href="/dists/{suite}/{component}/binary-{html_module.escape(arch)}/Packages">Packages {html_module.escape(arch)}</a>'
+        for arch in lock_architectures(lock)
+    )
     template = (STATIC_DIR / "index.html").read_text(encoding="utf-8")
     html = (
         template
         .replace("__BASE_URL__", base_url)
         .replace("__SUITE__", config["suite"])
         .replace("__COMPONENT__", config["component"])
+        .replace("__PACKAGE_INDEX_LINKS__", package_index_links)
     )
     (DIST_DIR / "index.html").write_text(html, encoding="utf-8")
 
@@ -981,8 +1092,10 @@ def empty_download_stats(reason: str, days: int = 30) -> dict[str, Any]:
 
 
 def load_config() -> dict[str, Any]:
-    with CONFIG_PATH.open("rb") as f:
-        return tomllib.load(f)
+    try:
+        return load_configuration(ROOT).to_runtime_dict()
+    except ConfigError as exc:
+        raise SystemExit(str(exc)) from exc
 
 
 def load_json(path: Path, default: Any) -> Any:
