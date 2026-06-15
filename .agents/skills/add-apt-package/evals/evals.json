@@ -18,6 +18,12 @@
       "prompt": "给 apt-index 加一个 SourceForge 来源的包。项目 deadbeef 的 Linux deb 在 SourceForge 的 Builds/master/linux 目录下，文件名形如 deadbeef-static_1.10.3~alpha-1_amd64.deb 和 deadbeef-static_1.10.3~alpha-1_arm64.deb。请写出对应条目并验证解析结果。",
       "expected_output": "新增或更新一个使用 sourceforge 解析器的条目，project/path/asset_regexes 合理，并验证每个架构只匹配一个可下载资产。",
       "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "[$add-apt-package](/home/lyk/Documents/apt-index/.agents/skills/add-apt-package/SKILL.md) https://aur.archlinux.org/packages/obsidian 这个我吃不准，里面同时依赖了 deb 和 AppImage。官方上游是 https://github.com/obsidianmd/obsidian-releases ，我们先只支持 amd64，不管 arm64。请按最小改动加包并验证，不要做多余搜索。",
+      "expected_output": "识别这是一个混合来源案例，避免在 AUR 和 GitHub 之间来回探索；直接收敛到 amd64 + github + track 的最小配置，并用一次短验证脚本完成配置加载和 resolver 校验。",
+      "files": []
     }
   ]
 }
