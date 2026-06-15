@@ -4,6 +4,7 @@ import shutil
 from pathlib import Path
 from typing import Any, Callable
 
+from apt_index.published_state import PublishedArtifact, PublishedState
 
 JsonLoader = Callable[[Path, Any], Any]
 JsonWriter = Callable[[Path, Any], None]
@@ -11,7 +12,7 @@ TimestampFactory = Callable[[], str]
 
 
 def copy_state_files(
-    lock: dict[str, Any],
+    state: PublishedState,
     *,
     track_health_path: Path,
     artifact_health_path: Path,
@@ -22,13 +23,13 @@ def copy_state_files(
     copy_or_write_health_report(
         track_health_path,
         dist_dir / track_health_path.name,
-        lambda: not_generated_track_health(lock, now_iso),
+        lambda: not_generated_track_health(state, now_iso),
         write_json,
     )
     copy_or_write_health_report(
         artifact_health_path,
         dist_dir / artifact_health_path.name,
-        lambda: not_generated_artifact_health(lock, now_iso),
+        lambda: not_generated_artifact_health(state, now_iso),
         write_json,
     )
 
@@ -44,7 +45,7 @@ def write_site_data(
     output: Path,
     download_stats_path: Path,
     *,
-    lock_path: Path,
+    state: PublishedState,
     track_health_path: Path,
     artifact_health_path: Path,
     load_json: JsonLoader,
@@ -52,17 +53,14 @@ def write_site_data(
     empty_download_stats: Callable[[str], dict[str, Any]],
     now_iso: TimestampFactory,
 ) -> None:
-    lock = load_json(lock_path, None)
-    if not lock:
-        raise SystemExit("apt-index.lock.json is missing; run refresh first")
-    track_health = load_json(track_health_path, None) or not_generated_track_health(lock, now_iso)
-    artifact_health = load_json(artifact_health_path, None) or not_generated_artifact_health(lock, now_iso)
+    track_health = load_json(track_health_path, None) or not_generated_track_health(state, now_iso)
+    artifact_health = load_json(artifact_health_path, None) or not_generated_artifact_health(state, now_iso)
     download_stats = load_json(download_stats_path, None) or empty_download_stats("not_generated")
     output.parent.mkdir(parents=True, exist_ok=True)
-    write_json(output, format_site_data(lock, track_health, artifact_health, download_stats))
+    write_json(output, format_site_data(state, track_health, artifact_health, download_stats))
 
 
-def not_generated_track_health(lock: dict[str, Any], now_iso: TimestampFactory) -> dict[str, Any]:
+def not_generated_track_health(state: PublishedState, now_iso: TimestampFactory) -> dict[str, Any]:
     return {
         "version": 2,
         "generated_at": now_iso(),
@@ -71,17 +69,16 @@ def not_generated_track_health(lock: dict[str, Any], now_iso: TimestampFactory) 
             entry_name: {
                 "status": "not_checked",
                 "architectures": {
-                    arch: {"status": "not_checked"}
-                    for arch, architecture in entry.get("architectures", {}).items()
-                    if architecture.get("artifact")
+                    artifact.configured_arch: {"status": "not_checked"}
+                    for artifact in entry.artifacts
                 },
             }
-            for entry_name, entry in lock.get("packages", {}).items()
+            for entry_name, entry in ((entry.entry_name, entry) for entry in state.entries)
         },
     }
 
 
-def not_generated_artifact_health(lock: dict[str, Any], now_iso: TimestampFactory) -> dict[str, Any]:
+def not_generated_artifact_health(state: PublishedState, now_iso: TimestampFactory) -> dict[str, Any]:
     return {
         "version": 2,
         "generated_at": now_iso(),
@@ -89,26 +86,24 @@ def not_generated_artifact_health(lock: dict[str, Any], now_iso: TimestampFactor
         "packages": {
             entry_name: {
                 "artifacts": {
-                    arch: not_checked_artifact_health(architecture["artifact"])
-                    for arch, architecture in entry.get("architectures", {}).items()
-                    if architecture.get("artifact")
+                    artifact.configured_arch: not_checked_artifact_health(artifact)
+                    for artifact in entry.artifacts
                 }
             }
-            for entry_name, entry in lock.get("packages", {}).items()
+            for entry_name, entry in ((entry.entry_name, entry) for entry in state.entries)
         },
     }
 
 
-def not_checked_artifact_health(artifact: dict[str, Any]) -> dict[str, Any]:
+def not_checked_artifact_health(artifact: PublishedArtifact) -> dict[str, Any]:
     health: dict[str, Any] = {"status": "not_checked", "check": "not_generated"}
-    for key in ("size", "sha256"):
-        if key in artifact:
-            health[key] = artifact[key]
+    health["size"] = artifact.size
+    health["sha256"] = artifact.sha256
     return health
 
 
 def format_site_data(
-    lock: dict[str, Any],
+    state: PublishedState,
     track_health: dict[str, Any],
     artifact_health: dict[str, Any],
     download_stats: dict[str, Any],
@@ -126,34 +121,32 @@ def format_site_data(
     downloads_last_days = 0
     downloads_last_7_days = 0
 
-    for entry_name, entry in sorted(lock.get("packages", {}).items()):
+    for entry in state.entries:
+        entry_name = entry.entry_name
         grouped_rows: dict[str, dict[str, Any]] = {}
-        for arch, architecture in sorted(entry.get("architectures", {}).items()):
-            artifact = architecture.get("artifact")
-            if not artifact:
-                continue
-            control = artifact.get("control", {})
-            package_name = str(control.get("Package") or entry_name)
+        for artifact in entry.artifacts:
+            control = artifact.control
+            package_name = artifact.package_name()
             row = grouped_rows.setdefault(
                 package_name,
                 {
                     "entry_name": entry_name,
                     "package_name": package_name,
                     "description": first_line(control.get("Description")),
-                    "homepage": preferred_homepage(entry, control, artifact),
+                    "homepage": artifact.homepage(),
                     "artifacts": [],
                 },
             )
-            download_row = downloads_by_identity.get((entry_name, arch), {})
-            track_status = str(track_health.get("packages", {}).get(entry_name, {}).get("architectures", {}).get(arch, {}).get("status") or "unknown")
-            artifact_status = str(artifact_health.get("packages", {}).get(entry_name, {}).get("artifacts", {}).get(arch, {}).get("status") or "unknown")
+            download_row = downloads_by_identity.get((entry_name, artifact.configured_arch), {})
+            track_status = str(track_health.get("packages", {}).get(entry_name, {}).get("architectures", {}).get(artifact.configured_arch, {}).get("status") or "unknown")
+            artifact_status = str(artifact_health.get("packages", {}).get(entry_name, {}).get("artifacts", {}).get(artifact.configured_arch, {}).get("status") or "unknown")
             row["artifacts"].append(
                 {
-                    "arch": arch,
-                    "version": str(control.get("Version") or ""),
-                    "source": str(architecture.get("source") or ""),
-                    "update_policy": str(architecture.get("update_policy") or ""),
-                    "size": int(artifact.get("size") or 0),
+                    "arch": artifact.configured_arch,
+                    "version": artifact.version(),
+                    "source": artifact.source,
+                    "update_policy": artifact.update_policy,
+                    "size": artifact.size,
                     "downloads": int(download_row.get("downloads") or 0),
                     "downloads_last_7_days": int(download_row.get("last_7_days") or 0),
                     "track_status": track_status,
@@ -162,7 +155,7 @@ def format_site_data(
                 }
             )
             artifact_count += 1
-            total_size += int(artifact.get("size") or 0)
+            total_size += artifact.size
             downloads_last_days += int(download_row.get("downloads") or 0)
             downloads_last_7_days += int(download_row.get("last_7_days") or 0)
         for row in grouped_rows.values():
@@ -177,10 +170,10 @@ def format_site_data(
     )
     return {
         "version": 1,
-        "generated_at": lock.get("generated_at"),
+        "generated_at": state.generated_at,
         "window_days": int(download_stats.get("window_days") or 30),
         "summary": {
-            "entry_count": len(lock.get("packages", {})),
+            "entry_count": len(state.entries),
             "row_count": len(packages),
             "artifact_count": artifact_count,
             "total_size": total_size,
@@ -190,10 +183,6 @@ def format_site_data(
         },
         "packages": packages,
     }
-
-
-def preferred_homepage(entry: dict[str, Any], control: dict[str, Any], artifact: dict[str, Any]) -> str:
-    return str(entry.get("homepage") or control.get("Homepage") or artifact.get("url") or "#")
 
 
 def first_line(value: Any) -> str:

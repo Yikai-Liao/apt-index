@@ -9,13 +9,13 @@ from typing import Any
 
 from loguru import logger
 
+from apt_index.published_state import PublishedState
+
 JsonLoader = Callable[[Path, Any], Any]
 JsonWriter = Callable[[Path, Any], None]
 JsonPoster = Callable[[str, Any, dict[str, str] | None], Any]
-ConfigLoader = Callable[[], dict[str, Any]]
 TimestampFactory = Callable[[], str]
 GraphqlTimeFormatter = Callable[[datetime], str]
-VirtualPathBuilder = Callable[[str, str, str], str]
 
 
 def write_download_stats(
@@ -24,14 +24,11 @@ def write_download_stats(
     *,
     days: int,
     strict: bool,
-    load_json: JsonLoader,
-    load_config: ConfigLoader,
     write_json: JsonWriter,
     empty_download_stats: Callable[[str, int], dict[str, Any]],
     resolve_cloudflare_zone_id: Callable[[str, str], str | None],
     fetch_download_stats: Callable[[str, str, str, int, dict[str, tuple[str, str]] | None], dict[str, Any]],
-    lock_path: Path,
-    package_virtual_path: VirtualPathBuilder,
+    state: PublishedState,
 ) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     token = os.environ.get("CLOUDFLARE_API_TOKEN")
@@ -46,7 +43,7 @@ def write_download_stats(
         zone_id = resolve_cloudflare_zone_id(token, hostname)
         if not zone_id:
             raise RuntimeError(f"could not resolve Cloudflare zone for {hostname!r}")
-        path_index = package_download_path_index(load_json(lock_path, {"packages": {}}), load_config()["component"], package_virtual_path)
+        path_index = package_download_path_index(state)
         stats = fetch_download_stats(zone_id, token, hostname, days, path_index)
     except (RuntimeError, TimeoutError, urllib.error.URLError) as exc:
         if strict:
@@ -225,21 +222,9 @@ def parse_package_download_path(path: str) -> tuple[str, str, str] | None:
 
 
 def package_download_path_index(
-    lock: dict[str, Any],
-    component: str,
-    package_virtual_path: VirtualPathBuilder,
+    state: PublishedState,
 ) -> dict[str, tuple[str, str]]:
-    index: dict[str, tuple[str, str]] = {}
-    for entry_name, entry in lock.get("packages", {}).items():
-        for configured_arch, architecture in entry.get("architectures", {}).items():
-            artifact = architecture.get("artifact")
-            if not artifact:
-                continue
-            control = artifact.get("control", {})
-            package_arch = str(control.get("Architecture") or configured_arch)
-            path = "/" + package_virtual_path(component, entry_name, artifact["filename"])
-            index[path] = (entry_name, package_arch)
-    return index
+    return state.download_path_index()
 
 
 def format_download_stats(
