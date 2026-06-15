@@ -428,6 +428,17 @@
       min-height: 26px;
       line-height: 26px;
       white-space: nowrap;
+      color: color-mix(in srgb, var(--muted) 88%, var(--text));
+    }
+
+    .detail-line code {
+      color: inherit;
+    }
+
+    .detail-line .pill {
+      border-color: color-mix(in srgb, var(--line) 92%, var(--panel));
+      background: color-mix(in srgb, var(--panel-2) 72%, transparent);
+      color: inherit;
     }
 
     .pager {
@@ -464,6 +475,8 @@
 
     .pkg strong {
       font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
     }
 
     .pkg-heading {
@@ -1358,7 +1371,9 @@ sudo apt update</pre>
 
     function renderUniqueDetail(items, key, renderValue) {
       const values = [...new Set(items.map((item) => item[key]).filter(Boolean))];
-      if (values.length <= 1) return renderValue(values[0] || "");
+      if (values.length <= 1) {
+        return renderDetailStack([{ [key]: values[0] || "" }], (item) => renderValue(item[key] || ""));
+      }
       return renderDetailStack(items, (item) => renderValue(item[key] || ""));
     }
 
