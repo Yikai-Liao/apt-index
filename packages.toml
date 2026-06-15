@@ -105,3 +105,11 @@ homepage = "https://code.visualstudio.com/"
 aur_package = "visual-studio-code-bin"
 aur_architectures.amd64 = "x86_64"
 aur_architectures.arm64 = "aarch64"
+
+[packages.google-chrome]
+update_policy = "track"
+source = "aur"
+homepage = "https://www.google.com/chrome/"
+aur_package = "google-chrome"
+aur_architectures.amd64 = "x86_64"
+# No arm64 package available for Google Chrome on AUR
