@@ -645,6 +645,31 @@ class RedirectRulesTests(unittest.TestCase):
 
         self.assertEqual(redirects, {})
 
+    def test_purge_redirect_cache_skips_purge_errors_by_default(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            urls = Path(tmp) / "urls.txt"
+            urls.write_text("https://deb.example.test/redirect_rules.json\n", encoding="utf-8")
+
+            with (
+                patch.dict(cli.os.environ, {"CLOUDFLARE_API_TOKEN": "token"}, clear=True),
+                patch.object(cli, "resolve_cloudflare_zone_id", return_value="zone"),
+                patch.object(cli, "purge_cloudflare_urls", side_effect=RuntimeError("Authentication error")),
+            ):
+                cli.purge_redirect_cache(urls)
+
+    def test_purge_redirect_cache_strict_raises_purge_errors(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            urls = Path(tmp) / "urls.txt"
+            urls.write_text("https://deb.example.test/redirect_rules.json\n", encoding="utf-8")
+
+            with (
+                patch.dict(cli.os.environ, {"CLOUDFLARE_API_TOKEN": "token"}, clear=True),
+                patch.object(cli, "resolve_cloudflare_zone_id", return_value="zone"),
+                patch.object(cli, "purge_cloudflare_urls", side_effect=RuntimeError("Authentication error")),
+                self.assertRaisesRegex(RuntimeError, "Authentication error"),
+            ):
+                cli.purge_redirect_cache(urls, strict=True)
+
 
 class DownloadStatsTests(unittest.TestCase):
     def test_formats_download_stats_for_public_json(self) -> None:

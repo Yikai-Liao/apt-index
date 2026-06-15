@@ -234,7 +234,7 @@ Download request statistics use Cloudflare HTTP request analytics:
 
 - The public JSON and page counts aggregate only `GET /pool/*` requests.
 - `HEAD` requests are excluded because they can represent probes, checks, or cache validation rather than a package download.
-- The GitHub Actions `CLOUDFLARE_API_TOKEN` must be able to list zones, query GraphQL HTTP request analytics, and purge cached URLs for the zone.
+- The GitHub Actions `CLOUDFLARE_API_TOKEN` must be able to list zones and query GraphQL HTTP request analytics. If it also has zone cache purge permission, the workflow actively purges changed package redirect URLs; otherwise the purge step logs a warning and leaves existing cached redirects to expire.
 - `CLOUDFLARE_ZONE_ID` is optional; when it is absent, the tooling resolves the zone from the repository hostname.
 
 ## Implementation Notes

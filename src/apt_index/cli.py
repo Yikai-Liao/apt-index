@@ -119,9 +119,10 @@ def plan_redirect_purge_command(
 @app.command("purge-redirect-cache")
 def purge_redirect_cache_command(
     urls: Path = typer.Option(Path("redirect-purge-urls.txt"), "--urls", help="File containing package download URLs to purge."),
+    strict: bool = typer.Option(False, "--strict", help="Fail when Cloudflare cache purge cannot be completed."),
 ) -> None:
     """Purge changed package redirect responses from Cloudflare cache."""
-    purge_redirect_cache(urls)
+    purge_redirect_cache(urls, strict)
 
 
 @app.command("all")
@@ -474,7 +475,7 @@ def fetch_previous_redirect_snapshot(base_url: str, strict: bool = False) -> dic
     return {str(key): str(value) for key, value in payload["redirects"].items()}
 
 
-def purge_redirect_cache(urls_path: Path) -> None:
+def purge_redirect_cache(urls_path: Path, strict: bool = False) -> None:
     urls = [line.strip() for line in urls_path.read_text(encoding="utf-8").splitlines() if line.strip()]
     if not urls:
         logger.info("no redirect cache URLs to purge")
@@ -482,12 +483,22 @@ def purge_redirect_cache(urls_path: Path) -> None:
     token = os.environ.get("CLOUDFLARE_API_TOKEN")
     hostname = urllib.parse.urlparse(urls[0]).hostname
     if not token or not hostname:
-        raise RuntimeError("CLOUDFLARE_API_TOKEN and purge URL hostname are required to purge redirect cache")
-    zone_id = resolve_cloudflare_zone_id(token, hostname)
-    if not zone_id:
-        raise RuntimeError(f"could not resolve Cloudflare zone for {hostname!r}")
-    for batch in batched(urls, 30):
-        purge_cloudflare_urls(zone_id, token, batch)
+        message = "CLOUDFLARE_API_TOKEN and purge URL hostname are required to purge redirect cache"
+        if strict:
+            raise RuntimeError(message)
+        logger.warning("{}; skipping {} redirect cache purge URLs", message, len(urls))
+        return
+    try:
+        zone_id = resolve_cloudflare_zone_id(token, hostname)
+        if not zone_id:
+            raise RuntimeError(f"could not resolve Cloudflare zone for {hostname!r}")
+        for batch in batched(urls, 30):
+            purge_cloudflare_urls(zone_id, token, batch)
+    except (RuntimeError, TimeoutError, urllib.error.URLError) as exc:
+        if strict:
+            raise
+        logger.warning("Cloudflare redirect cache purge failed; skipping {} URLs: {}", len(urls), exc)
+        return
     logger.info("purged {} redirect cache URLs", len(urls))
 
 
