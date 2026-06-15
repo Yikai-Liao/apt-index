@@ -7,7 +7,7 @@ import unittest
 import urllib.error
 from datetime import datetime, timezone
 from pathlib import Path
-from unittest.mock import Mock, patch
+from unittest.mock import Mock, call, patch
 
 from apt_index import cli, deb, download_stats, health as health_module, paths, publish, redirect, site_data as site_data_module, sources
 from apt_index.config import ConfigError, load_configuration
@@ -490,6 +490,116 @@ class ResolveEntryTests(unittest.TestCase):
         self.assertEqual(resolved.entry["architectures"]["amd64"]["artifact"]["sha256"], "sha256-amd64")
         self.assertEqual(resolved.architecture_health["arm64"]["status"], "failed")
         self.assertEqual(resolved.full_checked_arches, {"amd64"})
+
+
+class RefreshTests(unittest.TestCase):
+    def test_refresh_preserves_lock_timestamp_when_packages_are_unchanged(self) -> None:
+        previous_entry = {
+            "homepage": "https://example.test/pkg",
+            "architectures": {
+                "amd64": {
+                    "source": "github",
+                    "update_policy": "track",
+                    "resolved_at": "previous",
+                    "artifact": locked_artifact(),
+                }
+            },
+        }
+        previous_lock = {
+            "version": 2,
+            "generated_at": "2026-06-15T08:55:30+00:00",
+            "packages": {"pkg": previous_entry},
+        }
+        config = {"packages": {"pkg": package_entry()}}
+        resolved = cli.ResolvedEntry(
+            previous_entry,
+            set(),
+            {"amd64": {"status": "ok", "source": "github", "update_policy": "track"}},
+        )
+
+        with (
+            patch.object(cli, "load_config", return_value=config),
+            patch.object(cli, "load_json", return_value=previous_lock),
+            patch.object(cli, "resolve_entry", return_value=resolved),
+            patch.object(cli, "worker_count", return_value=1),
+            patch.object(health_module, "check_artifacts", return_value={"version": 2, "generated_at": "artifact-check", "packages": {}}),
+            patch.object(cli, "write_json") as write_json,
+        ):
+            cli.refresh()
+
+        self.assertEqual(
+            write_json.mock_calls[0],
+            call(cli.LOCK_PATH, previous_lock),
+        )
+
+    def test_refresh_updates_lock_timestamp_when_packages_change(self) -> None:
+        previous_entry = {
+            "homepage": "https://example.test/pkg",
+            "architectures": {
+                "amd64": {
+                    "source": "github",
+                    "update_policy": "track",
+                    "resolved_at": "previous",
+                    "artifact": locked_artifact(),
+                }
+            },
+        }
+        updated_entry = {
+            "homepage": "https://example.test/pkg",
+            "architectures": {
+                "amd64": {
+                    "source": "github",
+                    "update_policy": "track",
+                    "resolved_at": "current",
+                    "artifact": {
+                        **locked_artifact(),
+                        "url": "https://example.test/pkg-2.deb",
+                        "upstream_version": "2.0.0",
+                        "asset_name": "pkg_2.0.0_amd64.deb",
+                        "filename": "pkg_2.0.0_amd64.deb",
+                        "control": {"Package": "pkg", "Version": "2.0.0", "Architecture": "amd64"},
+                        "size": 456,
+                        "md5": "new-md5",
+                        "sha1": "new-sha1",
+                        "sha256": "new-sha256",
+                    },
+                }
+            },
+        }
+        previous_lock = {
+            "version": 2,
+            "generated_at": "2026-06-15T08:55:30+00:00",
+            "packages": {"pkg": previous_entry},
+        }
+        config = {"packages": {"pkg": package_entry()}}
+        resolved = cli.ResolvedEntry(
+            updated_entry,
+            {"amd64"},
+            {"amd64": {"status": "ok", "source": "github", "update_policy": "track"}},
+        )
+
+        with (
+            patch.object(cli, "load_config", return_value=config),
+            patch.object(cli, "load_json", return_value=previous_lock),
+            patch.object(cli, "resolve_entry", return_value=resolved),
+            patch.object(cli, "worker_count", return_value=1),
+            patch.object(cli, "now_iso", return_value="2026-06-16T08:55:30+00:00"),
+            patch.object(health_module, "check_artifacts", return_value={"version": 2, "generated_at": "artifact-check", "packages": {}}),
+            patch.object(cli, "write_json") as write_json,
+        ):
+            cli.refresh()
+
+        self.assertEqual(
+            write_json.mock_calls[0],
+            call(
+                cli.LOCK_PATH,
+                {
+                    "version": 2,
+                    "generated_at": "2026-06-16T08:55:30+00:00",
+                    "packages": {"pkg": updated_entry},
+                },
+            ),
+        )
 
 
 class ResolveCandidateTests(unittest.TestCase):

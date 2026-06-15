@@ -204,8 +204,8 @@ def all_command(
 
 def refresh(jobs: int | None = None, full_artifact_check: bool = False) -> None:
     config = load_config()
-    lock = load_json(LOCK_PATH, {"version": 2, "generated_at": None, "packages": {}})
-    previous_packages = lock.get("packages", {})
+    previous_lock = load_json(LOCK_PATH, {"version": 2, "generated_at": None, "packages": {}})
+    previous_packages = previous_lock.get("packages", {})
     locked_packages: dict[str, Any] = {}
     full_checked_artifacts: set[tuple[str, str]] = set()
     track_health: dict[str, Any] = {"version": 2, "generated_at": now_iso(), "packages": {}}
@@ -248,7 +248,10 @@ def refresh(jobs: int | None = None, full_artifact_check: bool = False) -> None:
             track_health["packages"][entry_name] = {"status": status, "error": str(exc), "architectures": {}}
             logger.warning("{} refresh {}: {}", entry_name, status, exc)
 
-    lock = {"version": 2, "generated_at": now_iso(), "packages": locked_packages}
+    generated_at = previous_lock.get("generated_at")
+    if previous_lock.get("version") != 2 or generated_at is None or locked_packages != previous_packages:
+        generated_at = now_iso()
+    lock = {"version": 2, "generated_at": generated_at, "packages": locked_packages}
     write_json(LOCK_PATH, lock)
     artifact_health = health.check_artifacts(
         lock,
