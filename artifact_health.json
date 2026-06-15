@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T03:47:37+00:00",
+  "generated_at": "2026-06-15T05:12:16+00:00",
   "packages": {
     "bat": {
       "artifacts": {
@@ -127,6 +127,22 @@
         "amd64": {
           "check": "head",
           "size": 1704160,
+          "status": "ok"
+        }
+      }
+    },
+    "vscode": {
+      "artifacts": {
+        "amd64": {
+          "check": "full",
+          "sha256": "818b26cf63c020b89e27ed94edadb46e04ed546786d62286ef88ded0bfe4b596",
+          "size": 175563106,
+          "status": "ok"
+        },
+        "arm64": {
+          "check": "full",
+          "sha256": "3e1a4314ba0376c8f10bba629d040daafec9829bc64a484184b42429fa726774",
+          "size": 164741670,
           "status": "ok"
         }
       }

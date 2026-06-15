@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T03:47:31+00:00",
+  "generated_at": "2026-06-15T05:11:59+00:00",
   "packages": {
     "bat": {
       "artifacts": [
@@ -66,6 +66,13 @@
     "ripgrep": {
       "artifacts": [
         "amd64"
+      ],
+      "status": "ok"
+    },
+    "vscode": {
+      "artifacts": [
+        "amd64",
+        "arm64"
       ],
       "status": "ok"
     },
