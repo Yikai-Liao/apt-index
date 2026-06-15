@@ -1,0 +1,11 @@
+homepage = "https://github.com/stark81/VutronMusic"
+architectures = ["amd64", "arm64"]
+source = "github"
+update_policy = "track"
+
+[sources.github]
+repo = "stark81/VutronMusic"
+
+[sources.github.asset_patterns]
+amd64 = "VutronMusic-*_linux_amd64.deb"
+arm64 = "VutronMusic-*_linux_arm64.deb"
