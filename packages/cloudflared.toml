@@ -1,0 +1,11 @@
+homepage = "https://github.com/cloudflare/cloudflared"
+architectures = ["amd64", "arm64"]
+source = "github"
+update_policy = "track"
+
+[sources.github]
+repo = "cloudflare/cloudflared"
+
+[sources.github.asset_patterns]
+amd64 = "cloudflared-linux-amd64.deb"
+arm64 = "cloudflared-linux-arm64.deb"
