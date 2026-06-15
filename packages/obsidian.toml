@@ -1,0 +1,10 @@
+homepage = "https://obsidian.md/"
+architectures = ["amd64"]
+source = "github"
+update_policy = "track"
+
+[sources.github]
+repo = "obsidianmd/obsidian-releases"
+
+[sources.github.asset_patterns]
+amd64 = "obsidian_*_amd64.deb"
