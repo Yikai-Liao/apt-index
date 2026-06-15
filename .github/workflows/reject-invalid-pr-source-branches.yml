@@ -1,0 +1,16 @@
+name: Reject invalid PR source branches
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  reject-state-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Reject apt-index-state PRs
+        if: github.head_ref == 'apt-index-state'
+        run: |
+          echo "apt-index-state is a repository state branch and must not be merged into main."
+          exit 1
