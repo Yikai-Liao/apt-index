@@ -1,0 +1,10 @@
+homepage = "https://ente.io/auth"
+architectures = ["amd64"]
+source = "aur"
+update_policy = "track"
+
+[sources.aur]
+package = "ente-auth-bin"
+
+[sources.aur.asset_patterns]
+amd64 = "ente-auth-v*-x86_64.deb"
