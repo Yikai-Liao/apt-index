@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T13:06:21+00:00",
+  "generated_at": "2026-06-15T13:16:05+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -213,6 +213,39 @@
         }
       },
       "homepage": "https://github.com/bootandy/dust"
+    },
+    "ente-auth": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "ente-auth-v4.4.23-x86_64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Depends": "libsqlite3-0, libsodium23, libsecret-1-0, policykit-1 | polkitd, libappindicator3-1 | libayatana-appindicator3-1, gir1.2-appindicator3-0.1 | gir1.2-ayatanaappindicator3-0.1, libayatana-ido3-0.4-0",
+              "Description": "ente two-factor authenticator",
+              "Essential": "no",
+              "Installed-Size": "36000",
+              "Maintainer": "Ente Developers <auth@ente.com>",
+              "Package": "enteauth",
+              "Priority": "optional",
+              "Section": "x11",
+              "Version": "4.4.23"
+            },
+            "filename": "enteauth_4.4.23_amd64.deb",
+            "md5": "ad235fa2eb48180df35b057c85596e53",
+            "sha1": "5b931f898216f609d4ff86d464514eb016b788f8",
+            "sha256": "6b71cbacb18139da458aac3515d276014cdca881caf83eb1fc82fe7df9faa592",
+            "sha512": "e5afa2ad63b019df3cd7829e347883f5a844c8eb057c99a9327a2274cd976b11ba6eb8e67bb3bb250f656c99ff0c10c1fc9f0e62540e764b7aa505de0c9b72ce",
+            "size": 23492308,
+            "upstream_version": "4.4.23",
+            "url": "https://github.com/ente-io/ente/releases/download/auth-v4.4.23/ente-auth-v4.4.23-x86_64.deb"
+          },
+          "resolved_at": "2026-06-15T13:15:54+00:00",
+          "source": "aur",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://ente.io/auth"
     },
     "fastfetch": {
       "architectures": {
