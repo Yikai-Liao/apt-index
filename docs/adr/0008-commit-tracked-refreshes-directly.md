@@ -1,3 +1,3 @@
 # Commit tracked refreshes directly
 
-Tracked package refreshes commit updated generated state, such as the lockfile and health reports, directly to the default branch instead of opening pull requests. The repository is intentionally rolling and self-managed, so successful daily refreshes should publish automatically; failed refreshes should stop the affected entry rather than wait for a review queue.
+Tracked package refreshes publish automatically instead of opening pull requests. Generated publish state such as `apt-index.lock.json` is committed directly to the dedicated `apt-index-state` branch rather than the default source branch, so the repository stays rolling and self-managed without mixing refresh churn into `main`.

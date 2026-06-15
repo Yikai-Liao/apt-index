@@ -60,6 +60,7 @@ def inspect_deb(path: Path) -> dict[str, Any]:
         "md5": hashlib.md5(data).hexdigest(),
         "sha1": hashlib.sha1(data).hexdigest(),
         "sha256": hashlib.sha256(data).hexdigest(),
+        "sha512": hashlib.sha512(data).hexdigest(),
     }
 
 

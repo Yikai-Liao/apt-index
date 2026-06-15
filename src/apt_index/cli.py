@@ -408,6 +408,7 @@ def resolve_entry(entry_name: str, entry: dict[str, Any], previous_entry: dict[s
                 "md5": metadata["md5"],
                 "sha1": metadata["sha1"],
                 "sha256": metadata["sha256"],
+                "sha512": metadata["sha512"],
             }
             architectures[arch] = locked_architecture(source_name, update_policy, artifact)
             architecture_health[arch] = {

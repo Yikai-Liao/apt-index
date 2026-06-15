@@ -8,6 +8,10 @@ on:
   schedule:
     - cron: "17 2 * * *"
 
+concurrency:
+  group: apt-index-publish
+  cancel-in-progress: false
+
 jobs:
   publish:
     if: ${{ github.event_name != 'push' || github.actor != 'github-actions[bot]' }}
@@ -24,20 +28,17 @@ jobs:
       - name: Install zstd
         run: sudo apt-get update && sudo apt-get install -y zstd
 
+      - name: Restore lockfile from state branch
+        run: |
+          git fetch origin apt-index-state || true
+          if git show-ref --verify --quiet refs/remotes/origin/apt-index-state; then
+            git show origin/apt-index-state:apt-index.lock.json > apt-index.lock.json
+          fi
+
       - name: Refresh lockfile and health reports
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: uv run apt-index refresh --jobs 4
-
-      - name: Commit generated lockfile
-        run: |
-          if ! git diff --quiet -- apt-index.lock.json; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add apt-index.lock.json
-            git commit -m "Refresh apt index state"
-            git push
-          fi
 
       - name: Build deployable tree
         env:
@@ -61,6 +62,30 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: npx wrangler pages deploy dist --project-name apt-index --branch main --commit-dirty=true
+
+      - name: Commit generated lockfile to state branch
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          state_repo="$(mktemp -d)"
+          cd "$state_repo"
+          git init
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote add origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
+          if git fetch --depth=1 origin apt-index-state; then
+            git checkout -B apt-index-state FETCH_HEAD
+          else
+            git checkout --orphan apt-index-state
+            git rm -rf . >/dev/null 2>&1 || true
+          fi
+          cp "$GITHUB_WORKSPACE/apt-index.lock.json" ./apt-index.lock.json
+          git add apt-index.lock.json
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "Refresh apt index state"
+          git push origin HEAD:apt-index-state
 
       - name: Purge changed package redirects
         env:

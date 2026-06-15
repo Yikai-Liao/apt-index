@@ -1,4 +1,5 @@
 dist/
+apt-index.lock.json
 artifact_health.json
 track_health.json
 .codegraph/

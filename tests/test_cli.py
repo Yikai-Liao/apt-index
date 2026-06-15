@@ -55,6 +55,7 @@ def locked_artifact() -> dict[str, object]:
         "md5": "md5",
         "sha1": "sha1",
         "sha256": "sha256",
+        "sha512": "sha512",
     }
 
 
@@ -365,6 +366,7 @@ class ResolveEntryTests(unittest.TestCase):
             "md5": "new-md5",
             "sha1": "new-sha1",
             "sha256": "new-sha256",
+            "sha512": "new-sha512",
         }
 
         with (
@@ -384,6 +386,7 @@ class ResolveEntryTests(unittest.TestCase):
         artifact = resolved.entry["architectures"]["amd64"]["artifact"]
         self.assertEqual(artifact["url"], "https://example.test/pkg-2.deb")
         self.assertEqual(artifact["sha256"], "new-sha256")
+        self.assertEqual(artifact["sha512"], "new-sha512")
         self.assertEqual(resolved.full_checked_arches, {"amd64"})
 
     def test_redownloads_when_candidate_checksum_changes(self) -> None:
@@ -411,6 +414,7 @@ class ResolveEntryTests(unittest.TestCase):
             "md5": "new-md5",
             "sha1": "different-sha1",
             "sha256": "new-sha256",
+            "sha512": "new-sha512",
         }
 
         with (
@@ -477,6 +481,7 @@ class ResolveEntryTests(unittest.TestCase):
                 "md5": "md5",
                 "sha1": "sha1",
                 "sha256": "sha256-amd64",
+                "sha512": "sha512-amd64",
             }
 
         with (
@@ -490,6 +495,49 @@ class ResolveEntryTests(unittest.TestCase):
         self.assertEqual(resolved.entry["architectures"]["amd64"]["artifact"]["sha256"], "sha256-amd64")
         self.assertEqual(resolved.architecture_health["arm64"]["status"], "failed")
         self.assertEqual(resolved.full_checked_arches, {"amd64"})
+
+    def test_reuses_locked_artifact_when_aur_sha512_candidate_is_unchanged(self) -> None:
+        previous_entry = {
+            "homepage": "https://example.test/pkg",
+            "architectures": {
+                "amd64": {
+                    "source": "aur",
+                    "update_policy": "track",
+                    "resolved_at": "previous",
+                    "artifact": {
+                        **locked_artifact(),
+                        "sha512": "aur-sha512",
+                    },
+                }
+            },
+        }
+        entry = {
+            "homepage": "https://example.test/pkg",
+            "architectures": {
+                "amd64": {
+                    "update_policy": "track",
+                    "source": {
+                        "type": "aur",
+                        "package": "example-bin",
+                        "asset_pattern": "pkg_*_amd64.deb",
+                    },
+                }
+            },
+        }
+        candidate = sources.ArtifactCandidate(
+            "https://example.test/pkg.deb",
+            "1.0.0",
+            "pkg_1.0.0_amd64.deb",
+            "aur-sha512",
+            "sha512",
+        )
+
+        with patch.object(sources, "resolve_candidate", return_value=candidate), patch.object(deb, "download") as download:
+            resolved = cli.resolve_entry("pkg", entry, previous_entry)
+
+        download.assert_not_called()
+        self.assertEqual(resolved.entry, previous_entry)
+        self.assertEqual(resolved.full_checked_arches, set())
 
 
 class RefreshTests(unittest.TestCase):
