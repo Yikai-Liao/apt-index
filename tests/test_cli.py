@@ -689,23 +689,46 @@ class DownloadStatsTests(unittest.TestCase):
         self.assertEqual(stats["daily"], [{"date": "2026-06-14", "downloads": 5}])
 
     def test_aggregates_cloudflare_path_rows_by_entry_and_arch(self) -> None:
+        path_index = {
+            "/pool/main/bat/bat_1.0_amd64.deb": ("bat", "amd64"),
+        }
         rows = cli.aggregate_path_download_rows(
             [
                 {"count": 4, "dimensions": {"clientRequestPath": "/pool/main/bat/bat_1.0_amd64.deb"}},
                 {"count": 2, "dimensions": {"clientRequestPath": "/pool/main/bat/bat_1.0_amd64.deb"}},
                 {"count": 1, "dimensions": {"clientRequestPath": "/dists/stable/InRelease"}},
-            ]
+            ],
+            path_index,
         )
 
         self.assertEqual(rows, [{"entry_name": "bat", "arch": "amd64", "downloads": 6}])
 
-    def test_package_architecture_accepts_hyphenated_asset_names(self) -> None:
-        self.assertEqual(cli.package_architecture("fastfetch-linux-amd64.deb"), "amd64")
-        self.assertEqual(cli.package_architecture("fastfetch-linux-aarch64.deb"), "arm64")
-        self.assertEqual(cli.package_architecture("bat_1.0_arm64.deb"), "arm64")
+    def test_package_download_path_index_uses_lockfile_control_architecture(self) -> None:
+        lock = {
+            "packages": {
+                "fastfetch": {
+                    "architectures": {
+                        "amd64": {
+                            "artifact": {
+                                "filename": "fastfetch-linux-amd64.deb",
+                                "control": {"Architecture": "amd64"},
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        index = cli.package_download_path_index(lock, "main")
+
+        self.assertEqual(index, {"/pool/main/fastfetch/fastfetch-linux-amd64.deb": ("fastfetch", "amd64")})
 
     def test_fetch_download_stats_splits_cloudflare_queries_into_daily_windows(self) -> None:
         calls: list[dict[str, object]] = []
+        path_index = {
+            "/pool/main/bat/bat_1.0_amd64.deb": ("bat", "amd64"),
+            "/pool/main/bat/bat_1.0_arm64.deb": ("bat", "arm64"),
+        }
         rows_by_call = [
             [{"count": 1, "dimensions": {"clientRequestPath": "/pool/main/bat/bat_1.0_amd64.deb"}}],
             [{"count": 2, "dimensions": {"clientRequestPath": "/pool/main/bat/bat_1.0_arm64.deb"}}],
@@ -726,7 +749,7 @@ class DownloadStatsTests(unittest.TestCase):
             }
 
         with patch.object(cli, "cloudflare_graphql", side_effect=fake_graphql):
-            stats = cli.fetch_download_stats("zone", "token", "deb.example.test", days=2)
+            stats = cli.fetch_download_stats("zone", "token", "deb.example.test", days=2, path_index=path_index)
 
         self.assertEqual(len(calls), 2)
         for variables in calls:
@@ -752,7 +775,7 @@ class DownloadStatsTests(unittest.TestCase):
             return {"data": {"viewer": {"zones": [{"packageRows": []}]}}}
 
         with patch.object(cli, "cloudflare_graphql", side_effect=fake_graphql):
-            stats = cli.fetch_download_stats("zone", "token", "deb.example.test", days=30)
+            stats = cli.fetch_download_stats("zone", "token", "deb.example.test", days=30, path_index={})
 
         self.assertEqual(len(calls), cli.CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS)
         self.assertEqual(stats["window_days"], cli.CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS)

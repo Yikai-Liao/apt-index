@@ -1226,7 +1226,8 @@ def write_download_stats(path: Path, hostname: str | None, days: int = 30, stric
         zone_id = resolve_cloudflare_zone_id(token, hostname)
         if not zone_id:
             raise RuntimeError(f"could not resolve Cloudflare zone for {hostname!r}")
-        stats = fetch_download_stats(zone_id, token, hostname, days)
+        path_index = package_download_path_index(load_json(LOCK_PATH, {"packages": {}}), load_config()["component"])
+        stats = fetch_download_stats(zone_id, token, hostname, days, path_index)
     except (RuntimeError, TimeoutError, urllib.error.URLError) as exc:
         if strict:
             raise
@@ -1235,7 +1236,14 @@ def write_download_stats(path: Path, hostname: str | None, days: int = 30, stric
     write_json(path, stats)
 
 
-def fetch_download_stats(zone_id: str, token: str, hostname: str, days: int = 30) -> dict[str, Any]:
+def fetch_download_stats(
+    zone_id: str,
+    token: str,
+    hostname: str,
+    days: int = 30,
+    path_index: dict[str, tuple[str, str]] | None = None,
+) -> dict[str, Any]:
+    path_index = path_index or {}
     query_days = min(days, CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS)
     end = datetime.now(timezone.utc).replace(microsecond=0)
     start = end - timedelta(days=query_days)
@@ -1246,7 +1254,7 @@ def fetch_download_stats(zone_id: str, token: str, hostname: str, days: int = 30
 
     for window_start, window_end in daily_time_windows(start, end):
         rows = fetch_download_path_rows(zone_id, token, hostname, window_start, window_end)
-        counts = aggregate_path_download_counts(rows)
+        counts = aggregate_path_download_counts(rows, path_index)
         merge_download_counts(package_counts, counts)
         if window_start >= seven_day_start:
             merge_download_counts(seven_day_counts, counts)
@@ -1333,20 +1341,24 @@ def cloudflare_graphql(token: str, query: str, variables: dict[str, Any]) -> dic
     return payload
 
 
-def aggregate_path_download_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    return download_counts_to_rows(aggregate_path_download_counts(rows))
+def aggregate_path_download_rows(
+    rows: list[dict[str, Any]],
+    path_index: dict[str, tuple[str, str]],
+) -> list[dict[str, Any]]:
+    return download_counts_to_rows(aggregate_path_download_counts(rows, path_index))
 
 
-def aggregate_path_download_counts(rows: list[dict[str, Any]]) -> dict[tuple[str, str], int]:
+def aggregate_path_download_counts(
+    rows: list[dict[str, Any]],
+    path_index: dict[str, tuple[str, str]],
+) -> dict[tuple[str, str], int]:
     counts: dict[tuple[str, str], int] = {}
     for row in rows:
         path = str(row.get("dimensions", {}).get("clientRequestPath") or "")
-        parsed = parse_package_download_path(path)
-        if not parsed:
+        package_identity = path_index.get(path)
+        if not package_identity:
             continue
-        _component, entry_name, filename = parsed
-        key = (entry_name, package_architecture(filename))
-        counts[key] = counts.get(key, 0) + int(row.get("count") or 0)
+        counts[package_identity] = counts.get(package_identity, 0) + int(row.get("count") or 0)
     return counts
 
 
@@ -1369,19 +1381,18 @@ def parse_package_download_path(path: str) -> tuple[str, str, str] | None:
     return parts[2], parts[3], parts[4]
 
 
-def package_architecture(filename: str) -> str:
-    match = re.search(r"_([^_]+)\.deb$", filename)
-    if match:
-        return normalize_package_architecture(match.group(1))
-    match = re.search(r"[-.]([A-Za-z0-9]+)\.deb$", filename)
-    return normalize_package_architecture(match.group(1)) if match else ""
-
-
-def normalize_package_architecture(value: str) -> str:
-    aliases = {"aarch64": "arm64", "x86_64": "amd64"}
-    normalized = aliases.get(value, value)
-    known_architectures = {"all", "amd64", "arm64", "armhf", "armel", "i386"}
-    return normalized if normalized in known_architectures else ""
+def package_download_path_index(lock: dict[str, Any], component: str) -> dict[str, tuple[str, str]]:
+    index: dict[str, tuple[str, str]] = {}
+    for entry_name, entry in lock.get("packages", {}).items():
+        for configured_arch, architecture in entry.get("architectures", {}).items():
+            artifact = architecture.get("artifact")
+            if not artifact:
+                continue
+            control = artifact.get("control", {})
+            package_arch = str(control.get("Architecture") or configured_arch)
+            path = "/" + package_virtual_path(component, entry_name, artifact["filename"])
+            index[path] = (entry_name, package_arch)
+    return index
 
 
 def format_download_stats(
