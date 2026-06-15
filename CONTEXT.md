@@ -24,17 +24,25 @@ _Avoid_: file name, release asset name, alias name
 A configured third-party software source that this project tracks and indexes. A software entry may resolve to an upstream package name that differs from the entry name.
 _Avoid_: package name, install name
 
+**Software entry name**:
+The stable lowercase identifier for a software entry. It uses only letters, digits, hyphens, and underscores, and starts and ends with a letter or digit.
+_Avoid_: package name, path name
+
+**Repository configuration**:
+The repository-level settings that describe the personal APT index as a whole, separate from individual software entries.
+_Avoid_: package configuration, package list
+
 **Shared suite**:
 A single APT suite intended to be used across supported Debian and Ubuntu releases when upstream packages are not distribution-specific.
 _Avoid_: distro suite, codename-specific repository
 
-**Required architecture**:
-A package architecture that must resolve for a software entry during index generation.
-_Avoid_: supported architecture
+**Entry architecture**:
+A package architecture that a software entry publishes in the personal APT index.
+_Avoid_: required architecture, optional architecture
 
-**Optional architecture**:
-A package architecture that may resolve for a software entry; absence does not fail index generation.
-_Avoid_: best-effort architecture
+**Entry architecture plan**:
+The per-architecture plan that selects an active source resolver and update policy for each entry architecture.
+_Avoid_: global source, global update policy
 
 **Architecture artifact**:
 The upstream package file resolved for one package architecture of a software entry.
@@ -65,7 +73,7 @@ A generated diagnostic file that records artifact health for resolved package fi
 _Avoid_: track health report
 
 **Track refresh health**:
-The result of checking and resolving an updated upstream version for a tracked software entry during a refresh.
+The result of checking and resolving an updated upstream version for a tracked entry architecture during a refresh.
 _Avoid_: artifact health, package health
 
 **Artifact health**:
@@ -73,12 +81,20 @@ The result of checking whether a resolved upstream package file is downloadable 
 _Avoid_: track refresh health
 
 **Update policy**:
-The policy that decides whether a software entry stays fixed to a configured upstream version or tracks newer upstream versions during refresh.
+The policy that decides whether an entry architecture stays fixed to a configured upstream version or tracks newer upstream versions during refresh.
 _Avoid_: APT pinning
 
 **Source resolver**:
 The mechanism that resolves a software entry and architecture to an upstream package file URL and version candidate.
 _Avoid_: update mode, package source
+
+**Source option**:
+One configured resolver option for a software entry. A software entry may keep multiple source options, and each entry architecture selects one of them during a refresh.
+_Avoid_: source resolver, fallback source
+
+**Active source resolver**:
+The source option selected for one entry architecture during a refresh.
+_Avoid_: enabled source, package source
 
 **URL source resolver**:
 A source resolver that uses configured upstream `.deb` artifact URLs.

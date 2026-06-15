@@ -23,13 +23,15 @@ sudo apt update
 sudo apt install <package-name>
 ```
 
-Package selection is maintained in [`packages.toml`](./packages.toml). The resolved upstream artifacts and installable Debian package names are recorded in [`apt-index.lock.json`](./apt-index.lock.json).
+The current implementation reads package selection from [`packages.toml`](./packages.toml). The target split configuration model moves repository settings to `apt-index.toml` and software entries to `packages/`; see [`docs/configuration.md`](./docs/configuration.md).
+
+The resolved upstream artifacts and installable Debian package names are recorded in [`apt-index.lock.json`](./apt-index.lock.json).
 
 ## Goals
 
 - Provide a normal `apt install <package>` workflow for packages that are not available in the official Debian or Ubuntu repositories.
 - Avoid storing or redistributing upstream `.deb` files.
-- Keep package selection in a single TOML configuration file.
+- Keep repository-level configuration separate from per-software-entry configuration.
 - Support both fixed-version packages and rolling tracked packages.
 - Refresh tracked packages automatically from GitHub Actions.
 - Target a shared APT suite for Debian 12-13 and Ubuntu 22.04-26.04 where upstream packages are not distribution-specific.
@@ -94,7 +96,9 @@ In that case the APT package name is `bytedance-feishu-stable`.
 
 ## Configuration Model
 
-The main configuration is a single TOML file. Each package entry has:
+The current implementation uses a single TOML file. The target split configuration model, including shorthand and explicit entry examples plus the Pydantic validation prototype, is documented in [`docs/configuration.md`](./docs/configuration.md).
+
+Each current package entry has:
 
 - an `update_policy`
 - a `source` resolver key
@@ -146,7 +150,7 @@ For AUR sources:
 
 ## Architectures
 
-The current release targets:
+The current implementation targets:
 
 - `amd64` as a required architecture
 - `arm64` as an optional architecture where the upstream source publishes a compatible `.deb`
@@ -245,4 +249,4 @@ Download request statistics use Workers Analytics Engine:
 
 ## Design Records
 
-Project decisions are documented in [`docs/adr`](./docs/adr). Domain language is documented in [`CONTEXT.md`](./CONTEXT.md).
+Project decisions are documented in [`docs/adr`](./docs/adr). Domain language is documented in [`CONTEXT.md`](./CONTEXT.md). The target configuration model is documented in [`docs/configuration.md`](./docs/configuration.md), with the implementation plan in [`docs/configuration-migration-plan.md`](./docs/configuration-migration-plan.md).
