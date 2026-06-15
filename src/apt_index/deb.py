@@ -4,7 +4,6 @@ import gzip
 import hashlib
 import lzma
 import shutil
-import subprocess
 import tarfile
 import tempfile
 import urllib.request
@@ -12,6 +11,8 @@ from pathlib import Path
 from typing import Any
 
 from loguru import logger
+
+from apt_index import zstd
 
 
 def download(
@@ -86,11 +87,7 @@ def extract_control_tar(data: bytes) -> bytes:
     if data.startswith(b"\xfd7zXZ"):
         return lzma.decompress(data)
     if data.startswith(b"(\xb5/\xfd"):
-        zstd = shutil.which("zstd")
-        if not zstd:
-            raise RuntimeError("zstd is required to read control.tar.zst")
-        result = subprocess.run([zstd, "-d", "-q", "-c"], input=data, check=True, capture_output=True)
-        return result.stdout
+        return zstd.decompress(data)
     if data.startswith(b"./") or data.startswith(b"control"):
         return data
     raise RuntimeError("unsupported control.tar compression")

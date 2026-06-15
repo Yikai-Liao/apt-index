@@ -3,8 +3,6 @@ from __future__ import annotations
 import json
 import os
 import re
-import shutil
-import subprocess
 import urllib.error
 import urllib.parse
 from collections.abc import Callable, Iterable
@@ -13,6 +11,8 @@ from pathlib import Path
 from typing import Any
 
 from loguru import logger
+
+from apt_index import zstd
 
 JsonFetcher = Callable[[str, dict[str, str] | None], Any]
 JsonPoster = Callable[[str, Any, dict[str, str] | None], Any]
@@ -73,30 +73,14 @@ def write_redirect_rules(
 def write_redirect_snapshot(path: Path, redirects: dict[str, str]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     payload = json.dumps({"version": 1, "redirects": redirects}, indent=2, sort_keys=True) + "\n"
-    path.write_bytes(zstd_compress(payload.encode("utf-8")))
+    path.write_bytes(zstd.compress(payload.encode("utf-8")))
 
 
 def read_redirect_snapshot(path: Path) -> dict[str, str]:
-    payload = json.loads(zstd_decompress(path.read_bytes()).decode("utf-8"))
+    payload = json.loads(zstd.decompress(path.read_bytes()).decode("utf-8"))
     if payload.get("version") != 1 or not isinstance(payload.get("redirects"), dict):
         raise RuntimeError(f"{path}: unsupported redirect snapshot format")
     return {str(key): str(value) for key, value in payload["redirects"].items()}
-
-
-def zstd_compress(data: bytes) -> bytes:
-    zstd = shutil.which("zstd")
-    if not zstd:
-        raise RuntimeError("zstd is required to write redirect snapshots")
-    result = subprocess.run([zstd, "-q", "-19", "-c"], input=data, check=True, capture_output=True)
-    return result.stdout
-
-
-def zstd_decompress(data: bytes) -> bytes:
-    zstd = shutil.which("zstd")
-    if not zstd:
-        raise RuntimeError("zstd is required to read redirect snapshots")
-    result = subprocess.run([zstd, "-d", "-q", "-c"], input=data, check=True, capture_output=True)
-    return result.stdout
 
 
 def plan_redirect_purge(
@@ -158,7 +142,7 @@ def fetch_previous_redirect_snapshot(
     try:
         data = fetch_bytes(snapshot_url, {"Cache-Control": "no-cache"})
         payload = decode_redirect_snapshot_payload(data)
-    except (RuntimeError, subprocess.CalledProcessError, json.JSONDecodeError, UnicodeDecodeError) as exc:
+    except (RuntimeError, json.JSONDecodeError, UnicodeDecodeError) as exc:
         if strict:
             raise
         logger.warning("previous redirect snapshot unavailable; treating as first deploy: {}", exc)
@@ -172,7 +156,7 @@ def decode_redirect_snapshot_payload(data: bytes) -> dict[str, Any]:
     try:
         return json.loads(data.decode("utf-8"))
     except (json.JSONDecodeError, UnicodeDecodeError):
-        return json.loads(zstd_decompress(data).decode("utf-8"))
+        return json.loads(zstd.decompress(data).decode("utf-8"))
 
 
 def purge_redirect_cache(
