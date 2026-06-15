@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T12:53:10+00:00",
+  "generated_at": "2026-06-15T13:01:25+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -643,6 +643,41 @@
         }
       },
       "homepage": "https://github.com/BurntSushi/ripgrep"
+    },
+    "spotify": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "spotify-1.2.92.147-g5b8f9367-x86_64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Depends": "libc6 (>= 2.39), libasound2, libatk-bridge2.0-0, libatomic1, libgbm1, libglib2.0-0, libgtk-3-0, libnss3, libxshmfence1, libxss1, libxtst6, xdg-utils, libayatana-appindicator3-1",
+              "Description": "Spotify streaming music client",
+              "Homepage": "https://www.spotify.com",
+              "License": "https://www.spotify.com/legal/end-user-agreement",
+              "Maintainer": "Spotify <tux.com>",
+              "Package": "spotify-client",
+              "Priority": "optional",
+              "Recommends": "libavcodec61 | libavcodec60 | libavcodec58, libavformat61 | libavformat60 | libavformat58",
+              "Section": "sound",
+              "Suggests": "libnotify4",
+              "Version": "1:1.2.92.147.g5b8f9367"
+            },
+            "filename": "spotify-client_1%3a1.2.92.147.g5b8f9367_amd64.deb",
+            "md5": "e6d244828ce834d0ea075aaf945b7a74",
+            "sha1": "183625e6b5f9b6e9ced848c3e6e918712cb1dc82",
+            "sha256": "1903de14f55a94af3fe52d1b05ff76c40f1ec095355bb18bc2f389381e0be105",
+            "sha512": "e84afeaa3c011c7e06cffa31d0a0113f8851bad57fc26317c2eef74b89985848bdd25b72e4f9a9e55948b8b927f3205a8b9c1047e2f28eec500ac7a2d4913cad",
+            "size": 170943414,
+            "upstream_version": "1.2.92.147",
+            "url": "http://repository.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.2.92.147.g5b8f9367_amd64.deb"
+          },
+          "resolved_at": "2026-06-15T13:01:19+00:00",
+          "source": "aur",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://www.spotify.com/"
     },
     "vscode": {
       "architectures": {
