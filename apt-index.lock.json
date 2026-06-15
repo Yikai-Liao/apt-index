@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T13:27:32+00:00",
+  "generated_at": "2026-06-15T13:34:35+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -1027,6 +1027,71 @@
         }
       },
       "homepage": "https://www.spotify.com/"
+    },
+    "syncthing": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "syncthing_2.1.1_amd64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Depends": "libc6, procps",
+              "Description": "Open Source Continuous File Synchronization",
+              "Homepage": "https://syncthing.net/",
+              "Installed-Size": "26510",
+              "License": "MPL-2",
+              "Maintainer": "Syncthing Release Management <release@syncthing.net>",
+              "Package": "syncthing",
+              "Priority": "optional",
+              "Section": "default",
+              "Vendor": "Syncthing Release Management <release@syncthing.net>",
+              "Version": "2.1.1"
+            },
+            "filename": "syncthing_2.1.1_amd64.deb",
+            "md5": "a6ab7062e175225e5feedf9c1e50c981",
+            "sha1": "ee662c79373d8a4a285ea64bb666cf6921efc621",
+            "sha256": "e00474e7385010394530a82074f88e63d9b8099797e8dd25dec6268b0f87cba3",
+            "sha512": "9bb4ad09ff3b66bfdcd9da79e321ef54f729319747504961b5d97e1fbcbf3b1acb593148fe22b79c834d53caf6032490c21a26bbfe5fc90ac174ee8c87be21dd",
+            "size": 11791288,
+            "upstream_version": "v2.1.1",
+            "url": "https://github.com/syncthing/syncthing/releases/download/v2.1.1/syncthing_2.1.1_amd64.deb"
+          },
+          "resolved_at": "2026-06-15T13:34:26+00:00",
+          "source": "github",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "artifact": {
+            "asset_name": "syncthing_2.1.1_arm64.deb",
+            "control": {
+              "Architecture": "arm64",
+              "Depends": "libc6, procps",
+              "Description": "Open Source Continuous File Synchronization",
+              "Homepage": "https://syncthing.net/",
+              "Installed-Size": "24735",
+              "License": "MPL-2",
+              "Maintainer": "Syncthing Release Management <release@syncthing.net>",
+              "Package": "syncthing",
+              "Priority": "optional",
+              "Section": "default",
+              "Vendor": "Syncthing Release Management <release@syncthing.net>",
+              "Version": "2.1.1"
+            },
+            "filename": "syncthing_2.1.1_arm64.deb",
+            "md5": "e1b634bb2c08f42e3e4177f4f2aa0434",
+            "sha1": "c02d729a4135845d9809be50417ee95b17385688",
+            "sha256": "1c31a84fc99196797fb7a0795625e2c81e601bbeeff612f46b622a509d4e883f",
+            "sha512": "e1a93e52ba22e458f5d8266ac76d73086da8fa0a823cdc8c143843e88625c1092c7be93260fe206932bcda7bf6754230b978bfcaffcd07dcb9b21b9d97cfd13f",
+            "size": 10891036,
+            "upstream_version": "v2.1.1",
+            "url": "https://github.com/syncthing/syncthing/releases/download/v2.1.1/syncthing_2.1.1_arm64.deb"
+          },
+          "resolved_at": "2026-06-15T13:34:27+00:00",
+          "source": "github",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://syncthing.net/"
     },
     "vscode": {
       "architectures": {
