@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T13:16:05+00:00",
+  "generated_at": "2026-06-15T13:20:44+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -638,6 +638,130 @@
         }
       },
       "homepage": "https://github.com/lsd-rs/lsd"
+    },
+    "motrix": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "Motrix_1.8.19_amd64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
+              "Description": "\n  A full-featured download manager",
+              "Homepage": "https://motrix.app",
+              "Installed-Size": "245431",
+              "License": "MIT",
+              "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
+              "Package": "motrix",
+              "Priority": "optional",
+              "Recommends": "libappindicator3-1",
+              "Section": "default",
+              "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
+              "Version": "1.8.19"
+            },
+            "filename": "motrix_1.8.19_amd64.deb",
+            "md5": "0b878031c5eeb536e09dbc17b5fc0b54",
+            "sha1": "58394832c7c4d306e227c366d82fc822f6e1b9bb",
+            "sha256": "a21d1fcc0988325073b3778de875660c9d544834f3f92b2396a0a124a14fed11",
+            "sha512": "8a3dab9c731268c2291f286d8efa7815046bbe00046deb938db061863d3ad3e14ddcb50ba4a7e44ada2c11d196d660bb6a762af4e6e589ddb38692266010e61a",
+            "size": 71298984,
+            "upstream_version": "v1.8.19",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v1.8.19/Motrix_1.8.19_amd64.deb"
+          },
+          "resolved_at": "2026-06-15T13:20:34+00:00",
+          "source": "github",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "artifact": {
+            "asset_name": "Motrix_1.8.19_arm64.deb",
+            "control": {
+              "Architecture": "arm64",
+              "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
+              "Description": "\n  A full-featured download manager",
+              "Homepage": "https://motrix.app",
+              "Installed-Size": "249147",
+              "License": "MIT",
+              "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
+              "Package": "motrix",
+              "Priority": "optional",
+              "Recommends": "libappindicator3-1",
+              "Section": "default",
+              "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
+              "Version": "1.8.19"
+            },
+            "filename": "motrix_1.8.19_arm64.deb",
+            "md5": "f55e76696960c4b0c56f39f85e81c72c",
+            "sha1": "e7953a8dd3f1758729d7699158b36f4c8437ecf7",
+            "sha256": "d191a0338bb4ae46e475f976bf926f3b61e8e5c96e9ac266242e883baaafd48a",
+            "sha512": "3ea865afc8d3c214a87e381f44249789330064cd44e8313b377d188fe983a1fd8cb3ccab879d6b26f3fdbf00f5971054f5529aa1dcb05017a184b8c8ed0993c7",
+            "size": 66839298,
+            "upstream_version": "v1.8.19",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v1.8.19/Motrix_1.8.19_arm64.deb"
+          },
+          "resolved_at": "2026-06-15T13:20:35+00:00",
+          "source": "github",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://github.com/agalwood/Motrix"
+    },
+    "motrix-next": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "MotrixNext_3.9.4_amd64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Depends": "libayatana-appindicator3-1, libwebkit2gtk-4.1-0, libgtk-3-0",
+              "Description": "A full-featured download manager\n (none)",
+              "Installed-Size": "56423",
+              "Maintainer": "AnInsomniacy",
+              "Package": "motrix-next",
+              "Priority": "optional",
+              "Version": "3.9.4"
+            },
+            "filename": "motrix-next_3.9.4_amd64.deb",
+            "md5": "a7396279fadda88d29bbc5d38cfeb880",
+            "sha1": "3c71bd91c22d0d300d7627d5d97fcd8aeb1221c8",
+            "sha256": "11ff316152fa3e79b7bfa7d1bfebbbacac1420d6829fcbd4bc9794c3a8166c29",
+            "sha512": "ed32f90fc8264c7a5616429b21e4a5a30987f6c7efd2caf071629bd1585af1a827b1ccc8f46234d53f8a5d99138ddd099fc6b47754f5dd9b16112e6631847683",
+            "size": 24371726,
+            "upstream_version": "v3.9.4",
+            "url": "https://github.com/AnInsomniacy/motrix-next/releases/download/v3.9.4/MotrixNext_3.9.4_amd64.deb"
+          },
+          "resolved_at": "2026-06-15T13:20:33+00:00",
+          "source": "github",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "artifact": {
+            "asset_name": "MotrixNext_3.9.4_arm64.deb",
+            "control": {
+              "Architecture": "arm64",
+              "Depends": "libayatana-appindicator3-1, libwebkit2gtk-4.1-0, libgtk-3-0",
+              "Description": "A full-featured download manager\n (none)",
+              "Installed-Size": "54928",
+              "Maintainer": "AnInsomniacy",
+              "Package": "motrix-next",
+              "Priority": "optional",
+              "Version": "3.9.4"
+            },
+            "filename": "motrix-next_3.9.4_arm64.deb",
+            "md5": "0597dfaec5538ae173bc0896fb8b27e3",
+            "sha1": "7e370fcd6bc11b0c769f2717e6922e8125716c9c",
+            "sha256": "afc5e18db15a779e3a061443bf1a5caf444b4f81ffe5fd63f5ce8d2a24cf38d4",
+            "sha512": "b22d05eafa9ac603c51cf00cd1eb469f12548424f7887e60012d1266be82bbe65b7b5d46efeebc9177984fd436e2c0b0f8b85b67d3b64810d777728085db96f2",
+            "size": 24437308,
+            "upstream_version": "v3.9.4",
+            "url": "https://github.com/AnInsomniacy/motrix-next/releases/download/v3.9.4/MotrixNext_3.9.4_arm64.deb"
+          },
+          "resolved_at": "2026-06-15T13:20:34+00:00",
+          "source": "github",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://github.com/AnInsomniacy/motrix-next"
     },
     "qq": {
       "architectures": {
