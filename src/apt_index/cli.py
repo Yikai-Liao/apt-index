@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import base64
 import email.utils
 import fnmatch
 import gzip
@@ -37,9 +38,14 @@ CACHE_DIR = ROOT / ".apt-index-cache"
 DIST_DIR = ROOT / "dist"
 DOWNLOAD_STATS_FILENAME = "download_stats.json"
 GNUPG_DIR = ROOT / ".apt-index-gnupg"
+ENV_PATH = ROOT / ".env"
 USER_AGENT = "apt-index/0.1"
 DEFAULT_JOBS = 4
 DEFAULT_DOWNLOAD_STATS_DATASET = "apt_index_downloads"
+SIGNING_PRIVATE_KEY_ENV = "APT_INDEX_GPG_PRIVATE_KEY"
+SIGNING_PRIVATE_KEY_B64_ENV = "APT_INDEX_GPG_PRIVATE_KEY_B64"
+SIGNING_PASSPHRASE_ENV = "APT_INDEX_GPG_PASSPHRASE"
+DOTENV_LOADED = False
 app = typer.Typer(no_args_is_help=True)
 
 
@@ -619,29 +625,74 @@ def write_release(config: dict[str, Any], archs: list[str]) -> None:
     release_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
+def load_dotenv() -> None:
+    global DOTENV_LOADED
+    if DOTENV_LOADED:
+        return
+    DOTENV_LOADED = True
+    if not ENV_PATH.exists():
+        return
+
+    for raw_line in ENV_PATH.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        if line.startswith("export "):
+            line = line.removeprefix("export ").strip()
+        name, value = line.split("=", 1)
+        name = name.strip()
+        value = value.strip()
+        if not name or name in os.environ:
+            continue
+        if len(value) >= 2 and value[0] == value[-1] and value[0] in {"'", '"'}:
+            value = value[1:-1]
+        value = value.replace("\\n", "\n")
+        os.environ[name] = value
+
+
+def has_secret_key(key_name: str, env: dict[str, str]) -> bool:
+    list_result = subprocess.run(["gpg", "--list-secret-keys", key_name], env=env, text=True, capture_output=True)
+    return list_result.returncode == 0
+
+
+def import_signing_key_from_env(env: dict[str, str]) -> None:
+    key_material = os.environ.get(SIGNING_PRIVATE_KEY_ENV)
+    key_material_b64 = os.environ.get(SIGNING_PRIVATE_KEY_B64_ENV)
+    if not key_material and key_material_b64:
+        key_material = base64.b64decode(key_material_b64).decode("utf-8")
+    if not key_material:
+        raise RuntimeError(
+            "missing signing private key; set "
+            f"{SIGNING_PRIVATE_KEY_B64_ENV} or {SIGNING_PRIVATE_KEY_ENV} before running apt-index build"
+        )
+
+    subprocess.run(
+        [
+            "gpg",
+            "--batch",
+            "--yes",
+            "--pinentry-mode",
+            "loopback",
+            "--passphrase",
+            os.environ.get(SIGNING_PASSPHRASE_ENV, ""),
+            "--import",
+        ],
+        input=key_material,
+        env=env,
+        text=True,
+        check=True,
+    )
+
+
 def ensure_signing_key(config: dict[str, Any]) -> str:
+    load_dotenv()
     GNUPG_DIR.mkdir(mode=0o700, exist_ok=True)
     key_name = config["signing"]["key_name"]
     env = gpg_env()
-    list_result = subprocess.run(["gpg", "--list-secret-keys", key_name], env=env, text=True, capture_output=True)
-    if list_result.returncode != 0:
-        subprocess.run(
-            [
-                "gpg",
-                "--batch",
-                "--pinentry-mode",
-                "loopback",
-                "--passphrase",
-                "",
-                "--quick-generate-key",
-                key_name,
-                "rsa3072",
-                "sign",
-                "0",
-            ],
-            env=env,
-            check=True,
-        )
+    if not has_secret_key(key_name, env):
+        import_signing_key_from_env(env)
+    if not has_secret_key(key_name, env):
+        raise RuntimeError(f"imported signing key does not contain secret key for {key_name!r}")
     result = subprocess.run(["gpg", "--armor", "--export", key_name], env=env, check=True, text=True, capture_output=True)
     return result.stdout
 
@@ -653,13 +704,47 @@ def sign_release(config: dict[str, Any]) -> None:
     inrelease_path = release_path.parent / "InRelease"
     release_gpg_path = release_path.parent / "Release.gpg"
     env = gpg_env()
+    passphrase = os.environ.get(SIGNING_PASSPHRASE_ENV, "")
     subprocess.run(
-        ["gpg", "--batch", "--yes", "--pinentry-mode", "loopback", "--passphrase", "", "--local-user", key_name, "--clearsign", "--digest-algo", "SHA256", "--output", str(inrelease_path), str(release_path)],
+        [
+            "gpg",
+            "--batch",
+            "--yes",
+            "--pinentry-mode",
+            "loopback",
+            "--passphrase",
+            passphrase,
+            "--local-user",
+            key_name,
+            "--clearsign",
+            "--digest-algo",
+            "SHA256",
+            "--output",
+            str(inrelease_path),
+            str(release_path),
+        ],
         env=env,
         check=True,
     )
     subprocess.run(
-        ["gpg", "--batch", "--yes", "--pinentry-mode", "loopback", "--passphrase", "", "--local-user", key_name, "--detach-sign", "--armor", "--digest-algo", "SHA256", "--output", str(release_gpg_path), str(release_path)],
+        [
+            "gpg",
+            "--batch",
+            "--yes",
+            "--pinentry-mode",
+            "loopback",
+            "--passphrase",
+            passphrase,
+            "--local-user",
+            key_name,
+            "--detach-sign",
+            "--armor",
+            "--digest-algo",
+            "SHA256",
+            "--output",
+            str(release_gpg_path),
+            str(release_path),
+        ],
         env=env,
         check=True,
     )

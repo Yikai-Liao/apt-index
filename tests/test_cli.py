@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import base64
 import tempfile
 import unittest
 import urllib.error
@@ -282,6 +283,82 @@ class WorkerGenerationTests(unittest.TestCase):
         self.assertIn("env.DOWNLOADS.writeDataPoint", worker)
         self.assertIn("request.method", worker)
         self.assertIn("Response.redirect(target, 302)", worker)
+
+
+class SigningKeyTests(unittest.TestCase):
+    def test_loads_signing_environment_from_dotenv(self) -> None:
+        with (
+            tempfile.TemporaryDirectory() as tmp,
+            patch.object(cli, "ENV_PATH", Path(tmp) / ".env"),
+            patch.object(cli, "DOTENV_LOADED", False),
+            patch.dict(cli.os.environ, {}, clear=True),
+        ):
+            cli.ENV_PATH.write_text(
+                f'export {cli.SIGNING_PRIVATE_KEY_B64_ENV}="encoded"\n{cli.SIGNING_PASSPHRASE_ENV}=secret\n',
+                encoding="utf-8",
+            )
+
+            cli.load_dotenv()
+
+            self.assertEqual(cli.os.environ[cli.SIGNING_PRIVATE_KEY_B64_ENV], "encoded")
+            self.assertEqual(cli.os.environ[cli.SIGNING_PASSPHRASE_ENV], "secret")
+
+    def test_imports_private_key_from_environment_when_secret_key_is_missing(self) -> None:
+        class Result:
+            def __init__(self, returncode: int = 0, stdout: str = "") -> None:
+                self.returncode = returncode
+                self.stdout = stdout
+
+        key_material = "-----BEGIN PGP PRIVATE KEY BLOCK-----\nkey\n-----END PGP PRIVATE KEY BLOCK-----\n"
+        env = {
+            cli.SIGNING_PRIVATE_KEY_B64_ENV: base64.b64encode(key_material.encode("utf-8")).decode("ascii"),
+            cli.SIGNING_PASSPHRASE_ENV: "secret",
+        }
+        calls: list[list[str]] = []
+        inputs: list[str | None] = []
+
+        def fake_run(args: list[str], **kwargs: object) -> Result:
+            calls.append(args)
+            inputs.append(kwargs.get("input"))
+            if args[:2] == ["gpg", "--list-secret-keys"]:
+                return Result(2 if len([call for call in calls if call[:2] == ["gpg", "--list-secret-keys"]]) == 1 else 0)
+            if args[:2] == ["gpg", "--armor"]:
+                return Result(stdout="public-key")
+            return Result()
+
+        with (
+            tempfile.TemporaryDirectory() as tmp,
+            patch.object(cli, "GNUPG_DIR", Path(tmp) / "gnupg"),
+            patch.object(cli, "ENV_PATH", Path(tmp) / ".env"),
+            patch.object(cli, "DOTENV_LOADED", False),
+            patch.dict(cli.os.environ, env, clear=True),
+            patch.object(cli.subprocess, "run", side_effect=fake_run),
+        ):
+            public_key = cli.ensure_signing_key({"signing": {"key_name": "Apt Index <apt-index@lyk-ai.com>"}})
+
+        self.assertEqual(public_key, "public-key")
+        self.assertIn(
+            ["gpg", "--batch", "--yes", "--pinentry-mode", "loopback", "--passphrase", "secret", "--import"],
+            calls,
+        )
+        self.assertIn(key_material, inputs)
+        self.assertNotIn("--quick-generate-key", [arg for call in calls for arg in call])
+
+    def test_fails_without_existing_or_configured_private_key(self) -> None:
+        class Result:
+            returncode = 2
+            stdout = ""
+
+        with (
+            tempfile.TemporaryDirectory() as tmp,
+            patch.object(cli, "GNUPG_DIR", Path(tmp) / "gnupg"),
+            patch.object(cli, "ENV_PATH", Path(tmp) / ".env"),
+            patch.object(cli, "DOTENV_LOADED", False),
+            patch.dict(cli.os.environ, {}, clear=True),
+            patch.object(cli.subprocess, "run", return_value=Result()),
+        ):
+            with self.assertRaisesRegex(RuntimeError, "missing signing private key"):
+                cli.ensure_signing_key({"signing": {"key_name": "Apt Index <apt-index@lyk-ai.com>"}})
 
 
 if __name__ == "__main__":

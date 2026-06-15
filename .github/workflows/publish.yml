@@ -40,6 +40,9 @@ jobs:
           fi
 
       - name: Build deployable tree
+        env:
+          APT_INDEX_GPG_PRIVATE_KEY_B64: ${{ secrets.APT_INDEX_GPG_PRIVATE_KEY_B64 }}
+          APT_INDEX_GPG_PASSPHRASE: ${{ secrets.APT_INDEX_GPG_PASSPHRASE }}
         run: uv run apt-index build
 
       - name: Export download stats

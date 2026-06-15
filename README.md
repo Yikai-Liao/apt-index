@@ -193,6 +193,22 @@ The project does not use `reprepro`, `dpkg-scanpackages`, or `apt-ftparchive pac
 
 APT repository metadata is signed from the first release. Clients should use `signed-by` when adding the repository and should not use `trusted=yes`.
 
+Signing uses a long-lived GPG key named `Apt Index <apt-index@lyk-ai.com>`. The private key is not committed. Local builds load it from `.env`; GitHub Actions loads the same key from repository secrets. If the key is not already present in `.apt-index-gnupg/` and no private-key environment variable is provided, `apt-index build` fails instead of generating a new key.
+
+To create the signing key once:
+
+```sh
+gpg --quick-generate-key "Apt Index <apt-index@lyk-ai.com>" rsa3072 sign 0
+```
+
+To export it for `.env` and GitHub Actions:
+
+```sh
+gpg --armor --export-secret-keys "Apt Index <apt-index@lyk-ai.com>" | base64 | tr -d '\n'
+```
+
+Set the output as `APT_INDEX_GPG_PRIVATE_KEY_B64`. If the key has a passphrase, also set `APT_INDEX_GPG_PASSPHRASE`. Locally, copy `.env.example` to `.env` and fill those values. In GitHub, create repository secrets with the same names.
+
 The repository controls:
 
 - package metadata
