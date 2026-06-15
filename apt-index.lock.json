@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T13:01:25+00:00",
+  "generated_at": "2026-06-15T13:06:21+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -394,6 +394,67 @@
         }
       },
       "homepage": "https://www.feishu.cn/"
+    },
+    "flclash": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "FlClash-0.8.93-linux-amd64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Depends": "libayatana-appindicator3-dev, libkeybinder-3.0-dev",
+              "Description": "A multi-platform proxy client based on ClashMeta, simple and easy to use, open-source and ad-free.",
+              "Essential": "no",
+              "Installed-Size": "6604",
+              "Maintainer": "chen08209 <chen08209@gmail.com>",
+              "Package": "FlClash",
+              "Priority": "optional",
+              "Section": "x11",
+              "Version": "0.8.93+2026052901"
+            },
+            "filename": "FlClash-0.8.93-linux-amd64.deb",
+            "md5": "5456db9bb4ec955ddf8c14bb1dbdb5ab",
+            "sha1": "2b48cc69888b2c5f87d0f1452c0488e38686b4a3",
+            "sha256": "135da95baaf41f077521b98c0170554da432348b2e3aee73d6f4f050119e7917",
+            "sha512": "f33048ba34cdf71f9a1dd5b2df5b2adc5f473243da197f3d54100eb00eddbe1ba1acd7e64c0054dc31c68dd859ec797c0b366710efa2810705b22bafd6300544",
+            "size": 46078056,
+            "upstream_version": "v0.8.93",
+            "url": "https://github.com/chen08209/FlClash/releases/download/v0.8.93/FlClash-0.8.93-linux-amd64.deb"
+          },
+          "resolved_at": "2026-06-15T13:06:10+00:00",
+          "source": "github",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "artifact": {
+            "asset_name": "FlClash-0.8.93-linux-arm64.deb",
+            "control": {
+              "Architecture": "arm64",
+              "Depends": "libayatana-appindicator3-dev, libkeybinder-3.0-dev",
+              "Description": "A multi-platform proxy client based on ClashMeta, simple and easy to use, open-source and ad-free.",
+              "Essential": "no",
+              "Installed-Size": "6604",
+              "Maintainer": "chen08209 <chen08209@gmail.com>",
+              "Package": "FlClash",
+              "Priority": "optional",
+              "Section": "x11",
+              "Version": "0.8.93+2026052901"
+            },
+            "filename": "FlClash-0.8.93-linux-arm64.deb",
+            "md5": "9ecddf5443394ccddc113f8c5bdf7912",
+            "sha1": "5861d119706cc582079db4c0fc340e3471616ef9",
+            "sha256": "be1fd60e90364063967addd7fd7ad18abbe7fcb7cc8b93039381154de28b35fc",
+            "sha512": "de82c886764bd0a6921fbe8f1cdd6d53b30b81e8427e4da37cdca94284273ef274294daad147f2e54c83b8c3b6b1a79201b80733c8bfd4c71a28fde3609d58f7",
+            "size": 37020514,
+            "upstream_version": "v0.8.93",
+            "url": "https://github.com/chen08209/FlClash/releases/download/v0.8.93/FlClash-0.8.93-linux-arm64.deb"
+          },
+          "resolved_at": "2026-06-15T13:06:12+00:00",
+          "source": "github",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://github.com/chen08209/FlClash"
     },
     "google-chrome": {
       "architectures": {
