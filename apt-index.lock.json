@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T15:54:45+00:00",
+  "generated_at": "2026-06-15T15:59:35+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -120,6 +120,69 @@
         }
       },
       "homepage": "https://github.com/clementtsang/bottom"
+    },
+    "cloudflared": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "cloudflared-linux-amd64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Description": "Cloudflare Tunnel daemon",
+              "Homepage": "https://github.com/cloudflare/cloudflared",
+              "Installed-Size": "38324",
+              "License": "Apache License Version 2.0",
+              "Maintainer": "Cloudflare <support@cloudflare.com>",
+              "Package": "cloudflared",
+              "Priority": "optional",
+              "Section": "default",
+              "Vendor": "Cloudflare",
+              "Version": "2026.6.0"
+            },
+            "filename": "cloudflared-linux-amd64.deb",
+            "md5": "20e679c6d766318aaec3e2f732388df4",
+            "sha1": "ed4be38c7b1a2f545d4f51e956e87f3280183f1f",
+            "sha256": "0f8d62a84cdf9474409a486d62c9269d9a4b28665d2c4e675cb87c062395d3f7",
+            "sha512": "28b9fc73079de89bfdbd4bebf5d46c895923aa869feb674dc5242c03ba586e9bc77abd2b62f31b8231d9d24c2edb134d738ff53f4cae8f262536667962d50ec3",
+            "size": 18881532,
+            "upstream_version": "2026.6.0",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.6.0/cloudflared-linux-amd64.deb"
+          },
+          "resolved_at": "2026-06-15T15:59:21+00:00",
+          "source": "github",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "artifact": {
+            "asset_name": "cloudflared-linux-arm64.deb",
+            "control": {
+              "Architecture": "arm64",
+              "Description": "Cloudflare Tunnel daemon",
+              "Homepage": "https://github.com/cloudflare/cloudflared",
+              "Installed-Size": "36049",
+              "License": "Apache License Version 2.0",
+              "Maintainer": "Cloudflare <support@cloudflare.com>",
+              "Package": "cloudflared",
+              "Priority": "optional",
+              "Section": "default",
+              "Vendor": "Cloudflare",
+              "Version": "2026.6.0"
+            },
+            "filename": "cloudflared-linux-arm64.deb",
+            "md5": "34038dd1ad1811c8caa1f0199f82880d",
+            "sha1": "18f604c1e83782d29fc8257de783c0e5ad57851a",
+            "sha256": "b0bcc293670cafd150380efebea85073424e332f136003ae9fdf99b2c83a0231",
+            "sha512": "b23f06f0c4a886307ee5d83a3161069720951529f6f8f9c0601623cc3cdf4ca09bb95737928580724e87255fa8bcf89ae971df228a34b5040881dd1eb8a2cfcf",
+            "size": 17414638,
+            "upstream_version": "2026.6.0",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.6.0/cloudflared-linux-arm64.deb"
+          },
+          "resolved_at": "2026-06-15T15:59:21+00:00",
+          "source": "github",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://github.com/cloudflare/cloudflared"
     },
     "deadbeef": {
       "architectures": {
