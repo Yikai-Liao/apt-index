@@ -466,11 +466,24 @@
       font-size: 15px;
     }
 
+    .pkg-heading {
+      display: contents;
+    }
+
+    .mobile-source,
+    .mobile-version {
+      display: none;
+    }
+
     .pkg span,
     .small {
       color: var(--muted);
       font-size: 12px;
       line-height: 1.4;
+    }
+
+    .mobile-artifacts {
+      display: none;
     }
 
     .pill {
@@ -581,7 +594,7 @@
 
       tr {
         border-bottom: 1px solid var(--line);
-        padding: 12px 0;
+        padding: 0;
       }
 
       td {
@@ -601,10 +614,206 @@
 
       td:first-child {
         display: block;
+        padding: 10px 14px;
       }
 
       td:first-child::before {
         display: none;
+      }
+
+      td:not(:first-child) {
+        display: none;
+      }
+
+      .pkg {
+        gap: 3px;
+      }
+
+      .pkg-heading {
+        display: flex;
+        min-width: 0;
+        align-items: center;
+        gap: 7px;
+      }
+
+      .pkg strong {
+        color: var(--text);
+        min-width: 0;
+        overflow: hidden;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1.25;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .mobile-source,
+      .mobile-version {
+        display: inline-flex;
+        flex: 0 0 auto;
+        align-items: center;
+        min-height: 20px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: color-mix(in srgb, var(--panel-2) 70%, transparent);
+        color: color-mix(in srgb, var(--muted) 84%, transparent);
+        padding: 0 6px;
+        font: 500 10.5px/1 var(--sans);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .mobile-source {
+        max-width: 30%;
+      }
+
+      .mobile-version {
+        max-width: 42%;
+        font-family: var(--mono);
+        font-weight: 500;
+      }
+
+      .pkg-description {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+      }
+
+      .mobile-artifacts {
+        display: grid;
+        grid-template-columns: max-content max-content max-content max-content;
+        justify-content: space-between;
+        column-gap: 12px;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        margin-top: 7px;
+        border-top: 1px solid var(--line);
+      }
+
+      .mobile-artifact {
+        display: contents;
+      }
+
+      .mobile-artifact + .mobile-artifact span {
+        border-top: 1px solid color-mix(in srgb, var(--line) 60%, transparent);
+      }
+
+      .mobile-artifact span {
+        min-width: 0;
+        overflow: hidden;
+        color: color-mix(in srgb, var(--muted) 88%, transparent);
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.25;
+        min-height: 28px;
+        padding: 6px 0;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .artifact-arch {
+        color: color-mix(in srgb, var(--text) 88%, var(--muted));
+        font-weight: 650;
+      }
+
+      .mobile-artifact .artifact-status {
+        justify-self: start;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .mobile-artifact .ok { color: color-mix(in srgb, var(--ok) 82%, var(--muted)); }
+      .mobile-artifact .warn { color: var(--warn); }
+      .mobile-artifact .bad { color: var(--bad); }
+
+      .artifact-size {
+        justify-self: end;
+        font-size: 12px;
+      }
+
+      .artifact-downloads {
+        display: inline-flex;
+        gap: 8px;
+        justify-self: end;
+        font-size: 12px;
+      }
+
+      .artifact-downloads::before {
+        content: "30d";
+        color: color-mix(in srgb, var(--muted) 76%, transparent);
+      }
+
+      .mobile-artifact code {
+        font-size: 11.5px;
+      }
+    }
+
+    @media (min-width: 760px) and (max-width: 880px) {
+      table {
+        display: table;
+        font-size: 13px;
+      }
+
+      thead {
+        display: table-header-group;
+      }
+
+      tbody {
+        display: table-row-group;
+      }
+
+      tr {
+        display: table-row;
+        border-bottom: 0;
+      }
+
+      th,
+      td {
+        display: table-cell;
+        border-bottom: 1px solid var(--line);
+        padding: 12px 9px;
+      }
+
+      td {
+        justify-content: initial;
+        gap: 0;
+      }
+
+      td::before,
+      td:first-child::before {
+        display: none;
+      }
+
+      td:first-child,
+      td:not(:first-child) {
+        display: table-cell;
+      }
+
+      td:first-child {
+        padding: 12px 9px;
+      }
+
+      .pkg-heading {
+        display: contents;
+      }
+
+      .pkg-description {
+        display: block;
+        -webkit-line-clamp: unset;
+      }
+
+      .mobile-source,
+      .mobile-version,
+      .mobile-artifacts {
+        display: none;
+      }
+
+      .detail-line {
+        min-height: 24px;
+        line-height: 24px;
       }
     }
 
@@ -626,6 +835,28 @@
       h1 { font-size: 42px; }
       pre { font-size: 12px; }
       .primary, .secondary { width: 100%; }
+      .section { padding: 26px 0 38px; }
+      .section-head { gap: 8px; margin-bottom: 12px; }
+      .section-head p { font-size: 13px; line-height: 1.45; }
+      h2 { font-size: 28px; }
+      .toolbar { gap: 9px; padding: 10px; }
+      .search { width: 100%; height: 34px; }
+      .toolbar-meta {
+        width: 100%;
+        justify-content: space-between;
+        gap: 8px;
+      }
+      .updated { white-space: normal; text-align: right; }
+      .pager {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 10px;
+        padding: 9px 10px;
+      }
+      .pager-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
     }
   </style>
 </head>
@@ -695,7 +926,6 @@ sudo apt update</pre>
       <section class="section" id="packages">
         <div class="section-head">
           <h2 data-i18n="packagesTitle">当前发布的软件包</h2>
-          <p data-i18n="packagesCopy">页面直接读取发布到 Cloudflare Pages 的 site-data JSON，并在浏览器中完成搜索、排序与分页。</p>
         </div>
 
         <div class="panel">
@@ -796,7 +1026,6 @@ sudo apt update</pre>
         downloadCount: "30 天下载请求",
         health: "健康状态",
         packagesTitle: "当前发布的软件包",
-        packagesCopy: "基于公开的 site-data.json 生成，支持搜索、排序与分页。",
         search: "搜索软件包、来源或版本",
         pageSize: "每页",
         thPackage: "软件包",
@@ -837,7 +1066,6 @@ sudo apt update</pre>
         downloadCount: "30d download requests",
         health: "Health",
         packagesTitle: "Published packages",
-        packagesCopy: "Generated from the public site-data.json, with client-side search, sorting, and pagination.",
         search: "Search package, source, or version",
         pageSize: "Per page",
         thPackage: "Package",
@@ -908,10 +1136,9 @@ sudo apt update</pre>
 
     function statusForArtifact(artifact) {
       const track = artifact.track_status || "unknown";
-      const health = artifact.artifact_status || "unknown";
-      if (track === "ok" && health === "ok") return { text: "ok", className: artifact.status_class || "ok" };
-      if (track === "kept_previous" && health === "ok") return { text: "kept previous", className: artifact.status_class || "warn" };
-      return { text: `${track}/${health}`, className: artifact.status_class || "bad" };
+      if (track === "ok") return { text: "ok", className: "ok" };
+      if (track === "kept_previous") return { text: "kept previous", className: "warn" };
+      return { text: track, className: "bad" };
     }
 
     function collectRows() {
@@ -1055,8 +1282,9 @@ sudo apt update</pre>
       $("#artifactCount").textContent = Number.isFinite(artifactCount) ? String(artifactCount) : "--";
       $("#totalSize").textContent = formatBytes(Number(summary.total_size) || 0);
       $("#downloadCount").textContent = formatNumber(Number(summary.downloads_last_days) || 0);
-      $("#healthState").textContent = summary.all_healthy ? t("allHealthy") : t("degraded");
-      $("#healthState").className = `metric-value ${summary.all_healthy ? "ok" : "bad"}`;
+      const allTracked = state.rows.length > 0 && state.rows.every((row) => row.status.className === "ok");
+      $("#healthState").textContent = allTracked ? t("allHealthy") : t("degraded");
+      $("#healthState").className = `metric-value ${allTracked ? "ok" : "bad"}`;
       $("#updatedAt").textContent = `${t("updated")}: ${formatDate(state.siteData?.generated_at)}`;
     }
 
@@ -1086,8 +1314,13 @@ sudo apt update</pre>
         <tr>
           <td data-label="${t("thPackage")}">
             <a class="pkg" href="${row.homepage}">
-              <strong>${escapeHtml(row.packageName)}</strong>
-              <span>${escapeHtml(row.description || row.entryName)}</span>
+              <span class="pkg-heading">
+                <strong>${escapeHtml(row.packageName)}</strong>
+                <em class="mobile-source">${escapeHtml(row.source || "--")}</em>
+                <em class="mobile-version">${escapeHtml(mobileVersionLabel(row))}</em>
+              </span>
+              <span class="pkg-description">${escapeHtml(row.description || row.entryName)}</span>
+              ${renderMobileArtifacts(row)}
             </a>
           </td>
           <td data-label="${t("thVersion")}">${renderUniqueDetail(row.artifacts, "version", (value) => `<code>${escapeHtml(value)}</code>`)}</td>
@@ -1131,6 +1364,34 @@ sudo apt update</pre>
 
     function renderDetailStack(items, renderItem) {
       return `<div class="detail-stack">${items.map((item) => `<div class="detail-line">${renderItem(item)}</div>`).join("")}</div>`;
+    }
+
+    function mobileVersionLabel(row) {
+      const versions = [...new Set(row.artifacts.map((item) => item.version).filter(Boolean))];
+      if (!versions.length) return "--";
+      return versions.sort(compareVersionText).at(-1);
+    }
+
+    function compareVersionText(left, right) {
+      return left.localeCompare(right, undefined, {
+        numeric: true,
+        sensitivity: "base",
+      });
+    }
+
+    function renderMobileArtifacts(row) {
+      return `
+        <div class="mobile-artifacts">
+          ${row.artifacts.map((artifact) => `
+            <div class="mobile-artifact">
+              <span class="artifact-arch"><code>${escapeHtml(artifact.arch || "--")}</code></span>
+              <span class="artifact-status ${artifact.status.className}">${escapeHtml(artifact.status.text)}</span>
+              <span class="artifact-size">${escapeHtml(formatBytes(artifact.size))}</span>
+              <span class="artifact-downloads">${escapeHtml(formatNumber(artifact.downloads))}</span>
+            </div>
+          `).join("")}
+        </div>
+      `;
     }
 
     async function copyInstallCommand(event) {

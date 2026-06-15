@@ -99,7 +99,7 @@ def full_artifact_health(artifact: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def check_artifact_light(artifact: dict[str, Any], *, user_agent: str) -> dict[str, Any]:
+def check_artifact_light(artifact: dict[str, Any], *, cache_dir: Path | None = None, user_agent: str) -> dict[str, Any]:
     try:
         size = fetch_artifact_size(artifact["url"], "HEAD", user_agent=user_agent)
         check = "head"

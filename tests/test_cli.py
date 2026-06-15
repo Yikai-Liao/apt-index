@@ -692,6 +692,35 @@ class ArtifactHealthTests(unittest.TestCase):
         check_artifact.assert_called_once()
         self.assertEqual(health["packages"]["pkg"]["artifacts"]["amd64"], {"status": "ok", "check": "full"})
 
+    def test_check_artifacts_uses_light_check_without_cache_dir_failure(self) -> None:
+        lock = {
+            "packages": {
+                "pkg": {
+                    "architectures": {
+                        "amd64": {
+                            "source": "github",
+                            "update_policy": "track",
+                            "artifact": locked_artifact(),
+                        }
+                    }
+                }
+            }
+        }
+
+        with patch.object(health_module, "fetch_artifact_size", return_value=123):
+            health = health_module.check_artifacts(
+                lock,
+                jobs=1,
+                full_artifact_check=False,
+                full_checked_artifacts=None,
+                now_iso=cli.now_iso,
+                worker_count=cli.worker_count,
+                cache_dir=cli.CACHE_DIR,
+                user_agent=cli.USER_AGENT,
+            )
+
+        self.assertEqual(health["packages"]["pkg"]["artifacts"]["amd64"], {"status": "ok", "check": "head", "size": 123})
+
 
 class BuildStateFileTests(unittest.TestCase):
     def test_copy_state_files_writes_missing_health_reports_as_deploy_artifacts(self) -> None:
