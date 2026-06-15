@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T13:22:50+00:00",
+  "generated_at": "2026-06-15T13:27:32+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -489,6 +489,67 @@
       },
       "homepage": "https://github.com/chen08209/FlClash"
     },
+    "fooyin": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "fooyin_0.10.8-bookworm_amd64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Depends": "libc6,\n        libstdc++6,\n        libqt6sql6-sqlite (>= 6.4.0),\n        libqt6svg6 (>= 6.4.0),\n        qt6-image-formats-plugins (>= 6.4.0),\n        qt6-qpa-plugins,\n        zlib1g,\n        libasound2,\n        ffmpeg (>= 7:4.4),\n        pipewire,\n        libsdl2-2.0-0,\n        libgme0,\n        libopenmpt0,\n        libarchive13,\n        libsndfile1,\n        libebur128-1,\n        libsoundtouch1,\n        libsoxr0, libicu72, libtag1v5, libqt6core6 (>= 6.4.0), libqt6gui6 (>= 6.4.0), libqt6widgets6 (>= 6.4.0), libqt6network6 (>= 6.4.0), libqt6concurrent6 (>= 6.4.0), libqt6sql6 (>= 6.4.0)",
+              "Description": "A customisable music player",
+              "Homepage": "https://www.fooyin.org",
+              "Installed-Size": "24202",
+              "Maintainer": "Luke Taylor <luket@pm.me>",
+              "Package": "fooyin",
+              "Priority": "optional",
+              "Section": "sound",
+              "Version": "0.10.8"
+            },
+            "filename": "fooyin_0.10.8-bookworm_amd64.deb",
+            "md5": "3a163dce9883012e4f99f46304d67231",
+            "sha1": "4fe99d4362904df399a5941005a074679b326e85",
+            "sha256": "48044ccbb4c4b5c4f52af2b0e1c2208a564ca07dc1bc156d438c639fb226327c",
+            "sha512": "302ebca9ea3c028e61b167bbbdd4a3903e24dbb8ce6b423ec2f15ca6a80c161df8f33e60d877105a36d95f5e39497fc6f26533f2cdde41fe4c673cc11b37ccae",
+            "size": 8003876,
+            "upstream_version": "v0.10.8",
+            "url": "https://github.com/fooyin/fooyin/releases/download/v0.10.8/fooyin_0.10.8-bookworm_amd64.deb"
+          },
+          "resolved_at": "2026-06-15T13:27:19+00:00",
+          "source": "github",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "artifact": {
+            "asset_name": "fooyin_0.10.8-bookworm_arm64.deb",
+            "control": {
+              "Architecture": "arm64",
+              "Depends": "libc6,\n        libstdc++6,\n        libqt6sql6-sqlite (>= 6.4.0),\n        libqt6svg6 (>= 6.4.0),\n        qt6-image-formats-plugins (>= 6.4.0),\n        qt6-qpa-plugins,\n        zlib1g,\n        libasound2,\n        ffmpeg (>= 7:4.4),\n        pipewire,\n        libsdl2-2.0-0,\n        libgme0,\n        libopenmpt0,\n        libarchive13,\n        libsndfile1,\n        libebur128-1,\n        libsoundtouch1,\n        libsoxr0, libicu72, libtag1v5, libqt6core6 (>= 6.4.0), libqt6gui6 (>= 6.4.0), libqt6widgets6 (>= 6.4.0), libqt6network6 (>= 6.4.0), libqt6concurrent6 (>= 6.4.0), libqt6sql6 (>= 6.4.0)",
+              "Description": "A customisable music player",
+              "Homepage": "https://www.fooyin.org",
+              "Installed-Size": "23643",
+              "Maintainer": "Luke Taylor <luket@pm.me>",
+              "Package": "fooyin",
+              "Priority": "optional",
+              "Section": "sound",
+              "Version": "0.10.8"
+            },
+            "filename": "fooyin_0.10.8-bookworm_arm64.deb",
+            "md5": "1140ba6bb42341e926b7fb624529fd93",
+            "sha1": "3ec9dd6625185595c6ca19c3d7a90f26b2419c03",
+            "sha256": "a6105308b06b92f3d32ec5ae4e94853b48eb300f575bde9192616916eac769fe",
+            "sha512": "0c45ac1bd230aefae935f6ba70099eb67800ab0137a99c606da9abda196ee21280108e9fc6387440b1706ab3e20a5cd450810c9f0bd0bbd14500bf9bbbcaf899",
+            "size": 7590952,
+            "upstream_version": "v0.10.8",
+            "url": "https://github.com/fooyin/fooyin/releases/download/v0.10.8/fooyin_0.10.8-bookworm_arm64.deb"
+          },
+          "resolved_at": "2026-06-15T13:27:20+00:00",
+          "source": "github",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://github.com/fooyin/fooyin"
+    },
     "google-chrome": {
       "architectures": {
         "amd64": {
@@ -762,6 +823,42 @@
         }
       },
       "homepage": "https://github.com/AnInsomniacy/motrix-next"
+    },
+    "obsidian": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "obsidian_1.12.7_amd64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
+              "Description": "\n  Obsidian",
+              "Homepage": "https://obsidian.md",
+              "Installed-Size": "313931",
+              "License": "UNLICENSED",
+              "Maintainer": "Dynalist Inc.",
+              "Package": "obsidian",
+              "Priority": "optional",
+              "Recommends": "libappindicator3-1",
+              "Section": "default",
+              "Vendor": "Dynalist Inc.",
+              "Version": "1.12.7"
+            },
+            "filename": "obsidian_1.12.7_amd64.deb",
+            "md5": "4fc61e50360320be9083f80b04a805ee",
+            "sha1": "0dce889b9d0df285e3eedfd982b42cd732993a30",
+            "sha256": "3644e3ef19bcd23db4d17f7c73311b5245429391a2a48b361da93375f59712b0",
+            "sha512": "4df508468e3b7690fb78c74809ae39d1fd3690f37f3c87e12d4cad87b9e76d67b528682dc19e0f2bd5f9674c17a3e89330b242bdfd7871467ae05e8321cc128c",
+            "size": 85762386,
+            "upstream_version": "v1.12.7",
+            "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.12.7/obsidian_1.12.7_amd64.deb"
+          },
+          "resolved_at": "2026-06-15T13:27:21+00:00",
+          "source": "github",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://obsidian.md/"
     },
     "qq": {
       "architectures": {
