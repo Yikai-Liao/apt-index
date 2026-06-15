@@ -695,7 +695,7 @@ sudo apt update</pre>
       <section class="section" id="packages">
         <div class="section-head">
           <h2 data-i18n="packagesTitle">当前发布的软件包</h2>
-          <p data-i18n="packagesCopy">页面直接读取发布到 Cloudflare Pages 的 lock 与 health JSON。自动刷新后，这里会随数据变化而更新。</p>
+          <p data-i18n="packagesCopy">页面直接读取发布到 Cloudflare Pages 的 site-data JSON，并在浏览器中完成搜索、排序与分页。</p>
         </div>
 
         <div class="panel">
@@ -763,7 +763,7 @@ sudo apt update</pre>
     </main>
 
     <footer>
-      <span data-i18n="footer">Static Cloudflare Pages frontend. Data source: apt-index.lock.json, track_health.json, artifact_health.json, download_stats.json.</span>
+      <span data-i18n="footer">Static Cloudflare Pages frontend. Data source: site-data.json.</span>
     </footer>
   </div>
 
@@ -778,11 +778,7 @@ sudo apt update</pre>
       pageSize: 10,
       sortKey: "packageName",
       sortDirection: "asc",
-      lock: null,
-      trackHealth: null,
-      artifactHealth: null,
-      downloadStats: null,
-      artifactCount: 0,
+      siteData: null,
     };
 
     const copy = {
@@ -800,7 +796,7 @@ sudo apt update</pre>
         downloadCount: "30 天下载请求",
         health: "健康状态",
         packagesTitle: "当前发布的软件包",
-        packagesCopy: "基于当前发布状态生成，支持搜索与分页，适合随包数量增长继续使用。",
+        packagesCopy: "基于公开的 site-data.json 生成，支持搜索、排序与分页。",
         search: "搜索软件包、来源或版本",
         pageSize: "每页",
         thPackage: "软件包",
@@ -817,7 +813,7 @@ sudo apt update</pre>
         securityCopy: "客户端通过仓库公钥验证索引签名，并由 APT 校验包文件大小与哈希；建议使用 signed-by 绑定密钥。",
         rawTitle: "APT 原始文件",
         rawCopy: "以下文件用于 APT 客户端、排障和审计；常规使用无需手动打开。",
-        footer: "静态 Cloudflare Pages 前端。数据源：apt-index.lock.json、track_health.json、artifact_health.json、download_stats.json。",
+        footer: "静态 Cloudflare Pages 前端。数据源：site-data.json。",
         updated: "更新时间",
         pageInfo: "第 {page} / {pages} 页，共 {count} 项",
         prevPage: "上一页",
@@ -841,7 +837,7 @@ sudo apt update</pre>
         downloadCount: "30d download requests",
         health: "Health",
         packagesTitle: "Published packages",
-        packagesCopy: "Generated from the current published state, with search and pagination for larger package sets.",
+        packagesCopy: "Generated from the public site-data.json, with client-side search, sorting, and pagination.",
         search: "Search package, source, or version",
         pageSize: "Per page",
         thPackage: "Package",
@@ -858,7 +854,7 @@ sudo apt update</pre>
         securityCopy: "Clients verify repository metadata with the signing key, then APT checks package sizes and hashes. Use signed-by to scope trust to this source.",
         rawTitle: "Raw APT files",
         rawCopy: "These files are for APT clients, troubleshooting, and auditing. Normal use does not require opening them manually.",
-        footer: "Static Cloudflare Pages frontend. Data source: apt-index.lock.json, track_health.json, artifact_health.json, download_stats.json.",
+        footer: "Static Cloudflare Pages frontend. Data source: site-data.json.",
         updated: "Updated",
         pageInfo: "Page {page} of {pages}, {count} items",
         prevPage: "Previous",
@@ -893,13 +889,14 @@ sudo apt update</pre>
     }
 
     async function loadJson(path) {
+      const relativePath = path.replace(/^\//, "");
       const candidates = location.protocol === "file:"
-        ? [`../${path.replace(/^\//, "")}`]
+        ? [relativePath, `../${relativePath}`]
         : [path];
       let lastError;
       for (const candidate of candidates) {
         try {
-          const response = await fetch(candidate, { cache: "no-store" });
+          const response = await fetch(candidate);
           if (!response.ok) throw new Error(`${candidate}: ${response.status}`);
           return response.json();
         } catch (error) {
@@ -909,85 +906,46 @@ sudo apt update</pre>
       throw lastError;
     }
 
-    async function loadOptionalJson(path) {
-      try {
-        return await loadJson(path);
-      } catch (error) {
-        console.warn(`optional JSON unavailable: ${path}`, error);
-        return null;
-      }
-    }
-
-    function statusFor(entryName, arch) {
-      const track = state.trackHealth?.packages?.[entryName]?.architectures?.[arch]?.status || "unknown";
-      const artifact = state.artifactHealth?.packages?.[entryName]?.artifacts?.[arch]?.status || "unknown";
-      if (track === "ok" && artifact === "ok") return { text: "ok", className: "ok" };
-      if (track === "kept_previous" && artifact === "ok") return { text: "kept previous", className: "warn" };
-      return { text: `${track}/${artifact}`, className: "bad" };
-    }
-
-    function downloadStatsFor(entryName, arch) {
-      const packages = state.downloadStats?.packages || [];
-      return packages.find((item) => item.entry_name === entryName && item.arch === arch) || null;
+    function statusForArtifact(artifact) {
+      const track = artifact.track_status || "unknown";
+      const health = artifact.artifact_status || "unknown";
+      if (track === "ok" && health === "ok") return { text: "ok", className: artifact.status_class || "ok" };
+      if (track === "kept_previous" && health === "ok") return { text: "kept previous", className: artifact.status_class || "warn" };
+      return { text: `${track}/${health}`, className: artifact.status_class || "bad" };
     }
 
     function collectRows() {
-      const packages = state.lock?.packages || {};
-      state.artifactCount = 0;
-      return Object.entries(packages).flatMap(([entryName, entry]) => {
-        const groups = new Map();
-        Object.entries(entry.architectures || {}).forEach(([arch, architecture]) => {
-          const artifact = architecture.artifact;
-          if (!artifact) return;
-          state.artifactCount += 1;
-          const control = artifact.control || {};
-          const downloads = downloadStatsFor(entryName, arch);
-          const packageName = control.Package || entryName;
-          const key = packageName;
-          const row = groups.get(key) || {
-            entryName,
-            arch: "",
-            arches: [],
-            source: architecture.source || "",
-            policy: architecture.update_policy || "",
-            packageName,
-            version: "",
-            description: (control.Description || "").split("\n")[0].trim(),
-            homepage: entry.homepage || control.Homepage || artifact.url || "#",
-            artifacts: [],
-            size: 0,
-            downloads: 0,
-            downloadsLast7Days: 0,
-            statuses: [],
-            status: { text: "unknown", className: "bad" },
-          };
-          const status = statusFor(entryName, arch);
-          row.artifacts.push({
-            arch,
-            version: control.Version || "",
-            source: architecture.source || "",
-            policy: architecture.update_policy || "",
-            size: artifact.size || 0,
-            downloads: downloads?.downloads || 0,
-            downloadsLast7Days: downloads?.last_7_days || 0,
-            status,
-          });
-          row.arches.push(arch);
-          row.arch = row.arches.join(", ");
-          row.version = summarizeValues(row.artifacts.map((item) => item.version));
-          row.source = summarizeValues(row.artifacts.map((item) => item.source));
-          row.size += artifact.size || 0;
-          row.downloads += downloads?.downloads || 0;
-          row.downloadsLast7Days += downloads?.last_7_days || 0;
-          row.statuses.push(status);
-          row.status = combineStatuses(row.statuses);
-          groups.set(key, row);
-        });
-        return Array.from(groups.values()).map((row) => {
-          delete row.statuses;
-          return row;
-        });
-      }).sort((a, b) => a.packageName.localeCompare(b.packageName));
+      const packages = state.siteData?.packages || [];
+      return packages.map((row) => {
+        const artifacts = (row.artifacts || []).map((artifact) => ({
+          arch: artifact.arch || "",
+          version: artifact.version || "",
+          source: artifact.source || "",
+          policy: artifact.update_policy || "",
+          size: artifact.size || 0,
+          downloads: artifact.downloads || 0,
+          downloadsLast7Days: artifact.downloads_last_7_days || 0,
+          status: statusForArtifact(artifact),
+        }));
+        const arches = artifacts.map((item) => item.arch).filter(Boolean);
+        const statuses = artifacts.map((item) => item.status);
+        return {
+          entryName: row.entry_name || "",
+          arch: arches.join(", "),
+          arches,
+          source: summarizeValues(artifacts.map((item) => item.source)),
+          policy: summarizeValues(artifacts.map((item) => item.policy)),
+          packageName: row.package_name || row.entry_name || "",
+          version: summarizeValues(artifacts.map((item) => item.version)),
+          description: row.description || "",
+          homepage: row.homepage || "#",
+          artifacts,
+          size: artifacts.reduce((sum, item) => sum + (item.size || 0), 0),
+          downloads: artifacts.reduce((sum, item) => sum + (item.downloads || 0), 0),
+          downloadsLast7Days: artifacts.reduce((sum, item) => sum + (item.downloadsLast7Days || 0), 0),
+          status: combineStatuses(statuses),
+        };
+      });
     }
 
     function summarizeValues(values) {
@@ -1090,16 +1048,16 @@ sudo apt update</pre>
     }
 
     function renderSummary() {
-      const rows = state.rows;
-      const packageEntries = Object.keys(state.lock?.packages || {}).length;
-      const allOk = rows.length > 0 && rows.every((row) => row.status.className === "ok");
-      $("#packageCount").textContent = packageEntries || "--";
-      $("#artifactCount").textContent = state.artifactCount || "--";
-      $("#totalSize").textContent = formatBytes(rows.reduce((sum, row) => sum + row.size, 0));
-      $("#downloadCount").textContent = formatNumber(state.downloadStats?.totals?.last_days || 0);
-      $("#healthState").textContent = allOk ? t("allHealthy") : t("degraded");
-      $("#healthState").className = `metric-value ${allOk ? "ok" : "bad"}`;
-      $("#updatedAt").textContent = `${t("updated")}: ${formatDate(state.lock?.generated_at)}`;
+      const summary = state.siteData?.summary || {};
+      const entryCount = Number(summary.entry_count);
+      const artifactCount = Number(summary.artifact_count);
+      $("#packageCount").textContent = Number.isFinite(entryCount) ? String(entryCount) : "--";
+      $("#artifactCount").textContent = Number.isFinite(artifactCount) ? String(artifactCount) : "--";
+      $("#totalSize").textContent = formatBytes(Number(summary.total_size) || 0);
+      $("#downloadCount").textContent = formatNumber(Number(summary.downloads_last_days) || 0);
+      $("#healthState").textContent = summary.all_healthy ? t("allHealthy") : t("degraded");
+      $("#healthState").className = `metric-value ${summary.all_healthy ? "ok" : "bad"}`;
+      $("#updatedAt").textContent = `${t("updated")}: ${formatDate(state.siteData?.generated_at)}`;
     }
 
     function renderRows() {
@@ -1150,7 +1108,7 @@ sudo apt update</pre>
     }
 
     function render() {
-      if (!state.lock) return;
+      if (!state.siteData) return;
       renderSummary();
       renderRows();
     }
@@ -1227,16 +1185,7 @@ sudo apt update</pre>
       });
 
       try {
-        const [lock, trackHealth, artifactHealth, downloadStats] = await Promise.all([
-          loadJson("/apt-index.lock.json"),
-          loadJson("/track_health.json"),
-          loadJson("/artifact_health.json"),
-          loadOptionalJson("/download_stats.json"),
-        ]);
-        state.lock = lock;
-        state.trackHealth = trackHealth;
-        state.artifactHealth = artifactHealth;
-        state.downloadStats = downloadStats;
+        state.siteData = await loadJson("/site-data.json");
         state.rows = collectRows();
         render();
       } catch (error) {

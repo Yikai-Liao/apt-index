@@ -571,6 +571,7 @@ class BuildStateFileTests(unittest.TestCase):
             ):
                 cli.copy_state_files(lock)
 
+            self.assertFalse(dist.joinpath("apt-index.lock.json").exists())
             self.assertFalse(track_health_path.exists())
             self.assertFalse(artifact_health_path.exists())
             track_health = json.loads(dist.joinpath("track_health.json").read_text(encoding="utf-8"))
@@ -580,6 +581,202 @@ class BuildStateFileTests(unittest.TestCase):
         self.assertEqual(track_health["packages"]["pkg"]["architectures"]["amd64"]["status"], "not_checked")
         self.assertEqual(artifact_health["status"], "not_generated")
         self.assertEqual(artifact_health["packages"]["pkg"]["artifacts"]["amd64"]["check"], "not_generated")
+
+    def test_build_writes_site_data_without_publishing_lockfile(self) -> None:
+        lock = {
+            "generated_at": "2026-06-15T08:55:30+00:00",
+            "packages": {
+                "pkg": {
+                    "homepage": "https://example.test/pkg",
+                    "architectures": {
+                        "amd64": {
+                            "source": "github",
+                            "update_policy": "track",
+                            "artifact": locked_artifact(),
+                        }
+                    },
+                }
+            },
+        }
+        config = {
+            "suite": "stable",
+            "component": "main",
+            "repository": {"base_url": "https://example.test"},
+        }
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            dist = root / "dist"
+            lock_path = root / "apt-index.lock.json"
+            static_dir = root / "static"
+            static_dir.mkdir()
+            static_dir.joinpath("index.html").write_text(
+                "__BASE_URL__ __SUITE__ __COMPONENT__ __PACKAGE_INDEX_LINKS__\n",
+                encoding="utf-8",
+            )
+            lock_path.write_text(json.dumps(lock), encoding="utf-8")
+
+            with (
+                patch.object(cli, "LOCK_PATH", lock_path),
+                patch.object(cli, "TRACK_HEALTH_PATH", root / "track_health.json"),
+                patch.object(cli, "ARTIFACT_HEALTH_PATH", root / "artifact_health.json"),
+                patch.object(cli, "DIST_DIR", dist),
+                patch.object(cli, "STATIC_DIR", static_dir),
+                patch.object(cli, "load_config", return_value=config),
+                patch.object(cli, "ensure_signing_key", return_value="key"),
+                patch.object(cli, "write_redirect_rules"),
+                patch.object(cli, "write_release"),
+                patch.object(cli, "sign_release"),
+            ):
+                cli.build()
+
+            self.assertFalse(dist.joinpath("apt-index.lock.json").exists())
+            self.assertTrue(dist.joinpath("site-data.json").exists())
+            site_data = json.loads(dist.joinpath("site-data.json").read_text(encoding="utf-8"))
+
+        self.assertEqual(site_data["generated_at"], "2026-06-15T08:55:30+00:00")
+        self.assertEqual(site_data["summary"]["artifact_count"], 1)
+        self.assertEqual(site_data["summary"]["downloads_last_days"], 0)
+
+
+class SiteDataTests(unittest.TestCase):
+    def test_format_site_data_groups_artifacts_and_merges_health_and_downloads(self) -> None:
+        lock = {
+            "generated_at": "2026-06-15T08:55:30+00:00",
+            "packages": {
+                "pkg": {
+                    "homepage": "https://example.test/pkg",
+                    "architectures": {
+                        "arm64": {
+                            "source": "github",
+                            "update_policy": "track",
+                            "artifact": {
+                                **locked_artifact(),
+                                "filename": "pkg_1.0.0_arm64.deb",
+                                "control": {"Package": "pkg", "Version": "1.0.0", "Architecture": "arm64"},
+                            },
+                        },
+                        "amd64": {
+                            "source": "github",
+                            "update_policy": "track",
+                            "artifact": locked_artifact(),
+                        },
+                    },
+                }
+            },
+        }
+        track_health = {
+            "packages": {
+                "pkg": {
+                    "architectures": {
+                        "amd64": {"status": "ok"},
+                        "arm64": {"status": "kept_previous"},
+                    }
+                }
+            }
+        }
+        artifact_health = {
+            "packages": {
+                "pkg": {
+                    "artifacts": {
+                        "amd64": {"status": "ok"},
+                        "arm64": {"status": "ok"},
+                    }
+                }
+            }
+        }
+        download_stats = {
+            "window_days": 30,
+            "packages": [
+                {"entry_name": "pkg", "arch": "amd64", "downloads": 4, "last_7_days": 2},
+                {"entry_name": "pkg", "arch": "arm64", "downloads": 7, "last_7_days": 3},
+            ],
+        }
+
+        site_data = cli.format_site_data(lock, track_health, artifact_health, download_stats)
+
+        self.assertEqual(site_data["summary"]["entry_count"], 1)
+        self.assertEqual(site_data["summary"]["row_count"], 1)
+        self.assertEqual(site_data["summary"]["artifact_count"], 2)
+        self.assertEqual(site_data["summary"]["downloads_last_days"], 11)
+        self.assertEqual(site_data["summary"]["downloads_last_7_days"], 5)
+        self.assertFalse(site_data["summary"]["all_healthy"])
+        self.assertEqual(site_data["packages"][0]["package_name"], "pkg")
+        self.assertEqual([item["arch"] for item in site_data["packages"][0]["artifacts"]], ["amd64", "arm64"])
+        self.assertEqual(site_data["packages"][0]["artifacts"][1]["status_class"], "warn")
+
+    def test_format_site_data_splits_rows_by_upstream_package_name_and_sorts_rows(self) -> None:
+        lock = {
+            "generated_at": "2026-06-15T08:55:30+00:00",
+            "packages": {
+                "bottom": {
+                    "homepage": "https://example.test/bottom",
+                    "architectures": {
+                        "arm64": {
+                            "source": "github",
+                            "update_policy": "track",
+                            "artifact": {
+                                **locked_artifact(),
+                                "filename": "bottom_1.0.0_arm64.deb",
+                                "control": {"Package": "bottom-arm64", "Version": "1.0.0", "Architecture": "arm64"},
+                            },
+                        },
+                        "amd64": {
+                            "source": "github",
+                            "update_policy": "track",
+                            "artifact": {
+                                **locked_artifact(),
+                                "filename": "bottom_1.0.0_amd64.deb",
+                                "control": {"Package": "bottom", "Version": "1.0.0", "Architecture": "amd64"},
+                            },
+                        },
+                    },
+                }
+            },
+        }
+
+        site_data = cli.format_site_data(lock, {"packages": {}}, {"packages": {}}, cli.empty_download_stats("not_generated"))
+
+        self.assertEqual(site_data["summary"]["row_count"], 2)
+        self.assertEqual([row["package_name"] for row in site_data["packages"]], ["bottom", "bottom-arm64"])
+
+    def test_write_site_data_uses_fallback_reports_and_empty_downloads(self) -> None:
+        lock = {
+            "generated_at": "2026-06-15T08:55:30+00:00",
+            "packages": {
+                "pkg": {
+                    "homepage": "https://example.test/pkg",
+                    "architectures": {
+                        "amd64": {
+                            "source": "github",
+                            "update_policy": "track",
+                            "artifact": locked_artifact(),
+                        }
+                    },
+                }
+            },
+        }
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            output = root / "nested" / "site-data.json"
+            lock_path = root / "apt-index.lock.json"
+            lock_path.write_text(json.dumps(lock), encoding="utf-8")
+
+            with (
+                patch.object(cli, "LOCK_PATH", lock_path),
+                patch.object(cli, "TRACK_HEALTH_PATH", root / "track_health.json"),
+                patch.object(cli, "ARTIFACT_HEALTH_PATH", root / "artifact_health.json"),
+            ):
+                cli.write_site_data(output, root / "missing-download-stats.json")
+
+            site_data = json.loads(output.read_text(encoding="utf-8"))
+
+        artifact = site_data["packages"][0]["artifacts"][0]
+        self.assertEqual(artifact["track_status"], "not_checked")
+        self.assertEqual(artifact["artifact_status"], "not_checked")
+        self.assertEqual(artifact["downloads"], 0)
+        self.assertEqual(site_data["window_days"], 30)
 
 
 class RedirectRulesTests(unittest.TestCase):
@@ -891,6 +1088,9 @@ class WorkerGenerationTests(unittest.TestCase):
 
             headers = path.read_text(encoding="utf-8")
 
+        self.assertIn("/site-data.json", headers)
+        self.assertIn("Cache-Control: public, max-age=300, must-revalidate", headers)
+        self.assertIn("Cloudflare-CDN-Cache-Control: public, max-age=300", headers)
         self.assertIn("/redirect-rules/*.json.zst", headers)
         self.assertIn("Cache-Control: public, max-age=0, must-revalidate", headers)
         self.assertIn("Cloudflare-CDN-Cache-Control: public, max-age=31536000, stale-while-revalidate=86400, stale-if-error=604800", headers)

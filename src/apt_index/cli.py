@@ -39,16 +39,20 @@ STATIC_DIR = ROOT / "static"
 CACHE_DIR = ROOT / ".apt-index-cache"
 DIST_DIR = ROOT / "dist"
 DOWNLOAD_STATS_FILENAME = "download_stats.json"
+SITE_DATA_FILENAME = "site-data.json"
 REDIRECT_RULES_DIRNAME = "redirect-rules"
 REDIRECT_SNAPSHOT_FILENAME = "snapshot.json.zst"
 REDIRECT_EDGE_TTL_SECONDS = 60 * 60 * 24 * 30
 REDIRECT_BROWSER_TTL_SECONDS = 60 * 5
 REDIRECT_NEGATIVE_CACHE_TTL_SECONDS = 60
+SITE_DATA_TTL_SECONDS = 60 * 5
 STATIC_REDIRECT_RULES_EDGE_TTL_SECONDS = 60 * 60 * 24 * 365
 STATIC_REDIRECT_RULES_BROWSER_TTL_POLICY = "public, max-age=0, must-revalidate"
 STATIC_REDIRECT_RULES_CDN_TTL_POLICY = (
     f"public, max-age={STATIC_REDIRECT_RULES_EDGE_TTL_SECONDS}, stale-while-revalidate=86400, stale-if-error=604800"
 )
+SITE_DATA_BROWSER_TTL_POLICY = f"public, max-age={SITE_DATA_TTL_SECONDS}, must-revalidate"
+SITE_DATA_CDN_TTL_POLICY = f"public, max-age={SITE_DATA_TTL_SECONDS}"
 LEGACY_REDIRECT_RULES_PATHS = ("/redirect_rules.json",)
 CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS = 7
 GNUPG_DIR = ROOT / ".apt-index-gnupg"
@@ -104,6 +108,15 @@ def download_stats_command(
     if hostname is None:
         hostname = urllib.parse.urlparse(load_config()["repository"]["base_url"]).hostname
     write_download_stats(output or DIST_DIR / DOWNLOAD_STATS_FILENAME, hostname, days, strict)
+
+
+@app.command("site-data")
+def site_data_command(
+    output: Path | None = typer.Option(None, "--output", "-o", help="Output JSON path."),
+    download_stats: Path | None = typer.Option(None, "--download-stats", help="Download stats JSON path."),
+) -> None:
+    """Write the published site data consumed by the static homepage."""
+    write_site_data(output or DIST_DIR / SITE_DATA_FILENAME, download_stats or DIST_DIR / DOWNLOAD_STATS_FILENAME)
 
 
 @app.command("plan-redirect-purge")
@@ -244,6 +257,7 @@ def build() -> None:
     write_json(DIST_DIR / DOWNLOAD_STATS_FILENAME, empty_download_stats("not_generated"))
     (DIST_DIR / "key.asc").write_text(ensure_signing_key(config), encoding="utf-8")
     copy_state_files(lock)
+    write_site_data(DIST_DIR / SITE_DATA_FILENAME, DIST_DIR / DOWNLOAD_STATS_FILENAME)
     write_headers(DIST_DIR / "_headers")
     write_worker(DIST_DIR / "_worker.js")
     write_routes(DIST_DIR / "_routes.json")
@@ -423,6 +437,11 @@ def write_redirect_rules(lock: dict[str, Any], component: str) -> dict[str, str]
 def write_headers(path: Path) -> None:
     content = "\n".join(
         [
+            f"/{SITE_DATA_FILENAME}",
+            f"  Cache-Control: {SITE_DATA_BROWSER_TTL_POLICY}",
+            f"  Cloudflare-CDN-Cache-Control: {SITE_DATA_CDN_TTL_POLICY}",
+            "  Content-Type: application/json; charset=utf-8",
+            "",
             f"/{REDIRECT_RULES_DIRNAME}/*.json.zst",
             f"  Cache-Control: {STATIC_REDIRECT_RULES_BROWSER_TTL_POLICY}",
             f"  Cloudflare-CDN-Cache-Control: {STATIC_REDIRECT_RULES_CDN_TTL_POLICY}",
@@ -1232,7 +1251,6 @@ def write_index_page(config: dict[str, Any], lock: dict[str, Any]) -> None:
 
 
 def copy_state_files(lock: dict[str, Any]) -> None:
-    shutil.copy2(LOCK_PATH, DIST_DIR / LOCK_PATH.name)
     copy_or_write_health_report(TRACK_HEALTH_PATH, DIST_DIR / TRACK_HEALTH_PATH.name, lambda: not_generated_track_health(lock))
     copy_or_write_health_report(ARTIFACT_HEALTH_PATH, DIST_DIR / ARTIFACT_HEALTH_PATH.name, lambda: not_generated_artifact_health(lock))
 
@@ -1288,6 +1306,118 @@ def not_checked_artifact_health(artifact: dict[str, Any]) -> dict[str, Any]:
         if key in artifact:
             health[key] = artifact[key]
     return health
+
+
+def write_site_data(output: Path, download_stats_path: Path) -> None:
+    lock = load_json(LOCK_PATH, None)
+    if not lock:
+        raise SystemExit("apt-index.lock.json is missing; run refresh first")
+    track_health = load_json(TRACK_HEALTH_PATH, None) or not_generated_track_health(lock)
+    artifact_health = load_json(ARTIFACT_HEALTH_PATH, None) or not_generated_artifact_health(lock)
+    download_stats = load_json(download_stats_path, None) or empty_download_stats("not_generated")
+    output.parent.mkdir(parents=True, exist_ok=True)
+    write_json(output, format_site_data(lock, track_health, artifact_health, download_stats))
+
+
+def format_site_data(
+    lock: dict[str, Any],
+    track_health: dict[str, Any],
+    artifact_health: dict[str, Any],
+    download_stats: dict[str, Any],
+) -> dict[str, Any]:
+    downloads_by_identity = {
+        (str(row.get("entry_name") or ""), str(row.get("arch") or "")): {
+            "downloads": int(row.get("downloads") or 0),
+            "last_7_days": int(row.get("last_7_days") or 0),
+        }
+        for row in download_stats.get("packages", [])
+    }
+    packages: list[dict[str, Any]] = []
+    artifact_count = 0
+    total_size = 0
+    downloads_last_days = 0
+    downloads_last_7_days = 0
+
+    for entry_name, entry in sorted(lock.get("packages", {}).items()):
+        grouped_rows: dict[str, dict[str, Any]] = {}
+        for arch, architecture in sorted(entry.get("architectures", {}).items()):
+            artifact = architecture.get("artifact")
+            if not artifact:
+                continue
+            control = artifact.get("control", {})
+            package_name = str(control.get("Package") or entry_name)
+            row = grouped_rows.setdefault(
+                package_name,
+                {
+                    "entry_name": entry_name,
+                    "package_name": package_name,
+                    "description": first_line(control.get("Description")),
+                    "homepage": preferred_homepage(entry, control, artifact),
+                    "artifacts": [],
+                },
+            )
+            download_row = downloads_by_identity.get((entry_name, arch), {})
+            track_status = str(track_health.get("packages", {}).get(entry_name, {}).get("architectures", {}).get(arch, {}).get("status") or "unknown")
+            artifact_status = str(artifact_health.get("packages", {}).get(entry_name, {}).get("artifacts", {}).get(arch, {}).get("status") or "unknown")
+            row["artifacts"].append(
+                {
+                    "arch": arch,
+                    "version": str(control.get("Version") or ""),
+                    "source": str(architecture.get("source") or ""),
+                    "update_policy": str(architecture.get("update_policy") or ""),
+                    "size": int(artifact.get("size") or 0),
+                    "downloads": int(download_row.get("downloads") or 0),
+                    "downloads_last_7_days": int(download_row.get("last_7_days") or 0),
+                    "track_status": track_status,
+                    "artifact_status": artifact_status,
+                    "status_class": status_class_for(track_status, artifact_status),
+                }
+            )
+            artifact_count += 1
+            total_size += int(artifact.get("size") or 0)
+            downloads_last_days += int(download_row.get("downloads") or 0)
+            downloads_last_7_days += int(download_row.get("last_7_days") or 0)
+        for row in grouped_rows.values():
+            row["artifacts"] = sorted(row["artifacts"], key=lambda item: str(item["arch"]))
+        packages.extend(grouped_rows.values())
+
+    packages = sorted(packages, key=lambda row: (str(row["package_name"]).casefold(), str(row["entry_name"]).casefold()))
+    all_healthy = bool(packages) and all(
+        artifact["status_class"] == "ok"
+        for row in packages
+        for artifact in row.get("artifacts", [])
+    )
+    return {
+        "version": 1,
+        "generated_at": lock.get("generated_at"),
+        "window_days": int(download_stats.get("window_days") or 30),
+        "summary": {
+            "entry_count": len(lock.get("packages", {})),
+            "row_count": len(packages),
+            "artifact_count": artifact_count,
+            "total_size": total_size,
+            "downloads_last_days": downloads_last_days,
+            "downloads_last_7_days": downloads_last_7_days,
+            "all_healthy": all_healthy,
+        },
+        "packages": packages,
+    }
+
+
+def preferred_homepage(entry: dict[str, Any], control: dict[str, Any], artifact: dict[str, Any]) -> str:
+    return str(entry.get("homepage") or control.get("Homepage") or artifact.get("url") or "#")
+
+
+def first_line(value: Any) -> str:
+    return str(value or "").splitlines()[0].strip() if value else ""
+
+
+def status_class_for(track_status: str, artifact_status: str) -> str:
+    if track_status == "ok" and artifact_status == "ok":
+        return "ok"
+    if track_status == "kept_previous" and artifact_status == "ok":
+        return "warn"
+    return "bad"
 
 
 def write_download_stats(path: Path, hostname: str | None, days: int = 30, strict: bool = False) -> None:

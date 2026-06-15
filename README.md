@@ -66,6 +66,7 @@ Generated deployable APT tree
     +--> dists/stable/InRelease
     +--> redirect-rules/main/<entry>.json
     +--> redirect-rules/snapshot.json.zst
+    +--> site-data.json
     +--> download_stats.json
     +--> _routes.json
     +--> _worker.js
@@ -76,7 +77,7 @@ Cloudflare Pages + Worker
 
 `track_health.json` and `artifact_health.json` are generated diagnostics. They are published with the generated `dist/` tree, but they are ignored by Git and are not source-controlled state.
 
-Cloudflare Pages serves the static APT metadata, signing key, generated redirect data, and public download statistics. `_routes.json` routes only `/pool/*` package download paths to the Worker; `/dists/*` and `/key.asc` are served directly as static files. The Worker reads the per-entry redirect shard for the requested virtual package path and returns a cacheable `302` redirect to the original upstream `.deb` URL.
+Cloudflare Pages serves the static APT metadata, signing key, generated redirect data, homepage site data, and public download statistics. `_routes.json` routes only `/pool/*` package download paths to the Worker; `/dists/*` and `/key.asc` are served directly as static files. The Worker reads the per-entry redirect shard for the requested virtual package path and returns a cacheable `302` redirect to the original upstream `.deb` URL.
 
 Static redirect shards and `redirect-rules/snapshot.json.zst` are published with `_headers` rules that keep browser caching conservative but give Cloudflare's edge a long TTL. Package download redirects themselves are cached as Worker-generated `302` responses in the Cache API, and missing package paths get a short-lived cached `404` so repeated probes do not reread the shard on every miss.
 
@@ -168,9 +169,11 @@ The repository keeps generated state files that are useful for review, automatio
 
 `artifact_health.json` records whether resolved upstream package files are still reachable. Daily refreshes use a lightweight `HEAD` or range request for unchanged artifacts and compare the remote size when available. New artifacts and explicit full checks download the package and verify the recorded hash and size.
 
+`site-data.json` is the published, homepage-specific view model built from the lockfile, health reports, and public download statistics. It is a deploy artifact, not committed generated state.
+
 `download_stats.json` records public, aggregated `GET /pool/*` request counts exported from Cloudflare HTTP request analytics. It is a deploy artifact, not committed generated state.
 
-The deployable `dist/` tree is generated in CI and uploaded to Cloudflare Pages, but it is not committed.
+The deployable `dist/` tree is generated in CI and uploaded to Cloudflare Pages, but it is not committed. The canonical `apt-index.lock.json` remains repository state for refresh and build tooling; it is not published as a static site asset.
 
 ## Refresh Workflow
 
@@ -185,8 +188,9 @@ The daily GitHub Actions workflow:
 7. Builds and signs the deployable APT tree, including per-entry redirect shards and `redirect-rules/snapshot.json.zst`.
 8. Compares the new redirect snapshot with the previously deployed Cloudflare snapshot and plans which cached package URLs and redirect-rule assets need purging.
 9. Exports public download statistics to `dist/download_stats.json`.
-10. Uploads the generated tree to Cloudflare Pages.
-11. Purges cached package redirect URLs whose redirect target changed, newly appeared package URLs that may have cached `404` misses, and the legacy redirect manifest URL, then purges the `/redirect-rules` prefix so shard and snapshot assets do not stay stale on the custom domain.
+10. Renders `dist/site-data.json` for the static homepage from the current lockfile, health reports, and exported download statistics.
+11. Uploads the generated tree to Cloudflare Pages.
+12. Purges cached package redirect URLs whose redirect target changed, newly appeared package URLs that may have cached `404` misses, and the legacy redirect manifest URL, then purges the `/redirect-rules` prefix so shard and snapshot assets do not stay stale on the custom domain.
 
 This repository intentionally uses a rolling self-managed model. Successful refreshes are committed directly instead of opening pull requests.
 

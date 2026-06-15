@@ -53,6 +53,9 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: uv run apt-index download-stats --output dist/download_stats.json
 
+      - name: Render site data
+        run: uv run apt-index site-data --output dist/site-data.json --download-stats dist/download_stats.json
+
       - name: Publish to Cloudflare Pages
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
