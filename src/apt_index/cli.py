@@ -206,7 +206,7 @@ def build() -> None:
     (DIST_DIR / "redirect_rules.json").write_text(json.dumps(redirect_rules, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     write_json(DIST_DIR / DOWNLOAD_STATS_FILENAME, empty_download_stats("not_generated"))
     (DIST_DIR / "key.asc").write_text(ensure_signing_key(config), encoding="utf-8")
-    copy_state_files()
+    copy_state_files(lock)
     write_worker(DIST_DIR / "_worker.js")
     write_routes(DIST_DIR / "_routes.json")
     write_index_page(config, lock)
@@ -928,9 +928,63 @@ def write_index_page(config: dict[str, Any], lock: dict[str, Any]) -> None:
     (DIST_DIR / "index.html").write_text(html, encoding="utf-8")
 
 
-def copy_state_files() -> None:
-    for path in (LOCK_PATH, TRACK_HEALTH_PATH, ARTIFACT_HEALTH_PATH):
-        shutil.copy2(path, DIST_DIR / path.name)
+def copy_state_files(lock: dict[str, Any]) -> None:
+    shutil.copy2(LOCK_PATH, DIST_DIR / LOCK_PATH.name)
+    copy_or_write_health_report(TRACK_HEALTH_PATH, DIST_DIR / TRACK_HEALTH_PATH.name, lambda: not_generated_track_health(lock))
+    copy_or_write_health_report(ARTIFACT_HEALTH_PATH, DIST_DIR / ARTIFACT_HEALTH_PATH.name, lambda: not_generated_artifact_health(lock))
+
+
+def copy_or_write_health_report(source: Path, target: Path, fallback_factory: Any) -> None:
+    if source.exists():
+        shutil.copy2(source, target)
+        return
+    logger.warning("{} is missing; writing not_generated report to {}", source.name, target)
+    write_json(target, fallback_factory())
+
+
+def not_generated_track_health(lock: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "version": 2,
+        "generated_at": now_iso(),
+        "status": "not_generated",
+        "packages": {
+            entry_name: {
+                "status": "not_checked",
+                "architectures": {
+                    arch: {"status": "not_checked"}
+                    for arch, architecture in entry.get("architectures", {}).items()
+                    if architecture.get("artifact")
+                },
+            }
+            for entry_name, entry in lock.get("packages", {}).items()
+        },
+    }
+
+
+def not_generated_artifact_health(lock: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "version": 2,
+        "generated_at": now_iso(),
+        "status": "not_generated",
+        "packages": {
+            entry_name: {
+                "artifacts": {
+                    arch: not_checked_artifact_health(architecture["artifact"])
+                    for arch, architecture in entry.get("architectures", {}).items()
+                    if architecture.get("artifact")
+                }
+            }
+            for entry_name, entry in lock.get("packages", {}).items()
+        },
+    }
+
+
+def not_checked_artifact_health(artifact: dict[str, Any]) -> dict[str, Any]:
+    health: dict[str, Any] = {"status": "not_checked", "check": "not_generated"}
+    for key in ("size", "sha256"):
+        if key in artifact:
+            health[key] = artifact[key]
+    return health
 
 
 def write_download_stats(path: Path, dataset: str = DEFAULT_DOWNLOAD_STATS_DATASET, days: int = 30, strict: bool = False) -> None:

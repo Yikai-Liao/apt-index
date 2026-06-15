@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import base64
+import json
 import tempfile
 import unittest
 import urllib.error
@@ -536,6 +537,48 @@ class ArtifactHealthTests(unittest.TestCase):
 
         check_artifact.assert_called_once()
         self.assertEqual(health["packages"]["pkg"]["artifacts"]["amd64"], {"status": "ok", "check": "full"})
+
+
+class BuildStateFileTests(unittest.TestCase):
+    def test_copy_state_files_writes_missing_health_reports_as_deploy_artifacts(self) -> None:
+        lock = {
+            "packages": {
+                "pkg": {
+                    "architectures": {
+                        "amd64": {
+                            "artifact": locked_artifact(),
+                        }
+                    }
+                }
+            }
+        }
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            dist = root / "dist"
+            dist.mkdir()
+            lock_path = root / "apt-index.lock.json"
+            track_health_path = root / "track_health.json"
+            artifact_health_path = root / "artifact_health.json"
+            lock_path.write_text(json.dumps(lock), encoding="utf-8")
+
+            with (
+                patch.object(cli, "LOCK_PATH", lock_path),
+                patch.object(cli, "TRACK_HEALTH_PATH", track_health_path),
+                patch.object(cli, "ARTIFACT_HEALTH_PATH", artifact_health_path),
+                patch.object(cli, "DIST_DIR", dist),
+            ):
+                cli.copy_state_files(lock)
+
+            self.assertFalse(track_health_path.exists())
+            self.assertFalse(artifact_health_path.exists())
+            track_health = json.loads(dist.joinpath("track_health.json").read_text(encoding="utf-8"))
+            artifact_health = json.loads(dist.joinpath("artifact_health.json").read_text(encoding="utf-8"))
+
+        self.assertEqual(track_health["status"], "not_generated")
+        self.assertEqual(track_health["packages"]["pkg"]["architectures"]["amd64"]["status"], "not_checked")
+        self.assertEqual(artifact_health["status"], "not_generated")
+        self.assertEqual(artifact_health["packages"]["pkg"]["artifacts"]["amd64"]["check"], "not_generated")
 
 
 class DownloadStatsTests(unittest.TestCase):

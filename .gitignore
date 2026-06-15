@@ -1,4 +1,6 @@
 dist/
+artifact_health.json
+track_health.json
 .codegraph/
 .apt-index-cache/
 .apt-index-gnupg/

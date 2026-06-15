@@ -73,6 +73,8 @@ Generated deployable APT tree
 Cloudflare Pages + Worker
 ```
 
+`track_health.json` and `artifact_health.json` are generated diagnostics. They are published with the generated `dist/` tree, but they are ignored by Git and are not source-controlled state.
+
 Cloudflare Pages serves the static APT metadata, signing key, generated redirect data, and public download statistics. `_routes.json` routes only `/pool/*` package download paths to the Worker; `/dists/*` and `/key.asc` are served directly as static files. The Worker reads `redirect_rules.json` and redirects virtual package download paths to the original upstream `.deb` URLs. If the `DOWNLOADS` Workers Analytics Engine binding is configured, the Worker also records successful package redirect requests.
 
 ## Package Identity
