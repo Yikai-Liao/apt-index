@@ -1,0 +1,11 @@
+homepage = "https://github.com/AnInsomniacy/motrix-next"
+architectures = ["amd64", "arm64"]
+source = "github"
+update_policy = "track"
+
+[sources.github]
+repo = "AnInsomniacy/motrix-next"
+
+[sources.github.asset_patterns]
+amd64 = "MotrixNext_*_amd64.deb"
+arm64 = "MotrixNext_*_arm64.deb"
