@@ -97,3 +97,11 @@ source = "github"
 homepage = "https://github.com/BurntSushi/ripgrep"
 repo = "BurntSushi/ripgrep"
 asset_patterns.amd64 = "ripgrep_*_amd64.deb"
+
+[packages.vscode]
+update_policy = "track"
+source = "aur"
+homepage = "https://code.visualstudio.com/"
+aur_package = "visual-studio-code-bin"
+aur_architectures.amd64 = "x86_64"
+aur_architectures.arm64 = "aarch64"
