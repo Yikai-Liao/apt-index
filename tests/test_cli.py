@@ -7,10 +7,11 @@ import unittest
 import urllib.error
 from datetime import datetime, timezone
 from pathlib import Path
+from types import SimpleNamespace
 from unittest.mock import Mock, call, patch
 
 from apt_index import cli, deb, download_stats, health as health_module, paths, publish, redirect, site_data as site_data_module, sources
-from apt_index.config import ConfigError, load_configuration
+from apt_index.config import AurArchSource, ConfigError, EntryArchitecture, EntryConfig, GithubArchSource, load_configuration
 
 
 class FakeResponse:
@@ -28,20 +29,19 @@ class FakeResponse:
         return self.headers.get(name)
 
 
-def package_entry() -> dict[str, object]:
-    return {
-        "homepage": "https://example.test/pkg",
-        "architectures": {
-            "amd64": {
-                "update_policy": "track",
-                "source": {
-                    "type": "github",
-                    "repo": "example/pkg",
-                    "asset_pattern": "pkg_*_amd64.deb",
-                },
-            }
+def package_entry() -> EntryConfig:
+    return EntryConfig(
+        homepage="https://example.test/pkg",
+        architectures={
+            "amd64": EntryArchitecture(
+                update_policy="track",
+                source=GithubArchSource(
+                    repo="example/pkg",
+                    asset_pattern="pkg_*_amd64.deb",
+                ),
+            )
         },
-    }
+    )
 
 
 def locked_artifact() -> dict[str, object]:
@@ -335,9 +335,10 @@ class ResolveEntryTests(unittest.TestCase):
             "1.0.0",
             "pkg_1.0.0_amd64.deb",
         )
+        candidate_resolver = Mock(return_value=candidate)
 
-        with patch.object(sources, "resolve_candidate", return_value=candidate), patch.object(deb, "download") as download:
-            resolved = cli.resolve_entry("pkg", package_entry(), previous_entry)
+        with patch.object(deb, "download") as download:
+            resolved = cli.resolve_entry("pkg", package_entry(), previous_entry, candidate_resolver=candidate_resolver)
 
         download.assert_not_called()
         self.assertEqual(resolved.entry, previous_entry)
@@ -360,6 +361,7 @@ class ResolveEntryTests(unittest.TestCase):
             "2.0.0",
             "pkg_2.0.0_amd64.deb",
         )
+        candidate_resolver = Mock(return_value=candidate)
         metadata = {
             "control": {"Package": "pkg", "Version": "2.0.0", "Architecture": "amd64"},
             "size": 456,
@@ -370,11 +372,10 @@ class ResolveEntryTests(unittest.TestCase):
         }
 
         with (
-            patch.object(sources, "resolve_candidate", return_value=candidate),
             patch.object(deb, "download", return_value=Path("/tmp/pkg.deb")) as download,
             patch.object(deb, "inspect_deb", return_value=metadata),
         ):
-            resolved = cli.resolve_entry("pkg", package_entry(), previous_entry)
+            resolved = cli.resolve_entry("pkg", package_entry(), previous_entry, candidate_resolver=candidate_resolver)
 
         download.assert_called_once_with(
             "https://example.test/pkg-2.deb",
@@ -408,6 +409,7 @@ class ResolveEntryTests(unittest.TestCase):
             "different-sha1",
             "sha1",
         )
+        candidate_resolver = Mock(return_value=candidate)
         metadata = {
             "control": {"Package": "pkg", "Version": "1.0.0", "Architecture": "amd64"},
             "size": 456,
@@ -418,11 +420,10 @@ class ResolveEntryTests(unittest.TestCase):
         }
 
         with (
-            patch.object(sources, "resolve_candidate", return_value=candidate),
             patch.object(deb, "download", return_value=Path("/tmp/pkg.deb")) as download,
             patch.object(deb, "inspect_deb", return_value=metadata),
         ):
-            resolved = cli.resolve_entry("pkg", package_entry(), previous_entry)
+            resolved = cli.resolve_entry("pkg", package_entry(), previous_entry, candidate_resolver=candidate_resolver)
 
         download.assert_called_once_with(
             "https://example.test/pkg.deb",
@@ -446,8 +447,9 @@ class ResolveEntryTests(unittest.TestCase):
             },
         }
 
-        with patch.object(sources, "resolve_candidate", side_effect=RuntimeError("no asset")):
-            resolved = cli.resolve_entry("pkg", package_entry(), previous_entry)
+        candidate_resolver = Mock(side_effect=RuntimeError("no asset"))
+
+        resolved = cli.resolve_entry("pkg", package_entry(), previous_entry, candidate_resolver=candidate_resolver)
 
         self.assertEqual(resolved.entry["architectures"]["amd64"], previous_entry["architectures"]["amd64"])
         self.assertEqual(resolved.architecture_health["amd64"]["status"], "kept_previous")
@@ -455,22 +457,21 @@ class ResolveEntryTests(unittest.TestCase):
 
     def test_one_architecture_can_update_while_another_fails(self) -> None:
         entry = package_entry()
-        entry["architectures"]["arm64"] = {
-            "update_policy": "track",
-            "source": {
-                "type": "github",
-                "repo": "example/pkg",
-                "asset_pattern": "pkg_*_arm64.deb",
-            },
-        }
+        entry.architectures["arm64"] = EntryArchitecture(
+            update_policy="track",
+            source=GithubArchSource(
+                repo="example/pkg",
+                asset_pattern="pkg_*_arm64.deb",
+            ),
+        )
         candidates = {
             "amd64": sources.ArtifactCandidate("https://example.test/pkg-amd64.deb", "1.0.0", "pkg_1.0.0_amd64.deb"),
         }
 
-        def fake_resolve_candidate(architecture: dict[str, object], **kwargs: object) -> sources.ArtifactCandidate:
-            source = architecture["source"]
-            pattern = source["asset_pattern"]
-            if "arm64" in pattern:
+        def fake_candidate_resolver(architecture: EntryArchitecture) -> sources.ArtifactCandidate:
+            source = architecture.source
+            assert isinstance(source, GithubArchSource)
+            if "arm64" in source.asset_pattern:
                 raise RuntimeError("no arm64 asset")
             return candidates["amd64"]
 
@@ -485,11 +486,10 @@ class ResolveEntryTests(unittest.TestCase):
             }
 
         with (
-            patch.object(sources, "resolve_candidate", side_effect=fake_resolve_candidate),
             patch.object(deb, "download", side_effect=lambda url, **kwargs: Path("/tmp") / Path(url).name),
             patch.object(deb, "inspect_deb", side_effect=fake_inspect_deb),
         ):
-            resolved = cli.resolve_entry("pkg", entry)
+            resolved = cli.resolve_entry("pkg", entry, candidate_resolver=fake_candidate_resolver)
 
         self.assertEqual(resolved.entry["architectures"].keys(), {"amd64"})
         self.assertEqual(resolved.entry["architectures"]["amd64"]["artifact"]["sha256"], "sha256-amd64")
@@ -511,19 +511,18 @@ class ResolveEntryTests(unittest.TestCase):
                 }
             },
         }
-        entry = {
-            "homepage": "https://example.test/pkg",
-            "architectures": {
-                "amd64": {
-                    "update_policy": "track",
-                    "source": {
-                        "type": "aur",
-                        "package": "example-bin",
-                        "asset_pattern": "pkg_*_amd64.deb",
-                    },
-                }
+        entry = EntryConfig(
+            homepage="https://example.test/pkg",
+            architectures={
+                "amd64": EntryArchitecture(
+                    update_policy="track",
+                    source=AurArchSource(
+                        package="example-bin",
+                        asset_pattern="pkg_*_amd64.deb",
+                    ),
+                )
             },
-        }
+        )
         candidate = sources.ArtifactCandidate(
             "https://example.test/pkg.deb",
             "1.0.0",
@@ -531,9 +530,10 @@ class ResolveEntryTests(unittest.TestCase):
             "aur-sha512",
             "sha512",
         )
+        candidate_resolver = Mock(return_value=candidate)
 
-        with patch.object(sources, "resolve_candidate", return_value=candidate), patch.object(deb, "download") as download:
-            resolved = cli.resolve_entry("pkg", entry, previous_entry)
+        with patch.object(deb, "download") as download:
+            resolved = cli.resolve_entry("pkg", entry, previous_entry, candidate_resolver=candidate_resolver)
 
         download.assert_not_called()
         self.assertEqual(resolved.entry, previous_entry)
@@ -558,17 +558,19 @@ class RefreshTests(unittest.TestCase):
             "generated_at": "2026-06-15T08:55:30+00:00",
             "packages": {"pkg": previous_entry},
         }
-        config = {"packages": {"pkg": package_entry()}}
         resolved = cli.ResolvedEntry(
             previous_entry,
             set(),
             {"amd64": {"status": "ok", "source": "github", "update_policy": "track"}},
         )
+        typed_config = SimpleNamespace(packages={"pkg": package_entry()})
+        candidate_resolver = object()
 
         with (
-            patch.object(cli, "load_config", return_value=config),
+            patch.object(cli, "load_configuration", return_value=typed_config),
             patch.object(cli, "load_json", return_value=previous_lock),
             patch.object(cli, "resolve_entry", return_value=resolved),
+            patch.object(sources, "build_candidate_resolver", return_value=candidate_resolver),
             patch.object(cli, "worker_count", return_value=1),
             patch.object(health_module, "check_artifacts", return_value={"version": 2, "generated_at": "artifact-check", "packages": {}}),
             patch.object(cli, "write_json") as write_json,
@@ -619,17 +621,19 @@ class RefreshTests(unittest.TestCase):
             "generated_at": "2026-06-15T08:55:30+00:00",
             "packages": {"pkg": previous_entry},
         }
-        config = {"packages": {"pkg": package_entry()}}
         resolved = cli.ResolvedEntry(
             updated_entry,
             {"amd64"},
             {"amd64": {"status": "ok", "source": "github", "update_policy": "track"}},
         )
+        typed_config = SimpleNamespace(packages={"pkg": package_entry()})
+        candidate_resolver = object()
 
         with (
-            patch.object(cli, "load_config", return_value=config),
+            patch.object(cli, "load_configuration", return_value=typed_config),
             patch.object(cli, "load_json", return_value=previous_lock),
             patch.object(cli, "resolve_entry", return_value=resolved),
+            patch.object(sources, "build_candidate_resolver", return_value=candidate_resolver),
             patch.object(cli, "worker_count", return_value=1),
             patch.object(cli, "now_iso", return_value="2026-06-16T08:55:30+00:00"),
             patch.object(health_module, "check_artifacts", return_value={"version": 2, "generated_at": "artifact-check", "packages": {}}),
@@ -648,106 +652,6 @@ class RefreshTests(unittest.TestCase):
                 },
             ),
         )
-
-
-class ResolveCandidateTests(unittest.TestCase):
-    def test_aur_generic_source_selects_deb_and_matching_sha512(self) -> None:
-        srcinfo = """
-pkgbase = google-chrome
-    pkgver = 149.0.7827.114
-    arch = x86_64
-    source = https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_149.0.7827.114-1_amd64.deb
-    source = eula_text.html
-    source = google-chrome-stable.sh
-    sha512sums = deb-sha512
-    sha512sums = eula-sha512
-    sha512sums = script-sha512
-""".strip()
-
-        architecture = {
-            "update_policy": "track",
-            "source": {
-                "type": "aur",
-                "package": "google-chrome",
-                "asset_pattern": "google-chrome-stable_*_amd64.deb",
-            },
-        }
-
-        candidate = sources.resolve_candidate(
-            architecture,
-            fetch_json=cli.fetch_json,
-            fetch_text=lambda url, headers=None: srcinfo,
-            root=cli.ROOT,
-        )
-
-        self.assertEqual(candidate.url, "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_149.0.7827.114-1_amd64.deb")
-        self.assertEqual(candidate.asset_name, "google-chrome-stable_149.0.7827.114-1_amd64.deb")
-        self.assertEqual(candidate.upstream_version, "149.0.7827.114")
-        self.assertEqual(candidate.expected_hash, "deb-sha512")
-        self.assertEqual(candidate.hash_algorithm, "sha512")
-
-    def test_aur_asset_pattern_matches_arch_specific_source_and_sha256(self) -> None:
-        srcinfo = """
-pkgbase = example-bin
-    pkgver = 1.2.3
-    source = helper.txt
-    sha256sums = helper-sha256
-    source_aarch64 = example.deb::https://example.test/example-arm64.deb
-    sha256sums_aarch64 = deb-sha256
-""".strip()
-
-        architecture = {
-            "update_policy": "track",
-            "source": {
-                "type": "aur",
-                "package": "example-bin",
-                "asset_pattern": "example.deb",
-            },
-        }
-
-        candidate = sources.resolve_candidate(
-            architecture,
-            fetch_json=cli.fetch_json,
-            fetch_text=lambda url, headers=None: srcinfo,
-            root=cli.ROOT,
-        )
-
-        self.assertEqual(candidate.url, "https://example.test/example-arm64.deb")
-        self.assertEqual(candidate.asset_name, "example.deb")
-        self.assertEqual(candidate.expected_hash, "deb-sha256")
-        self.assertEqual(candidate.hash_algorithm, "sha256")
-
-    def test_sourceforge_regex_selects_matching_deb_and_sha1(self) -> None:
-        html = """
-<script>
-net.sf.files = {"deadbeef-static_1.10.3~alpha-1_amd64.deb":{"name":"deadbeef-static_1.10.3~alpha-1_amd64.deb","download_url":"https://sourceforge.net/projects/deadbeef/files/Builds/master/linux/deadbeef-static_1.10.3~alpha-1_amd64.deb/download","downloadable":true,"sha1":"sha1-amd64","md5":"md5-amd64"},"notes.txt":{"name":"notes.txt","download_url":"https://example.test/notes.txt","downloadable":true,"sha1":"sha1-notes","md5":"md5-notes"}};
-</script>
-""".strip()
-        architecture = {
-            "update_policy": "track",
-            "source": {
-                "type": "sourceforge",
-                "project": "deadbeef",
-                "path": "Builds/master/linux",
-                "asset_regex": r"deadbeef-static_.+_amd64\.deb",
-            },
-        }
-
-        candidate = sources.resolve_candidate(
-            architecture,
-            fetch_json=cli.fetch_json,
-            fetch_text=lambda url, headers=None: html,
-            root=cli.ROOT,
-        )
-
-        self.assertEqual(
-            candidate.url,
-            "https://sourceforge.net/projects/deadbeef/files/Builds/master/linux/deadbeef-static_1.10.3~alpha-1_amd64.deb/download",
-        )
-        self.assertEqual(candidate.asset_name, "deadbeef-static_1.10.3~alpha-1_amd64.deb")
-        self.assertEqual(candidate.upstream_version, "deadbeef-static_1.10.3~alpha-1_amd64.deb")
-        self.assertEqual(candidate.expected_hash, "sha1-amd64")
-        self.assertEqual(candidate.hash_algorithm, "sha1")
 
 
 class ArtifactHealthTests(unittest.TestCase):

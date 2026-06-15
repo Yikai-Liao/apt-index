@@ -25,7 +25,7 @@ from loguru import logger
 from apt_index import deb
 from apt_index import download_stats as download_stats_module
 from apt_index import health
-from apt_index.config import ConfigError, load_configuration
+from apt_index.config import ConfigError, EntryConfig, load_configuration
 from apt_index import publish
 from apt_index import redirect
 from apt_index import sources
@@ -204,13 +204,21 @@ def all_command(
 
 
 def refresh(jobs: int | None = None, full_artifact_check: bool = False) -> None:
-    config = load_config()
+    try:
+        config = load_configuration(ROOT)
+    except ConfigError as exc:
+        raise SystemExit(str(exc)) from exc
     previous_lock = load_json(LOCK_PATH, {"version": 2, "generated_at": None, "packages": {}})
     previous_packages = previous_lock.get("packages", {})
     locked_packages: dict[str, Any] = {}
     full_checked_artifacts: set[tuple[str, str]] = set()
     track_health: dict[str, Any] = {"version": 2, "generated_at": now_iso(), "packages": {}}
-    package_entries = list(config["packages"].items())
+    package_entries = list(config.packages.items())
+    candidate_resolver = sources.build_candidate_resolver(
+        fetch_json=fetch_json,
+        fetch_text=fetch_text,
+        root=ROOT,
+    )
     max_workers = worker_count(len(package_entries), jobs)
 
     logger.info("refreshing {} package entries with {} workers", len(package_entries), max_workers)
@@ -218,7 +226,13 @@ def refresh(jobs: int | None = None, full_artifact_check: bool = False) -> None:
     errors: dict[str, Exception] = {}
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         futures = {
-            executor.submit(resolve_entry, entry_name, entry, previous_packages.get(entry_name)): entry_name
+            executor.submit(
+                resolve_entry,
+                entry_name,
+                entry,
+                previous_packages.get(entry_name),
+                candidate_resolver=candidate_resolver,
+            ): entry_name
             for entry_name, entry in package_entries
         }
         for future in as_completed(futures):
@@ -360,21 +374,22 @@ def build() -> None:
     logger.info("built deployable tree at {}", DIST_DIR)
 
 
-def resolve_entry(entry_name: str, entry: dict[str, Any], previous_entry: dict[str, Any] | None = None) -> ResolvedEntry:
+def resolve_entry(
+    entry_name: str,
+    entry: EntryConfig,
+    previous_entry: dict[str, Any] | None = None,
+    *,
+    candidate_resolver: sources.CandidateResolver,
+) -> ResolvedEntry:
     logger.info("resolving {}", entry_name)
     architectures: dict[str, Any] = {}
     architecture_health: dict[str, Any] = {}
     full_checked_arches: set[str] = set()
-    for arch, architecture in entry["architectures"].items():
-        source_name = architecture["source"]["type"]
-        update_policy = architecture["update_policy"]
+    for arch, architecture in entry.architectures.items():
+        source_name = architecture.source.type
+        update_policy = architecture.update_policy
         try:
-            candidate = sources.resolve_candidate(
-                architecture,
-                fetch_json=fetch_json,
-                fetch_text=fetch_text,
-                root=ROOT,
-            )
+            candidate = candidate_resolver(architecture)
             previous_architecture = previous_architecture_entry(previous_entry, arch, source_name, update_policy)
             previous_artifact = (previous_architecture or {}).get("artifact")
             if previous_artifact and artifact_matches_candidate(previous_artifact, candidate):
@@ -435,7 +450,7 @@ def resolve_entry(entry_name: str, entry: dict[str, Any], previous_entry: dict[s
 
     return ResolvedEntry(
         {
-            "homepage": entry.get("homepage"),
+            "homepage": entry.homepage,
             "architectures": architectures,
         },
         full_checked_arches,
