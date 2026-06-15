@@ -699,6 +699,11 @@ class DownloadStatsTests(unittest.TestCase):
 
         self.assertEqual(rows, [{"entry_name": "bat", "arch": "amd64", "downloads": 6}])
 
+    def test_package_architecture_accepts_hyphenated_asset_names(self) -> None:
+        self.assertEqual(cli.package_architecture("fastfetch-linux-amd64.deb"), "amd64")
+        self.assertEqual(cli.package_architecture("fastfetch-linux-aarch64.deb"), "arm64")
+        self.assertEqual(cli.package_architecture("bat_1.0_arm64.deb"), "arm64")
+
     def test_fetch_download_stats_splits_cloudflare_queries_into_daily_windows(self) -> None:
         calls: list[dict[str, object]] = []
         rows_by_call = [

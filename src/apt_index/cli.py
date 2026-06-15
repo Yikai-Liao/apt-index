@@ -1371,7 +1371,17 @@ def parse_package_download_path(path: str) -> tuple[str, str, str] | None:
 
 def package_architecture(filename: str) -> str:
     match = re.search(r"_([^_]+)\.deb$", filename)
-    return match.group(1) if match else ""
+    if match:
+        return normalize_package_architecture(match.group(1))
+    match = re.search(r"[-.]([A-Za-z0-9]+)\.deb$", filename)
+    return normalize_package_architecture(match.group(1)) if match else ""
+
+
+def normalize_package_architecture(value: str) -> str:
+    aliases = {"aarch64": "arm64", "x86_64": "amd64"}
+    normalized = aliases.get(value, value)
+    known_architectures = {"all", "amd64", "arm64", "armhf", "armel", "i386"}
+    return normalized if normalized in known_architectures else ""
 
 
 def format_download_stats(
