@@ -1,0 +1,23 @@
+{
+  "skill_name": "add-apt-package",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "给这个 apt-index 仓库添加一个新的 GitHub 包。上游在 https://github.com/sharkdp/bat ，需要跟踪最新 release，amd64 资产名类似 bat_0.25.0_amd64.deb，arm64 资产名类似 bat_0.25.0_arm64.deb。请直接改仓库并做最小验证。",
+      "expected_output": "新增或更新一个使用 github + track 的包定义，并验证两个架构都能解析到正确的 release asset。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "添加腾讯会议 Linux 包。AUR 包名是 wemeet-bin，下载页是 https://meeting.tencent.com/download/ ，AUR 里有 wemeet-3.26.10.401-x86_64.deb 和 wemeet-3.26.10.401-aarch64.deb。请按仓库现有风格增加条目并验证。",
+      "expected_output": "新增一个使用 aur + track 的包定义，并通过 .SRCINFO 解析出 amd64 和 arm64 的上游 deb。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "给 apt-index 加一个 SourceForge 来源的包。项目 deadbeef 的 Linux deb 在 SourceForge 的 Builds/master/linux 目录下，文件名形如 deadbeef-static_1.10.3~alpha-1_amd64.deb 和 deadbeef-static_1.10.3~alpha-1_arm64.deb。请写出对应条目并验证解析结果。",
+      "expected_output": "新增或更新一个使用 sourceforge 解析器的条目，project/path/asset_regexes 合理，并验证每个架构只匹配一个可下载资产。",
+      "files": []
+    }
+  ]
+}
