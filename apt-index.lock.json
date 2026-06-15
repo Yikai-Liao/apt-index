@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T13:20:44+00:00",
+  "generated_at": "2026-06-15T13:22:50+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -861,6 +861,40 @@
         }
       },
       "homepage": "https://github.com/BurntSushi/ripgrep"
+    },
+    "slack-desktop": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "slack-desktop-4.50.136-amd64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Depends": "libgtk-3-0, libappindicator3-1, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, kde-cli-tools | kde-runtime | trash-cli | libglib2.0-bin | gvfs-bin, apt-transport-https",
+              "Description": "Slack Desktop",
+              "Installed-Size": "144964",
+              "Maintainer": "Slack Technologies <feedback@slack.com>",
+              "Package": "slack-desktop",
+              "Priority": "optional",
+              "Recommends": "pulseaudio | libasound2",
+              "Section": "misc",
+              "Suggests": "gir1.2-gnomekeyring-1.0, libgnome-keyring0, lsb-release",
+              "Version": "4.50.136"
+            },
+            "filename": "slack-desktop-4.50.136-amd64.deb",
+            "md5": "3c8a62edcd21ee6faee60b81f419ffbc",
+            "sha1": "289870de578a1f30eea355641c46e1c68e9bd07d",
+            "sha256": "60ba516209527b66835874eff46d76953245f35f3a6416ea162e3f5b13ae7c74",
+            "sha512": "ab0b437411bc87ee8809b8bfd738e4b704f404ab0861cc6ae1caa9f38a404024fdae7588b16e97b9a113cfac7d6913b0a4d55240b233f0aabbfc5dc06faf5e0a",
+            "size": 93137332,
+            "upstream_version": "4.50.136",
+            "url": "https://downloads.slack-edge.com/desktop-releases/linux/x64/4.50.136/slack-desktop-4.50.136-amd64.deb"
+          },
+          "resolved_at": "2026-06-15T13:22:43+00:00",
+          "source": "aur",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://slack.com/downloads"
     },
     "spotify": {
       "architectures": {
