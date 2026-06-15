@@ -1165,18 +1165,17 @@ def write_worker(path: Path) -> None:
 
     const [, component, entryName, filename] = match;
     const rulesUrl = new URL(`/redirect-rules/${component}/${entryName}.json`, url);
-    let rulesResponse;
+    let rules;
     try {
-      rulesResponse = await env.ASSETS.fetch(rulesUrl.toString());
+      const rulesResponse = await env.ASSETS.fetch(rulesUrl.toString());
+      if (!rulesResponse || !rulesResponse.ok) {
+        return cacheGetResponse(notFound());
+      }
+      rules = await rulesResponse.json();
     } catch (error) {
       console.warn("redirect shard fetch failed", error);
       return cacheGetResponse(notFound());
     }
-    if (!rulesResponse.ok) {
-      return cacheGetResponse(notFound());
-    }
-
-    const rules = await rulesResponse.json();
     const target = rules[filename];
     if (!target) {
       return cacheGetResponse(notFound());

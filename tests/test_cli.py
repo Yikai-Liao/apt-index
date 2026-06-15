@@ -908,6 +908,7 @@ class WorkerGenerationTests(unittest.TestCase):
         self.assertIn("const cacheGetResponse = (response) => {", worker)
         self.assertIn("await cache.match(cacheKey)", worker)
         self.assertIn("ctx.waitUntil(cache.put(cacheKey, redirectResponse.clone())", worker)
+        self.assertIn("if (!rulesResponse || !rulesResponse.ok) {", worker)
         self.assertIn('console.warn("redirect shard fetch failed", error);', worker)
         self.assertIn('const notFound = () => new Response("package redirect not found"', worker)
         self.assertIn('"Cache-Control": "public, max-age=60, s-maxage=60"', worker)
