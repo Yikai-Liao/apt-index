@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T13:36:35+00:00",
+  "generated_at": "2026-06-15T13:39:22+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -922,6 +922,75 @@
         }
       },
       "homepage": "https://obsidian.md/"
+    },
+    "onlyoffice-desktopeditors": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "onlyoffice-desktopeditors_amd64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Conflicts": "onlyoffice-desktopeditors-enterprise",
+              "Depends": "x11-common, libasound2, curl | wget, desktop-file-utils, gstreamer1.0-libav, gstreamer1.0-plugins-ugly, libxss1, libatk1.0-0, libgtk-3-0, libcairo2, libstdc++6 (>= 4.8), libxkbcommon-x11-0, libnotify4, fonts-dejavu | ttf-dejavu, fonts-liberation, fonts-crosextra-carlito, xdg-utils",
+              "Description": "Desktop editors for text docs, spreadsheets, presentations, PDFs, and PDF forms.\n Open-source office suite pack that comprises all the tools you need to\n work offline with documents, spreadsheets, presentations, PDFs, and PDF forms.",
+              "Installed-Size": "1285365",
+              "Maintainer": "Ascensio System SIA <support@onlyoffice.com>",
+              "Package": "onlyoffice-desktopeditors",
+              "Pre-Depends": "dpkg (>= 1.14.0)",
+              "Priority": "optional",
+              "Provides": "onlyoffice-desktopeditors",
+              "Recommends": "ttf-mscorefonts-installer, fonts-takao-gothic",
+              "Section": "editors",
+              "Suggests": "onlyoffice-desktopeditors-help",
+              "Version": "9.4.0-129"
+            },
+            "filename": "onlyoffice-desktopeditors_amd64.deb",
+            "md5": "657747156cf352aa4f418eb3d8fb8824",
+            "sha1": "5e9051bf6c39949ba3b89b478ca6a9ef4e10ee99",
+            "sha256": "4271434e81be42b1559fd989d24bf6d413482f278dc6a5e328202a4fc1a18649",
+            "sha512": "76414c2674a63f11b4eaee57957321e3ebcb730785bb261e6c435eafe7c80a4b6e509168dfea86aa9600645fc4ae2ff5dc0198de03c813c6bc804ce887d76bb9",
+            "size": 364644136,
+            "upstream_version": "v9.4.0",
+            "url": "https://github.com/ONLYOFFICE/DesktopEditors/releases/download/v9.4.0/onlyoffice-desktopeditors_amd64.deb"
+          },
+          "resolved_at": "2026-06-15T13:39:10+00:00",
+          "source": "github",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "artifact": {
+            "asset_name": "onlyoffice-desktopeditors_arm64.deb",
+            "control": {
+              "Architecture": "arm64",
+              "Conflicts": "onlyoffice-desktopeditors-enterprise",
+              "Depends": "x11-common, libasound2, curl | wget, desktop-file-utils, gstreamer1.0-libav, gstreamer1.0-plugins-ugly, libxss1, libatk1.0-0, libgtk-3-0, libcairo2, libstdc++6 (>= 4.8), libxkbcommon-x11-0, libnotify4, fonts-dejavu | ttf-dejavu, fonts-liberation, fonts-crosextra-carlito, xdg-utils",
+              "Description": "Desktop editors for text docs, spreadsheets, presentations, PDFs, and PDF forms.\n Open-source office suite pack that comprises all the tools you need to\n work offline with documents, spreadsheets, presentations, PDFs, and PDF forms.",
+              "Installed-Size": "1342499",
+              "Maintainer": "Ascensio System SIA <support@onlyoffice.com>",
+              "Package": "onlyoffice-desktopeditors",
+              "Pre-Depends": "dpkg (>= 1.14.0)",
+              "Priority": "optional",
+              "Provides": "onlyoffice-desktopeditors",
+              "Recommends": "ttf-mscorefonts-installer, fonts-takao-gothic",
+              "Section": "editors",
+              "Suggests": "onlyoffice-desktopeditors-help",
+              "Version": "9.4.0-129"
+            },
+            "filename": "onlyoffice-desktopeditors_arm64.deb",
+            "md5": "e45aab2f48c82ff8c65d39387bf6eae5",
+            "sha1": "bf8828e36f389badd3e35a5ab0825fcfe5d054d2",
+            "sha256": "ce141a103051e220a89839dd5dc8511172ae5b989e8de9bda0e07c34b0b7702c",
+            "sha512": "9fabd492633c36974fcfeedb9c601d0c30eefbd0ad58e3eb7f1713260cb6078e3dc57ac2cdc61977726768d1e07291f8164dcf55972b7508c4ecf962b9f2aa56",
+            "size": 354101716,
+            "upstream_version": "v9.4.0",
+            "url": "https://github.com/ONLYOFFICE/DesktopEditors/releases/download/v9.4.0/onlyoffice-desktopeditors_arm64.deb"
+          },
+          "resolved_at": "2026-06-15T13:39:22+00:00",
+          "source": "github",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://github.com/ONLYOFFICE/DesktopEditors"
     },
     "qq": {
       "architectures": {
