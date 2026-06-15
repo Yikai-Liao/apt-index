@@ -43,6 +43,12 @@ REDIRECT_RULES_DIRNAME = "redirect-rules"
 REDIRECT_SNAPSHOT_FILENAME = "snapshot.json.zst"
 REDIRECT_EDGE_TTL_SECONDS = 60 * 60 * 24 * 30
 REDIRECT_BROWSER_TTL_SECONDS = 60 * 5
+REDIRECT_NEGATIVE_CACHE_TTL_SECONDS = 60
+STATIC_REDIRECT_RULES_EDGE_TTL_SECONDS = 60 * 60 * 24 * 365
+STATIC_REDIRECT_RULES_BROWSER_TTL_POLICY = "public, max-age=0, must-revalidate"
+STATIC_REDIRECT_RULES_CDN_TTL_POLICY = (
+    f"public, max-age={STATIC_REDIRECT_RULES_EDGE_TTL_SECONDS}, stale-while-revalidate=86400, stale-if-error=604800"
+)
 LEGACY_REDIRECT_RULES_PATHS = ("/redirect_rules.json",)
 CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS = 7
 GNUPG_DIR = ROOT / ".apt-index-gnupg"
@@ -238,6 +244,7 @@ def build() -> None:
     write_json(DIST_DIR / DOWNLOAD_STATS_FILENAME, empty_download_stats("not_generated"))
     (DIST_DIR / "key.asc").write_text(ensure_signing_key(config), encoding="utf-8")
     copy_state_files(lock)
+    write_headers(DIST_DIR / "_headers")
     write_worker(DIST_DIR / "_worker.js")
     write_routes(DIST_DIR / "_routes.json")
     write_index_page(config, lock)
@@ -413,6 +420,25 @@ def write_redirect_rules(lock: dict[str, Any], component: str) -> dict[str, str]
     return redirects
 
 
+def write_headers(path: Path) -> None:
+    content = "\n".join(
+        [
+            f"/{REDIRECT_RULES_DIRNAME}/*.json.zst",
+            f"  Cache-Control: {STATIC_REDIRECT_RULES_BROWSER_TTL_POLICY}",
+            f"  Cloudflare-CDN-Cache-Control: {STATIC_REDIRECT_RULES_CDN_TTL_POLICY}",
+            "  Content-Type: application/json; charset=utf-8",
+            "  Content-Encoding: zstd",
+            "",
+            f"/{REDIRECT_RULES_DIRNAME}/*.json",
+            f"  Cache-Control: {STATIC_REDIRECT_RULES_BROWSER_TTL_POLICY}",
+            f"  Cloudflare-CDN-Cache-Control: {STATIC_REDIRECT_RULES_CDN_TTL_POLICY}",
+            "  Content-Type: application/json; charset=utf-8",
+            "",
+        ]
+    )
+    path.write_text(content, encoding="utf-8")
+
+
 def write_redirect_snapshot(path: Path, redirects: dict[str, str]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     payload = json.dumps({"version": 1, "redirects": redirects}, indent=2, sort_keys=True) + "\n"
@@ -446,16 +472,34 @@ def plan_redirect_purge(output: Path, snapshot: Path, base_url: str, strict: boo
     base_url = base_url.rstrip("/")
     new_redirects = read_redirect_snapshot(snapshot)
     old_redirects = fetch_previous_redirect_snapshot(base_url, strict)
-    purge_paths = {
-        path
-        for path, old_target in old_redirects.items()
-        if new_redirects.get(path) != old_target
+    removed_or_changed_paths = {
+        path for path, old_target in old_redirects.items() if new_redirects.get(path) != old_target
     }
+    added_or_changed_paths = {
+        path for path, new_target in new_redirects.items() if old_redirects.get(path) != new_target
+    }
+    purge_paths = removed_or_changed_paths | added_or_changed_paths
+    shard_paths = {
+        shard_path
+        for path in purge_paths
+        if (shard_path := redirect_shard_path_for_virtual_path(path)) is not None
+    }
+    if purge_paths:
+        shard_paths.add(f"/{REDIRECT_RULES_DIRNAME}/{REDIRECT_SNAPSHOT_FILENAME}")
+    purge_paths.update(shard_paths)
     purge_paths.update(LEGACY_REDIRECT_RULES_PATHS)
     urls = [base_url + path for path in sorted(purge_paths)]
     output.write_text("\n".join(urls) + ("\n" if urls else ""), encoding="utf-8")
     logger.info("planned {} redirect cache purge URLs at {}", len(urls), output)
     return urls
+
+
+def redirect_shard_path_for_virtual_path(path: str) -> str | None:
+    match = re.fullmatch(r"/pool/([^/]+)/([^/]+)/[^/]+", path)
+    if not match:
+        return None
+    component, entry_name = match.groups()
+    return f"/{REDIRECT_RULES_DIRNAME}/{component}/{entry_name}.json"
 
 
 def fetch_previous_redirect_snapshot(base_url: str, strict: bool = False) -> dict[str, str]:
@@ -1069,8 +1113,16 @@ def write_worker(path: Path) -> None:
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
     const match = url.pathname.match(/^\\/pool\\/([^/]+)\\/([^/]+)\\/([^/]+)$/);
+    const notFound = () => new Response("package redirect not found", {
+      status: 404,
+      headers: {
+        "Cache-Control": "public, max-age=__REDIRECT_NEGATIVE_CACHE_TTL_SECONDS__, s-maxage=__REDIRECT_NEGATIVE_CACHE_TTL_SECONDS__",
+        "Cloudflare-CDN-Cache-Control": "public, max-age=__REDIRECT_NEGATIVE_CACHE_TTL_SECONDS__",
+        "X-Apt-Index-Redirect-Cache": "MISS",
+      },
+    });
     if (!match) {
-      return new Response("package redirect not found", { status: 404 });
+      return notFound();
     }
 
     if (request.method !== "GET" && request.method !== "HEAD") {
@@ -1095,13 +1147,25 @@ def write_worker(path: Path) -> None:
     const rulesUrl = new URL(`/redirect-rules/${component}/${entryName}.json`, url);
     const rulesResponse = await env.ASSETS.fetch(rulesUrl.toString());
     if (!rulesResponse.ok) {
-      return new Response("package redirect not found", { status: 404 });
+      const response = notFound();
+      if (request.method === "GET") {
+        ctx.waitUntil(cache.put(cacheKey, response.clone()).catch((error) => {
+          console.warn("redirect cache put failed", error);
+        }));
+      }
+      return response;
     }
 
     const rules = await rulesResponse.json();
     const target = rules[filename];
     if (!target) {
-      return new Response("package redirect not found", { status: 404 });
+      const response = notFound();
+      if (request.method === "GET") {
+        ctx.waitUntil(cache.put(cacheKey, response.clone()).catch((error) => {
+          console.warn("redirect cache put failed", error);
+        }));
+      }
+      return response;
     }
 
     const redirectResponse = new Response(null, {
@@ -1126,6 +1190,7 @@ def write_worker(path: Path) -> None:
 """
     worker = worker.replace("__REDIRECT_BROWSER_TTL_SECONDS__", str(REDIRECT_BROWSER_TTL_SECONDS))
     worker = worker.replace("__REDIRECT_EDGE_TTL_SECONDS__", str(REDIRECT_EDGE_TTL_SECONDS))
+    worker = worker.replace("__REDIRECT_NEGATIVE_CACHE_TTL_SECONDS__", str(REDIRECT_NEGATIVE_CACHE_TTL_SECONDS))
     path.write_text(worker, encoding="utf-8")
 
 

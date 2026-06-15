@@ -635,10 +635,37 @@ class RedirectRulesTests(unittest.TestCase):
             [
                 "https://deb.example.test/pool/main/pkg/new.deb",
                 "https://deb.example.test/pool/main/pkg/old.deb",
+                "https://deb.example.test/redirect-rules/main/pkg.json",
+                "https://deb.example.test/redirect-rules/snapshot.json.zst",
                 "https://deb.example.test/redirect_rules.json",
             ],
         )
         self.assertEqual(lines, urls)
+
+    def test_plan_redirect_purge_includes_added_package_paths_for_negative_cache_invalidation(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            snapshot = root / "snapshot.json.zst"
+            output = root / "purge.txt"
+            cli.write_redirect_snapshot(
+                snapshot,
+                {
+                    "/pool/main/pkg/new-only.deb": "https://example.test/new-only.deb",
+                },
+            )
+
+            with patch.object(cli, "fetch_previous_redirect_snapshot", return_value={}):
+                urls = cli.plan_redirect_purge(output, snapshot, "https://deb.example.test")
+
+        self.assertEqual(
+            urls,
+            [
+                "https://deb.example.test/pool/main/pkg/new-only.deb",
+                "https://deb.example.test/redirect-rules/main/pkg.json",
+                "https://deb.example.test/redirect-rules/snapshot.json.zst",
+                "https://deb.example.test/redirect_rules.json",
+            ],
+        )
 
     def test_fetch_previous_redirect_snapshot_tolerates_invalid_first_deploy_asset(self) -> None:
         with patch.object(cli, "fetch_bytes", return_value=b"not zstd"):
@@ -841,6 +868,19 @@ class DownloadStatsTests(unittest.TestCase):
 
 
 class WorkerGenerationTests(unittest.TestCase):
+    def test_write_headers_sets_long_edge_ttl_for_redirect_rules_assets(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "_headers"
+            cli.write_headers(path)
+
+            headers = path.read_text(encoding="utf-8")
+
+        self.assertIn("/redirect-rules/*.json.zst", headers)
+        self.assertIn("Cache-Control: public, max-age=0, must-revalidate", headers)
+        self.assertIn("Cloudflare-CDN-Cache-Control: public, max-age=31536000, stale-while-revalidate=86400, stale-if-error=604800", headers)
+        self.assertIn("Content-Encoding: zstd", headers)
+        self.assertIn("/redirect-rules/*.json", headers)
+
     def test_worker_reads_redirect_shard_and_caches_redirect_response(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "_worker.js"
@@ -851,6 +891,9 @@ class WorkerGenerationTests(unittest.TestCase):
         self.assertIn("const cache = caches.default", worker)
         self.assertIn("await cache.match(cacheKey)", worker)
         self.assertIn("ctx.waitUntil(cache.put(cacheKey, redirectResponse.clone())", worker)
+        self.assertIn('const notFound = () => new Response("package redirect not found"', worker)
+        self.assertIn('"Cache-Control": "public, max-age=60, s-maxage=60"', worker)
+        self.assertIn('"Cloudflare-CDN-Cache-Control": "public, max-age=60"', worker)
         self.assertIn("/redirect-rules/${component}/${entryName}.json", worker)
         self.assertIn("const target = rules[filename]", worker)
         self.assertIn('"Cache-Control": "public, max-age=300, s-maxage=2592000"', worker)

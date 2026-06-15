@@ -78,6 +78,8 @@ Cloudflare Pages + Worker
 
 Cloudflare Pages serves the static APT metadata, signing key, generated redirect data, and public download statistics. `_routes.json` routes only `/pool/*` package download paths to the Worker; `/dists/*` and `/key.asc` are served directly as static files. The Worker reads the per-entry redirect shard for the requested virtual package path and returns a cacheable `302` redirect to the original upstream `.deb` URL.
 
+Static redirect shards and `redirect-rules/snapshot.json.zst` are published with `_headers` rules that keep browser caching conservative but give Cloudflare's edge a long TTL. Package download redirects themselves are cached as Worker-generated `302` responses in the Cache API, and missing package paths get a short-lived cached `404` so repeated probes do not reread the shard on every miss.
+
 ## Package Identity
 
 The installable package name comes from the upstream `.deb` control metadata, not from:
@@ -181,10 +183,10 @@ The daily GitHub Actions workflow:
 5. Checks artifact health for both fixed and tracked packages. Daily checks are lightweight for unchanged artifacts; `apt-index refresh --full-artifact-check` downloads and hashes every locked artifact.
 6. Commits changed generated state files directly to the default branch.
 7. Builds and signs the deployable APT tree, including per-entry redirect shards and `redirect-rules/snapshot.json.zst`.
-8. Compares the new redirect snapshot with the previously deployed Cloudflare snapshot and plans which cached `302` redirect URLs need purging.
+8. Compares the new redirect snapshot with the previously deployed Cloudflare snapshot and plans which cached package URLs and redirect-rule assets need purging.
 9. Exports public download statistics to `dist/download_stats.json`.
 10. Uploads the generated tree to Cloudflare Pages.
-11. Purges cached package redirect URLs whose redirect target changed.
+11. Purges cached package redirect URLs whose redirect target changed, newly appeared package URLs that may have cached `404` misses, affected redirect shards, and the redirect snapshot asset.
 
 This repository intentionally uses a rolling self-managed model. Successful refreshes are committed directly instead of opening pull requests.
 
