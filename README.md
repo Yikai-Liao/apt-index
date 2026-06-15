@@ -27,6 +27,24 @@ The repository reads repository settings from [`apt-index.toml`](./apt-index.tom
 
 The resolved upstream artifacts and installable Debian package names are recorded in [`apt-index.lock.json`](./apt-index.lock.json).
 
+## Maintenance
+
+Install dependencies with `uv sync`, then use the CLI entrypoints:
+
+```sh
+uv run apt-index refresh
+uv run apt-index build
+uv run apt-index all
+```
+
+Useful maintenance commands:
+
+- `uv run apt-index refresh --full-artifact-check` verifies every locked artifact by download and hash.
+- `uv run apt-index download-stats --days 30` exports the public Cloudflare download summary to `dist/download_stats.json`.
+- `uv run apt-index site-data` rebuilds `dist/site-data.json` from the lockfile and diagnostics.
+- `uv run apt-index plan-redirect-purge` computes which package URLs and redirect assets should be purged after publish.
+- `uv run apt-index purge-redirect-cache` purges those URLs from Cloudflare when the required credentials are present.
+
 ## Goals
 
 - Provide a normal `apt install <package>` workflow for packages that are not available in the official Debian or Ubuntu repositories.
@@ -102,7 +120,7 @@ In that case the APT package name is `bytedance-feishu-stable`.
 
 ## Configuration Model
 
-The split configuration model, including shorthand and explicit entry examples plus the Pydantic validation prototype, is documented in [`docs/configuration.md`](./docs/configuration.md).
+The split configuration model, including shorthand and explicit entry examples plus the normalized runtime model, is documented in [`docs/configuration.md`](./docs/configuration.md).
 
 Each software entry has:
 
@@ -118,7 +136,7 @@ Supported source resolver keys:
 | `github` | Resolve `.deb` assets from GitHub Releases | `fixed`, `track` |
 | `aur` | Read AUR `.SRCINFO` to discover upstream `.deb` URLs | `track` |
 | `sourceforge` | Scrape SourceForge file listings and regex-match artifact names | `fixed`, `track` |
-| `script` | Reserved for future custom resolvers | `track` |
+| `script` | Schema-reserved custom resolver slot; refresh logic is not implemented yet | not active |
 
 Example:
 
@@ -262,4 +280,4 @@ Download request statistics use Cloudflare HTTP request analytics:
 
 ## Design Records
 
-Project decisions are documented in [`docs/adr`](./docs/adr). Domain language is documented in [`CONTEXT.md`](./CONTEXT.md). The target configuration model is documented in [`docs/configuration.md`](./docs/configuration.md), with the implementation plan in [`docs/configuration-migration-plan.md`](./docs/configuration-migration-plan.md).
+Project decisions are documented in [`docs/adr`](./docs/adr). Domain language is documented in [`CONTEXT.md`](./CONTEXT.md). The active configuration model is documented in [`docs/configuration.md`](./docs/configuration.md). The old split-config rollout notes are kept in [`docs/configuration-migration-plan.md`](./docs/configuration-migration-plan.md) as historical background only.

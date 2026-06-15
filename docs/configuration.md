@@ -1,6 +1,8 @@
 # Configuration Model
 
-This document describes the split configuration model.
+This document describes the active split configuration model used by Apt Index today.
+
+`apt-index.toml` plus `packages/` is the only supported configuration layout. The old single-file `packages.toml` entry point is rejected by the loader.
 
 ## Files
 
@@ -31,7 +33,7 @@ A software entry has:
 
 Source-specific fields are only valid under `sources.<resolver>`. Old flat fields such as `source`, `repo`, `asset_patterns`, `aur_package`, and `aur_architectures` are not valid as resolver configuration fields in the new schema.
 
-Supported source resolver keys remain `url`, `github`, `aur`, `sourceforge`, and `script`.
+The schema currently recognizes `url`, `github`, `aur`, `sourceforge`, and `script` source keys.
 
 A software entry may keep source options that no architecture currently selects. Those unselected source options are valid raw configuration, but normalization drops them; refresh and build code only receive the active source selected by each architecture.
 
@@ -140,18 +142,18 @@ The explicit plan and shorthand are mutually exclusive. If `architectures` is a 
 - `github` supports `fixed` and `track`.
 - `aur` supports `track`.
 - `sourceforge` supports `fixed` and `track`.
-- `script` is reserved for future custom resolvers and supports `track`.
+- `script` is accepted by the config schema and normalized model, but refresh currently raises `unsupported source resolver "script"` because the runtime resolver is not implemented yet.
 - Source identity fields are validated when a source option exists. Per-architecture resolver fields are validated only for architectures that select that source.
 - Extra fields are forbidden at every model layer.
 
-## Pydantic Prototype
+## Implemented Model Shape
 
-The configuration loader should use two model layers:
+The loader in [`src/apt_index/config.py`](../src/apt_index/config.py) uses two model layers:
 
 - a raw model that accepts TOML syntax, including shorthand fields.
 - a normalized architecture-centric model that refresh and build code use exclusively.
 
-The normalized model should not preserve source-level shorthand. For example, raw GitHub TOML may contain `release_tag` or `release_tags`, but the normalized per-architecture GitHub source contains only the release tag selected for that architecture.
+The normalized model does not preserve source-level shorthand. For example, raw GitHub TOML may contain `release_tag` or `release_tags`, but the normalized per-architecture GitHub source contains only the release tag selected for that architecture.
 
 ```python
 from __future__ import annotations
