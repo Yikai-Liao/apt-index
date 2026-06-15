@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T13:34:35+00:00",
+  "generated_at": "2026-06-15T13:36:35+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -549,6 +549,69 @@
         }
       },
       "homepage": "https://github.com/fooyin/fooyin"
+    },
+    "gh": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "gh_2.94.0_linux_amd64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Depends": "git",
+              "Description": "GitHub\u2019s official command line tool.",
+              "Homepage": "https://github.com/cli/cli",
+              "Installed-Size": "39679",
+              "License": "MIT",
+              "Maintainer": "GitHub",
+              "Package": "gh",
+              "Priority": "optional",
+              "Section": "",
+              "Version": "2.94.0"
+            },
+            "filename": "gh_2.94.0_linux_amd64.deb",
+            "md5": "fcd3d3beb7f7a61e1089e6b962abcc32",
+            "sha1": "b652b767d20b4b729376dfafd792a853127cb852",
+            "sha256": "d4504b534417965f833a59b40a36e0138b24528658d721df15c5e8a14e51a944",
+            "sha512": "f8aea37b2fedddb933de5cf9729f7f0959ed40424fb002ecb2ef2eb30e36853f3d97767b35997edb1e908df0db63a74e20d2d4a40eb0987b27d5f352cf97e494",
+            "size": 14534768,
+            "upstream_version": "v2.94.0",
+            "url": "https://github.com/cli/cli/releases/download/v2.94.0/gh_2.94.0_linux_amd64.deb"
+          },
+          "resolved_at": "2026-06-15T13:36:22+00:00",
+          "source": "github",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "artifact": {
+            "asset_name": "gh_2.94.0_linux_arm64.deb",
+            "control": {
+              "Architecture": "arm64",
+              "Depends": "git",
+              "Description": "GitHub\u2019s official command line tool.",
+              "Homepage": "https://github.com/cli/cli",
+              "Installed-Size": "36935",
+              "License": "MIT",
+              "Maintainer": "GitHub",
+              "Package": "gh",
+              "Priority": "optional",
+              "Section": "",
+              "Version": "2.94.0"
+            },
+            "filename": "gh_2.94.0_linux_arm64.deb",
+            "md5": "6e82ad77f166e5c7e9e09656d743f908",
+            "sha1": "9529fb5d5ea536622c357f4e78d6c2c6e80eeb41",
+            "sha256": "6ea8b44936bb04219de6653fc9a676995dd44ce18c93e5922a97afe06a75c42e",
+            "sha512": "3e69c7acfe8cf02ef515dffef3951e6a549817fcb0e0648923f6e11484130cd28ff2b7224ed78fe86228a2d487d2ccf8b015cb65056d5bcdc5c0c5f897d4fd6b",
+            "size": 13218970,
+            "upstream_version": "v2.94.0",
+            "url": "https://github.com/cli/cli/releases/download/v2.94.0/gh_2.94.0_linux_arm64.deb"
+          },
+          "resolved_at": "2026-06-15T13:36:22+00:00",
+          "source": "github",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://github.com/cli/cli"
     },
     "google-chrome": {
       "architectures": {
