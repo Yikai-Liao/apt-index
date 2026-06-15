@@ -186,6 +186,43 @@ amd64 = "unused_*_amd64.deb"
         self.assertEqual(config["packages"]["pkg"]["architectures"]["amd64"]["source"]["type"], "github")
         self.assertNotIn("sources", config["packages"]["pkg"])
 
+    def test_sourceforge_entry_normalizes_regex_source_per_architecture(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_repository_config(root)
+            packages = root / "packages"
+            packages.mkdir()
+            packages.joinpath("deadbeef.toml").write_text(
+                """
+homepage = "https://deadbeef.sourceforge.io/"
+architectures = ["amd64", "arm64"]
+source = "sourceforge"
+update_policy = "track"
+
+[sources.sourceforge]
+project = "deadbeef"
+path = "Builds/master/linux"
+
+[sources.sourceforge.asset_regexes]
+amd64 = "deadbeef-static_.+_amd64\\\\.deb"
+arm64 = "deadbeef-static_.+_arm64\\\\.deb"
+""".strip()
+                + "\n",
+                encoding="utf-8",
+            )
+
+            config = load_configuration(root).to_runtime_dict()
+
+        self.assertEqual(
+            config["packages"]["deadbeef"]["architectures"]["amd64"]["source"],
+            {
+                "type": "sourceforge",
+                "project": "deadbeef",
+                "path": "Builds/master/linux",
+                "asset_regex": "deadbeef-static_.+_amd64\\.deb",
+            },
+        )
+
     def test_flat_old_resolver_fields_fail_validation(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -334,6 +371,43 @@ class ResolveEntryTests(unittest.TestCase):
         self.assertEqual(artifact["sha256"], "new-sha256")
         self.assertEqual(resolved.full_checked_arches, {"amd64"})
 
+    def test_redownloads_when_candidate_checksum_changes(self) -> None:
+        previous_entry = {
+            "homepage": "https://example.test/pkg",
+            "architectures": {
+                "amd64": {
+                    "source": "github",
+                    "update_policy": "track",
+                    "resolved_at": "previous",
+                    "artifact": locked_artifact(),
+                }
+            },
+        }
+        candidate = cli.ArtifactCandidate(
+            "https://example.test/pkg.deb",
+            "1.0.0",
+            "pkg_1.0.0_amd64.deb",
+            "different-sha1",
+            "sha1",
+        )
+        metadata = {
+            "control": {"Package": "pkg", "Version": "1.0.0", "Architecture": "amd64"},
+            "size": 456,
+            "md5": "new-md5",
+            "sha1": "different-sha1",
+            "sha256": "new-sha256",
+        }
+
+        with (
+            patch.object(cli, "resolve_candidate", return_value=candidate),
+            patch.object(cli, "download", return_value=Path("/tmp/pkg.deb")) as download,
+            patch.object(cli, "inspect_deb", return_value=metadata),
+        ):
+            resolved = cli.resolve_entry("pkg", package_entry(), previous_entry)
+
+        download.assert_called_once_with("https://example.test/pkg.deb", "different-sha1", "sha1")
+        self.assertEqual(resolved.full_checked_arches, {"amd64"})
+
     def test_keeps_previous_architecture_when_refresh_fails(self) -> None:
         previous_entry = {
             "homepage": "https://example.test/pkg",
@@ -455,6 +529,34 @@ pkgbase = example-bin
         self.assertEqual(candidate.asset_name, "example.deb")
         self.assertEqual(candidate.expected_hash, "deb-sha256")
         self.assertEqual(candidate.hash_algorithm, "sha256")
+
+    def test_sourceforge_regex_selects_matching_deb_and_sha1(self) -> None:
+        html = """
+<script>
+net.sf.files = {"deadbeef-static_1.10.3~alpha-1_amd64.deb":{"name":"deadbeef-static_1.10.3~alpha-1_amd64.deb","download_url":"https://sourceforge.net/projects/deadbeef/files/Builds/master/linux/deadbeef-static_1.10.3~alpha-1_amd64.deb/download","downloadable":true,"sha1":"sha1-amd64","md5":"md5-amd64"},"notes.txt":{"name":"notes.txt","download_url":"https://example.test/notes.txt","downloadable":true,"sha1":"sha1-notes","md5":"md5-notes"}};
+</script>
+""".strip()
+        architecture = {
+            "update_policy": "track",
+            "source": {
+                "type": "sourceforge",
+                "project": "deadbeef",
+                "path": "Builds/master/linux",
+                "asset_regex": r"deadbeef-static_.+_amd64\.deb",
+            },
+        }
+
+        with patch.object(cli, "fetch_text", return_value=html):
+            candidate = cli.resolve_candidate(architecture)
+
+        self.assertEqual(
+            candidate.url,
+            "https://sourceforge.net/projects/deadbeef/files/Builds/master/linux/deadbeef-static_1.10.3~alpha-1_amd64.deb/download",
+        )
+        self.assertEqual(candidate.asset_name, "deadbeef-static_1.10.3~alpha-1_amd64.deb")
+        self.assertEqual(candidate.upstream_version, "deadbeef-static_1.10.3~alpha-1_amd64.deb")
+        self.assertEqual(candidate.expected_hash, "sha1-amd64")
+        self.assertEqual(candidate.hash_algorithm, "sha1")
 
 
 class ArtifactHealthTests(unittest.TestCase):

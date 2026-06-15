@@ -117,6 +117,7 @@ Supported source resolver keys:
 | `url` | Use configured upstream `.deb` URLs | `fixed` |
 | `github` | Resolve `.deb` assets from GitHub Releases | `fixed`, `track` |
 | `aur` | Read AUR `.SRCINFO` to discover upstream `.deb` URLs | `track` |
+| `sourceforge` | Scrape SourceForge file listings and regex-match artifact names | `fixed`, `track` |
 | `script` | Reserved for future custom resolvers | `track` |
 
 Example:
@@ -154,6 +155,12 @@ For AUR sources:
 - every enabled architecture must have an `asset_patterns.<arch>` glob that matches the `.deb` source asset name or URL
 - `PKGBUILD` is never executed
 - AUR package metadata such as `provides`, `conflicts`, install scripts, and file modifications is not inherited
+
+For SourceForge sources:
+
+- the resolver reads the configured SourceForge files directory page
+- every enabled architecture must have an `asset_regexes.<arch>` regular expression that fully matches exactly one downloadable artifact name
+- SourceForge-provided `sha1` or `md5` metadata is reused as a download-time checksum when available
 
 ## Architectures
 

@@ -628,11 +628,15 @@ def batched(items: list[str], size: int) -> list[list[str]]:
 
 
 def artifact_matches_candidate(artifact: dict[str, Any], candidate: ArtifactCandidate) -> bool:
-    return (
+    if not (
         artifact.get("url") == candidate.url
         and artifact.get("upstream_version") == candidate.upstream_version
         and artifact.get("asset_name") == candidate.asset_name
-    )
+    ):
+        return False
+    if candidate.expected_hash is None:
+        return True
+    return artifact.get(candidate.hash_algorithm) == candidate.expected_hash
 
 
 def resolve_candidate(architecture: dict[str, Any]) -> ArtifactCandidate:
@@ -653,6 +657,18 @@ def resolve_candidate(architecture: dict[str, Any]) -> ArtifactCandidate:
         checksum_algorithm, checksum = aur_checksum_for(fields, source_key, source_index)
         asset_name, artifact_url = split_aur_source(source_value)
         return ArtifactCandidate(artifact_url, first_srcinfo_value(fields, "pkgver", "unknown"), asset_name, checksum, checksum_algorithm)
+    if source == "sourceforge":
+        files = sourceforge_files(source_config["project"], source_config["path"])
+        matched = [file for file in files if sourceforge_asset_matches(file["name"], source_config["asset_regex"])]
+        if not matched:
+            raise RuntimeError(f"no SourceForge asset matched {source_config['asset_regex']!r}")
+        if len(matched) > 1:
+            matched_names = ", ".join(file["name"] for file in matched)
+            raise RuntimeError(f"multiple SourceForge assets matched {source_config['asset_regex']!r}: {matched_names}")
+        file = matched[0]
+        hash_algorithm = "sha1" if file.get("sha1") else "md5"
+        expected_hash = file.get(hash_algorithm)
+        return ArtifactCandidate(file["download_url"], file["name"], file["name"], expected_hash, hash_algorithm)
     if source == "url":
         url = source_config["url"]
         return ArtifactCandidate(url, "fixed", Path(url).name)
@@ -733,6 +749,36 @@ def split_aur_source(value: str) -> tuple[str, str]:
         asset_name, url = value.split("::", 1)
         return asset_name, url
     return Path(value).name, value
+
+
+def sourceforge_files(project: str, path: str) -> list[dict[str, str]]:
+    url = f"https://sourceforge.net/projects/{project}/files/{path.strip('/')}/"
+    html = fetch_text(url)
+    match = re.search(r"net\.sf\.files\s*=\s*(\{.*?\});", html, re.DOTALL)
+    if match is None:
+        raise RuntimeError(f"could not parse SourceForge file listing for {project}/{path}")
+    payload = json.loads(match.group(1))
+    files: list[dict[str, str]] = []
+    for file in payload.values():
+        if not isinstance(file, dict) or not file.get("downloadable"):
+            continue
+        name = str(file.get("name", ""))
+        download_url = str(file.get("download_url", ""))
+        if not name or not download_url:
+            continue
+        files.append(
+            {
+                "name": name,
+                "download_url": download_url,
+                "md5": str(file.get("md5", "")),
+                "sha1": str(file.get("sha1", "")),
+            }
+        )
+    return files
+
+
+def sourceforge_asset_matches(name: str, asset_regex: str) -> bool:
+    return re.fullmatch(asset_regex, name) is not None
 
 
 def download(url: str, expected_hash: str | None = None, hash_algorithm: str = "sha256") -> Path:

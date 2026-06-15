@@ -9,7 +9,7 @@ from typing import Annotated, Any, Literal, Self, TypeVar, cast
 from pydantic import BaseModel, ConfigDict, Field, ValidationError, model_validator
 
 Arch = Literal["amd64", "arm64"]
-ResolverKey = Literal["url", "github", "aur", "script"]
+ResolverKey = Literal["url", "github", "aur", "sourceforge", "script"]
 UpdatePolicy = Literal["fixed", "track"]
 T = TypeVar("T")
 
@@ -75,6 +75,15 @@ class AurArchSource(BaseModel):
     asset_pattern: str
 
 
+class SourceforgeArchSource(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    type: Literal["sourceforge"] = "sourceforge"
+    project: str
+    path: str
+    asset_regex: str
+
+
 class ScriptArchSource(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -83,7 +92,7 @@ class ScriptArchSource(BaseModel):
 
 
 ActiveSource = Annotated[
-    UrlArchSource | GithubArchSource | AurArchSource | ScriptArchSource,
+    UrlArchSource | GithubArchSource | AurArchSource | SourceforgeArchSource | ScriptArchSource,
     Field(discriminator="type"),
 ]
 
@@ -137,6 +146,14 @@ class RawAurSource(BaseModel):
     asset_patterns: dict[Arch, str] = Field(default_factory=dict)
 
 
+class RawSourceforgeSource(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    project: str
+    path: str
+    asset_regexes: dict[Arch, str] = Field(default_factory=dict)
+
+
 class RawScriptSource(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -149,6 +166,7 @@ class RawSourcesConfig(BaseModel):
     url: RawUrlSource | None = None
     github: RawGithubSource | None = None
     aur: RawAurSource | None = None
+    sourceforge: RawSourceforgeSource | None = None
     script: RawScriptSource | None = None
 
     def get(self, key: ResolverKey) -> object | None:
@@ -189,6 +207,7 @@ SOURCE_CAPABILITIES: Mapping[ResolverKey, frozenset[UpdatePolicy]] = {
     "url": frozenset({"fixed"}),
     "github": frozenset({"fixed", "track"}),
     "aur": frozenset({"track"}),
+    "sourceforge": frozenset({"fixed", "track"}),
     "script": frozenset({"track"}),
 }
 
@@ -344,6 +363,24 @@ def normalize_script_source(
     return ScriptArchSource(command=raw.command)
 
 
+def normalize_sourceforge_source(
+    source: object,
+    arch: Arch,
+    update_policy: UpdatePolicy,
+) -> SourceforgeArchSource:
+    raw = expect_source(source, RawSourceforgeSource)
+    asset_regex = required_arch_value(raw.asset_regexes, arch, "SourceForge asset regex")
+    try:
+        re.compile(asset_regex)
+    except re.error as exc:
+        raise ValueError(f"{arch}: invalid SourceForge asset regex {asset_regex!r}: {exc}") from exc
+    return SourceforgeArchSource(
+        project=raw.project,
+        path=raw.path.strip("/"),
+        asset_regex=asset_regex,
+    )
+
+
 def read_toml(path: Path) -> dict[str, Any]:
     with path.open("rb") as file:
         return tomllib.load(file)
@@ -375,5 +412,6 @@ SOURCE_NORMALIZERS: Mapping[ResolverKey, SourceNormalizer] = {
     "url": normalize_url_source,
     "github": normalize_github_source,
     "aur": normalize_aur_source,
+    "sourceforge": normalize_sourceforge_source,
     "script": normalize_script_source,
 }

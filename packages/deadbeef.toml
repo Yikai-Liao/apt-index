@@ -1,0 +1,12 @@
+homepage = "https://deadbeef.sourceforge.io/"
+architectures = ["amd64", "arm64"]
+source = "sourceforge"
+update_policy = "track"
+
+[sources.sourceforge]
+project = "deadbeef"
+path = "Builds/master/linux"
+
+[sources.sourceforge.asset_regexes]
+amd64 = "deadbeef-static_.+_amd64\\.deb"
+arm64 = "deadbeef-static_.+_arm64\\.deb"

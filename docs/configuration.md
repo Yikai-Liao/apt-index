@@ -31,7 +31,7 @@ A software entry has:
 
 Source-specific fields are only valid under `sources.<resolver>`. Old flat fields such as `source`, `repo`, `asset_patterns`, `aur_package`, and `aur_architectures` are not valid as resolver configuration fields in the new schema.
 
-Supported source resolver keys remain `url`, `github`, `aur`, and `script`.
+Supported source resolver keys remain `url`, `github`, `aur`, `sourceforge`, and `script`.
 
 A software entry may keep source options that no architecture currently selects. Those unselected source options are valid raw configuration, but normalization drops them; refresh and build code only receive the active source selected by each architecture.
 
@@ -108,6 +108,26 @@ arm64 = "app_*_arm64.deb"
 arm64 = "v1.2.3"
 ```
 
+## SourceForge Entry
+
+Use a SourceForge source when the upstream publishes downloadable `.deb` artifacts under a files directory rather than GitHub Releases or AUR metadata.
+
+```toml
+# packages/deadbeef.toml
+homepage = "https://deadbeef.sourceforge.io/"
+architectures = ["amd64", "arm64"]
+source = "sourceforge"
+update_policy = "track"
+
+[sources.sourceforge]
+project = "deadbeef"
+path = "Builds/master/linux"
+
+[sources.sourceforge.asset_regexes]
+amd64 = "deadbeef-static_.+_amd64\\.deb"
+arm64 = "deadbeef-static_.+_arm64\\.deb"
+```
+
 The explicit plan and shorthand are mutually exclusive. If `architectures` is a list, top-level `source` and `update_policy` are required. If `architectures` is a map, top-level `source` and `update_policy` are forbidden.
 
 ## Validation Rules
@@ -119,6 +139,7 @@ The explicit plan and shorthand are mutually exclusive. If `architectures` is a 
 - `url` supports `fixed`.
 - `github` supports `fixed` and `track`.
 - `aur` supports `track`.
+- `sourceforge` supports `fixed` and `track`.
 - `script` is reserved for future custom resolvers and supports `track`.
 - Source identity fields are validated when a source option exists. Per-architecture resolver fields are validated only for architectures that select that source.
 - Extra fields are forbidden at every model layer.
@@ -142,7 +163,7 @@ from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 
 Arch = Literal["amd64", "arm64"]
-ResolverKey = Literal["url", "github", "aur", "script"]
+ResolverKey = Literal["url", "github", "aur", "sourceforge", "script"]
 UpdatePolicy = Literal["fixed", "track"]
 T = TypeVar("T")
 
@@ -178,6 +199,15 @@ class AurArchSource(BaseModel):
     asset_pattern: str
 
 
+class SourceforgeArchSource(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    type: Literal["sourceforge"] = "sourceforge"
+    project: str
+    path: str
+    asset_regex: str
+
+
 class ScriptArchSource(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -186,7 +216,7 @@ class ScriptArchSource(BaseModel):
 
 
 ActiveSource = Annotated[
-    UrlArchSource | GithubArchSource | AurArchSource | ScriptArchSource,
+    UrlArchSource | GithubArchSource | AurArchSource | SourceforgeArchSource | ScriptArchSource,
     Field(discriminator="type"),
 ]
 
@@ -233,6 +263,14 @@ class RawAurSource(BaseModel):
     asset_patterns: dict[Arch, str] = Field(default_factory=dict)
 
 
+class RawSourceforgeSource(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    project: str
+    path: str
+    asset_regexes: dict[Arch, str] = Field(default_factory=dict)
+
+
 class RawScriptSource(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -245,6 +283,7 @@ class RawSourcesConfig(BaseModel):
     url: RawUrlSource | None = None
     github: RawGithubSource | None = None
     aur: RawAurSource | None = None
+    sourceforge: RawSourceforgeSource | None = None
     script: RawScriptSource | None = None
 
     def get(self, key: ResolverKey) -> object | None:
@@ -285,6 +324,7 @@ SOURCE_CAPABILITIES: Mapping[ResolverKey, frozenset[UpdatePolicy]] = {
     "url": frozenset({"fixed"}),
     "github": frozenset({"fixed", "track"}),
     "aur": frozenset({"track"}),
+    "sourceforge": frozenset({"fixed", "track"}),
     "script": frozenset({"track"}),
 }
 
@@ -380,6 +420,19 @@ def normalize_script_source(
     return ScriptArchSource(command=raw.command)
 
 
+def normalize_sourceforge_source(
+    source: object,
+    arch: Arch,
+    update_policy: UpdatePolicy,
+) -> SourceforgeArchSource:
+    raw = expect_source(source, RawSourceforgeSource)
+    return SourceforgeArchSource(
+        project=raw.project,
+        path=raw.path,
+        asset_regex=required_arch_value(raw.asset_regexes, arch, "SourceForge asset regex"),
+    )
+
+
 def required_arch_value(values: Mapping[Arch, str], arch: Arch, label: str) -> str:
     try:
         return values[arch]
@@ -399,6 +452,7 @@ SOURCE_NORMALIZERS: Mapping[ResolverKey, SourceNormalizer] = {
     "url": normalize_url_source,
     "github": normalize_github_source,
     "aur": normalize_aur_source,
+    "sourceforge": normalize_sourceforge_source,
     "script": normalize_script_source,
 }
 ```
