@@ -40,9 +40,22 @@ arm64 = "bat_*_arm64.deb"
 
 - Use `update_policy = "track"` when the user wants the package to follow the latest upstream release.
 - Use `update_policy = "fixed"` only when the user gives a specific release/tag to hold.
+- For `track`, start from the latest stable release endpoint. Do not enumerate full release history unless `latest` is insufficient to answer a concrete question.
 - For fixed GitHub entries:
   - if all architectures use the same tag, set scalar `release_tag`
   - if architectures need different tags, use the explicit architecture plan plus `release_tags.<arch>`
+
+## Fast inspection
+
+Prefer the bundled helper script:
+
+```bash
+uv run python .agents/skills/add-apt-package/scripts/github_latest_assets.py <owner/repo>
+```
+
+It prints the latest release tag, prerelease/draft flags, and asset names. By default it filters to `.deb` assets only.
+
+If you need the raw API directly, use `repos/<repo>/releases/latest` before any paginated release listing.
 
 ## How to derive `asset_patterns`
 
@@ -60,6 +73,11 @@ Bad examples:
 
 - `*.deb`
 - `*linux*.deb`
+
+## Common traps
+
+- If GitHub already publishes the exact `.deb`, prefer `github` over an indirect source like AUR.
+- If upstream has a newer prerelease but `track` should follow stable, do not expand into full release-history exploration just to mention the prerelease. The runtime resolver uses the latest stable release endpoint.
 
 ## Validation target
 

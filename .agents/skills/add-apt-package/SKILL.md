@@ -32,6 +32,8 @@ Default to the shortest path that can produce a correct entry.
    - `sources.resolve_candidate(...)`
    Do not reread source files just to rediscover these entry points unless your validation snippet fails.
 6. If the user already pasted exact asset names, use them to derive the glob directly instead of rediscovering the same pattern from search results.
+7. Do not invent your own validation call shape first and "see if it works". Use the exact validation template in this skill.
+8. Prefer bundled helper scripts when the selected resolver reference points to one.
 
 ## First pass
 
@@ -49,20 +51,25 @@ Read only the minimum context needed:
 6. Read exactly one resolver reference after you pick the likely resolver. Do not read multiple resolver references "just in case".
 7. If the upstream does not clearly fit one of those, stop and explain the mismatch instead of inventing a config shape.
 
+## Source-specific references
+
+`SKILL.md` is only the shared workflow.
+
+- Source-specific rules live in `references/github.md`, `references/aur.md`, `references/sourceforge.md`, and `references/url.md`.
+- After you choose the resolver, read the matching reference file and treat it as the authority for source-specific behavior.
+- Do not copy source-specific policy back into `SKILL.md` when updating this skill; keep that detail in the matching reference file.
+
 ## Research guardrails
 
 - Prefer deterministic metadata endpoints over search:
-  - GitHub: repository releases or API
-  - AUR: `.SRCINFO` raw endpoint
-  - SourceForge: exact files directory page
-  - Direct URL: the artifact URL itself
+  - repository APIs or raw metadata endpoints
+  - exact file listing pages when a resolver depends on them
+  - direct artifact URLs when the source is fixed
 - Do not use a search engine to find raw metadata URLs that can be constructed directly.
-- For GitHub, prefer `gh api` or the direct releases endpoints before HTML search results when the repository is already known.
-- For AUR, prefer the raw `.SRCINFO` endpoint directly. Do not open AUR search results first.
 - If the request mentions multiple possible sources, prefer the cleanest upstream that directly publishes the target `.deb`.
-- If an AUR package mixes `.deb`, AppImage, or other artifacts across architectures, do not force the AUR resolver unless AUR is the only place the requested `.deb` exists.
 - If one architecture has the desired `.deb` and another does not, declare only the architecture that can be resolved cleanly unless the user explicitly wants a fallback strategy discussed.
 - If the upstream repo clearly publishes multiple different products or release streams, stop as soon as you can name the ambiguity and ask the user to choose. Do not continue broad web exploration looking for a default product.
+- Do not do extra repository-local discovery like `ls` at the repo root when the task is only to add one package entry. If you need to check for an existing entry, inspect `packages/<name>.toml` directly or use a narrow `rg` in `packages/`.
 
 ## Editing rules
 
@@ -106,7 +113,13 @@ Use `sources.resolve_candidate(...)` for each declared architecture and print:
 - upstream version
 - checksum algorithm if present
 
-Prefer one short `uv run python - <<'PY' ... PY` snippet that does both checks in one run:
+Prefer the bundled validator script:
+
+```bash
+uv run python .agents/skills/add-apt-package/scripts/validate_package.py <package-name>
+```
+
+It already does both checks in one run:
 
 - load configuration
 - print the normalized entry
@@ -116,6 +129,54 @@ Prefer one short `uv run python - <<'PY' ... PY` snippet that does both checks i
 Do not write a helper script, run a full refresh, or split validation into multiple exploratory commands unless the combined snippet fails for a concrete reason.
 If network validation stalls or fails repeatedly, stop after the direct check and report the blocker instead of broadening the investigation.
 Do not do a separate source-code-reading phase before validation. The point of validation is to exercise the real APIs directly.
+
+If the script is unavailable for some reason, fall back to this equivalent inline template:
+
+```python
+uv run python - <<'PY'
+import json
+from pathlib import Path
+from urllib.request import Request, urlopen
+
+from apt_index.config import load_configuration
+from apt_index import sources
+
+PACKAGE = "replace-me"
+
+def fetch_json(url: str, headers: dict[str, str] | None):
+    request = Request(url, headers=headers or {})
+    with urlopen(request) as response:
+        return json.load(response)
+
+def fetch_text(url: str, headers: dict[str, str] | None):
+    request = Request(url, headers=headers or {})
+    with urlopen(request) as response:
+        return response.read().decode()
+
+root = Path.cwd()
+config = load_configuration(root)
+entry = config.packages[PACKAGE]
+print("ENTRY", entry.model_dump(mode="json"))
+
+for arch, arch_config in entry.architectures.items():
+    candidate = sources.resolve_candidate(
+        arch_config.model_dump(mode="json"),
+        fetch_json=fetch_json,
+        fetch_text=fetch_text,
+        root=root,
+    )
+    print(
+        "CANDIDATE",
+        {
+            "architecture": arch,
+            "asset_name": candidate.asset_name,
+            "url": candidate.url,
+            "version": candidate.upstream_version,
+            "checksum_algorithm": candidate.hash_algorithm if candidate.expected_hash else None,
+        },
+    )
+PY
+```
 
 ## Response shape
 
@@ -132,7 +193,3 @@ Report:
 - `references/aur.md`: using `.SRCINFO`, matching `source_<arch>` entries, dealing with blocked AUR HTML
 - `references/sourceforge.md`: selecting the correct files directory and full-match regexes
 - `references/url.md`: fixed direct URLs when no richer resolver fits
-
-## Case notes
-
-- `obsidian`-style mixed-source packages are a trap: AUR may expose different artifact types per architecture while the upstream GitHub releases page has the exact `.deb` you need. In that case, prefer the direct upstream resolver and keep the architecture set minimal.

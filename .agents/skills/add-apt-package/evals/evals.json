@@ -24,6 +24,12 @@
       "prompt": "[$add-apt-package](/home/lyk/Documents/apt-index/.agents/skills/add-apt-package/SKILL.md) https://aur.archlinux.org/packages/obsidian 这个我吃不准，里面同时依赖了 deb 和 AppImage。官方上游是 https://github.com/obsidianmd/obsidian-releases ，我们先只支持 amd64，不管 arm64。请按最小改动加包并验证，不要做多余搜索。",
       "expected_output": "识别这是一个混合来源案例，避免在 AUR 和 GitHub 之间来回探索；直接收敛到 amd64 + github + track 的最小配置，并用一次短验证脚本完成配置加载和 resolver 校验。",
       "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "[ISMAELMARTINEZ/teams-for-linux](https://github.com/ISMAELMARTINEZ/teams-for-linux) [$add-apt-package](/home/lyk/Documents/apt-index/.agents/skills/add-apt-package/SKILL.md) 上游 GitHub Releases 同时有稳定版和更新的 prerelease，稳定版也提供 `teams-for-linux_<version>_amd64.deb` 和 `teams-for-linux_<version>_arm64.deb`。请直接增加最小条目并验证，不要为了说明 prerelease 再枚举整个 release 历史。",
+      "expected_output": "直接使用 `github + track` 和 `releases/latest` 对应的稳定流完成条目；不要先猜 `resolve_candidate` 的调用签名，也不要先失败再回头读源码。验证应复用 skill 里的固定 Python 模板一次跑完。",
+      "files": []
     }
   ]
 }

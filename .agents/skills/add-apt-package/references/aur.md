@@ -11,6 +11,7 @@ Choose `aur` when:
 - the repository should track those upstream artifacts over time
 
 Do not use AUR to inherit package naming, dependencies, install scripts, or PKGBUILD behavior. This repository only uses `.SRCINFO` as a discovery layer.
+If the official upstream already publishes the exact `.deb` cleanly, prefer that direct source over AUR.
 
 ## Patterns in this repo
 
@@ -65,6 +66,11 @@ Watch for AUR naming differences:
 - repo architecture `arm64` often maps to upstream/AUR `aarch64` or `arm64`
 
 Do not normalize those strings in the pattern. Match what upstream actually publishes.
+
+## Common traps
+
+- Some AUR packages mix `.deb`, AppImage, or other artifact types across architectures. Do not force the AUR resolver in that case unless AUR is the only clean source of the requested `.deb`.
+- `obsidian`-style packages are a good example: one architecture may expose a `.deb` while another only exposes AppImage. In that case, either narrow the architecture set or switch to a cleaner direct upstream source.
 
 ## Validation target
 
