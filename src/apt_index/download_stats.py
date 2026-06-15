@@ -43,7 +43,7 @@ def write_download_stats(
         zone_id = resolve_cloudflare_zone_id(token, hostname)
         if not zone_id:
             raise RuntimeError(f"could not resolve Cloudflare zone for {hostname!r}")
-        path_index = package_download_path_index(state)
+        path_index = state.download_path_index()
         stats = fetch_download_stats(zone_id, token, hostname, days, path_index)
     except (RuntimeError, TimeoutError, urllib.error.URLError) as exc:
         if strict:
@@ -219,12 +219,6 @@ def parse_package_download_path(path: str) -> tuple[str, str, str] | None:
     if len(parts) != 5 or parts[0] or parts[1] != "pool":
         return None
     return parts[2], parts[3], parts[4]
-
-
-def package_download_path_index(
-    state: PublishedState,
-) -> dict[str, tuple[str, str]]:
-    return state.download_path_index()
 
 
 def format_download_stats(

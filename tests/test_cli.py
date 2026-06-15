@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import base64
 import json
+import sys
 import tempfile
 import unittest
 import urllib.error
@@ -1443,27 +1444,6 @@ class DownloadStatsTests(unittest.TestCase):
 
         self.assertEqual(rows, [{"entry_name": "bat", "arch": "amd64", "downloads": 6}])
 
-    def test_package_download_path_index_uses_lockfile_control_architecture(self) -> None:
-        lock = {
-            "packages": {
-                "fastfetch": {
-                    "architectures": {
-                        "amd64": {
-                            "artifact": {
-                                **locked_artifact(),
-                                "filename": "fastfetch-linux-amd64.deb",
-                                "control": {"Architecture": "amd64"},
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        index = download_stats.package_download_path_index(published_state(lock))
-
-        self.assertEqual(index, {"/pool/main/fastfetch/fastfetch-linux-amd64.deb": ("fastfetch", "amd64")})
-
     def test_fetch_download_stats_splits_cloudflare_queries_into_daily_windows(self) -> None:
         calls: list[dict[str, object]] = []
         path_index = {
@@ -1683,6 +1663,49 @@ class WorkerGenerationTests(unittest.TestCase):
 
 
 class SigningKeyTests(unittest.TestCase):
+    def fake_gpg_module(self, *, keys: list[object] | None = None) -> SimpleNamespace:
+        state = SimpleNamespace(
+            keys=list(keys or []),
+            contexts=[],
+            imports=[],
+            exports=[],
+            signs=[],
+        )
+
+        class FakeContext:
+            def __init__(self, **kwargs: object) -> None:
+                self.kwargs = kwargs
+                self.passphrase_cb = None
+                state.contexts.append(self)
+
+            def keylist(self, *, pattern: str, secret: bool) -> list[object]:
+                return state.keys
+
+            def op_import(self, key_material: bytes) -> None:
+                state.imports.append(key_material)
+                state.keys.append(SimpleNamespace())
+
+            def key_export(self, *, pattern: str) -> bytes:
+                state.exports.append(pattern)
+                return b"public-key"
+
+            def set_passphrase_cb(self, func: object) -> None:
+                self.passphrase_cb = func
+
+            def sign(self, data: bytes, sink: object = None, mode: object = 0) -> tuple[bytes, object]:
+                passphrase = self.passphrase_cb("hint", "desc", False) if self.passphrase_cb else None
+                state.signs.append({"data": data, "sink": sink, "mode": mode, "passphrase": passphrase})
+                return b"signed:" + data, SimpleNamespace()
+
+        return SimpleNamespace(
+            Context=FakeContext,
+            constants=SimpleNamespace(
+                PINENTRY_MODE_LOOPBACK="loopback",
+                sig=SimpleNamespace(mode=SimpleNamespace(CLEAR="clear", DETACH="detach")),
+            ),
+            state=state,
+        )
+
     def test_loads_signing_environment_from_dotenv(self) -> None:
         with (
             tempfile.TemporaryDirectory() as tmp,
@@ -1701,61 +1724,67 @@ class SigningKeyTests(unittest.TestCase):
             self.assertEqual(deploy_tree.os.environ[deploy_tree.SIGNING_PASSPHRASE_ENV], "secret")
 
     def test_imports_private_key_from_environment_when_secret_key_is_missing(self) -> None:
-        class Result:
-            def __init__(self, returncode: int = 0, stdout: str = "") -> None:
-                self.returncode = returncode
-                self.stdout = stdout
-
         key_material = "-----BEGIN PGP PRIVATE KEY BLOCK-----\nkey\n-----END PGP PRIVATE KEY BLOCK-----\n"
         env = {
             deploy_tree.SIGNING_PRIVATE_KEY_B64_ENV: base64.b64encode(key_material.encode("utf-8")).decode("ascii"),
             deploy_tree.SIGNING_PASSPHRASE_ENV: "secret",
         }
-        calls: list[list[str]] = []
-        inputs: list[str | None] = []
-
-        def fake_run(args: list[str], **kwargs: object) -> Result:
-            calls.append(args)
-            inputs.append(kwargs.get("input"))
-            if args[:2] == ["gpg", "--list-secret-keys"]:
-                return Result(2 if len([call for call in calls if call[:2] == ["gpg", "--list-secret-keys"]]) == 1 else 0)
-            if args[:2] == ["gpg", "--armor"]:
-                return Result(stdout="public-key")
-            return Result()
+        fake_gpg = self.fake_gpg_module()
 
         with (
             tempfile.TemporaryDirectory() as tmp,
             patch.object(deploy_tree, "GNUPG_DIR", Path(tmp) / "gnupg"),
             patch.object(deploy_tree, "ENV_PATH", Path(tmp) / ".env"),
             patch.object(deploy_tree, "DOTENV_LOADED", False),
-            patch.dict(cli.os.environ, env, clear=True),
-            patch.object(deploy_tree.subprocess, "run", side_effect=fake_run),
+            patch.dict(deploy_tree.os.environ, env, clear=True),
+            patch.dict(sys.modules, {"gpg": fake_gpg}),
         ):
             public_key = deploy_tree.ensure_signing_key(signing_deploy_config())
 
         self.assertEqual(public_key, "public-key")
-        self.assertIn(
-            ["gpg", "--batch", "--yes", "--pinentry-mode", "loopback", "--passphrase", "secret", "--import"],
-            calls,
-        )
-        self.assertIn(key_material, inputs)
-        self.assertNotIn("--quick-generate-key", [arg for call in calls for arg in call])
+        self.assertEqual(fake_gpg.state.imports, [key_material.encode("utf-8")])
+        self.assertEqual(fake_gpg.state.exports, [signing_deploy_config().signing_key_name])
+        self.assertTrue(all(context.kwargs["home_dir"].endswith("gnupg") for context in fake_gpg.state.contexts))
 
     def test_fails_without_existing_or_configured_private_key(self) -> None:
-        class Result:
-            returncode = 2
-            stdout = ""
+        fake_gpg = self.fake_gpg_module()
 
         with (
             tempfile.TemporaryDirectory() as tmp,
             patch.object(deploy_tree, "GNUPG_DIR", Path(tmp) / "gnupg"),
             patch.object(deploy_tree, "ENV_PATH", Path(tmp) / ".env"),
             patch.object(deploy_tree, "DOTENV_LOADED", False),
-            patch.dict(cli.os.environ, {}, clear=True),
-            patch.object(deploy_tree.subprocess, "run", return_value=Result()),
+            patch.dict(deploy_tree.os.environ, {}, clear=True),
+            patch.dict(sys.modules, {"gpg": fake_gpg}),
         ):
             with self.assertRaisesRegex(RuntimeError, "missing signing private key"):
                 deploy_tree.ensure_signing_key(signing_deploy_config())
+
+    def test_sign_release_writes_gpgme_clear_and_detached_signatures(self) -> None:
+        key = SimpleNamespace()
+        fake_gpg = self.fake_gpg_module(keys=[key])
+        config = signing_deploy_config().model_copy(update={"suite": "stable"})
+
+        with (
+            tempfile.TemporaryDirectory() as tmp,
+            patch.object(deploy_tree, "GNUPG_DIR", Path(tmp) / "gnupg"),
+            patch.object(deploy_tree, "ENV_PATH", Path(tmp) / ".env"),
+            patch.object(deploy_tree, "DOTENV_LOADED", False),
+            patch.dict(deploy_tree.os.environ, {deploy_tree.SIGNING_PASSPHRASE_ENV: "secret"}, clear=True),
+            patch.dict(sys.modules, {"gpg": fake_gpg}),
+        ):
+            release_dir = Path(tmp) / "dist" / "dists" / "stable"
+            release_dir.mkdir(parents=True)
+            (release_dir / "Release").write_bytes(b"release-data")
+
+            deploy_tree.sign_release(config, dist_dir=Path(tmp) / "dist")
+
+            self.assertEqual((release_dir / "InRelease").read_bytes(), b"signed:release-data")
+            self.assertEqual((release_dir / "Release.gpg").read_bytes(), b"signed:release-data")
+
+        self.assertEqual([sign["mode"] for sign in fake_gpg.state.signs], ["clear", "detach"])
+        self.assertEqual([sign["passphrase"] for sign in fake_gpg.state.signs], ["secret", "secret"])
+        self.assertEqual([context.kwargs.get("signers") for context in fake_gpg.state.contexts if "signers" in context.kwargs], [[key], [key]])
 
 
 if __name__ == "__main__":

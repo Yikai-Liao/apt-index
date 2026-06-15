@@ -201,7 +201,7 @@ def gpg_module() -> Any:
     try:
         import gpg
     except ModuleNotFoundError as exc:
-        raise RuntimeError("python3-gpg is required for signing; install the python3-gpg system package") from exc
+        raise RuntimeError("gpg Python package is required for signing; run uv sync") from exc
     return gpg
 
 
@@ -266,10 +266,10 @@ def signing_key(key_name: str) -> Any:
 
 def sign_release_bytes(data: bytes, *, key: Any, mode: Any) -> bytes:
     passphrase = os.environ.get(SIGNING_PASSPHRASE_ENV)
-    sign_kwargs: dict[str, Any] = {"mode": mode}
+    context = signing_context(armor=True, signers=[key])
     if passphrase:
-        sign_kwargs["passphrase"] = passphrase.encode("utf-8")
-    signed_data, _ = signing_context(armor=True, signers=[key]).sign(data, **sign_kwargs)
+        context.set_passphrase_cb(lambda hint, desc, prev_bad, hook=None: passphrase)
+    signed_data, _ = context.sign(data, mode=mode)
     return signed_data
 
 

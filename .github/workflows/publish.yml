@@ -30,6 +30,11 @@ jobs:
           enable-cache: true
           cache-dependency-glob: uv.lock
 
+      - name: Install signing native dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends gpg libgpgme-dev
+
       - name: Restore lockfile from state branch
         run: |
           git fetch origin apt-index-state || true

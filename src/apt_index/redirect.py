@@ -21,12 +21,6 @@ BytesFetcher = Callable[[str, dict[str, str] | None], bytes]
 JsonWriter = Callable[[Path, Any], None]
 
 
-def redirect_maps(
-    state: PublishedState,
-) -> tuple[dict[str, str], dict[tuple[str, str], dict[str, str]]]:
-    return state.redirect_snapshot(), state.redirect_shards()
-
-
 def write_redirect_rules(
     state: PublishedState,
     *,
@@ -35,9 +29,9 @@ def write_redirect_rules(
     redirect_snapshot_filename: str,
     write_json: JsonWriter,
 ) -> dict[str, str]:
-    redirects, shards = redirect_maps(state)
+    redirects = state.redirect_snapshot()
     redirect_dir = dist_dir / redirect_rules_dirname
-    for (shard_component, entry_name), shard in shards.items():
+    for (shard_component, entry_name), shard in state.redirect_shards().items():
         shard_path = redirect_dir / shard_component / f"{entry_name}.json"
         shard_path.parent.mkdir(parents=True, exist_ok=True)
         write_json(shard_path, shard)
