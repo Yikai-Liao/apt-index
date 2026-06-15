@@ -685,6 +685,22 @@ class RedirectRulesTests(unittest.TestCase):
             ):
                 cli.purge_redirect_cache(urls)
 
+    def test_purge_redirect_cache_also_purges_redirect_rules_prefix(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            urls = Path(tmp) / "urls.txt"
+            urls.write_text("https://deb.example.test/redirect_rules.json\n", encoding="utf-8")
+
+            with (
+                patch.dict(cli.os.environ, {"CLOUDFLARE_API_TOKEN": "token"}, clear=True),
+                patch.object(cli, "resolve_cloudflare_zone_id", return_value="zone"),
+                patch.object(cli, "purge_cloudflare_urls") as purge_urls,
+                patch.object(cli, "purge_cloudflare_prefixes") as purge_prefixes,
+            ):
+                cli.purge_redirect_cache(urls)
+
+        purge_urls.assert_called_once_with("zone", "token", ["https://deb.example.test/redirect_rules.json"])
+        purge_prefixes.assert_called_once_with("zone", "token", ["deb.example.test/redirect-rules"])
+
     def test_purge_redirect_cache_strict_raises_purge_errors(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             urls = Path(tmp) / "urls.txt"
@@ -889,8 +905,10 @@ class WorkerGenerationTests(unittest.TestCase):
             worker = path.read_text(encoding="utf-8")
 
         self.assertIn("const cache = caches.default", worker)
+        self.assertIn("const cacheGetResponse = (response) => {", worker)
         self.assertIn("await cache.match(cacheKey)", worker)
         self.assertIn("ctx.waitUntil(cache.put(cacheKey, redirectResponse.clone())", worker)
+        self.assertIn('console.warn("redirect shard fetch failed", error);', worker)
         self.assertIn('const notFound = () => new Response("package redirect not found"', worker)
         self.assertIn('"Cache-Control": "public, max-age=60, s-maxage=60"', worker)
         self.assertIn('"Cloudflare-CDN-Cache-Control": "public, max-age=60"', worker)

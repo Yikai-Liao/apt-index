@@ -186,7 +186,7 @@ The daily GitHub Actions workflow:
 8. Compares the new redirect snapshot with the previously deployed Cloudflare snapshot and plans which cached package URLs and redirect-rule assets need purging.
 9. Exports public download statistics to `dist/download_stats.json`.
 10. Uploads the generated tree to Cloudflare Pages.
-11. Purges cached package redirect URLs whose redirect target changed, newly appeared package URLs that may have cached `404` misses, affected redirect shards, and the redirect snapshot asset.
+11. Purges cached package redirect URLs whose redirect target changed, newly appeared package URLs that may have cached `404` misses, and the legacy redirect manifest URL, then purges the `/redirect-rules` prefix so shard and snapshot assets do not stay stale on the custom domain.
 
 This repository intentionally uses a rolling self-managed model. Successful refreshes are committed directly instead of opening pull requests.
 

@@ -539,12 +539,13 @@ def purge_redirect_cache(urls_path: Path, strict: bool = False) -> None:
             raise RuntimeError(f"could not resolve Cloudflare zone for {hostname!r}")
         for batch in batched(urls, 30):
             purge_cloudflare_urls(zone_id, token, batch)
+        purge_cloudflare_prefixes(zone_id, token, [f"{hostname}/{REDIRECT_RULES_DIRNAME}"])
     except (RuntimeError, TimeoutError, urllib.error.URLError) as exc:
         if strict:
             raise
         logger.warning("Cloudflare redirect cache purge failed; skipping {} URLs: {}", len(urls), exc)
         return
-    logger.info("purged {} redirect cache URLs", len(urls))
+    logger.info("purged {} redirect cache URLs and redirect-rules prefix", len(urls))
 
 
 def resolve_cloudflare_zone_id(token: str, hostname: str) -> str | None:
@@ -580,7 +581,20 @@ def cloudflare_zone_name_candidates(hostname: str) -> list[str]:
 
 def purge_cloudflare_urls(zone_id: str, token: str, urls: list[str]) -> None:
     payload = {"files": urls}
-    response = post_json(
+    response = purge_cloudflare_cache_payload(zone_id, token, payload)
+    if not response.get("success"):
+        raise RuntimeError(f"Cloudflare cache purge failed: {response!r}")
+
+
+def purge_cloudflare_prefixes(zone_id: str, token: str, prefixes: list[str]) -> None:
+    payload = {"prefixes": prefixes}
+    response = purge_cloudflare_cache_payload(zone_id, token, payload)
+    if not response.get("success"):
+        raise RuntimeError(f"Cloudflare cache prefix purge failed: {response!r}")
+
+
+def purge_cloudflare_cache_payload(zone_id: str, token: str, payload: dict[str, list[str]]) -> Any:
+    return post_json(
         f"https://api.cloudflare.com/client/v4/zones/{zone_id}/purge_cache",
         payload,
         {
@@ -588,8 +602,6 @@ def purge_cloudflare_urls(zone_id: str, token: str, urls: list[str]) -> None:
             "Content-Type": "application/json",
         },
     )
-    if not response.get("success"):
-        raise RuntimeError(f"Cloudflare cache purge failed: {response!r}")
 
 
 def batched(items: list[str], size: int) -> list[list[str]]:
@@ -1136,6 +1148,14 @@ def write_worker(path: Path) -> None:
     cacheUrl.search = "";
     const cacheKey = new Request(cacheUrl.toString(), { method: "GET" });
     const cache = caches.default;
+    const cacheGetResponse = (response) => {
+      if (request.method === "GET") {
+        ctx.waitUntil(cache.put(cacheKey, response.clone()).catch((error) => {
+          console.warn("redirect cache put failed", error);
+        }));
+      }
+      return response;
+    };
     let cached = await cache.match(cacheKey);
     if (cached) {
       cached = new Response(cached.body, cached);
@@ -1145,27 +1165,21 @@ def write_worker(path: Path) -> None:
 
     const [, component, entryName, filename] = match;
     const rulesUrl = new URL(`/redirect-rules/${component}/${entryName}.json`, url);
-    const rulesResponse = await env.ASSETS.fetch(rulesUrl.toString());
+    let rulesResponse;
+    try {
+      rulesResponse = await env.ASSETS.fetch(rulesUrl.toString());
+    } catch (error) {
+      console.warn("redirect shard fetch failed", error);
+      return cacheGetResponse(notFound());
+    }
     if (!rulesResponse.ok) {
-      const response = notFound();
-      if (request.method === "GET") {
-        ctx.waitUntil(cache.put(cacheKey, response.clone()).catch((error) => {
-          console.warn("redirect cache put failed", error);
-        }));
-      }
-      return response;
+      return cacheGetResponse(notFound());
     }
 
     const rules = await rulesResponse.json();
     const target = rules[filename];
     if (!target) {
-      const response = notFound();
-      if (request.method === "GET") {
-        ctx.waitUntil(cache.put(cacheKey, response.clone()).catch((error) => {
-          console.warn("redirect cache put failed", error);
-        }));
-      }
-      return response;
+      return cacheGetResponse(notFound());
     }
 
     const redirectResponse = new Response(null, {
