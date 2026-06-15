@@ -26,7 +26,7 @@ def check_artifacts(
     full_checked_artifacts = full_checked_artifacts or set()
     artifact_entries = [
         (artifact.entry_name, artifact.configured_arch, artifact)
-        for artifact in state.artifacts()
+        for artifact in state.artifacts
     ]
     max_workers = worker_count(len(artifact_entries), jobs)
     checked: dict[tuple[str, str], dict[str, Any]] = {}

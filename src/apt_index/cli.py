@@ -1,35 +1,36 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
-import json
 import os
-import urllib.error
 import urllib.parse
-import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from dataclasses import dataclass
-from datetime import datetime, timezone
 from enum import Enum
 from pathlib import Path
 from typing import Any
 
 import typer
 from loguru import logger
+from pydantic import BaseModel, ConfigDict
 
 from apt_index import deb, deploy_tree, download_stats as download_stats_module, health, redirect, site_data as site_data_module, sources
-from apt_index.config import ConfigError, EntryConfig, ResolverKey, UpdatePolicy, load_configuration
+from apt_index.config import AptIndexConfig, ConfigError, EntryConfig, ResolverKey, UpdatePolicy, load_configuration
 from apt_index.paths import ARTIFACT_HEALTH_PATH, CACHE_DIR, DIST_DIR, LOCK_PATH, ROOT, TRACK_HEALTH_PATH
 from apt_index.published_state import LockedArchitecture, LockedArtifact, LockedEntry, LockfileState, PublishedState
+from apt_index.runtime import JsonFiles, SystemClock, UrlLibHttpClient
 
 LEGACY_REDIRECT_RULES_PATHS = ("/redirect_rules.json",)
 CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS = 7
 USER_AGENT = "apt-index/0.1"
 DEFAULT_JOBS = 4
 app = typer.Typer(no_args_is_help=True)
+JSON_FILES = JsonFiles()
+CLOCK = SystemClock()
+HTTP = UrlLibHttpClient(user_agent=USER_AGENT)
 
 
-@dataclass(frozen=True)
-class ResolvedEntry:
+class ResolvedEntry(BaseModel):
+    model_config = ConfigDict(frozen=True)
+
     entry: LockedEntry
     full_checked_arches: set[str]
     architecture_health: dict[str, "ArchitectureHealth"]
@@ -41,8 +42,15 @@ class ArchitectureHealthStatus(str, Enum):
     FAILED = "failed"
 
 
-@dataclass(frozen=True, kw_only=True)
-class ArchitectureHealth:
+class PackageHealthStatus(str, Enum):
+    OK = "ok"
+    PARTIAL = "partial"
+    FAILED = "failed"
+
+
+class ArchitectureHealth(BaseModel):
+    model_config = ConfigDict(frozen=True)
+
     status: ArchitectureHealthStatus
     source: ResolverKey
     update_policy: UpdatePolicy
@@ -84,18 +92,18 @@ def download_stats_command(
     """Write public download statistics from Cloudflare HTTP request analytics."""
     config = load_config()
     if hostname is None:
-        hostname = urllib.parse.urlparse(config["repository"]["base_url"]).hostname
-    download_stats_module.write_download_stats(
-        output or DIST_DIR / deploy_tree.DOWNLOAD_STATS_FILENAME,
-        hostname,
-        days=days,
-        strict=strict,
-        write_json=write_json,
-        empty_download_stats=empty_download_stats,
-        resolve_cloudflare_zone_id=resolve_cloudflare_zone_id,
-        fetch_download_stats=fetch_download_stats,
-        state=load_published_state(config["component"]),
-    )
+        hostname = urllib.parse.urlparse(config.repository.base_url).hostname
+    download_stats_module.DownloadStatsPublisher(
+        state=load_published_state(config.component),
+        analytics=download_stats_module.CloudflareHttpAnalytics(
+            token=os.environ.get("CLOUDFLARE_API_TOKEN"),
+            fetch_json=HTTP.fetch_json,
+            post_json=HTTP.post_json,
+            max_days=CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS,
+        ),
+        clock=CLOCK,
+        json_files=JSON_FILES,
+    ).write(output or DIST_DIR / deploy_tree.DOWNLOAD_STATS_FILENAME, hostname, days=days, strict=strict)
 
 
 @app.command("site-data")
@@ -105,17 +113,25 @@ def site_data_command(
 ) -> None:
     """Write the published site data consumed by the static homepage."""
     config = load_config()
-    site_data_module.write_site_data(
-        output or DIST_DIR / deploy_tree.SITE_DATA_FILENAME,
-        download_stats or DIST_DIR / deploy_tree.DOWNLOAD_STATS_FILENAME,
-        state=load_published_state(config["component"]),
+    state = load_published_state(config.component)
+    reports = site_data_module.HealthReports.load_or_not_generated(
+        state,
         track_health_path=TRACK_HEALTH_PATH,
         artifact_health_path=ARTIFACT_HEALTH_PATH,
-        load_json=load_json,
-        write_json=write_json,
-        empty_download_stats=empty_30_day_download_stats,
-        now_iso=now_iso,
+        json_files=JSON_FILES,
+        clock=CLOCK,
     )
+    downloads = download_stats_module.DownloadStats.load_or_empty(
+        download_stats or DIST_DIR / deploy_tree.DOWNLOAD_STATS_FILENAME,
+        json_files=JSON_FILES,
+        days=30,
+        clock=CLOCK,
+    )
+    site_data_module.PublishedSiteData(
+        state=state,
+        reports=reports,
+        downloads=downloads,
+    ).write(output or DIST_DIR / deploy_tree.SITE_DATA_FILENAME, JSON_FILES)
 
 
 @app.command("plan-redirect-purge")
@@ -130,7 +146,7 @@ def plan_redirect_purge_command(
     redirect.plan_redirect_purge(
         output,
         snapshot or DIST_DIR / deploy_tree.REDIRECT_RULES_DIRNAME / deploy_tree.REDIRECT_SNAPSHOT_FILENAME,
-        base_url or config["repository"]["base_url"],
+        base_url or config.repository.base_url,
         redirect_rules_dirname=deploy_tree.REDIRECT_RULES_DIRNAME,
         redirect_snapshot_filename=deploy_tree.REDIRECT_SNAPSHOT_FILENAME,
         legacy_redirect_rules_paths=LEGACY_REDIRECT_RULES_PATHS,
@@ -165,45 +181,8 @@ def all_command(
     build()
 
 
-def empty_download_stats(reason: str, days: int) -> dict[str, Any]:
-    return download_stats_module.empty_download_stats(reason, days, now_iso)
-
-
-def empty_30_day_download_stats(reason: str) -> dict[str, Any]:
-    return empty_download_stats(reason, 30)
-
-
 def resolve_cloudflare_zone_id(token: str, hostname: str) -> str | None:
-    return redirect.resolve_cloudflare_zone_id(token, hostname, fetch_json=fetch_json)
-
-
-def fetch_download_stats(
-    zone_id: str,
-    token: str,
-    hostname: str,
-    days: int,
-    path_index: dict[str, tuple[str, str]] | None,
-) -> dict[str, Any]:
-    return download_stats_module.fetch_download_stats(
-        zone_id,
-        token,
-        hostname,
-        days=days,
-        path_index=path_index,
-        max_days=CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS,
-        cloudflare_graphql=cloudflare_graphql,
-        now=utc_now,
-        now_iso=now_iso,
-        graphql_time=graphql_time,
-    )
-
-
-def cloudflare_graphql(token: str, query: str, variables: dict[str, Any]) -> dict[str, Any]:
-    return download_stats_module.cloudflare_graphql(token, query, variables, post_json=post_json)
-
-
-def utc_now() -> datetime:
-    return datetime.now(timezone.utc)
+    return redirect.resolve_cloudflare_zone_id(token, hostname, fetch_json=HTTP.fetch_json)
 
 
 def fetch_previous_redirect_snapshot(base_url: str, strict: bool) -> dict[str, str]:
@@ -211,17 +190,17 @@ def fetch_previous_redirect_snapshot(base_url: str, strict: bool) -> dict[str, s
         base_url,
         redirect_rules_dirname=deploy_tree.REDIRECT_RULES_DIRNAME,
         redirect_snapshot_filename=deploy_tree.REDIRECT_SNAPSHOT_FILENAME,
-        fetch_bytes=fetch_bytes,
+        fetch_bytes=HTTP.fetch_bytes,
         strict=strict,
     )
 
 
 def purge_cloudflare_urls(zone_id: str, token: str, batch: list[str]) -> None:
-    redirect.purge_cloudflare_urls(zone_id, token, batch, post_json=post_json)
+    redirect.purge_cloudflare_urls(zone_id, token, batch, post_json=HTTP.post_json)
 
 
 def purge_cloudflare_prefixes(zone_id: str, token: str, prefixes: list[str]) -> None:
-    redirect.purge_cloudflare_prefixes(zone_id, token, prefixes, post_json=post_json)
+    redirect.purge_cloudflare_prefixes(zone_id, token, prefixes, post_json=HTTP.post_json)
 
 
 def refresh(jobs: int | None = None, full_artifact_check: bool = False) -> None:
@@ -229,15 +208,15 @@ def refresh(jobs: int | None = None, full_artifact_check: bool = False) -> None:
         config = load_configuration(ROOT)
     except ConfigError as exc:
         raise SystemExit(str(exc)) from exc
-    previous_lock = LockfileState.model_validate(load_json(LOCK_PATH, {"version": 2, "generated_at": None, "packages": {}}))
+    previous_lock = LockfileState.model_validate(JSON_FILES.load(LOCK_PATH, {"version": 2, "generated_at": None, "packages": {}}))
     previous_packages = previous_lock.packages
     locked_packages: dict[str, LockedEntry] = {}
     full_checked_artifacts: set[tuple[str, str]] = set()
-    track_health: dict[str, Any] = {"version": 2, "generated_at": now_iso(), "packages": {}}
+    track_health: dict[str, Any] = {"version": 2, "generated_at": CLOCK.now_iso(), "packages": {}}
     package_entries = list(config.packages.items())
     candidate_resolver = sources.build_candidate_resolver(
-        fetch_json=fetch_json,
-        fetch_text=fetch_text,
+        fetch_json=HTTP.fetch_json,
+        fetch_text=HTTP.fetch_text,
         root=ROOT,
     )
     max_workers = worker_count(len(package_entries), jobs)
@@ -270,7 +249,7 @@ def refresh(jobs: int | None = None, full_artifact_check: bool = False) -> None:
                 locked_packages[entry_name] = resolved.entry
             full_checked_artifacts.update((entry_name, arch) for arch in resolved.full_checked_arches)
             track_health["packages"][entry_name] = {
-                "status": package_health_status(resolved.architecture_health),
+                "status": package_health_status(resolved.architecture_health).value,
                 "architectures": {
                     arch: arch_health.to_json()
                     for arch, arch_health in resolved.architecture_health.items()
@@ -281,30 +260,30 @@ def refresh(jobs: int | None = None, full_artifact_check: bool = False) -> None:
             exc = errors[entry_name]
             if entry_name in previous_packages:
                 locked_packages[entry_name] = previous_packages[entry_name]
-                status = "kept_previous"
+                status = ArchitectureHealthStatus.KEPT_PREVIOUS.value
             else:
-                status = "failed"
+                status = ArchitectureHealthStatus.FAILED.value
             track_health["packages"][entry_name] = {"status": status, "error": str(exc), "architectures": {}}
             logger.warning("{} refresh {}: {}", entry_name, status, exc)
 
     generated_at = previous_lock.generated_at
     if previous_lock.version != 2 or generated_at is None or locked_packages != previous_packages:
-        generated_at = now_iso()
+        generated_at = CLOCK.now_iso()
     lock = LockfileState(version=2, generated_at=generated_at, packages=locked_packages).model_dump(mode="json")
-    write_json(LOCK_PATH, lock)
+    JSON_FILES.write(LOCK_PATH, lock)
     state = PublishedState.from_lock(lock, component=config.component)
     artifact_health = health.check_artifacts(
         state,
         max_workers,
         full_artifact_check=full_artifact_check,
         full_checked_artifacts=full_checked_artifacts,
-        now_iso=now_iso,
+        now_iso=CLOCK.now_iso,
         worker_count=worker_count,
         cache_dir=CACHE_DIR,
         user_agent=USER_AGENT,
     )
-    write_json(TRACK_HEALTH_PATH, track_health)
-    write_json(ARTIFACT_HEALTH_PATH, artifact_health)
+    JSON_FILES.write(TRACK_HEALTH_PATH, track_health)
+    JSON_FILES.write(ARTIFACT_HEALTH_PATH, artifact_health)
 
     failed_architectures = [
         f"{name}:{arch}"
@@ -318,7 +297,13 @@ def refresh(jobs: int | None = None, full_artifact_check: bool = False) -> None:
 
 def build() -> None:
     config = load_config()
-    deploy_tree.build_deployable_tree(config, load_published_state(config["component"]), dist_dir=DIST_DIR)
+    deploy_tree.DeployableAptTree(
+        config=deploy_tree.DeployConfig.model_validate(config.to_runtime_dict()),
+        state=load_published_state(config.component),
+        paths=deploy_tree.DeployPaths(dist_dir=DIST_DIR),
+        clock=CLOCK,
+        json_files=JSON_FILES,
+    ).build()
 
 
 def resolve_entry(
@@ -396,9 +381,9 @@ def resolve_entry(
             logger.warning("{}:{} refresh {}: {}", entry_name, arch, status.value, exc)
 
     return ResolvedEntry(
-        LockedEntry(homepage=entry.homepage, architectures=architectures),
-        full_checked_arches,
-        architecture_health,
+        entry=LockedEntry(homepage=entry.homepage, architectures=architectures),
+        full_checked_arches=full_checked_arches,
+        architecture_health=architecture_health,
     )
 
 
@@ -406,7 +391,7 @@ def locked_architecture(source_name: str, update_policy: str, artifact: LockedAr
     return LockedArchitecture(
         source=source_name,
         update_policy=update_policy,
-        resolved_at=now_iso(),
+        resolved_at=CLOCK.now_iso(),
         artifact=artifact,
     )
 
@@ -430,75 +415,29 @@ def previous_architecture_entry(
     return None
 
 
-def package_health_status(architecture_health: dict[str, ArchitectureHealth]) -> str:
+def package_health_status(architecture_health: dict[str, ArchitectureHealth]) -> PackageHealthStatus:
     statuses = [health.status for health in architecture_health.values()]
     if not statuses:
-        return ArchitectureHealthStatus.FAILED.value
+        return PackageHealthStatus.FAILED
     if all(status is ArchitectureHealthStatus.OK for status in statuses):
-        return ArchitectureHealthStatus.OK.value
+        return PackageHealthStatus.OK
     if all(status is ArchitectureHealthStatus.FAILED for status in statuses):
-        return ArchitectureHealthStatus.FAILED.value
-    return "partial"
+        return PackageHealthStatus.FAILED
+    return PackageHealthStatus.PARTIAL
 
 
-def load_config() -> dict[str, Any]:
+def load_config() -> AptIndexConfig:
     try:
-        return load_configuration(ROOT).to_runtime_dict()
+        return load_configuration(ROOT)
     except ConfigError as exc:
         raise SystemExit(str(exc)) from exc
 
 
-def load_json(path: Path, default: Any) -> Any:
-    if not path.exists():
-        return default
-    return json.loads(path.read_text(encoding="utf-8"))
-
-
-def write_json(path: Path, data: Any) -> None:
-    path.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-
-
 def load_published_state(component: str) -> PublishedState:
-    lock = load_json(LOCK_PATH, None)
+    lock = JSON_FILES.load(LOCK_PATH, None)
     if not lock:
         raise SystemExit("apt-index.lock.json is missing; run refresh first")
     return PublishedState.from_lock(lock, component=component)
-
-
-def fetch_json(url: str, headers: dict[str, str] | None = None) -> Any:
-    return json.loads(fetch_text(url, headers))
-
-
-def fetch_bytes(url: str, headers: dict[str, str] | None = None) -> bytes:
-    request_headers = {"User-Agent": USER_AGENT}
-    request_headers.update(headers or {})
-    request = urllib.request.Request(url, headers=request_headers)
-    try:
-        with urllib.request.urlopen(request, timeout=60) as response:
-            return response.read()
-    except urllib.error.HTTPError as exc:
-        body = exc.read().decode("utf-8", errors="replace")
-        raise RuntimeError(f"GET {url} failed: HTTP {exc.code}: {body}") from exc
-
-
-def fetch_text(url: str, headers: dict[str, str] | None = None) -> str:
-    return fetch_bytes(url, headers).decode("utf-8")
-
-
-def post_json(url: str, payload: Any, headers: dict[str, str] | None = None) -> Any:
-    return json.loads(post_text(url, json.dumps(payload), headers))
-
-
-def post_text(url: str, body: str, headers: dict[str, str] | None = None) -> str:
-    request_headers = {"User-Agent": USER_AGENT}
-    request_headers.update(headers or {})
-    request = urllib.request.Request(url, data=body.encode("utf-8"), headers=request_headers, method="POST")
-    try:
-        with urllib.request.urlopen(request, timeout=60) as response:
-            return response.read().decode("utf-8")
-    except urllib.error.HTTPError as exc:
-        response_body = exc.read().decode("utf-8", errors="replace")
-        raise RuntimeError(f"POST {url} failed: HTTP {exc.code}: {response_body}") from exc
 
 
 def worker_count(total: int, requested: int | None) -> int:
@@ -508,15 +447,6 @@ def worker_count(total: int, requested: int | None) -> int:
     if requested < 1:
         raise typer.BadParameter("jobs must be at least 1")
     return max(1, min(total or 1, requested))
-
-
-def now_iso() -> str:
-    return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
-
-
-def graphql_time(value: datetime) -> str:
-    return value.astimezone(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
-
 
 if __name__ == "__main__":
     app()

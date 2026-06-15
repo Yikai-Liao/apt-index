@@ -1,12 +1,78 @@
 from __future__ import annotations
 
-from typing import Any
+from typing import Any, Mapping
 
 from pydantic import BaseModel, ConfigDict
 
 
 def _package_virtual_path(component: str, entry_name: str, filename: str) -> str:
     return f"pool/{component}/{entry_name}/{filename}"
+
+
+class PackageIdentity(BaseModel):
+    model_config = ConfigDict(frozen=True)
+
+    entry_name: str
+    arch: str
+
+
+class RedirectShardKey(BaseModel):
+    model_config = ConfigDict(frozen=True)
+
+    component: str
+    entry_name: str
+
+    @property
+    def relative_path(self) -> str:
+        return f"{self.component}/{self.entry_name}.json"
+
+
+class RedirectRule(BaseModel):
+    model_config = ConfigDict(frozen=True)
+
+    path: str
+    target: str
+    shard: RedirectShardKey
+    filename: str
+
+
+class RedirectRules(BaseModel):
+    model_config = ConfigDict(frozen=True)
+
+    rules: tuple[RedirectRule, ...]
+
+    @property
+    def snapshot(self) -> dict[str, str]:
+        redirects: dict[str, str] = {}
+        for rule in self.rules:
+            existing_target = redirects.get(rule.path)
+            if existing_target and existing_target != rule.target:
+                raise RuntimeError(f"conflicting redirect target for {rule.path}")
+            redirects[rule.path] = rule.target
+        return dict(sorted(redirects.items()))
+
+    @property
+    def shards(self) -> dict[RedirectShardKey, dict[str, str]]:
+        shards: dict[RedirectShardKey, dict[str, str]] = {}
+        for rule in self.rules:
+            shard = shards.setdefault(rule.shard, {})
+            existing_target = shard.get(rule.filename)
+            if existing_target and existing_target != rule.target:
+                raise RuntimeError(f"conflicting redirect target for {rule.shard.entry_name}/{rule.filename}")
+            shard[rule.filename] = rule.target
+        return {
+            key: dict(sorted(shard.items()))
+            for key, shard in sorted(shards.items(), key=redirect_shard_item_sort_key)
+        }
+
+
+class DownloadPathIndex(BaseModel):
+    model_config = ConfigDict(frozen=True)
+
+    paths: dict[str, PackageIdentity]
+
+    def identity_for(self, path: str) -> PackageIdentity | None:
+        return self.paths.get(path)
 
 
 class PublishedArtifact(BaseModel):
@@ -28,7 +94,7 @@ class PublishedArtifact(BaseModel):
     sha256: str
     sha512: str
 
-    def package_stanza(self) -> dict[str, Any]:
+    def apt_package_stanza(self) -> dict[str, Any]:
         stanza = dict(self.control)
         stanza["Filename"] = self.virtual_path
         stanza["Size"] = str(self.size)
@@ -37,20 +103,34 @@ class PublishedArtifact(BaseModel):
         stanza["SHA256"] = self.sha256
         return stanza
 
+    @property
     def download_path(self) -> str:
         return "/" + self.virtual_path
 
-    def download_identity(self) -> tuple[str, str]:
-        return self.entry_name, self.package_arch
+    @property
+    def download_identity(self) -> PackageIdentity:
+        return PackageIdentity(entry_name=self.entry_name, arch=self.package_arch)
 
+    @property
+    def redirect_target(self) -> str:
+        return self.url
+
+    @property
     def package_name(self) -> str:
         return str(self.control.get("Package") or self.entry_name)
 
+    @property
     def version(self) -> str:
         return str(self.control.get("Version") or "")
 
+    @property
     def homepage(self) -> str:
         return str(self.entry_homepage or self.control.get("Homepage") or self.url or "#")
+
+    @property
+    def description(self) -> str:
+        value = self.control.get("Description")
+        return str(value or "").splitlines()[0].strip() if value else ""
 
 
 class LockedArtifact(BaseModel):
@@ -119,7 +199,7 @@ class PublishedState(BaseModel):
     entries: list[PublishedEntry]
 
     @classmethod
-    def from_lock(cls, lock: dict[str, Any], *, component: str) -> PublishedState:
+    def from_lock(cls, lock: Mapping[str, Any], *, component: str) -> PublishedState:
         locked = LockfileState.model_validate(lock)
         entries: list[PublishedEntry] = []
         for entry_name, entry in sorted(locked.packages.items()):
@@ -156,40 +236,54 @@ class PublishedState(BaseModel):
             )
         return cls(component=component, generated_at=locked.generated_at, entries=entries)
 
+    @property
     def architectures(self) -> list[str]:
-        return sorted({artifact.configured_arch for artifact in self.artifacts()})
+        return sorted({artifact.configured_arch for artifact in self.artifacts})
 
+    @property
     def artifacts(self) -> list[PublishedArtifact]:
         return [artifact for entry in self.entries for artifact in entry.artifacts]
 
     def artifacts_for_arch(self, arch: str) -> list[PublishedArtifact]:
-        return [artifact for artifact in self.artifacts() if artifact.configured_arch == arch]
+        return [artifact for artifact in self.artifacts if artifact.configured_arch == arch]
 
-    def download_path_index(self) -> dict[str, tuple[str, str]]:
+    def artifacts_by_architecture(self) -> dict[str, list[PublishedArtifact]]:
         return {
-            artifact.download_path(): artifact.download_identity()
-            for artifact in self.artifacts()
+            arch: self.artifacts_for_arch(arch)
+            for arch in self.architectures
         }
 
-    def redirect_snapshot(self) -> dict[str, str]:
-        redirects: dict[str, str] = {}
-        for artifact in self.artifacts():
-            virtual_path = artifact.download_path()
-            existing_target = redirects.get(virtual_path)
-            if existing_target and existing_target != artifact.url:
-                raise RuntimeError(f"conflicting redirect target for {virtual_path}")
-            redirects[virtual_path] = artifact.url
-        return dict(sorted(redirects.items()))
+    def download_paths(self) -> DownloadPathIndex:
+        return DownloadPathIndex(
+            paths={
+                artifact.download_path: artifact.download_identity
+                for artifact in self.artifacts
+            }
+        )
 
-    def redirect_shards(self) -> dict[tuple[str, str], dict[str, str]]:
-        shards: dict[tuple[str, str], dict[str, str]] = {}
+    def redirects(self) -> RedirectRules:
+        rules: list[RedirectRule] = []
         for entry in self.entries:
-            shard: dict[str, str] = {}
+            shard = RedirectShardKey(component=self.component, entry_name=entry.entry_name)
             for artifact in entry.artifacts:
-                existing_target = shard.get(artifact.filename)
-                if existing_target and existing_target != artifact.url:
-                    raise RuntimeError(f"conflicting redirect target for {artifact.entry_name}/{artifact.filename}")
-                shard[artifact.filename] = artifact.url
-            if shard:
-                shards[(self.component, entry.entry_name)] = dict(sorted(shard.items()))
-        return shards
+                rules.append(
+                    RedirectRule(
+                        path=artifact.download_path,
+                        target=artifact.redirect_target,
+                        shard=shard,
+                        filename=artifact.filename,
+                    )
+                )
+        return RedirectRules(rules=tuple(sorted(rules, key=redirect_rule_sort_key)))
+
+    def entries_for_site(self) -> list[PublishedEntry]:
+        return self.entries
+
+
+def redirect_shard_item_sort_key(item: tuple[RedirectShardKey, dict[str, str]]) -> tuple[str, str]:
+    key, _ = item
+    return key.component, key.entry_name
+
+
+def redirect_rule_sort_key(rule: RedirectRule) -> tuple[str, str]:
+    return rule.path, rule.target

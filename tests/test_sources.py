@@ -9,6 +9,21 @@ from apt_index.config import AurArchSource, EntryArchitecture, GithubArchSource,
 from apt_index.sources import github as github_sources
 
 
+class ResolverFetchers:
+    def __init__(self, *, json_payload: dict[str, object] | None = None, text_payload: str = "") -> None:
+        self.json_payload = json_payload or {}
+        self.text_payload = text_payload
+        self.json_calls: list[tuple[str, dict[str, str] | None]] = []
+
+    def fetch_json(self, url: str, headers: dict[str, str] | None = None) -> dict[str, object]:
+        self.json_calls.append((url, headers))
+        return self.json_payload
+
+    def fetch_text(self, url: str, headers: dict[str, str] | None = None) -> str:
+        del url, headers
+        return self.text_payload
+
+
 class ResolveCandidateTests(unittest.TestCase):
     def test_github_fixed_release_selects_matching_asset(self) -> None:
         architecture = EntryArchitecture(
@@ -19,15 +34,17 @@ class ResolveCandidateTests(unittest.TestCase):
                 release_tag="v1.2.3",
             ),
         )
-        calls: list[tuple[str, dict[str, str] | None]] = []
-        resolver = sources.build_candidate_resolver(
-            fetch_json=lambda url, headers=None: calls.append((url, headers)) or {
+        fetchers = ResolverFetchers(
+            json_payload={
                 "tag_name": "v1.2.3",
                 "assets": [
                     {"name": "pkg_1.2.3_amd64.deb", "browser_download_url": "https://example.test/pkg_1.2.3_amd64.deb"},
                 ],
-            },
-            fetch_text=lambda url, headers=None: "",
+            }
+        )
+        resolver = sources.build_candidate_resolver(
+            fetch_json=fetchers.fetch_json,
+            fetch_text=fetchers.fetch_text,
             root=Path("/tmp"),
         )
 
@@ -35,7 +52,7 @@ class ResolveCandidateTests(unittest.TestCase):
             candidate = resolver(architecture)
 
         self.assertEqual(
-            calls,
+            fetchers.json_calls,
             [("https://api.github.com/repos/example/pkg/releases/tags/v1.2.3", {})],
         )
         self.assertEqual(candidate.url, "https://example.test/pkg_1.2.3_amd64.deb")
@@ -50,16 +67,18 @@ class ResolveCandidateTests(unittest.TestCase):
                 asset_pattern="pkg_*_arm64.deb",
             ),
         )
-        calls: list[tuple[str, dict[str, str] | None]] = []
-        resolver = sources.build_candidate_resolver(
-            fetch_json=lambda url, headers=None: calls.append((url, headers)) or {
+        fetchers = ResolverFetchers(
+            json_payload={
                 "tag_name": "v2.0.0",
                 "assets": [
                     {"name": "pkg_2.0.0_amd64.deb", "browser_download_url": "https://example.test/pkg_2.0.0_amd64.deb"},
                     {"name": "pkg_2.0.0_arm64.deb", "browser_download_url": "https://example.test/pkg_2.0.0_arm64.deb"},
                 ],
-            },
-            fetch_text=lambda url, headers=None: "",
+            }
+        )
+        resolver = sources.build_candidate_resolver(
+            fetch_json=fetchers.fetch_json,
+            fetch_text=fetchers.fetch_text,
             root=Path("/tmp"),
         )
 
@@ -67,7 +86,7 @@ class ResolveCandidateTests(unittest.TestCase):
             candidate = resolver(architecture)
 
         self.assertEqual(
-            calls,
+            fetchers.json_calls,
             [("https://api.github.com/repos/example/pkg/releases/latest", {})],
         )
         self.assertEqual(candidate.url, "https://example.test/pkg_2.0.0_arm64.deb")
@@ -93,9 +112,10 @@ pkgbase = google-chrome
                 asset_pattern="google-chrome-stable_*_amd64.deb",
             ),
         )
+        fetchers = ResolverFetchers(text_payload=srcinfo)
         resolver = sources.build_candidate_resolver(
-            fetch_json=lambda url, headers=None: {},
-            fetch_text=lambda url, headers=None: srcinfo,
+            fetch_json=fetchers.fetch_json,
+            fetch_text=fetchers.fetch_text,
             root=Path("/tmp"),
         )
 
@@ -123,9 +143,10 @@ pkgbase = example-bin
                 asset_pattern="example.deb",
             ),
         )
+        fetchers = ResolverFetchers(text_payload=srcinfo)
         resolver = sources.build_candidate_resolver(
-            fetch_json=lambda url, headers=None: {},
-            fetch_text=lambda url, headers=None: srcinfo,
+            fetch_json=fetchers.fetch_json,
+            fetch_text=fetchers.fetch_text,
             root=Path("/tmp"),
         )
 
@@ -150,9 +171,10 @@ net.sf.files = {"deadbeef-static_1.10.3~alpha-1_amd64.deb":{"name":"deadbeef-sta
                 asset_regex=r"deadbeef-static_.+_amd64\.deb",
             ),
         )
+        fetchers = ResolverFetchers(text_payload=html)
         resolver = sources.build_candidate_resolver(
-            fetch_json=lambda url, headers=None: {},
-            fetch_text=lambda url, headers=None: html,
+            fetch_json=fetchers.fetch_json,
+            fetch_text=fetchers.fetch_text,
             root=Path("/tmp"),
         )
 
@@ -172,9 +194,10 @@ net.sf.files = {"deadbeef-static_1.10.3~alpha-1_amd64.deb":{"name":"deadbeef-sta
             update_policy="fixed",
             source=UrlArchSource(url="https://example.test/pkg_1.2.3_amd64.deb"),
         )
+        fetchers = ResolverFetchers()
         resolver = sources.build_candidate_resolver(
-            fetch_json=lambda url, headers=None: {},
-            fetch_text=lambda url, headers=None: "",
+            fetch_json=fetchers.fetch_json,
+            fetch_text=fetchers.fetch_text,
             root=Path("/tmp"),
         )
 
@@ -189,9 +212,10 @@ net.sf.files = {"deadbeef-static_1.10.3~alpha-1_amd64.deb":{"name":"deadbeef-sta
             update_policy="track",
             source=ScriptArchSource(command="./resolve.sh"),
         )
+        fetchers = ResolverFetchers()
         resolver = sources.build_candidate_resolver(
-            fetch_json=lambda url, headers=None: {},
-            fetch_text=lambda url, headers=None: "",
+            fetch_json=fetchers.fetch_json,
+            fetch_text=fetchers.fetch_text,
             root=Path("/tmp"),
         )
 
