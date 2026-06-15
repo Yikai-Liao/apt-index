@@ -1,0 +1,11 @@
+homepage = "https://meeting.tencent.com/download/"
+architectures = ["amd64", "arm64"]
+source = "aur"
+update_policy = "track"
+
+[sources.aur]
+package = "wemeet-bin"
+
+[sources.aur.asset_patterns]
+amd64 = "wemeet-*-x86_64.deb"
+arm64 = "wemeet-*-aarch64.deb"
