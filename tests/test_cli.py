@@ -634,6 +634,7 @@ class RedirectRulesTests(unittest.TestCase):
             [
                 "https://deb.example.test/pool/main/pkg/new.deb",
                 "https://deb.example.test/pool/main/pkg/old.deb",
+                "https://deb.example.test/redirect_rules.json",
             ],
         )
         self.assertEqual(lines, urls)
@@ -698,17 +699,54 @@ class DownloadStatsTests(unittest.TestCase):
         self.assertEqual(stats["source"], "none")
         self.assertEqual(stats["reason"], "analytics_query_failed")
 
+    def test_resolves_cloudflare_zone_id_from_hostname(self) -> None:
+        payloads = {
+            "https://api.cloudflare.com/client/v4/zones?name=deb.example.test": {"success": True, "result": []},
+            "https://api.cloudflare.com/client/v4/zones?name=example.test": {
+                "success": True,
+                "result": [{"id": "zone-id", "name": "example.test"}],
+            },
+        }
+
+        with (
+            patch.dict(cli.os.environ, {}, clear=True),
+            patch.object(cli, "fetch_json", side_effect=lambda url, headers=None: payloads[url]),
+        ):
+            zone_id = cli.resolve_cloudflare_zone_id("token", "deb.example.test")
+
+        self.assertEqual(zone_id, "zone-id")
+
+    def test_write_download_stats_resolves_zone_from_hostname(self) -> None:
+        env = {"CLOUDFLARE_API_TOKEN": "token"}
+        with (
+            tempfile.TemporaryDirectory() as tmp,
+            patch.dict(cli.os.environ, env, clear=True),
+            patch.object(cli, "resolve_cloudflare_zone_id", return_value="zone") as resolve_zone,
+            patch.object(cli, "fetch_download_stats", return_value={"source": "cloudflare_http_requests"}),
+        ):
+            output = Path(tmp) / "download_stats.json"
+            cli.write_download_stats(output, "deb.example.test")
+
+            stats = cli.load_json(output, None)
+
+        resolve_zone.assert_called_once_with("token", "deb.example.test")
+        self.assertEqual(stats, {"source": "cloudflare_http_requests"})
+
 
 class WorkerGenerationTests(unittest.TestCase):
-    def test_worker_reads_redirect_shard_and_returns_cacheable_redirect(self) -> None:
+    def test_worker_reads_redirect_shard_and_caches_redirect_response(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "_worker.js"
             cli.write_worker(path)
 
             worker = path.read_text(encoding="utf-8")
 
+        self.assertIn("const cache = caches.default", worker)
+        self.assertIn("await cache.match(cacheKey)", worker)
+        self.assertIn("ctx.waitUntil(cache.put(cacheKey, redirectResponse.clone())", worker)
         self.assertIn("/redirect-rules/${component}/${entryName}.json", worker)
         self.assertIn("const target = rules[filename]", worker)
+        self.assertIn('"Cache-Control": "public, max-age=300, s-maxage=2592000"', worker)
         self.assertIn('"Cloudflare-CDN-Cache-Control": "public, max-age=2592000"', worker)
         self.assertIn("status: 302", worker)
         self.assertNotIn("env.DOWNLOADS", worker)

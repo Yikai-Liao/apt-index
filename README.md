@@ -228,14 +228,14 @@ The upstream source controls the actual `.deb` contents. Artifact health checks 
 
 Cloudflare Pages hosts the generated static APT tree.
 
-Cloudflare Worker code handles redirected package download paths and reads generated static redirect shards. Redirect rules are data, not Worker code, so daily package updates do not require redeploying the Worker bundle. Package redirect responses are cacheable `302` responses; the publish workflow purges only cached package download URLs whose redirect target changed.
+Cloudflare Worker code handles redirected package download paths and reads generated static redirect shards. Redirect rules are data, not Worker code, so daily package updates do not require changing the Worker logic. The Worker stores generated `302` redirect responses in Cloudflare's Cache API with a long shared TTL; the publish workflow purges only cached package download URLs whose redirect target changed.
 
 Download request statistics use Cloudflare HTTP request analytics:
 
-- Set `CLOUDFLARE_ZONE_ID` for the zone that serves the repository.
 - The public JSON and page counts aggregate only `GET /pool/*` requests.
 - `HEAD` requests are excluded because they can represent probes, checks, or cache validation rather than a package download.
-- The GitHub Actions `CLOUDFLARE_API_TOKEN` must be able to query GraphQL HTTP request analytics and purge cached URLs for the zone.
+- The GitHub Actions `CLOUDFLARE_API_TOKEN` must be able to list zones, query GraphQL HTTP request analytics, and purge cached URLs for the zone.
+- `CLOUDFLARE_ZONE_ID` is optional; when it is absent, the tooling resolves the zone from the repository hostname.
 
 ## Implementation Notes
 

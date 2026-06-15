@@ -51,7 +51,6 @@ jobs:
       - name: Export download stats
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
         run: uv run apt-index download-stats --output dist/download_stats.json
 
       - name: Publish to Cloudflare Pages
@@ -63,5 +62,4 @@ jobs:
       - name: Purge changed package redirects
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
         run: uv run apt-index purge-redirect-cache --urls redirect-purge-urls.txt

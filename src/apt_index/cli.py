@@ -43,6 +43,7 @@ REDIRECT_RULES_DIRNAME = "redirect-rules"
 REDIRECT_SNAPSHOT_FILENAME = "snapshot.json.zst"
 REDIRECT_EDGE_TTL_SECONDS = 60 * 60 * 24 * 30
 REDIRECT_BROWSER_TTL_SECONDS = 60 * 5
+LEGACY_REDIRECT_RULES_PATHS = ("/redirect_rules.json",)
 GNUPG_DIR = ROOT / ".apt-index-gnupg"
 ENV_PATH = ROOT / ".env"
 USER_AGENT = "apt-index/0.1"
@@ -443,12 +444,13 @@ def plan_redirect_purge(output: Path, snapshot: Path, base_url: str, strict: boo
     base_url = base_url.rstrip("/")
     new_redirects = read_redirect_snapshot(snapshot)
     old_redirects = fetch_previous_redirect_snapshot(base_url, strict)
-    changed_paths = [
+    purge_paths = {
         path
         for path, old_target in old_redirects.items()
         if new_redirects.get(path) != old_target
-    ]
-    urls = [base_url + path for path in sorted(changed_paths)]
+    }
+    purge_paths.update(LEGACY_REDIRECT_RULES_PATHS)
+    urls = [base_url + path for path in sorted(purge_paths)]
     output.write_text("\n".join(urls) + ("\n" if urls else ""), encoding="utf-8")
     logger.info("planned {} redirect cache purge URLs at {}", len(urls), output)
     return urls
@@ -477,13 +479,47 @@ def purge_redirect_cache(urls_path: Path) -> None:
     if not urls:
         logger.info("no redirect cache URLs to purge")
         return
-    zone_id = os.environ.get("CLOUDFLARE_ZONE_ID")
     token = os.environ.get("CLOUDFLARE_API_TOKEN")
-    if not zone_id or not token:
-        raise RuntimeError("CLOUDFLARE_ZONE_ID and CLOUDFLARE_API_TOKEN are required to purge redirect cache")
+    hostname = urllib.parse.urlparse(urls[0]).hostname
+    if not token or not hostname:
+        raise RuntimeError("CLOUDFLARE_API_TOKEN and purge URL hostname are required to purge redirect cache")
+    zone_id = resolve_cloudflare_zone_id(token, hostname)
+    if not zone_id:
+        raise RuntimeError(f"could not resolve Cloudflare zone for {hostname!r}")
     for batch in batched(urls, 30):
         purge_cloudflare_urls(zone_id, token, batch)
     logger.info("purged {} redirect cache URLs", len(urls))
+
+
+def resolve_cloudflare_zone_id(token: str, hostname: str) -> str | None:
+    configured_zone_id = os.environ.get("CLOUDFLARE_ZONE_ID")
+    if configured_zone_id:
+        return configured_zone_id
+
+    headers = {
+        "Authorization": f"Bearer {token}",
+        "Accept": "application/json",
+    }
+    for zone_name in cloudflare_zone_name_candidates(hostname):
+        query = urllib.parse.urlencode({"name": zone_name})
+        payload = fetch_json(f"https://api.cloudflare.com/client/v4/zones?{query}", headers)
+        if not payload.get("success"):
+            raise RuntimeError(f"Cloudflare zone lookup failed: {payload.get('errors')!r}")
+        for zone in payload.get("result", []):
+            if zone.get("name") == zone_name and (hostname == zone_name or hostname.endswith("." + zone_name)):
+                zone_id = zone.get("id")
+                if zone_id:
+                    return str(zone_id)
+    return None
+
+
+def cloudflare_zone_name_candidates(hostname: str) -> list[str]:
+    labels = [label for label in hostname.lower().strip(".").split(".") if label]
+    return [
+        ".".join(labels[index:])
+        for index in range(max(len(labels) - 1, 0))
+        if len(labels[index:]) >= 2
+    ]
 
 
 def purge_cloudflare_urls(zone_id: str, token: str, urls: list[str]) -> None:
@@ -1018,11 +1054,29 @@ def sign_release(config: dict[str, Any]) -> None:
 
 def write_worker(path: Path) -> None:
     worker = """export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const url = new URL(request.url);
     const match = url.pathname.match(/^\\/pool\\/([^/]+)\\/([^/]+)\\/([^/]+)$/);
     if (!match) {
       return new Response("package redirect not found", { status: 404 });
+    }
+
+    if (request.method !== "GET" && request.method !== "HEAD") {
+      return new Response("method not allowed", {
+        status: 405,
+        headers: { "Allow": "GET, HEAD" },
+      });
+    }
+
+    const cacheUrl = new URL(url);
+    cacheUrl.search = "";
+    const cacheKey = new Request(cacheUrl.toString(), { method: "GET" });
+    const cache = caches.default;
+    let cached = await cache.match(cacheKey);
+    if (cached) {
+      cached = new Response(cached.body, cached);
+      cached.headers.set("X-Apt-Index-Redirect-Cache", "HIT");
+      return cached;
     }
 
     const [, component, entryName, filename] = match;
@@ -1038,14 +1092,23 @@ def write_worker(path: Path) -> None:
       return new Response("package redirect not found", { status: 404 });
     }
 
-    return new Response(null, {
+    const redirectResponse = new Response(null, {
       status: 302,
       headers: {
         "Location": target,
-        "Cache-Control": "public, max-age=__REDIRECT_BROWSER_TTL_SECONDS__",
+        "Cache-Control": "public, max-age=__REDIRECT_BROWSER_TTL_SECONDS__, s-maxage=__REDIRECT_EDGE_TTL_SECONDS__",
         "Cloudflare-CDN-Cache-Control": "public, max-age=__REDIRECT_EDGE_TTL_SECONDS__",
+        "X-Apt-Index-Redirect-Cache": "MISS",
       },
     });
+
+    if (request.method === "GET") {
+      ctx.waitUntil(cache.put(cacheKey, redirectResponse.clone()).catch((error) => {
+        console.warn("redirect cache put failed", error);
+      }));
+    }
+
+    return redirectResponse;
   },
 };
 """
@@ -1139,14 +1202,18 @@ def not_checked_artifact_health(artifact: dict[str, Any]) -> dict[str, Any]:
 
 def write_download_stats(path: Path, hostname: str | None, days: int = 30, strict: bool = False) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    zone_id = os.environ.get("CLOUDFLARE_ZONE_ID")
     token = os.environ.get("CLOUDFLARE_API_TOKEN")
-    if not zone_id or not token or not hostname:
+    if not token or not hostname:
+        if strict:
+            raise RuntimeError("CLOUDFLARE_API_TOKEN and repository hostname are required to export download stats")
         logger.warning("Cloudflare credentials are missing; writing empty download stats")
         write_json(path, empty_download_stats("missing_cloudflare_credentials", days))
         return
 
     try:
+        zone_id = resolve_cloudflare_zone_id(token, hostname)
+        if not zone_id:
+            raise RuntimeError(f"could not resolve Cloudflare zone for {hostname!r}")
         stats = fetch_download_stats(zone_id, token, hostname, days)
     except (RuntimeError, TimeoutError, urllib.error.URLError) as exc:
         if strict:
