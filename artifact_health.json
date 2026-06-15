@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T02:35:49+00:00",
+  "generated_at": "2026-06-15T02:51:22+00:00",
   "packages": {
     "bat": {
       "artifacts": {
@@ -55,14 +55,12 @@
     "fd": {
       "artifacts": {
         "amd64": {
-          "check": "full",
-          "sha256": "0e44eb5fca93f09bc6f5430b90acdf44c8e069d0a903700aeb4820629337b67b",
+          "check": "head",
           "size": 1399120,
           "status": "ok"
         },
         "arm64": {
-          "check": "full",
-          "sha256": "caa91b8c0fad7ba1964a78e4932a82e3a5deb747fa40d0922a8c692b6d5e0ce1",
+          "check": "head",
           "size": 1277486,
           "status": "ok"
         }
@@ -85,14 +83,12 @@
     "lazydocker": {
       "artifacts": {
         "amd64": {
-          "check": "full",
-          "sha256": "66634007919f9c1dc7a34bac7ee73c4b0d5b8bfec360ff2c687e83ddb872824a",
+          "check": "head",
           "size": 3683940,
           "status": "ok"
         },
         "arm64": {
-          "check": "full",
-          "sha256": "cfb99034a5129d8d717ab09ec51a7811331bc31f680730f00adc6e875c203ac0",
+          "check": "head",
           "size": 3157984,
           "status": "ok"
         }
@@ -129,8 +125,7 @@
     "ripgrep": {
       "artifacts": {
         "amd64": {
-          "check": "full",
-          "sha256": "62ce186675c71edbc7c48a67dc36f986974551354d6ce63726adc2d85aad802c",
+          "check": "head",
           "size": 1704160,
           "status": "ok"
         }
