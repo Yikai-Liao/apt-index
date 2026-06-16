@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T15:59:35+00:00",
+  "generated_at": "2026-06-16T02:53:13+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -59,6 +59,73 @@
         }
       },
       "homepage": "https://github.com/sharkdp/bat"
+    },
+    "beekeeper-studio": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "beekeeper-studio_5.8.1_amd64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
+              "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
+              "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
+              "Installed-Size": "1205954",
+              "License": "unknown",
+              "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
+              "Package": "beekeeper-studio",
+              "Priority": "optional",
+              "Recommends": "libappindicator3-1",
+              "Section": "default",
+              "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
+              "Version": "5.8.1"
+            },
+            "filename": "beekeeper-studio_5.8.1_amd64.deb",
+            "md5": "9ad9b54cfdc3d887f2d5b16738400dda",
+            "sha1": "0b19993126d8681bafe2a63e98f9315411a2e057",
+            "sha256": "7b9cbbb81cdd6c349440aa71463868fb6914df0c76deca5d4afd4fc26277d200",
+            "sha512": "48730d455e3712eb1cf6b6bda776f1ca166c91e5ac9988190d3fd12528e29c5084f99f62879e4058cdacd3468e8e8c6d78e897c88c5cfc4f77fd276fa2a40769",
+            "size": 235745000,
+            "upstream_version": "v5.8.1",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v5.8.1/beekeeper-studio_5.8.1_amd64.deb"
+          },
+          "resolved_at": "2026-06-16T02:52:56+00:00",
+          "source": "github",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "artifact": {
+            "asset_name": "beekeeper-studio_5.8.1_arm64.deb",
+            "control": {
+              "Architecture": "arm64",
+              "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
+              "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
+              "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
+              "Installed-Size": "1201457",
+              "License": "unknown",
+              "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
+              "Package": "beekeeper-studio",
+              "Priority": "optional",
+              "Recommends": "libappindicator3-1",
+              "Section": "default",
+              "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
+              "Version": "5.8.1"
+            },
+            "filename": "beekeeper-studio_5.8.1_arm64.deb",
+            "md5": "05f2ab6cf31a7b7aabcbc8760fa2afec",
+            "sha1": "b9d17d75cc0a02dfb75b7f0d8e959455030ae301",
+            "sha256": "8ae6437926258e249152ab4b200d4172b45a628aa0f5d9e56d10cbb1eb5590c4",
+            "sha512": "b3a95d8e35c34fb69a7013a836aff4c5e6700625b0b42f5034609c4332fce466c581befc66fbbc07aa4681339fd9f326d6424a2a01e6af60ff62799dedd7a231",
+            "size": 226854584,
+            "upstream_version": "v5.8.1",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v5.8.1/beekeeper-studio_5.8.1_arm64.deb"
+          },
+          "resolved_at": "2026-06-16T02:52:59+00:00",
+          "source": "github",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://github.com/beekeeper-studio/beekeeper-studio"
     },
     "bottom": {
       "architectures": {
@@ -120,6 +187,41 @@
         }
       },
       "homepage": "https://github.com/clementtsang/bottom"
+    },
+    "cloudflare-warp": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "cloudflare-warp-bin-2026.4.1390.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Depends": "libdbus-1-3, libc6, iproute2, nftables, gnupg2, desktop-file-utils, libcap2-bin, libnss3-tools, ca-certificates, libpcap0.8, libayatana-appindicator3-1, libwebkit2gtk-4.1-0",
+              "Description": "Cloudflare Warp Client",
+              "Homepage": "https://1.1.1.1",
+              "Installed-Size": "217630",
+              "License": "unknown",
+              "Maintainer": "Cloudflare <support@cloudflare.com>",
+              "Package": "cloudflare-warp",
+              "Priority": "optional",
+              "Section": "net",
+              "Suggests": "traceroute",
+              "Version": "2026.4.1390.0"
+            },
+            "filename": "cloudflare-warp_2026.4.1390.0_amd64.deb",
+            "md5": "33361f989149c371e672aeffcafc9d60",
+            "sha1": "6f93a803174d02f31dd3a9fa582757db3d86a6f2",
+            "sha256": "b84c268377b061970e0328dc71f42bce7d0cda4ca9f39b84386c29f6dd004a4a",
+            "sha512": "262952df565a4881c0c017caeb698eb1ec7f950018c0d4435b98f09b7a0a02a6e43d2361cb8da2d064eee61cc5fab8eb9415855c897c5a0016eb228429094c71",
+            "size": 77108434,
+            "upstream_version": "2026.4.1390",
+            "url": "https://pkg.cloudflareclient.com/pool/noble/main/c/cloudflare-warp/cloudflare-warp_2026.4.1390.0_amd64.deb"
+          },
+          "resolved_at": "2026-06-16T02:52:55+00:00",
+          "source": "aur",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://1.1.1.1/"
     },
     "cloudflared": {
       "architectures": {
@@ -184,6 +286,43 @@
       },
       "homepage": "https://github.com/cloudflare/cloudflared"
     },
+    "cursor": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "cursor_3.7.42_amd64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Conflicts": "cursor",
+              "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.14), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
+              "Description": "The AI Code Editor.",
+              "Homepage": "https://cursor.com",
+              "Installed-Size": "879753",
+              "Maintainer": "Cursor <hi@cursor.com>",
+              "Package": "cursor",
+              "Priority": "optional",
+              "Provides": "cursor",
+              "Recommends": "libvulkan1",
+              "Replaces": "cursor",
+              "Section": "devel",
+              "Version": "3.7.42-1781553940"
+            },
+            "filename": "cursor_3.7.42_amd64.deb",
+            "md5": "98666fa8780bf3eadff3988682c35102",
+            "sha1": "226782b40d98ea1fdbe697dfba07eda0deca270a",
+            "sha256": "b96ac10ac806233d1c245c7f2b605e4f925f0ebd42b479c2dfa02f20e86a35c0",
+            "sha512": "f64441f8753d9b39f779b73b6a52ac7a4df63491ec24033b2d9e3dc4e67741057636f2e909c799bb9efff6b2c1b006050dd698bc41a1fd8c77fdb06f0f0dea9d",
+            "size": 187926668,
+            "upstream_version": "3.7.42",
+            "url": "https://downloads.cursor.com/production/5702c9cfca656d8710fad58402fe37f14345e3ac/linux/x64/deb/amd64/deb/cursor_3.7.42_amd64.deb"
+          },
+          "resolved_at": "2026-06-16T02:52:58+00:00",
+          "source": "aur",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://www.cursor.com/"
+    },
     "deadbeef": {
       "architectures": {
         "amd64": {
@@ -244,6 +383,73 @@
         }
       },
       "homepage": "https://deadbeef.sourceforge.io/"
+    },
+    "drawio": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "drawio-amd64-30.0.4.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
+              "Description": "\n  draw.io desktop",
+              "Homepage": "https://github.com/jgraph/drawio",
+              "Installed-Size": "443657",
+              "License": "Apache-2.0",
+              "Maintainer": "draw.io <desktop@draw.io>",
+              "Package": "draw.io",
+              "Priority": "optional",
+              "Recommends": "libappindicator3-1",
+              "Section": "default",
+              "Vendor": "draw.io <desktop@draw.io>",
+              "Version": "30.0.4"
+            },
+            "filename": "draw.io_30.0.4_amd64.deb",
+            "md5": "3ea90ff5e39ab89bf40c82e6b7e889fe",
+            "sha1": "0d043c658a16ec46f08e9602f18a44cbf9eadf90",
+            "sha256": "c2da34d702e01855af9c9c60484cb9a4984b87f6811a195fcc5a2ff5b533033a",
+            "sha512": "f3cc237239f751e9dd35842efc4677760958340d7f9015913b04b40410f480794e80afb20aa2ede8351350a5931f5034836d561291c70cb686af8cf37597a4e7",
+            "size": 129365504,
+            "upstream_version": "v30.0.4",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v30.0.4/drawio-amd64-30.0.4.deb"
+          },
+          "resolved_at": "2026-06-16T02:52:56+00:00",
+          "source": "github",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "artifact": {
+            "asset_name": "drawio-arm64-30.0.4.deb",
+            "control": {
+              "Architecture": "arm64",
+              "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
+              "Description": "\n  draw.io desktop",
+              "Homepage": "https://github.com/jgraph/drawio",
+              "Installed-Size": "449731",
+              "License": "Apache-2.0",
+              "Maintainer": "draw.io <desktop@draw.io>",
+              "Package": "draw.io",
+              "Priority": "optional",
+              "Recommends": "libappindicator3-1",
+              "Section": "default",
+              "Vendor": "draw.io <desktop@draw.io>",
+              "Version": "30.0.4"
+            },
+            "filename": "draw.io_30.0.4_arm64.deb",
+            "md5": "4f8f8b19bc60f54da961c017af8c551c",
+            "sha1": "56cf415b3ad3e952e6131887546021611aaf1f48",
+            "sha256": "2036f92e193162c260df4f8feb4434680efabfa0f5e17201533c67c28b123b15",
+            "sha512": "065b2536d5d05a610ca0544c18490c4157a42163fc3a7cbf210b0594e79e78eb0eae53f1b40faa272171bae29ba5b7f5f89ace3aa7415931633da2c7d14c1cfb",
+            "size": 124278800,
+            "upstream_version": "v30.0.4",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v30.0.4/drawio-arm64-30.0.4.deb"
+          },
+          "resolved_at": "2026-06-16T02:52:58+00:00",
+          "source": "github",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://www.drawio.com/"
     },
     "dust": {
       "architectures": {
@@ -490,6 +696,73 @@
         }
       },
       "homepage": "https://www.feishu.cn/"
+    },
+    "ferdium": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "Ferdium-linux-7.1.2-amd64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
+              "Description": "Messaging app for WhatsApp, Slack, Telegram, Gmail, Google Chat, and many more.\n  Desktop app bringing all your messaging services into one installable",
+              "Homepage": "https://github.com/ferdium/ferdium-app",
+              "Installed-Size": "478243",
+              "License": "Apache-2.0",
+              "Maintainer": "Ferdium Contributors <hello@ferdium.org>",
+              "Package": "ferdium",
+              "Priority": "optional",
+              "Recommends": "libappindicator3-1",
+              "Section": "default",
+              "Vendor": "Ferdium Contributors <hello@ferdium.org>",
+              "Version": "7.1.2"
+            },
+            "filename": "ferdium_7.1.2_amd64.deb",
+            "md5": "5504c73970c5653271a3d8f09a7a7832",
+            "sha1": "7d0ac6b2cbfe9aa5b06df727ea365a7fc943e274",
+            "sha256": "38340a16305adab889636e9a3da01f2f3b82c8b624079a184b1204dbc9cc9b06",
+            "sha512": "66fb007c1acda7ea1c34e8ff86137d754081a0f50411e5355a38f00725b574115df63ecbcaa09d5eef63fc8bedd58830c3cf2cee9d5bd8e621d68a984d82f953",
+            "size": 101567598,
+            "upstream_version": "v7.1.2",
+            "url": "https://github.com/ferdium/ferdium-app/releases/download/v7.1.2/Ferdium-linux-7.1.2-amd64.deb"
+          },
+          "resolved_at": "2026-06-16T02:52:59+00:00",
+          "source": "github",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "artifact": {
+            "asset_name": "Ferdium-linux-7.1.2-arm64.deb",
+            "control": {
+              "Architecture": "arm64",
+              "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
+              "Description": "Messaging app for WhatsApp, Slack, Telegram, Gmail, Google Chat, and many more.\n  Desktop app bringing all your messaging services into one installable",
+              "Homepage": "https://github.com/ferdium/ferdium-app",
+              "Installed-Size": "484386",
+              "License": "Apache-2.0",
+              "Maintainer": "Ferdium Contributors <hello@ferdium.org>",
+              "Package": "ferdium",
+              "Priority": "optional",
+              "Recommends": "libappindicator3-1",
+              "Section": "default",
+              "Vendor": "Ferdium Contributors <hello@ferdium.org>",
+              "Version": "7.1.2"
+            },
+            "filename": "ferdium_7.1.2_arm64.deb",
+            "md5": "5f0b7d248e3befa8c4537b2f0bea8638",
+            "sha1": "f7023c65c596777a7e57ef062eeae050c13afcb7",
+            "sha256": "0981e84f0e8953253ade24ddf6d01b7d65676f8f16719806b63b61aa79400fc2",
+            "sha512": "383d72bf611cd6b5a92ae2e700daf7d485f8814c514fa89db0207308ae940c06e4938006d1ac7e93616047374348b0d81cea8a38085aefb0c76e97d3037728ae",
+            "size": 97346220,
+            "upstream_version": "v7.1.2",
+            "url": "https://github.com/ferdium/ferdium-app/releases/download/v7.1.2/Ferdium-linux-7.1.2-arm64.deb"
+          },
+          "resolved_at": "2026-06-16T02:53:00+00:00",
+          "source": "github",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://ferdium.org/"
     },
     "flclash": {
       "architectures": {
@@ -769,6 +1042,73 @@
       },
       "homepage": "https://github.com/dariogriffo/lazydocker-debian"
     },
+    "localsend": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "LocalSend-1.17.0-linux-x86-64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Depends": "libappindicator3-1 | libayatana-appindicator3-1, gir1.2-appindicator3-0.1 | gir1.2-ayatanaappindicator3-0.1, libayatana-ido3-0.4-0, xdg-user-dirs",
+              "Description": "An open source cross-platform alternative to AirDrop",
+              "Essential": "no",
+              "Homepage": "https://localsend.org/",
+              "Installed-Size": "30600",
+              "Maintainer": "Tienisto <dev.tien.donam@gmail.com>",
+              "Package": "localsend",
+              "Pre-Depends": "libc6 (>= 2.31)",
+              "Priority": "optional",
+              "Section": "x11",
+              "Uploaders": "TheGB0077 <gb.lima.dev@gmail.com>",
+              "Version": "1.17.0+58"
+            },
+            "filename": "localsend_1.17.0+58_amd64.deb",
+            "md5": "59e559f84fe892f067c232c5c2b9b075",
+            "sha1": "eba64eb18930d0a832bea05b33f5263762e5647a",
+            "sha256": "b0244b2c3eacb2a81d61b2662534d6036ab37ace10d6782da36b630c222fa04c",
+            "sha512": "564a194f9f347431140028fc1c9fdd3cdfcefbc9d083542896502230bfa68afd123b599d450b2b5b2ba62262ffb53b9d9e62be0fdb72889f60c4d2f2e2d03a44",
+            "size": 11709940,
+            "upstream_version": "v1.17.0",
+            "url": "https://github.com/localsend/localsend/releases/download/v1.17.0/LocalSend-1.17.0-linux-x86-64.deb"
+          },
+          "resolved_at": "2026-06-16T02:53:00+00:00",
+          "source": "github",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "artifact": {
+            "asset_name": "LocalSend-1.17.0-linux-arm-64.deb",
+            "control": {
+              "Architecture": "arm64",
+              "Depends": "libappindicator3-1 | libayatana-appindicator3-1, gir1.2-appindicator3-0.1 | gir1.2-ayatanaappindicator3-0.1, libayatana-ido3-0.4-0, xdg-user-dirs",
+              "Description": "An open source cross-platform alternative to AirDrop",
+              "Essential": "no",
+              "Homepage": "https://localsend.org/",
+              "Installed-Size": "30600",
+              "Maintainer": "Tienisto <dev.tien.donam@gmail.com>",
+              "Package": "localsend",
+              "Pre-Depends": "libc6 (>= 2.31)",
+              "Priority": "optional",
+              "Section": "x11",
+              "Uploaders": "TheGB0077 <gb.lima.dev@gmail.com>",
+              "Version": "1.17.0+58"
+            },
+            "filename": "localsend_1.17.0+58_arm64.deb",
+            "md5": "603dcdd5db0dbc3fd8b2e985e70ed5f6",
+            "sha1": "008a96e952edb4e23d5453dae9d684d4cc3c1ddf",
+            "sha256": "c2c792aadabeecf864f4105f8b1f8693941bc752fda582f0d2b3794765fcf803",
+            "sha512": "e4ed8d135b66fe699ed54ad04edb9933cfdae0917ea3bff4157041d3c6437a175d83fa955a7e98bd0b9496d3fce35ceb12ed7ab884cef3decab218966301c2b7",
+            "size": 10841168,
+            "upstream_version": "v1.17.0",
+            "url": "https://github.com/localsend/localsend/releases/download/v1.17.0/LocalSend-1.17.0-linux-arm-64.deb"
+          },
+          "resolved_at": "2026-06-16T02:53:01+00:00",
+          "source": "github",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://localsend.org/"
+    },
     "lsd": {
       "architectures": {
         "amd64": {
@@ -825,6 +1165,73 @@
         }
       },
       "homepage": "https://github.com/lsd-rs/lsd"
+    },
+    "mockoon": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "mockoon-9.6.1.amd64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
+              "Description": "\n  Mockoon is the easiest and quickest way to run mock APIs locally. No remote deployment, no account required, open source.",
+              "Homepage": "https://mockoon.com",
+              "Installed-Size": "362714",
+              "License": "MIT",
+              "Maintainer": "Mockoon <team@mockoon.com>",
+              "Package": "mockoon",
+              "Priority": "optional",
+              "Recommends": "libappindicator3-1",
+              "Section": "default",
+              "Vendor": "Mockoon <team@mockoon.com>",
+              "Version": "9.6.1"
+            },
+            "filename": "mockoon-9.6.1.amd64.deb",
+            "md5": "ee77d27277f7d3616ce110c56ce54fd8",
+            "sha1": "c93a979958ae6ff66ba1ed096769d199e4947df9",
+            "sha256": "5bb599cb5fe5b9bbd024b3105e1d747343389990c5a956e69103a67166c2d98d",
+            "sha512": "df3d7b28575f9e5adafca27e570cadba3e9a8c0e53c026da14fc31606701ec48b085984b34d3d0b687beb5051492755c163a0b5f5985bbae187a0d3fd2c8e2da",
+            "size": 100143208,
+            "upstream_version": "v9.6.1",
+            "url": "https://github.com/mockoon/mockoon/releases/download/v9.6.1/mockoon-9.6.1.amd64.deb"
+          },
+          "resolved_at": "2026-06-16T02:53:02+00:00",
+          "source": "github",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "artifact": {
+            "asset_name": "mockoon-9.6.1.arm64.deb",
+            "control": {
+              "Architecture": "arm64",
+              "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
+              "Description": "\n  Mockoon is the easiest and quickest way to run mock APIs locally. No remote deployment, no account required, open source.",
+              "Homepage": "https://mockoon.com",
+              "Installed-Size": "366862",
+              "License": "MIT",
+              "Maintainer": "Mockoon <team@mockoon.com>",
+              "Package": "mockoon",
+              "Priority": "optional",
+              "Recommends": "libappindicator3-1",
+              "Section": "default",
+              "Vendor": "Mockoon <team@mockoon.com>",
+              "Version": "9.6.1"
+            },
+            "filename": "mockoon-9.6.1.arm64.deb",
+            "md5": "8851f62ab5cb0c14440352945d3ca7e1",
+            "sha1": "0341747cc9394ca83a0c4859f2154639aa9e2007",
+            "sha256": "9379d954d8eb2862600ff4f4c4fd4dbaf9fcc6afdea3cc8c69ff2880c502a813",
+            "sha512": "f09fc4a8621d44adcfc3428c264c3ea69815469a88ff5ebee4bb2b7610782105cd8253f9b17c11789074d56cf895eb12d47cffb8f7f2321c13fd8ea51b3bf34a",
+            "size": 94697708,
+            "upstream_version": "v9.6.1",
+            "url": "https://github.com/mockoon/mockoon/releases/download/v9.6.1/mockoon-9.6.1.arm64.deb"
+          },
+          "resolved_at": "2026-06-16T02:53:03+00:00",
+          "source": "github",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://mockoon.com/"
     },
     "motrix": {
       "architectures": {
@@ -897,53 +1304,53 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "MotrixNext_3.9.4_amd64.deb",
+            "asset_name": "MotrixNext_3.9.5_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libayatana-appindicator3-1, libwebkit2gtk-4.1-0, libgtk-3-0",
               "Description": "A full-featured download manager\n (none)",
-              "Installed-Size": "56423",
+              "Installed-Size": "56714",
               "Maintainer": "AnInsomniacy",
               "Package": "motrix-next",
               "Priority": "optional",
-              "Version": "3.9.4"
+              "Version": "3.9.5"
             },
-            "filename": "motrix-next_3.9.4_amd64.deb",
-            "md5": "a7396279fadda88d29bbc5d38cfeb880",
-            "sha1": "3c71bd91c22d0d300d7627d5d97fcd8aeb1221c8",
-            "sha256": "11ff316152fa3e79b7bfa7d1bfebbbacac1420d6829fcbd4bc9794c3a8166c29",
-            "sha512": "ed32f90fc8264c7a5616429b21e4a5a30987f6c7efd2caf071629bd1585af1a827b1ccc8f46234d53f8a5d99138ddd099fc6b47754f5dd9b16112e6631847683",
-            "size": 24371726,
-            "upstream_version": "v3.9.4",
-            "url": "https://github.com/AnInsomniacy/motrix-next/releases/download/v3.9.4/MotrixNext_3.9.4_amd64.deb"
+            "filename": "motrix-next_3.9.5_amd64.deb",
+            "md5": "c0031fa64f422113bc8d568085d6c825",
+            "sha1": "997dcfb9976301a25e70039defd869f5f402612e",
+            "sha256": "1a15672eaacdc7fae1aace288648f0222517b884332b3b9d5bbd6060f3a17d85",
+            "sha512": "ba32ad027f570366dfbfefda701d1186174010852c6da5fc094ff5c37f763cdffc069a985b219a20c5fb8676c662fac44042b14f2629736ff4596d269514acec",
+            "size": 24459770,
+            "upstream_version": "v3.9.5",
+            "url": "https://github.com/AnInsomniacy/motrix-next/releases/download/v3.9.5/MotrixNext_3.9.5_amd64.deb"
           },
-          "resolved_at": "2026-06-15T13:20:33+00:00",
+          "resolved_at": "2026-06-16T02:53:01+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "MotrixNext_3.9.4_arm64.deb",
+            "asset_name": "MotrixNext_3.9.5_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libayatana-appindicator3-1, libwebkit2gtk-4.1-0, libgtk-3-0",
               "Description": "A full-featured download manager\n (none)",
-              "Installed-Size": "54928",
+              "Installed-Size": "55090",
               "Maintainer": "AnInsomniacy",
               "Package": "motrix-next",
               "Priority": "optional",
-              "Version": "3.9.4"
+              "Version": "3.9.5"
             },
-            "filename": "motrix-next_3.9.4_arm64.deb",
-            "md5": "0597dfaec5538ae173bc0896fb8b27e3",
-            "sha1": "7e370fcd6bc11b0c769f2717e6922e8125716c9c",
-            "sha256": "afc5e18db15a779e3a061443bf1a5caf444b4f81ffe5fd63f5ce8d2a24cf38d4",
-            "sha512": "b22d05eafa9ac603c51cf00cd1eb469f12548424f7887e60012d1266be82bbe65b7b5d46efeebc9177984fd436e2c0b0f8b85b67d3b64810d777728085db96f2",
-            "size": 24437308,
-            "upstream_version": "v3.9.4",
-            "url": "https://github.com/AnInsomniacy/motrix-next/releases/download/v3.9.4/MotrixNext_3.9.4_arm64.deb"
+            "filename": "motrix-next_3.9.5_arm64.deb",
+            "md5": "addad3a6f1901972ee1f9532e8b1f463",
+            "sha1": "6fcd5fcebb1e488b97ee2e4bcb10740e725f025b",
+            "sha256": "8fbcc7dda7d7a3ed25e533e50961b3d52e750d5a5160e31e2f4f76baf06517fe",
+            "sha512": "00ea9af66e8f9b434fa5277c79dd4f7a3f22ca8fb8413f91d9150a0cd282aeb0fc119d0a731c6fde1fe7567b1800aa487124b6800c5d59ec25290caa71901d4e",
+            "size": 24537754,
+            "upstream_version": "v3.9.5",
+            "url": "https://github.com/AnInsomniacy/motrix-next/releases/download/v3.9.5/MotrixNext_3.9.5_arm64.deb"
           },
-          "resolved_at": "2026-06-15T13:20:34+00:00",
+          "resolved_at": "2026-06-16T02:53:02+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1354,6 +1761,69 @@
         }
       },
       "homepage": "https://github.com/ISMAELMARTINEZ/teams-for-linux"
+    },
+    "typora": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "typora_1.13.6_amd64.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Description": "a minimal Markdown reading & writing app. Change Log: (https://typora.io/releases/all)\n Markdown Editor",
+              "Homepage": "http://typora.io",
+              "Installed-Size": "367553",
+              "Maintainer": "typora<hi@typora.io>",
+              "Package": "typora",
+              "Priority": "optional",
+              "Recommends": "lsb-release",
+              "Section": "editors",
+              "Suggests": "pandoc",
+              "Version": "1.13.6-1"
+            },
+            "filename": "typora_1.13.6_amd64.deb",
+            "md5": "daa71fb94c67f5706c929d1eea15685d",
+            "sha1": "e6cf3ef8bed820c093e954b5de624606e2c240bb",
+            "sha256": "13056a3229ef0b6e91e542c31a288e3704b7b07dc6049fec3ebda99ea7d0479b",
+            "sha512": "a4b92a800731dee9186bcb3ddacbc2c3c99b66c4bec3c905dc80f945eb8900cf88bc0169077bca4660f2d4ea27562099e31093f0782ad1a849b9f4ebbf4de162",
+            "size": 106803918,
+            "upstream_version": "1.13.6",
+            "url": "https://download.typora.io/linux/typora_1.13.6_amd64.deb"
+          },
+          "resolved_at": "2026-06-16T02:53:07+00:00",
+          "source": "aur",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "artifact": {
+            "asset_name": "typora_1.13.6_arm64.deb",
+            "control": {
+              "Architecture": "arm64",
+              "Description": "a minimal Markdown reading & writing app. Change Log: (https://typora.io/releases/all)\n Markdown Editor",
+              "Homepage": "http://typora.io",
+              "Installed-Size": "322956",
+              "Maintainer": "typora<hi@typora.io>",
+              "Package": "typora",
+              "Priority": "optional",
+              "Recommends": "lsb-release",
+              "Section": "editors",
+              "Suggests": "pandoc",
+              "Version": "1.13.6-1"
+            },
+            "filename": "typora_1.13.6_arm64.deb",
+            "md5": "8e942a76440afa870a83084a9d0a4b52",
+            "sha1": "b39d960471dd6d8e10466289f390078fecc4cf2b",
+            "sha256": "dff792f71002efe579e60ae11cf2d4ffdf8979f917808c8a944877bd192a654a",
+            "sha512": "b10a85fcbdfe89a0e2fc260d06005b60e298fc8f5513e60575d685ef8a679e73d3d90776f17dac03e0a716a05e0ae06bfa69af39a35f19aec910289db4bdfbe7",
+            "size": 87709172,
+            "upstream_version": "1.13.6",
+            "url": "https://download.typora.io/linux/typora_1.13.6_arm64.deb"
+          },
+          "resolved_at": "2026-06-16T02:53:12+00:00",
+          "source": "aur",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://typora.io/"
     },
     "vscode": {
       "architectures": {
