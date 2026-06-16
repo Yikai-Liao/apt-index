@@ -1,0 +1,10 @@
+homepage = "https://1.1.1.1/"
+architectures = ["amd64"]
+source = "aur"
+update_policy = "track"
+
+[sources.aur]
+package = "cloudflare-warp-bin"
+
+[sources.aur.asset_patterns]
+amd64 = "cloudflare-warp-bin-*.deb"
