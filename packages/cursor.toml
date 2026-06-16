@@ -1,0 +1,10 @@
+homepage = "https://www.cursor.com/"
+architectures = ["amd64"]
+source = "aur"
+update_policy = "track"
+
+[sources.aur]
+package = "cursor-bin"
+
+[sources.aur.asset_patterns]
+amd64 = "cursor_*_amd64.deb"
