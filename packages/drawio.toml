@@ -1,0 +1,11 @@
+homepage = "https://www.drawio.com/"
+architectures = ["amd64", "arm64"]
+source = "github"
+update_policy = "track"
+
+[sources.github]
+repo = "jgraph/drawio-desktop"
+
+[sources.github.asset_patterns]
+amd64 = "drawio-amd64-*.deb"
+arm64 = "drawio-arm64-*.deb"
