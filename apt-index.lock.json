@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T02:54:23+00:00",
+  "generated_at": "2026-06-16T07:45:36+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -1802,13 +1802,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "teams-for-linux_2.10.0_amd64.deb",
+            "asset_name": "teams-for-linux_2.11.1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Teams for Linux\n  Unofficial Microsoft Teams client for Linux using Electron. It uses the Web App and wraps it as a standalone application using Electron.",
               "Homepage": "https://github.com/IsmaelMartinez/teams-for-linux",
-              "Installed-Size": "333471",
+              "Installed-Size": "333635",
               "License": "GPL-3.0-or-later",
               "Maintainer": "Ismael Martinez <ismaelmartinez@gmail.com>",
               "Package": "teams-for-linux",
@@ -1816,30 +1816,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "net",
               "Vendor": "Ismael Martinez <ismaelmartinez@gmail.com>",
-              "Version": "2.10.0"
+              "Version": "2.11.1"
             },
-            "filename": "teams-for-linux_2.10.0_amd64.deb",
-            "md5": "d266694a1c51397a825f7dd8d3ae13b8",
-            "sha1": "14fbb68e33c5dc816fc391aa31fa8ba3ed54efdf",
-            "sha256": "e27830397987990ed1ad378def8b3aa401a2ee6c7b6ee5333b663b396555a748",
-            "sha512": "4282a57017b4fc98bdaba58bda0040ef1a156629bc340d2df8d0e49cc3cd173ca873e7481253ca0e7bbcb3860b2da1c604b2d39615cf7642421cbcdcdd42d90b",
-            "size": 108441188,
-            "upstream_version": "v2.10.0",
-            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.10.0/teams-for-linux_2.10.0_amd64.deb"
+            "filename": "teams-for-linux_2.11.1_amd64.deb",
+            "md5": "cab1ec5249b5c222e60d114658913145",
+            "sha1": "e8e9fe6f4151bac8972be07f421e35514375c65e",
+            "sha256": "afeb3b31b17e74aff663955adb8062f9e8da41bf8f3407daac670c1d73103da1",
+            "sha512": "08c9ed0cfda4f8afe04dbbf5421bc166de05a9a3dbdce359722ae31151e1c1823b901828830e1643d6e1021074cd50ad2f7d1a0548c3738933b23630c94cabaa",
+            "size": 108377640,
+            "upstream_version": "v2.11.1",
+            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.11.1/teams-for-linux_2.11.1_amd64.deb"
           },
-          "resolved_at": "2026-06-15T13:47:30+00:00",
+          "resolved_at": "2026-06-16T07:45:26+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "teams-for-linux_2.10.0_arm64.deb",
+            "asset_name": "teams-for-linux_2.11.1_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Teams for Linux\n  Unofficial Microsoft Teams client for Linux using Electron. It uses the Web App and wraps it as a standalone application using Electron.",
               "Homepage": "https://github.com/IsmaelMartinez/teams-for-linux",
-              "Installed-Size": "337693",
+              "Installed-Size": "337853",
               "License": "GPL-3.0-or-later",
               "Maintainer": "Ismael Martinez <ismaelmartinez@gmail.com>",
               "Package": "teams-for-linux",
@@ -1847,18 +1847,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "net",
               "Vendor": "Ismael Martinez <ismaelmartinez@gmail.com>",
-              "Version": "2.10.0"
+              "Version": "2.11.1"
             },
-            "filename": "teams-for-linux_2.10.0_arm64.deb",
-            "md5": "e47bb82bf6e81e896db34c5d0122af8c",
-            "sha1": "dbb723dc67cf6834dcb7e3f859953d6c89410ff3",
-            "sha256": "b5bc5ad1a82460eee75e8f75c26dca5c804d0115754f672d8d6b972faecc8672",
-            "sha512": "9d53693cf4b3a063cd47df8aa0b11ff93509d016cbe01734338625088678f849dc28fe429f26d61fdcdafe81ccb497f359ed7b80b6d9493e46d9fcb6dc9fe3dc",
-            "size": 103004464,
-            "upstream_version": "v2.10.0",
-            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.10.0/teams-for-linux_2.10.0_arm64.deb"
+            "filename": "teams-for-linux_2.11.1_arm64.deb",
+            "md5": "6761b16c2a95bf7e685679270be68a64",
+            "sha1": "c876544ea3ef7bee86cc7387a7305d60a380b410",
+            "sha256": "dab7562c889db17acf41b8ffc2ffc6151b57386a778ea033c333492234aa1d19",
+            "sha512": "809ea504d265d28edd4309b0f0f8bcafa70db6f37cc4bcb849559d0d807b2a04247391566da6d30002961ec5682d51609b9b676c6af7746ed2c090c5b50e6526",
+            "size": 102973988,
+            "upstream_version": "v2.11.1",
+            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.11.1/teams-for-linux_2.11.1_arm64.deb"
           },
-          "resolved_at": "2026-06-15T13:47:32+00:00",
+          "resolved_at": "2026-06-16T07:45:28+00:00",
           "source": "github",
           "update_policy": "track"
         }
