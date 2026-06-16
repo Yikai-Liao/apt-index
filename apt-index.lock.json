@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T02:53:13+00:00",
+  "generated_at": "2026-06-16T02:54:23+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -187,6 +187,73 @@
         }
       },
       "homepage": "https://github.com/clementtsang/bottom"
+    },
+    "bruno": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "bruno_3.4.2_amd64_linux.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, libasound2",
+              "Description": "\n  Opensource API Client for Exploring and Testing APIs",
+              "Homepage": "https://www.usebruno.com",
+              "Installed-Size": "488636",
+              "License": "unknown",
+              "Maintainer": "Anoop M D <anoop.md1421@gmail.com>",
+              "Package": "bruno",
+              "Priority": "optional",
+              "Recommends": "libappindicator3-1",
+              "Section": "default",
+              "Vendor": "Anoop M D <anoop.md1421@gmail.com>",
+              "Version": "3.4.2"
+            },
+            "filename": "bruno_3.4.2_amd64_linux.deb",
+            "md5": "086552df41e0501f626cf97650dd1e98",
+            "sha1": "1f2dd0a6cedc9609feaebd4646c86be1c4b7ccf6",
+            "sha256": "801a05d9caf5c1329705515e93a43b411117d9eb04f87cb7878080ced11da47a",
+            "sha512": "c96c9b1fb7ec5895505c3bc9f555e6345980e1f1e7c6faa0dbf51080264a85037fc9a3728139c4cb87e2a46e17c62870c6e654b855eb1a73c4e887faa19d1549",
+            "size": 100188632,
+            "upstream_version": "v3.4.2",
+            "url": "https://github.com/usebruno/bruno/releases/download/v3.4.2/bruno_3.4.2_amd64_linux.deb"
+          },
+          "resolved_at": "2026-06-16T02:54:06+00:00",
+          "source": "github",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "artifact": {
+            "asset_name": "bruno_3.4.2_arm64_linux.deb",
+            "control": {
+              "Architecture": "arm64",
+              "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, libasound2",
+              "Description": "\n  Opensource API Client for Exploring and Testing APIs",
+              "Homepage": "https://www.usebruno.com",
+              "Installed-Size": "492845",
+              "License": "unknown",
+              "Maintainer": "Anoop M D <anoop.md1421@gmail.com>",
+              "Package": "bruno",
+              "Priority": "optional",
+              "Recommends": "libappindicator3-1",
+              "Section": "default",
+              "Vendor": "Anoop M D <anoop.md1421@gmail.com>",
+              "Version": "3.4.2"
+            },
+            "filename": "bruno_3.4.2_arm64_linux.deb",
+            "md5": "9d8e5234c099bd02bf7a6d427bccb653",
+            "sha1": "d472b45affa6497dd19b650485c765759d313847",
+            "sha256": "fe4a16cf89acd31b0d86bf637ea7cc52429d6a948607593c336e22c0958b5cc2",
+            "sha512": "ddc48d141371ad56393d294d4cb8cfaca072a8235a996081c984470c7094c240220376376b8cb6f5ce4d0ea17aa0e4b5606b144b7892772efda5d93455f75b18",
+            "size": 95180924,
+            "upstream_version": "v3.4.2",
+            "url": "https://github.com/usebruno/bruno/releases/download/v3.4.2/bruno_3.4.2_arm64_linux.deb"
+          },
+          "resolved_at": "2026-06-16T02:54:07+00:00",
+          "source": "github",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://www.usebruno.com/"
     },
     "cloudflare-warp": {
       "architectures": {
@@ -982,6 +1049,42 @@
         }
       },
       "homepage": "https://www.google.com/chrome/"
+    },
+    "insomnia": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "Insomnia.Core-12.6.0.deb",
+            "control": {
+              "Architecture": "amd64",
+              "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
+              "Description": "The Collaborative API Client and Design Tool\n  The Collaborative API Design Tool",
+              "Homepage": "https://konghq.com",
+              "Installed-Size": "1572715",
+              "License": "Apache-2.0",
+              "Maintainer": "Kong <office@konghq.com>",
+              "Package": "insomnia",
+              "Priority": "optional",
+              "Recommends": "libappindicator3-1",
+              "Section": "default",
+              "Vendor": "Kong <office@konghq.com>",
+              "Version": "12.6.0"
+            },
+            "filename": "insomnia_12.6.0_amd64.deb",
+            "md5": "a87291ae1a7738f1b1a55c3d607751a5",
+            "sha1": "d30d403e1676005c21dc41e117638e454f6ec043",
+            "sha256": "8ec3cbc585307dfe3a1c7a36cefefb9458064d3964f8d4d9e90d5bb9d9446954",
+            "sha512": "2f2978174983630c9b3009fd61926527a20db2fa56413e77581eb02a79ec46c928dba4964a89dabbdea1161421f1ab7ae15c89707d4b20793ccbcb68000e0122",
+            "size": 416146968,
+            "upstream_version": "core@12.6.0",
+            "url": "https://github.com/Kong/insomnia/releases/download/core%4012.6.0/Insomnia.Core-12.6.0.deb"
+          },
+          "resolved_at": "2026-06-16T02:54:13+00:00",
+          "source": "github",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://insomnia.rest/"
     },
     "lazydocker": {
       "architectures": {
