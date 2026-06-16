@@ -1,0 +1,11 @@
+homepage = "https://mockoon.com/"
+architectures = ["amd64", "arm64"]
+source = "github"
+update_policy = "track"
+
+[sources.github]
+repo = "mockoon/mockoon"
+
+[sources.github.asset_patterns]
+amd64 = "mockoon-*.amd64.deb"
+arm64 = "mockoon-*.arm64.deb"
