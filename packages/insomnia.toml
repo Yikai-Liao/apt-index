@@ -1,0 +1,10 @@
+homepage = "https://insomnia.rest/"
+architectures = ["amd64"]
+source = "github"
+update_policy = "track"
+
+[sources.github]
+repo = "Kong/insomnia"
+
+[sources.github.asset_patterns]
+amd64 = "Insomnia.Core-*.deb"
