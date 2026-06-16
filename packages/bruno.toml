@@ -1,0 +1,11 @@
+homepage = "https://www.usebruno.com/"
+architectures = ["amd64", "arm64"]
+source = "github"
+update_policy = "track"
+
+[sources.github]
+repo = "usebruno/bruno"
+
+[sources.github.asset_patterns]
+amd64 = "bruno_*_amd64_linux.deb"
+arm64 = "bruno_*_arm64_linux.deb"
