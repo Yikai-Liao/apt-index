@@ -1,0 +1,11 @@
+homepage = "https://ferdium.org/"
+architectures = ["amd64", "arm64"]
+source = "github"
+update_policy = "track"
+
+[sources.github]
+repo = "ferdium/ferdium-app"
+
+[sources.github.asset_patterns]
+amd64 = "Ferdium-linux-*-amd64.deb"
+arm64 = "Ferdium-linux-*-arm64.deb"
