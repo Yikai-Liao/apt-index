@@ -41,13 +41,14 @@ def main() -> int:
 
     print("ENTRY", json.dumps(entry.model_dump(mode="json"), ensure_ascii=True, sort_keys=True))
 
+    resolve_candidate = sources.build_candidate_resolver(
+        fetch_json=fetch_json,
+        fetch_text=fetch_text,
+        root=root,
+    )
+
     for architecture, arch_config in entry.architectures.items():
-        candidate = sources.resolve_candidate(
-            arch_config.model_dump(mode="json"),
-            fetch_json=fetch_json,
-            fetch_text=fetch_text,
-            root=root,
-        )
+        candidate = resolve_candidate(arch_config)
         print(
             "CANDIDATE",
             json.dumps(

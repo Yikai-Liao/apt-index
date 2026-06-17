@@ -1,0 +1,11 @@
+homepage = "https://github.com/Yikai-Liao/LxgwWenKaiNerdFont"
+architectures = ["amd64", "arm64"]
+source = "github"
+update_policy = "track"
+
+[sources.github]
+repo = "Yikai-Liao/LxgwWenKaiNerdFont"
+
+[sources.github.asset_patterns]
+amd64 = "fonts-lxgw-wenkai-nerd_*_all.deb"
+arm64 = "fonts-lxgw-wenkai-nerd_*_all.deb"

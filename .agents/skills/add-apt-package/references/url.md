@@ -32,4 +32,4 @@ If only one architecture is supported, declare only that architecture.
 
 ## Validation target
 
-After editing, prove that `sources.resolve_candidate()` returns the configured URL and a fixed upstream version marker for each declared architecture.
+After editing, prove that `sources.build_candidate_resolver()` returns the configured URL and a fixed upstream version marker for each declared architecture.

@@ -56,4 +56,4 @@ Bad examples:
 
 ## Validation target
 
-After editing, prove that `sources.resolve_candidate()` picks exactly one downloadable artifact per architecture.
+After editing, prove that `sources.build_candidate_resolver()` picks exactly one downloadable artifact per architecture.

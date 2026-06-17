@@ -29,7 +29,7 @@ Default to the shortest path that can produce a correct entry.
 4. Do not use CodeGraph for this skill. This task is config editing plus upstream metadata lookup, not code-structure exploration.
 5. Treat the validation APIs as known:
    - `load_configuration(root)`
-   - `sources.resolve_candidate(...)`
+   - `sources.build_candidate_resolver(...)`
    Do not reread source files just to rediscover these entry points unless your validation snippet fails.
 6. If the user already pasted exact asset names, use them to derive the glob directly instead of rediscovering the same pattern from search results.
 7. Do not invent your own validation call shape first and "see if it works". Use the exact validation template in this skill.
@@ -105,7 +105,7 @@ Use `load_configuration()` and print the normalized entry for the package you ad
 
 ### 2. Resolver works
 
-Use `sources.resolve_candidate(...)` for each declared architecture and print:
+Use `sources.build_candidate_resolver(...)` for each declared architecture and print:
 
 - architecture
 - resolved asset name
@@ -157,14 +157,14 @@ root = Path.cwd()
 config = load_configuration(root)
 entry = config.packages[PACKAGE]
 print("ENTRY", entry.model_dump(mode="json"))
+resolve_candidate = sources.build_candidate_resolver(
+    fetch_json=fetch_json,
+    fetch_text=fetch_text,
+    root=root,
+)
 
 for arch, arch_config in entry.architectures.items():
-    candidate = sources.resolve_candidate(
-        arch_config.model_dump(mode="json"),
-        fetch_json=fetch_json,
-        fetch_text=fetch_text,
-        root=root,
-    )
+    candidate = resolve_candidate(arch_config)
     print(
         "CANDIDATE",
         {

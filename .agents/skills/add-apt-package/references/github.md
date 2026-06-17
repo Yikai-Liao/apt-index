@@ -81,4 +81,4 @@ Bad examples:
 
 ## Validation target
 
-After editing, prove that `sources.resolve_candidate()` returns the intended GitHub asset for every architecture.
+After editing, prove that `sources.build_candidate_resolver()` returns the intended GitHub asset for every architecture.

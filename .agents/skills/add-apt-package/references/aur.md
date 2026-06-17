@@ -74,7 +74,7 @@ Do not normalize those strings in the pattern. Match what upstream actually publ
 
 ## Validation target
 
-After editing, prove that `sources.resolve_candidate()` returns:
+After editing, prove that `sources.build_candidate_resolver()` returns:
 
 - the expected `.deb` asset for each declared architecture
 - the upstream version from `.SRCINFO`
