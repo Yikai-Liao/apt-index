@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T07:29:52+00:00",
+  "generated_at": "2026-06-17T07:56:05+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -891,6 +891,65 @@
         }
       },
       "homepage": "https://github.com/chen08209/FlClash"
+    },
+    "fonts-lxgw-wenkai-nerd": {
+      "architectures": {
+        "amd64": {
+          "artifact": {
+            "asset_name": "fonts-lxgw-wenkai-nerd_1.522_all.deb",
+            "control": {
+              "Architecture": "all",
+              "Depends": "fontconfig",
+              "Description": "LXGW WenKai fonts patched with Nerd Font glyphs\n LXGW WenKai Nerd Font is a patched build of LXGW WenKai with Nerd Font\n symbols. This package includes proportional and monospace variants in Light,\n Regular, and Medium weights.",
+              "Installed-Size": "167912",
+              "Maintainer": "LXGW WenKai Nerd Font maintainers <noreply@github.com>",
+              "Package": "fonts-lxgw-wenkai-nerd",
+              "Priority": "optional",
+              "Section": "fonts",
+              "Version": "1.522"
+            },
+            "filename": "fonts-lxgw-wenkai-nerd_1.522_all.deb",
+            "md5": "2b1ace385eb080941b3144d8065dfd07",
+            "sha1": "d063b9a740641455b1a0b386f8d91e2ef442ad7c",
+            "sha256": "874d3693e0db3f084fc939545a1a6691171cabfe79c2bfddc48e3e11656630c0",
+            "sha512": "c8557e2e63ce0f64b5d382a35b254baeffcdc48c1123b3bcb8a8a9548a104eaa5c313058bde1b133327e7e1578635893f46d7214e0e6095b5681864acb787b05",
+            "size": 70870434,
+            "upstream_version": "v1.522",
+            "url": "https://github.com/Yikai-Liao/LxgwWenKaiNerdFont/releases/download/v1.522/fonts-lxgw-wenkai-nerd_1.522_all.deb"
+          },
+          "resolved_at": "2026-06-17T07:55:52+00:00",
+          "source": "github",
+          "update_policy": "track"
+        },
+        "arm64": {
+          "artifact": {
+            "asset_name": "fonts-lxgw-wenkai-nerd_1.522_all.deb",
+            "control": {
+              "Architecture": "all",
+              "Depends": "fontconfig",
+              "Description": "LXGW WenKai fonts patched with Nerd Font glyphs\n LXGW WenKai Nerd Font is a patched build of LXGW WenKai with Nerd Font\n symbols. This package includes proportional and monospace variants in Light,\n Regular, and Medium weights.",
+              "Installed-Size": "167912",
+              "Maintainer": "LXGW WenKai Nerd Font maintainers <noreply@github.com>",
+              "Package": "fonts-lxgw-wenkai-nerd",
+              "Priority": "optional",
+              "Section": "fonts",
+              "Version": "1.522"
+            },
+            "filename": "fonts-lxgw-wenkai-nerd_1.522_all.deb",
+            "md5": "2b1ace385eb080941b3144d8065dfd07",
+            "sha1": "d063b9a740641455b1a0b386f8d91e2ef442ad7c",
+            "sha256": "874d3693e0db3f084fc939545a1a6691171cabfe79c2bfddc48e3e11656630c0",
+            "sha512": "c8557e2e63ce0f64b5d382a35b254baeffcdc48c1123b3bcb8a8a9548a104eaa5c313058bde1b133327e7e1578635893f46d7214e0e6095b5681864acb787b05",
+            "size": 70870434,
+            "upstream_version": "v1.522",
+            "url": "https://github.com/Yikai-Liao/LxgwWenKaiNerdFont/releases/download/v1.522/fonts-lxgw-wenkai-nerd_1.522_all.deb"
+          },
+          "resolved_at": "2026-06-17T07:55:53+00:00",
+          "source": "github",
+          "update_policy": "track"
+        }
+      },
+      "homepage": "https://github.com/Yikai-Liao/LxgwWenKaiNerdFont"
     },
     "fooyin": {
       "architectures": {
