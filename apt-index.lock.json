@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T07:45:36+00:00",
+  "generated_at": "2026-06-17T07:29:52+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -1054,13 +1054,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "Insomnia.Core-12.6.0.deb",
+            "asset_name": "Insomnia.Core-13.0.0.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "The Collaborative API Client and Design Tool\n  The Collaborative API Design Tool",
               "Homepage": "https://konghq.com",
-              "Installed-Size": "1572715",
+              "Installed-Size": "1569291",
               "License": "Apache-2.0",
               "Maintainer": "Kong <office@konghq.com>",
               "Package": "insomnia",
@@ -1068,18 +1068,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Kong <office@konghq.com>",
-              "Version": "12.6.0"
+              "Version": "13.0.0"
             },
-            "filename": "insomnia_12.6.0_amd64.deb",
-            "md5": "a87291ae1a7738f1b1a55c3d607751a5",
-            "sha1": "d30d403e1676005c21dc41e117638e454f6ec043",
-            "sha256": "8ec3cbc585307dfe3a1c7a36cefefb9458064d3964f8d4d9e90d5bb9d9446954",
-            "sha512": "2f2978174983630c9b3009fd61926527a20db2fa56413e77581eb02a79ec46c928dba4964a89dabbdea1161421f1ab7ae15c89707d4b20793ccbcb68000e0122",
-            "size": 416146968,
-            "upstream_version": "core@12.6.0",
-            "url": "https://github.com/Kong/insomnia/releases/download/core%4012.6.0/Insomnia.Core-12.6.0.deb"
+            "filename": "insomnia_13.0.0_amd64.deb",
+            "md5": "b58d576d3bedf02458c982e45ea09c05",
+            "sha1": "133d7af36de5796554d13038d36a9907efdb82f3",
+            "sha256": "31e72896b5a6fe2ab10382ff362f14f2d30d4254459a13931118ffe5b4a4556f",
+            "sha512": "32411340b0c0ad454339eb5b342e3ea4388c534feda194797d523f7caa8e5ebffcacff413639ce3174e78a76a2371135a29d1490948da5d4e9eef9dbc2f551ab",
+            "size": 417197700,
+            "upstream_version": "core@13.0.0",
+            "url": "https://github.com/Kong/insomnia/releases/download/core%4013.0.0/Insomnia.Core-13.0.0.deb"
           },
-          "resolved_at": "2026-06-16T02:54:13+00:00",
+          "resolved_at": "2026-06-17T07:29:42+00:00",
           "source": "github",
           "update_policy": "track"
         }
