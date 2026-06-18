@@ -25,6 +25,7 @@ name = "apt-index"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "gpg" },
     { name = "loguru" },
     { name = "pydantic" },
     { name = "typer" },
@@ -33,6 +34,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
+    { name = "gpg", specifier = ">=2.0.0" },
     { name = "loguru", specifier = ">=0.7.3" },
     { name = "pydantic", specifier = ">=2.12.0" },
     { name = "typer", specifier = ">=0.20.0" },
@@ -47,6 +49,12 @@ sdist = { url = "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93
 wheels = [
     { url = "https://files.pythonhosted.org/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6", size = 25335, upload-time = "2022-10-25T02:36:20.889Z" },
 ]
+
+[[package]]
+name = "gpg"
+version = "2.0.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/55/1d/deb95fcf723cec1c2619b7c15a340d8e9bd4b13a589f87c428977058f824/gpg-2.0.0.tar.gz", hash = "sha256:4eb7ad1477e713e97e623d5d1081f4ba05a522bdbc30024c4ce43ec47c045438", size = 120346, upload-time = "2026-05-07T14:24:24.817Z" }
 
 [[package]]
 name = "loguru"

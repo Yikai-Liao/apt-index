@@ -12,7 +12,7 @@ JsonFetcher = Callable[[str, dict[str, str] | None], Any]
 TextFetcher = Callable[[str, dict[str, str] | None], str]
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, kw_only=True)
 class ArtifactCandidate:
     url: str
     upstream_version: str
@@ -21,7 +21,7 @@ class ArtifactCandidate:
     hash_algorithm: str = "sha256"
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, kw_only=True)
 class ResolvedAsset:
     name: str
     download_url: str
@@ -30,11 +30,11 @@ class ResolvedAsset:
 
     def as_candidate(self, upstream_version: str) -> ArtifactCandidate:
         return ArtifactCandidate(
-            self.download_url,
-            upstream_version,
-            self.name,
-            self.expected_hash,
-            self.hash_algorithm,
+            url=self.download_url,
+            upstream_version=upstream_version,
+            asset_name=self.name,
+            expected_hash=self.expected_hash,
+            hash_algorithm=self.hash_algorithm,
         )
 
 

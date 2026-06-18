@@ -48,6 +48,14 @@ _Avoid_: global source, global update policy
 The upstream package file resolved for one package architecture of a software entry.
 _Avoid_: universal deb
 
+**Published package state**:
+The read-only in-memory view of the current published artifacts derived from the index lockfile and used to generate publish-time outputs.
+_Avoid_: build cache, deploy manifest
+
+**Published artifact**:
+One artifact record inside the published package state, including its software entry identity, configured architecture, upstream package metadata, and virtual package path.
+_Avoid_: raw lockfile dict, deploy file
+
 **Repository metadata signature**:
 A signature over APT repository metadata that lets clients verify the package index before trusting package URLs and hashes.
 _Avoid_: trusted repository flag, unsigned source

@@ -8,10 +8,11 @@ from pathlib import Path
 from typing import Any
 
 from apt_index import deb
+from apt_index.published_state import PublishedArtifact, PublishedState
 
 
 def check_artifacts(
-    lock: dict[str, Any],
+    state: PublishedState,
     jobs: int,
     *,
     full_artifact_check: bool,
@@ -24,10 +25,8 @@ def check_artifacts(
     health = {"version": 2, "generated_at": now_iso(), "packages": {}}
     full_checked_artifacts = full_checked_artifacts or set()
     artifact_entries = [
-        (entry_name, arch, artifact)
-        for entry_name, entry in lock["packages"].items()
-        for arch, architecture in entry.get("architectures", {}).items()
-        if (artifact := architecture.get("artifact"))
+        (artifact.entry_name, artifact.configured_arch, artifact)
+        for artifact in state.artifacts
     ]
     max_workers = worker_count(len(artifact_entries), jobs)
     checked: dict[tuple[str, str], dict[str, Any]] = {}
@@ -54,34 +53,32 @@ def check_artifacts(
             except Exception as exc:
                 checked[key] = {"status": "failed", "error": str(exc)}
 
-    for entry_name, entry in lock["packages"].items():
+    for entry in state.entries:
         artifacts: dict[str, Any] = {}
-        for arch, architecture in entry.get("architectures", {}).items():
-            if not architecture.get("artifact"):
-                continue
-            artifacts[arch] = checked[(entry_name, arch)]
-        health["packages"][entry_name] = {"artifacts": artifacts}
+        for artifact in entry.artifacts:
+            artifacts[artifact.configured_arch] = checked[(artifact.entry_name, artifact.configured_arch)]
+        health["packages"][entry.entry_name] = {"artifacts": artifacts}
     return health
 
 
 def check_artifact(
-    artifact: dict[str, Any],
+    artifact: PublishedArtifact,
     *,
     cache_dir: Path,
     user_agent: str,
 ) -> dict[str, Any]:
     path = deb.download(
-        artifact["url"],
+        artifact.url,
         cache_dir=cache_dir,
         user_agent=user_agent,
-        expected_hash=artifact["sha256"],
+        expected_hash=artifact.sha256,
     )
     size = path.stat().st_size
     sha256 = deb.file_hash(path, "sha256")
-    if size != artifact["size"]:
-        raise RuntimeError(f"size mismatch for {artifact['url']}: expected {artifact['size']}, got {size}")
-    if sha256 != artifact["sha256"]:
-        raise RuntimeError(f"sha256 mismatch for {artifact['url']}")
+    if size != artifact.size:
+        raise RuntimeError(f"size mismatch for {artifact.url}: expected {artifact.size}, got {size}")
+    if sha256 != artifact.sha256:
+        raise RuntimeError(f"sha256 mismatch for {artifact.url}")
     return {
         "status": "ok",
         "check": "full",
@@ -90,29 +87,29 @@ def check_artifact(
     }
 
 
-def full_artifact_health(artifact: dict[str, Any]) -> dict[str, Any]:
+def full_artifact_health(artifact: PublishedArtifact) -> dict[str, Any]:
     return {
         "status": "ok",
         "check": "full",
-        "size": artifact["size"],
-        "sha256": artifact["sha256"],
+        "size": artifact.size,
+        "sha256": artifact.sha256,
     }
 
 
-def check_artifact_light(artifact: dict[str, Any], *, cache_dir: Path | None = None, user_agent: str) -> dict[str, Any]:
+def check_artifact_light(artifact: PublishedArtifact, *, cache_dir: Path | None = None, user_agent: str) -> dict[str, Any]:
     try:
-        size = fetch_artifact_size(artifact["url"], "HEAD", user_agent=user_agent)
+        size = fetch_artifact_size(artifact.url, "HEAD", user_agent=user_agent)
         check = "head"
     except urllib.error.HTTPError:
         size = fetch_artifact_size(
-            artifact["url"],
+            artifact.url,
             "GET",
             headers={"Range": "bytes=0-0"},
             user_agent=user_agent,
         )
         check = "range"
-    if size is not None and size != artifact["size"]:
-        raise RuntimeError(f"size mismatch for {artifact['url']}: expected {artifact['size']}, got {size}")
+    if size is not None and size != artifact.size:
+        raise RuntimeError(f"size mismatch for {artifact.url}: expected {artifact.size}, got {size}")
     result: dict[str, Any] = {"status": "ok", "check": check}
     if size is not None:
         result["size"] = size

@@ -162,6 +162,6 @@ def safe_deb_filename(control: dict[str, str], asset_name: str) -> str:
 def file_hash(path: Path, algorithm: str) -> str:
     h = hashlib.new(algorithm)
     with path.open("rb") as f:
-        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+        while chunk := f.read(1024 * 1024):
             h.update(chunk)
     return h.hexdigest()

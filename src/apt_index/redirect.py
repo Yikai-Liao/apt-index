@@ -11,63 +11,33 @@ from pathlib import Path
 from typing import Any
 
 from loguru import logger
+from pydantic import BaseModel, ConfigDict
 
 from apt_index import zstd
+from apt_index.published_state import PublishedState
+from apt_index.runtime import JsonFiles
 
 JsonFetcher = Callable[[str, dict[str, str] | None], Any]
 JsonPoster = Callable[[str, Any, dict[str, str] | None], Any]
 BytesFetcher = Callable[[str, dict[str, str] | None], bytes]
-JsonWriter = Callable[[Path, Any], None]
-VirtualPathBuilder = Callable[[str, str, str], str]
 
 
-def redirect_maps(
-    lock: dict[str, Any],
-    component: str,
-    package_virtual_path: VirtualPathBuilder,
-) -> tuple[dict[str, str], dict[tuple[str, str], dict[str, str]]]:
-    redirects: dict[str, str] = {}
-    shards: dict[tuple[str, str], dict[str, str]] = {}
-    for entry_name, entry in lock["packages"].items():
-        shard: dict[str, str] = {}
-        for architecture in entry.get("architectures", {}).values():
-            artifact = architecture.get("artifact")
-            if not artifact:
-                continue
-            filename = artifact["filename"]
-            target = artifact["url"]
-            virtual_path = "/" + package_virtual_path(component, entry_name, filename)
-            existing_target = redirects.get(virtual_path)
-            if existing_target and existing_target != target:
-                raise RuntimeError(f"conflicting redirect target for {virtual_path}")
-            existing_filename_target = shard.get(filename)
-            if existing_filename_target and existing_filename_target != target:
-                raise RuntimeError(f"conflicting redirect target for {entry_name}/{filename}")
-            redirects[virtual_path] = target
-            shard[filename] = target
-        if shard:
-            shards[(component, entry_name)] = dict(sorted(shard.items()))
-    return dict(sorted(redirects.items())), shards
+class RedirectRulesPublisher(BaseModel):
+    model_config = ConfigDict(frozen=True, arbitrary_types_allowed=True)
 
+    state: PublishedState
+    dist_dir: Path
+    json_files: JsonFiles
+    redirect_rules_dirname: str
+    redirect_snapshot_filename: str
 
-def write_redirect_rules(
-    lock: dict[str, Any],
-    component: str,
-    *,
-    dist_dir: Path,
-    redirect_rules_dirname: str,
-    redirect_snapshot_filename: str,
-    write_json: JsonWriter,
-    package_virtual_path: VirtualPathBuilder,
-) -> dict[str, str]:
-    redirects, shards = redirect_maps(lock, component, package_virtual_path)
-    redirect_dir = dist_dir / redirect_rules_dirname
-    for (shard_component, entry_name), shard in shards.items():
-        shard_path = redirect_dir / shard_component / f"{entry_name}.json"
-        shard_path.parent.mkdir(parents=True, exist_ok=True)
-        write_json(shard_path, shard)
-    write_redirect_snapshot(redirect_dir / redirect_snapshot_filename, redirects)
-    return redirects
+    def write(self) -> dict[str, str]:
+        redirect_dir = self.dist_dir / self.redirect_rules_dirname
+        redirects = self.state.redirects()
+        for shard_key, shard in redirects.shards.items():
+            self.json_files.write(redirect_dir / shard_key.relative_path, shard)
+        write_redirect_snapshot(redirect_dir / self.redirect_snapshot_filename, redirects.snapshot)
+        return redirects.snapshot
 
 
 def write_redirect_snapshot(path: Path, redirects: dict[str, str]) -> None:

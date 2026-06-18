@@ -8,10 +8,12 @@ import urllib.error
 from datetime import datetime, timezone
 from pathlib import Path
 from types import SimpleNamespace
-from unittest.mock import Mock, call, patch
+from unittest.mock import Mock, patch
 
-from apt_index import cli, deb, download_stats, health as health_module, paths, publish, redirect, site_data as site_data_module, sources
+from apt_index import cli, deb, deploy_tree, download_stats, health as health_module, paths, publish, redirect, site_data as site_data_module, sources
 from apt_index.config import AurArchSource, ConfigError, EntryArchitecture, EntryConfig, GithubArchSource, load_configuration
+from apt_index.published_state import DownloadPathIndex, LockedEntry, PackageIdentity, PublishedState, RedirectShardKey
+from apt_index.runtime import JsonFiles, SystemClock
 
 
 class FakeResponse:
@@ -57,6 +59,118 @@ def locked_artifact() -> dict[str, object]:
         "sha256": "sha256",
         "sha512": "sha512",
     }
+
+
+def current_lock(lock: dict[str, object]) -> dict[str, object]:
+    data = json.loads(json.dumps(lock))
+    for entry in data.setdefault("packages", {}).values():
+        for architecture in entry.setdefault("architectures", {}).values():
+            architecture.setdefault("source", "github")
+            architecture.setdefault("update_policy", "track")
+            architecture.setdefault("resolved_at", "2026-06-15T08:55:30+00:00")
+    return data
+
+
+def locked_entry(entry: dict[str, object]) -> LockedEntry:
+    return LockedEntry.model_validate(entry)
+
+
+def published_state(lock: dict[str, object], component: str = "main") -> PublishedState:
+    return PublishedState.from_lock(current_lock(lock), component=component)
+
+
+def entry_json(entry: LockedEntry) -> dict[str, object]:
+    return entry.model_dump(mode="json")
+
+
+def signing_deploy_config() -> deploy_tree.DeployConfig:
+    return deploy_tree.DeployConfig(
+        repository=deploy_tree.DeployRepository(base_url="https://example.test"),
+        signing=deploy_tree.DeploySigning(key_name="Apt Index <apt-index@lyk-ai.com>"),
+    )
+
+
+class FixedClock(SystemClock):
+    def __init__(self, iso: str = "2026-06-16T08:55:30+00:00") -> None:
+        self.iso = iso
+
+    def now_iso(self) -> str:
+        return self.iso
+
+    def utc_now(self) -> datetime:
+        return datetime.fromisoformat(self.iso)
+
+    def graphql_time(self, value: datetime) -> str:
+        return value.astimezone(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+
+
+def fixed_utc_now() -> datetime:
+    return datetime(2026, 6, 15, tzinfo=timezone.utc)
+
+
+def fake_download_path(url: str, **kwargs: object) -> Path:
+    del kwargs
+    return Path("/tmp") / Path(url).name
+
+
+def resolve_test_zone(token: str, hostname: str) -> str:
+    del token, hostname
+    return "zone"
+
+
+def previous_redirect_snapshot(base_url: str, strict: bool) -> dict[str, str]:
+    del base_url, strict
+    return {
+        "/pool/main/pkg/old.deb": "https://example.test/old.deb",
+        "/pool/main/pkg/new.deb": "https://example.test/old-target.deb",
+        "/pool/main/pkg/unchanged.deb": "https://example.test/unchanged.deb",
+    }
+
+
+def empty_previous_redirect_snapshot(base_url: str, strict: bool) -> dict[str, str]:
+    del base_url, strict
+    return {}
+
+
+def invalid_snapshot_bytes(url: str, headers: dict[str, str] | None = None) -> bytes:
+    del url, headers
+    return b"not zstd"
+
+
+class RecordingJsonFiles:
+    def __init__(self, reads: dict[Path, object] | None = None) -> None:
+        self.reads = reads or {}
+        self.writes: list[tuple[Path, object]] = []
+
+    def load(self, path: Path, default: object = None) -> object:
+        return self.reads.get(path, default)
+
+    def write(self, path: Path, data: object) -> None:
+        self.writes.append((path, data))
+
+
+class FakeRepositorySigner(deploy_tree.RepositorySigner):
+    def __init__(self) -> None:
+        self.signed_release_paths: list[Path] = []
+
+    def public_key(self, config: deploy_tree.DeployConfig) -> str:
+        return "key"
+
+    def sign_release(self, config: deploy_tree.DeployConfig, *, release_path: Path) -> None:
+        self.signed_release_paths.append(release_path)
+        release_path.parent.joinpath("InRelease").write_bytes(b"signed")
+        release_path.parent.joinpath("Release.gpg").write_bytes(b"detached")
+
+
+class BuildConfigStub:
+    component = "main"
+
+    def to_runtime_dict(self) -> dict[str, object]:
+        return {
+            "suite": "stable",
+            "component": "main",
+            "repository": {"base_url": "https://example.test"},
+        }
 
 
 def write_repository_config(root: Path) -> None:
@@ -331,17 +445,17 @@ class ResolveEntryTests(unittest.TestCase):
             },
         }
         candidate = sources.ArtifactCandidate(
-            "https://example.test/pkg.deb",
-            "1.0.0",
-            "pkg_1.0.0_amd64.deb",
+            url="https://example.test/pkg.deb",
+            upstream_version="1.0.0",
+            asset_name="pkg_1.0.0_amd64.deb",
         )
         candidate_resolver = Mock(return_value=candidate)
 
         with patch.object(deb, "download") as download:
-            resolved = cli.resolve_entry("pkg", package_entry(), previous_entry, candidate_resolver=candidate_resolver)
+            resolved = cli.resolve_entry("pkg", package_entry(), locked_entry(previous_entry), candidate_resolver=candidate_resolver)
 
         download.assert_not_called()
-        self.assertEqual(resolved.entry, previous_entry)
+        self.assertEqual(entry_json(resolved.entry), previous_entry)
         self.assertEqual(resolved.full_checked_arches, set())
 
     def test_downloads_and_updates_artifact_when_candidate_changes(self) -> None:
@@ -357,9 +471,9 @@ class ResolveEntryTests(unittest.TestCase):
             },
         }
         candidate = sources.ArtifactCandidate(
-            "https://example.test/pkg-2.deb",
-            "2.0.0",
-            "pkg_2.0.0_amd64.deb",
+            url="https://example.test/pkg-2.deb",
+            upstream_version="2.0.0",
+            asset_name="pkg_2.0.0_amd64.deb",
         )
         candidate_resolver = Mock(return_value=candidate)
         metadata = {
@@ -375,7 +489,7 @@ class ResolveEntryTests(unittest.TestCase):
             patch.object(deb, "download", return_value=Path("/tmp/pkg.deb")) as download,
             patch.object(deb, "inspect_deb", return_value=metadata),
         ):
-            resolved = cli.resolve_entry("pkg", package_entry(), previous_entry, candidate_resolver=candidate_resolver)
+            resolved = cli.resolve_entry("pkg", package_entry(), locked_entry(previous_entry), candidate_resolver=candidate_resolver)
 
         download.assert_called_once_with(
             "https://example.test/pkg-2.deb",
@@ -384,10 +498,10 @@ class ResolveEntryTests(unittest.TestCase):
             expected_hash=None,
             hash_algorithm="sha256",
         )
-        artifact = resolved.entry["architectures"]["amd64"]["artifact"]
-        self.assertEqual(artifact["url"], "https://example.test/pkg-2.deb")
-        self.assertEqual(artifact["sha256"], "new-sha256")
-        self.assertEqual(artifact["sha512"], "new-sha512")
+        artifact = resolved.entry.architectures["amd64"].artifact
+        self.assertEqual(artifact.url, "https://example.test/pkg-2.deb")
+        self.assertEqual(artifact.sha256, "new-sha256")
+        self.assertEqual(artifact.sha512, "new-sha512")
         self.assertEqual(resolved.full_checked_arches, {"amd64"})
 
     def test_redownloads_when_candidate_checksum_changes(self) -> None:
@@ -403,11 +517,11 @@ class ResolveEntryTests(unittest.TestCase):
             },
         }
         candidate = sources.ArtifactCandidate(
-            "https://example.test/pkg.deb",
-            "1.0.0",
-            "pkg_1.0.0_amd64.deb",
-            "different-sha1",
-            "sha1",
+            url="https://example.test/pkg.deb",
+            upstream_version="1.0.0",
+            asset_name="pkg_1.0.0_amd64.deb",
+            expected_hash="different-sha1",
+            hash_algorithm="sha1",
         )
         candidate_resolver = Mock(return_value=candidate)
         metadata = {
@@ -423,7 +537,7 @@ class ResolveEntryTests(unittest.TestCase):
             patch.object(deb, "download", return_value=Path("/tmp/pkg.deb")) as download,
             patch.object(deb, "inspect_deb", return_value=metadata),
         ):
-            resolved = cli.resolve_entry("pkg", package_entry(), previous_entry, candidate_resolver=candidate_resolver)
+            resolved = cli.resolve_entry("pkg", package_entry(), locked_entry(previous_entry), candidate_resolver=candidate_resolver)
 
         download.assert_called_once_with(
             "https://example.test/pkg.deb",
@@ -449,11 +563,11 @@ class ResolveEntryTests(unittest.TestCase):
 
         candidate_resolver = Mock(side_effect=RuntimeError("no asset"))
 
-        resolved = cli.resolve_entry("pkg", package_entry(), previous_entry, candidate_resolver=candidate_resolver)
+        resolved = cli.resolve_entry("pkg", package_entry(), locked_entry(previous_entry), candidate_resolver=candidate_resolver)
 
-        self.assertEqual(resolved.entry["architectures"]["amd64"], previous_entry["architectures"]["amd64"])
-        self.assertEqual(resolved.architecture_health["amd64"]["status"], "kept_previous")
-        self.assertEqual(resolved.architecture_health["amd64"]["error"], "no asset")
+        self.assertEqual(resolved.entry.architectures["amd64"].model_dump(mode="json"), previous_entry["architectures"]["amd64"])
+        self.assertEqual(resolved.architecture_health["amd64"].status, cli.ArchitectureHealthStatus.KEPT_PREVIOUS)
+        self.assertEqual(resolved.architecture_health["amd64"].error, "no asset")
 
     def test_one_architecture_can_update_while_another_fails(self) -> None:
         entry = package_entry()
@@ -465,7 +579,11 @@ class ResolveEntryTests(unittest.TestCase):
             ),
         )
         candidates = {
-            "amd64": sources.ArtifactCandidate("https://example.test/pkg-amd64.deb", "1.0.0", "pkg_1.0.0_amd64.deb"),
+            "amd64": sources.ArtifactCandidate(
+                url="https://example.test/pkg-amd64.deb",
+                upstream_version="1.0.0",
+                asset_name="pkg_1.0.0_amd64.deb",
+            ),
         }
 
         def fake_candidate_resolver(architecture: EntryArchitecture) -> sources.ArtifactCandidate:
@@ -486,14 +604,14 @@ class ResolveEntryTests(unittest.TestCase):
             }
 
         with (
-            patch.object(deb, "download", side_effect=lambda url, **kwargs: Path("/tmp") / Path(url).name),
+            patch.object(deb, "download", side_effect=fake_download_path),
             patch.object(deb, "inspect_deb", side_effect=fake_inspect_deb),
         ):
             resolved = cli.resolve_entry("pkg", entry, candidate_resolver=fake_candidate_resolver)
 
-        self.assertEqual(resolved.entry["architectures"].keys(), {"amd64"})
-        self.assertEqual(resolved.entry["architectures"]["amd64"]["artifact"]["sha256"], "sha256-amd64")
-        self.assertEqual(resolved.architecture_health["arm64"]["status"], "failed")
+        self.assertEqual(resolved.entry.architectures.keys(), {"amd64"})
+        self.assertEqual(resolved.entry.architectures["amd64"].artifact.sha256, "sha256-amd64")
+        self.assertEqual(resolved.architecture_health["arm64"].status, cli.ArchitectureHealthStatus.FAILED)
         self.assertEqual(resolved.full_checked_arches, {"amd64"})
 
     def test_reuses_locked_artifact_when_aur_sha512_candidate_is_unchanged(self) -> None:
@@ -524,19 +642,19 @@ class ResolveEntryTests(unittest.TestCase):
             },
         )
         candidate = sources.ArtifactCandidate(
-            "https://example.test/pkg.deb",
-            "1.0.0",
-            "pkg_1.0.0_amd64.deb",
-            "aur-sha512",
-            "sha512",
+            url="https://example.test/pkg.deb",
+            upstream_version="1.0.0",
+            asset_name="pkg_1.0.0_amd64.deb",
+            expected_hash="aur-sha512",
+            hash_algorithm="sha512",
         )
         candidate_resolver = Mock(return_value=candidate)
 
         with patch.object(deb, "download") as download:
-            resolved = cli.resolve_entry("pkg", entry, previous_entry, candidate_resolver=candidate_resolver)
+            resolved = cli.resolve_entry("pkg", entry, locked_entry(previous_entry), candidate_resolver=candidate_resolver)
 
         download.assert_not_called()
-        self.assertEqual(resolved.entry, previous_entry)
+        self.assertEqual(entry_json(resolved.entry), previous_entry)
         self.assertEqual(resolved.full_checked_arches, set())
 
 
@@ -559,27 +677,33 @@ class RefreshTests(unittest.TestCase):
             "packages": {"pkg": previous_entry},
         }
         resolved = cli.ResolvedEntry(
-            previous_entry,
-            set(),
-            {"amd64": {"status": "ok", "source": "github", "update_policy": "track"}},
+            entry=locked_entry(previous_entry),
+            full_checked_arches=set(),
+            architecture_health={
+                "amd64": cli.ArchitectureHealth(
+                    status=cli.ArchitectureHealthStatus.OK,
+                    source="github",
+                    update_policy="track",
+                )
+            },
         )
-        typed_config = SimpleNamespace(packages={"pkg": package_entry()})
+        typed_config = SimpleNamespace(component="main", packages={"pkg": package_entry()})
         candidate_resolver = object()
+        json_files = RecordingJsonFiles({cli.LOCK_PATH: previous_lock})
 
         with (
             patch.object(cli, "load_configuration", return_value=typed_config),
-            patch.object(cli, "load_json", return_value=previous_lock),
+            patch.object(cli, "JSON_FILES", json_files),
             patch.object(cli, "resolve_entry", return_value=resolved),
             patch.object(sources, "build_candidate_resolver", return_value=candidate_resolver),
             patch.object(cli, "worker_count", return_value=1),
             patch.object(health_module, "check_artifacts", return_value={"version": 2, "generated_at": "artifact-check", "packages": {}}),
-            patch.object(cli, "write_json") as write_json,
         ):
             cli.refresh()
 
         self.assertEqual(
-            write_json.mock_calls[0],
-            call(cli.LOCK_PATH, previous_lock),
+            json_files.writes[0],
+            (cli.LOCK_PATH, previous_lock),
         )
 
     def test_refresh_updates_lock_timestamp_when_packages_change(self) -> None:
@@ -622,28 +746,34 @@ class RefreshTests(unittest.TestCase):
             "packages": {"pkg": previous_entry},
         }
         resolved = cli.ResolvedEntry(
-            updated_entry,
-            {"amd64"},
-            {"amd64": {"status": "ok", "source": "github", "update_policy": "track"}},
+            entry=locked_entry(updated_entry),
+            full_checked_arches={"amd64"},
+            architecture_health={
+                "amd64": cli.ArchitectureHealth(
+                    status=cli.ArchitectureHealthStatus.OK,
+                    source="github",
+                    update_policy="track",
+                )
+            },
         )
-        typed_config = SimpleNamespace(packages={"pkg": package_entry()})
+        typed_config = SimpleNamespace(component="main", packages={"pkg": package_entry()})
         candidate_resolver = object()
+        json_files = RecordingJsonFiles({cli.LOCK_PATH: previous_lock})
 
         with (
             patch.object(cli, "load_configuration", return_value=typed_config),
-            patch.object(cli, "load_json", return_value=previous_lock),
+            patch.object(cli, "JSON_FILES", json_files),
             patch.object(cli, "resolve_entry", return_value=resolved),
             patch.object(sources, "build_candidate_resolver", return_value=candidate_resolver),
             patch.object(cli, "worker_count", return_value=1),
-            patch.object(cli, "now_iso", return_value="2026-06-16T08:55:30+00:00"),
+            patch.object(cli, "CLOCK", FixedClock("2026-06-16T08:55:30+00:00")),
             patch.object(health_module, "check_artifacts", return_value={"version": 2, "generated_at": "artifact-check", "packages": {}}),
-            patch.object(cli, "write_json") as write_json,
         ):
             cli.refresh()
 
         self.assertEqual(
-            write_json.mock_calls[0],
-            call(
+            json_files.writes[0],
+            (
                 cli.LOCK_PATH,
                 {
                     "version": 2,
@@ -654,9 +784,106 @@ class RefreshTests(unittest.TestCase):
         )
 
 
+class PublishedStateTests(unittest.TestCase):
+    def test_from_lock_flattens_artifacts_and_derives_virtual_paths(self) -> None:
+        lock = {
+            "generated_at": "2026-06-15T08:55:30+00:00",
+            "packages": {
+                "pkg": {
+                    "homepage": "https://example.test/pkg",
+                    "architectures": {
+                        "arm64": {
+                            "source": "github",
+                            "update_policy": "track",
+                            "artifact": {
+                                **locked_artifact(),
+                                "filename": "pkg_1.0.0_arm64.deb",
+                                "control": {"Package": "pkg", "Version": "1.0.0", "Architecture": "all"},
+                            },
+                        },
+                        "amd64": {
+                            "source": "github",
+                            "update_policy": "track",
+                            "artifact": locked_artifact(),
+                        },
+                    },
+                }
+            },
+        }
+
+        state = published_state(lock)
+
+        self.assertEqual(state.generated_at, "2026-06-15T08:55:30+00:00")
+        self.assertEqual(state.architectures, ["amd64", "arm64"])
+        self.assertEqual([artifact.virtual_path for artifact in state.artifacts], ["pool/main/pkg/pkg_1.0.0_amd64.deb", "pool/main/pkg/pkg_1.0.0_arm64.deb"])
+        self.assertEqual(state.artifacts[1].package_arch, "all")
+        self.assertEqual(
+            state.artifacts[0].apt_package_stanza(),
+            {
+                "Package": "pkg",
+                "Version": "1.0.0",
+                "Architecture": "amd64",
+                "Filename": "pool/main/pkg/pkg_1.0.0_amd64.deb",
+                "Size": "123",
+                "MD5sum": "md5",
+                "SHA1": "sha1",
+                "SHA256": "sha256",
+            },
+        )
+        self.assertEqual(state.artifacts[1].download_identity, PackageIdentity(entry_name="pkg", arch="all"))
+        self.assertEqual(
+            state.download_paths().paths,
+            {
+                "/pool/main/pkg/pkg_1.0.0_amd64.deb": PackageIdentity(entry_name="pkg", arch="amd64"),
+                "/pool/main/pkg/pkg_1.0.0_arm64.deb": PackageIdentity(entry_name="pkg", arch="all"),
+            },
+        )
+
+    def test_redirect_views_are_deterministic(self) -> None:
+        state = published_state(
+            {
+                "packages": {
+                    "pkg": {
+                        "homepage": "https://example.test/pkg",
+                        "architectures": {
+                            "amd64": {
+                                "source": "github",
+                                "update_policy": "track",
+                                "artifact": locked_artifact(),
+                            }
+                        },
+                    }
+                }
+            }
+        )
+
+        self.assertEqual(
+            state.redirects().snapshot,
+            {"/pool/main/pkg/pkg_1.0.0_amd64.deb": "https://example.test/pkg.deb"},
+        )
+        self.assertEqual(
+            state.redirects().shards,
+            {RedirectShardKey(component="main", entry_name="pkg"): {"pkg_1.0.0_amd64.deb": "https://example.test/pkg.deb"}},
+        )
+
 class ArtifactHealthTests(unittest.TestCase):
     def test_light_health_uses_head_and_compares_content_length(self) -> None:
-        artifact = locked_artifact()
+        artifact = published_state(
+            {
+                "packages": {
+                    "pkg": {
+                        "homepage": "https://example.test/pkg",
+                        "architectures": {
+                            "amd64": {
+                                "source": "github",
+                                "update_policy": "track",
+                                "artifact": locked_artifact(),
+                            }
+                        },
+                    }
+                }
+            }
+        ).artifacts[0]
 
         def fake_urlopen(request: object, timeout: int = 0) -> FakeResponse:
             self.assertEqual(request.get_method(), "HEAD")
@@ -669,13 +896,28 @@ class ArtifactHealthTests(unittest.TestCase):
         self.assertEqual(result, {"status": "ok", "check": "head", "size": 123})
 
     def test_light_health_falls_back_to_range_when_head_fails(self) -> None:
-        artifact = locked_artifact()
+        artifact = published_state(
+            {
+                "packages": {
+                    "pkg": {
+                        "homepage": "https://example.test/pkg",
+                        "architectures": {
+                            "amd64": {
+                                "source": "github",
+                                "update_policy": "track",
+                                "artifact": locked_artifact(),
+                            }
+                        },
+                    }
+                }
+            }
+        ).artifacts[0]
         calls: list[str] = []
 
         def fake_urlopen(request: object, timeout: int = 0) -> FakeResponse:
             calls.append(request.get_method())
             if request.get_method() == "HEAD":
-                raise urllib.error.HTTPError(artifact["url"], 405, "Method Not Allowed", {}, None)
+                raise urllib.error.HTTPError(artifact.url, 405, "Method Not Allowed", {}, None)
             self.assertEqual(request.headers["Range"], "bytes=0-0")
             return FakeResponse({"Content-Range": "bytes 0-0/123"})
 
@@ -686,11 +928,26 @@ class ArtifactHealthTests(unittest.TestCase):
         self.assertEqual(result, {"status": "ok", "check": "range", "size": 123})
 
     def test_range_health_ignores_partial_content_length_without_total_size(self) -> None:
-        artifact = locked_artifact()
+        artifact = published_state(
+            {
+                "packages": {
+                    "pkg": {
+                        "homepage": "https://example.test/pkg",
+                        "architectures": {
+                            "amd64": {
+                                "source": "github",
+                                "update_policy": "track",
+                                "artifact": locked_artifact(),
+                            }
+                        },
+                    }
+                }
+            }
+        ).artifacts[0]
 
         def fake_urlopen(request: object, timeout: int = 0) -> FakeResponse:
             if request.get_method() == "HEAD":
-                raise urllib.error.HTTPError(artifact["url"], 405, "Method Not Allowed", {}, None)
+                raise urllib.error.HTTPError(artifact.url, 405, "Method Not Allowed", {}, None)
             return FakeResponse({"Content-Length": "1"}, status=206)
 
         with patch.object(health_module.urllib.request, "urlopen", side_effect=fake_urlopen):
@@ -699,12 +956,26 @@ class ArtifactHealthTests(unittest.TestCase):
         self.assertEqual(result, {"status": "ok", "check": "range"})
 
     def test_full_health_downloads_and_hashes_artifact(self) -> None:
-        artifact = locked_artifact()
+        lock = {
+            "packages": {
+                "pkg": {
+                    "homepage": "https://example.test/pkg",
+                    "architectures": {
+                        "amd64": {
+                            "source": "github",
+                            "update_policy": "track",
+                            "artifact": locked_artifact(),
+                        }
+                    },
+                }
+            }
+        }
         with tempfile.NamedTemporaryFile() as tmp:
             path = Path(tmp.name)
             path.write_bytes(b"abc")
-            artifact["size"] = 3
-            artifact["sha256"] = "actual-sha256"
+            lock["packages"]["pkg"]["architectures"]["amd64"]["artifact"]["size"] = 3
+            lock["packages"]["pkg"]["architectures"]["amd64"]["artifact"]["sha256"] = "actual-sha256"
+            artifact = published_state(lock).artifacts[0]
             with (
                 patch.object(deb, "download", return_value=path) as download,
                 patch.object(deb, "file_hash", return_value="actual-sha256") as file_hash,
@@ -741,11 +1012,11 @@ class ArtifactHealthTests(unittest.TestCase):
 
         with patch.object(health_module, "check_artifact", return_value={"status": "ok", "check": "full"}) as check_artifact:
             health = health_module.check_artifacts(
-                lock,
+                published_state(lock),
                 jobs=1,
                 full_artifact_check=True,
                 full_checked_artifacts=None,
-                now_iso=cli.now_iso,
+                now_iso=cli.CLOCK.now_iso,
                 worker_count=cli.worker_count,
                 cache_dir=cli.CACHE_DIR,
                 user_agent=cli.USER_AGENT,
@@ -771,11 +1042,11 @@ class ArtifactHealthTests(unittest.TestCase):
 
         with patch.object(health_module, "fetch_artifact_size", return_value=123):
             health = health_module.check_artifacts(
-                lock,
+                published_state(lock),
                 jobs=1,
                 full_artifact_check=False,
                 full_checked_artifacts=None,
-                now_iso=cli.now_iso,
+                now_iso=cli.CLOCK.now_iso,
                 worker_count=cli.worker_count,
                 cache_dir=cli.CACHE_DIR,
                 user_agent=cli.USER_AGENT,
@@ -785,6 +1056,22 @@ class ArtifactHealthTests(unittest.TestCase):
 
 
 class BuildStateFileTests(unittest.TestCase):
+    def test_cli_build_delegates_to_deploy_tree(self) -> None:
+        state = published_state({"packages": {}})
+        config = BuildConfigStub()
+        tree = Mock()
+        with (
+            patch.object(cli, "load_config", return_value=config),
+            patch.object(cli, "load_published_state", return_value=state),
+            patch.object(deploy_tree, "DeployableAptTree", return_value=tree) as deployable_tree,
+        ):
+            cli.build()
+
+        deployable_tree.assert_called_once()
+        self.assertIs(deployable_tree.call_args.kwargs["state"], state)
+        self.assertEqual(deployable_tree.call_args.kwargs["paths"], deploy_tree.DeployPaths(dist_dir=cli.DIST_DIR))
+        tree.build.assert_called_once_with()
+
     def test_copy_state_files_writes_missing_health_reports_as_deploy_artifacts(self) -> None:
         lock = {
             "packages": {
@@ -802,19 +1089,17 @@ class BuildStateFileTests(unittest.TestCase):
             root = Path(tmp)
             dist = root / "dist"
             dist.mkdir()
-            lock_path = root / "apt-index.lock.json"
             track_health_path = root / "track_health.json"
             artifact_health_path = root / "artifact_health.json"
-            lock_path.write_text(json.dumps(lock), encoding="utf-8")
 
-            site_data_module.copy_state_files(
-                lock,
+            reports = site_data_module.HealthReports.load_or_not_generated(
+                published_state(lock),
                 track_health_path=track_health_path,
                 artifact_health_path=artifact_health_path,
-                dist_dir=dist,
-                write_json=cli.write_json,
-                now_iso=cli.now_iso,
+                json_files=JsonFiles(),
+                clock=cli.CLOCK,
             )
+            reports.write_deploy_files(dist, JsonFiles())
 
             self.assertFalse(dist.joinpath("apt-index.lock.json").exists())
             self.assertFalse(track_health_path.exists())
@@ -827,7 +1112,7 @@ class BuildStateFileTests(unittest.TestCase):
         self.assertEqual(artifact_health["status"], "not_generated")
         self.assertEqual(artifact_health["packages"]["pkg"]["artifacts"]["amd64"]["check"], "not_generated")
 
-    def test_build_writes_site_data_without_publishing_lockfile(self) -> None:
+    def test_deployable_tree_writes_site_data_without_publishing_lockfile(self) -> None:
         lock = {
             "generated_at": "2026-06-15T08:55:30+00:00",
             "packages": {
@@ -843,16 +1128,15 @@ class BuildStateFileTests(unittest.TestCase):
                 }
             },
         }
-        config = {
-            "suite": "stable",
-            "component": "main",
-            "repository": {"base_url": "https://example.test"},
-        }
+        config = deploy_tree.DeployConfig(
+            suite="stable",
+            component="main",
+            repository=deploy_tree.DeployRepository(base_url="https://example.test"),
+        )
 
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             dist = root / "dist"
-            lock_path = root / "apt-index.lock.json"
             static_dir = root / "static"
             static_dir.mkdir()
             static_dir.joinpath("index.html").write_text(
@@ -860,26 +1144,26 @@ class BuildStateFileTests(unittest.TestCase):
                 encoding="utf-8",
             )
             static_dir.joinpath("logo.webp").write_bytes(b"webp")
-            lock_path.write_text(json.dumps(lock), encoding="utf-8")
+            signer = FakeRepositorySigner()
 
-            with (
-                patch.object(cli, "LOCK_PATH", lock_path),
-                patch.object(cli, "TRACK_HEALTH_PATH", root / "track_health.json"),
-                patch.object(cli, "ARTIFACT_HEALTH_PATH", root / "artifact_health.json"),
-                patch.object(cli, "DIST_DIR", dist),
-                patch.object(cli, "STATIC_DIR", static_dir),
-                patch.object(cli, "load_config", return_value=config),
-                patch.object(cli, "ensure_signing_key", return_value="key"),
-                patch.object(redirect, "write_redirect_rules"),
-                patch.object(cli, "write_release"),
-                patch.object(cli, "sign_release"),
-            ):
-                cli.build()
+            deploy_tree.DeployableAptTree(
+                config=config,
+                state=published_state(lock),
+                paths=deploy_tree.DeployPaths(
+                    dist_dir=dist,
+                    track_health_path=root / "track_health.json",
+                    artifact_health_path=root / "artifact_health.json",
+                    static_dir=static_dir,
+                ),
+                clock=cli.CLOCK,
+                signer=signer,
+            ).build()
 
             self.assertFalse(dist.joinpath("apt-index.lock.json").exists())
             self.assertEqual(dist.joinpath("logo.webp").read_bytes(), b"webp")
             self.assertTrue(dist.joinpath("site-data.json").exists())
             site_data = json.loads(dist.joinpath("site-data.json").read_text(encoding="utf-8"))
+            self.assertEqual(len(signer.signed_release_paths), 1)
 
         self.assertEqual(site_data["generated_at"], "2026-06-15T08:55:30+00:00")
         self.assertEqual(site_data["summary"]["artifact_count"], 1)
@@ -932,15 +1216,19 @@ class SiteDataTests(unittest.TestCase):
                 }
             }
         }
-        download_stats = {
-            "window_days": 30,
-            "packages": [
-                {"entry_name": "pkg", "arch": "amd64", "downloads": 4, "last_7_days": 2},
-                {"entry_name": "pkg", "arch": "arm64", "downloads": 7, "last_7_days": 3},
+        stats = download_stats.DownloadStats(
+            generated_at="2026-06-16T08:55:30+00:00",
+            source="cloudflare_http_requests",
+            window_days=30,
+            totals=download_stats.DownloadStatsTotals(downloads=11, last_days=11, last_7_days=5),
+            packages=[
+                download_stats.DownloadStatsPackage(entry_name="pkg", arch="amd64", downloads=4, last_7_days=2),
+                download_stats.DownloadStatsPackage(entry_name="pkg", arch="arm64", downloads=7, last_7_days=3),
             ],
-        }
+        )
+        reports = site_data_module.HealthReports(track=track_health, artifact=artifact_health)
 
-        site_data = site_data_module.format_site_data(lock, track_health, artifact_health, download_stats)
+        site_data = site_data_module.format_site_data(published_state(lock), reports, stats).model_dump(mode="json")
 
         self.assertEqual(site_data["summary"]["entry_count"], 1)
         self.assertEqual(site_data["summary"]["row_count"], 1)
@@ -983,16 +1271,15 @@ class SiteDataTests(unittest.TestCase):
         }
 
         site_data = site_data_module.format_site_data(
-            lock,
-            {"packages": {}},
-            {"packages": {}},
-            download_stats.empty_download_stats("not_generated", 30, cli.now_iso),
-        )
+            published_state(lock),
+            site_data_module.HealthReports(track={"packages": {}}, artifact={"packages": {}}),
+            download_stats.empty_download_stats("not_generated", 30, cli.CLOCK.now_iso),
+        ).model_dump(mode="json")
 
         self.assertEqual(site_data["summary"]["row_count"], 2)
         self.assertEqual([row["package_name"] for row in site_data["packages"]], ["bottom", "bottom-arm64"])
 
-    def test_write_site_data_uses_fallback_reports_and_empty_downloads(self) -> None:
+    def test_published_site_data_uses_fallback_reports_and_empty_downloads(self) -> None:
         lock = {
             "generated_at": "2026-06-15T08:55:30+00:00",
             "packages": {
@@ -1012,19 +1299,27 @@ class SiteDataTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             output = root / "nested" / "site-data.json"
-            lock_path = root / "apt-index.lock.json"
-            lock_path.write_text(json.dumps(lock), encoding="utf-8")
 
-            site_data_module.write_site_data(
-                output,
-                root / "missing-download-stats.json",
-                lock_path=lock_path,
+            state = published_state(lock)
+            reports = site_data_module.HealthReports.load_or_not_generated(
+                state,
                 track_health_path=root / "track_health.json",
                 artifact_health_path=root / "artifact_health.json",
-                load_json=cli.load_json,
-                write_json=cli.write_json,
-                empty_download_stats=lambda reason: download_stats.empty_download_stats(reason, 30, cli.now_iso),
-                now_iso=cli.now_iso,
+                json_files=JsonFiles(),
+                clock=cli.CLOCK,
+            )
+            site_data_module.PublishedSiteData(
+                state=state,
+                reports=reports,
+                downloads=download_stats.DownloadStats.load_or_empty(
+                    root / "missing-download-stats.json",
+                    json_files=JsonFiles(),
+                    days=30,
+                    clock=cli.CLOCK,
+                ),
+            ).write(
+                output,
+                JsonFiles(),
             )
 
             site_data = json.loads(output.read_text(encoding="utf-8"))
@@ -1037,7 +1332,7 @@ class SiteDataTests(unittest.TestCase):
 
 
 class RedirectRulesTests(unittest.TestCase):
-    def test_write_redirect_rules_writes_entry_shards_and_snapshot(self) -> None:
+    def test_redirect_rules_publisher_writes_entry_shards_and_snapshot(self) -> None:
         lock = {
             "packages": {
                 "pkg": {
@@ -1051,15 +1346,13 @@ class RedirectRulesTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             dist = Path(tmp) / "dist"
             dist.mkdir()
-            redirects = redirect.write_redirect_rules(
-                lock,
-                "main",
+            redirects = redirect.RedirectRulesPublisher(
+                state=published_state(lock),
                 dist_dir=dist,
-                redirect_rules_dirname=cli.REDIRECT_RULES_DIRNAME,
-                redirect_snapshot_filename=cli.REDIRECT_SNAPSHOT_FILENAME,
-                write_json=cli.write_json,
-                package_virtual_path=cli.package_virtual_path,
-            )
+                json_files=JsonFiles(),
+                redirect_rules_dirname=deploy_tree.REDIRECT_RULES_DIRNAME,
+                redirect_snapshot_filename=deploy_tree.REDIRECT_SNAPSHOT_FILENAME,
+            ).write()
             shard = json.loads(dist.joinpath("redirect-rules", "main", "pkg.json").read_text(encoding="utf-8"))
             snapshot = redirect.read_redirect_snapshot(dist / "redirect-rules" / "snapshot.json.zst")
 
@@ -1084,14 +1377,10 @@ class RedirectRulesTests(unittest.TestCase):
                 output,
                 snapshot,
                 "https://deb.example.test",
-                redirect_rules_dirname=cli.REDIRECT_RULES_DIRNAME,
-                redirect_snapshot_filename=cli.REDIRECT_SNAPSHOT_FILENAME,
+                redirect_rules_dirname=deploy_tree.REDIRECT_RULES_DIRNAME,
+                redirect_snapshot_filename=deploy_tree.REDIRECT_SNAPSHOT_FILENAME,
                 legacy_redirect_rules_paths=cli.LEGACY_REDIRECT_RULES_PATHS,
-                fetch_previous_redirect_snapshot=lambda base_url, strict: {
-                    "/pool/main/pkg/old.deb": "https://example.test/old.deb",
-                    "/pool/main/pkg/new.deb": "https://example.test/old-target.deb",
-                    "/pool/main/pkg/unchanged.deb": "https://example.test/unchanged.deb",
-                },
+                fetch_previous_redirect_snapshot=previous_redirect_snapshot,
             )
 
             lines = output.read_text(encoding="utf-8").splitlines()
@@ -1124,10 +1413,10 @@ class RedirectRulesTests(unittest.TestCase):
                 output,
                 snapshot,
                 "https://deb.example.test",
-                redirect_rules_dirname=cli.REDIRECT_RULES_DIRNAME,
-                redirect_snapshot_filename=cli.REDIRECT_SNAPSHOT_FILENAME,
+                redirect_rules_dirname=deploy_tree.REDIRECT_RULES_DIRNAME,
+                redirect_snapshot_filename=deploy_tree.REDIRECT_SNAPSHOT_FILENAME,
                 legacy_redirect_rules_paths=cli.LEGACY_REDIRECT_RULES_PATHS,
-                fetch_previous_redirect_snapshot=lambda base_url, strict: {},
+                fetch_previous_redirect_snapshot=empty_previous_redirect_snapshot,
             )
 
         self.assertEqual(
@@ -1143,9 +1432,9 @@ class RedirectRulesTests(unittest.TestCase):
     def test_fetch_previous_redirect_snapshot_tolerates_invalid_first_deploy_asset(self) -> None:
         redirects = redirect.fetch_previous_redirect_snapshot(
             "https://deb.example.test",
-            redirect_rules_dirname=cli.REDIRECT_RULES_DIRNAME,
-            redirect_snapshot_filename=cli.REDIRECT_SNAPSHOT_FILENAME,
-            fetch_bytes=lambda url, headers=None: b"not zstd",
+            redirect_rules_dirname=deploy_tree.REDIRECT_RULES_DIRNAME,
+            redirect_snapshot_filename=deploy_tree.REDIRECT_SNAPSHOT_FILENAME,
+            fetch_bytes=invalid_snapshot_bytes,
         )
 
         self.assertEqual(redirects, {})
@@ -1160,11 +1449,15 @@ class RedirectRulesTests(unittest.TestCase):
             }
         ).encode("utf-8")
 
+        def fetch_payload(url: str, headers: dict[str, str] | None = None) -> bytes:
+            del url, headers
+            return payload
+
         redirects = redirect.fetch_previous_redirect_snapshot(
             "https://deb.example.test",
-            redirect_rules_dirname=cli.REDIRECT_RULES_DIRNAME,
-            redirect_snapshot_filename=cli.REDIRECT_SNAPSHOT_FILENAME,
-            fetch_bytes=lambda url, headers=None: payload,
+            redirect_rules_dirname=deploy_tree.REDIRECT_RULES_DIRNAME,
+            redirect_snapshot_filename=deploy_tree.REDIRECT_SNAPSHOT_FILENAME,
+            fetch_bytes=fetch_payload,
         )
 
         self.assertEqual(
@@ -1180,8 +1473,8 @@ class RedirectRulesTests(unittest.TestCase):
             with patch.dict(cli.os.environ, {"CLOUDFLARE_API_TOKEN": "token"}, clear=True):
                 redirect.purge_redirect_cache(
                     urls,
-                    redirect_rules_dirname=cli.REDIRECT_RULES_DIRNAME,
-                    resolve_cloudflare_zone_id=lambda token, hostname: "zone",
+                    redirect_rules_dirname=deploy_tree.REDIRECT_RULES_DIRNAME,
+                    resolve_cloudflare_zone_id=resolve_test_zone,
                     purge_cloudflare_urls=Mock(side_effect=RuntimeError("Authentication error")),
                     purge_cloudflare_prefixes=Mock(),
                 )
@@ -1196,8 +1489,8 @@ class RedirectRulesTests(unittest.TestCase):
             with patch.dict(cli.os.environ, {"CLOUDFLARE_API_TOKEN": "token"}, clear=True):
                 redirect.purge_redirect_cache(
                     urls,
-                    redirect_rules_dirname=cli.REDIRECT_RULES_DIRNAME,
-                    resolve_cloudflare_zone_id=lambda token, hostname: "zone",
+                    redirect_rules_dirname=deploy_tree.REDIRECT_RULES_DIRNAME,
+                    resolve_cloudflare_zone_id=resolve_test_zone,
                     purge_cloudflare_urls=purge_urls,
                     purge_cloudflare_prefixes=purge_prefixes,
                 )
@@ -1216,8 +1509,8 @@ class RedirectRulesTests(unittest.TestCase):
             ):
                 redirect.purge_redirect_cache(
                     urls,
-                    redirect_rules_dirname=cli.REDIRECT_RULES_DIRNAME,
-                    resolve_cloudflare_zone_id=lambda token, hostname: "zone",
+                    redirect_rules_dirname=deploy_tree.REDIRECT_RULES_DIRNAME,
+                    resolve_cloudflare_zone_id=resolve_test_zone,
                     purge_cloudflare_urls=Mock(side_effect=RuntimeError("Authentication error")),
                     purge_cloudflare_prefixes=Mock(),
                     strict=True,
@@ -1227,13 +1520,13 @@ class RedirectRulesTests(unittest.TestCase):
 class DownloadStatsTests(unittest.TestCase):
     def test_formats_download_stats_for_public_json(self) -> None:
         stats = download_stats.format_download_stats(
-            [{"entry_name": "bat", "arch": "amd64", "downloads": 12}],
-            [{"entry_name": "bat", "arch": "amd64", "downloads": 3}],
-            [{"day": "2026-06-14T00:00:00Z", "downloads": 5}],
+            [download_stats.PackageDownloadCount(identity=PackageIdentity(entry_name="bat", arch="amd64"), downloads=12)],
+            [download_stats.PackageDownloadCount(identity=PackageIdentity(entry_name="bat", arch="amd64"), downloads=3)],
+            [download_stats.DownloadStatsDay(date="2026-06-14T00:00:00Z", downloads=5)],
             "deb.example.test",
             30,
-            cli.now_iso,
-        )
+            cli.CLOCK.now_iso,
+        ).model_dump(mode="json", exclude_none=True)
 
         self.assertEqual(stats["source"], "cloudflare_http_requests")
         self.assertEqual(stats["hostname"], "deb.example.test")
@@ -1242,9 +1535,11 @@ class DownloadStatsTests(unittest.TestCase):
         self.assertEqual(stats["daily"], [{"date": "2026-06-14", "downloads": 5}])
 
     def test_aggregates_cloudflare_path_rows_by_entry_and_arch(self) -> None:
-        path_index = {
-            "/pool/main/bat/bat_1.0_amd64.deb": ("bat", "amd64"),
-        }
+        path_index = DownloadPathIndex(
+            paths={
+                "/pool/main/bat/bat_1.0_amd64.deb": PackageIdentity(entry_name="bat", arch="amd64"),
+            }
+        )
         rows = download_stats.aggregate_path_download_rows(
             [
                 {"count": 4, "dimensions": {"clientRequestPath": "/pool/main/bat/bat_1.0_amd64.deb"}},
@@ -1254,34 +1549,16 @@ class DownloadStatsTests(unittest.TestCase):
             path_index,
         )
 
-        self.assertEqual(rows, [{"entry_name": "bat", "arch": "amd64", "downloads": 6}])
-
-    def test_package_download_path_index_uses_lockfile_control_architecture(self) -> None:
-        lock = {
-            "packages": {
-                "fastfetch": {
-                    "architectures": {
-                        "amd64": {
-                            "artifact": {
-                                "filename": "fastfetch-linux-amd64.deb",
-                                "control": {"Architecture": "amd64"},
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        index = download_stats.package_download_path_index(lock, "main", cli.package_virtual_path)
-
-        self.assertEqual(index, {"/pool/main/fastfetch/fastfetch-linux-amd64.deb": ("fastfetch", "amd64")})
+        self.assertEqual(rows, [download_stats.PackageDownloadCount(identity=PackageIdentity(entry_name="bat", arch="amd64"), downloads=6)])
 
     def test_fetch_download_stats_splits_cloudflare_queries_into_daily_windows(self) -> None:
         calls: list[dict[str, object]] = []
-        path_index = {
-            "/pool/main/bat/bat_1.0_amd64.deb": ("bat", "amd64"),
-            "/pool/main/bat/bat_1.0_arm64.deb": ("bat", "arm64"),
-        }
+        path_index = DownloadPathIndex(
+            paths={
+                "/pool/main/bat/bat_1.0_amd64.deb": PackageIdentity(entry_name="bat", arch="amd64"),
+                "/pool/main/bat/bat_1.0_arm64.deb": PackageIdentity(entry_name="bat", arch="arm64"),
+            }
+        )
         rows_by_call = [
             [{"count": 1, "dimensions": {"clientRequestPath": "/pool/main/bat/bat_1.0_amd64.deb"}}],
             [{"count": 2, "dimensions": {"clientRequestPath": "/pool/main/bat/bat_1.0_arm64.deb"}}],
@@ -1309,10 +1586,10 @@ class DownloadStatsTests(unittest.TestCase):
             path_index=path_index,
             max_days=cli.CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS,
             cloudflare_graphql=fake_graphql,
-            now=lambda: datetime(2026, 6, 15, tzinfo=timezone.utc),
-            now_iso=cli.now_iso,
-            graphql_time=cli.graphql_time,
-        )
+            now=fixed_utc_now,
+            now_iso=cli.CLOCK.now_iso,
+            graphql_time=cli.CLOCK.graphql_time,
+        ).model_dump(mode="json", exclude_none=True)
 
         self.assertEqual(len(calls), 2)
         for variables in calls:
@@ -1342,64 +1619,58 @@ class DownloadStatsTests(unittest.TestCase):
             "token",
             "deb.example.test",
             days=30,
-            path_index={},
+            path_index=DownloadPathIndex(paths={}),
             max_days=cli.CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS,
             cloudflare_graphql=fake_graphql,
-            now=lambda: datetime(2026, 6, 15, tzinfo=timezone.utc),
-            now_iso=cli.now_iso,
-            graphql_time=cli.graphql_time,
-        )
+            now=fixed_utc_now,
+            now_iso=cli.CLOCK.now_iso,
+            graphql_time=cli.CLOCK.graphql_time,
+        ).model_dump(mode="json", exclude_none=True)
 
         self.assertEqual(len(calls), cli.CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS)
         self.assertEqual(stats["window_days"], cli.CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS)
 
-    def test_write_download_stats_writes_empty_file_without_cloudflare_credentials(self) -> None:
+    def test_download_stats_publisher_writes_empty_file_without_cloudflare_credentials(self) -> None:
         with tempfile.TemporaryDirectory() as tmp, patch.dict(cli.os.environ, {}, clear=True):
             output = Path(tmp) / "nested" / "download_stats.json"
-            download_stats.write_download_stats(
-                output,
-                "deb.example.test",
-                days=14,
-                strict=False,
-                load_json=cli.load_json,
-                load_config=cli.load_config,
-                write_json=cli.write_json,
-                empty_download_stats=lambda reason, days: download_stats.empty_download_stats(reason, days, cli.now_iso),
-                resolve_cloudflare_zone_id=lambda token, hostname: "zone",
-                fetch_download_stats=Mock(),
-                lock_path=cli.LOCK_PATH,
-                package_virtual_path=cli.package_virtual_path,
-            )
+            download_stats.DownloadStatsPublisher(
+                state=published_state({"packages": {}}),
+                analytics=download_stats.CloudflareHttpAnalytics(
+                    token=None,
+                    fetch_json=Mock(),
+                    post_json=Mock(),
+                    max_days=cli.CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS,
+                ),
+                clock=cli.CLOCK,
+                json_files=JsonFiles(),
+            ).write(output, "deb.example.test", days=14, strict=False)
 
-            stats = cli.load_json(output, None)
+            stats = JsonFiles().load(output, None)
 
         self.assertEqual(stats["source"], "none")
         self.assertEqual(stats["reason"], "missing_cloudflare_credentials")
         self.assertEqual(stats["window_days"], 14)
 
-    def test_write_download_stats_writes_empty_file_when_query_fails(self) -> None:
+    def test_download_stats_publisher_writes_empty_file_when_query_fails(self) -> None:
         env = {"CLOUDFLARE_ZONE_ID": "zone", "CLOUDFLARE_API_TOKEN": "token"}
         with (
             tempfile.TemporaryDirectory() as tmp,
             patch.dict(cli.os.environ, env, clear=True),
         ):
             output = Path(tmp) / "download_stats.json"
-            download_stats.write_download_stats(
-                output,
-                "deb.example.test",
-                days=30,
-                strict=False,
-                load_json=cli.load_json,
-                load_config=lambda: {"component": "main"},
-                write_json=cli.write_json,
-                empty_download_stats=lambda reason, days: download_stats.empty_download_stats(reason, days, cli.now_iso),
-                resolve_cloudflare_zone_id=lambda token, hostname: "zone",
-                fetch_download_stats=Mock(side_effect=RuntimeError("dataset not found")),
-                lock_path=Path(tmp) / "missing-lock.json",
-                package_virtual_path=cli.package_virtual_path,
-            )
+            download_stats.DownloadStatsPublisher(
+                state=published_state({"packages": {}}),
+                analytics=download_stats.CloudflareHttpAnalytics(
+                    token="token",
+                    fetch_json=Mock(),
+                    post_json=Mock(side_effect=RuntimeError("dataset not found")),
+                    max_days=cli.CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS,
+                ),
+                clock=cli.CLOCK,
+                json_files=JsonFiles(),
+            ).write(output, "deb.example.test", days=30, strict=False)
 
-            stats = cli.load_json(output, None)
+            stats = JsonFiles().load(output, None)
 
         self.assertEqual(stats["source"], "none")
         self.assertEqual(stats["reason"], "analytics_query_failed")
@@ -1416,42 +1687,50 @@ class DownloadStatsTests(unittest.TestCase):
         with (
             patch.dict(cli.os.environ, {}, clear=True),
         ):
-            zone_id = redirect.resolve_cloudflare_zone_id(
-                "token",
-                "deb.example.test",
-                fetch_json=lambda url, headers=None: payloads[url],
-            )
+            def fetch_zone(url: str, headers: dict[str, str] | None = None) -> dict[str, object]:
+                return payloads[url]
+
+            zone_id = download_stats.CloudflareHttpAnalytics(
+                token="token",
+                fetch_json=fetch_zone,
+                post_json=Mock(),
+                max_days=cli.CLOUDFLARE_HTTP_ANALYTICS_MAX_DAYS,
+            ).resolve_zone_id("deb.example.test")
 
         self.assertEqual(zone_id, "zone-id")
 
-    def test_write_download_stats_resolves_zone_from_hostname(self) -> None:
+    def test_download_stats_publisher_resolves_zone_from_hostname(self) -> None:
         env = {"CLOUDFLARE_API_TOKEN": "token"}
         with (
             tempfile.TemporaryDirectory() as tmp,
             patch.dict(cli.os.environ, env, clear=True),
         ):
             output = Path(tmp) / "download_stats.json"
-            resolve_zone = Mock(return_value="zone")
-            fetch_stats = Mock(return_value={"source": "cloudflare_http_requests"})
-            download_stats.write_download_stats(
-                output,
-                "deb.example.test",
-                days=30,
-                strict=False,
-                load_json=cli.load_json,
-                load_config=lambda: {"component": "main"},
-                write_json=cli.write_json,
-                empty_download_stats=lambda reason, days: download_stats.empty_download_stats(reason, days, cli.now_iso),
-                resolve_cloudflare_zone_id=resolve_zone,
-                fetch_download_stats=fetch_stats,
-                lock_path=Path(tmp) / "missing-lock.json",
-                package_virtual_path=cli.package_virtual_path,
-            )
+            calls: list[str] = []
 
-            stats = cli.load_json(output, None)
+            def fetch_zone(url: str, headers: dict[str, str] | None = None) -> dict[str, object]:
+                calls.append(url)
+                return {"success": True, "result": [{"id": "zone", "name": "example.test"}]}
 
-        resolve_zone.assert_called_once_with("token", "deb.example.test")
-        self.assertEqual(stats, {"source": "cloudflare_http_requests"})
+            def post_graphql(url: str, payload: object, headers: dict[str, str] | None = None) -> dict[str, object]:
+                return {"data": {"viewer": {"zones": [{"packageRows": []}]}}}
+
+            download_stats.DownloadStatsPublisher(
+                state=published_state({"packages": {}}),
+                analytics=download_stats.CloudflareHttpAnalytics(
+                    token="token",
+                    fetch_json=fetch_zone,
+                    post_json=post_graphql,
+                    max_days=1,
+                ),
+                clock=FixedClock("2026-06-16T08:55:30+00:00"),
+                json_files=JsonFiles(),
+            ).write(output, "deb.example.test", days=30, strict=False)
+
+            stats = JsonFiles().load(output, None)
+
+        self.assertTrue(any("name=example.test" in url for url in calls))
+        self.assertEqual(stats["source"], "cloudflare_http_requests")
 
 
 class WorkerGenerationTests(unittest.TestCase):
@@ -1460,12 +1739,12 @@ class WorkerGenerationTests(unittest.TestCase):
             path = Path(tmp) / "_headers"
             publish.write_headers(
                 path,
-                site_data_filename=cli.SITE_DATA_FILENAME,
-                site_data_browser_ttl_policy=cli.SITE_DATA_BROWSER_TTL_POLICY,
-                site_data_cdn_ttl_policy=cli.SITE_DATA_CDN_TTL_POLICY,
-                redirect_rules_dirname=cli.REDIRECT_RULES_DIRNAME,
-                static_redirect_rules_browser_ttl_policy=cli.STATIC_REDIRECT_RULES_BROWSER_TTL_POLICY,
-                static_redirect_rules_cdn_ttl_policy=cli.STATIC_REDIRECT_RULES_CDN_TTL_POLICY,
+                site_data_filename=deploy_tree.SITE_DATA_FILENAME,
+                site_data_browser_ttl_policy=deploy_tree.SITE_DATA_BROWSER_TTL_POLICY,
+                site_data_cdn_ttl_policy=deploy_tree.SITE_DATA_CDN_TTL_POLICY,
+                redirect_rules_dirname=deploy_tree.REDIRECT_RULES_DIRNAME,
+                static_redirect_rules_browser_ttl_policy=deploy_tree.STATIC_REDIRECT_RULES_BROWSER_TTL_POLICY,
+                static_redirect_rules_cdn_ttl_policy=deploy_tree.STATIC_REDIRECT_RULES_CDN_TTL_POLICY,
             )
 
             headers = path.read_text(encoding="utf-8")
@@ -1482,7 +1761,7 @@ class WorkerGenerationTests(unittest.TestCase):
     def test_worker_reads_redirect_shard_and_caches_redirect_response(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "_worker.js"
-            publish.write_worker(path, cli.WORKER_SCRIPT_PATH)
+            publish.write_worker(path, deploy_tree.WORKER_SCRIPT_PATH)
 
             worker = path.read_text(encoding="utf-8")
 
@@ -1504,79 +1783,130 @@ class WorkerGenerationTests(unittest.TestCase):
 
 
 class SigningKeyTests(unittest.TestCase):
+    def fake_gpg_module(self, *, keys: list[object] | None = None) -> SimpleNamespace:
+        state = SimpleNamespace(
+            keys=list(keys or []),
+            contexts=[],
+            imports=[],
+            exports=[],
+            signs=[],
+        )
+
+        class FakeContext:
+            def __init__(self, **kwargs: object) -> None:
+                self.kwargs = kwargs
+                self.passphrase_cb = None
+                state.contexts.append(self)
+
+            def keylist(self, *, pattern: str, secret: bool) -> list[object]:
+                return state.keys
+
+            def op_import(self, key_material: bytes) -> None:
+                state.imports.append(key_material)
+                state.keys.append(SimpleNamespace())
+
+            def key_export(self, *, pattern: str) -> bytes:
+                state.exports.append(pattern)
+                return b"public-key"
+
+            def set_passphrase_cb(self, func: object) -> None:
+                self.passphrase_cb = func
+
+            def sign(self, data: bytes, sink: object = None, mode: object = 0) -> tuple[bytes, object]:
+                passphrase = self.passphrase_cb("hint", "desc", False) if self.passphrase_cb else None
+                state.signs.append({"data": data, "sink": sink, "mode": mode, "passphrase": passphrase})
+                return b"signed:" + data, SimpleNamespace()
+
+        return SimpleNamespace(
+            Context=FakeContext,
+            constants=SimpleNamespace(
+                PINENTRY_MODE_LOOPBACK="loopback",
+                sig=SimpleNamespace(mode=SimpleNamespace(CLEAR="clear", DETACH="detach")),
+            ),
+            state=state,
+        )
+
     def test_loads_signing_environment_from_dotenv(self) -> None:
+        fake_gpg = self.fake_gpg_module(keys=[SimpleNamespace()])
+        env: dict[str, str] = {}
         with (
             tempfile.TemporaryDirectory() as tmp,
-            patch.object(cli, "ENV_PATH", Path(tmp) / ".env"),
-            patch.object(cli, "DOTENV_LOADED", False),
-            patch.dict(cli.os.environ, {}, clear=True),
+            patch.object(deploy_tree, "gpg", fake_gpg),
         ):
-            cli.ENV_PATH.write_text(
-                f'export {cli.SIGNING_PRIVATE_KEY_B64_ENV}="encoded"\n{cli.SIGNING_PASSPHRASE_ENV}=secret\n',
+            env_path = Path(tmp) / ".env"
+            env_path.write_text(
+                f'export {deploy_tree.SIGNING_PRIVATE_KEY_B64_ENV}="encoded"\n{deploy_tree.SIGNING_PASSPHRASE_ENV}=secret\n',
                 encoding="utf-8",
             )
+            signer = deploy_tree.RepositorySigner(gnupg_dir=Path(tmp) / "gnupg", env_path=env_path, environ=env)
 
-            cli.load_dotenv()
+            signer.public_key(signing_deploy_config())
 
-            self.assertEqual(cli.os.environ[cli.SIGNING_PRIVATE_KEY_B64_ENV], "encoded")
-            self.assertEqual(cli.os.environ[cli.SIGNING_PASSPHRASE_ENV], "secret")
+        self.assertEqual(env[deploy_tree.SIGNING_PRIVATE_KEY_B64_ENV], "encoded")
+        self.assertEqual(env[deploy_tree.SIGNING_PASSPHRASE_ENV], "secret")
 
     def test_imports_private_key_from_environment_when_secret_key_is_missing(self) -> None:
-        class Result:
-            def __init__(self, returncode: int = 0, stdout: str = "") -> None:
-                self.returncode = returncode
-                self.stdout = stdout
-
         key_material = "-----BEGIN PGP PRIVATE KEY BLOCK-----\nkey\n-----END PGP PRIVATE KEY BLOCK-----\n"
         env = {
-            cli.SIGNING_PRIVATE_KEY_B64_ENV: base64.b64encode(key_material.encode("utf-8")).decode("ascii"),
-            cli.SIGNING_PASSPHRASE_ENV: "secret",
+            deploy_tree.SIGNING_PRIVATE_KEY_B64_ENV: base64.b64encode(key_material.encode("utf-8")).decode("ascii"),
+            deploy_tree.SIGNING_PASSPHRASE_ENV: "secret",
         }
-        calls: list[list[str]] = []
-        inputs: list[str | None] = []
-
-        def fake_run(args: list[str], **kwargs: object) -> Result:
-            calls.append(args)
-            inputs.append(kwargs.get("input"))
-            if args[:2] == ["gpg", "--list-secret-keys"]:
-                return Result(2 if len([call for call in calls if call[:2] == ["gpg", "--list-secret-keys"]]) == 1 else 0)
-            if args[:2] == ["gpg", "--armor"]:
-                return Result(stdout="public-key")
-            return Result()
+        fake_gpg = self.fake_gpg_module()
 
         with (
             tempfile.TemporaryDirectory() as tmp,
-            patch.object(cli, "GNUPG_DIR", Path(tmp) / "gnupg"),
-            patch.object(cli, "ENV_PATH", Path(tmp) / ".env"),
-            patch.object(cli, "DOTENV_LOADED", False),
-            patch.dict(cli.os.environ, env, clear=True),
-            patch.object(cli.subprocess, "run", side_effect=fake_run),
+            patch.object(deploy_tree, "gpg", fake_gpg),
         ):
-            public_key = cli.ensure_signing_key({"signing": {"key_name": "Apt Index <apt-index@lyk-ai.com>"}})
+            public_key = deploy_tree.RepositorySigner(
+                gnupg_dir=Path(tmp) / "gnupg",
+                env_path=Path(tmp) / ".env",
+                environ=env,
+            ).public_key(signing_deploy_config())
 
         self.assertEqual(public_key, "public-key")
-        self.assertIn(
-            ["gpg", "--batch", "--yes", "--pinentry-mode", "loopback", "--passphrase", "secret", "--import"],
-            calls,
-        )
-        self.assertIn(key_material, inputs)
-        self.assertNotIn("--quick-generate-key", [arg for call in calls for arg in call])
+        self.assertEqual(fake_gpg.state.imports, [key_material.encode("utf-8")])
+        self.assertEqual(fake_gpg.state.exports, [signing_deploy_config().signing_key_name])
+        self.assertTrue(all(context.kwargs["home_dir"].endswith("gnupg") for context in fake_gpg.state.contexts))
 
     def test_fails_without_existing_or_configured_private_key(self) -> None:
-        class Result:
-            returncode = 2
-            stdout = ""
+        fake_gpg = self.fake_gpg_module()
 
         with (
             tempfile.TemporaryDirectory() as tmp,
-            patch.object(cli, "GNUPG_DIR", Path(tmp) / "gnupg"),
-            patch.object(cli, "ENV_PATH", Path(tmp) / ".env"),
-            patch.object(cli, "DOTENV_LOADED", False),
-            patch.dict(cli.os.environ, {}, clear=True),
-            patch.object(cli.subprocess, "run", return_value=Result()),
+            patch.object(deploy_tree, "gpg", fake_gpg),
         ):
             with self.assertRaisesRegex(RuntimeError, "missing signing private key"):
-                cli.ensure_signing_key({"signing": {"key_name": "Apt Index <apt-index@lyk-ai.com>"}})
+                deploy_tree.RepositorySigner(
+                    gnupg_dir=Path(tmp) / "gnupg",
+                    env_path=Path(tmp) / ".env",
+                    environ={},
+                ).public_key(signing_deploy_config())
+
+    def test_sign_release_writes_gpgme_clear_and_detached_signatures(self) -> None:
+        key = SimpleNamespace()
+        fake_gpg = self.fake_gpg_module(keys=[key])
+        config = signing_deploy_config().model_copy(update={"suite": "stable"})
+
+        with (
+            tempfile.TemporaryDirectory() as tmp,
+            patch.object(deploy_tree, "gpg", fake_gpg),
+        ):
+            release_dir = Path(tmp) / "dist" / "dists" / "stable"
+            release_dir.mkdir(parents=True)
+            (release_dir / "Release").write_bytes(b"release-data")
+
+            deploy_tree.RepositorySigner(
+                gnupg_dir=Path(tmp) / "gnupg",
+                env_path=Path(tmp) / ".env",
+                environ={deploy_tree.SIGNING_PASSPHRASE_ENV: "secret"},
+            ).sign_release(config, release_path=release_dir / "Release")
+
+            self.assertEqual((release_dir / "InRelease").read_bytes(), b"signed:release-data")
+            self.assertEqual((release_dir / "Release.gpg").read_bytes(), b"signed:release-data")
+
+        self.assertEqual([sign["mode"] for sign in fake_gpg.state.signs], ["clear", "detach"])
+        self.assertEqual([sign["passphrase"] for sign in fake_gpg.state.signs], ["secret", "secret"])
+        self.assertEqual([context.kwargs.get("signers") for context in fake_gpg.state.contexts if "signers" in context.kwargs], [[key], [key]])
 
 
 if __name__ == "__main__":
