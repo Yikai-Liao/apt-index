@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T07:13:00+00:00",
+  "generated_at": "2026-06-19T07:31:44+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -299,25 +299,25 @@
               "Architecture": "amd64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "38324",
+              "Installed-Size": "38325",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.6.0"
+              "Version": "2026.6.1"
             },
             "filename": "cloudflared-linux-amd64.deb",
-            "md5": "20e679c6d766318aaec3e2f732388df4",
-            "sha1": "ed4be38c7b1a2f545d4f51e956e87f3280183f1f",
-            "sha256": "0f8d62a84cdf9474409a486d62c9269d9a4b28665d2c4e675cb87c062395d3f7",
-            "sha512": "28b9fc73079de89bfdbd4bebf5d46c895923aa869feb674dc5242c03ba586e9bc77abd2b62f31b8231d9d24c2edb134d738ff53f4cae8f262536667962d50ec3",
-            "size": 18881532,
-            "upstream_version": "2026.6.0",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.6.0/cloudflared-linux-amd64.deb"
+            "md5": "82b5c324c3e11c04f9a0c660c6e3f90f",
+            "sha1": "14ebc47f3ea25087e03951a896dcacdc515011d9",
+            "sha256": "ccd02ec216c62bfa573395d8f72cb2e91e95cbdf8726a8acc06b3e2d9aa31526",
+            "sha512": "800d7511c8e4cd0fa3bda167de9da3806a680114c66aead7bf35171858d1a2a69a6f40ea83b9e31762b49ed3730f73b51dc2c866bc171908865e882d69334776",
+            "size": 18883806,
+            "upstream_version": "2026.6.1",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.6.1/cloudflared-linux-amd64.deb"
           },
-          "resolved_at": "2026-06-15T15:59:21+00:00",
+          "resolved_at": "2026-06-19T07:31:26+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -328,25 +328,25 @@
               "Architecture": "arm64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "36049",
+              "Installed-Size": "36114",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.6.0"
+              "Version": "2026.6.1"
             },
             "filename": "cloudflared-linux-arm64.deb",
-            "md5": "34038dd1ad1811c8caa1f0199f82880d",
-            "sha1": "18f604c1e83782d29fc8257de783c0e5ad57851a",
-            "sha256": "b0bcc293670cafd150380efebea85073424e332f136003ae9fdf99b2c83a0231",
-            "sha512": "b23f06f0c4a886307ee5d83a3161069720951529f6f8f9c0601623cc3cdf4ca09bb95737928580724e87255fa8bcf89ae971df228a34b5040881dd1eb8a2cfcf",
-            "size": 17414638,
-            "upstream_version": "2026.6.0",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.6.0/cloudflared-linux-arm64.deb"
+            "md5": "24f78f435eb8b0ca3abdb1dfae321bd6",
+            "sha1": "7f72064fdae00f81b1c6bb4d9d51df6e5e115d1e",
+            "sha256": "bd03edd14de32ff38230ec9356e7fad0f32455558b2052d693bf51b7814f3ad4",
+            "sha512": "d06cebea9c85a8a573a794c8cfd6e31682fe85061f43366074de8e4ac7bf32fa862ccee0d57ea51329b9fc75da1894a5097371828f9a49c826d6bd8f37cbebc7",
+            "size": 17416274,
+            "upstream_version": "2026.6.1",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.6.1/cloudflared-linux-arm64.deb"
           },
-          "resolved_at": "2026-06-15T15:59:21+00:00",
+          "resolved_at": "2026-06-19T07:31:26+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -357,14 +357,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.7.42_amd64.deb",
+            "asset_name": "cursor_3.8.11_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.14), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "879753",
+              "Installed-Size": "946595",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -372,18 +372,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.7.42-1781553940"
+              "Version": "3.8.11-1781748827"
             },
-            "filename": "cursor_3.7.42_amd64.deb",
-            "md5": "98666fa8780bf3eadff3988682c35102",
-            "sha1": "226782b40d98ea1fdbe697dfba07eda0deca270a",
-            "sha256": "b96ac10ac806233d1c245c7f2b605e4f925f0ebd42b479c2dfa02f20e86a35c0",
-            "sha512": "f64441f8753d9b39f779b73b6a52ac7a4df63491ec24033b2d9e3dc4e67741057636f2e909c799bb9efff6b2c1b006050dd698bc41a1fd8c77fdb06f0f0dea9d",
-            "size": 187926668,
-            "upstream_version": "3.7.42",
-            "url": "https://downloads.cursor.com/production/5702c9cfca656d8710fad58402fe37f14345e3ac/linux/x64/deb/amd64/deb/cursor_3.7.42_amd64.deb"
+            "filename": "cursor_3.8.11_amd64.deb",
+            "md5": "2b4aa8abd30e2d90c1e0c04ab868afff",
+            "sha1": "d411465c258437d00e3dc536afba745222f7cd22",
+            "sha256": "07bf6d4790315d9c00e761b53d140a0e1e4c714abcdca98700ca26a809aa0987",
+            "sha512": "4fdfcef0ea4c9848cba979b0791023a13a66fcd8fe109610b728a02e5548c9de07eadcd473e2cd5f2183243d7885d34bf43791b10571836dfc98b9cdf3565030",
+            "size": 199142308,
+            "upstream_version": "3.8.11",
+            "url": "https://downloads.cursor.com/production/e56ad3440df06d22ca7501e65fd518e905486ef7/linux/x64/deb/amd64/deb/cursor_3.8.11_amd64.deb"
           },
-          "resolved_at": "2026-06-16T02:52:58+00:00",
+          "resolved_at": "2026-06-19T07:31:30+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -455,13 +455,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "drawio-amd64-30.0.4.deb",
+            "asset_name": "drawio-amd64-30.2.4.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  draw.io desktop",
               "Homepage": "https://github.com/jgraph/drawio",
-              "Installed-Size": "443657",
+              "Installed-Size": "450776",
               "License": "Apache-2.0",
               "Maintainer": "draw.io <desktop@draw.io>",
               "Package": "draw.io",
@@ -469,30 +469,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "draw.io <desktop@draw.io>",
-              "Version": "30.0.4"
+              "Version": "30.2.4"
             },
-            "filename": "draw.io_30.0.4_amd64.deb",
-            "md5": "3ea90ff5e39ab89bf40c82e6b7e889fe",
-            "sha1": "0d043c658a16ec46f08e9602f18a44cbf9eadf90",
-            "sha256": "c2da34d702e01855af9c9c60484cb9a4984b87f6811a195fcc5a2ff5b533033a",
-            "sha512": "f3cc237239f751e9dd35842efc4677760958340d7f9015913b04b40410f480794e80afb20aa2ede8351350a5931f5034836d561291c70cb686af8cf37597a4e7",
-            "size": 129365504,
-            "upstream_version": "v30.0.4",
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v30.0.4/drawio-amd64-30.0.4.deb"
+            "filename": "draw.io_30.2.4_amd64.deb",
+            "md5": "0f69001f549f5a92b070288e90e1b5e2",
+            "sha1": "f499b7d300f32e76204a17cf482cf49d8f7ebad5",
+            "sha256": "dc85196e77f8070f7e2b6f7d1aef1868a08bdd6fff77521b83a81e271aa5ec50",
+            "sha512": "fceba7cc0bee61aa41a8acdb5cea5049a564eedeb5c11f85638db6b56c018697a99903d98b07be078985d3794fdbc1d1ba14458019a7c5b5eb0e5c2830dbf2b7",
+            "size": 133035644,
+            "upstream_version": "v30.2.4",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v30.2.4/drawio-amd64-30.2.4.deb"
           },
-          "resolved_at": "2026-06-16T02:52:56+00:00",
+          "resolved_at": "2026-06-19T07:31:27+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "drawio-arm64-30.0.4.deb",
+            "asset_name": "drawio-arm64-30.2.4.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  draw.io desktop",
               "Homepage": "https://github.com/jgraph/drawio",
-              "Installed-Size": "449731",
+              "Installed-Size": "449664",
               "License": "Apache-2.0",
               "Maintainer": "draw.io <desktop@draw.io>",
               "Package": "draw.io",
@@ -500,18 +500,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "draw.io <desktop@draw.io>",
-              "Version": "30.0.4"
+              "Version": "30.2.4"
             },
-            "filename": "draw.io_30.0.4_arm64.deb",
-            "md5": "4f8f8b19bc60f54da961c017af8c551c",
-            "sha1": "56cf415b3ad3e952e6131887546021611aaf1f48",
-            "sha256": "2036f92e193162c260df4f8feb4434680efabfa0f5e17201533c67c28b123b15",
-            "sha512": "065b2536d5d05a610ca0544c18490c4157a42163fc3a7cbf210b0594e79e78eb0eae53f1b40faa272171bae29ba5b7f5f89ace3aa7415931633da2c7d14c1cfb",
-            "size": 124278800,
-            "upstream_version": "v30.0.4",
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v30.0.4/drawio-arm64-30.0.4.deb"
+            "filename": "draw.io_30.2.4_arm64.deb",
+            "md5": "6eb65528a0975cabd3a192d24fb3ca75",
+            "sha1": "969308442815fd7dc1c95699455c19bdb05e8a74",
+            "sha256": "8a8a3f88d7bbfb46c193c18176baf9b5b099d35bce07f03760a3620a7b0726de",
+            "sha512": "f42e38885cb973128b4ef0b464cddcc40d212e2a526c7363622f881780f3ab58b9383fc165b29decf745c11c8c48de828f27eb77dcf3d42fa1d3d37f4956f187",
+            "size": 126386228,
+            "upstream_version": "v30.2.4",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v30.2.4/drawio-arm64-30.2.4.deb"
           },
-          "resolved_at": "2026-06-16T02:52:58+00:00",
+          "resolved_at": "2026-06-19T07:31:29+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1113,13 +1113,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "Insomnia.Core-13.0.0.deb",
+            "asset_name": "Insomnia.Core-13.0.1.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "The Collaborative API Client and Design Tool\n  The Collaborative API Design Tool",
               "Homepage": "https://konghq.com",
-              "Installed-Size": "1569291",
+              "Installed-Size": "1569293",
               "License": "Apache-2.0",
               "Maintainer": "Kong <office@konghq.com>",
               "Package": "insomnia",
@@ -1127,18 +1127,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Kong <office@konghq.com>",
-              "Version": "13.0.0"
+              "Version": "13.0.1"
             },
-            "filename": "insomnia_13.0.0_amd64.deb",
-            "md5": "b58d576d3bedf02458c982e45ea09c05",
-            "sha1": "133d7af36de5796554d13038d36a9907efdb82f3",
-            "sha256": "31e72896b5a6fe2ab10382ff362f14f2d30d4254459a13931118ffe5b4a4556f",
-            "sha512": "32411340b0c0ad454339eb5b342e3ea4388c534feda194797d523f7caa8e5ebffcacff413639ce3174e78a76a2371135a29d1490948da5d4e9eef9dbc2f551ab",
-            "size": 417197700,
-            "upstream_version": "core@13.0.0",
-            "url": "https://github.com/Kong/insomnia/releases/download/core%4013.0.0/Insomnia.Core-13.0.0.deb"
+            "filename": "insomnia_13.0.1_amd64.deb",
+            "md5": "24e8ff003f1a61008560886502a334fc",
+            "sha1": "02b9e67daceb2136d81c46ca0b0e5d7001da0e19",
+            "sha256": "9766c66f0041b0c3bb5943c18acd52ac5c0c1466478e6895a2a497eb57adcad7",
+            "sha512": "851409da63ca19b695c8ea33094ebd62773ed9ae9c38ab60e2e70af1d6668bbb3eb19b5e30793c51cda2d39c00304632b53005893405afd839dfa9c8b46e88bc",
+            "size": 417197512,
+            "upstream_version": "core@13.0.1",
+            "url": "https://github.com/Kong/insomnia/releases/download/core%4013.0.1/Insomnia.Core-13.0.1.deb"
           },
-          "resolved_at": "2026-06-17T07:29:42+00:00",
+          "resolved_at": "2026-06-19T07:31:33+00:00",
           "source": "github",
           "update_policy": "track"
         }
