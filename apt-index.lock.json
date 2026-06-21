@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T06:42:59+00:00",
+  "generated_at": "2026-06-21T07:11:40+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -131,59 +131,59 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "bottom_0.13.0-1_amd64.deb",
+            "asset_name": "bottom_0.14.0-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "btm",
               "Depends": "libc6 (>= 2.39)",
               "Description": "A customizable cross-platform graphical process/system monitor for the\n terminal. Supports Linux, macOS, and Windows.\n .\n By default, bottom will look for a config file in ~/.config/bottom/bottom.toml.\n A config file can be specified using `-C`. If a config file does not exist at\n the specified or default location, a default one will be created for the user\n there.",
               "Homepage": "https://bottom.pages.dev/stable",
-              "Installed-Size": "5027",
+              "Installed-Size": "5029",
               "Maintainer": "Clement Tsang <cjhtsang@uwaterloo.ca>",
               "Package": "bottom",
               "Priority": "optional",
               "Section": "utility",
-              "Version": "0.13.0-1"
+              "Version": "0.14.0-1"
             },
-            "filename": "bottom_0.13.0-1_amd64.deb",
-            "md5": "503effe0fbcb3cbda2c365204442a6f2",
-            "sha1": "be37cf7cd10488e483531db501721b31907444c9",
-            "sha256": "d7ca977424c04a9d3009df297ab920ef1defd2cb67062ec3755f706cfddf0d68",
-            "sha512": "e5710db11347e0e58d09625554e737eb4f7664f25c78d50d5cdb99968a9b02273655dc887ee06ed564e49e3129bcbcb47500533cc9fe1270039c363da1379f0a",
-            "size": 1500004,
-            "upstream_version": "0.13.0",
-            "url": "https://github.com/ClementTsang/bottom/releases/download/0.13.0/bottom_0.13.0-1_amd64.deb"
+            "filename": "bottom_0.14.0-1_amd64.deb",
+            "md5": "12c2c26314bf2e1e5c3fb2bee64001ff",
+            "sha1": "bf0a8fc65c071ebb8980a50ad382e9a895b116b7",
+            "sha256": "6788cebc31f7f14798b0d4c34b3a25dc156c0ba36dd3430aabd389b37f9c584d",
+            "sha512": "904ccf046165ec8700a0cfecab11af5da26eb9e996391e3b7532d3aff2aa6db35ceb2fa73282636b6c6a70750b3f2fd02eb823334665eb49e3ac554096bb754b",
+            "size": 1500168,
+            "upstream_version": "0.14.0",
+            "url": "https://github.com/ClementTsang/bottom/releases/download/0.14.0/bottom_0.14.0-1_amd64.deb"
           },
-          "resolved_at": "2026-06-20T06:42:40+00:00",
+          "resolved_at": "2026-06-21T07:11:21+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "bottom_0.13.0-1_arm64.deb",
+            "asset_name": "bottom_0.14.0-1_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "btm",
               "Depends": "libc6 (>= 2.34)",
               "Description": "A customizable cross-platform graphical process/system monitor for the\n terminal. Supports Linux, macOS, and Windows.\n .\n By default, bottom will look for a config file in ~/.config/bottom/bottom.toml.\n A config file can be specified using `-C`. If a config file does not exist at\n the specified or default location, a default one will be created for the user\n there.",
               "Homepage": "https://bottom.pages.dev/stable",
-              "Installed-Size": "4364",
+              "Installed-Size": "4356",
               "Maintainer": "Clement Tsang <cjhtsang@uwaterloo.ca>",
               "Package": "bottom",
               "Priority": "optional",
               "Section": "utility",
-              "Version": "0.13.0-1"
+              "Version": "0.14.0-1"
             },
-            "filename": "bottom_0.13.0-1_arm64.deb",
-            "md5": "2d00842538eb12d89642fb433055c6e5",
-            "sha1": "55830152f2163c0ce548866048d92cc8ec7e555f",
-            "sha256": "1ff866057c594c12dc3558876bd94ec38e1393808e1bccc250c4d4df084f2e2f",
-            "sha512": "6ec432603a7943eebb0c160745492acb13b2827d9ecf04e33c1f10719e16ff71ed70f498d2487b8c860f846a3143583935b69550ed4477033420f14a6783c9ec",
-            "size": 1285368,
-            "upstream_version": "0.13.0",
-            "url": "https://github.com/ClementTsang/bottom/releases/download/0.13.0/bottom_0.13.0-1_arm64.deb"
+            "filename": "bottom_0.14.0-1_arm64.deb",
+            "md5": "6cf1d2cabb6064288b509357ecb86b94",
+            "sha1": "0466dd36de60d79dded1e4cffb0e9d9cc53c26cf",
+            "sha256": "365423f2fb110fec141fe005dda261f078f4c81a6a0d06feae8cc66bea30f682",
+            "sha512": "6f438d945b7d48c888fd73f02c420173e005489ad75548b15e58e9be4318cf7ec86c404549b9c26d1c5b184847f932129c2b6394b7f23f85d5822d884dac1019",
+            "size": 1286104,
+            "upstream_version": "0.14.0",
+            "url": "https://github.com/ClementTsang/bottom/releases/download/0.14.0/bottom_0.14.0-1_arm64.deb"
           },
-          "resolved_at": "2026-06-20T06:42:40+00:00",
+          "resolved_at": "2026-06-21T07:11:22+00:00",
           "source": "github",
           "update_policy": "track"
         }
