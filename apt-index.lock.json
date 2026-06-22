@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T07:11:40+00:00",
+  "generated_at": "2026-06-22T07:43:40+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -131,59 +131,59 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "bottom_0.14.0-1_amd64.deb",
+            "asset_name": "bottom_0.14.1-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "btm",
               "Depends": "libc6 (>= 2.39)",
               "Description": "A customizable cross-platform graphical process/system monitor for the\n terminal. Supports Linux, macOS, and Windows.\n .\n By default, bottom will look for a config file in ~/.config/bottom/bottom.toml.\n A config file can be specified using `-C`. If a config file does not exist at\n the specified or default location, a default one will be created for the user\n there.",
               "Homepage": "https://bottom.pages.dev/stable",
-              "Installed-Size": "5029",
+              "Installed-Size": "5035",
               "Maintainer": "Clement Tsang <cjhtsang@uwaterloo.ca>",
               "Package": "bottom",
               "Priority": "optional",
               "Section": "utility",
-              "Version": "0.14.0-1"
+              "Version": "0.14.1-1"
             },
-            "filename": "bottom_0.14.0-1_amd64.deb",
-            "md5": "12c2c26314bf2e1e5c3fb2bee64001ff",
-            "sha1": "bf0a8fc65c071ebb8980a50ad382e9a895b116b7",
-            "sha256": "6788cebc31f7f14798b0d4c34b3a25dc156c0ba36dd3430aabd389b37f9c584d",
-            "sha512": "904ccf046165ec8700a0cfecab11af5da26eb9e996391e3b7532d3aff2aa6db35ceb2fa73282636b6c6a70750b3f2fd02eb823334665eb49e3ac554096bb754b",
-            "size": 1500168,
-            "upstream_version": "0.14.0",
-            "url": "https://github.com/ClementTsang/bottom/releases/download/0.14.0/bottom_0.14.0-1_amd64.deb"
+            "filename": "bottom_0.14.1-1_amd64.deb",
+            "md5": "73f833dcdd76776163864e63ffd7f372",
+            "sha1": "c115e09fdb65cfefdc04e9f5b243952ac00a521b",
+            "sha256": "1908c77e060e26477f190d8496dd9cdd942187b4c84551131c1d1bb465007f99",
+            "sha512": "76b3be372ea53534d561e7e510188474d209b33739b7401e4c40728d4acef8b1900b558277ee302a1e5814f6613e5292780839cb4588f733de3ddcb7a20f1df9",
+            "size": 1504332,
+            "upstream_version": "0.14.1",
+            "url": "https://github.com/ClementTsang/bottom/releases/download/0.14.1/bottom_0.14.1-1_amd64.deb"
           },
-          "resolved_at": "2026-06-21T07:11:21+00:00",
+          "resolved_at": "2026-06-22T07:43:22+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "bottom_0.14.0-1_arm64.deb",
+            "asset_name": "bottom_0.14.1-1_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "btm",
               "Depends": "libc6 (>= 2.34)",
               "Description": "A customizable cross-platform graphical process/system monitor for the\n terminal. Supports Linux, macOS, and Windows.\n .\n By default, bottom will look for a config file in ~/.config/bottom/bottom.toml.\n A config file can be specified using `-C`. If a config file does not exist at\n the specified or default location, a default one will be created for the user\n there.",
               "Homepage": "https://bottom.pages.dev/stable",
-              "Installed-Size": "4356",
+              "Installed-Size": "4360",
               "Maintainer": "Clement Tsang <cjhtsang@uwaterloo.ca>",
               "Package": "bottom",
               "Priority": "optional",
               "Section": "utility",
-              "Version": "0.14.0-1"
+              "Version": "0.14.1-1"
             },
-            "filename": "bottom_0.14.0-1_arm64.deb",
-            "md5": "6cf1d2cabb6064288b509357ecb86b94",
-            "sha1": "0466dd36de60d79dded1e4cffb0e9d9cc53c26cf",
-            "sha256": "365423f2fb110fec141fe005dda261f078f4c81a6a0d06feae8cc66bea30f682",
-            "sha512": "6f438d945b7d48c888fd73f02c420173e005489ad75548b15e58e9be4318cf7ec86c404549b9c26d1c5b184847f932129c2b6394b7f23f85d5822d884dac1019",
-            "size": 1286104,
-            "upstream_version": "0.14.0",
-            "url": "https://github.com/ClementTsang/bottom/releases/download/0.14.0/bottom_0.14.0-1_arm64.deb"
+            "filename": "bottom_0.14.1-1_arm64.deb",
+            "md5": "ff68bd20ebc53ea0a067ce47c2337fe1",
+            "sha1": "56ee220785eac0b785afab6e85b0d0437279cb5b",
+            "sha256": "6966094f1d2ba08fb7a9149b3681e8e44e08eef283b1b1e3ac1b7b6a4993312c",
+            "sha512": "50f0050aa6fcc581a248cd700da05b8d3aa056bd2a9d8af12b6213706bd3c2f08a9a99029ecc71a158762bf5db41e5610ad23f63770af2407776bbd470dee852",
+            "size": 1289396,
+            "upstream_version": "0.14.1",
+            "url": "https://github.com/ClementTsang/bottom/releases/download/0.14.1/bottom_0.14.1-1_arm64.deb"
           },
-          "resolved_at": "2026-06-21T07:11:22+00:00",
+          "resolved_at": "2026-06-22T07:43:23+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1470,53 +1470,53 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "MotrixNext_3.9.5_amd64.deb",
+            "asset_name": "MotrixNext_3.9.6_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libayatana-appindicator3-1, libwebkit2gtk-4.1-0, libgtk-3-0",
               "Description": "A full-featured download manager\n (none)",
-              "Installed-Size": "56714",
+              "Installed-Size": "57093",
               "Maintainer": "AnInsomniacy",
               "Package": "motrix-next",
               "Priority": "optional",
-              "Version": "3.9.5"
+              "Version": "3.9.6"
             },
-            "filename": "motrix-next_3.9.5_amd64.deb",
-            "md5": "c0031fa64f422113bc8d568085d6c825",
-            "sha1": "997dcfb9976301a25e70039defd869f5f402612e",
-            "sha256": "1a15672eaacdc7fae1aace288648f0222517b884332b3b9d5bbd6060f3a17d85",
-            "sha512": "ba32ad027f570366dfbfefda701d1186174010852c6da5fc094ff5c37f763cdffc069a985b219a20c5fb8676c662fac44042b14f2629736ff4596d269514acec",
-            "size": 24459770,
-            "upstream_version": "v3.9.5",
-            "url": "https://github.com/AnInsomniacy/motrix-next/releases/download/v3.9.5/MotrixNext_3.9.5_amd64.deb"
+            "filename": "motrix-next_3.9.6_amd64.deb",
+            "md5": "a64f93291ef13e6e0cdcfc42cb74b51b",
+            "sha1": "cfafb3d0119ecbc590e66b7d80f9d688ce182beb",
+            "sha256": "2b0d3e3be747f4228e5b996f9def0a6ee90defe2a29c646152a02818b54ff0bc",
+            "sha512": "94c3983478fee4472a105d19b0f51d4688b622f812f4c60fe344c1476e8309b9ce046620899d2c6855b7f80006af90e3600e7f129ea8e7c9b9ec0e8b468b01dc",
+            "size": 24625692,
+            "upstream_version": "v3.9.6",
+            "url": "https://github.com/AnInsomniacy/motrix-next/releases/download/v3.9.6/MotrixNext_3.9.6_amd64.deb"
           },
-          "resolved_at": "2026-06-16T02:53:01+00:00",
+          "resolved_at": "2026-06-22T07:43:29+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "MotrixNext_3.9.5_arm64.deb",
+            "asset_name": "MotrixNext_3.9.6_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libayatana-appindicator3-1, libwebkit2gtk-4.1-0, libgtk-3-0",
               "Description": "A full-featured download manager\n (none)",
-              "Installed-Size": "55090",
+              "Installed-Size": "55442",
               "Maintainer": "AnInsomniacy",
               "Package": "motrix-next",
               "Priority": "optional",
-              "Version": "3.9.5"
+              "Version": "3.9.6"
             },
-            "filename": "motrix-next_3.9.5_arm64.deb",
-            "md5": "addad3a6f1901972ee1f9532e8b1f463",
-            "sha1": "6fcd5fcebb1e488b97ee2e4bcb10740e725f025b",
-            "sha256": "8fbcc7dda7d7a3ed25e533e50961b3d52e750d5a5160e31e2f4f76baf06517fe",
-            "sha512": "00ea9af66e8f9b434fa5277c79dd4f7a3f22ca8fb8413f91d9150a0cd282aeb0fc119d0a731c6fde1fe7567b1800aa487124b6800c5d59ec25290caa71901d4e",
-            "size": 24537754,
-            "upstream_version": "v3.9.5",
-            "url": "https://github.com/AnInsomniacy/motrix-next/releases/download/v3.9.5/MotrixNext_3.9.5_arm64.deb"
+            "filename": "motrix-next_3.9.6_arm64.deb",
+            "md5": "42b12fb7b605b24aaa2de4678b1e122a",
+            "sha1": "a1b41b23357429cbb1549f4b6ed848739fc92005",
+            "sha256": "46d956073304c3211ba9eb9051b834dd416b732f28b9348658cbbca2e64e5f1a",
+            "sha512": "0f4c402930eb1e3bc9b6f11bead1cd7339eba58468546cb97e0b12d6d8b3ed24b3a797c1a96b258190ae15cf0deb06fb0065503409c97095b6ec4537f01c3ccb",
+            "size": 24673952,
+            "upstream_version": "v3.9.6",
+            "url": "https://github.com/AnInsomniacy/motrix-next/releases/download/v3.9.6/MotrixNext_3.9.6_arm64.deb"
           },
-          "resolved_at": "2026-06-16T02:53:02+00:00",
+          "resolved_at": "2026-06-22T07:43:31+00:00",
           "source": "github",
           "update_policy": "track"
         }
