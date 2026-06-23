@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T07:43:40+00:00",
+  "generated_at": "2026-06-23T06:30:12+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.8.11_amd64.deb",
+            "asset_name": "cursor_3.8.22_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.14), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "946595",
+              "Installed-Size": "946735",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.8.11-1781748827"
+              "Version": "3.8.22-1782166510"
             },
-            "filename": "cursor_3.8.11_amd64.deb",
-            "md5": "2b4aa8abd30e2d90c1e0c04ab868afff",
-            "sha1": "d411465c258437d00e3dc536afba745222f7cd22",
-            "sha256": "07bf6d4790315d9c00e761b53d140a0e1e4c714abcdca98700ca26a809aa0987",
-            "sha512": "4fdfcef0ea4c9848cba979b0791023a13a66fcd8fe109610b728a02e5548c9de07eadcd473e2cd5f2183243d7885d34bf43791b10571836dfc98b9cdf3565030",
-            "size": 199142308,
-            "upstream_version": "3.8.11",
-            "url": "https://downloads.cursor.com/production/e56ad3440df06d22ca7501e65fd518e905486ef7/linux/x64/deb/amd64/deb/cursor_3.8.11_amd64.deb"
+            "filename": "cursor_3.8.22_amd64.deb",
+            "md5": "e36f0c3ac334bddcc13bfd3889e4b939",
+            "sha1": "ae642094ca378590173c250d0fc705f04fae485b",
+            "sha256": "af9a955b079b9d3eee08b00d37a7a679b39d929b2d70f492dffd3ca5a548488c",
+            "sha512": "3c935893be8ee0c90663f1371c39eb4e7fa381bb8c58662679cb4638d39ab701ddfbe010b13883f6868ded83932fb7f8dc86107fed4325a35a1d9110f73da02b",
+            "size": 199181224,
+            "upstream_version": "3.8.22",
+            "url": "https://downloads.cursor.com/production/46fb7aafe279d7c72346febe68c2e004b7d1de6e/linux/x64/deb/amd64/deb/cursor_3.8.22_amd64.deb"
           },
-          "resolved_at": "2026-06-19T07:31:30+00:00",
+          "resolved_at": "2026-06-23T06:29:14+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -709,12 +709,12 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "Feishu-linux_x64-7.66.10.deb",
+            "asset_name": "Feishu-linux_x64-7.66.11.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "ca-certificates, libc6 (>= 2.18), libgcc1 (>= 1:3.0), libnss3 (>= 3.14), libx11-6 (>= 2:1.4.99.1), libxcb1, libxext6, xdg-utils (>= 1.0.2), libgomp1, pulseaudio-utils",
               "Description": "\u98de\u4e66(Feishu)\n \u98de\u4e66\u6574\u5408\u5373\u65f6\u6d88\u606f\u3001\u65e5\u5386\u3001\u97f3\u89c6\u9891\u4f1a\u8bae\u3001\u4e91\u6587\u6863\u3001\u5de5\u4f5c\u53f0\u7b49\u529f\u80fd\u4e8e\u4e00\u4f53\uff0c\u6210\u5c31\u56e2\u961f\u548c\u4e2a\u4eba\uff0c\u66f4\u9ad8\u6548\u3001\u66f4\u6109\u60a6\u3002",
-              "Installed-Size": "1733410",
+              "Installed-Size": "1733500",
               "Maintainer": "Feishu Linux Team <contact@feishu.cn>",
               "Package": "bytedance-feishu-stable",
               "Pre-Depends": "dpkg (>= 1.14.0)",
@@ -722,28 +722,29 @@
               "Recommends": "libu2f-udev, libvulkan1",
               "Replaces": "bytedance-feishu-alpha, bytedance-feishu-beta, bytedance-feishu-dev, bytedance-feishu-release",
               "Section": "web",
-              "Version": "7.66.10-0"
+              "Version": "7.66.11-0"
             },
-            "filename": "bytedance-feishu-stable_7.66.10-0_amd64.deb",
-            "md5": "fdf4882352e05476843c15bd7797a2a6",
-            "sha1": "784837bc0551a767887cd5bdade2503ea3a27c08",
-            "sha256": "ebc58a7d3e1d6e540e403779d67f749f20333b1ae4044491d29a9b8dbc2b3aca",
-            "size": 437630064,
-            "upstream_version": "7.66.10",
-            "url": "https://sf3-cn.feishucdn.com/obj/ee-appcenter/289abaac/Feishu-linux_x64-7.66.10.deb"
+            "filename": "bytedance-feishu-stable_7.66.11-0_amd64.deb",
+            "md5": "477346c92548e2250306ffa02268c7ad",
+            "sha1": "92ac179d4de3a18d611a0f2d53df3bb4e723b0ec",
+            "sha256": "dc4f0d2c2db3cc83bb9758cf71e3e131f09a7e08eec963b378d660c534ccfd31",
+            "sha512": "8d63eea94a03e31e8ce675bce1be6783f584ef1ed6e1b2d4c1824f5110c9dc973f875c6e1c59093e01319fd36f1fd372112a47990a5438f17766922befbc3d43",
+            "size": 437357976,
+            "upstream_version": "7.66.11",
+            "url": "https://sf3-cn.feishucdn.com/obj/ee-appcenter/6e3610b5/Feishu-linux_x64-7.66.11.deb"
           },
-          "resolved_at": "2026-06-14T17:15:22+00:00",
+          "resolved_at": "2026-06-23T06:29:41+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "Feishu-linux_arm64-7.66.10.deb",
+            "asset_name": "Feishu-linux_arm64-7.66.11.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "ca-certificates, libc6 (>= 2.18), libgcc1 (>= 1:3.0), libnss3 (>= 3.14), libx11-6 (>= 2:1.4.99.1), libxcb1, libxext6, xdg-utils (>= 1.0.2), libgomp1, pulseaudio-utils",
               "Description": "\u98de\u4e66(Feishu)\n \u98de\u4e66\u6574\u5408\u5373\u65f6\u6d88\u606f\u3001\u65e5\u5386\u3001\u97f3\u89c6\u9891\u4f1a\u8bae\u3001\u4e91\u6587\u6863\u3001\u5de5\u4f5c\u53f0\u7b49\u529f\u80fd\u4e8e\u4e00\u4f53\uff0c\u6210\u5c31\u56e2\u961f\u548c\u4e2a\u4eba\uff0c\u66f4\u9ad8\u6548\u3001\u66f4\u6109\u60a6\u3002",
-              "Installed-Size": "1637548",
+              "Installed-Size": "1637697",
               "Maintainer": "Feishu Linux Team <contact@feishu.cn>",
               "Package": "bytedance-feishu-stable",
               "Pre-Depends": "dpkg (>= 1.14.0)",
@@ -751,17 +752,18 @@
               "Recommends": "libu2f-udev, libvulkan1",
               "Replaces": "bytedance-feishu-alpha, bytedance-feishu-beta, bytedance-feishu-dev, bytedance-feishu-release",
               "Section": "web",
-              "Version": "7.66.10-0"
+              "Version": "7.66.11-0"
             },
-            "filename": "Feishu-linux_arm64-7.66.10.deb",
-            "md5": "2d485bb219619e11d2c6f82ae53a950f",
-            "sha1": "14f95d1d4cd93910a2f3331ca4a9a08de78bd6d0",
-            "sha256": "05e87475827de81bb02704cc3c5eb51fa47dbbdf49720e29cc4175ac53a3f560",
-            "size": 395054284,
-            "upstream_version": "7.66.10",
-            "url": "https://sf3-cn.feishucdn.com/obj/ee-appcenter/382a3d72/Feishu-linux_arm64-7.66.10.deb"
+            "filename": "bytedance-feishu-stable_7.66.11-0_arm64.deb",
+            "md5": "95aea4da6c3f278a3c9f7f873a3ee31b",
+            "sha1": "24e83b41694f29813a165520498afe91e026adf5",
+            "sha256": "da73070ae272d9d622a24c11ddd1409084de0601fc2bda6827d82424da78d9a4",
+            "sha512": "84cbb79288b307356812ca36b3990ee764b30ab23be9f1cb475551bc872ca4947dbe85ebc549828da7d855979d3b76c5a3608049fe6da4570028edb7c5d73887",
+            "size": 395021580,
+            "upstream_version": "7.66.11",
+            "url": "https://sf3-cn.feishucdn.com/obj/ee-appcenter/36c6e858/Feishu-linux_arm64-7.66.11.deb"
           },
-          "resolved_at": "2026-06-14T17:15:22+00:00",
+          "resolved_at": "2026-06-23T06:30:12+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -959,57 +961,57 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "fooyin_0.10.8-bookworm_amd64.deb",
+            "asset_name": "fooyin_0.11.1-bookworm_amd64.deb",
             "control": {
               "Architecture": "amd64",
-              "Depends": "libc6,\n        libstdc++6,\n        libqt6sql6-sqlite (>= 6.4.0),\n        libqt6svg6 (>= 6.4.0),\n        qt6-image-formats-plugins (>= 6.4.0),\n        qt6-qpa-plugins,\n        zlib1g,\n        libasound2,\n        ffmpeg (>= 7:4.4),\n        pipewire,\n        libsdl2-2.0-0,\n        libgme0,\n        libopenmpt0,\n        libarchive13,\n        libsndfile1,\n        libebur128-1,\n        libsoundtouch1,\n        libsoxr0, libicu72, libtag1v5, libqt6core6 (>= 6.4.0), libqt6gui6 (>= 6.4.0), libqt6widgets6 (>= 6.4.0), libqt6network6 (>= 6.4.0), libqt6concurrent6 (>= 6.4.0), libqt6sql6 (>= 6.4.0)",
+              "Depends": "libc6,\n    libstdc++6,\n    libqt6sql6-sqlite (>= 6.4.0),\n    libqt6svg6 (>= 6.4.0),\n    qt6-image-formats-plugins (>= 6.4.0),\n    qt6-qpa-plugins,\n    zlib1g,\n    libasound2,\n    ffmpeg (>= 7:4.4),\n    pipewire,\n    libsdl2-2.0-0,\n    libgme0,\n    libopenmpt0,\n    libarchive13,\n    libsndfile1,\n    libebur128-1,\n    libsoundtouch1,\n    libsoxr0, libicu72, libtag1v5, libqt6core6 (>= 6.4.0), libqt6gui6 (>= 6.4.0), libqt6widgets6 (>= 6.4.0), libqt6network6 (>= 6.4.0), libqt6concurrent6 (>= 6.4.0), libqt6sql6 (>= 6.4.0)",
               "Description": "A customisable music player",
               "Homepage": "https://www.fooyin.org",
-              "Installed-Size": "24202",
+              "Installed-Size": "28634",
               "Maintainer": "Luke Taylor <luket@pm.me>",
               "Package": "fooyin",
               "Priority": "optional",
               "Section": "sound",
-              "Version": "0.10.8"
+              "Version": "0.11.1"
             },
-            "filename": "fooyin_0.10.8-bookworm_amd64.deb",
-            "md5": "3a163dce9883012e4f99f46304d67231",
-            "sha1": "4fe99d4362904df399a5941005a074679b326e85",
-            "sha256": "48044ccbb4c4b5c4f52af2b0e1c2208a564ca07dc1bc156d438c639fb226327c",
-            "sha512": "302ebca9ea3c028e61b167bbbdd4a3903e24dbb8ce6b423ec2f15ca6a80c161df8f33e60d877105a36d95f5e39497fc6f26533f2cdde41fe4c673cc11b37ccae",
-            "size": 8003876,
-            "upstream_version": "v0.10.8",
-            "url": "https://github.com/fooyin/fooyin/releases/download/v0.10.8/fooyin_0.10.8-bookworm_amd64.deb"
+            "filename": "fooyin_0.11.1-bookworm_amd64.deb",
+            "md5": "3fb0c245b8050d541f7c7a1486ad3f65",
+            "sha1": "bb8b2928468049929f7704a4328e8efb0ef909f7",
+            "sha256": "8988a4663ec0ac2f63d72893e9cac220443f00f3b537021cfec1ac0e6553b9f6",
+            "sha512": "b9b51f9579a925722b314438e69d99b42cd00658ee51e07f4d63d90e031135972f7132e015efe9af1dca7bbd9320390167407ecb5c645ded4492f0d363773f57",
+            "size": 9406076,
+            "upstream_version": "v0.11.1",
+            "url": "https://github.com/fooyin/fooyin/releases/download/v0.11.1/fooyin_0.11.1-bookworm_amd64.deb"
           },
-          "resolved_at": "2026-06-15T13:27:19+00:00",
+          "resolved_at": "2026-06-23T06:29:12+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "fooyin_0.10.8-bookworm_arm64.deb",
+            "asset_name": "fooyin_0.11.1-bookworm_arm64.deb",
             "control": {
               "Architecture": "arm64",
-              "Depends": "libc6,\n        libstdc++6,\n        libqt6sql6-sqlite (>= 6.4.0),\n        libqt6svg6 (>= 6.4.0),\n        qt6-image-formats-plugins (>= 6.4.0),\n        qt6-qpa-plugins,\n        zlib1g,\n        libasound2,\n        ffmpeg (>= 7:4.4),\n        pipewire,\n        libsdl2-2.0-0,\n        libgme0,\n        libopenmpt0,\n        libarchive13,\n        libsndfile1,\n        libebur128-1,\n        libsoundtouch1,\n        libsoxr0, libicu72, libtag1v5, libqt6core6 (>= 6.4.0), libqt6gui6 (>= 6.4.0), libqt6widgets6 (>= 6.4.0), libqt6network6 (>= 6.4.0), libqt6concurrent6 (>= 6.4.0), libqt6sql6 (>= 6.4.0)",
+              "Depends": "libc6,\n    libstdc++6,\n    libqt6sql6-sqlite (>= 6.4.0),\n    libqt6svg6 (>= 6.4.0),\n    qt6-image-formats-plugins (>= 6.4.0),\n    qt6-qpa-plugins,\n    zlib1g,\n    libasound2,\n    ffmpeg (>= 7:4.4),\n    pipewire,\n    libsdl2-2.0-0,\n    libgme0,\n    libopenmpt0,\n    libarchive13,\n    libsndfile1,\n    libebur128-1,\n    libsoundtouch1,\n    libsoxr0, libicu72, libtag1v5, libqt6core6 (>= 6.4.0), libqt6gui6 (>= 6.4.0), libqt6widgets6 (>= 6.4.0), libqt6network6 (>= 6.4.0), libqt6concurrent6 (>= 6.4.0), libqt6sql6 (>= 6.4.0)",
               "Description": "A customisable music player",
               "Homepage": "https://www.fooyin.org",
-              "Installed-Size": "23643",
+              "Installed-Size": "27960",
               "Maintainer": "Luke Taylor <luket@pm.me>",
               "Package": "fooyin",
               "Priority": "optional",
               "Section": "sound",
-              "Version": "0.10.8"
+              "Version": "0.11.1"
             },
-            "filename": "fooyin_0.10.8-bookworm_arm64.deb",
-            "md5": "1140ba6bb42341e926b7fb624529fd93",
-            "sha1": "3ec9dd6625185595c6ca19c3d7a90f26b2419c03",
-            "sha256": "a6105308b06b92f3d32ec5ae4e94853b48eb300f575bde9192616916eac769fe",
-            "sha512": "0c45ac1bd230aefae935f6ba70099eb67800ab0137a99c606da9abda196ee21280108e9fc6387440b1706ab3e20a5cd450810c9f0bd0bbd14500bf9bbbcaf899",
-            "size": 7590952,
-            "upstream_version": "v0.10.8",
-            "url": "https://github.com/fooyin/fooyin/releases/download/v0.10.8/fooyin_0.10.8-bookworm_arm64.deb"
+            "filename": "fooyin_0.11.1-bookworm_arm64.deb",
+            "md5": "3024a049f86b75b8b0298f5bd02dcfe6",
+            "sha1": "a7cabf3f90ee3e2902e27fce7f1fdfc0259db96a",
+            "sha256": "23a2990a14f510ebed5cd9556eb4817bdbaf0af5e4607075a27a7d69259c576c",
+            "sha512": "f88561ab733acabe75e64e604156a517ef44d6d4f33262ea361e35e599bcb6d4d54362cb337b1993fdc7cba06c3e3c956fdf0309350215c8d2e70a5522c3e7e5",
+            "size": 8930030,
+            "upstream_version": "v0.11.1",
+            "url": "https://github.com/fooyin/fooyin/releases/download/v0.11.1/fooyin_0.11.1-bookworm_arm64.deb"
           },
-          "resolved_at": "2026-06-15T13:27:20+00:00",
+          "resolved_at": "2026-06-23T06:29:13+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1731,7 +1733,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "slack-desktop-4.50.136-amd64.deb",
+            "asset_name": "slack-desktop-4.50.140-amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libappindicator3-1, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, kde-cli-tools | kde-runtime | trash-cli | libglib2.0-bin | gvfs-bin, apt-transport-https",
@@ -1743,18 +1745,18 @@
               "Recommends": "pulseaudio | libasound2",
               "Section": "misc",
               "Suggests": "gir1.2-gnomekeyring-1.0, libgnome-keyring0, lsb-release",
-              "Version": "4.50.136"
+              "Version": "4.50.140"
             },
-            "filename": "slack-desktop-4.50.136-amd64.deb",
-            "md5": "3c8a62edcd21ee6faee60b81f419ffbc",
-            "sha1": "289870de578a1f30eea355641c46e1c68e9bd07d",
-            "sha256": "60ba516209527b66835874eff46d76953245f35f3a6416ea162e3f5b13ae7c74",
-            "sha512": "ab0b437411bc87ee8809b8bfd738e4b704f404ab0861cc6ae1caa9f38a404024fdae7588b16e97b9a113cfac7d6913b0a4d55240b233f0aabbfc5dc06faf5e0a",
-            "size": 93137332,
-            "upstream_version": "4.50.136",
-            "url": "https://downloads.slack-edge.com/desktop-releases/linux/x64/4.50.136/slack-desktop-4.50.136-amd64.deb"
+            "filename": "slack-desktop-4.50.140-amd64.deb",
+            "md5": "c5e178bb76f07cc4f8b04aa12e972f09",
+            "sha1": "ed2008e96904b9974a8f6c3472427b4b00070355",
+            "sha256": "61a83274b91f76dbd4ffbc07d58585c326af3f838c45f9b7f3dc1a4be99f9156",
+            "sha512": "68516aa83f98ee109b2e1af3c4146440f01965b9f1b443c18d5094842646c55d6c09c2e13223107ba406fb02e33cd9703837e5cb10d0ae293d6c21551c16c349",
+            "size": 93334344,
+            "upstream_version": "4.50.140",
+            "url": "https://downloads.slack-edge.com/desktop-releases/linux/x64/4.50.140/slack-desktop-4.50.140-amd64.deb"
           },
-          "resolved_at": "2026-06-15T13:22:43+00:00",
+          "resolved_at": "2026-06-23T06:29:19+00:00",
           "source": "aur",
           "update_policy": "track"
         }
