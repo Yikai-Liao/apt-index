@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T06:30:12+00:00",
+  "generated_at": "2026-06-24T06:17:21+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -194,13 +194,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "bruno_3.4.2_amd64_linux.deb",
+            "asset_name": "bruno_3.5.0_amd64_linux.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, libasound2",
               "Description": "\n  Opensource API Client for Exploring and Testing APIs",
               "Homepage": "https://www.usebruno.com",
-              "Installed-Size": "488636",
+              "Installed-Size": "489373",
               "License": "unknown",
               "Maintainer": "Anoop M D <anoop.md1421@gmail.com>",
               "Package": "bruno",
@@ -208,30 +208,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Anoop M D <anoop.md1421@gmail.com>",
-              "Version": "3.4.2"
+              "Version": "3.5.0"
             },
-            "filename": "bruno_3.4.2_amd64_linux.deb",
-            "md5": "086552df41e0501f626cf97650dd1e98",
-            "sha1": "1f2dd0a6cedc9609feaebd4646c86be1c4b7ccf6",
-            "sha256": "801a05d9caf5c1329705515e93a43b411117d9eb04f87cb7878080ced11da47a",
-            "sha512": "c96c9b1fb7ec5895505c3bc9f555e6345980e1f1e7c6faa0dbf51080264a85037fc9a3728139c4cb87e2a46e17c62870c6e654b855eb1a73c4e887faa19d1549",
-            "size": 100188632,
-            "upstream_version": "v3.4.2",
-            "url": "https://github.com/usebruno/bruno/releases/download/v3.4.2/bruno_3.4.2_amd64_linux.deb"
+            "filename": "bruno_3.5.0_amd64_linux.deb",
+            "md5": "bdf9f272ae6ca6efc396a43a453334f9",
+            "sha1": "a20932e7765d19560e186caaed9ade6d6581fdc4",
+            "sha256": "53a39691e4525dca8f84e0e5a6dc0e890835f36e3b8a2cadf792583aa3c82e65",
+            "sha512": "a0bf250935301c91420f92b3dd1b6515679a95257761317ef05b98255446172f92ba1b20174830154d6e683f76c015732e5b0c8db812d7923c6bcb17b44d64f0",
+            "size": 100497344,
+            "upstream_version": "v3.5.0",
+            "url": "https://github.com/usebruno/bruno/releases/download/v3.5.0/bruno_3.5.0_amd64_linux.deb"
           },
-          "resolved_at": "2026-06-16T02:54:06+00:00",
+          "resolved_at": "2026-06-24T06:17:04+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "bruno_3.4.2_arm64_linux.deb",
+            "asset_name": "bruno_3.5.0_arm64_linux.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, libasound2",
               "Description": "\n  Opensource API Client for Exploring and Testing APIs",
               "Homepage": "https://www.usebruno.com",
-              "Installed-Size": "492845",
+              "Installed-Size": "493582",
               "License": "unknown",
               "Maintainer": "Anoop M D <anoop.md1421@gmail.com>",
               "Package": "bruno",
@@ -239,18 +239,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Anoop M D <anoop.md1421@gmail.com>",
-              "Version": "3.4.2"
+              "Version": "3.5.0"
             },
-            "filename": "bruno_3.4.2_arm64_linux.deb",
-            "md5": "9d8e5234c099bd02bf7a6d427bccb653",
-            "sha1": "d472b45affa6497dd19b650485c765759d313847",
-            "sha256": "fe4a16cf89acd31b0d86bf637ea7cc52429d6a948607593c336e22c0958b5cc2",
-            "sha512": "ddc48d141371ad56393d294d4cb8cfaca072a8235a996081c984470c7094c240220376376b8cb6f5ce4d0ea17aa0e4b5606b144b7892772efda5d93455f75b18",
-            "size": 95180924,
-            "upstream_version": "v3.4.2",
-            "url": "https://github.com/usebruno/bruno/releases/download/v3.4.2/bruno_3.4.2_arm64_linux.deb"
+            "filename": "bruno_3.5.0_arm64_linux.deb",
+            "md5": "bbeb26d2c97fc0330e2a93a3cc2925be",
+            "sha1": "a1adc6be0ee34e0c5c3755121e12bd379abadbc6",
+            "sha256": "81cfd3edfb722df57082221cb07c55ae65204b9cb652e46b464d7324dde0e012",
+            "sha512": "f71f893ad17709469cd86badb326f9bb7a0a0df6ac99fbb1bae15468087154b5cef5b92a189ec31a15a5de5ec3c05bf761974cf913fb684b2b1d39048e068c53",
+            "size": 95487674,
+            "upstream_version": "v3.5.0",
+            "url": "https://github.com/usebruno/bruno/releases/download/v3.5.0/bruno_3.5.0_arm64_linux.deb"
           },
-          "resolved_at": "2026-06-16T02:54:07+00:00",
+          "resolved_at": "2026-06-24T06:17:05+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.8.22_amd64.deb",
+            "asset_name": "cursor_3.8.23_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
-              "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.14), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
+              "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.14), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libstdc++6 (>= 4.8), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "946735",
+              "Installed-Size": "946742",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.8.22-1782166510"
+              "Version": "3.8.23-1782229085"
             },
-            "filename": "cursor_3.8.22_amd64.deb",
-            "md5": "e36f0c3ac334bddcc13bfd3889e4b939",
-            "sha1": "ae642094ca378590173c250d0fc705f04fae485b",
-            "sha256": "af9a955b079b9d3eee08b00d37a7a679b39d929b2d70f492dffd3ca5a548488c",
-            "sha512": "3c935893be8ee0c90663f1371c39eb4e7fa381bb8c58662679cb4638d39ab701ddfbe010b13883f6868ded83932fb7f8dc86107fed4325a35a1d9110f73da02b",
-            "size": 199181224,
-            "upstream_version": "3.8.22",
-            "url": "https://downloads.cursor.com/production/46fb7aafe279d7c72346febe68c2e004b7d1de6e/linux/x64/deb/amd64/deb/cursor_3.8.22_amd64.deb"
+            "filename": "cursor_3.8.23_amd64.deb",
+            "md5": "dc099487fcbc0114b7750757a8bce696",
+            "sha1": "1bc807eb692878d8137e74a8a0f9dea19cac9c18",
+            "sha256": "3cf357e628a2b445cdf5e10cb4f1eaeedf4c5f267d95c2009b380cd34816d7df",
+            "sha512": "f89cf6dbcf37b66e486afa8961ca531e582bf601194b2b9650d3771534999ad6741437253fcffe8177a23504480316b855ef95d68999d6b22922a95805a012e4",
+            "size": 199237672,
+            "upstream_version": "3.8.23",
+            "url": "https://downloads.cursor.com/production/7cf19b7482706625cdb70db3211b7dd035b7aa35/linux/x64/deb/amd64/deb/cursor_3.8.23_amd64.deb"
           },
-          "resolved_at": "2026-06-23T06:29:14+00:00",
+          "resolved_at": "2026-06-24T06:17:09+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -597,22 +597,23 @@
               "Depends": "libc6 (>= 2.35)",
               "Description": "Fast neofetch-like system information tool\n fastfetch is a neofetch-like tool for fetching system information and displaying them in a pretty way. It is written mostly in C to achieve much better performance.",
               "Homepage": "https://github.com/fastfetch-cli/fastfetch",
-              "Installed-Size": "15524",
+              "Installed-Size": "16063",
               "Maintainer": "Carter Li <zhangsongcui@live.cn>",
               "Package": "fastfetch",
               "Priority": "optional",
               "Section": "devel",
-              "Version": "2.64.2"
+              "Version": "2.65.1"
             },
             "filename": "fastfetch-linux-amd64.deb",
-            "md5": "57e09a717e10f9904dfccbb8275b68a8",
-            "sha1": "d6b843b3b9618a033aa78465bd13f52373355b8d",
-            "sha256": "af061369d6413677f55f01517b21c029207503e845a4575d3f128b75a425f83f",
-            "size": 5815366,
-            "upstream_version": "2.64.2",
-            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.64.2/fastfetch-linux-amd64.deb"
+            "md5": "fd7cba41452b295898f9046e68a3bc99",
+            "sha1": "80ca11e92f550040a702cc3e2497eb4568331993",
+            "sha256": "6077ce0a643c8db259c20a53ca13bc54b31b936249843bd76390c741f5ce4689",
+            "sha512": "f589ad89268e6aa772fc8509e4db48582dc3a57b27feeaae11131663b6d0e219f16f84ac244c80e0c311d93ac8fd3525537ea477aa9da679a542ed63fa0c3307",
+            "size": 5903348,
+            "upstream_version": "2.65.1",
+            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.65.1/fastfetch-linux-amd64.deb"
           },
-          "resolved_at": "2026-06-14T17:15:07+00:00",
+          "resolved_at": "2026-06-24T06:17:05+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -624,22 +625,23 @@
               "Depends": "libc6 (>= 2.35)",
               "Description": "Fast neofetch-like system information tool\n fastfetch is a neofetch-like tool for fetching system information and displaying them in a pretty way. It is written mostly in C to achieve much better performance.",
               "Homepage": "https://github.com/fastfetch-cli/fastfetch",
-              "Installed-Size": "15921",
+              "Installed-Size": "16145",
               "Maintainer": "Carter Li <zhangsongcui@live.cn>",
               "Package": "fastfetch",
               "Priority": "optional",
               "Section": "devel",
-              "Version": "2.64.2"
+              "Version": "2.65.1"
             },
-            "filename": "fastfetch_2.64.2_arm64.deb",
-            "md5": "7d4e7c765f341656ad1b6b69757c1ee1",
-            "sha1": "208999b67925223d1de8bf44dbb6765553eaec61",
-            "sha256": "16aaf8629d13bc67ab3c370181be0034cb3d5a8bcb01ba5fa332c515a3f76926",
-            "size": 5774576,
-            "upstream_version": "2.64.2",
-            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.64.2/fastfetch-linux-aarch64.deb"
+            "filename": "fastfetch_2.65.1_arm64.deb",
+            "md5": "f15b7901a795cd10c9e2871eabf7d576",
+            "sha1": "2d8b9ddd234d2a39c30fbcba0e456c5e894fc901",
+            "sha256": "b1e5df7b1b28185a095acb03bc27483c8cd6a87d1e5815fb76dbe405ee16565c",
+            "sha512": "dbd73721400d6e480d92d2d64934e7e874f335fe1389db124cbfe790b4e742a03da1c81585f34d2308fa0a6f3692427f6b82973fa969414610f5ae8ef3565795",
+            "size": 5801262,
+            "upstream_version": "2.65.1",
+            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.65.1/fastfetch-linux-aarch64.deb"
           },
-          "resolved_at": "2026-06-14T17:15:07+00:00",
+          "resolved_at": "2026-06-24T06:17:05+00:00",
           "source": "github",
           "update_policy": "track"
         }
