@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-24T06:17:21+00:00",
+  "generated_at": "2026-06-25T06:29:00+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.8.23_amd64.deb",
+            "asset_name": "cursor_3.8.24_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
-              "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.14), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libstdc++6 (>= 4.8), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
+              "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.14), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "946742",
+              "Installed-Size": "947030",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.8.23-1782229085"
+              "Version": "3.8.24-1782286241"
             },
-            "filename": "cursor_3.8.23_amd64.deb",
-            "md5": "dc099487fcbc0114b7750757a8bce696",
-            "sha1": "1bc807eb692878d8137e74a8a0f9dea19cac9c18",
-            "sha256": "3cf357e628a2b445cdf5e10cb4f1eaeedf4c5f267d95c2009b380cd34816d7df",
-            "sha512": "f89cf6dbcf37b66e486afa8961ca531e582bf601194b2b9650d3771534999ad6741437253fcffe8177a23504480316b855ef95d68999d6b22922a95805a012e4",
-            "size": 199237672,
-            "upstream_version": "3.8.23",
-            "url": "https://downloads.cursor.com/production/7cf19b7482706625cdb70db3211b7dd035b7aa35/linux/x64/deb/amd64/deb/cursor_3.8.23_amd64.deb"
+            "filename": "cursor_3.8.24_amd64.deb",
+            "md5": "657a44d78693236bb439d4c6ee8142de",
+            "sha1": "8462602a9f0be0c96d5406465f6a7d42b2826638",
+            "sha256": "aa14fbd6a6cb8eaf18504395023a71bcf7bf481fbcfe1dd35c6ff90ec191e52b",
+            "sha512": "f87532a7fb7d3bf44a6145992c00ff5087ecc21b8eec2e54f2f3e84a2a122e172f61a2e4d0cdeede973e86ad901ff3f01e7db68b24ab28fa58654c635227e5bf",
+            "size": 199225172,
+            "upstream_version": "3.8.24",
+            "url": "https://downloads.cursor.com/production/cf80f4b937f3b9c48070d7085129a838ce7876a3/linux/x64/deb/amd64/deb/cursor_3.8.24_amd64.deb"
           },
-          "resolved_at": "2026-06-24T06:17:09+00:00",
+          "resolved_at": "2026-06-25T06:28:45+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1087,30 +1087,30 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "google-chrome-stable_149.0.7827.155-1_amd64.deb",
+            "asset_name": "google-chrome-stable_149.0.7827.196-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "ca-certificates, fonts-liberation, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.25), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.35), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libvulkan1, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxrandr2, wget, xdg-utils (>= 1.0.2)",
               "Description": "The web browser from Google\n Google Chrome is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier.",
-              "Installed-Size": "411839",
+              "Installed-Size": "411683",
               "Maintainer": "Chrome Linux Team <chromium-dev@chromium.org>",
               "Package": "google-chrome-stable",
               "Pre-Depends": "dpkg (>= 1.14.0)",
               "Priority": "optional",
               "Provides": "www-browser",
               "Section": "web",
-              "Version": "149.0.7827.155-1"
+              "Version": "149.0.7827.196-1"
             },
-            "filename": "google-chrome-stable_149.0.7827.155-1_amd64.deb",
-            "md5": "7817bf8c728202e2b6acd242eaa44097",
-            "sha1": "9ddebab4a70b994ab58645969a73647041bd3bcc",
-            "sha256": "8343c77f2088a4e4366f0dfe4e68aefa3b7e79326cd2ca3bd7eb63c611f06556",
-            "sha512": "ec8342f0900340be83a90c16cfac85746df603e946cc45feeb242a14987c067248a4a0c6513c6779db382528cb59ec7a96d4b1fa52ac9636eacde652924a56b3",
-            "size": 130375008,
-            "upstream_version": "149.0.7827.155",
-            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_149.0.7827.155-1_amd64.deb"
+            "filename": "google-chrome-stable_149.0.7827.196-1_amd64.deb",
+            "md5": "ecdfda781066d0f676b02714a6a14fe3",
+            "sha1": "7bafa1eb7dd89286bd53b86eaf41caf7dd827e09",
+            "sha256": "0785c8b8beeafe419177fc36bcf99f92fb2f16dbc77af84be487c2e6ed7822e6",
+            "sha512": "e35930dc7f7cbe21a8da8cf2f68c9eace3d37bfdd94206a55abb5ac1b031ab01f6bccb277fde82b9a210875ad5a0ad0c7e480fadb13ee2db7638c6cdd2af5760",
+            "size": 130300356,
+            "upstream_version": "149.0.7827.196",
+            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_149.0.7827.196-1_amd64.deb"
           },
-          "resolved_at": "2026-06-18T07:12:47+00:00",
+          "resolved_at": "2026-06-25T06:28:46+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1121,13 +1121,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "Insomnia.Core-13.0.1.deb",
+            "asset_name": "Insomnia.Core-13.0.2.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "The Collaborative API Client and Design Tool\n  The Collaborative API Design Tool",
               "Homepage": "https://konghq.com",
-              "Installed-Size": "1569293",
+              "Installed-Size": "1569294",
               "License": "Apache-2.0",
               "Maintainer": "Kong <office@konghq.com>",
               "Package": "insomnia",
@@ -1135,18 +1135,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Kong <office@konghq.com>",
-              "Version": "13.0.1"
+              "Version": "13.0.2"
             },
-            "filename": "insomnia_13.0.1_amd64.deb",
-            "md5": "24e8ff003f1a61008560886502a334fc",
-            "sha1": "02b9e67daceb2136d81c46ca0b0e5d7001da0e19",
-            "sha256": "9766c66f0041b0c3bb5943c18acd52ac5c0c1466478e6895a2a497eb57adcad7",
-            "sha512": "851409da63ca19b695c8ea33094ebd62773ed9ae9c38ab60e2e70af1d6668bbb3eb19b5e30793c51cda2d39c00304632b53005893405afd839dfa9c8b46e88bc",
-            "size": 417197512,
-            "upstream_version": "core@13.0.1",
-            "url": "https://github.com/Kong/insomnia/releases/download/core%4013.0.1/Insomnia.Core-13.0.1.deb"
+            "filename": "insomnia_13.0.2_amd64.deb",
+            "md5": "1dba6589193ee2b5025cd270953fce3d",
+            "sha1": "4e958b4fd31b813b24471ac43cf8a44482e06fc1",
+            "sha256": "c0805c435f115c0820c4c0349384a4483752b46a9b4648e3068dc993c063a570",
+            "sha512": "2422e1796d517a1c3e19fe1e6bc996e222a19ddca401d98684a9a9b18f1a34f611eb2e3821c9df20b52ed36d8c1b621e577d555c954b674426a84a22f22e4b64",
+            "size": 417197468,
+            "upstream_version": "core@13.0.2",
+            "url": "https://github.com/Kong/insomnia/releases/download/core%4013.0.2/Insomnia.Core-13.0.2.deb"
           },
-          "resolved_at": "2026-06-19T07:31:33+00:00",
+          "resolved_at": "2026-06-25T06:28:46+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1999,14 +1999,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "code_1.125.1_amd64.deb",
+            "asset_name": "code_1.126.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "visual-studio-code",
-              "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.27), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libstdc++6 (>= 6), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
+              "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libstdc++6 (>= 6), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "834466",
+              "Installed-Size": "880602",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2014,31 +2014,31 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.125.1-1781859603"
+              "Version": "1.126.0-1782208079"
             },
-            "filename": "code_1.125.1_amd64.deb",
-            "md5": "a69f33800affd65ac8578f82dab5f711",
-            "sha1": "fe93cb2c85cb41c5c9ea2018bda73b8b0e9e4470",
-            "sha256": "f61d0a519d0cf1a29dc75dd0bef540982aa631363f40525bee7396737a079aa1",
-            "sha512": "bde723eb53f0bbed82a3018c0d6ea136de44a7e55bbe249577840a759ae8a2a212fa97f3efd623a626d61f244660e034cd9b7891da8312ed8ea06896a1c23e68",
-            "size": 184323590,
-            "upstream_version": "1.125.1",
-            "url": "https://update.code.visualstudio.com/1.125.1/linux-deb-x64/stable"
+            "filename": "code_1.126.0_amd64.deb",
+            "md5": "2f921982699fcb6cc90789c6319779dd",
+            "sha1": "ff604a06b616e5cc0f8834cb4d8f7ad110026e6a",
+            "sha256": "230ccba54f577e2a560b6710405f15cd6deaa78364cd0e3a426ef202a27c65f9",
+            "sha512": "7b9754de6bf22c9b538745c74d88cdbbec65e456e3426643e61ccd2e75797cfaecbd27ff884081c099ea1c645a3d0714aeda5eb75050d4a967f9fa0ecc7d49eb",
+            "size": 195018178,
+            "upstream_version": "1.126.0",
+            "url": "https://update.code.visualstudio.com/1.126.0/linux-deb-x64/stable"
           },
-          "resolved_at": "2026-06-20T06:42:54+00:00",
+          "resolved_at": "2026-06-25T06:28:54+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "code_1.125.1_arm64.deb",
+            "asset_name": "code_1.126.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "visual-studio-code",
-              "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.17), libc6 (>= 2.25), libc6 (>= 2.27), libc6 (>= 2.28), libcairo2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libstdc++6 (>= 4.1.1), libstdc++6 (>= 5), libstdc++6 (>= 5.2), libstdc++6 (>= 6), libstdc++6 (>= 9), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
+              "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.17), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libstdc++6 (>= 4.1.1), libstdc++6 (>= 5), libstdc++6 (>= 5.2), libstdc++6 (>= 6), libstdc++6 (>= 9), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "809699",
+              "Installed-Size": "852029",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2046,18 +2046,18 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.125.1-1781859643"
+              "Version": "1.126.0-1782208023"
             },
-            "filename": "code_1.125.1_arm64.deb",
-            "md5": "a88e683de07e7ceb44dfa02250922990",
-            "sha1": "2b6d67c3b15dfe5b4a4ad1b7c9ca3055f056cc95",
-            "sha256": "cf7174565c67cadd9427c836f29a9dc628df5e6658b96869c1b7aec59bc92e07",
-            "sha512": "9011fec690dd5eaf1d03e7dd7be3765d3c3ff07d37fd82db83713730f1f5dd7d62efedc6d1a1e0225442b41ee2c68cef3fadeee4353d4a511fc8990c740d2c3c",
-            "size": 172586770,
-            "upstream_version": "1.125.1",
-            "url": "https://update.code.visualstudio.com/1.125.1/linux-deb-arm64/stable"
+            "filename": "code_1.126.0_arm64.deb",
+            "md5": "72338b811a0904740a9f4dab5b968ea8",
+            "sha1": "e444491014baa80039ca055f2fab7df3bfc847e1",
+            "sha256": "91a808b16ca326eac1b87f1c21963f01233548df72828b9a8bddc9604c589bfb",
+            "sha512": "2810f4c508de59043cf3e64513db71a416c946fab46055707610bd926e0e8d7667ffdf9aaca72605202825054e58b7e7154d361d6b37d94ddca1bb79ea984c51",
+            "size": 182035078,
+            "upstream_version": "1.126.0",
+            "url": "https://update.code.visualstudio.com/1.126.0/linux-deb-arm64/stable"
           },
-          "resolved_at": "2026-06-20T06:42:59+00:00",
+          "resolved_at": "2026-06-25T06:29:00+00:00",
           "source": "aur",
           "update_policy": "track"
         }
