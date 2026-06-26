@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-25T06:29:00+00:00",
+  "generated_at": "2026-06-26T06:30:49+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.8.24_amd64.deb",
+            "asset_name": "cursor_3.9.8_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.14), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "947030",
+              "Installed-Size": "948957",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.8.24-1782286241"
+              "Version": "3.9.8-1782356568"
             },
-            "filename": "cursor_3.8.24_amd64.deb",
-            "md5": "657a44d78693236bb439d4c6ee8142de",
-            "sha1": "8462602a9f0be0c96d5406465f6a7d42b2826638",
-            "sha256": "aa14fbd6a6cb8eaf18504395023a71bcf7bf481fbcfe1dd35c6ff90ec191e52b",
-            "sha512": "f87532a7fb7d3bf44a6145992c00ff5087ecc21b8eec2e54f2f3e84a2a122e172f61a2e4d0cdeede973e86ad901ff3f01e7db68b24ab28fa58654c635227e5bf",
-            "size": 199225172,
-            "upstream_version": "3.8.24",
-            "url": "https://downloads.cursor.com/production/cf80f4b937f3b9c48070d7085129a838ce7876a3/linux/x64/deb/amd64/deb/cursor_3.8.24_amd64.deb"
+            "filename": "cursor_3.9.8_amd64.deb",
+            "md5": "31d1b38e5538506d8c2167cc85919a5d",
+            "sha1": "9ec127afe46a3eed16cf7e32b572c7171fe9d36f",
+            "sha256": "5db57b71bf598cdd3570c29b7adc39b0c925644b3b5cc417c7c5f46fef8b53b7",
+            "sha512": "eb651017f6625e7121b0139260e12eb8461232a5960349300fc1c1bba0076b156e674a2c09b54793f2d1b97b9846d2ca83e6b3e7803d98749ee5474a6395d4b6",
+            "size": 199611780,
+            "upstream_version": "3.9.8",
+            "url": "https://downloads.cursor.com/production/4aa8ff1b7877ed7bd01bcba308698f71a6735380/linux/x64/deb/amd64/deb/cursor_3.9.8_amd64.deb"
           },
-          "resolved_at": "2026-06-25T06:28:45+00:00",
+          "resolved_at": "2026-06-26T06:30:36+00:00",
           "source": "aur",
           "update_policy": "track"
         }
