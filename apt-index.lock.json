@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-27T06:03:59+00:00",
+  "generated_at": "2026-06-28T06:38:22+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -131,59 +131,59 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "bottom_0.14.1-1_amd64.deb",
+            "asset_name": "bottom_0.14.2-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "btm",
               "Depends": "libc6 (>= 2.39)",
               "Description": "A customizable cross-platform graphical process/system monitor for the\n terminal. Supports Linux, macOS, and Windows.\n .\n By default, bottom will look for a config file in ~/.config/bottom/bottom.toml.\n A config file can be specified using `-C`. If a config file does not exist at\n the specified or default location, a default one will be created for the user\n there.",
               "Homepage": "https://bottom.pages.dev/stable",
-              "Installed-Size": "5035",
+              "Installed-Size": "5038",
               "Maintainer": "Clement Tsang <cjhtsang@uwaterloo.ca>",
               "Package": "bottom",
               "Priority": "optional",
               "Section": "utility",
-              "Version": "0.14.1-1"
+              "Version": "0.14.2-1"
             },
-            "filename": "bottom_0.14.1-1_amd64.deb",
-            "md5": "73f833dcdd76776163864e63ffd7f372",
-            "sha1": "c115e09fdb65cfefdc04e9f5b243952ac00a521b",
-            "sha256": "1908c77e060e26477f190d8496dd9cdd942187b4c84551131c1d1bb465007f99",
-            "sha512": "76b3be372ea53534d561e7e510188474d209b33739b7401e4c40728d4acef8b1900b558277ee302a1e5814f6613e5292780839cb4588f733de3ddcb7a20f1df9",
-            "size": 1504332,
-            "upstream_version": "0.14.1",
-            "url": "https://github.com/ClementTsang/bottom/releases/download/0.14.1/bottom_0.14.1-1_amd64.deb"
+            "filename": "bottom_0.14.2-1_amd64.deb",
+            "md5": "dbe1555497a87884da526add9c24e44a",
+            "sha1": "f2096309771c2c4c243a8310387cf7c73c1dfff3",
+            "sha256": "b89587716b33344c926ad1a9893fdbf77651cbec8ac4d7bc1f1d44ab77a9310f",
+            "sha512": "137f92786b3302170771065aa9f279cb60084de73040f16cce48b31af5d8783bffe128cd5da550f207c4a8a60471bb881d86011807ae51430c768b203da3d607",
+            "size": 1505092,
+            "upstream_version": "0.14.2",
+            "url": "https://github.com/ClementTsang/bottom/releases/download/0.14.2/bottom_0.14.2-1_amd64.deb"
           },
-          "resolved_at": "2026-06-22T07:43:22+00:00",
+          "resolved_at": "2026-06-28T06:38:04+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "bottom_0.14.1-1_arm64.deb",
+            "asset_name": "bottom_0.14.2-1_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "btm",
               "Depends": "libc6 (>= 2.34)",
               "Description": "A customizable cross-platform graphical process/system monitor for the\n terminal. Supports Linux, macOS, and Windows.\n .\n By default, bottom will look for a config file in ~/.config/bottom/bottom.toml.\n A config file can be specified using `-C`. If a config file does not exist at\n the specified or default location, a default one will be created for the user\n there.",
               "Homepage": "https://bottom.pages.dev/stable",
-              "Installed-Size": "4360",
+              "Installed-Size": "4368",
               "Maintainer": "Clement Tsang <cjhtsang@uwaterloo.ca>",
               "Package": "bottom",
               "Priority": "optional",
               "Section": "utility",
-              "Version": "0.14.1-1"
+              "Version": "0.14.2-1"
             },
-            "filename": "bottom_0.14.1-1_arm64.deb",
-            "md5": "ff68bd20ebc53ea0a067ce47c2337fe1",
-            "sha1": "56ee220785eac0b785afab6e85b0d0437279cb5b",
-            "sha256": "6966094f1d2ba08fb7a9149b3681e8e44e08eef283b1b1e3ac1b7b6a4993312c",
-            "sha512": "50f0050aa6fcc581a248cd700da05b8d3aa056bd2a9d8af12b6213706bd3c2f08a9a99029ecc71a158762bf5db41e5610ad23f63770af2407776bbd470dee852",
-            "size": 1289396,
-            "upstream_version": "0.14.1",
-            "url": "https://github.com/ClementTsang/bottom/releases/download/0.14.1/bottom_0.14.1-1_arm64.deb"
+            "filename": "bottom_0.14.2-1_arm64.deb",
+            "md5": "347128705e6fa52f154f761b33285525",
+            "sha1": "f143853d80d50f4023947327841f8033ab3e5f40",
+            "sha256": "c93ca06713f9544c50d42bcf493e2a73136ec575f030960733dabfa6e448f841",
+            "sha512": "d445a6080851fb6f7c87428fb48f9b6b6e21fa05670f654a8fca50bc3fc363376cf9993ef5f77e90bbb68f7d6f4cba856373519a72425dd4d65e5002d0909d5d",
+            "size": 1290348,
+            "upstream_version": "0.14.2",
+            "url": "https://github.com/ClementTsang/bottom/releases/download/0.14.2/bottom_0.14.2-1_arm64.deb"
           },
-          "resolved_at": "2026-06-22T07:43:23+00:00",
+          "resolved_at": "2026-06-28T06:38:05+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.9.8_amd64.deb",
+            "asset_name": "cursor_3.9.16_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.14), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "948957",
+              "Installed-Size": "948992",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.9.8-1782356568"
+              "Version": "3.9.16-1782544577"
             },
-            "filename": "cursor_3.9.8_amd64.deb",
-            "md5": "31d1b38e5538506d8c2167cc85919a5d",
-            "sha1": "9ec127afe46a3eed16cf7e32b572c7171fe9d36f",
-            "sha256": "5db57b71bf598cdd3570c29b7adc39b0c925644b3b5cc417c7c5f46fef8b53b7",
-            "sha512": "eb651017f6625e7121b0139260e12eb8461232a5960349300fc1c1bba0076b156e674a2c09b54793f2d1b97b9846d2ca83e6b3e7803d98749ee5474a6395d4b6",
-            "size": 199611780,
-            "upstream_version": "3.9.8",
-            "url": "https://downloads.cursor.com/production/4aa8ff1b7877ed7bd01bcba308698f71a6735380/linux/x64/deb/amd64/deb/cursor_3.9.8_amd64.deb"
+            "filename": "cursor_3.9.16_amd64.deb",
+            "md5": "1985071c82def968cea1c1caf5803aa2",
+            "sha1": "dd047c32f213e24258452659dca987ad67093e0b",
+            "sha256": "465eb8ad2d27d3db4904dbe979fc49bc01e4f1eae2ee53f4a72c836fb455359f",
+            "sha512": "14ccac68e07d46764c2857c58d630919a357d7c46f2dcf2ffbb3462c456f2fad4cdb02f06be4b215b645064b2084f190f2766ad74769fcc188a5809b7a4a29e4",
+            "size": 199610908,
+            "upstream_version": "3.9.16",
+            "url": "https://downloads.cursor.com/production/042b3c1a4c53f2c3808067f519fbfc67b72cad8b/linux/x64/deb/amd64/deb/cursor_3.9.16_amd64.deb"
           },
-          "resolved_at": "2026-06-26T06:30:36+00:00",
+          "resolved_at": "2026-06-28T06:38:09+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1087,7 +1087,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "google-chrome-stable_149.0.7827.196-1_amd64.deb",
+            "asset_name": "google-chrome-stable_149.0.7827.200-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "ca-certificates, fonts-liberation, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.25), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.35), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libvulkan1, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxrandr2, wget, xdg-utils (>= 1.0.2)",
@@ -1099,18 +1099,18 @@
               "Priority": "optional",
               "Provides": "www-browser",
               "Section": "web",
-              "Version": "149.0.7827.196-1"
+              "Version": "149.0.7827.200-1"
             },
-            "filename": "google-chrome-stable_149.0.7827.196-1_amd64.deb",
-            "md5": "ecdfda781066d0f676b02714a6a14fe3",
-            "sha1": "7bafa1eb7dd89286bd53b86eaf41caf7dd827e09",
-            "sha256": "0785c8b8beeafe419177fc36bcf99f92fb2f16dbc77af84be487c2e6ed7822e6",
-            "sha512": "e35930dc7f7cbe21a8da8cf2f68c9eace3d37bfdd94206a55abb5ac1b031ab01f6bccb277fde82b9a210875ad5a0ad0c7e480fadb13ee2db7638c6cdd2af5760",
-            "size": 130300356,
-            "upstream_version": "149.0.7827.196",
-            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_149.0.7827.196-1_amd64.deb"
+            "filename": "google-chrome-stable_149.0.7827.200-1_amd64.deb",
+            "md5": "46e29012a818cbeddb26bc84c2e3af4e",
+            "sha1": "0ccb84cd9804cd1c743142e3971eda32cca85a24",
+            "sha256": "1c308fae11f8e27293afa1739bd4aa015fd5766b72c75ce72195ec3e41a612a8",
+            "sha512": "680d40a825b770e24489a87a2916323cea6e74a9ded39c1162891b25e781f0f0eac32ab7272ff6d0eff2aa4cf9b0ba76433606e5457b42b852d2ca568504db20",
+            "size": 130290532,
+            "upstream_version": "149.0.7827.200",
+            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_149.0.7827.200-1_amd64.deb"
           },
-          "resolved_at": "2026-06-25T06:28:46+00:00",
+          "resolved_at": "2026-06-28T06:38:11+00:00",
           "source": "aur",
           "update_policy": "track"
         }
