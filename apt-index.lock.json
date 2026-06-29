@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-28T06:38:22+00:00",
+  "generated_at": "2026-06-29T07:06:22+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -597,23 +597,23 @@
               "Depends": "libc6 (>= 2.35)",
               "Description": "Fast neofetch-like system information tool\n fastfetch is a neofetch-like tool for fetching system information and displaying them in a pretty way. It is written mostly in C to achieve much better performance.",
               "Homepage": "https://github.com/fastfetch-cli/fastfetch",
-              "Installed-Size": "16063",
+              "Installed-Size": "16073",
               "Maintainer": "Carter Li <zhangsongcui@live.cn>",
               "Package": "fastfetch",
               "Priority": "optional",
               "Section": "devel",
-              "Version": "2.65.1"
+              "Version": "2.65.2"
             },
             "filename": "fastfetch-linux-amd64.deb",
-            "md5": "fd7cba41452b295898f9046e68a3bc99",
-            "sha1": "80ca11e92f550040a702cc3e2497eb4568331993",
-            "sha256": "6077ce0a643c8db259c20a53ca13bc54b31b936249843bd76390c741f5ce4689",
-            "sha512": "f589ad89268e6aa772fc8509e4db48582dc3a57b27feeaae11131663b6d0e219f16f84ac244c80e0c311d93ac8fd3525537ea477aa9da679a542ed63fa0c3307",
-            "size": 5903348,
-            "upstream_version": "2.65.1",
-            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.65.1/fastfetch-linux-amd64.deb"
+            "md5": "b0fb68cd050640193f3d577c81cc56b3",
+            "sha1": "7bfdadaf29f3e512478673b8c8eeb2cfb5fd0beb",
+            "sha256": "89b2dc201cb38ec89040369e674477f643274db869d498dfdec4c3152042eb14",
+            "sha512": "9780ddfaa46e0a252d3d71e3a81b0c6a3aac59439cfc9c9708409de5ff7ef7a721ba0434313848db99f7b2a56ae1e8a5d3f50556d2d33f6fee31916b2e908994",
+            "size": 5906742,
+            "upstream_version": "2.65.2",
+            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.65.2/fastfetch-linux-amd64.deb"
           },
-          "resolved_at": "2026-06-24T06:17:05+00:00",
+          "resolved_at": "2026-06-29T07:06:05+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -625,23 +625,23 @@
               "Depends": "libc6 (>= 2.35)",
               "Description": "Fast neofetch-like system information tool\n fastfetch is a neofetch-like tool for fetching system information and displaying them in a pretty way. It is written mostly in C to achieve much better performance.",
               "Homepage": "https://github.com/fastfetch-cli/fastfetch",
-              "Installed-Size": "16145",
+              "Installed-Size": "16143",
               "Maintainer": "Carter Li <zhangsongcui@live.cn>",
               "Package": "fastfetch",
               "Priority": "optional",
               "Section": "devel",
-              "Version": "2.65.1"
+              "Version": "2.65.2"
             },
-            "filename": "fastfetch_2.65.1_arm64.deb",
-            "md5": "f15b7901a795cd10c9e2871eabf7d576",
-            "sha1": "2d8b9ddd234d2a39c30fbcba0e456c5e894fc901",
-            "sha256": "b1e5df7b1b28185a095acb03bc27483c8cd6a87d1e5815fb76dbe405ee16565c",
-            "sha512": "dbd73721400d6e480d92d2d64934e7e874f335fe1389db124cbfe790b4e742a03da1c81585f34d2308fa0a6f3692427f6b82973fa969414610f5ae8ef3565795",
-            "size": 5801262,
-            "upstream_version": "2.65.1",
-            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.65.1/fastfetch-linux-aarch64.deb"
+            "filename": "fastfetch_2.65.2_arm64.deb",
+            "md5": "b1dcde06162e47ff267ea17c4712e110",
+            "sha1": "015d9ffe7ea9f39e8cc2a2ec1ec8a814e2bcf79f",
+            "sha256": "c6448a9c4c09f9f465fdaf0a04b7f80b792f3ea833baa97375cf549e92cca42a",
+            "sha512": "c89fd37207e847167ba4cc35ed54fcd05b99d8458376eb597f7fddc75db4381575ef007041ac8b3e588ea77e163aebdda451c6b4659d92e74cfa49f411bc5f9b",
+            "size": 5802896,
+            "upstream_version": "2.65.2",
+            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.65.2/fastfetch-linux-aarch64.deb"
           },
-          "resolved_at": "2026-06-24T06:17:05+00:00",
+          "resolved_at": "2026-06-29T07:06:05+00:00",
           "source": "github",
           "update_policy": "track"
         }
