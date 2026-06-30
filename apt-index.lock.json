@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T07:06:22+00:00",
+  "generated_at": "2026-06-30T06:34:21+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -411,15 +411,15 @@
               "Version": "1.10.3-alpha-1"
             },
             "filename": "deadbeef-static_1.10.3~alpha-1_amd64.deb",
-            "md5": "49ba607ffce727cb27ee551ccd31cc54",
-            "sha1": "52b9baf48d8de7d83b62d17abbd69f36cafe446b",
-            "sha256": "77842d39b2772789f98d6fcf17ee1a87c11a0dfc1b3f50f364fafc2d15dcc2b7",
-            "sha512": "9cf664159316172fd78fb35689e5abc5a7ae92c87fcb465d9830ca6fd988d3db9dc340de547176d6ab9698715b4bc9dc6b65e647c2005f70f74f91fb4154d479",
-            "size": 11864652,
+            "md5": "7f2a0b9157a170548446500031f6a5bf",
+            "sha1": "6bfec2bf0203d3feb2240ed8504f8c7c1a09ac60",
+            "sha256": "b63946da4555255a572b03fe6a153b84e1c3d3f0dea9a861661c237026316593",
+            "sha512": "f85effb312a1cb0ef9f083bae097851a34fbd7600c7345295b8aff00d2aecd67f2a002f73279879b88888d636426d057a133ed5f56ffe5717de49a0e3ab29d05",
+            "size": 11864122,
             "upstream_version": "deadbeef-static_1.10.3~alpha-1_amd64.deb",
             "url": "https://sourceforge.net/projects/deadbeef/files/Builds/master/linux/deadbeef-static_1.10.3~alpha-1_amd64.deb/download"
           },
-          "resolved_at": "2026-06-20T06:42:41+00:00",
+          "resolved_at": "2026-06-30T06:34:05+00:00",
           "source": "sourceforge",
           "update_policy": "track"
         },
@@ -440,15 +440,15 @@
               "Version": "1.10.3-alpha-1"
             },
             "filename": "deadbeef-static_1.10.3~alpha-1_arm64.deb",
-            "md5": "c624c53d02f4a2a840fb1d326484a876",
-            "sha1": "1ecded49909f185e89928afc1ea12d5fab18efc5",
-            "sha256": "2e4e2bf9ec760b64a1117f7aab14d38e87c47b48b2e3de78830b4fe90f1b92cc",
-            "sha512": "ad918015ef803abceb53c9989e3d6103a5674ee2ae916b33690d5e8974318472dd41a73beec0dc0700ef628e26613af17f770643243644d3de97322c22305160",
-            "size": 11430864,
+            "md5": "a26feaee20d02b714bb002439f33c83e",
+            "sha1": "f84d0ed87950c78a1c4c33c7b37325839f927905",
+            "sha256": "696f94cc65953dac4bd4c1dbd0cc03d7716077f0a0ac1cb3da7fc932c61e5fea",
+            "sha512": "11571627033c0b5ddfb47dc419cf7084ccc84ba83c085e88b13565df65ab9b00cf30187b22a653b0d3cf1d869298cf1e66f7cf04f859c1339f543dbfe5cf2647",
+            "size": 11432434,
             "upstream_version": "deadbeef-static_1.10.3~alpha-1_arm64.deb",
             "url": "https://sourceforge.net/projects/deadbeef/files/Builds/master/linux/deadbeef-static_1.10.3~alpha-1_arm64.deb/download"
           },
-          "resolved_at": "2026-06-20T06:42:44+00:00",
+          "resolved_at": "2026-06-30T06:34:08+00:00",
           "source": "sourceforge",
           "update_policy": "track"
         }
