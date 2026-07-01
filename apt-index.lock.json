@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-30T06:34:21+00:00",
+  "generated_at": "2026-07-01T06:46:45+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -261,31 +261,31 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cloudflare-warp-bin-2026.4.1390.deb",
+            "asset_name": "cloudflare-warp-bin-2026.6.822.deb",
             "control": {
               "Architecture": "amd64",
-              "Depends": "libdbus-1-3, libc6, iproute2, nftables, gnupg2, desktop-file-utils, libcap2-bin, libnss3-tools, ca-certificates, libpcap0.8, libayatana-appindicator3-1, libwebkit2gtk-4.1-0",
+              "Depends": "libdbus-1-3, libc6, iproute2, nftables, gnupg2, desktop-file-utils, libcap2-bin, libnss3-tools, ca-certificates, libpcap0.8, libayatana-appindicator3-1, libwebkit2gtk-4.1-0, libtss2-esys-3.0.2-0t64, libtss2-tctildr0t64",
               "Description": "Cloudflare Warp Client",
               "Homepage": "https://1.1.1.1",
-              "Installed-Size": "217630",
+              "Installed-Size": "209353",
               "License": "unknown",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflare-warp",
               "Priority": "optional",
               "Section": "net",
               "Suggests": "traceroute",
-              "Version": "2026.4.1390.0"
+              "Version": "2026.6.822.0"
             },
-            "filename": "cloudflare-warp_2026.4.1390.0_amd64.deb",
-            "md5": "33361f989149c371e672aeffcafc9d60",
-            "sha1": "6f93a803174d02f31dd3a9fa582757db3d86a6f2",
-            "sha256": "b84c268377b061970e0328dc71f42bce7d0cda4ca9f39b84386c29f6dd004a4a",
-            "sha512": "262952df565a4881c0c017caeb698eb1ec7f950018c0d4435b98f09b7a0a02a6e43d2361cb8da2d064eee61cc5fab8eb9415855c897c5a0016eb228429094c71",
-            "size": 77108434,
-            "upstream_version": "2026.4.1390",
-            "url": "https://pkg.cloudflareclient.com/pool/noble/main/c/cloudflare-warp/cloudflare-warp_2026.4.1390.0_amd64.deb"
+            "filename": "cloudflare-warp_2026.6.822.0_amd64.deb",
+            "md5": "d41fea6dbf15df52539c2a6050e1a8c3",
+            "sha1": "af028a761e3ddbfb67439037654c2655403dc901",
+            "sha256": "c65f6be3f5011b030b921b41c13b3864395a9a0c1d5e6dcecabdc9dceeae615d",
+            "sha512": "597afb8d8b8097bd7d66a9b410ee67dd943b47bc815ad1de0386bc695f799374e0f0292f8ebdee6a0e59bd373b0c6f2cae54630fa5acabd64fd49e24feaef9ca",
+            "size": 74383608,
+            "upstream_version": "2026.6.822",
+            "url": "https://pkg.cloudflareclient.com/pool/noble/main/c/cloudflare-warp/cloudflare-warp_2026.6.822.0_amd64.deb"
           },
-          "resolved_at": "2026-06-16T02:52:55+00:00",
+          "resolved_at": "2026-07-01T06:46:30+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1087,30 +1087,30 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "google-chrome-stable_149.0.7827.200-1_amd64.deb",
+            "asset_name": "google-chrome-stable_150.0.7871.46-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "ca-certificates, fonts-liberation, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.25), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.35), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libvulkan1, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxrandr2, wget, xdg-utils (>= 1.0.2)",
               "Description": "The web browser from Google\n Google Chrome is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier.",
-              "Installed-Size": "411683",
+              "Installed-Size": "423440",
               "Maintainer": "Chrome Linux Team <chromium-dev@chromium.org>",
               "Package": "google-chrome-stable",
               "Pre-Depends": "dpkg (>= 1.14.0)",
               "Priority": "optional",
               "Provides": "www-browser",
               "Section": "web",
-              "Version": "149.0.7827.200-1"
+              "Version": "150.0.7871.46-1"
             },
-            "filename": "google-chrome-stable_149.0.7827.200-1_amd64.deb",
-            "md5": "46e29012a818cbeddb26bc84c2e3af4e",
-            "sha1": "0ccb84cd9804cd1c743142e3971eda32cca85a24",
-            "sha256": "1c308fae11f8e27293afa1739bd4aa015fd5766b72c75ce72195ec3e41a612a8",
-            "sha512": "680d40a825b770e24489a87a2916323cea6e74a9ded39c1162891b25e781f0f0eac32ab7272ff6d0eff2aa4cf9b0ba76433606e5457b42b852d2ca568504db20",
-            "size": 130290532,
-            "upstream_version": "149.0.7827.200",
-            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_149.0.7827.200-1_amd64.deb"
+            "filename": "google-chrome-stable_150.0.7871.46-1_amd64.deb",
+            "md5": "0a311379e650ab8d1eb29102ba79cada",
+            "sha1": "3cb21ac4f8c59d9600ce6c5c07939924f214a63c",
+            "sha256": "69b40139fb73a021a749f32fcde0853fb1781b6f3a8b3caf173ad8f6747faa7c",
+            "sha512": "75b508065e3a23e5cf158c6b9be7ded5210fbde828b3a3c9916f382af702b11f036c39c4ec8389e0ca1a14db1ea002fbddf92d5180a563a555d9d7d1976deac2",
+            "size": 133476772,
+            "upstream_version": "150.0.7871.46",
+            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_150.0.7871.46-1_amd64.deb"
           },
-          "resolved_at": "2026-06-28T06:38:11+00:00",
+          "resolved_at": "2026-07-01T06:46:33+00:00",
           "source": "aur",
           "update_policy": "track"
         }
