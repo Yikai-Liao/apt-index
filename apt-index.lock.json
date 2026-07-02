@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-01T06:46:45+00:00",
+  "generated_at": "2026-07-02T06:13:46+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -131,7 +131,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "bottom_0.14.2-1_amd64.deb",
+            "asset_name": "bottom_0.14.3-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "btm",
@@ -143,24 +143,24 @@
               "Package": "bottom",
               "Priority": "optional",
               "Section": "utility",
-              "Version": "0.14.2-1"
+              "Version": "0.14.3-1"
             },
-            "filename": "bottom_0.14.2-1_amd64.deb",
-            "md5": "dbe1555497a87884da526add9c24e44a",
-            "sha1": "f2096309771c2c4c243a8310387cf7c73c1dfff3",
-            "sha256": "b89587716b33344c926ad1a9893fdbf77651cbec8ac4d7bc1f1d44ab77a9310f",
-            "sha512": "137f92786b3302170771065aa9f279cb60084de73040f16cce48b31af5d8783bffe128cd5da550f207c4a8a60471bb881d86011807ae51430c768b203da3d607",
-            "size": 1505092,
-            "upstream_version": "0.14.2",
-            "url": "https://github.com/ClementTsang/bottom/releases/download/0.14.2/bottom_0.14.2-1_amd64.deb"
+            "filename": "bottom_0.14.3-1_amd64.deb",
+            "md5": "d26b2e02070a3ea5b30c7db37a5a98ab",
+            "sha1": "539f2f46d97171776aa37728907d3a919fab3313",
+            "sha256": "bb56ebc7252913331891f62b7e95186fe3c7caf09f781e93912c99b3020f656e",
+            "sha512": "0ea3e70032a756a0edc3e466236f6ca2cf4095dff9b5398dfe2169ff34b10cfb90f455e43778ebc956e439f6624e92ade562b2e9fc2f66a1a882250d984e8966",
+            "size": 1506064,
+            "upstream_version": "0.14.3",
+            "url": "https://github.com/ClementTsang/bottom/releases/download/0.14.3/bottom_0.14.3-1_amd64.deb"
           },
-          "resolved_at": "2026-06-28T06:38:04+00:00",
+          "resolved_at": "2026-07-02T06:11:31+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "bottom_0.14.2-1_arm64.deb",
+            "asset_name": "bottom_0.14.3-1_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "btm",
@@ -172,18 +172,18 @@
               "Package": "bottom",
               "Priority": "optional",
               "Section": "utility",
-              "Version": "0.14.2-1"
+              "Version": "0.14.3-1"
             },
-            "filename": "bottom_0.14.2-1_arm64.deb",
-            "md5": "347128705e6fa52f154f761b33285525",
-            "sha1": "f143853d80d50f4023947327841f8033ab3e5f40",
-            "sha256": "c93ca06713f9544c50d42bcf493e2a73136ec575f030960733dabfa6e448f841",
-            "sha512": "d445a6080851fb6f7c87428fb48f9b6b6e21fa05670f654a8fca50bc3fc363376cf9993ef5f77e90bbb68f7d6f4cba856373519a72425dd4d65e5002d0909d5d",
-            "size": 1290348,
-            "upstream_version": "0.14.2",
-            "url": "https://github.com/ClementTsang/bottom/releases/download/0.14.2/bottom_0.14.2-1_arm64.deb"
+            "filename": "bottom_0.14.3-1_arm64.deb",
+            "md5": "43ef2b57e7487a79fa709ecb3319534e",
+            "sha1": "b46d08370392aa2439b56fa28b7e52a82bbb7733",
+            "sha256": "871329c503614c15ed3f51b0ea4e820b25500d361bfeee18d4dcb1fd73c6e399",
+            "sha512": "b8a21eca4aefb0abe3220915949d59e1dce5df9dcc6e4e302a6bf9c7afaa2289a0b8f034b279b7f151ffb3be907471e70b8474e6f8f20aa8493edbfd9eb792e7",
+            "size": 1290632,
+            "upstream_version": "0.14.3",
+            "url": "https://github.com/ClementTsang/bottom/releases/download/0.14.3/bottom_0.14.3-1_arm64.deb"
           },
-          "resolved_at": "2026-06-28T06:38:05+00:00",
+          "resolved_at": "2026-07-02T06:11:32+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1636,13 +1636,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "linuxqq_3.2.29-49738_amd64.deb",
+            "asset_name": "linuxqq_3.2.30-50828_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  QQ",
               "Homepage": "https://im.qq.com",
-              "Installed-Size": "600565",
+              "Installed-Size": "602639",
               "License": "unknown",
               "Maintainer": "Tencent <QQ-Team@tencent.com>",
               "Package": "linuxqq",
@@ -1650,30 +1650,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Tencent <QQ-Team@tencent.com>",
-              "Version": "3.2.29-49738"
+              "Version": "3.2.30-50828"
             },
-            "filename": "linuxqq_3.2.29-49738_amd64.deb",
-            "md5": "00e6a3e73e809da3c5f4fcab90b4d88b",
-            "sha1": "85783d872888fa872aa499cc76ee22e1e264a283",
-            "sha256": "1e3828079673c94994bc0f4780d5d8528647639920659862d49d1c2f2a198e25",
-            "sha512": "3e214621b34b5eb3706451c94d19d4a09a59ad6b415e9a719db8d635bcb0900445cd6d468ffdb293b9b2c032e6b551d8d8090b390979ce782db5de30791f467d",
-            "size": 182597964,
-            "upstream_version": "3.2.29_49738",
-            "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.31/beta/00e6a3e7/linuxqq_3.2.29-49738_amd64.deb"
+            "filename": "linuxqq_3.2.30-50828_amd64.deb",
+            "md5": "727ce4e5ac8f6b566b71e969069b8231",
+            "sha1": "670473a88a61d99f105b3bc3acb5fad46aa2255f",
+            "sha256": "a8f4761876443a9ffca1a5eea056212f37fdd6b4440a9bb0e99831d0f707ef0c",
+            "sha512": "5b25f67127efdf89683a9d1153e8f17ba3e114ed7c7203cc10541fb74e8ff7276d9111561fb65ebdba328fe46c20b8b3c80381116b28afd9930ba4468aa43246",
+            "size": 182361580,
+            "upstream_version": "3.2.30_50828",
+            "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.32/beta/727ce4e5/linuxqq_3.2.30-50828_amd64.deb"
           },
-          "resolved_at": "2026-06-15T11:52:25+00:00",
+          "resolved_at": "2026-07-02T06:12:38+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "linuxqq_3.2.29-49738_arm64.deb",
+            "asset_name": "linuxqq_3.2.30-50828_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  QQ",
               "Homepage": "https://im.qq.com",
-              "Installed-Size": "631369",
+              "Installed-Size": "635217",
               "License": "unknown",
               "Maintainer": "Tencent <QQ-Team@tencent.com>",
               "Package": "linuxqq",
@@ -1681,18 +1681,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Tencent <QQ-Team@tencent.com>",
-              "Version": "3.2.29-49738"
+              "Version": "3.2.30-50828"
             },
-            "filename": "linuxqq_3.2.29-49738_arm64.deb",
-            "md5": "9fabeeec036b3bcc1b0b16a747af0fd1",
-            "sha1": "813ed478dcdab18cd5c1a519a5b89f15c220f549",
-            "sha256": "5bcd8ccda401fbfa1821a7c3c758f84a253c317568f0b9c2d74426a24749e9a6",
-            "sha512": "a0e7773b111ffb76f403fb322d4bd7e865b5b10ce70b2b3163b7db42218d960d212a585fe2ac9b09f4dcdeb783013d29fd9e2d534bff4c5414e63bf49e789648",
-            "size": 201728544,
-            "upstream_version": "3.2.29_49738",
-            "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.31/beta/00e6a3e7/linuxqq_3.2.29-49738_arm64.deb"
+            "filename": "linuxqq_3.2.30-50828_arm64.deb",
+            "md5": "0e383e57c160fd8757d165c7b3243372",
+            "sha1": "5091ad26d7dc0d06f56cc0a7c5d549f78bca79ce",
+            "sha256": "6a7b9849d675f79c247307595f6daed2ce510a0256c567e755981b0931670c5f",
+            "sha512": "9aeab28a708ff39b592ef6b4f25396004ef6e6a648a10c55f5b139d0e984c3077896e5e6033d8aab2a1778060c253c11ab9c0296cba39f732d4c3d103122c167",
+            "size": 202139692,
+            "upstream_version": "3.2.30_50828",
+            "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.32/beta/727ce4e5/linuxqq_3.2.30-50828_arm64.deb"
           },
-          "resolved_at": "2026-06-15T11:53:32+00:00",
+          "resolved_at": "2026-07-02T06:13:46+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1735,7 +1735,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "slack-desktop-4.50.140-amd64.deb",
+            "asset_name": "slack-desktop-4.50.143-amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libappindicator3-1, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, kde-cli-tools | kde-runtime | trash-cli | libglib2.0-bin | gvfs-bin, apt-transport-https",
@@ -1747,18 +1747,18 @@
               "Recommends": "pulseaudio | libasound2",
               "Section": "misc",
               "Suggests": "gir1.2-gnomekeyring-1.0, libgnome-keyring0, lsb-release",
-              "Version": "4.50.140"
+              "Version": "4.50.143"
             },
-            "filename": "slack-desktop-4.50.140-amd64.deb",
-            "md5": "c5e178bb76f07cc4f8b04aa12e972f09",
-            "sha1": "ed2008e96904b9974a8f6c3472427b4b00070355",
-            "sha256": "61a83274b91f76dbd4ffbc07d58585c326af3f838c45f9b7f3dc1a4be99f9156",
-            "sha512": "68516aa83f98ee109b2e1af3c4146440f01965b9f1b443c18d5094842646c55d6c09c2e13223107ba406fb02e33cd9703837e5cb10d0ae293d6c21551c16c349",
-            "size": 93334344,
-            "upstream_version": "4.50.140",
-            "url": "https://downloads.slack-edge.com/desktop-releases/linux/x64/4.50.140/slack-desktop-4.50.140-amd64.deb"
+            "filename": "slack-desktop-4.50.143-amd64.deb",
+            "md5": "1104b4dc0ca3f7f424fd7aa95cfe089f",
+            "sha1": "c90c4ee972cb0ce57609c39babd2776024d03f35",
+            "sha256": "93ca12a293d4993ed52d280a3928bfa542d270befcdce3624366a019fbb59630",
+            "sha512": "0e49d76373d6ae2b6712ad5b441d3e7309185153b7ddd1b4442a93e8f2894917992cd67f092db8fee393e012a2a80528c5f504ffa8ad37cec645139e2edf8ea4",
+            "size": 93367806,
+            "upstream_version": "4.50.143",
+            "url": "https://downloads.slack-edge.com/desktop-releases/linux/x64/4.50.143/slack-desktop-4.50.143-amd64.deb"
           },
-          "resolved_at": "2026-06-23T06:29:19+00:00",
+          "resolved_at": "2026-07-02T06:11:40+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1999,14 +1999,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "code_1.126.0_amd64.deb",
+            "asset_name": "code_1.127.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "visual-studio-code",
-              "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libstdc++6 (>= 6), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
+              "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "880602",
+              "Installed-Size": "895372",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2014,31 +2014,31 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.126.0-1782208079"
+              "Version": "1.127.0-1782814776"
             },
-            "filename": "code_1.126.0_amd64.deb",
-            "md5": "2f921982699fcb6cc90789c6319779dd",
-            "sha1": "ff604a06b616e5cc0f8834cb4d8f7ad110026e6a",
-            "sha256": "230ccba54f577e2a560b6710405f15cd6deaa78364cd0e3a426ef202a27c65f9",
-            "sha512": "7b9754de6bf22c9b538745c74d88cdbbec65e456e3426643e61ccd2e75797cfaecbd27ff884081c099ea1c645a3d0714aeda5eb75050d4a967f9fa0ecc7d49eb",
-            "size": 195018178,
-            "upstream_version": "1.126.0",
-            "url": "https://update.code.visualstudio.com/1.126.0/linux-deb-x64/stable"
+            "filename": "code_1.127.0_amd64.deb",
+            "md5": "cd6b2481e0898aae9b1142f0a08c48ac",
+            "sha1": "908979fe91c1581c37062e9f71ee590276644eea",
+            "sha256": "0cddc13023bf713dfc4774d4f24418b53d32180bfd73f50ff960bc5cdaf56a2d",
+            "sha512": "5e32a95f16f6bf350dcd8af246e8ce35bab3fc384837398a5619778f9963491da94e2fff83d15f1d75e914c5d399113e7ce6f9e4b74cee51b9a570e3f87b1da6",
+            "size": 199392086,
+            "upstream_version": "1.127.0",
+            "url": "https://update.code.visualstudio.com/1.127.0/linux-deb-x64/stable"
           },
-          "resolved_at": "2026-06-25T06:28:54+00:00",
+          "resolved_at": "2026-07-02T06:11:45+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "code_1.126.0_arm64.deb",
+            "asset_name": "code_1.127.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.17), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libstdc++6 (>= 4.1.1), libstdc++6 (>= 5), libstdc++6 (>= 5.2), libstdc++6 (>= 6), libstdc++6 (>= 9), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "852029",
+              "Installed-Size": "874162",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2046,18 +2046,18 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.126.0-1782208023"
+              "Version": "1.127.0-1782811064"
             },
-            "filename": "code_1.126.0_arm64.deb",
-            "md5": "72338b811a0904740a9f4dab5b968ea8",
-            "sha1": "e444491014baa80039ca055f2fab7df3bfc847e1",
-            "sha256": "91a808b16ca326eac1b87f1c21963f01233548df72828b9a8bddc9604c589bfb",
-            "sha512": "2810f4c508de59043cf3e64513db71a416c946fab46055707610bd926e0e8d7667ffdf9aaca72605202825054e58b7e7154d361d6b37d94ddca1bb79ea984c51",
-            "size": 182035078,
-            "upstream_version": "1.126.0",
-            "url": "https://update.code.visualstudio.com/1.126.0/linux-deb-arm64/stable"
+            "filename": "code_1.127.0_arm64.deb",
+            "md5": "896e2830960226a2836ff470bb7e80bc",
+            "sha1": "e921f7d14b9d83af01b1bc25f8e2dceeae68ca99",
+            "sha256": "55d7fda22a4097d5a23842360264f771edd7d309f07362a6acf2ae93ba6016a5",
+            "sha512": "48efe906089c3fb35bb0eccba396f2973a645bba0449c17ce799a3bc6ff79fbb37cd2ee1c0269502434e751697e1ab794d9e3b93d1442af43feb0c876e2352f8",
+            "size": 187622546,
+            "upstream_version": "1.127.0",
+            "url": "https://update.code.visualstudio.com/1.127.0/linux-deb-arm64/stable"
           },
-          "resolved_at": "2026-06-25T06:29:00+00:00",
+          "resolved_at": "2026-07-02T06:11:55+00:00",
           "source": "aur",
           "update_policy": "track"
         }
