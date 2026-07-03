@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T06:13:46+00:00",
+  "generated_at": "2026-07-03T06:05:32+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -194,13 +194,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "bruno_3.5.0_amd64_linux.deb",
+            "asset_name": "bruno_3.5.1_amd64_linux.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, libasound2",
               "Description": "\n  Opensource API Client for Exploring and Testing APIs",
               "Homepage": "https://www.usebruno.com",
-              "Installed-Size": "489373",
+              "Installed-Size": "489379",
               "License": "unknown",
               "Maintainer": "Anoop M D <anoop.md1421@gmail.com>",
               "Package": "bruno",
@@ -208,30 +208,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Anoop M D <anoop.md1421@gmail.com>",
-              "Version": "3.5.0"
+              "Version": "3.5.1"
             },
-            "filename": "bruno_3.5.0_amd64_linux.deb",
-            "md5": "bdf9f272ae6ca6efc396a43a453334f9",
-            "sha1": "a20932e7765d19560e186caaed9ade6d6581fdc4",
-            "sha256": "53a39691e4525dca8f84e0e5a6dc0e890835f36e3b8a2cadf792583aa3c82e65",
-            "sha512": "a0bf250935301c91420f92b3dd1b6515679a95257761317ef05b98255446172f92ba1b20174830154d6e683f76c015732e5b0c8db812d7923c6bcb17b44d64f0",
-            "size": 100497344,
-            "upstream_version": "v3.5.0",
-            "url": "https://github.com/usebruno/bruno/releases/download/v3.5.0/bruno_3.5.0_amd64_linux.deb"
+            "filename": "bruno_3.5.1_amd64_linux.deb",
+            "md5": "670ff08f3cc9b01c07c6ea790b0c6a51",
+            "sha1": "5ebc0da53678de4f84a185318f45aa598c378018",
+            "sha256": "07e16f710ddb687d246522935a449360df2f03f32b1a739afff0a3d483e9f80f",
+            "sha512": "d58c9105589447372fb0b56860d8ca187de101f135bf7d22a937777b462ca5ae16831b079e724487aaa236ac1d4e6904ab4a9b9a09f1dcddbe9faf4774379471",
+            "size": 100497230,
+            "upstream_version": "v3.5.1",
+            "url": "https://github.com/usebruno/bruno/releases/download/v3.5.1/bruno_3.5.1_amd64_linux.deb"
           },
-          "resolved_at": "2026-06-24T06:17:04+00:00",
+          "resolved_at": "2026-07-03T06:05:15+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "bruno_3.5.0_arm64_linux.deb",
+            "asset_name": "bruno_3.5.1_arm64_linux.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, libasound2",
               "Description": "\n  Opensource API Client for Exploring and Testing APIs",
               "Homepage": "https://www.usebruno.com",
-              "Installed-Size": "493582",
+              "Installed-Size": "493588",
               "License": "unknown",
               "Maintainer": "Anoop M D <anoop.md1421@gmail.com>",
               "Package": "bruno",
@@ -239,18 +239,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Anoop M D <anoop.md1421@gmail.com>",
-              "Version": "3.5.0"
+              "Version": "3.5.1"
             },
-            "filename": "bruno_3.5.0_arm64_linux.deb",
-            "md5": "bbeb26d2c97fc0330e2a93a3cc2925be",
-            "sha1": "a1adc6be0ee34e0c5c3755121e12bd379abadbc6",
-            "sha256": "81cfd3edfb722df57082221cb07c55ae65204b9cb652e46b464d7324dde0e012",
-            "sha512": "f71f893ad17709469cd86badb326f9bb7a0a0df6ac99fbb1bae15468087154b5cef5b92a189ec31a15a5de5ec3c05bf761974cf913fb684b2b1d39048e068c53",
-            "size": 95487674,
-            "upstream_version": "v3.5.0",
-            "url": "https://github.com/usebruno/bruno/releases/download/v3.5.0/bruno_3.5.0_arm64_linux.deb"
+            "filename": "bruno_3.5.1_arm64_linux.deb",
+            "md5": "81ace0ddf44a511a851e76a8312a47e8",
+            "sha1": "997ac34569fc3c7531327a8696d1d6a04579991d",
+            "sha256": "3f6e54a730d0d10d9eef5e0c9b2e4023b5beeff1e0097bb747588bdd9da5be48",
+            "sha512": "6e1934376b9075fc23dd1c1699baee698d607c86308bc2a905792d30fa9dd4f95f6fe5fb4aca434ed5a65532f9fcbc453158753502213f3497fc891daa687ea0",
+            "size": 95470454,
+            "upstream_version": "v3.5.1",
+            "url": "https://github.com/usebruno/bruno/releases/download/v3.5.1/bruno_3.5.1_arm64_linux.deb"
           },
-          "resolved_at": "2026-06-24T06:17:05+00:00",
+          "resolved_at": "2026-07-03T06:05:16+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -261,7 +261,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cloudflare-warp-bin-2026.6.822.deb",
+            "asset_name": "cloudflare-warp-bin-2026.6.836.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libdbus-1-3, libc6, iproute2, nftables, gnupg2, desktop-file-utils, libcap2-bin, libnss3-tools, ca-certificates, libpcap0.8, libayatana-appindicator3-1, libwebkit2gtk-4.1-0, libtss2-esys-3.0.2-0t64, libtss2-tctildr0t64",
@@ -274,18 +274,18 @@
               "Priority": "optional",
               "Section": "net",
               "Suggests": "traceroute",
-              "Version": "2026.6.822.0"
+              "Version": "2026.6.836.0"
             },
-            "filename": "cloudflare-warp_2026.6.822.0_amd64.deb",
-            "md5": "d41fea6dbf15df52539c2a6050e1a8c3",
-            "sha1": "af028a761e3ddbfb67439037654c2655403dc901",
-            "sha256": "c65f6be3f5011b030b921b41c13b3864395a9a0c1d5e6dcecabdc9dceeae615d",
-            "sha512": "597afb8d8b8097bd7d66a9b410ee67dd943b47bc815ad1de0386bc695f799374e0f0292f8ebdee6a0e59bd373b0c6f2cae54630fa5acabd64fd49e24feaef9ca",
-            "size": 74383608,
-            "upstream_version": "2026.6.822",
-            "url": "https://pkg.cloudflareclient.com/pool/noble/main/c/cloudflare-warp/cloudflare-warp_2026.6.822.0_amd64.deb"
+            "filename": "cloudflare-warp_2026.6.836.0_amd64.deb",
+            "md5": "e1513807eef37f4d9b4a104959320691",
+            "sha1": "ff1eba505873229f4dc79a84c7fc826724650a3e",
+            "sha256": "578cbda59b97015f90cf78648f6bf92d402d5b7b630036bb147e4f453659a9bd",
+            "sha512": "bef4eddc7764cef212b5d339ecf27dc73a8d8a3ea0604fa5dc1737d38742e624eca7b488e38cdbd588d4805f3962991eaabc1727bd2b0c50eb1d66b3b7867331",
+            "size": 74385120,
+            "upstream_version": "2026.6.836",
+            "url": "https://pkg.cloudflareclient.com/pool/noble/main/c/cloudflare-warp/cloudflare-warp_2026.6.836.0_amd64.deb"
           },
-          "resolved_at": "2026-07-01T06:46:30+00:00",
+          "resolved_at": "2026-07-03T06:05:17+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1024,59 +1024,59 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "gh_2.95.0_linux_amd64.deb",
+            "asset_name": "gh_2.96.0_linux_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "git",
               "Description": "GitHub\u2019s official command line tool.",
               "Homepage": "https://github.com/cli/cli",
-              "Installed-Size": "40144",
+              "Installed-Size": "40165",
               "License": "MIT",
               "Maintainer": "GitHub",
               "Package": "gh",
               "Priority": "optional",
               "Section": "",
-              "Version": "2.95.0"
+              "Version": "2.96.0"
             },
-            "filename": "gh_2.95.0_linux_amd64.deb",
-            "md5": "6b03355902b8971d7124137fe85c1258",
-            "sha1": "24dddfdf39481c057bf01b39e52fbfe8578a3c47",
-            "sha256": "51bfe66877d592c8b1865b6512824d84d4ca8f9584eb2468841ad63d9011034f",
-            "sha512": "34be9e389f3142accc5591ad4e2f55d306042a0b1bb835dd1ab59f684d4d6f6ad82775192f2e277ae3382755d42d2d62e7217fd239bb6f1c7139a43bea95155c",
-            "size": 14713280,
-            "upstream_version": "v2.95.0",
-            "url": "https://github.com/cli/cli/releases/download/v2.95.0/gh_2.95.0_linux_amd64.deb"
+            "filename": "gh_2.96.0_linux_amd64.deb",
+            "md5": "184d07105d556fbbec589f623628f279",
+            "sha1": "3c42fdd9ba1c1e3c44943b51c2425315d6b3484f",
+            "sha256": "11a731f4e0ca8c3db96ef6d2cc404dcab3d78247ce0e07c53e07117e7627d6a1",
+            "sha512": "03d0242581b0ede5dcac32f11fbc1e3b13c05eb42c4a7fc78e90af0fe4fa3eb642698ad1a41821d140285b4815e08497fa9d6ab52dea855f80defbca8b3d5856",
+            "size": 14725844,
+            "upstream_version": "v2.96.0",
+            "url": "https://github.com/cli/cli/releases/download/v2.96.0/gh_2.96.0_linux_amd64.deb"
           },
-          "resolved_at": "2026-06-18T07:12:43+00:00",
+          "resolved_at": "2026-07-03T06:05:18+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "gh_2.95.0_linux_arm64.deb",
+            "asset_name": "gh_2.96.0_linux_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "git",
               "Description": "GitHub\u2019s official command line tool.",
               "Homepage": "https://github.com/cli/cli",
-              "Installed-Size": "37324",
+              "Installed-Size": "37389",
               "License": "MIT",
               "Maintainer": "GitHub",
               "Package": "gh",
               "Priority": "optional",
               "Section": "",
-              "Version": "2.95.0"
+              "Version": "2.96.0"
             },
-            "filename": "gh_2.95.0_linux_arm64.deb",
-            "md5": "8b1d22546d296b0293240d0269a9afb6",
-            "sha1": "a91bf54877b73a83a773abe1ebd79d5f193506c3",
-            "sha256": "1cf7a80c00a53eba54d2c3b1aefebb711f23d58e8e627bf6c8f9d968c6549bc1",
-            "sha512": "bedf231d8d827717800f1e03fb58dfd375f27641396ede627f5918aac722cb698b292b3d6c1a524096b1a7dc82228f21dbf173e981e117e59f33ebe3f6fcb3e6",
-            "size": 13380110,
-            "upstream_version": "v2.95.0",
-            "url": "https://github.com/cli/cli/releases/download/v2.95.0/gh_2.95.0_linux_arm64.deb"
+            "filename": "gh_2.96.0_linux_arm64.deb",
+            "md5": "3128eaa22cd84ef4506b47799d6ddcc2",
+            "sha1": "6ff44ba5616037acb25b108862692325022c9da6",
+            "sha256": "334dd9c6704fc1656a48e475c5a3a9aa32bbadb87fa1777513bc626af4a99e89",
+            "sha512": "b91acd756848912de9cd573857ae2192969079d0025723e978db89b5b36c878aa7d1cfe30d05715777fd167e2c55bada169c370e59f75a7b0737336b1bc6612c",
+            "size": 13382568,
+            "upstream_version": "v2.96.0",
+            "url": "https://github.com/cli/cli/releases/download/v2.96.0/gh_2.96.0_linux_arm64.deb"
           },
-          "resolved_at": "2026-06-18T07:12:44+00:00",
+          "resolved_at": "2026-07-03T06:05:18+00:00",
           "source": "github",
           "update_policy": "track"
         }
