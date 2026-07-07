@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06T06:48:37+00:00",
+  "generated_at": "2026-07-07T06:19:44+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -64,13 +64,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_5.8.1_amd64.deb",
+            "asset_name": "beekeeper-studio_5.9.1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "1205954",
+              "Installed-Size": "971364",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -78,30 +78,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "5.8.1"
+              "Version": "5.9.1"
             },
-            "filename": "beekeeper-studio_5.8.1_amd64.deb",
-            "md5": "9ad9b54cfdc3d887f2d5b16738400dda",
-            "sha1": "0b19993126d8681bafe2a63e98f9315411a2e057",
-            "sha256": "7b9cbbb81cdd6c349440aa71463868fb6914df0c76deca5d4afd4fc26277d200",
-            "sha512": "48730d455e3712eb1cf6b6bda776f1ca166c91e5ac9988190d3fd12528e29c5084f99f62879e4058cdacd3468e8e8c6d78e897c88c5cfc4f77fd276fa2a40769",
-            "size": 235745000,
-            "upstream_version": "v5.8.1",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v5.8.1/beekeeper-studio_5.8.1_amd64.deb"
+            "filename": "beekeeper-studio_5.9.1_amd64.deb",
+            "md5": "9b3d7d0f5480c914042c8c7b622c6f13",
+            "sha1": "402e213fbfbb34fbff3936661a03a53613d57403",
+            "sha256": "a607fefb201f070eb1b57e1433c699ba30c8d68ca55692b853b29633e996c09e",
+            "sha512": "c6672f13232c501181aefd43a92ddb9d13e4f3c2d5a6feba423c72090ad23a5d722089aed99c1fb93cc766ab1aaf992df304e8df9116ac693f92b8e7e1433682",
+            "size": 206940164,
+            "upstream_version": "v5.9.1",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v5.9.1/beekeeper-studio_5.9.1_amd64.deb"
           },
-          "resolved_at": "2026-06-16T02:52:56+00:00",
+          "resolved_at": "2026-07-07T06:19:24+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_5.8.1_arm64.deb",
+            "asset_name": "beekeeper-studio_5.9.1_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "1201457",
+              "Installed-Size": "964289",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -109,18 +109,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "5.8.1"
+              "Version": "5.9.1"
             },
-            "filename": "beekeeper-studio_5.8.1_arm64.deb",
-            "md5": "05f2ab6cf31a7b7aabcbc8760fa2afec",
-            "sha1": "b9d17d75cc0a02dfb75b7f0d8e959455030ae301",
-            "sha256": "8ae6437926258e249152ab4b200d4172b45a628aa0f5d9e56d10cbb1eb5590c4",
-            "sha512": "b3a95d8e35c34fb69a7013a836aff4c5e6700625b0b42f5034609c4332fce466c581befc66fbbc07aa4681339fd9f326d6424a2a01e6af60ff62799dedd7a231",
-            "size": 226854584,
-            "upstream_version": "v5.8.1",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v5.8.1/beekeeper-studio_5.8.1_arm64.deb"
+            "filename": "beekeeper-studio_5.9.1_arm64.deb",
+            "md5": "3f1545575016afca50ee89f7af96b336",
+            "sha1": "f7dfe9cf0a3957a8fedf6c6939dbf95d556c511d",
+            "sha256": "ad854832b66200f9e3bae48ce85a1c7ea0d40fb637ff300190b5b5eb3aea8f5b",
+            "sha512": "bd0baa64b428aed277cd473250a983996d3074b5fd90dbe2049343c3dfb536c7125a9eb1fa276dc9409484e2d165d59da733b1ba24c79dc4e6bc87e3555d3a83",
+            "size": 197552704,
+            "upstream_version": "v5.9.1",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v5.9.1/beekeeper-studio_5.9.1_arm64.deb"
           },
-          "resolved_at": "2026-06-16T02:52:59+00:00",
+          "resolved_at": "2026-07-07T06:19:27+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -558,10 +558,10 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "ente-auth-v4.4.23-x86_64.deb",
+            "asset_name": "ente-auth-v4.4.24-x86_64.deb",
             "control": {
               "Architecture": "amd64",
-              "Depends": "libsqlite3-0, libsodium23, libsecret-1-0, policykit-1 | polkitd, libappindicator3-1 | libayatana-appindicator3-1, gir1.2-appindicator3-0.1 | gir1.2-ayatanaappindicator3-0.1, libayatana-ido3-0.4-0",
+              "Depends": "libcurl4, libsqlite3-0, libsodium23, libsecret-1-0, policykit-1 | polkitd, libayatana-appindicator3-1, gir1.2-ayatanaappindicator3-0.1, libayatana-ido3-0.4-0",
               "Description": "ente two-factor authenticator",
               "Essential": "no",
               "Installed-Size": "36000",
@@ -569,18 +569,18 @@
               "Package": "enteauth",
               "Priority": "optional",
               "Section": "x11",
-              "Version": "4.4.23"
+              "Version": "4.4.24"
             },
-            "filename": "enteauth_4.4.23_amd64.deb",
-            "md5": "ad235fa2eb48180df35b057c85596e53",
-            "sha1": "5b931f898216f609d4ff86d464514eb016b788f8",
-            "sha256": "6b71cbacb18139da458aac3515d276014cdca881caf83eb1fc82fe7df9faa592",
-            "sha512": "e5afa2ad63b019df3cd7829e347883f5a844c8eb057c99a9327a2274cd976b11ba6eb8e67bb3bb250f656c99ff0c10c1fc9f0e62540e764b7aa505de0c9b72ce",
-            "size": 23492308,
-            "upstream_version": "4.4.23",
-            "url": "https://github.com/ente-io/ente/releases/download/auth-v4.4.23/ente-auth-v4.4.23-x86_64.deb"
+            "filename": "enteauth_4.4.24_amd64.deb",
+            "md5": "cd1899db4ef2e9be85f2d9440b0def81",
+            "sha1": "3591a657812d0a3f9c9f535dc39900ea31016e6a",
+            "sha256": "b6ea5c0f298226e9feaf1ebb98b1884ca025641e35c2b454f15b3356355a1f31",
+            "sha512": "2e4391ba4216abed5cab257b8e8005de4911680432b23a2aa668cd738d35f645918e1c53b157376423c02015237fbfc56ffc6e5e25b56abd45cda25c7d9d5768",
+            "size": 24026704,
+            "upstream_version": "4.4.24",
+            "url": "https://github.com/ente-io/ente/releases/download/auth-v4.4.24/ente-auth-v4.4.24-x86_64.deb"
           },
-          "resolved_at": "2026-06-15T13:15:54+00:00",
+          "resolved_at": "2026-07-07T06:19:28+00:00",
           "source": "aur",
           "update_policy": "track"
         }
