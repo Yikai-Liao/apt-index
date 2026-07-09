@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-08T05:32:24+00:00",
+  "generated_at": "2026-07-09T06:18:39+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -301,25 +301,25 @@
               "Architecture": "amd64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "38325",
+              "Installed-Size": "38333",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.6.1"
+              "Version": "2026.7.0"
             },
             "filename": "cloudflared-linux-amd64.deb",
-            "md5": "82b5c324c3e11c04f9a0c660c6e3f90f",
-            "sha1": "14ebc47f3ea25087e03951a896dcacdc515011d9",
-            "sha256": "ccd02ec216c62bfa573395d8f72cb2e91e95cbdf8726a8acc06b3e2d9aa31526",
-            "sha512": "800d7511c8e4cd0fa3bda167de9da3806a680114c66aead7bf35171858d1a2a69a6f40ea83b9e31762b49ed3730f73b51dc2c866bc171908865e882d69334776",
-            "size": 18883806,
-            "upstream_version": "2026.6.1",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.6.1/cloudflared-linux-amd64.deb"
+            "md5": "218ffc4b37cc001ba7b3b22d77ffe9e6",
+            "sha1": "d5d7b8c6c065391c13336a88553b9487fbd6f10a",
+            "sha256": "b8b633050626db4eabf2ae1b62f2aaf9504575d938a5599d127e643d6be5cf48",
+            "sha512": "09eb3846e889a98f573dc298595c074734c33eb2708e39299d9736ab1ffc212cbe2539682d82aadd072512f94fd395662e1b9a12b7468406691387dbbc5cae69",
+            "size": 18888824,
+            "upstream_version": "2026.7.0",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.7.0/cloudflared-linux-amd64.deb"
           },
-          "resolved_at": "2026-06-19T07:31:26+00:00",
+          "resolved_at": "2026-07-09T06:16:25+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -330,25 +330,25 @@
               "Architecture": "arm64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "36114",
+              "Installed-Size": "36116",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.6.1"
+              "Version": "2026.7.0"
             },
             "filename": "cloudflared-linux-arm64.deb",
-            "md5": "24f78f435eb8b0ca3abdb1dfae321bd6",
-            "sha1": "7f72064fdae00f81b1c6bb4d9d51df6e5e115d1e",
-            "sha256": "bd03edd14de32ff38230ec9356e7fad0f32455558b2052d693bf51b7814f3ad4",
-            "sha512": "d06cebea9c85a8a573a794c8cfd6e31682fe85061f43366074de8e4ac7bf32fa862ccee0d57ea51329b9fc75da1894a5097371828f9a49c826d6bd8f37cbebc7",
-            "size": 17416274,
-            "upstream_version": "2026.6.1",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.6.1/cloudflared-linux-arm64.deb"
+            "md5": "f651affadb81871fc3291d2c5c00ace2",
+            "sha1": "a5bfaab5665f895ec00e6f3df7ae62f51e80162a",
+            "sha256": "59faf984abfb7a0cadb0024fe47367bd969583b7142b247b9e6a5df8944192c0",
+            "sha512": "090da3e0648c83f4a466c168959193a1518aacdea977d4e985f6fb355df75a4b8bfc5331256345ff716e2197531ae9f89588aa45af767e67e6c7db692f2b870c",
+            "size": 17421392,
+            "upstream_version": "2026.7.0",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.7.0/cloudflared-linux-arm64.deb"
           },
-          "resolved_at": "2026-06-19T07:31:26+00:00",
+          "resolved_at": "2026-07-09T06:16:26+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1087,30 +1087,30 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "google-chrome-stable_150.0.7871.100-1_amd64.deb",
+            "asset_name": "google-chrome-stable_150.0.7871.114-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "ca-certificates, fonts-liberation, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.25), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.35), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libvulkan1, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxrandr2, wget, xdg-utils (>= 1.0.2)",
               "Description": "The web browser from Google\n Google Chrome is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier.",
-              "Installed-Size": "423439",
+              "Installed-Size": "424119",
               "Maintainer": "Chrome Linux Team <chromium-dev@chromium.org>",
               "Package": "google-chrome-stable",
               "Pre-Depends": "dpkg (>= 1.14.0)",
               "Priority": "optional",
               "Provides": "www-browser",
               "Section": "web",
-              "Version": "150.0.7871.100-1"
+              "Version": "150.0.7871.114-1"
             },
-            "filename": "google-chrome-stable_150.0.7871.100-1_amd64.deb",
-            "md5": "3fdb3c715d07fb27de46b898f60a500d",
-            "sha1": "221619f33faa2258cc1c41efcc7244ec265e90af",
-            "sha256": "49b57f002ce6df5080d5f82542dc5cf11741b9379a97f1d75d7b5415ad086079",
-            "sha512": "40fe3ec9292fb5124fabdfb2c6c58ca6d3d353297372bcab8240ab981af575c755886eaa3a7beb755c3713215a889e505d6458a40aed3cda499d3d79117d55f1",
-            "size": 133493948,
-            "upstream_version": "150.0.7871.100",
-            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_150.0.7871.100-1_amd64.deb"
+            "filename": "google-chrome-stable_150.0.7871.114-1_amd64.deb",
+            "md5": "916e99163b4c1d232e2d17d19491b451",
+            "sha1": "a5ec8f368f58ba94f83fad38870eb515a7a91fae",
+            "sha256": "0f19e68dca574849632e25229f15853d2beac33fa06498feed43f34628bc2d53",
+            "sha512": "d9db8b204380b384df25d1eaf36c51d5d29c263c061973f37bd3389ba1ce9afc0d4dfc469cfaccd6dc6ac40d3f7871320cfe9d8c49826e3e3e12cf2baf865095",
+            "size": 133840516,
+            "upstream_version": "150.0.7871.114",
+            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_150.0.7871.114-1_amd64.deb"
           },
-          "resolved_at": "2026-07-08T05:32:12+00:00",
+          "resolved_at": "2026-07-09T06:16:33+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1636,13 +1636,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "linuxqq_3.2.30-50969_amd64.deb",
+            "asset_name": "linuxqq_3.2.31-51102_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  QQ",
               "Homepage": "https://im.qq.com",
-              "Installed-Size": "603493",
+              "Installed-Size": "603491",
               "License": "unknown",
               "Maintainer": "Tencent <QQ-Team@tencent.com>",
               "Package": "linuxqq",
@@ -1650,30 +1650,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Tencent <QQ-Team@tencent.com>",
-              "Version": "3.2.30-50969"
+              "Version": "3.2.31-51102"
             },
-            "filename": "linuxqq_3.2.30-50969_amd64.deb",
-            "md5": "fd40a3ecec1da9ac58f43206497b98cb",
-            "sha1": "ab5567dddd5a89d159c882934b02b85f14d38cda",
-            "sha256": "98f0d8cfd0d689e898c36432feada8ada2df9d287dda52a3389cc795978c0c0e",
-            "sha512": "b7c0f93267de4a97ade2117635693a1e6056c7f64476afc7c732826205ac32dc6dd2520d34d760aed7486a4bcb8635e7df69f423b0688704a759153b00cd1895",
-            "size": 182691890,
-            "upstream_version": "3.2.30_50969",
-            "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.32/beta/fd40a3ec/linuxqq_3.2.30-50969_amd64.deb"
+            "filename": "linuxqq_3.2.31-51102_amd64.deb",
+            "md5": "c390e792d7324a6c11c26449943d04c2",
+            "sha1": "c2d89b0b5ab58bcb148919e90cc51993b0f43e2c",
+            "sha256": "02f677feb1ce01ed293a3c7761e5dd85bd79936f57dcaa4cdb53178ae30e3d6d",
+            "sha512": "ba7114f7e4d919dbb2d5fd54310713b8e9b82938b8d74ed6914c278232cdb641d4bb3082830b8bd315b72214f630eeffc644a2f4272ccb0a763c19ea445c1c45",
+            "size": 182675698,
+            "upstream_version": "3.2.31_51102",
+            "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.32/beta/c390e792/linuxqq_3.2.31-51102_amd64.deb"
           },
-          "resolved_at": "2026-07-04T05:57:06+00:00",
+          "resolved_at": "2026-07-09T06:17:32+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "linuxqq_3.2.30-50969_arm64.deb",
+            "asset_name": "linuxqq_3.2.31-51102_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  QQ",
               "Homepage": "https://im.qq.com",
-              "Installed-Size": "636043",
+              "Installed-Size": "636040",
               "License": "unknown",
               "Maintainer": "Tencent <QQ-Team@tencent.com>",
               "Package": "linuxqq",
@@ -1681,18 +1681,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Tencent <QQ-Team@tencent.com>",
-              "Version": "3.2.30-50969"
+              "Version": "3.2.31-51102"
             },
-            "filename": "linuxqq_3.2.30-50969_arm64.deb",
-            "md5": "b851cb06f4434e4065180ab822abf044",
-            "sha1": "f9cdf5124476b660c76c6e0fe5fce5b6ff5b9848",
-            "sha256": "68d59a60f8bb67b84fffe21cb67d4f1e54628b8383c8eb296e3c632ec43dc392",
-            "sha512": "2a2f9ed9125c323e77368bf91960c6e998a226c3934d950aea60b2e0d24310a624f62be088c20e69a1f3d4cc619466525207640b5752d5eb2fc322e138d04893",
-            "size": 202281868,
-            "upstream_version": "3.2.30_50969",
-            "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.32/beta/fd40a3ec/linuxqq_3.2.30-50969_arm64.deb"
+            "filename": "linuxqq_3.2.31-51102_arm64.deb",
+            "md5": "0d407374405f89147534acac4ecbefba",
+            "sha1": "28231f2c66974d1fca72d842cebfc4c59f08f76a",
+            "sha256": "ac604371f5c486acf6cbf83dd667e622ee1f487d0c8bd425627de6d68fe34974",
+            "sha512": "6d3202af9c409ff3c963e6c53871e7d2e11ddcc6ab81a9b10e841034895368e6b508d36d1e85056c670fef716beaa47cef385af45f7b096467c65ee8044080f2",
+            "size": 202282552,
+            "upstream_version": "3.2.31_51102",
+            "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.32/beta/c390e792/linuxqq_3.2.31-51102_arm64.deb"
           },
-          "resolved_at": "2026-07-04T05:58:13+00:00",
+          "resolved_at": "2026-07-09T06:18:39+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1804,61 +1804,61 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "syncthing_2.1.1_amd64.deb",
+            "asset_name": "syncthing_2.1.2_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libc6, procps",
               "Description": "Open Source Continuous File Synchronization",
               "Homepage": "https://syncthing.net/",
-              "Installed-Size": "26510",
+              "Installed-Size": "26516",
               "License": "MPL-2",
               "Maintainer": "Syncthing Release Management <release@syncthing.net>",
               "Package": "syncthing",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Syncthing Release Management <release@syncthing.net>",
-              "Version": "2.1.1"
+              "Version": "2.1.2"
             },
-            "filename": "syncthing_2.1.1_amd64.deb",
-            "md5": "a6ab7062e175225e5feedf9c1e50c981",
-            "sha1": "ee662c79373d8a4a285ea64bb666cf6921efc621",
-            "sha256": "e00474e7385010394530a82074f88e63d9b8099797e8dd25dec6268b0f87cba3",
-            "sha512": "9bb4ad09ff3b66bfdcd9da79e321ef54f729319747504961b5d97e1fbcbf3b1acb593148fe22b79c834d53caf6032490c21a26bbfe5fc90ac174ee8c87be21dd",
-            "size": 11791288,
-            "upstream_version": "v2.1.1",
-            "url": "https://github.com/syncthing/syncthing/releases/download/v2.1.1/syncthing_2.1.1_amd64.deb"
+            "filename": "syncthing_2.1.2_amd64.deb",
+            "md5": "c164093e983f801822f40617e49f6f7d",
+            "sha1": "6a8e857c172314983482c7e44fd4032630a39464",
+            "sha256": "8b3a4554aef13150b5d7d36dedf8c05ee0140e2ec6e688fdd0324db9459e3c72",
+            "sha512": "15020aba298cd0534fa7281cda2c1e67ddd780316290ae4ee90c1a3b78cfd05156e4e21a7928a543998d6835a2d16c624a1f23cf5b68abcbd9027b49c4f3e842",
+            "size": 11796792,
+            "upstream_version": "v2.1.2",
+            "url": "https://github.com/syncthing/syncthing/releases/download/v2.1.2/syncthing_2.1.2_amd64.deb"
           },
-          "resolved_at": "2026-06-15T13:34:26+00:00",
+          "resolved_at": "2026-07-09T06:16:34+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "syncthing_2.1.1_arm64.deb",
+            "asset_name": "syncthing_2.1.2_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libc6, procps",
               "Description": "Open Source Continuous File Synchronization",
               "Homepage": "https://syncthing.net/",
-              "Installed-Size": "24735",
+              "Installed-Size": "24748",
               "License": "MPL-2",
               "Maintainer": "Syncthing Release Management <release@syncthing.net>",
               "Package": "syncthing",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Syncthing Release Management <release@syncthing.net>",
-              "Version": "2.1.1"
+              "Version": "2.1.2"
             },
-            "filename": "syncthing_2.1.1_arm64.deb",
-            "md5": "e1b634bb2c08f42e3e4177f4f2aa0434",
-            "sha1": "c02d729a4135845d9809be50417ee95b17385688",
-            "sha256": "1c31a84fc99196797fb7a0795625e2c81e601bbeeff612f46b622a509d4e883f",
-            "sha512": "e1a93e52ba22e458f5d8266ac76d73086da8fa0a823cdc8c143843e88625c1092c7be93260fe206932bcda7bf6754230b978bfcaffcd07dcb9b21b9d97cfd13f",
-            "size": 10891036,
-            "upstream_version": "v2.1.1",
-            "url": "https://github.com/syncthing/syncthing/releases/download/v2.1.1/syncthing_2.1.1_arm64.deb"
+            "filename": "syncthing_2.1.2_arm64.deb",
+            "md5": "9b16e2d38947d030e9b01a1f12cdf6c6",
+            "sha1": "7efa4c307311a026880b11554852b01e12b9d507",
+            "sha256": "bee59ac78edbad37294c5260d05216ba0051f63c6546cc13206148475900b767",
+            "sha512": "7445ca4fc856afe20443525419cedc31a9b2fab7891ea42138efb1f566ac372cff4e03173b04a6c2516797cdd577a56ca06b8fd84588793e9f799d2690d5b869",
+            "size": 10896810,
+            "upstream_version": "v2.1.2",
+            "url": "https://github.com/syncthing/syncthing/releases/download/v2.1.2/syncthing_2.1.2_arm64.deb"
           },
-          "resolved_at": "2026-06-15T13:34:27+00:00",
+          "resolved_at": "2026-07-09T06:16:35+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1999,14 +1999,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "code_1.127.0_amd64.deb",
+            "asset_name": "code_1.128.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "visual-studio-code",
-              "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
+              "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "895372",
+              "Installed-Size": "919487",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2014,31 +2014,31 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.127.0-1782814776"
+              "Version": "1.128.0-1783465401"
             },
-            "filename": "code_1.127.0_amd64.deb",
-            "md5": "cd6b2481e0898aae9b1142f0a08c48ac",
-            "sha1": "908979fe91c1581c37062e9f71ee590276644eea",
-            "sha256": "0cddc13023bf713dfc4774d4f24418b53d32180bfd73f50ff960bc5cdaf56a2d",
-            "sha512": "5e32a95f16f6bf350dcd8af246e8ce35bab3fc384837398a5619778f9963491da94e2fff83d15f1d75e914c5d399113e7ce6f9e4b74cee51b9a570e3f87b1da6",
-            "size": 199392086,
-            "upstream_version": "1.127.0",
-            "url": "https://update.code.visualstudio.com/1.127.0/linux-deb-x64/stable"
+            "filename": "code_1.128.0_amd64.deb",
+            "md5": "cc01ae219a424684bb1647bb9fd801dd",
+            "sha1": "9e42b2576dee9687e406c8f6a7fe44a1f5373e48",
+            "sha256": "ee7ff012cf872e497d665486e56c5b1a12e36cca0c07c97887c997cbfdc797b1",
+            "sha512": "36e59fdbc46e9cc5bf396294e48574e9745e4f3482b59f99dd24b12b99a1cd8a283de41274099f6108a413b46c3f16cda049143d02226a1a27a5e25be56388e7",
+            "size": 206232382,
+            "upstream_version": "1.128.0",
+            "url": "https://update.code.visualstudio.com/1.128.0/linux-deb-x64/stable"
           },
-          "resolved_at": "2026-07-02T06:11:45+00:00",
+          "resolved_at": "2026-07-09T06:16:38+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "code_1.127.0_arm64.deb",
+            "asset_name": "code_1.128.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.17), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libstdc++6 (>= 4.1.1), libstdc++6 (>= 5), libstdc++6 (>= 5.2), libstdc++6 (>= 6), libstdc++6 (>= 9), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "874162",
+              "Installed-Size": "888617",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2046,18 +2046,18 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.127.0-1782811064"
+              "Version": "1.128.0-1783465398"
             },
-            "filename": "code_1.127.0_arm64.deb",
-            "md5": "896e2830960226a2836ff470bb7e80bc",
-            "sha1": "e921f7d14b9d83af01b1bc25f8e2dceeae68ca99",
-            "sha256": "55d7fda22a4097d5a23842360264f771edd7d309f07362a6acf2ae93ba6016a5",
-            "sha512": "48efe906089c3fb35bb0eccba396f2973a645bba0449c17ce799a3bc6ff79fbb37cd2ee1c0269502434e751697e1ab794d9e3b93d1442af43feb0c876e2352f8",
-            "size": 187622546,
-            "upstream_version": "1.127.0",
-            "url": "https://update.code.visualstudio.com/1.127.0/linux-deb-arm64/stable"
+            "filename": "code_1.128.0_arm64.deb",
+            "md5": "358d6de6820797e6ad9734c1d14ceb8e",
+            "sha1": "d9db94cdb0dad5fa98480792389f136236aa8be7",
+            "sha256": "eb394338250dc7f5371c8c8e6a26d632c7aa977843d6ee7a496132c301a8ea05",
+            "sha512": "50b36ec241c229e242618f410dc5571737b81e6e7cbc117308b9668c593e8717cb53058e6c8ef16a74f6228433a5bd9e4c11a3483567d33fed3b0e29354ab471",
+            "size": 194209834,
+            "upstream_version": "1.128.0",
+            "url": "https://update.code.visualstudio.com/1.128.0/linux-deb-arm64/stable"
           },
-          "resolved_at": "2026-07-02T06:11:55+00:00",
+          "resolved_at": "2026-07-09T06:16:45+00:00",
           "source": "aur",
           "update_policy": "track"
         }
