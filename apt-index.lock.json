@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T06:16:24+00:00",
+  "generated_at": "2026-07-11T05:23:32+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -64,13 +64,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_5.9.1_amd64.deb",
+            "asset_name": "beekeeper-studio_5.9.2_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "971364",
+              "Installed-Size": "971365",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -78,30 +78,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "5.9.1"
+              "Version": "5.9.2"
             },
-            "filename": "beekeeper-studio_5.9.1_amd64.deb",
-            "md5": "9b3d7d0f5480c914042c8c7b622c6f13",
-            "sha1": "402e213fbfbb34fbff3936661a03a53613d57403",
-            "sha256": "a607fefb201f070eb1b57e1433c699ba30c8d68ca55692b853b29633e996c09e",
-            "sha512": "c6672f13232c501181aefd43a92ddb9d13e4f3c2d5a6feba423c72090ad23a5d722089aed99c1fb93cc766ab1aaf992df304e8df9116ac693f92b8e7e1433682",
-            "size": 206940164,
-            "upstream_version": "v5.9.1",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v5.9.1/beekeeper-studio_5.9.1_amd64.deb"
+            "filename": "beekeeper-studio_5.9.2_amd64.deb",
+            "md5": "54094ad8157308f37a8731b5bfa181fc",
+            "sha1": "6ed2821b7bcddf62f1108b43bfe47a287b71a0fc",
+            "sha256": "3bdf3bc2982bb9ed720f88e09b4c742297db69328d66b8e169b4e2c2ff7871a0",
+            "sha512": "49f25511775ac6838966127a02d64b27c17e02e0e88e5432443b84a3576dee3035867881030acc24f5a5e8087005f05b305e23fd767dc64746aa479de2cbfa6c",
+            "size": 206936404,
+            "upstream_version": "v5.9.2",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v5.9.2/beekeeper-studio_5.9.2_amd64.deb"
           },
-          "resolved_at": "2026-07-07T06:19:24+00:00",
+          "resolved_at": "2026-07-11T05:23:16+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_5.9.1_arm64.deb",
+            "asset_name": "beekeeper-studio_5.9.2_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "964289",
+              "Installed-Size": "964291",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -109,18 +109,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "5.9.1"
+              "Version": "5.9.2"
             },
-            "filename": "beekeeper-studio_5.9.1_arm64.deb",
-            "md5": "3f1545575016afca50ee89f7af96b336",
-            "sha1": "f7dfe9cf0a3957a8fedf6c6939dbf95d556c511d",
-            "sha256": "ad854832b66200f9e3bae48ce85a1c7ea0d40fb637ff300190b5b5eb3aea8f5b",
-            "sha512": "bd0baa64b428aed277cd473250a983996d3074b5fd90dbe2049343c3dfb536c7125a9eb1fa276dc9409484e2d165d59da733b1ba24c79dc4e6bc87e3555d3a83",
-            "size": 197552704,
-            "upstream_version": "v5.9.1",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v5.9.1/beekeeper-studio_5.9.1_arm64.deb"
+            "filename": "beekeeper-studio_5.9.2_arm64.deb",
+            "md5": "b75fc3c34012ec2cc5a8a3dd534f2728",
+            "sha1": "27ac80fb8637001305134eebb980ce63a0f6159b",
+            "sha256": "21973d555a3ae82423a9050acf80cdbd65806b6240af0aa255381d2db47db839",
+            "sha512": "97cd445fc687977038c2bdca5e92ac9c4c4986290007fdd2f86d438cb890e964df258260f04ab8ea386f50d6e1054ea2805b90dba98e8faeb8525e8e46c8d0f2",
+            "size": 197548968,
+            "upstream_version": "v5.9.2",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v5.9.2/beekeeper-studio_5.9.2_arm64.deb"
           },
-          "resolved_at": "2026-07-07T06:19:27+00:00",
+          "resolved_at": "2026-07-11T05:23:17+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -597,23 +597,23 @@
               "Depends": "libc6 (>= 2.35)",
               "Description": "Fast neofetch-like system information tool\n fastfetch is a neofetch-like tool for fetching system information and displaying them in a pretty way. It is written mostly in C to achieve much better performance.",
               "Homepage": "https://github.com/fastfetch-cli/fastfetch",
-              "Installed-Size": "16073",
+              "Installed-Size": "16486",
               "Maintainer": "Carter Li <zhangsongcui@live.cn>",
               "Package": "fastfetch",
               "Priority": "optional",
               "Section": "devel",
-              "Version": "2.65.2"
+              "Version": "2.66.0"
             },
             "filename": "fastfetch-linux-amd64.deb",
-            "md5": "b0fb68cd050640193f3d577c81cc56b3",
-            "sha1": "7bfdadaf29f3e512478673b8c8eeb2cfb5fd0beb",
-            "sha256": "89b2dc201cb38ec89040369e674477f643274db869d498dfdec4c3152042eb14",
-            "sha512": "9780ddfaa46e0a252d3d71e3a81b0c6a3aac59439cfc9c9708409de5ff7ef7a721ba0434313848db99f7b2a56ae1e8a5d3f50556d2d33f6fee31916b2e908994",
-            "size": 5906742,
-            "upstream_version": "2.65.2",
-            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.65.2/fastfetch-linux-amd64.deb"
+            "md5": "5c7f705597d04fa09923ccb79758b032",
+            "sha1": "1857c0d9ba337d6b91af1d4f10311506a817c27a",
+            "sha256": "c4aa1de46874524cdc492795d937772281409fa86aea377cae6832d9e70218cb",
+            "sha512": "6e60f8cb19b62b705fd723dab72ef2c7f623a8c991d3bad05c41d219a470809467966b38c17dfba679031199513e16d235362ad5c7f4135d139e8d95c52418b9",
+            "size": 6099970,
+            "upstream_version": "2.66.0",
+            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.66.0/fastfetch-linux-amd64.deb"
           },
-          "resolved_at": "2026-06-29T07:06:05+00:00",
+          "resolved_at": "2026-07-11T05:23:16+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -625,23 +625,23 @@
               "Depends": "libc6 (>= 2.35)",
               "Description": "Fast neofetch-like system information tool\n fastfetch is a neofetch-like tool for fetching system information and displaying them in a pretty way. It is written mostly in C to achieve much better performance.",
               "Homepage": "https://github.com/fastfetch-cli/fastfetch",
-              "Installed-Size": "16143",
+              "Installed-Size": "16562",
               "Maintainer": "Carter Li <zhangsongcui@live.cn>",
               "Package": "fastfetch",
               "Priority": "optional",
               "Section": "devel",
-              "Version": "2.65.2"
+              "Version": "2.66.0"
             },
-            "filename": "fastfetch_2.65.2_arm64.deb",
-            "md5": "b1dcde06162e47ff267ea17c4712e110",
-            "sha1": "015d9ffe7ea9f39e8cc2a2ec1ec8a814e2bcf79f",
-            "sha256": "c6448a9c4c09f9f465fdaf0a04b7f80b792f3ea833baa97375cf549e92cca42a",
-            "sha512": "c89fd37207e847167ba4cc35ed54fcd05b99d8458376eb597f7fddc75db4381575ef007041ac8b3e588ea77e163aebdda451c6b4659d92e74cfa49f411bc5f9b",
-            "size": 5802896,
-            "upstream_version": "2.65.2",
-            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.65.2/fastfetch-linux-aarch64.deb"
+            "filename": "fastfetch_2.66.0_arm64.deb",
+            "md5": "5dc05ae51dd891362eab075b41f296cd",
+            "sha1": "bd9c50684e085355e24a144af355b3beaf5ea6d5",
+            "sha256": "e809ecce6f409dec4857a527f9406628d168313d9f6d33a87b0c19c0535d78b0",
+            "sha512": "f08108e62e18cb87bd3f99b048f7a2a882f1e48425386310b5e7ab466258ebeae4dbc3d48b70e555019c1d7484bd0f81babf28298372e72998368247b799c1cd",
+            "size": 5966464,
+            "upstream_version": "2.66.0",
+            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.66.0/fastfetch-linux-aarch64.deb"
           },
-          "resolved_at": "2026-06-29T07:06:05+00:00",
+          "resolved_at": "2026-07-11T05:23:16+00:00",
           "source": "github",
           "update_policy": "track"
         }
