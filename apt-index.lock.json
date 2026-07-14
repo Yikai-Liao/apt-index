@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-12T05:39:29+00:00",
+  "generated_at": "2026-07-14T05:10:58+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -194,7 +194,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "bruno_3.5.1_amd64_linux.deb",
+            "asset_name": "bruno_3.5.2_amd64_linux.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, libasound2",
@@ -208,24 +208,24 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Anoop M D <anoop.md1421@gmail.com>",
-              "Version": "3.5.1"
+              "Version": "3.5.2"
             },
-            "filename": "bruno_3.5.1_amd64_linux.deb",
-            "md5": "670ff08f3cc9b01c07c6ea790b0c6a51",
-            "sha1": "5ebc0da53678de4f84a185318f45aa598c378018",
-            "sha256": "07e16f710ddb687d246522935a449360df2f03f32b1a739afff0a3d483e9f80f",
-            "sha512": "d58c9105589447372fb0b56860d8ca187de101f135bf7d22a937777b462ca5ae16831b079e724487aaa236ac1d4e6904ab4a9b9a09f1dcddbe9faf4774379471",
-            "size": 100497230,
-            "upstream_version": "v3.5.1",
-            "url": "https://github.com/usebruno/bruno/releases/download/v3.5.1/bruno_3.5.1_amd64_linux.deb"
+            "filename": "bruno_3.5.2_amd64_linux.deb",
+            "md5": "199272fc18fbc2cf467d54135009cb7a",
+            "sha1": "4d4aada33d4b21722dc9e7ef0b0a4e0977b66270",
+            "sha256": "a31a5fc89728a592d7d1e7271a03ff8989054f7a2b9b0ca3668c64bd1cf334d1",
+            "sha512": "645788064f83444c4577ef9bcc8874951ac68ce77e248b76f0e13a8419d7e11113d5a475c678ccfdfb44fc9d5e4ef7bb7687e2eb23cedc74f4aabdefdebd08f2",
+            "size": 100478934,
+            "upstream_version": "v3.5.2",
+            "url": "https://github.com/usebruno/bruno/releases/download/v3.5.2/bruno_3.5.2_amd64_linux.deb"
           },
-          "resolved_at": "2026-07-03T06:05:15+00:00",
+          "resolved_at": "2026-07-14T05:10:30+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "bruno_3.5.1_arm64_linux.deb",
+            "asset_name": "bruno_3.5.2_arm64_linux.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, libasound2",
@@ -239,18 +239,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Anoop M D <anoop.md1421@gmail.com>",
-              "Version": "3.5.1"
+              "Version": "3.5.2"
             },
-            "filename": "bruno_3.5.1_arm64_linux.deb",
-            "md5": "81ace0ddf44a511a851e76a8312a47e8",
-            "sha1": "997ac34569fc3c7531327a8696d1d6a04579991d",
-            "sha256": "3f6e54a730d0d10d9eef5e0c9b2e4023b5beeff1e0097bb747588bdd9da5be48",
-            "sha512": "6e1934376b9075fc23dd1c1699baee698d607c86308bc2a905792d30fa9dd4f95f6fe5fb4aca434ed5a65532f9fcbc453158753502213f3497fc891daa687ea0",
-            "size": 95470454,
-            "upstream_version": "v3.5.1",
-            "url": "https://github.com/usebruno/bruno/releases/download/v3.5.1/bruno_3.5.1_arm64_linux.deb"
+            "filename": "bruno_3.5.2_arm64_linux.deb",
+            "md5": "4f99191f29615fe60bccdec89b3e971f",
+            "sha1": "20c4afc1a8b596b8dab9568ffed8e18baa7f4591",
+            "sha256": "382a4492c4a9cd00f6d441ac68cb6ba35a320d4140cced5c3fcc50cf478d163c",
+            "sha512": "81d00d107697feca1bf9ee58076db09b257ecc33371a5c513f1c96d5041558b971ae2ba5155dbbef9b1e1643d484f02aa409cae54463194382a355becd237958",
+            "size": 95469546,
+            "upstream_version": "v3.5.2",
+            "url": "https://github.com/usebruno/bruno/releases/download/v3.5.2/bruno_3.5.2_arm64_linux.deb"
           },
-          "resolved_at": "2026-07-03T06:05:16+00:00",
+          "resolved_at": "2026-07-14T05:10:31+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.11.13_amd64.deb",
+            "asset_name": "cursor_3.11.19_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.14), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "890405",
+              "Installed-Size": "890419",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.11.13-1783650353"
+              "Version": "3.11.19-1783894669"
             },
-            "filename": "cursor_3.11.13_amd64.deb",
-            "md5": "85da376355942db4354c87e1f175497a",
-            "sha1": "c64b4af392abbc6ef4f8895b9b3e19d8ce24d44e",
-            "sha256": "8387da6ebf229710e23e988ad24b81db916a855637ee67c0584a5630eeb4e169",
-            "sha512": "45c3ec6532852a42b5e4324b7170422dfc0958e4398fcb553b4bf78b7c3df8718e7edaae6602b5df3c84c1aa3a40c05eb8bd1f4efbae4d6ad3b6bb79904ab0a2",
-            "size": 196248644,
-            "upstream_version": "3.11.13",
-            "url": "https://downloads.cursor.com/production/3f21b08f0b436a07be29fbfe00b304fa15553353/linux/x64/deb/amd64/deb/cursor_3.11.13_amd64.deb"
+            "filename": "cursor_3.11.19_amd64.deb",
+            "md5": "91f920ecbbf2e35a82f18446060fa64c",
+            "sha1": "d3b5fdcdbf27cb45375791e70b03fb69c5d7e62c",
+            "sha256": "d8abfd2de73e3faf31db991eb5809215d0404356707992bcbc46b3cda2a20782",
+            "sha512": "d724a94c0b0f2337d23ce1f508330100a1921c92a02b15492b179fa3f2068eca1b059a9a370bd12ae280557b7146f51dd90888ab015cbbc6c7447131801e9fc6",
+            "size": 196222264,
+            "upstream_version": "3.11.19",
+            "url": "https://downloads.cursor.com/production/bf249e6efb5b097f23d7e21d7283429f0760b74a/linux/x64/deb/amd64/deb/cursor_3.11.19_amd64.deb"
           },
-          "resolved_at": "2026-07-10T06:16:12+00:00",
+          "resolved_at": "2026-07-14T05:10:34+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -2135,57 +2135,59 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "wechat-x86-4.1.1.7.deb",
+            "asset_name": "wechat-x86-4.1.1.8.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "fonts-noto-cjk | google-noto-cjk-fonts",
               "Description": "wechat from Tencent",
-              "Installed-Size": "734025",
+              "Installed-Size": "734026",
               "Maintainer": "WeChat Team <>",
               "Package": "wechat",
               "Pre-Depends": "dpkg (>= 1.14.0)",
               "Priority": "optional",
               "Provides": "wechat",
               "Source": "wechat-stable",
-              "Version": "4.1.1.7"
+              "Version": "4.1.1.8"
             },
-            "filename": "wechat_4.1.1.7_amd64.deb",
-            "md5": "7a687ca1853d0bcb1ad00f6a2d115965",
-            "sha1": "5655dca348c1f14aa5a3909b1587a17c04d2005c",
-            "sha256": "af28ffa501d6eb1db769eeaf895b10fedcd4bf4ee7764a22d5b3af50e53f5be5",
-            "size": 212391880,
-            "upstream_version": "4.1.1.7",
+            "filename": "wechat_4.1.1.8_amd64.deb",
+            "md5": "1fa29faea9a4317cc33a342e7c46834c",
+            "sha1": "95374b45a6f1df5aac61442252933e8bb700b919",
+            "sha256": "c9765e87ee5133bf4bb50d585c1814fafd995e3fb0da62c5ed07259b43dada7b",
+            "sha512": "949a43c79abdc672f52588a07c2345ed5499ea269c88e6f82b4b3aaefb78d1ebb35d6200bbd6b6d47f7196870ad058d2cd4dc46d29da538b9221f4755ec365df",
+            "size": 212419528,
+            "upstream_version": "4.1.1.8",
             "url": "https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.deb"
           },
-          "resolved_at": "2026-06-14T17:14:55+00:00",
+          "resolved_at": "2026-07-14T05:10:51+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "wechat-arm-4.1.1.7.deb",
+            "asset_name": "wechat-arm-4.1.1.8.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "fonts-noto-cjk | google-noto-cjk-fonts",
               "Description": "wechat from Tencent",
-              "Installed-Size": "682040",
+              "Installed-Size": "682032",
               "Maintainer": "WeChat Team <>",
               "Package": "wechat",
               "Pre-Depends": "dpkg (>= 1.14.0)",
               "Priority": "optional",
               "Provides": "wechat",
               "Source": "wechat-stable",
-              "Version": "4.1.1.7"
+              "Version": "4.1.1.8"
             },
-            "filename": "wechat_4.1.1.7_arm64.deb",
-            "md5": "ad001b1e51131edc7e5cd0b0c17ea600",
-            "sha1": "56fa9da51c5e43d7706884e9c4df60d1e04d73b4",
-            "sha256": "2870123ee5e0202711210d82e3435f0a4712ca593eb0480f6d9db4589a288810",
-            "size": 189791016,
-            "upstream_version": "4.1.1.7",
+            "filename": "wechat_4.1.1.8_arm64.deb",
+            "md5": "0a8d1d0ab1de053476ecd5fc33599dd2",
+            "sha1": "ff5741b243fc91be6d22bed12ad0b15311ef4dc0",
+            "sha256": "c3ed1a481247e6a1b166e87a66cccdee898c3ae0b76613b39bb6e9795e50929f",
+            "sha512": "813ce0ba8a61235c9a0c49040871b5ef32c68548bf9539e6090ab08de19b30ae8f81627594a5b9b5bfd05c4327d037425fe26ad03696dad00545d1ce82bfc0ba",
+            "size": 189772256,
+            "upstream_version": "4.1.1.8",
             "url": "https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_arm64.deb"
           },
-          "resolved_at": "2026-06-14T17:14:55+00:00",
+          "resolved_at": "2026-07-14T05:10:58+00:00",
           "source": "aur",
           "update_policy": "track"
         }
