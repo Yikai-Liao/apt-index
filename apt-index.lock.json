@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15T05:11:09+00:00",
+  "generated_at": "2026-07-16T05:21:56+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -301,25 +301,25 @@
               "Architecture": "amd64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "38332",
+              "Installed-Size": "38342",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.7.1"
+              "Version": "2026.7.2"
             },
             "filename": "cloudflared-linux-amd64.deb",
-            "md5": "99616c57d4ea6b36163fcfa139c3819b",
-            "sha1": "8c0cf49654826011ac5b6c5b8e58b7c57dcbe755",
-            "sha256": "79f790b45e6a9152c6cf63f60f4901e3d8a029f7f4be1345a24cd2373aba8e7d",
-            "sha512": "c8c985328193e434201f8d0c9d0969acd2ee707a1b54da41c3cd0060d25589d9460b8e3c4951cd27828115c518d3ec0e03d1f761a3ccb699655d59f031170c01",
-            "size": 18886710,
-            "upstream_version": "2026.7.1",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.7.1/cloudflared-linux-amd64.deb"
+            "md5": "4228ce9f58d93a9bca90047b85d073dc",
+            "sha1": "8230160a8c98bc1102046703320b26b9819f4b4e",
+            "sha256": "88195157a136199a86977c122a22084dae6907480bbe3640222b7b55834afc3a",
+            "sha512": "6dfa939724af2f9a9a344969bdecdf6b97c72aff91d0b4b4795518c542b027339b5e450dc751e59dd2e1e0ccd9cf31f0846fedc99e21bf8318c30ae10a1244f1",
+            "size": 18887572,
+            "upstream_version": "2026.7.2",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.7.2/cloudflared-linux-amd64.deb"
           },
-          "resolved_at": "2026-07-10T06:16:06+00:00",
+          "resolved_at": "2026-07-16T05:21:38+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -330,25 +330,25 @@
               "Architecture": "arm64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "36115",
+              "Installed-Size": "36118",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.7.1"
+              "Version": "2026.7.2"
             },
             "filename": "cloudflared-linux-arm64.deb",
-            "md5": "b6098a31e0e9914a452f062ea29e30a3",
-            "sha1": "81a899ecbd2ef33f961a44f8987ed5a0291a8e41",
-            "sha256": "4cc3570b4f86ca8b90d7d86d327a2138ade04905d5177a98652f461292725043",
-            "sha512": "fc29cf8fa3dafa434ee8770a17ba36f663fb2fdcfda19dd7e179ef02c4b1fb138611611034a7d8e1035df0e073556f6718b8d7402726fa54c831e1026ed12bab",
-            "size": 17419284,
-            "upstream_version": "2026.7.1",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.7.1/cloudflared-linux-arm64.deb"
+            "md5": "455ac90547ac8a561ebc2dfe027e1973",
+            "sha1": "0284fec51feb8af9b793b378dd876fa8581d19d9",
+            "sha256": "ddd7d2a0d55a1879485ac34354e936424f1df92e306bfa6428a81908aaddbe87",
+            "sha512": "6bf6669be4e9ca1aa8206d2fec11efe4c9574ae02bbb4259a354b55de28166eca8763b81927a26830c24ad52df8fcbf99442c66dcd740c1b46eb96753e5f8f11",
+            "size": 17423124,
+            "upstream_version": "2026.7.2",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.7.2/cloudflared-linux-arm64.deb"
           },
-          "resolved_at": "2026-07-10T06:16:07+00:00",
+          "resolved_at": "2026-07-16T05:21:39+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.11.19_amd64.deb",
+            "asset_name": "cursor_3.11.25_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.14), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "890419",
+              "Installed-Size": "956858",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.11.19-1783894669"
+              "Version": "3.11.25-1784081243"
             },
-            "filename": "cursor_3.11.19_amd64.deb",
-            "md5": "91f920ecbbf2e35a82f18446060fa64c",
-            "sha1": "d3b5fdcdbf27cb45375791e70b03fb69c5d7e62c",
-            "sha256": "d8abfd2de73e3faf31db991eb5809215d0404356707992bcbc46b3cda2a20782",
-            "sha512": "d724a94c0b0f2337d23ce1f508330100a1921c92a02b15492b179fa3f2068eca1b059a9a370bd12ae280557b7146f51dd90888ab015cbbc6c7447131801e9fc6",
-            "size": 196222264,
-            "upstream_version": "3.11.19",
-            "url": "https://downloads.cursor.com/production/bf249e6efb5b097f23d7e21d7283429f0760b74a/linux/x64/deb/amd64/deb/cursor_3.11.19_amd64.deb"
+            "filename": "cursor_3.11.25_amd64.deb",
+            "md5": "2a2d3ec5077864aee5d57302ec591de5",
+            "sha1": "95fdd58019aae6f9aa6bd0060f36641e0704ae3b",
+            "sha256": "f64dd900ddc4f06583410b9e64c7381dbc59807e72fa334ac593d16fd321f106",
+            "sha512": "18bbccf49df1862d0d532a8fac150d3126a21ed51adff3690abda054a7220d7f269d30c50030b2d27035624045a39eef7b0f13e07d69a46bbc0519486a8d5278",
+            "size": 206753876,
+            "upstream_version": "3.11.25",
+            "url": "https://downloads.cursor.com/production/fc2563ec93d793fc275eef734405a4fdf8b47b26/linux/x64/deb/amd64/deb/cursor_3.11.25_amd64.deb"
           },
-          "resolved_at": "2026-07-14T05:10:34+00:00",
+          "resolved_at": "2026-07-16T05:21:43+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1703,28 +1703,29 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "ripgrep_15.1.0-1_amd64.deb",
+            "asset_name": "ripgrep_15.2.0-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "",
               "Description": "ripgrep is a line-oriented search tool that recursively searches the current\n directory for a regex pattern while respecting gitignore rules. ripgrep has\n first class support on Windows, macOS and Linux.\n ripgrep (rg) recursively searches your current directory for a regex pattern.\n By default, ripgrep will respect your .gitignore and automatically skip hidden\n files/directories and binary files.",
               "Homepage": "https://github.com/BurntSushi/ripgrep",
-              "Installed-Size": "5599",
+              "Installed-Size": "5567",
               "Maintainer": "Andrew Gallant <jamslam@gmail.com>",
               "Package": "ripgrep",
               "Priority": "optional",
               "Section": "utils",
-              "Version": "15.1.0-1"
+              "Version": "15.2.0-1"
             },
-            "filename": "ripgrep_15.1.0-1_amd64.deb",
-            "md5": "d3762f14bfd4554e0dbfaf9ba98f4e8d",
-            "sha1": "5d4dcc6ed538c752202ed639a4e5a9828c1a89c8",
-            "sha256": "62ce186675c71edbc7c48a67dc36f986974551354d6ce63726adc2d85aad802c",
-            "size": 1704160,
-            "upstream_version": "15.1.0",
-            "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep_15.1.0-1_amd64.deb"
+            "filename": "ripgrep_15.2.0-1_amd64.deb",
+            "md5": "944e81cf2e1f379bb0adcbbfc8442192",
+            "sha1": "179847a8e9f52d908f4e52e2b37543333cc4445e",
+            "sha256": "5af93eebe4c352474632cf1d28523b0e98bcd4e2f115a249a713b8d8c7d1d01c",
+            "sha512": "830e5849a60a812f8bdaf872a6acdd0ce0e3064eacf1abc827d5c0dcd5bae96bdd4f416fe19500c41f565669c9bbf697b60255bfa27b31259742e86de339a72d",
+            "size": 1703492,
+            "upstream_version": "15.2.0",
+            "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.2.0/ripgrep_15.2.0-1_amd64.deb"
           },
-          "resolved_at": "2026-06-15T02:35:47+00:00",
+          "resolved_at": "2026-07-16T05:21:44+00:00",
           "source": "github",
           "update_policy": "track"
         }
