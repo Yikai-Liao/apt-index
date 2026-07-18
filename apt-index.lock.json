@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T05:24:01+00:00",
+  "generated_at": "2026-07-18T05:06:20+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.12.10_amd64.deb",
+            "asset_name": "cursor_3.12.17_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.14), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "961981",
+              "Installed-Size": "962018",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.12.10-1784174163"
+              "Version": "3.12.17-1784259156"
             },
-            "filename": "cursor_3.12.10_amd64.deb",
-            "md5": "0569148c1f0b4ee3154b66a6dd4f25f3",
-            "sha1": "3822e7c078ee8d265803d2e154012d4363aa2232",
-            "sha256": "acce8fce993a897386d3933665feb1249ed2064063b6fc8f75c6453ae7c0f8cf",
-            "sha512": "153c58a99e3f39dd6b6d4087e37c7ca7af5b24e7dafb9a420d6aa27cd4e50329404dfdc920c39faa65f61bda5e7ed408753f3bfebc92decabe6ee8dd581d3d12",
-            "size": 207522964,
-            "upstream_version": "3.12.10",
-            "url": "https://downloads.cursor.com/production/24a12dbd9cabf48956ce5bb3dbd234e41385b3df/linux/x64/deb/amd64/deb/cursor_3.12.10_amd64.deb"
+            "filename": "cursor_3.12.17_amd64.deb",
+            "md5": "7b574c58b24dcbe467493f7a1c1ae02f",
+            "sha1": "4567ce3f3fe399ecfa88ce107790ed82afefd209",
+            "sha256": "1ae24f8da0f2da296553262e4400c352f2ab57d71f52047319587ee29184c88d",
+            "sha512": "e2ba032e373f5321c291abe3f9e82d27723194a49b798e824e9bb6b2dad995119beaf6ee5c76524f21acbd542bf25874d109f60153f1d041a61553314639b7ab",
+            "size": 207665000,
+            "upstream_version": "3.12.17",
+            "url": "https://downloads.cursor.com/production/0fb762053c34788bb7760d5673f8a6d4c8589d52/linux/x64/deb/amd64/deb/cursor_3.12.17_amd64.deb"
           },
-          "resolved_at": "2026-07-17T05:23:44+00:00",
+          "resolved_at": "2026-07-18T05:06:05+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -459,13 +459,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "drawio-amd64-30.3.13.deb",
+            "asset_name": "drawio-amd64-30.3.14.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  draw.io desktop",
               "Homepage": "https://github.com/jgraph/drawio",
-              "Installed-Size": "455674",
+              "Installed-Size": "455706",
               "License": "Apache-2.0",
               "Maintainer": "draw.io <desktop@draw.io>",
               "Package": "draw.io",
@@ -473,30 +473,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "draw.io <desktop@draw.io>",
-              "Version": "30.3.13"
+              "Version": "30.3.14"
             },
-            "filename": "draw.io_30.3.13_amd64.deb",
-            "md5": "4195e3c8f2a240a1df4743a2dd73abd1",
-            "sha1": "7d7b7c75f59a8376a438678bfbfd22094414e902",
-            "sha256": "360374ade1b34027cdac6a0ce83e20fd7ae94f76fee640a3293b48c56ace12a7",
-            "sha512": "564b25fe79f9e06f973c8ea9bcff2b84f9f9681b865923fcb748f29f19b1cf3f8928c51d7030f9d5920d31e3052571ba3c76736db3ac2c050d37c6a5328ec4ed",
-            "size": 134026816,
-            "upstream_version": "v30.3.13",
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v30.3.13/drawio-amd64-30.3.13.deb"
+            "filename": "draw.io_30.3.14_amd64.deb",
+            "md5": "c8a4e83a465595871fd78e7205547648",
+            "sha1": "2f490520e88c74ffa79713378e2df2f91beb23fc",
+            "sha256": "f292a0ef60e18b728c46572c322eef0d051a00ce1fa738959016ad2ba8307434",
+            "sha512": "01dae331ae47157b2626ad6a383a6d1f1aa5ec40f5ff9b01b4b832543217026d67c0fb570faee46fa56cc3a4934baf86445f9bc05d4f21a2f67b4aa1a126edea",
+            "size": 134007528,
+            "upstream_version": "v30.3.14",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v30.3.14/drawio-amd64-30.3.14.deb"
           },
-          "resolved_at": "2026-07-17T05:23:38+00:00",
+          "resolved_at": "2026-07-18T05:06:03+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "drawio-arm64-30.3.13.deb",
+            "asset_name": "drawio-arm64-30.3.14.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  draw.io desktop",
               "Homepage": "https://github.com/jgraph/drawio",
-              "Installed-Size": "456193",
+              "Installed-Size": "456225",
               "License": "Apache-2.0",
               "Maintainer": "draw.io <desktop@draw.io>",
               "Package": "draw.io",
@@ -504,18 +504,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "draw.io <desktop@draw.io>",
-              "Version": "30.3.13"
+              "Version": "30.3.14"
             },
-            "filename": "draw.io_30.3.13_arm64.deb",
-            "md5": "617f2cf9d1641bb42f2c5c1cc3144704",
-            "sha1": "f399616d2a7a840949040fbcd1b2c75eee6ab27d",
-            "sha256": "86113fff7723a65322aa0960ddfc9a3d8eb21ffedf6945be24feee8cb282f9c0",
-            "sha512": "3babdfca72942b6df73fcff82e6e8d89923b23661e6d4abef57f43156bde3b221cf1f789921a755a9ac47edc254c2eacd07888ebde97dc661ea2165091fb62b3",
-            "size": 127946724,
-            "upstream_version": "v30.3.13",
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v30.3.13/drawio-arm64-30.3.13.deb"
+            "filename": "draw.io_30.3.14_arm64.deb",
+            "md5": "6ec16ce709fa06fe8844ce1e4f068f7c",
+            "sha1": "ff6d8727ab0c945cdf38b755aad569b3ee7f05db",
+            "sha256": "8a6835530ec1e31accf476f117a20ed7b2dcf6c3d6659854d6171c8c7bd0dca3",
+            "sha512": "9511efc5500de61087ef236f7f5d1e252293c1711bf3c2f5a0c759fb9deb4e83d309e9c47244f216180e677e614d4a0eaeacb9c55fddd0a1634d252cc72912bf",
+            "size": 127914072,
+            "upstream_version": "v30.3.14",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v30.3.14/drawio-arm64-30.3.14.deb"
           },
-          "resolved_at": "2026-07-17T05:23:43+00:00",
+          "resolved_at": "2026-07-18T05:06:05+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1087,30 +1087,30 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "google-chrome-stable_150.0.7871.124-1_amd64.deb",
+            "asset_name": "google-chrome-stable_150.0.7871.128-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "ca-certificates, fonts-liberation, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.25), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.35), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libvulkan1, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxrandr2, wget, xdg-utils (>= 1.0.2)",
               "Description": "The web browser from Google\n Google Chrome is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier.",
-              "Installed-Size": "424650",
+              "Installed-Size": "424630",
               "Maintainer": "Chrome Linux Team <chromium-dev@chromium.org>",
               "Package": "google-chrome-stable",
               "Pre-Depends": "dpkg (>= 1.14.0)",
               "Priority": "optional",
               "Provides": "www-browser",
               "Section": "web",
-              "Version": "150.0.7871.124-1"
+              "Version": "150.0.7871.128-1"
             },
-            "filename": "google-chrome-stable_150.0.7871.124-1_amd64.deb",
-            "md5": "88089813af2749cedeb9a5df893d18f3",
-            "sha1": "e4d7d2efef0a61ac4cc7dc2ea7b6792eadad8fe7",
-            "sha256": "4c636abd2ac1f6f3176f52bb4010aa37d12b5ac04c40dca9eab11992c1c75cdc",
-            "sha512": "711e74171beed23affd6c6b6283370545c6530710e3242242cbc997612d0be243480d3c0ec797e5f0ff541ab80b2a7d596f2abdf709a8c8e3ae1caf7813a953e",
-            "size": 133818364,
-            "upstream_version": "150.0.7871.124",
-            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_150.0.7871.124-1_amd64.deb"
+            "filename": "google-chrome-stable_150.0.7871.128-1_amd64.deb",
+            "md5": "e74bfea6cbc9b87898a7e0e8fe51f14d",
+            "sha1": "59670a436c9442448071f0c8ce398c1e02842e33",
+            "sha256": "83ed59c85878ebb8fa53915ebe7066cafc58d1c04c1c95449486e6f9d99a1efb",
+            "sha512": "523895aa6c20303d31079367c317ecaff1c7ce075bd36983fca694823125de3ee01f02f98880acbbff25f540b468d1130502aa0e6f80a293bb453890a1c46893",
+            "size": 133735004,
+            "upstream_version": "150.0.7871.128",
+            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_150.0.7871.128-1_amd64.deb"
           },
-          "resolved_at": "2026-07-15T05:10:56+00:00",
+          "resolved_at": "2026-07-18T05:06:09+00:00",
           "source": "aur",
           "update_policy": "track"
         }
