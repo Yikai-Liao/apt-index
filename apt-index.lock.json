@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T05:33:47+00:00",
+  "generated_at": "2026-07-20T05:50:42+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -131,7 +131,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "bottom_0.14.5-1_amd64.deb",
+            "asset_name": "bottom_0.14.6-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "btm",
@@ -143,24 +143,24 @@
               "Package": "bottom",
               "Priority": "optional",
               "Section": "utility",
-              "Version": "0.14.5-1"
+              "Version": "0.14.6-1"
             },
-            "filename": "bottom_0.14.5-1_amd64.deb",
-            "md5": "f13152d8d921ff45cae6d00aedf9b0fb",
-            "sha1": "1f143e9cdffbfaeba9998f0a58a4c569439d9727",
-            "sha256": "a407c4a2ee52b8aba66cb9a0049f9a55338718c9bf45797b15f6a5c2362d2e2c",
-            "sha512": "d72833b90fd0947a7f205a5966b9fb5d414236b955564873d1d0e0a90e0f0c4d96cf36e06214f161f5054da60f02262663417c658f0342c30e412b7761b6564c",
-            "size": 1501432,
-            "upstream_version": "0.14.5",
-            "url": "https://github.com/ClementTsang/bottom/releases/download/0.14.5/bottom_0.14.5-1_amd64.deb"
+            "filename": "bottom_0.14.6-1_amd64.deb",
+            "md5": "4d03011056e6244c2a71040bbf5952a1",
+            "sha1": "ce6f8a0e5e7583340e0bcac54a96743936f7a63f",
+            "sha256": "25fa91c496edd3e9d91078917d0d0ed687065cab93ecfe5cd8783f1643b52b6d",
+            "sha512": "52b64696663aa312744cdafda13762d8986d8e8b9de53d138364ed85f6bd85f5b5af3f913c3d488bcc96e2bda74b28694ade81d4507ea820ee77857ed946576d",
+            "size": 1499836,
+            "upstream_version": "0.14.6",
+            "url": "https://github.com/ClementTsang/bottom/releases/download/0.14.6/bottom_0.14.6-1_amd64.deb"
           },
-          "resolved_at": "2026-07-19T05:33:25+00:00",
+          "resolved_at": "2026-07-20T05:50:23+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "bottom_0.14.5-1_arm64.deb",
+            "asset_name": "bottom_0.14.6-1_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "btm",
@@ -172,18 +172,18 @@
               "Package": "bottom",
               "Priority": "optional",
               "Section": "utility",
-              "Version": "0.14.5-1"
+              "Version": "0.14.6-1"
             },
-            "filename": "bottom_0.14.5-1_arm64.deb",
-            "md5": "54c3e5a370d379705eebb97e6b919505",
-            "sha1": "da6da83fee0e445233444a7b54ed97aecde19073",
-            "sha256": "4f0e8f4b4688da599555373cba8f1d00c70f3e7cc4542965029f538a71c415db",
-            "sha512": "968828c32b16adf3fd56edf2e626d49f1660291b969ceb1f3bd21bff2b9ed29c1bf79da71ae78549d44a1ae14756a302c2569e3942d08e88970c8a1032699bbf",
-            "size": 1287664,
-            "upstream_version": "0.14.5",
-            "url": "https://github.com/ClementTsang/bottom/releases/download/0.14.5/bottom_0.14.5-1_arm64.deb"
+            "filename": "bottom_0.14.6-1_arm64.deb",
+            "md5": "e666982178445fc19e39e4f328855748",
+            "sha1": "e2d689994c3210a497a7185b38359b53d5944f4c",
+            "sha256": "47b739d4cc7108dcf94e6c898cb6057afdc5c8fb3c6acbb276ad8562c059a670",
+            "sha512": "1dd4c8ff0ad5f71937b02f6a64a6d7c74ca7a343744626e8a923602c8628a84cfac53ee17e47ac588cf4f6603856bee826575724ed649ac183a196411c03c723",
+            "size": 1288608,
+            "upstream_version": "0.14.6",
+            "url": "https://github.com/ClementTsang/bottom/releases/download/0.14.6/bottom_0.14.6-1_arm64.deb"
           },
-          "resolved_at": "2026-07-19T05:33:26+00:00",
+          "resolved_at": "2026-07-20T05:50:24+00:00",
           "source": "github",
           "update_policy": "track"
         }
