@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T05:50:42+00:00",
+  "generated_at": "2026-07-21T05:31:19+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -194,13 +194,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "bruno_3.5.2_amd64_linux.deb",
+            "asset_name": "bruno_3.5.3_amd64_linux.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, libasound2",
               "Description": "\n  Opensource API Client for Exploring and Testing APIs",
               "Homepage": "https://www.usebruno.com",
-              "Installed-Size": "489379",
+              "Installed-Size": "489384",
               "License": "unknown",
               "Maintainer": "Anoop M D <anoop.md1421@gmail.com>",
               "Package": "bruno",
@@ -208,30 +208,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Anoop M D <anoop.md1421@gmail.com>",
-              "Version": "3.5.2"
+              "Version": "3.5.3"
             },
-            "filename": "bruno_3.5.2_amd64_linux.deb",
-            "md5": "199272fc18fbc2cf467d54135009cb7a",
-            "sha1": "4d4aada33d4b21722dc9e7ef0b0a4e0977b66270",
-            "sha256": "a31a5fc89728a592d7d1e7271a03ff8989054f7a2b9b0ca3668c64bd1cf334d1",
-            "sha512": "645788064f83444c4577ef9bcc8874951ac68ce77e248b76f0e13a8419d7e11113d5a475c678ccfdfb44fc9d5e4ef7bb7687e2eb23cedc74f4aabdefdebd08f2",
-            "size": 100478934,
-            "upstream_version": "v3.5.2",
-            "url": "https://github.com/usebruno/bruno/releases/download/v3.5.2/bruno_3.5.2_amd64_linux.deb"
+            "filename": "bruno_3.5.3_amd64_linux.deb",
+            "md5": "cbfb4335589a32ef1bb64623bafdf4c9",
+            "sha1": "2198c881ae46ae380a0761f12e58e4a32815d337",
+            "sha256": "79239a5858ce3c1e099d21aadb15d97856a09f9d07cf1c262433001273cda3e6",
+            "sha512": "c75e9e1dd590908949a5979d6dcb9c1ce5aad3e8f355d881a64114b2d07948e0998fe9e74d06952b42d2842e867b7ae1f4cf1572e21ad25b54880fe87a94e6c0",
+            "size": 100615912,
+            "upstream_version": "v3.5.3",
+            "url": "https://github.com/usebruno/bruno/releases/download/v3.5.3/bruno_3.5.3_amd64_linux.deb"
           },
-          "resolved_at": "2026-07-14T05:10:30+00:00",
+          "resolved_at": "2026-07-21T05:31:02+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "bruno_3.5.2_arm64_linux.deb",
+            "asset_name": "bruno_3.5.3_arm64_linux.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, libasound2",
               "Description": "\n  Opensource API Client for Exploring and Testing APIs",
               "Homepage": "https://www.usebruno.com",
-              "Installed-Size": "493588",
+              "Installed-Size": "493593",
               "License": "unknown",
               "Maintainer": "Anoop M D <anoop.md1421@gmail.com>",
               "Package": "bruno",
@@ -239,18 +239,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Anoop M D <anoop.md1421@gmail.com>",
-              "Version": "3.5.2"
+              "Version": "3.5.3"
             },
-            "filename": "bruno_3.5.2_arm64_linux.deb",
-            "md5": "4f99191f29615fe60bccdec89b3e971f",
-            "sha1": "20c4afc1a8b596b8dab9568ffed8e18baa7f4591",
-            "sha256": "382a4492c4a9cd00f6d441ac68cb6ba35a320d4140cced5c3fcc50cf478d163c",
-            "sha512": "81d00d107697feca1bf9ee58076db09b257ecc33371a5c513f1c96d5041558b971ae2ba5155dbbef9b1e1643d484f02aa409cae54463194382a355becd237958",
-            "size": 95469546,
-            "upstream_version": "v3.5.2",
-            "url": "https://github.com/usebruno/bruno/releases/download/v3.5.2/bruno_3.5.2_arm64_linux.deb"
+            "filename": "bruno_3.5.3_arm64_linux.deb",
+            "md5": "9b53ea5481e02cb2f9e324594e69976e",
+            "sha1": "1f0e2ef95046f1f6329a0193a404d40f4f5673d1",
+            "sha256": "56110c0128a8b77665812b07b6b673955e39dcbb94702eb9e39b75d24204267f",
+            "sha512": "a71003fd980a8674c06716070fb0fcae5caa571bc2f6dc51221da710969897ba28b7e99415b5b5b854414cb3fdf9888bc86f0a0b564a1585024e3a5225de1ee5",
+            "size": 95515618,
+            "upstream_version": "v3.5.3",
+            "url": "https://github.com/usebruno/bruno/releases/download/v3.5.3/bruno_3.5.3_arm64_linux.deb"
           },
-          "resolved_at": "2026-07-14T05:10:31+00:00",
+          "resolved_at": "2026-07-21T05:31:05+00:00",
           "source": "github",
           "update_policy": "track"
         }
