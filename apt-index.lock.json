@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T05:31:19+00:00",
+  "generated_at": "2026-07-22T05:30:26+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -261,31 +261,31 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cloudflare-warp-bin-2026.6.836.deb",
+            "asset_name": "cloudflare-warp-bin-2026.6.880.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libdbus-1-3, libc6, iproute2, nftables, gnupg2, desktop-file-utils, libcap2-bin, libnss3-tools, ca-certificates, libpcap0.8, libayatana-appindicator3-1, libwebkit2gtk-4.1-0, libtss2-esys-3.0.2-0t64, libtss2-tctildr0t64",
               "Description": "Cloudflare Warp Client",
               "Homepage": "https://1.1.1.1",
-              "Installed-Size": "209353",
+              "Installed-Size": "209386",
               "License": "unknown",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflare-warp",
               "Priority": "optional",
               "Section": "net",
               "Suggests": "traceroute",
-              "Version": "2026.6.836.0"
+              "Version": "2026.6.880.0"
             },
-            "filename": "cloudflare-warp_2026.6.836.0_amd64.deb",
-            "md5": "e1513807eef37f4d9b4a104959320691",
-            "sha1": "ff1eba505873229f4dc79a84c7fc826724650a3e",
-            "sha256": "578cbda59b97015f90cf78648f6bf92d402d5b7b630036bb147e4f453659a9bd",
-            "sha512": "bef4eddc7764cef212b5d339ecf27dc73a8d8a3ea0604fa5dc1737d38742e624eca7b488e38cdbd588d4805f3962991eaabc1727bd2b0c50eb1d66b3b7867331",
-            "size": 74385120,
-            "upstream_version": "2026.6.836",
-            "url": "https://pkg.cloudflareclient.com/pool/noble/main/c/cloudflare-warp/cloudflare-warp_2026.6.836.0_amd64.deb"
+            "filename": "cloudflare-warp_2026.6.880.0_amd64.deb",
+            "md5": "f087a827c2155d3fe00cafa71422de65",
+            "sha1": "daf439613d134b1789ff60c88dc8e09dfe598ecf",
+            "sha256": "648a7c7e9085f8e50d32a2adcacb0c2049fb72ebeb02ebe913becadee3ab0d4c",
+            "sha512": "f986a0b36d8460a9c86e1abf6a54ba3d4a7c66e0da355e13bdd4b6e028645f3e604740531f51c98137a578fb69114158ea8ee5385f554e431aaaa4418c22be29",
+            "size": 74398818,
+            "upstream_version": "2026.6.880",
+            "url": "https://pkg.cloudflareclient.com/pool/noble/main/c/cloudflare-warp/cloudflare-warp_2026.6.880.0_amd64.deb"
           },
-          "resolved_at": "2026-07-03T06:05:17+00:00",
+          "resolved_at": "2026-07-22T05:30:08+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.12.17_amd64.deb",
+            "asset_name": "cursor_3.12.30_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.14), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "962018",
+              "Installed-Size": "962279",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.12.17-1784259156"
+              "Version": "3.12.30-1784676541"
             },
-            "filename": "cursor_3.12.17_amd64.deb",
-            "md5": "7b574c58b24dcbe467493f7a1c1ae02f",
-            "sha1": "4567ce3f3fe399ecfa88ce107790ed82afefd209",
-            "sha256": "1ae24f8da0f2da296553262e4400c352f2ab57d71f52047319587ee29184c88d",
-            "sha512": "e2ba032e373f5321c291abe3f9e82d27723194a49b798e824e9bb6b2dad995119beaf6ee5c76524f21acbd542bf25874d109f60153f1d041a61553314639b7ab",
-            "size": 207665000,
-            "upstream_version": "3.12.17",
-            "url": "https://downloads.cursor.com/production/0fb762053c34788bb7760d5673f8a6d4c8589d52/linux/x64/deb/amd64/deb/cursor_3.12.17_amd64.deb"
+            "filename": "cursor_3.12.30_amd64.deb",
+            "md5": "6950367c0108b918caf3016a0812f125",
+            "sha1": "13d0008485d768b4f0c1c3469a17c667b438405d",
+            "sha256": "e135ded44ec979102e0e7ba8c182b8d7684b1d60caee02df4e7ad0c7b411dc97",
+            "sha512": "78dbf93ef15e5e015b96570b6d5c86e590a0c7041a8945edf637df3315b1c05f63ee3a8b46031b46f694c03d8b48da455a295045bdb22287eefc81ae63939cc1",
+            "size": 207816156,
+            "upstream_version": "3.12.30",
+            "url": "https://downloads.cursor.com/production/63a2996a10d9e476b6c28e951dd7691d9c0cf480/linux/x64/deb/amd64/deb/cursor_3.12.30_amd64.deb"
           },
-          "resolved_at": "2026-07-18T05:06:05+00:00",
+          "resolved_at": "2026-07-22T05:30:12+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -459,13 +459,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "drawio-amd64-30.3.14.deb",
+            "asset_name": "drawio-amd64-30.4.1.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  draw.io desktop",
               "Homepage": "https://github.com/jgraph/drawio",
-              "Installed-Size": "455706",
+              "Installed-Size": "455861",
               "License": "Apache-2.0",
               "Maintainer": "draw.io <desktop@draw.io>",
               "Package": "draw.io",
@@ -473,30 +473,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "draw.io <desktop@draw.io>",
-              "Version": "30.3.14"
+              "Version": "30.4.1"
             },
-            "filename": "draw.io_30.3.14_amd64.deb",
-            "md5": "c8a4e83a465595871fd78e7205547648",
-            "sha1": "2f490520e88c74ffa79713378e2df2f91beb23fc",
-            "sha256": "f292a0ef60e18b728c46572c322eef0d051a00ce1fa738959016ad2ba8307434",
-            "sha512": "01dae331ae47157b2626ad6a383a6d1f1aa5ec40f5ff9b01b4b832543217026d67c0fb570faee46fa56cc3a4934baf86445f9bc05d4f21a2f67b4aa1a126edea",
-            "size": 134007528,
-            "upstream_version": "v30.3.14",
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v30.3.14/drawio-amd64-30.3.14.deb"
+            "filename": "draw.io_30.4.1_amd64.deb",
+            "md5": "aa5d486e7931fa69427767b6a290fd7e",
+            "sha1": "de985fbb45080d39d127a7db719008c061514647",
+            "sha256": "7d22b2946f401a7c609fe4bcb6ddb77022760c874d75268ba98275f2fd0a0655",
+            "sha512": "6c1266772a35b6185804aab5e992ae5b2c71c4d00e772abe6ad6dbc643a978198b2a720ba385ca6e91e46adeea3c4612605a3be4f8c454479d42466a12bbe99d",
+            "size": 134043820,
+            "upstream_version": "v30.4.1",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v30.4.1/drawio-amd64-30.4.1.deb"
           },
-          "resolved_at": "2026-07-18T05:06:03+00:00",
+          "resolved_at": "2026-07-22T05:30:10+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "drawio-arm64-30.3.14.deb",
+            "asset_name": "drawio-arm64-30.4.1.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  draw.io desktop",
               "Homepage": "https://github.com/jgraph/drawio",
-              "Installed-Size": "456225",
+              "Installed-Size": "456400",
               "License": "Apache-2.0",
               "Maintainer": "draw.io <desktop@draw.io>",
               "Package": "draw.io",
@@ -504,18 +504,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "draw.io <desktop@draw.io>",
-              "Version": "30.3.14"
+              "Version": "30.4.1"
             },
-            "filename": "draw.io_30.3.14_arm64.deb",
-            "md5": "6ec16ce709fa06fe8844ce1e4f068f7c",
-            "sha1": "ff6d8727ab0c945cdf38b755aad569b3ee7f05db",
-            "sha256": "8a6835530ec1e31accf476f117a20ed7b2dcf6c3d6659854d6171c8c7bd0dca3",
-            "sha512": "9511efc5500de61087ef236f7f5d1e252293c1711bf3c2f5a0c759fb9deb4e83d309e9c47244f216180e677e614d4a0eaeacb9c55fddd0a1634d252cc72912bf",
-            "size": 127914072,
-            "upstream_version": "v30.3.14",
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v30.3.14/drawio-arm64-30.3.14.deb"
+            "filename": "draw.io_30.4.1_arm64.deb",
+            "md5": "18c310d72818e5a8fc6a5c2461ad935a",
+            "sha1": "0806e1d940fa99fa1dc1338dbc681028f42ce394",
+            "sha256": "4a85673df9d24e03ff766a3c91a9b6d88edef1d17ca5eec47be43bc23260cafe",
+            "sha512": "9c7cd337483ec9aa9d5c8bf5dc33bd09437fb8d342bdd568d2b7a6712a8a5e88ad1ba457e44de5d88386ae2421877039a912890ae2f74491f01ac33a2311fb54",
+            "size": 127947152,
+            "upstream_version": "v30.4.1",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v30.4.1/drawio-arm64-30.4.1.deb"
           },
-          "resolved_at": "2026-07-18T05:06:05+00:00",
+          "resolved_at": "2026-07-22T05:30:14+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1870,13 +1870,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "teams-for-linux_2.11.1_amd64.deb",
+            "asset_name": "teams-for-linux_2.13.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Teams for Linux\n  Unofficial Microsoft Teams client for Linux using Electron. It uses the Web App and wraps it as a standalone application using Electron.",
               "Homepage": "https://github.com/IsmaelMartinez/teams-for-linux",
-              "Installed-Size": "333635",
+              "Installed-Size": "347511",
               "License": "GPL-3.0-or-later",
               "Maintainer": "Ismael Martinez <ismaelmartinez@gmail.com>",
               "Package": "teams-for-linux",
@@ -1884,30 +1884,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "net",
               "Vendor": "Ismael Martinez <ismaelmartinez@gmail.com>",
-              "Version": "2.11.1"
+              "Version": "2.13.0"
             },
-            "filename": "teams-for-linux_2.11.1_amd64.deb",
-            "md5": "cab1ec5249b5c222e60d114658913145",
-            "sha1": "e8e9fe6f4151bac8972be07f421e35514375c65e",
-            "sha256": "afeb3b31b17e74aff663955adb8062f9e8da41bf8f3407daac670c1d73103da1",
-            "sha512": "08c9ed0cfda4f8afe04dbbf5421bc166de05a9a3dbdce359722ae31151e1c1823b901828830e1643d6e1021074cd50ad2f7d1a0548c3738933b23630c94cabaa",
-            "size": 108377640,
-            "upstream_version": "v2.11.1",
-            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.11.1/teams-for-linux_2.11.1_amd64.deb"
+            "filename": "teams-for-linux_2.13.0_amd64.deb",
+            "md5": "bb88340375d4d26edecd18102ec38668",
+            "sha1": "005039ef3d84113f4ffdd9b79743d7ba57c7dc60",
+            "sha256": "9bdd52300f17465b918989d7ae28118412a1736252c500c22f52bbe4cb7675b2",
+            "sha512": "dceeaf287331a551c0f923433881ef62b1d851bc80301d60af4ee4b85281ed29c3644742f539c9527db178cf2784f8af741fea96ba2d4a1b8b55245b9ecf52d2",
+            "size": 113634084,
+            "upstream_version": "v2.13.0",
+            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.13.0/teams-for-linux_2.13.0_amd64.deb"
           },
-          "resolved_at": "2026-06-16T07:45:26+00:00",
+          "resolved_at": "2026-07-22T05:30:17+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "teams-for-linux_2.11.1_arm64.deb",
+            "asset_name": "teams-for-linux_2.13.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Teams for Linux\n  Unofficial Microsoft Teams client for Linux using Electron. It uses the Web App and wraps it as a standalone application using Electron.",
               "Homepage": "https://github.com/IsmaelMartinez/teams-for-linux",
-              "Installed-Size": "337853",
+              "Installed-Size": "346355",
               "License": "GPL-3.0-or-later",
               "Maintainer": "Ismael Martinez <ismaelmartinez@gmail.com>",
               "Package": "teams-for-linux",
@@ -1915,18 +1915,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "net",
               "Vendor": "Ismael Martinez <ismaelmartinez@gmail.com>",
-              "Version": "2.11.1"
+              "Version": "2.13.0"
             },
-            "filename": "teams-for-linux_2.11.1_arm64.deb",
-            "md5": "6761b16c2a95bf7e685679270be68a64",
-            "sha1": "c876544ea3ef7bee86cc7387a7305d60a380b410",
-            "sha256": "dab7562c889db17acf41b8ffc2ffc6151b57386a778ea033c333492234aa1d19",
-            "sha512": "809ea504d265d28edd4309b0f0f8bcafa70db6f37cc4bcb849559d0d807b2a04247391566da6d30002961ec5682d51609b9b676c6af7746ed2c090c5b50e6526",
-            "size": 102973988,
-            "upstream_version": "v2.11.1",
-            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.11.1/teams-for-linux_2.11.1_arm64.deb"
+            "filename": "teams-for-linux_2.13.0_arm64.deb",
+            "md5": "45f90283868d522299f091188c4dc6df",
+            "sha1": "bc7b4e488962b7fdc6c17da34f4c4eda01da2d0c",
+            "sha256": "5e462a4698a179890af9d5bf221dd848774b99edba18a2d396a6dd61f462a8db",
+            "sha512": "ac13ff54fd6c9dabfc210a2b82bbf5d6cfdbdcac926762ee15003cbf7fa862bfaa4f7f2e5d7d6f26d65c37cedc3d319d2226386ca485166edadaa18921638d76",
+            "size": 106991016,
+            "upstream_version": "v2.13.0",
+            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.13.0/teams-for-linux_2.13.0_arm64.deb"
           },
-          "resolved_at": "2026-06-16T07:45:28+00:00",
+          "resolved_at": "2026-07-22T05:30:20+00:00",
           "source": "github",
           "update_policy": "track"
         }
