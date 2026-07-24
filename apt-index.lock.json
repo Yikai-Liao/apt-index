@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T05:35:28+00:00",
+  "generated_at": "2026-07-24T05:31:18+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -194,13 +194,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "bruno_3.5.3_amd64_linux.deb",
+            "asset_name": "bruno_4.0.0_amd64_linux.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, libasound2",
               "Description": "\n  Opensource API Client for Exploring and Testing APIs",
               "Homepage": "https://www.usebruno.com",
-              "Installed-Size": "489384",
+              "Installed-Size": "529055",
               "License": "unknown",
               "Maintainer": "Anoop M D <anoop.md1421@gmail.com>",
               "Package": "bruno",
@@ -208,30 +208,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Anoop M D <anoop.md1421@gmail.com>",
-              "Version": "3.5.3"
+              "Version": "4.0.0"
             },
-            "filename": "bruno_3.5.3_amd64_linux.deb",
-            "md5": "cbfb4335589a32ef1bb64623bafdf4c9",
-            "sha1": "2198c881ae46ae380a0761f12e58e4a32815d337",
-            "sha256": "79239a5858ce3c1e099d21aadb15d97856a09f9d07cf1c262433001273cda3e6",
-            "sha512": "c75e9e1dd590908949a5979d6dcb9c1ce5aad3e8f355d881a64114b2d07948e0998fe9e74d06952b42d2842e867b7ae1f4cf1572e21ad25b54880fe87a94e6c0",
-            "size": 100615912,
-            "upstream_version": "v3.5.3",
-            "url": "https://github.com/usebruno/bruno/releases/download/v3.5.3/bruno_3.5.3_amd64_linux.deb"
+            "filename": "bruno_4.0.0_amd64_linux.deb",
+            "md5": "9440f8862c65b7f6e0c400e7f1a39506",
+            "sha1": "aa86e7e0d73b03849464cca7b44db627ddca15ae",
+            "sha256": "d3129c1115a11c95cbe3c259cc42fa05d994e579aecca7c7d4af20bf9ee54d38",
+            "sha512": "cdb5a30aae1988d386d2338eb97ba86282dd5ef4c98a423cb4574bbee5140125c76f257a4f12a3e67ccf7b8d320174f8f138af22441e0e918c8f403c7508f4bd",
+            "size": 104331108,
+            "upstream_version": "v4.0.0",
+            "url": "https://github.com/usebruno/bruno/releases/download/v4.0.0/bruno_4.0.0_amd64_linux.deb"
           },
-          "resolved_at": "2026-07-21T05:31:02+00:00",
+          "resolved_at": "2026-07-24T05:30:51+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "bruno_3.5.3_arm64_linux.deb",
+            "asset_name": "bruno_4.0.0_arm64_linux.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, libasound2",
               "Description": "\n  Opensource API Client for Exploring and Testing APIs",
               "Homepage": "https://www.usebruno.com",
-              "Installed-Size": "493593",
+              "Installed-Size": "533264",
               "License": "unknown",
               "Maintainer": "Anoop M D <anoop.md1421@gmail.com>",
               "Package": "bruno",
@@ -239,18 +239,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Anoop M D <anoop.md1421@gmail.com>",
-              "Version": "3.5.3"
+              "Version": "4.0.0"
             },
-            "filename": "bruno_3.5.3_arm64_linux.deb",
-            "md5": "9b53ea5481e02cb2f9e324594e69976e",
-            "sha1": "1f0e2ef95046f1f6329a0193a404d40f4f5673d1",
-            "sha256": "56110c0128a8b77665812b07b6b673955e39dcbb94702eb9e39b75d24204267f",
-            "sha512": "a71003fd980a8674c06716070fb0fcae5caa571bc2f6dc51221da710969897ba28b7e99415b5b5b854414cb3fdf9888bc86f0a0b564a1585024e3a5225de1ee5",
-            "size": 95515618,
-            "upstream_version": "v3.5.3",
-            "url": "https://github.com/usebruno/bruno/releases/download/v3.5.3/bruno_3.5.3_arm64_linux.deb"
+            "filename": "bruno_4.0.0_arm64_linux.deb",
+            "md5": "26e5d2cd9c468b6248dafdb762dafaf2",
+            "sha1": "ac39f4cb7dbd036c113eda4c3a97bf9faf8097e1",
+            "sha256": "7a5adc53546c30655091a490bcc466647d129ce44ef084dd3689aea6825efc0c",
+            "sha512": "4408407398d18d336cd2ffc4c6fc70b44d5d801dacf920e3e9ff487bb97408ecb2e6bd71079973ce01ea52c51d4332c00c7580422e833c58929fa99f9971234a",
+            "size": 99249516,
+            "upstream_version": "v4.0.0",
+            "url": "https://github.com/usebruno/bruno/releases/download/v4.0.0/bruno_4.0.0_arm64_linux.deb"
           },
-          "resolved_at": "2026-07-21T05:31:05+00:00",
+          "resolved_at": "2026-07-24T05:30:57+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -301,25 +301,25 @@
               "Architecture": "amd64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "38342",
+              "Installed-Size": "38358",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.7.2"
+              "Version": "2026.7.3"
             },
             "filename": "cloudflared-linux-amd64.deb",
-            "md5": "4228ce9f58d93a9bca90047b85d073dc",
-            "sha1": "8230160a8c98bc1102046703320b26b9819f4b4e",
-            "sha256": "88195157a136199a86977c122a22084dae6907480bbe3640222b7b55834afc3a",
-            "sha512": "6dfa939724af2f9a9a344969bdecdf6b97c72aff91d0b4b4795518c542b027339b5e450dc751e59dd2e1e0ccd9cf31f0846fedc99e21bf8318c30ae10a1244f1",
-            "size": 18887572,
-            "upstream_version": "2026.7.2",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.7.2/cloudflared-linux-amd64.deb"
+            "md5": "8a8de6cf1a26b13bd862ee5c4b75dcb0",
+            "sha1": "76d35bf27d3114f9e02ff7707b0b684806532b01",
+            "sha256": "049777d30f9bf93da6df8bbe31383460eb2aa51a832c6551824d56f9fcc55974",
+            "sha512": "a0b34344761eef6762481d33b4c058dc8c84183fbfb85450fa188747e8f296766d7fff5a291d96606dcd4b1af05fb0f03511bdc7f41790d6502fcc84de9c8a74",
+            "size": 18898372,
+            "upstream_version": "2026.7.3",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.7.3/cloudflared-linux-amd64.deb"
           },
-          "resolved_at": "2026-07-16T05:21:38+00:00",
+          "resolved_at": "2026-07-24T05:30:56+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -330,25 +330,25 @@
               "Architecture": "arm64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "36118",
+              "Installed-Size": "36124",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.7.2"
+              "Version": "2026.7.3"
             },
             "filename": "cloudflared-linux-arm64.deb",
-            "md5": "455ac90547ac8a561ebc2dfe027e1973",
-            "sha1": "0284fec51feb8af9b793b378dd876fa8581d19d9",
-            "sha256": "ddd7d2a0d55a1879485ac34354e936424f1df92e306bfa6428a81908aaddbe87",
-            "sha512": "6bf6669be4e9ca1aa8206d2fec11efe4c9574ae02bbb4259a354b55de28166eca8763b81927a26830c24ad52df8fcbf99442c66dcd740c1b46eb96753e5f8f11",
-            "size": 17423124,
-            "upstream_version": "2026.7.2",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.7.2/cloudflared-linux-arm64.deb"
+            "md5": "4d14e2f571647c620b66e24061bf9c9b",
+            "sha1": "0966356e918840cc601c165b7658d2f7807c17c5",
+            "sha256": "d3ea7d22dd337b465da33d6bc1c4b3cfd381407447a2a7d29542c19783430db3",
+            "sha512": "0b28d61a86af81a7adc413621269e3578b13f8f06755630eac984db581cde682ec66871f47feb95971c322d888fce11db5526363953f89c1ed9643127b559e5c",
+            "size": 17432092,
+            "upstream_version": "2026.7.3",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.7.3/cloudflared-linux-arm64.deb"
           },
-          "resolved_at": "2026-07-16T05:21:39+00:00",
+          "resolved_at": "2026-07-24T05:30:56+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.12.30_amd64.deb",
+            "asset_name": "cursor_3.13.10_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.14), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "962279",
+              "Installed-Size": "969452",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.12.30-1784676541"
+              "Version": "3.13.10-1784845467"
             },
-            "filename": "cursor_3.12.30_amd64.deb",
-            "md5": "6950367c0108b918caf3016a0812f125",
-            "sha1": "13d0008485d768b4f0c1c3469a17c667b438405d",
-            "sha256": "e135ded44ec979102e0e7ba8c182b8d7684b1d60caee02df4e7ad0c7b411dc97",
-            "sha512": "78dbf93ef15e5e015b96570b6d5c86e590a0c7041a8945edf637df3315b1c05f63ee3a8b46031b46f694c03d8b48da455a295045bdb22287eefc81ae63939cc1",
-            "size": 207816156,
-            "upstream_version": "3.12.30",
-            "url": "https://downloads.cursor.com/production/63a2996a10d9e476b6c28e951dd7691d9c0cf480/linux/x64/deb/amd64/deb/cursor_3.12.30_amd64.deb"
+            "filename": "cursor_3.13.10_amd64.deb",
+            "md5": "7bb3902a10e12fd8ae7aa855d76528f0",
+            "sha1": "f85b5b2ed2d21b77b778595edce0248bcfdb4eb0",
+            "sha256": "8a5b734be3bccc3de6daf96c536daa644c715e5fe3e5eaf21721538072ea104c",
+            "sha512": "efc6975631a282571898c936dd9c1eb23d335a33fae25ca795e551deda4fa975d81b19c0fb159f0dc62ca238f8bf4681b48304520d32bd682087cdc25d9868b8",
+            "size": 209277476,
+            "upstream_version": "3.13.10",
+            "url": "https://downloads.cursor.com/production/4f02290ccd9304f0e6bf8ee85f6e9106f02ac1f7/linux/x64/deb/amd64/deb/cursor_3.13.10_amd64.deb"
           },
-          "resolved_at": "2026-07-22T05:30:12+00:00",
+          "resolved_at": "2026-07-24T05:31:03+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1121,13 +1121,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "Insomnia.Core-13.0.2.deb",
+            "asset_name": "Insomnia.Core-13.1.0.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "The Collaborative API Client and Design Tool\n  The Collaborative API Design Tool",
               "Homepage": "https://konghq.com",
-              "Installed-Size": "1569294",
+              "Installed-Size": "1561844",
               "License": "Apache-2.0",
               "Maintainer": "Kong <office@konghq.com>",
               "Package": "insomnia",
@@ -1135,18 +1135,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Kong <office@konghq.com>",
-              "Version": "13.0.2"
+              "Version": "13.1.0"
             },
-            "filename": "insomnia_13.0.2_amd64.deb",
-            "md5": "1dba6589193ee2b5025cd270953fce3d",
-            "sha1": "4e958b4fd31b813b24471ac43cf8a44482e06fc1",
-            "sha256": "c0805c435f115c0820c4c0349384a4483752b46a9b4648e3068dc993c063a570",
-            "sha512": "2422e1796d517a1c3e19fe1e6bc996e222a19ddca401d98684a9a9b18f1a34f611eb2e3821c9df20b52ed36d8c1b621e577d555c954b674426a84a22f22e4b64",
-            "size": 417197468,
-            "upstream_version": "core@13.0.2",
-            "url": "https://github.com/Kong/insomnia/releases/download/core%4013.0.2/Insomnia.Core-13.0.2.deb"
+            "filename": "insomnia_13.1.0_amd64.deb",
+            "md5": "34170ef3d8f688957cba873a039270be",
+            "sha1": "12a3c2c1bbf44515645af55311c73de833b4b080",
+            "sha256": "480a28f5895c14be17bdbce0c7398cf592081c2a13aefd362827be2f1628d2df",
+            "sha512": "1777bc20732ff3205e227ea9de6665fd855251340332ea21d3ba6bcf520e23d2fff7968c7b2c520f76b92f2c2f730f6d400808ad9e3c91715caa8ae5b360316e",
+            "size": 413480568,
+            "upstream_version": "core@13.1.0",
+            "url": "https://github.com/Kong/insomnia/releases/download/core%4013.1.0/Insomnia.Core-13.1.0.deb"
           },
-          "resolved_at": "2026-06-25T06:28:46+00:00",
+          "resolved_at": "2026-07-24T05:31:04+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1736,7 +1736,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "slack-desktop-4.50.143-amd64.deb",
+            "asset_name": "slack-desktop-4.51.180-amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libappindicator3-1, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, kde-cli-tools | kde-runtime | trash-cli | libglib2.0-bin | gvfs-bin, apt-transport-https",
@@ -1748,18 +1748,18 @@
               "Recommends": "pulseaudio | libasound2",
               "Section": "misc",
               "Suggests": "gir1.2-gnomekeyring-1.0, libgnome-keyring0, lsb-release",
-              "Version": "4.50.143"
+              "Version": "4.51.180"
             },
-            "filename": "slack-desktop-4.50.143-amd64.deb",
-            "md5": "1104b4dc0ca3f7f424fd7aa95cfe089f",
-            "sha1": "c90c4ee972cb0ce57609c39babd2776024d03f35",
-            "sha256": "93ca12a293d4993ed52d280a3928bfa542d270befcdce3624366a019fbb59630",
-            "sha512": "0e49d76373d6ae2b6712ad5b441d3e7309185153b7ddd1b4442a93e8f2894917992cd67f092db8fee393e012a2a80528c5f504ffa8ad37cec645139e2edf8ea4",
-            "size": 93367806,
-            "upstream_version": "4.50.143",
-            "url": "https://downloads.slack-edge.com/desktop-releases/linux/x64/4.50.143/slack-desktop-4.50.143-amd64.deb"
+            "filename": "slack-desktop-4.51.180-amd64.deb",
+            "md5": "645b22f905bbf7cf3e58687841a2ccb4",
+            "sha1": "c942da4af449d9fb6c894e1836837c98926d3993",
+            "sha256": "aa45e151794703377012a9ad78f0b2152c368852e085267ae689dafb5c308ea1",
+            "sha512": "898e28a68ead65bc2e6e4e1c6185a422d8a76bbe827746a7aeff7de375d7592ac90f23af3e2aac9e42f50ae7523b357ab4de885dabb289429762c6cc086ccfa5",
+            "size": 94403330,
+            "upstream_version": "4.51.180",
+            "url": "https://downloads.slack-edge.com/desktop-releases/linux/x64/4.51.180/slack-desktop-4.51.180-amd64.deb"
           },
-          "resolved_at": "2026-07-02T06:11:40+00:00",
+          "resolved_at": "2026-07-24T05:31:10+00:00",
           "source": "aur",
           "update_policy": "track"
         }
