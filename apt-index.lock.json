@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T05:30:08+00:00",
+  "generated_at": "2026-07-26T05:43:39+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -1667,13 +1667,13 @@
         },
         "arm64": {
           "artifact": {
-            "asset_name": "linuxqq_3.2.31-51102_arm64.deb",
+            "asset_name": "linuxqq_3.2.32-51728_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  QQ",
               "Homepage": "https://im.qq.com",
-              "Installed-Size": "636040",
+              "Installed-Size": "645886",
               "License": "unknown",
               "Maintainer": "Tencent <QQ-Team@tencent.com>",
               "Package": "linuxqq",
@@ -1681,18 +1681,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Tencent <QQ-Team@tencent.com>",
-              "Version": "3.2.31-51102"
+              "Version": "3.2.32-51728"
             },
-            "filename": "linuxqq_3.2.31-51102_arm64.deb",
-            "md5": "0d407374405f89147534acac4ecbefba",
-            "sha1": "28231f2c66974d1fca72d842cebfc4c59f08f76a",
-            "sha256": "ac604371f5c486acf6cbf83dd667e622ee1f487d0c8bd425627de6d68fe34974",
-            "sha512": "6d3202af9c409ff3c963e6c53871e7d2e11ddcc6ab81a9b10e841034895368e6b508d36d1e85056c670fef716beaa47cef385af45f7b096467c65ee8044080f2",
-            "size": 202282552,
-            "upstream_version": "3.2.31_51102",
-            "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.32/beta/c390e792/linuxqq_3.2.31-51102_arm64.deb"
+            "filename": "linuxqq_3.2.32-51728_arm64.deb",
+            "md5": "94adc1dd00a22e5e47462889bebc9899",
+            "sha1": "8dc88c8f6525e63fca0aad8e732fcb007fac0978",
+            "sha256": "b57f11ba6db91c0078454ebac949af1d1c85cb23d60048a549494fcfa7080f96",
+            "sha512": "aca411dec0a8a82d0213de5217be5c1fa0097f2a96b88dc54ceca4baf7731e9243e88c27631793f12c96b75ad15d0005a1f3d1673fbce0143188c3ce9026a25a",
+            "size": 204829416,
+            "upstream_version": "3.2.32_51728",
+            "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.33/beta/a1bdd796/linuxqq_3.2.32-51728_arm64.deb"
           },
-          "resolved_at": "2026-07-09T06:18:39+00:00",
+          "resolved_at": "2026-07-26T05:43:39+00:00",
           "source": "aur",
           "update_policy": "track"
         }
