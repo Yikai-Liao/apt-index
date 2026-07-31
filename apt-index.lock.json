@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-30T05:55:42+00:00",
+  "generated_at": "2026-07-31T05:48:36+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.13.25_amd64.deb",
+            "asset_name": "cursor_3.14.7_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.14), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "967016",
+              "Installed-Size": "959676",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.13.25-1785222550"
+              "Version": "3.14.7-1785396290"
             },
-            "filename": "cursor_3.13.25_amd64.deb",
-            "md5": "98690c63ced1ef184971391ca64be4bc",
-            "sha1": "edf3bedf4e0d8e2410069dd388aca6a9ec46d6f4",
-            "sha256": "006b61e7bcf91b4e0bcf93e09cfd3f3aacf276a19b418847a9ab638eaa36395e",
-            "sha512": "f750e522d8fc6abcdc41fb4da0b567470a5542f283f5c2eb8e861f1ae55ee08c55ec6b4597b7f907606c47a34800e4c01d3284291f8bf31fbd7a6160ce02292e",
-            "size": 208540040,
-            "upstream_version": "3.13.25",
-            "url": "https://downloads.cursor.com/production/31e8d61c448c7472e371505838a0fe34083dad55/linux/x64/deb/amd64/deb/cursor_3.13.25_amd64.deb"
+            "filename": "cursor_3.14.7_amd64.deb",
+            "md5": "c6bcf7c8e46aaa212199f43b56c898d9",
+            "sha1": "6d16bc25ec84e2ff5d2b5a42a77668ab58efbe2b",
+            "sha256": "90a16e3cab7c31fb32ebbdd9cb2326e8c0cb7bde2cbab339f1a051de98232f89",
+            "sha512": "d3bd5d7b532e051a326009881cc3c168972273b8db0edea259f156768d85730b9bb62b8abeda58e1f0765da017d794deca10d61952624118c9bb095c91717b6a",
+            "size": 206982860,
+            "upstream_version": "3.14.7",
+            "url": "https://downloads.cursor.com/production/a758f2241ca99fecf380180b6cbdbbce0f1f42cf/linux/x64/deb/amd64/deb/cursor_3.14.7_amd64.deb"
           },
-          "resolved_at": "2026-07-29T05:32:11+00:00",
+          "resolved_at": "2026-07-31T05:46:25+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -459,13 +459,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "drawio-amd64-31.0.2.deb",
+            "asset_name": "drawio-amd64-31.1.5.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  draw.io desktop",
               "Homepage": "https://github.com/jgraph/drawio",
-              "Installed-Size": "456258",
+              "Installed-Size": "457135",
               "License": "Apache-2.0",
               "Maintainer": "draw.io <desktop@draw.io>",
               "Package": "draw.io",
@@ -473,30 +473,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "draw.io <desktop@draw.io>",
-              "Version": "31.0.2"
+              "Version": "31.1.5"
             },
-            "filename": "draw.io_31.0.2_amd64.deb",
-            "md5": "f87f9fed75ef223a7a8e2b57468aaddf",
-            "sha1": "286d9044b17e723262de68c42d92750950806fae",
-            "sha256": "5f7869224fa2fec20d8bf2e3c88e6f21e687f7ab7582eb4c145de6e12d2c56dd",
-            "sha512": "6345779be36c1438809cad3b65c51ae4396e9bea0bde6f7c07bb98c94a68016551171fd7bbd62bd7b21710f3ebbe6d2a0da359f10a8df9b4debb9b905b665a58",
-            "size": 134135276,
-            "upstream_version": "v31.0.2",
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v31.0.2/drawio-amd64-31.0.2.deb"
+            "filename": "draw.io_31.1.5_amd64.deb",
+            "md5": "618ae21c80d4c8947a4251c30b880f94",
+            "sha1": "5a3e13037a2a396565f615092528e7f5f814ed78",
+            "sha256": "93c2d86e418d120179b547409e5a1d3f5fba58f409b033077206cca96a5edc3d",
+            "sha512": "bd95ca501a7e6e47a890bbd5f36c230b9dbe6d59e9fad54168362ef85ab547152064db2264c2ae1d0b72b67f6b2bbdfcdeba2d78af1d026ee7e5b62dc40b1bfa",
+            "size": 134472284,
+            "upstream_version": "v31.1.5",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v31.1.5/drawio-amd64-31.1.5.deb"
           },
-          "resolved_at": "2026-07-25T05:24:56+00:00",
+          "resolved_at": "2026-07-31T05:46:21+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "drawio-arm64-31.0.2.deb",
+            "asset_name": "drawio-arm64-31.1.5.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  draw.io desktop",
               "Homepage": "https://github.com/jgraph/drawio",
-              "Installed-Size": "456797",
+              "Installed-Size": "457675",
               "License": "Apache-2.0",
               "Maintainer": "draw.io <desktop@draw.io>",
               "Package": "draw.io",
@@ -504,18 +504,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "draw.io <desktop@draw.io>",
-              "Version": "31.0.2"
+              "Version": "31.1.5"
             },
-            "filename": "draw.io_31.0.2_arm64.deb",
-            "md5": "1e8a868d8c3b6c844fff4bae34159040",
-            "sha1": "1390df8e7ce8356d7667737428b5c1c586d4e240",
-            "sha256": "081760255d5e02be640f559e8d8e558bf6c54687278661575c098bf66abbbd5b",
-            "sha512": "c6fcd377a965e4f8b90d1405dbef266ac51014a4e39c7b5730b8ed3de03a0a314792f091c573b65d1bbb3196b3e6326bed783006a1547143004d26dd4c415ce3",
-            "size": 128030188,
-            "upstream_version": "v31.0.2",
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v31.0.2/drawio-arm64-31.0.2.deb"
+            "filename": "draw.io_31.1.5_arm64.deb",
+            "md5": "afc33262ac01c8a1d6c83bc9fff6783e",
+            "sha1": "e1695159060411451115d785c93cf6184aff8229",
+            "sha256": "46f3cfcc303a61bd7330e3b93f3db9ba141460232d5f7fb8ab73d251f674b341",
+            "sha512": "e0f1590a0bab1badaeb8b0cc8ae9b385b22a367a909f13a47b8c4fc09bdddc1489eaf779bdb4437f0153877929b993ac1f64854f00fe9faa625b47ca4aca4629",
+            "size": 128367456,
+            "upstream_version": "v31.1.5",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v31.1.5/drawio-arm64-31.1.5.deb"
           },
-          "resolved_at": "2026-07-25T05:25:00+00:00",
+          "resolved_at": "2026-07-31T05:46:22+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1024,59 +1024,59 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "gh_2.96.0_linux_amd64.deb",
+            "asset_name": "gh_2.97.0_linux_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "git",
               "Description": "GitHub\u2019s official command line tool.",
               "Homepage": "https://github.com/cli/cli",
-              "Installed-Size": "40165",
+              "Installed-Size": "40431",
               "License": "MIT",
               "Maintainer": "GitHub",
               "Package": "gh",
               "Priority": "optional",
               "Section": "",
-              "Version": "2.96.0"
+              "Version": "2.97.0"
             },
-            "filename": "gh_2.96.0_linux_amd64.deb",
-            "md5": "184d07105d556fbbec589f623628f279",
-            "sha1": "3c42fdd9ba1c1e3c44943b51c2425315d6b3484f",
-            "sha256": "11a731f4e0ca8c3db96ef6d2cc404dcab3d78247ce0e07c53e07117e7627d6a1",
-            "sha512": "03d0242581b0ede5dcac32f11fbc1e3b13c05eb42c4a7fc78e90af0fe4fa3eb642698ad1a41821d140285b4815e08497fa9d6ab52dea855f80defbca8b3d5856",
-            "size": 14725844,
-            "upstream_version": "v2.96.0",
-            "url": "https://github.com/cli/cli/releases/download/v2.96.0/gh_2.96.0_linux_amd64.deb"
+            "filename": "gh_2.97.0_linux_amd64.deb",
+            "md5": "7aed1409665c466e2b5d72e1f6883f8a",
+            "sha1": "b964c9511237557bc8cb608cad3bec3278166ec3",
+            "sha256": "7c7fa3bb890db0934baf65910d97b8c0fa437b2e590f7f7daf6bdf82c5c486d7",
+            "sha512": "9dde99f4d8a01ebc3e6d8ece3430b842fde2944a4aaa792f3cf8288e4946f6d2c953eda34ce32d75f6ee329fe7ab5b76ab042b7ec7e22a35f4fdd9695e78238d",
+            "size": 14841130,
+            "upstream_version": "v2.97.0",
+            "url": "https://github.com/cli/cli/releases/download/v2.97.0/gh_2.97.0_linux_amd64.deb"
           },
-          "resolved_at": "2026-07-03T06:05:18+00:00",
+          "resolved_at": "2026-07-31T05:46:24+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "gh_2.96.0_linux_arm64.deb",
+            "asset_name": "gh_2.97.0_linux_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "git",
               "Description": "GitHub\u2019s official command line tool.",
               "Homepage": "https://github.com/cli/cli",
-              "Installed-Size": "37389",
+              "Installed-Size": "37583",
               "License": "MIT",
               "Maintainer": "GitHub",
               "Package": "gh",
               "Priority": "optional",
               "Section": "",
-              "Version": "2.96.0"
+              "Version": "2.97.0"
             },
-            "filename": "gh_2.96.0_linux_arm64.deb",
-            "md5": "3128eaa22cd84ef4506b47799d6ddcc2",
-            "sha1": "6ff44ba5616037acb25b108862692325022c9da6",
-            "sha256": "334dd9c6704fc1656a48e475c5a3a9aa32bbadb87fa1777513bc626af4a99e89",
-            "sha512": "b91acd756848912de9cd573857ae2192969079d0025723e978db89b5b36c878aa7d1cfe30d05715777fd167e2c55bada169c370e59f75a7b0737336b1bc6612c",
-            "size": 13382568,
-            "upstream_version": "v2.96.0",
-            "url": "https://github.com/cli/cli/releases/download/v2.96.0/gh_2.96.0_linux_arm64.deb"
+            "filename": "gh_2.97.0_linux_arm64.deb",
+            "md5": "b168f26b73d0152a50e2a8625fc6b2ef",
+            "sha1": "2f718f318533c0ca184edcf67a62b70486a78b15",
+            "sha256": "0ba7a76739c865d82ebde24667d875d9b8caa55db47c7597c24accdd4defd2bb",
+            "sha512": "d3e60be511d83b4efa9a29e12e7bddde65e6656adaefddfc556b4e58af7aba86e4327e5fd6be4193ec15ada05c8be3df6c2b21cc476a966ac3ad50d9223ffadf",
+            "size": 13494906,
+            "upstream_version": "v2.97.0",
+            "url": "https://github.com/cli/cli/releases/download/v2.97.0/gh_2.97.0_linux_arm64.deb"
           },
-          "resolved_at": "2026-07-03T06:05:18+00:00",
+          "resolved_at": "2026-07-31T05:46:24+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1087,30 +1087,30 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "google-chrome-stable_150.0.7871.186-1_amd64.deb",
+            "asset_name": "google-chrome-stable_151.0.7922.71-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "ca-certificates, fonts-liberation, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.25), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.35), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libvulkan1, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxrandr2, wget, xdg-utils (>= 1.0.2)",
               "Description": "The web browser from Google\n Google Chrome is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier.",
-              "Installed-Size": "423508",
+              "Installed-Size": "440730",
               "Maintainer": "Chrome Linux Team <chromium-dev@chromium.org>",
               "Package": "google-chrome-stable",
               "Pre-Depends": "dpkg (>= 1.14.0)",
               "Priority": "optional",
               "Provides": "www-browser",
               "Section": "web",
-              "Version": "150.0.7871.186-1"
+              "Version": "151.0.7922.71-1"
             },
-            "filename": "google-chrome-stable_150.0.7871.186-1_amd64.deb",
-            "md5": "32e702e7c3551166c580c33107659184",
-            "sha1": "5ea33784bde3fb30857d92b829e2a09cdc8047b2",
-            "sha256": "4193e00b6d5d5969ee63f7a69596868f546aa0e8cb077b3e0bf9cc1e2c719d00",
-            "sha512": "e9305be5b833860d03af4429856974369ba74a9ee18dabefd27a892ecbb454c725f4ef83b2b14330334599143a1098d9e29d18fa89583cfb5b3e49bd0eb737e0",
-            "size": 133561688,
-            "upstream_version": "150.0.7871.186",
-            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_150.0.7871.186-1_amd64.deb"
+            "filename": "google-chrome-stable_151.0.7922.71-1_amd64.deb",
+            "md5": "fb33eb713615cbffce9ccb114c712c51",
+            "sha1": "c4bbef7e0575eee3e2eb59c6f45eb49d2f2b2d1c",
+            "sha256": "c86cafc697ecdb88259312cef47e464d1278643610500a7c9104e6bb1af3ba5c",
+            "sha512": "b657e18aef41d0316a7edf4367673282dfe4f142fc1e106eff304ee0dfdbac9319dbbe4468ecbfd461ef074e00c2a35168694b5eafe6971c8b606b39dada6e52",
+            "size": 139922812,
+            "upstream_version": "151.0.7922.71",
+            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_151.0.7922.71-1_amd64.deb"
           },
-          "resolved_at": "2026-07-25T05:25:02+00:00",
+          "resolved_at": "2026-07-31T05:46:27+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1531,13 +1531,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "obsidian_1.12.7_amd64.deb",
+            "asset_name": "obsidian_1.13.4_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  Obsidian",
               "Homepage": "https://obsidian.md",
-              "Installed-Size": "313931",
+              "Installed-Size": "344276",
               "License": "UNLICENSED",
               "Maintainer": "Dynalist Inc.",
               "Package": "obsidian",
@@ -1545,18 +1545,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Dynalist Inc.",
-              "Version": "1.12.7"
+              "Version": "1.13.4"
             },
-            "filename": "obsidian_1.12.7_amd64.deb",
-            "md5": "4fc61e50360320be9083f80b04a805ee",
-            "sha1": "0dce889b9d0df285e3eedfd982b42cd732993a30",
-            "sha256": "3644e3ef19bcd23db4d17f7c73311b5245429391a2a48b361da93375f59712b0",
-            "sha512": "4df508468e3b7690fb78c74809ae39d1fd3690f37f3c87e12d4cad87b9e76d67b528682dc19e0f2bd5f9674c17a3e89330b242bdfd7871467ae05e8321cc128c",
-            "size": 85762386,
-            "upstream_version": "v1.12.7",
-            "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.12.7/obsidian_1.12.7_amd64.deb"
+            "filename": "obsidian_1.13.4_amd64.deb",
+            "md5": "8ff8c259d2ef232c24964e47e2489561",
+            "sha1": "ce3397542313daf09176377ef2889759aa9fa1dc",
+            "sha256": "01c906fe0207f8d35219df1b743690722d0dc405bc1f6786ac5046b076b0fe13",
+            "sha512": "ab5014a9871af5dbba947d6ca4686faebed167d11d580a30ea05f88d7d79884ee2143f9e2bd5cf2c60a0bef8ae4a1f5974f8aa3aa7dc46f3e6d83ffd37c6c80f",
+            "size": 106429776,
+            "upstream_version": "v1.13.4",
+            "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.13.4/obsidian_1.13.4_amd64.deb"
           },
-          "resolved_at": "2026-06-15T13:27:21+00:00",
+          "resolved_at": "2026-07-31T05:46:27+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1636,13 +1636,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "linuxqq_3.2.32-51728_amd64.deb",
+            "asset_name": "linuxqq_3.2.32-51802_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  QQ",
               "Homepage": "https://im.qq.com",
-              "Installed-Size": "613724",
+              "Installed-Size": "613735",
               "License": "unknown",
               "Maintainer": "Tencent <QQ-Team@tencent.com>",
               "Package": "linuxqq",
@@ -1650,24 +1650,24 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Tencent <QQ-Team@tencent.com>",
-              "Version": "3.2.32-51728"
+              "Version": "3.2.32-51802"
             },
-            "filename": "linuxqq_3.2.32-51728_amd64.deb",
-            "md5": "a1bdd7963d61ebc303c1fd79ca23f195",
-            "sha1": "c86196149f9755ec261cd00fcdc167b6987cfe4a",
-            "sha256": "2df35075c99b09b2c97dc49879efd8cd690e66affac2a665b0dbce9a38e96bc0",
-            "sha512": "3cb4f8f881f1f593e4fc06f1ba7eba3b324113e7feb103c982e085db49efd5a9a6e2c4ee012eac0347e29565b0cf094d9ff74f112a61dc8bb6d198d5585fdbd7",
-            "size": 184996962,
-            "upstream_version": "3.2.32_51728",
-            "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.33/beta/a1bdd796/linuxqq_3.2.32-51728_amd64.deb"
+            "filename": "linuxqq_3.2.32-51802_amd64.deb",
+            "md5": "c97651b22dc477dc82a8fc36582df509",
+            "sha1": "4ac39f7ed26df1997c0c280e1f8d68e87b21616f",
+            "sha256": "81ae2b8542ef5311fc72ecf53c9a523923c834569c7b0da52e0bf4360b9cb5f9",
+            "sha512": "5a397574b333671f65395e4dcbe4fa829a0cb1a3e94569daeac15582c1f17d8e1ecbfea271b66a3c303ed73228eec12dc3f9962f51826b924896c31b05c08e9e",
+            "size": 184998970,
+            "upstream_version": "3.2.32_51802",
+            "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.33/beta/c97651b2/linuxqq_3.2.32-51802_amd64.deb"
           },
-          "resolved_at": "2026-07-25T05:26:03+00:00",
+          "resolved_at": "2026-07-31T05:47:28+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "linuxqq_3.2.32-51728_arm64.deb",
+            "asset_name": "linuxqq_3.2.32-51802_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
@@ -1681,18 +1681,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Tencent <QQ-Team@tencent.com>",
-              "Version": "3.2.32-51728"
+              "Version": "3.2.32-51802"
             },
-            "filename": "linuxqq_3.2.32-51728_arm64.deb",
-            "md5": "94adc1dd00a22e5e47462889bebc9899",
-            "sha1": "8dc88c8f6525e63fca0aad8e732fcb007fac0978",
-            "sha256": "b57f11ba6db91c0078454ebac949af1d1c85cb23d60048a549494fcfa7080f96",
-            "sha512": "aca411dec0a8a82d0213de5217be5c1fa0097f2a96b88dc54ceca4baf7731e9243e88c27631793f12c96b75ad15d0005a1f3d1673fbce0143188c3ce9026a25a",
-            "size": 204829416,
-            "upstream_version": "3.2.32_51728",
-            "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.33/beta/a1bdd796/linuxqq_3.2.32-51728_arm64.deb"
+            "filename": "linuxqq_3.2.32-51802_arm64.deb",
+            "md5": "86b5e0006984ef2d61b914c53d7edbee",
+            "sha1": "f3f683feda7677d542f4d77f85579f51ce96025a",
+            "sha256": "ecc02e27b0ae55aba721f0671d44a919c26643456674a1857a2d0cde806e0d7e",
+            "sha512": "7c9b201afeef11846e4a7b10332d6a81c786b8c28957d102ebdd1d20d998c83b72e15348832ca97ec10bd183e0881ab9911ec8122f9bdc4ca98a61316e44d512",
+            "size": 204707692,
+            "upstream_version": "3.2.32_51802",
+            "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.33/beta/c97651b2/linuxqq_3.2.32-51802_arm64.deb"
           },
-          "resolved_at": "2026-07-26T05:43:39+00:00",
+          "resolved_at": "2026-07-31T05:48:36+00:00",
           "source": "aur",
           "update_policy": "track"
         }
