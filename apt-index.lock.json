@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-31T05:48:36+00:00",
+  "generated_at": "2026-08-01T05:37:25+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -64,13 +64,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_5.9.2_amd64.deb",
+            "asset_name": "beekeeper-studio_5.9.3_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "971365",
+              "Installed-Size": "971367",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -78,30 +78,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "5.9.2"
+              "Version": "5.9.3"
             },
-            "filename": "beekeeper-studio_5.9.2_amd64.deb",
-            "md5": "54094ad8157308f37a8731b5bfa181fc",
-            "sha1": "6ed2821b7bcddf62f1108b43bfe47a287b71a0fc",
-            "sha256": "3bdf3bc2982bb9ed720f88e09b4c742297db69328d66b8e169b4e2c2ff7871a0",
-            "sha512": "49f25511775ac6838966127a02d64b27c17e02e0e88e5432443b84a3576dee3035867881030acc24f5a5e8087005f05b305e23fd767dc64746aa479de2cbfa6c",
-            "size": 206936404,
-            "upstream_version": "v5.9.2",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v5.9.2/beekeeper-studio_5.9.2_amd64.deb"
+            "filename": "beekeeper-studio_5.9.3_amd64.deb",
+            "md5": "1f74df8bc6c481a625480b731def60b6",
+            "sha1": "c09daf5b11dce4572f5ecfab8dc7ed37dc24a74a",
+            "sha256": "9e0544ee18edaff6ba081012c19037826be4efe591da8910cbecb05db1144299",
+            "sha512": "9602c25573ed561c7bb3b4b1a4f4b16954f901c683df0ee1a660e5ef16d82f27f48453f6e341afafe184bf7d4e785a1ed64567896223e11a739a1d0ced415965",
+            "size": 206706656,
+            "upstream_version": "v5.9.3",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v5.9.3/beekeeper-studio_5.9.3_amd64.deb"
           },
-          "resolved_at": "2026-07-11T05:23:16+00:00",
+          "resolved_at": "2026-08-01T05:37:09+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_5.9.2_arm64.deb",
+            "asset_name": "beekeeper-studio_5.9.3_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "964291",
+              "Installed-Size": "964293",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -109,18 +109,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "5.9.2"
+              "Version": "5.9.3"
             },
-            "filename": "beekeeper-studio_5.9.2_arm64.deb",
-            "md5": "b75fc3c34012ec2cc5a8a3dd534f2728",
-            "sha1": "27ac80fb8637001305134eebb980ce63a0f6159b",
-            "sha256": "21973d555a3ae82423a9050acf80cdbd65806b6240af0aa255381d2db47db839",
-            "sha512": "97cd445fc687977038c2bdca5e92ac9c4c4986290007fdd2f86d438cb890e964df258260f04ab8ea386f50d6e1054ea2805b90dba98e8faeb8525e8e46c8d0f2",
-            "size": 197548968,
-            "upstream_version": "v5.9.2",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v5.9.2/beekeeper-studio_5.9.2_arm64.deb"
+            "filename": "beekeeper-studio_5.9.3_arm64.deb",
+            "md5": "3c069beea88643185a8915a38d2fb185",
+            "sha1": "e973ca60996abff5009d09ae1a738865d3a3e375",
+            "sha256": "680a29badbe1087a9e913fa975a6449a9b3869ae3c833f430c2828989bd6412c",
+            "sha512": "27e0fc6e8d9db08b5cbea82f85e7fd79c257717c3fd3576e4d75ddd9b14099c59ab70b502ca6d83a87787d8b244fdc9d9e7cc8d5fce2eba68034295e2c606017",
+            "size": 197852876,
+            "upstream_version": "v5.9.3",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v5.9.3/beekeeper-studio_5.9.3_arm64.deb"
           },
-          "resolved_at": "2026-07-11T05:23:17+00:00",
+          "resolved_at": "2026-08-01T05:37:12+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -963,57 +963,57 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "fooyin_0.12.0-bookworm_amd64.deb",
+            "asset_name": "fooyin_0.12.1-bookworm_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libc6,\n    libstdc++6,\n    libqt6sql6-sqlite (>= 6.4.0),\n    libqt6svg6 (>= 6.4.0),\n    qt6-image-formats-plugins (>= 6.4.0),\n    qt6-qpa-plugins,\n    zlib1g,\n    libasound2,\n    ffmpeg (>= 7:4.4),\n    pipewire,\n    libpulse0,\n    libsdl2-2.0-0,\n    libgme0,\n    libopenmpt0,\n    libarchive13,\n    libsndfile1,\n    libebur128-1,\n    libsoundtouch1,\n    libsoxr0, libicu72, libtag1v5, libqt6core6 (>= 6.4.0), libqt6gui6 (>= 6.4.0), libqt6widgets6 (>= 6.4.0), libqt6network6 (>= 6.4.0), libqt6concurrent6 (>= 6.4.0), libqt6sql6 (>= 6.4.0)",
               "Description": "A customisable music player",
               "Homepage": "https://www.fooyin.org",
-              "Installed-Size": "31735",
+              "Installed-Size": "32167",
               "Maintainer": "Luke Taylor <luket@pm.me>",
               "Package": "fooyin",
               "Priority": "optional",
               "Section": "sound",
-              "Version": "0.12.0"
+              "Version": "0.12.1"
             },
-            "filename": "fooyin_0.12.0-bookworm_amd64.deb",
-            "md5": "2fe1a43aa70c4bbedb4b05ec2f2fdb63",
-            "sha1": "916b5f4e745f1d1625c4165fd25ab6d1e4e992e7",
-            "sha256": "a5cd0691cb79843d9658a8371a2130b552fdbdae68cb5412626a542143bc6d45",
-            "sha512": "4c8da3c239a15ad64338f2389a3dc719ce015e1d8dad2788729c3a20610d8417402ff4589431a15a77fe324ec6ba0d3ad18fb13d91ebdf1e3772f914ff479ee1",
-            "size": 10546648,
-            "upstream_version": "v0.12.0",
-            "url": "https://github.com/fooyin/fooyin/releases/download/v0.12.0/fooyin_0.12.0-bookworm_amd64.deb"
+            "filename": "fooyin_0.12.1-bookworm_amd64.deb",
+            "md5": "75813dff601b7884f931df8a50197d8a",
+            "sha1": "168b3eed147b1b3ef1ade57ddca88332850589f4",
+            "sha256": "d276b8c7fa06ec51e35cf53d9d05f6386157af9d2d262afd42e218c8ff3f9991",
+            "sha512": "fd1f0cc7679352a4e4247fbf6008afc98a8a4db3f6b4b790c8783b6a1e84e3ef41dd91d6dd69959a843f5e9deee6d0a7b186531d34445dbe36fea008e675d459",
+            "size": 10698924,
+            "upstream_version": "v0.12.1",
+            "url": "https://github.com/fooyin/fooyin/releases/download/v0.12.1/fooyin_0.12.1-bookworm_amd64.deb"
           },
-          "resolved_at": "2026-07-28T05:26:02+00:00",
+          "resolved_at": "2026-08-01T05:37:11+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "fooyin_0.12.0-bookworm_arm64.deb",
+            "asset_name": "fooyin_0.12.1-bookworm_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libc6,\n    libstdc++6,\n    libqt6sql6-sqlite (>= 6.4.0),\n    libqt6svg6 (>= 6.4.0),\n    qt6-image-formats-plugins (>= 6.4.0),\n    qt6-qpa-plugins,\n    zlib1g,\n    libasound2,\n    ffmpeg (>= 7:4.4),\n    pipewire,\n    libpulse0,\n    libsdl2-2.0-0,\n    libgme0,\n    libopenmpt0,\n    libarchive13,\n    libsndfile1,\n    libebur128-1,\n    libsoundtouch1,\n    libsoxr0, libicu72, libtag1v5, libqt6core6 (>= 6.4.0), libqt6gui6 (>= 6.4.0), libqt6widgets6 (>= 6.4.0), libqt6network6 (>= 6.4.0), libqt6concurrent6 (>= 6.4.0), libqt6sql6 (>= 6.4.0)",
               "Description": "A customisable music player",
               "Homepage": "https://www.fooyin.org",
-              "Installed-Size": "30978",
+              "Installed-Size": "31426",
               "Maintainer": "Luke Taylor <luket@pm.me>",
               "Package": "fooyin",
               "Priority": "optional",
               "Section": "sound",
-              "Version": "0.12.0"
+              "Version": "0.12.1"
             },
-            "filename": "fooyin_0.12.0-bookworm_arm64.deb",
-            "md5": "b7c970801a746c0bc61cca817f10e877",
-            "sha1": "5c2d6053ffbaeba1abfb712c56448fd4779a7808",
-            "sha256": "d8167db76c15529fc122f380787e5d1e88b13a2f49c8ba214dcc2902b3a5d6f1",
-            "sha512": "9c8b916e97a0636d758d3bd9e080c3369b7315547fae60c10e6b685af9cf41270bcf04da682c260e8822b3dc9d54133f1575afa4f7767ccaa7f6a513b8b35689",
-            "size": 10023506,
-            "upstream_version": "v0.12.0",
-            "url": "https://github.com/fooyin/fooyin/releases/download/v0.12.0/fooyin_0.12.0-bookworm_arm64.deb"
+            "filename": "fooyin_0.12.1-bookworm_arm64.deb",
+            "md5": "c4c73a44b7a59dedcf90b09a39c2ccd3",
+            "sha1": "20d9c462ca355300f18ec26193f240c51f24f514",
+            "sha256": "c32fa1f9293310a7333a367062c5349e473ab0f73fe3908c8480fce0693a8735",
+            "sha512": "6bd5fb2a333ae78de2760118bf734d3d7bf05e26f76be3e76a73e88aa8deabf1df47e7865c9c701c9b26edc17077f5a55b35e4e98ef1920a5f4a44f6cc0d930c",
+            "size": 10168996,
+            "upstream_version": "v0.12.1",
+            "url": "https://github.com/fooyin/fooyin/releases/download/v0.12.1/fooyin_0.12.1-bookworm_arm64.deb"
           },
-          "resolved_at": "2026-07-28T05:26:03+00:00",
+          "resolved_at": "2026-08-01T05:37:11+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1340,13 +1340,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "mockoon-9.7.0.amd64.deb",
+            "asset_name": "mockoon-9.8.0.amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  Mockoon is the easiest and quickest way to run mock APIs locally. No remote deployment, no account required, open source.",
               "Homepage": "https://mockoon.com",
-              "Installed-Size": "365922",
+              "Installed-Size": "368127",
               "License": "MIT",
               "Maintainer": "Mockoon <team@mockoon.com>",
               "Package": "mockoon",
@@ -1354,30 +1354,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Mockoon <team@mockoon.com>",
-              "Version": "9.7.0"
+              "Version": "9.8.0"
             },
-            "filename": "mockoon-9.7.0.amd64.deb",
-            "md5": "63b236d40cb73b2118e2054d00a0cd3b",
-            "sha1": "19413c0aee1c9002e494d7f5280bfb7cbf715700",
-            "sha256": "fcbe5aa6341026f1cb2b467efa6ae35ed7ca0e46c41554fc8006c126c7d46160",
-            "sha512": "9269970198c3b63c2d233b56c6c88f562b5a16cbf1e78085dbdc6feb035ef9a3aeb6c97b218f45ad834d17cee22d755512a8b3e1d772cf55c621de5d236f89c5",
-            "size": 104549452,
-            "upstream_version": "v9.7.0",
-            "url": "https://github.com/mockoon/mockoon/releases/download/v9.7.0/mockoon-9.7.0.amd64.deb"
+            "filename": "mockoon-9.8.0.amd64.deb",
+            "md5": "7b3e5d589049f0d3dcb27de9cb039043",
+            "sha1": "1ae0ff3b40fd610a2b2e5a462972390a53c9b046",
+            "sha256": "a9f4e01ccb82ce3bd510b4fb5b5c524bba61228ca4971f7f51658dac6ce62fb8",
+            "sha512": "2fa17d714704c157d09fcfbc62c50b683d366c0d531ff98adbce5e301ebb5a39eb5679b155feb7e6ad4f2a5c32ecd36faf80c26b630906ab9754ffca423abec4",
+            "size": 105635848,
+            "upstream_version": "v9.8.0",
+            "url": "https://github.com/mockoon/mockoon/releases/download/v9.8.0/mockoon-9.8.0.amd64.deb"
           },
-          "resolved_at": "2026-06-20T06:42:46+00:00",
+          "resolved_at": "2026-08-01T05:37:14+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "mockoon-9.7.0.arm64.deb",
+            "asset_name": "mockoon-9.8.0.arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  Mockoon is the easiest and quickest way to run mock APIs locally. No remote deployment, no account required, open source.",
               "Homepage": "https://mockoon.com",
-              "Installed-Size": "364810",
+              "Installed-Size": "369494",
               "License": "MIT",
               "Maintainer": "Mockoon <team@mockoon.com>",
               "Package": "mockoon",
@@ -1385,18 +1385,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Mockoon <team@mockoon.com>",
-              "Version": "9.7.0"
+              "Version": "9.8.0"
             },
-            "filename": "mockoon-9.7.0.arm64.deb",
-            "md5": "a69e6daa3e7cfa8dc9d343475500c351",
-            "sha1": "2ebc75885d61ef1d87b4dcb8e0bcd704818dd7b3",
-            "sha256": "e79b0c091073fc6f521257cefe59193cf4fde5115e25b91d3c000737161a599b",
-            "sha512": "87ebfd3400ffef6e4b19ca361fa4b783153a6df6a456ca69201983a2f99548272808b9f316c0032b8affc052942ada9e029e44a0ff01a8725f625fbc2a48bb35",
-            "size": 97899564,
-            "upstream_version": "v9.7.0",
-            "url": "https://github.com/mockoon/mockoon/releases/download/v9.7.0/mockoon-9.7.0.arm64.deb"
+            "filename": "mockoon-9.8.0.arm64.deb",
+            "md5": "129c462180fd1727c37649e8ceefc19a",
+            "sha1": "989249676e72999eef4d8af7d86d6de302b5a1c2",
+            "sha256": "d02a5ce396bb50b1e28d92370990e938abda6f95e303f21f1621879142e5fb4d",
+            "sha512": "212c28c10da6f4b86b4fb124cc887c5e80483fdf43d19829083288aafbec509d8432a0f44a700231b50c9d34bf38400bac9b23ec7af03526936508a3d7a7a1c2",
+            "size": 99773376,
+            "upstream_version": "v9.8.0",
+            "url": "https://github.com/mockoon/mockoon/releases/download/v9.8.0/mockoon-9.8.0.arm64.deb"
           },
-          "resolved_at": "2026-06-20T06:42:47+00:00",
+          "resolved_at": "2026-08-01T05:37:16+00:00",
           "source": "github",
           "update_policy": "track"
         }
