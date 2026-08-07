@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-06T05:28:25+00:00",
+  "generated_at": "2026-08-07T04:33:36+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -597,23 +597,23 @@
               "Depends": "libc6 (>= 2.35)",
               "Description": "Fast neofetch-like system information tool\n fastfetch is a neofetch-like tool for fetching system information and displaying them in a pretty way. It is written mostly in C to achieve much better performance.",
               "Homepage": "https://github.com/fastfetch-cli/fastfetch",
-              "Installed-Size": "16486",
+              "Installed-Size": "16783",
               "Maintainer": "Carter Li <zhangsongcui@live.cn>",
               "Package": "fastfetch",
               "Priority": "optional",
               "Section": "devel",
-              "Version": "2.66.0"
+              "Version": "2.67.0"
             },
             "filename": "fastfetch-linux-amd64.deb",
-            "md5": "5c7f705597d04fa09923ccb79758b032",
-            "sha1": "1857c0d9ba337d6b91af1d4f10311506a817c27a",
-            "sha256": "c4aa1de46874524cdc492795d937772281409fa86aea377cae6832d9e70218cb",
-            "sha512": "6e60f8cb19b62b705fd723dab72ef2c7f623a8c991d3bad05c41d219a470809467966b38c17dfba679031199513e16d235362ad5c7f4135d139e8d95c52418b9",
-            "size": 6099970,
-            "upstream_version": "2.66.0",
-            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.66.0/fastfetch-linux-amd64.deb"
+            "md5": "13c94ece42d1e022fcfb2e1dccdab1d6",
+            "sha1": "10e9c8adb8d0b1457e0e84c541bd8db0d7c10688",
+            "sha256": "d27b68638d49ae109294b47e7328b7868f5c5568e9cd2be83514eb0d674c863e",
+            "sha512": "6d0e5505da512dd2e4c7940c66a6441b7a12521e729eb8d325fc8c6d97dc80f09359e1935399490f3b0c3f283b62c22a2770c0636a2ebd2aa688cdf911e0c474",
+            "size": 6176110,
+            "upstream_version": "2.67.0",
+            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.67.0/fastfetch-linux-amd64.deb"
           },
-          "resolved_at": "2026-07-11T05:23:16+00:00",
+          "resolved_at": "2026-08-07T04:33:20+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -625,23 +625,23 @@
               "Depends": "libc6 (>= 2.35)",
               "Description": "Fast neofetch-like system information tool\n fastfetch is a neofetch-like tool for fetching system information and displaying them in a pretty way. It is written mostly in C to achieve much better performance.",
               "Homepage": "https://github.com/fastfetch-cli/fastfetch",
-              "Installed-Size": "16562",
+              "Installed-Size": "16787",
               "Maintainer": "Carter Li <zhangsongcui@live.cn>",
               "Package": "fastfetch",
               "Priority": "optional",
               "Section": "devel",
-              "Version": "2.66.0"
+              "Version": "2.67.0"
             },
-            "filename": "fastfetch_2.66.0_arm64.deb",
-            "md5": "5dc05ae51dd891362eab075b41f296cd",
-            "sha1": "bd9c50684e085355e24a144af355b3beaf5ea6d5",
-            "sha256": "e809ecce6f409dec4857a527f9406628d168313d9f6d33a87b0c19c0535d78b0",
-            "sha512": "f08108e62e18cb87bd3f99b048f7a2a882f1e48425386310b5e7ab466258ebeae4dbc3d48b70e555019c1d7484bd0f81babf28298372e72998368247b799c1cd",
-            "size": 5966464,
-            "upstream_version": "2.66.0",
-            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.66.0/fastfetch-linux-aarch64.deb"
+            "filename": "fastfetch_2.67.0_arm64.deb",
+            "md5": "ddbf941615a8a106e8205943e6c0f3bb",
+            "sha1": "629aadfc69b387f9f9679f8c0da1a3e9392746c4",
+            "sha256": "1a7532c7bc6b6faf04e61d04025fbcc2b89c6906772c983f5f3b8497aaaab155",
+            "sha512": "9b14eb38dd3c78cd387f96b5b92ce0ede62ca6caa162fec873c41de3478982935a45354819a1117460632a2d17b036c852ccb6600607b948cef62f4b3a8fbe30",
+            "size": 6049904,
+            "upstream_version": "2.67.0",
+            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.67.0/fastfetch-linux-aarch64.deb"
           },
-          "resolved_at": "2026-07-11T05:23:16+00:00",
+          "resolved_at": "2026-08-07T04:33:21+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -963,57 +963,57 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "fooyin_0.12.1-bookworm_amd64.deb",
+            "asset_name": "fooyin_0.12.2-bookworm_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libc6,\n    libstdc++6,\n    libqt6sql6-sqlite (>= 6.4.0),\n    libqt6svg6 (>= 6.4.0),\n    qt6-image-formats-plugins (>= 6.4.0),\n    qt6-qpa-plugins,\n    zlib1g,\n    libasound2,\n    ffmpeg (>= 7:4.4),\n    pipewire,\n    libpulse0,\n    libsdl2-2.0-0,\n    libgme0,\n    libopenmpt0,\n    libarchive13,\n    libsndfile1,\n    libebur128-1,\n    libsoundtouch1,\n    libsoxr0, libicu72, libtag1v5, libqt6core6 (>= 6.4.0), libqt6gui6 (>= 6.4.0), libqt6widgets6 (>= 6.4.0), libqt6network6 (>= 6.4.0), libqt6concurrent6 (>= 6.4.0), libqt6sql6 (>= 6.4.0)",
               "Description": "A customisable music player",
               "Homepage": "https://www.fooyin.org",
-              "Installed-Size": "32167",
+              "Installed-Size": "32419",
               "Maintainer": "Luke Taylor <luket@pm.me>",
               "Package": "fooyin",
               "Priority": "optional",
               "Section": "sound",
-              "Version": "0.12.1"
+              "Version": "0.12.2"
             },
-            "filename": "fooyin_0.12.1-bookworm_amd64.deb",
-            "md5": "75813dff601b7884f931df8a50197d8a",
-            "sha1": "168b3eed147b1b3ef1ade57ddca88332850589f4",
-            "sha256": "d276b8c7fa06ec51e35cf53d9d05f6386157af9d2d262afd42e218c8ff3f9991",
-            "sha512": "fd1f0cc7679352a4e4247fbf6008afc98a8a4db3f6b4b790c8783b6a1e84e3ef41dd91d6dd69959a843f5e9deee6d0a7b186531d34445dbe36fea008e675d459",
-            "size": 10698924,
-            "upstream_version": "v0.12.1",
-            "url": "https://github.com/fooyin/fooyin/releases/download/v0.12.1/fooyin_0.12.1-bookworm_amd64.deb"
+            "filename": "fooyin_0.12.2-bookworm_amd64.deb",
+            "md5": "02b97354569f2db7eb00cb2a3ae25e9c",
+            "sha1": "7b9d1e2a74da8d4d39b93b7bab2a9411fcba84b4",
+            "sha256": "24f644516d4571e042170802e0f97dabaadafb7d4a28b79982cad20c0b29d218",
+            "sha512": "333c29cb50cedc42d0ec4baca9c6f309332c083c54b3c3de8baa29d1db6dfca620e26437ab231ae42febfe9ef523c4582cc86d754bbceb10598c5b601321e8e2",
+            "size": 10781562,
+            "upstream_version": "v0.12.2",
+            "url": "https://github.com/fooyin/fooyin/releases/download/v0.12.2/fooyin_0.12.2-bookworm_amd64.deb"
           },
-          "resolved_at": "2026-08-01T05:37:11+00:00",
+          "resolved_at": "2026-08-07T04:33:22+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "fooyin_0.12.1-bookworm_arm64.deb",
+            "asset_name": "fooyin_0.12.2-bookworm_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libc6,\n    libstdc++6,\n    libqt6sql6-sqlite (>= 6.4.0),\n    libqt6svg6 (>= 6.4.0),\n    qt6-image-formats-plugins (>= 6.4.0),\n    qt6-qpa-plugins,\n    zlib1g,\n    libasound2,\n    ffmpeg (>= 7:4.4),\n    pipewire,\n    libpulse0,\n    libsdl2-2.0-0,\n    libgme0,\n    libopenmpt0,\n    libarchive13,\n    libsndfile1,\n    libebur128-1,\n    libsoundtouch1,\n    libsoxr0, libicu72, libtag1v5, libqt6core6 (>= 6.4.0), libqt6gui6 (>= 6.4.0), libqt6widgets6 (>= 6.4.0), libqt6network6 (>= 6.4.0), libqt6concurrent6 (>= 6.4.0), libqt6sql6 (>= 6.4.0)",
               "Description": "A customisable music player",
               "Homepage": "https://www.fooyin.org",
-              "Installed-Size": "31426",
+              "Installed-Size": "31579",
               "Maintainer": "Luke Taylor <luket@pm.me>",
               "Package": "fooyin",
               "Priority": "optional",
               "Section": "sound",
-              "Version": "0.12.1"
+              "Version": "0.12.2"
             },
-            "filename": "fooyin_0.12.1-bookworm_arm64.deb",
-            "md5": "c4c73a44b7a59dedcf90b09a39c2ccd3",
-            "sha1": "20d9c462ca355300f18ec26193f240c51f24f514",
-            "sha256": "c32fa1f9293310a7333a367062c5349e473ab0f73fe3908c8480fce0693a8735",
-            "sha512": "6bd5fb2a333ae78de2760118bf734d3d7bf05e26f76be3e76a73e88aa8deabf1df47e7865c9c701c9b26edc17077f5a55b35e4e98ef1920a5f4a44f6cc0d930c",
-            "size": 10168996,
-            "upstream_version": "v0.12.1",
-            "url": "https://github.com/fooyin/fooyin/releases/download/v0.12.1/fooyin_0.12.1-bookworm_arm64.deb"
+            "filename": "fooyin_0.12.2-bookworm_arm64.deb",
+            "md5": "55eb5fa8d0608d0773162ecb44b981ae",
+            "sha1": "455be84baee1fe158cae3bfb766e377c93541f28",
+            "sha256": "b5df09b7a06bf0c7880692e975bb0da2be7f6e43daf6f6ac9b5fb935efec6baf",
+            "sha512": "0da28f6d6a6b950a54dd51668f112f5ce7f64739a2a6f5d91fc347f82b236a74c3c33a41f25276771c67f5183cd9642a2bb84daca22c85d6f59ce9443d3d2a9b",
+            "size": 10247634,
+            "upstream_version": "v0.12.2",
+            "url": "https://github.com/fooyin/fooyin/releases/download/v0.12.2/fooyin_0.12.2-bookworm_arm64.deb"
           },
-          "resolved_at": "2026-08-01T05:37:11+00:00",
+          "resolved_at": "2026-08-07T04:33:22+00:00",
           "source": "github",
           "update_policy": "track"
         }
