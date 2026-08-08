@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-07T04:33:36+00:00",
+  "generated_at": "2026-08-08T03:44:40+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -459,13 +459,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "drawio-amd64-31.1.5.deb",
+            "asset_name": "drawio-amd64-31.1.8.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  draw.io desktop",
               "Homepage": "https://github.com/jgraph/drawio",
-              "Installed-Size": "457135",
+              "Installed-Size": "458185",
               "License": "Apache-2.0",
               "Maintainer": "draw.io <desktop@draw.io>",
               "Package": "draw.io",
@@ -473,30 +473,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "draw.io <desktop@draw.io>",
-              "Version": "31.1.5"
+              "Version": "31.1.8"
             },
-            "filename": "draw.io_31.1.5_amd64.deb",
-            "md5": "618ae21c80d4c8947a4251c30b880f94",
-            "sha1": "5a3e13037a2a396565f615092528e7f5f814ed78",
-            "sha256": "93c2d86e418d120179b547409e5a1d3f5fba58f409b033077206cca96a5edc3d",
-            "sha512": "bd95ca501a7e6e47a890bbd5f36c230b9dbe6d59e9fad54168362ef85ab547152064db2264c2ae1d0b72b67f6b2bbdfcdeba2d78af1d026ee7e5b62dc40b1bfa",
-            "size": 134472284,
-            "upstream_version": "v31.1.5",
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v31.1.5/drawio-amd64-31.1.5.deb"
+            "filename": "draw.io_31.1.8_amd64.deb",
+            "md5": "8c27164b40be9a22eb940f6eac2a51a1",
+            "sha1": "b516ddec60d25dce30c2ebb599ab451d1db76dab",
+            "sha256": "f4c49ed84422ea4afd95818f53c54bc666e57b33bd036d468c7096619b47ffd9",
+            "sha512": "662c0878661270a3c81963712c6118fbc9152d6ece821c92fe7ea4934b355c149ee3b53f2811b08b03655f2bfc3bd5fe2d990c4df174a16d63f4b793d4da8ec3",
+            "size": 134260036,
+            "upstream_version": "v31.1.8",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v31.1.8/drawio-amd64-31.1.8.deb"
           },
-          "resolved_at": "2026-07-31T05:46:21+00:00",
+          "resolved_at": "2026-08-08T03:44:24+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "drawio-arm64-31.1.5.deb",
+            "asset_name": "drawio-arm64-31.1.8.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  draw.io desktop",
               "Homepage": "https://github.com/jgraph/drawio",
-              "Installed-Size": "457675",
+              "Installed-Size": "458752",
               "License": "Apache-2.0",
               "Maintainer": "draw.io <desktop@draw.io>",
               "Package": "draw.io",
@@ -504,18 +504,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "draw.io <desktop@draw.io>",
-              "Version": "31.1.5"
+              "Version": "31.1.8"
             },
-            "filename": "draw.io_31.1.5_arm64.deb",
-            "md5": "afc33262ac01c8a1d6c83bc9fff6783e",
-            "sha1": "e1695159060411451115d785c93cf6184aff8229",
-            "sha256": "46f3cfcc303a61bd7330e3b93f3db9ba141460232d5f7fb8ab73d251f674b341",
-            "sha512": "e0f1590a0bab1badaeb8b0cc8ae9b385b22a367a909f13a47b8c4fc09bdddc1489eaf779bdb4437f0153877929b993ac1f64854f00fe9faa625b47ca4aca4629",
-            "size": 128367456,
-            "upstream_version": "v31.1.5",
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v31.1.5/drawio-arm64-31.1.5.deb"
+            "filename": "draw.io_31.1.8_arm64.deb",
+            "md5": "a8172b1bde2094c0d8669b41e3984837",
+            "sha1": "660a9b743a485567c6a52dd403874e50d6f54eae",
+            "sha256": "62a9ea636accada76076bd5a20f61b707e0e8093d3fd28c6583518663ca795d6",
+            "sha512": "533098a26aea3e911e968f1b2ea0fe5b0c938a218525d6e33d7e74efc2295e7a8ee3bb5f59fb51ebbbe067fc7a7e6076925a8910dc20daa8561a64d6187ee11b",
+            "size": 128218080,
+            "upstream_version": "v31.1.8",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v31.1.8/drawio-arm64-31.1.8.deb"
           },
-          "resolved_at": "2026-07-31T05:46:22+00:00",
+          "resolved_at": "2026-08-08T03:44:28+00:00",
           "source": "github",
           "update_policy": "track"
         }
