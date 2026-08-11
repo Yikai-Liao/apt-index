@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T03:44:40+00:00",
+  "generated_at": "2026-08-11T03:56:19+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -1216,7 +1216,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "LocalSend-1.17.0-linux-x86-64.deb",
+            "asset_name": "LocalSend-1.18.0-linux-x86-64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libappindicator3-1 | libayatana-appindicator3-1, gir1.2-appindicator3-0.1 | gir1.2-ayatanaappindicator3-0.1, libayatana-ido3-0.4-0, xdg-user-dirs",
@@ -1230,24 +1230,24 @@
               "Priority": "optional",
               "Section": "x11",
               "Uploaders": "TheGB0077 <gb.lima.dev@gmail.com>",
-              "Version": "1.17.0+58"
+              "Version": "1.18.0+60"
             },
-            "filename": "localsend_1.17.0+58_amd64.deb",
-            "md5": "59e559f84fe892f067c232c5c2b9b075",
-            "sha1": "eba64eb18930d0a832bea05b33f5263762e5647a",
-            "sha256": "b0244b2c3eacb2a81d61b2662534d6036ab37ace10d6782da36b630c222fa04c",
-            "sha512": "564a194f9f347431140028fc1c9fdd3cdfcefbc9d083542896502230bfa68afd123b599d450b2b5b2ba62262ffb53b9d9e62be0fdb72889f60c4d2f2e2d03a44",
-            "size": 11709940,
-            "upstream_version": "v1.17.0",
-            "url": "https://github.com/localsend/localsend/releases/download/v1.17.0/LocalSend-1.17.0-linux-x86-64.deb"
+            "filename": "localsend_1.18.0+60_amd64.deb",
+            "md5": "46d773feaab71e310883bbe58605a0dd",
+            "sha1": "d8ac6613151e72e941832c0f09f0bec4c81c70ef",
+            "sha256": "dae68192ad43a59a68df06454eb5fa4e9a9f86a343fe430165efd8b18863d0f4",
+            "sha512": "45406907a62f5f771e83acf035b7b246e418cfaf35c9ab6f4bd595d316c648d01910da7f116c0f1cbd070f7cc773ced80019b804af9e2dfd3936a0bc0c496090",
+            "size": 24582872,
+            "upstream_version": "v1.18.0",
+            "url": "https://github.com/localsend/localsend/releases/download/v1.18.0/LocalSend-1.18.0-linux-x86-64.deb"
           },
-          "resolved_at": "2026-06-16T02:53:00+00:00",
+          "resolved_at": "2026-08-11T03:56:04+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "LocalSend-1.17.0-linux-arm-64.deb",
+            "asset_name": "LocalSend-1.18.0-linux-arm-64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libappindicator3-1 | libayatana-appindicator3-1, gir1.2-appindicator3-0.1 | gir1.2-ayatanaappindicator3-0.1, libayatana-ido3-0.4-0, xdg-user-dirs",
@@ -1261,18 +1261,18 @@
               "Priority": "optional",
               "Section": "x11",
               "Uploaders": "TheGB0077 <gb.lima.dev@gmail.com>",
-              "Version": "1.17.0+58"
+              "Version": "1.18.0+60"
             },
-            "filename": "localsend_1.17.0+58_arm64.deb",
-            "md5": "603dcdd5db0dbc3fd8b2e985e70ed5f6",
-            "sha1": "008a96e952edb4e23d5453dae9d684d4cc3c1ddf",
-            "sha256": "c2c792aadabeecf864f4105f8b1f8693941bc752fda582f0d2b3794765fcf803",
-            "sha512": "e4ed8d135b66fe699ed54ad04edb9933cfdae0917ea3bff4157041d3c6437a175d83fa955a7e98bd0b9496d3fce35ceb12ed7ab884cef3decab218966301c2b7",
-            "size": 10841168,
-            "upstream_version": "v1.17.0",
-            "url": "https://github.com/localsend/localsend/releases/download/v1.17.0/LocalSend-1.17.0-linux-arm-64.deb"
+            "filename": "localsend_1.18.0+60_arm64.deb",
+            "md5": "fcef9b10a4d0d2208212dcdf112153e3",
+            "sha1": "12044b84c582b12317570e5d63f54444efca576f",
+            "sha256": "eb24e724fbdf830c8fb07dfc66b76b8a649923d083278305a63d5d539db4b606",
+            "sha512": "d3635be2ab01c0ddc018c03d5d8b89174920b200f35ca36dd59f0630329b7c40bf49bc03609dc64c299594411c403c1841d5110861209129d84301c3740b1b4e",
+            "size": 24545108,
+            "upstream_version": "v1.18.0",
+            "url": "https://github.com/localsend/localsend/releases/download/v1.18.0/LocalSend-1.18.0-linux-arm-64.deb"
           },
-          "resolved_at": "2026-06-16T02:53:01+00:00",
+          "resolved_at": "2026-08-11T03:56:05+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1531,13 +1531,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "obsidian_1.13.4_amd64.deb",
+            "asset_name": "obsidian_1.13.6_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  Obsidian",
               "Homepage": "https://obsidian.md",
-              "Installed-Size": "344276",
+              "Installed-Size": "345687",
               "License": "UNLICENSED",
               "Maintainer": "Dynalist Inc.",
               "Package": "obsidian",
@@ -1545,18 +1545,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Dynalist Inc.",
-              "Version": "1.13.4"
+              "Version": "1.13.6"
             },
-            "filename": "obsidian_1.13.4_amd64.deb",
-            "md5": "8ff8c259d2ef232c24964e47e2489561",
-            "sha1": "ce3397542313daf09176377ef2889759aa9fa1dc",
-            "sha256": "01c906fe0207f8d35219df1b743690722d0dc405bc1f6786ac5046b076b0fe13",
-            "sha512": "ab5014a9871af5dbba947d6ca4686faebed167d11d580a30ea05f88d7d79884ee2143f9e2bd5cf2c60a0bef8ae4a1f5974f8aa3aa7dc46f3e6d83ffd37c6c80f",
-            "size": 106429776,
-            "upstream_version": "v1.13.4",
-            "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.13.4/obsidian_1.13.4_amd64.deb"
+            "filename": "obsidian_1.13.6_amd64.deb",
+            "md5": "af3ad2b56605bc34b8a7dd379780821a",
+            "sha1": "7af20a65a006eb215a93849a9fb0ee16bc54ed65",
+            "sha256": "fef8830fcc2f3d35148a569af572015939c9233bc266496c84417a07e32a149f",
+            "sha512": "3b554f21a28c61768a1b2300c4b6e56069cf8304e32e6cf0df6505ec9dbfcd193635c769408dfe2602dcb2f7a90eed9ddc5a31681b38d9c8a5332e6855e57b94",
+            "size": 107055464,
+            "upstream_version": "v1.13.6",
+            "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.13.6/obsidian_1.13.6_amd64.deb"
           },
-          "resolved_at": "2026-07-31T05:46:27+00:00",
+          "resolved_at": "2026-08-11T03:56:06+00:00",
           "source": "github",
           "update_policy": "track"
         }
