@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-12T04:19:12+00:00",
+  "generated_at": "2026-08-13T04:23:56+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -963,57 +963,57 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "fooyin_0.12.3-bookworm_amd64.deb",
+            "asset_name": "fooyin_0.12.4-bookworm_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libc6,\n    libstdc++6,\n    libqt6sql6-sqlite (>= 6.4.0),\n    libqt6svg6 (>= 6.4.0),\n    qt6-image-formats-plugins (>= 6.4.0),\n    qt6-qpa-plugins,\n    zlib1g,\n    libasound2,\n    ffmpeg (>= 7:4.4),\n    pipewire,\n    libpulse0,\n    libsdl2-2.0-0,\n    libgme0,\n    libopenmpt0,\n    libarchive13,\n    libsndfile1,\n    libebur128-1,\n    libsoundtouch1,\n    libsoxr0, libicu72, libtag1v5, libqt6core6 (>= 6.4.0), libqt6gui6 (>= 6.4.0), libqt6widgets6 (>= 6.4.0), libqt6network6 (>= 6.4.0), libqt6concurrent6 (>= 6.4.0), libqt6sql6 (>= 6.4.0)",
               "Description": "A customisable music player",
               "Homepage": "https://www.fooyin.org",
-              "Installed-Size": "32594",
+              "Installed-Size": "32619",
               "Maintainer": "Luke Taylor <luket@pm.me>",
               "Package": "fooyin",
               "Priority": "optional",
               "Section": "sound",
-              "Version": "0.12.3"
+              "Version": "0.12.4"
             },
-            "filename": "fooyin_0.12.3-bookworm_amd64.deb",
-            "md5": "f289afcb9012db7884bb20dbc3240170",
-            "sha1": "62c812e341ca55fbf344721461582c48be3f42f1",
-            "sha256": "77b4616e225bbc82170f91b48929e77bc9b47036027527778b3f3389815f67c3",
-            "sha512": "4bb18699db1f678528a761a8c0b689b7a1acf8fc82fdb030353cdf517ee668c5590c1c462fa90c8482b03bcdfa11187b4a927405b77e3c4f58e1cf6a0dcf76c9",
-            "size": 10836456,
-            "upstream_version": "v0.12.3",
-            "url": "https://github.com/fooyin/fooyin/releases/download/v0.12.3/fooyin_0.12.3-bookworm_amd64.deb"
+            "filename": "fooyin_0.12.4-bookworm_amd64.deb",
+            "md5": "ff438f9b544d06c0b8f756fb93cda9ab",
+            "sha1": "2315a9be40b3b0f38dc4aab9ff05e524f594e085",
+            "sha256": "ff60972f73899b2db700fc35297b5787429fffd55175387a7930ed9c609732e5",
+            "sha512": "b0d5f0bbfdac532f1914d15a4dc561989c1c74ec287c12b10bf41caa985a896d822cb98b40153541e5761ffd370ea07aa60addc2d41ae9f6311b35ec93cad7c9",
+            "size": 10844222,
+            "upstream_version": "v0.12.4",
+            "url": "https://github.com/fooyin/fooyin/releases/download/v0.12.4/fooyin_0.12.4-bookworm_amd64.deb"
           },
-          "resolved_at": "2026-08-12T04:18:41+00:00",
+          "resolved_at": "2026-08-13T04:21:41+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "fooyin_0.12.3-bookworm_arm64.deb",
+            "asset_name": "fooyin_0.12.4-bookworm_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libc6,\n    libstdc++6,\n    libqt6sql6-sqlite (>= 6.4.0),\n    libqt6svg6 (>= 6.4.0),\n    qt6-image-formats-plugins (>= 6.4.0),\n    qt6-qpa-plugins,\n    zlib1g,\n    libasound2,\n    ffmpeg (>= 7:4.4),\n    pipewire,\n    libpulse0,\n    libsdl2-2.0-0,\n    libgme0,\n    libopenmpt0,\n    libarchive13,\n    libsndfile1,\n    libebur128-1,\n    libsoundtouch1,\n    libsoxr0, libicu72, libtag1v5, libqt6core6 (>= 6.4.0), libqt6gui6 (>= 6.4.0), libqt6widgets6 (>= 6.4.0), libqt6network6 (>= 6.4.0), libqt6concurrent6 (>= 6.4.0), libqt6sql6 (>= 6.4.0)",
               "Description": "A customisable music player",
               "Homepage": "https://www.fooyin.org",
-              "Installed-Size": "31792",
+              "Installed-Size": "31805",
               "Maintainer": "Luke Taylor <luket@pm.me>",
               "Package": "fooyin",
               "Priority": "optional",
               "Section": "sound",
-              "Version": "0.12.3"
+              "Version": "0.12.4"
             },
-            "filename": "fooyin_0.12.3-bookworm_arm64.deb",
-            "md5": "32e178a03fec61707c0643ac46c529cd",
-            "sha1": "e74969dcff117bd89f539bc1736055a368fe4366",
-            "sha256": "3f32766fa1f22b158759c6cee86b7b9704444408fa9c40289cf96f156640777a",
-            "sha512": "e1e6c20f4c5149e1b51efb1027be9254445691650ebd4933d0814cc8c0efd95ca568724f10dfa595c0a2bc890fb7409a4f44cc038b6a79414ac5e19aecab53bd",
-            "size": 10293892,
-            "upstream_version": "v0.12.3",
-            "url": "https://github.com/fooyin/fooyin/releases/download/v0.12.3/fooyin_0.12.3-bookworm_arm64.deb"
+            "filename": "fooyin_0.12.4-bookworm_arm64.deb",
+            "md5": "5cd998c452a1579d83be675730ba6107",
+            "sha1": "a856b772f3daea72f21fa9e0a816a17345d0bda8",
+            "sha256": "50b38bde3bf5e6c6eb291ecc71188c74de4094c411d1894ffcef92ebfa312ce8",
+            "sha512": "80db6c259cd8b8e5c905148b748f2617806dc0e8cd92ba3d3d02fd3c7868b88a5267dc23a2aec59e6db6e379a8884e17fc24f21fc6a0a0a6b4eae1c3f79ca9e9",
+            "size": 10301564,
+            "upstream_version": "v0.12.4",
+            "url": "https://github.com/fooyin/fooyin/releases/download/v0.12.4/fooyin_0.12.4-bookworm_arm64.deb"
           },
-          "resolved_at": "2026-08-12T04:18:42+00:00",
+          "resolved_at": "2026-08-13T04:21:41+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1087,30 +1087,30 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "google-chrome-stable_151.0.7922.108-1_amd64.deb",
+            "asset_name": "google-chrome-stable_151.0.7922.137-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "ca-certificates, fonts-liberation, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.25), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.35), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libvulkan1, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxrandr2, wget, xdg-utils (>= 1.0.2)",
               "Description": "The web browser from Google\n Google Chrome is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier.",
-              "Installed-Size": "440936",
+              "Installed-Size": "441203",
               "Maintainer": "Chrome Linux Team <chromium-dev@chromium.org>",
               "Package": "google-chrome-stable",
               "Pre-Depends": "dpkg (>= 1.14.0)",
               "Priority": "optional",
               "Provides": "www-browser",
               "Section": "web",
-              "Version": "151.0.7922.108-1"
+              "Version": "151.0.7922.137-1"
             },
-            "filename": "google-chrome-stable_151.0.7922.108-1_amd64.deb",
-            "md5": "036a287263332748df37ca4b1c358d4b",
-            "sha1": "2d2344d5f9fdb3690fa39c1ca1d30beec085a18b",
-            "sha256": "bfb6e6d345055eb481a50db423256fa2732ce010f785a56c327e213a638efdef",
-            "sha512": "4d6430a203bd6ce38eb6431dac70be9354ab9c59d8c74a6de8a1085d7e53a9e4bc8707097e64f08b52d7e6b329c6d955fa0854cf479beaa8ba9a5c97ddf75351",
-            "size": 140087076,
-            "upstream_version": "151.0.7922.108",
-            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_151.0.7922.108-1_amd64.deb"
+            "filename": "google-chrome-stable_151.0.7922.137-1_amd64.deb",
+            "md5": "3624d669f35e5e1442fc6d63d6c586e1",
+            "sha1": "3aeff25d4d534907c10d2371e5bd7718182b6131",
+            "sha256": "e6dabf044cf9cd0279cfe86efa431682c18bfc06d06339ce055aaa87ae871727",
+            "sha512": "1d6bb6aa793d3646605c0bb346e800d306f76ee8d30f5bcbe920a2d70ee90fbdb1203cd1552e26e21e243af8bbdc8d461c8ca49249b77a5f92533396606c1cd7",
+            "size": 140080344,
+            "upstream_version": "151.0.7922.137",
+            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_151.0.7922.137-1_amd64.deb"
           },
-          "resolved_at": "2026-08-12T04:18:45+00:00",
+          "resolved_at": "2026-08-13T04:21:45+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1531,13 +1531,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "obsidian_1.13.6_amd64.deb",
+            "asset_name": "obsidian_1.13.7_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  Obsidian",
               "Homepage": "https://obsidian.md",
-              "Installed-Size": "345687",
+              "Installed-Size": "345553",
               "License": "UNLICENSED",
               "Maintainer": "Dynalist Inc.",
               "Package": "obsidian",
@@ -1545,18 +1545,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Dynalist Inc.",
-              "Version": "1.13.6"
+              "Version": "1.13.7"
             },
-            "filename": "obsidian_1.13.6_amd64.deb",
-            "md5": "af3ad2b56605bc34b8a7dd379780821a",
-            "sha1": "7af20a65a006eb215a93849a9fb0ee16bc54ed65",
-            "sha256": "fef8830fcc2f3d35148a569af572015939c9233bc266496c84417a07e32a149f",
-            "sha512": "3b554f21a28c61768a1b2300c4b6e56069cf8304e32e6cf0df6505ec9dbfcd193635c769408dfe2602dcb2f7a90eed9ddc5a31681b38d9c8a5332e6855e57b94",
-            "size": 107055464,
-            "upstream_version": "v1.13.6",
-            "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.13.6/obsidian_1.13.6_amd64.deb"
+            "filename": "obsidian_1.13.7_amd64.deb",
+            "md5": "d9a1ef3fa1356934b990b0d1b1c6da10",
+            "sha1": "770cf7dca77a77b509fd0222e3915e8340cc5bb3",
+            "sha256": "17dc33b49cb3e785ecc27edd2ea0c79e40207798b554fd2886e36ebee7af9ae0",
+            "sha512": "4de799d9acf236611e01ba5101d3ca71708b7f4ef8ac820575813656eacf3f7e10440146f569c13c9d54775a9de16f1d5eba6a26ba7b1a4de7b88d36fa740d04",
+            "size": 107021628,
+            "upstream_version": "v1.13.7",
+            "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.13.7/obsidian_1.13.7_amd64.deb"
           },
-          "resolved_at": "2026-08-11T03:56:06+00:00",
+          "resolved_at": "2026-08-13T04:21:44+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1636,13 +1636,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "linuxqq_3.2.32-51802_amd64.deb",
+            "asset_name": "linuxqq_3.2.32-52194_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  QQ",
               "Homepage": "https://im.qq.com",
-              "Installed-Size": "613735",
+              "Installed-Size": "616444",
               "License": "unknown",
               "Maintainer": "Tencent <QQ-Team@tencent.com>",
               "Package": "linuxqq",
@@ -1650,30 +1650,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Tencent <QQ-Team@tencent.com>",
-              "Version": "3.2.32-51802"
+              "Version": "3.2.32-52194"
             },
-            "filename": "linuxqq_3.2.32-51802_amd64.deb",
-            "md5": "c97651b22dc477dc82a8fc36582df509",
-            "sha1": "4ac39f7ed26df1997c0c280e1f8d68e87b21616f",
-            "sha256": "81ae2b8542ef5311fc72ecf53c9a523923c834569c7b0da52e0bf4360b9cb5f9",
-            "sha512": "5a397574b333671f65395e4dcbe4fa829a0cb1a3e94569daeac15582c1f17d8e1ecbfea271b66a3c303ed73228eec12dc3f9962f51826b924896c31b05c08e9e",
-            "size": 184998970,
-            "upstream_version": "3.2.32_51802",
-            "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.33/beta/c97651b2/linuxqq_3.2.32-51802_amd64.deb"
+            "filename": "linuxqq_3.2.32-52194_amd64.deb",
+            "md5": "3f89efc538755c0e3c8f5acc46b06dbc",
+            "sha1": "e6d52157c2c369a341e8d23c2f118240826413d4",
+            "sha256": "d085dd89397225061eb9f194308f688129818ed445777e97a4a0a16e13d7b0e8",
+            "sha512": "67ed23ebc802d6b2c8f409316eea2e880a71e8ffdaf09bd3d2ac9aeb2dd57efa48ada919e82594948122fa72664512e038665a21ce0b9063e97baeb504deeb9c",
+            "size": 185828040,
+            "upstream_version": "3.2.32_52194",
+            "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.33/beta/3f89efc5/linuxqq_3.2.32-52194_amd64.deb"
           },
-          "resolved_at": "2026-07-31T05:47:28+00:00",
+          "resolved_at": "2026-08-13T04:22:47+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "linuxqq_3.2.32-51802_arm64.deb",
+            "asset_name": "linuxqq_3.2.32-52194_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  QQ",
               "Homepage": "https://im.qq.com",
-              "Installed-Size": "645886",
+              "Installed-Size": "648543",
               "License": "unknown",
               "Maintainer": "Tencent <QQ-Team@tencent.com>",
               "Package": "linuxqq",
@@ -1681,18 +1681,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Tencent <QQ-Team@tencent.com>",
-              "Version": "3.2.32-51802"
+              "Version": "3.2.32-52194"
             },
-            "filename": "linuxqq_3.2.32-51802_arm64.deb",
-            "md5": "86b5e0006984ef2d61b914c53d7edbee",
-            "sha1": "f3f683feda7677d542f4d77f85579f51ce96025a",
-            "sha256": "ecc02e27b0ae55aba721f0671d44a919c26643456674a1857a2d0cde806e0d7e",
-            "sha512": "7c9b201afeef11846e4a7b10332d6a81c786b8c28957d102ebdd1d20d998c83b72e15348832ca97ec10bd183e0881ab9911ec8122f9bdc4ca98a61316e44d512",
-            "size": 204707692,
-            "upstream_version": "3.2.32_51802",
-            "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.33/beta/c97651b2/linuxqq_3.2.32-51802_arm64.deb"
+            "filename": "linuxqq_3.2.32-52194_arm64.deb",
+            "md5": "b0ed6a2019a82aa5335659bbbc10043e",
+            "sha1": "74f35198fcfcaacef33edc10c6cc2f2ae67214f6",
+            "sha256": "8796ccfd66acc025ef18db37185532d40bc8c58921e17da6d28c295acbcf8f92",
+            "sha512": "0a26b68711ae0055e1dbb8414663be72638f07f3a471cef1cfb5e79d1ced2b09bc15337c12235450c8b3453fd7ef43ae4c03078c8f319a835d1f707dfdc96c28",
+            "size": 205524324,
+            "upstream_version": "3.2.32_52194",
+            "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.33/beta/3f89efc5/linuxqq_3.2.32-52194_arm64.deb"
           },
-          "resolved_at": "2026-07-31T05:48:36+00:00",
+          "resolved_at": "2026-08-13T04:23:56+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -2000,14 +2000,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "code_1.132.1_amd64.deb",
+            "asset_name": "code_1.133.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "1053717",
+              "Installed-Size": "1047712",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2015,31 +2015,31 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.132.1-1786128105"
+              "Version": "1.133.0-1786487972"
             },
-            "filename": "code_1.132.1_amd64.deb",
-            "md5": "40c1a3c9295e3c5ce245495f5f9c0227",
-            "sha1": "53195b84a59708ca6bf1f2cee58ebd5296882e64",
-            "sha256": "da17f465d8c33add5affe157a2c0a0b8a2c0af11b63804d055b853be04ddbfc9",
-            "sha512": "6759dbb13174137bf6072257d713d27444f9712dee31fffaba7afc83cd4e6058383387fae9a7706486d833485ebc5f21aa36ce0308172b1c5fdf6f5dba6cd066",
-            "size": 242585258,
-            "upstream_version": "1.132.1",
-            "url": "https://update.code.visualstudio.com/1.132.1/linux-deb-x64/stable"
+            "filename": "code_1.133.0_amd64.deb",
+            "md5": "2bba9db88877bd3a0c785a3f5b8f6ca2",
+            "sha1": "7caa165493fd5ac96faf502675f65d381bf1309d",
+            "sha256": "d064e87e22f556b8a91e1354b5227e340597324e52886dbb288551596b00e34a",
+            "sha512": "79c206941fea5bdc69c70e1537964bb5dccca96ddac5db68d8e4ff88b6c28d98cb83ea37f203074fc6e6b27e40840e0caf41a6b63926d2f434ecc04ddfb65ee7",
+            "size": 239359310,
+            "upstream_version": "1.133.0",
+            "url": "https://update.code.visualstudio.com/1.133.0/linux-deb-x64/stable"
           },
-          "resolved_at": "2026-08-12T04:18:59+00:00",
+          "resolved_at": "2026-08-13T04:21:52+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "code_1.132.1_arm64.deb",
+            "asset_name": "code_1.133.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.17), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libstdc++6 (>= 4.1.1), libstdc++6 (>= 5), libstdc++6 (>= 5.2), libstdc++6 (>= 6), libstdc++6 (>= 9), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "996051",
+              "Installed-Size": "989750",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2047,18 +2047,18 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.132.1-1786127647"
+              "Version": "1.133.0-1786487973"
             },
-            "filename": "code_1.132.1_arm64.deb",
-            "md5": "7506b2acb53f61d428f271b07707a51d",
-            "sha1": "b9566d00da6d940871ccc490d3d6651caf523ee4",
-            "sha256": "cb4b5a0732eb85f8764933616ffdae922c9d160647b427f9409a5686ecc4a6bd",
-            "sha512": "7d7299ed77644b10566ceeb67786a7badb80b43a9d703b1e4dbfdc5862b3223c17ede785e2dd4595796e09fff49ed0cd142ee208f9e8efadfa7511f820b8a37e",
-            "size": 222031326,
-            "upstream_version": "1.132.1",
-            "url": "https://update.code.visualstudio.com/1.132.1/linux-deb-arm64/stable"
+            "filename": "code_1.133.0_arm64.deb",
+            "md5": "d961b95be69ecf788cd7398a8a85a38a",
+            "sha1": "3757ee61718f650ab994bb22d3246b4993acc417",
+            "sha256": "b20bfb21c5b3656e3411391c5c18df1782aedd7cd3bda0b9c08363ea261fca4b",
+            "sha512": "557c2edb071bedefc9fcd543fcf5504118146d6d621f7a612ff425c1bdfea06545f803386c0d39c8a35e358845b5b149cb2fda6cd3557f5a9fefa7cc3b31fe62",
+            "size": 219321654,
+            "upstream_version": "1.133.0",
+            "url": "https://update.code.visualstudio.com/1.133.0/linux-deb-arm64/stable"
           },
-          "resolved_at": "2026-08-12T04:19:12+00:00",
+          "resolved_at": "2026-08-13T04:22:00+00:00",
           "source": "aur",
           "update_policy": "track"
         }
