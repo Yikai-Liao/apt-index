@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T04:23:56+00:00",
+  "generated_at": "2026-08-14T04:19:23+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -131,59 +131,59 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "bottom_0.14.7-1_amd64.deb",
+            "asset_name": "bottom_0.14.8-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "btm",
               "Depends": "libc6 (>= 2.34)",
               "Description": "A customizable cross-platform graphical process/system monitor for the\n terminal. Supports Linux, macOS, and Windows.\n .\n By default, bottom will look for a config file in ~/.config/bottom/bottom.toml.\n A config file can be specified using `-C`. If a config file does not exist at\n the specified or default location, a default one will be created for the user\n there.",
               "Homepage": "https://bottom.pages.dev/stable",
-              "Installed-Size": "5023",
+              "Installed-Size": "5036",
               "Maintainer": "Clement Tsang <cjhtsang@uwaterloo.ca>",
               "Package": "bottom",
               "Priority": "optional",
               "Section": "utility",
-              "Version": "0.14.7-1"
+              "Version": "0.14.8-1"
             },
-            "filename": "bottom_0.14.7-1_amd64.deb",
-            "md5": "4a5b0ab7913db67b5d81dfaa1a1bf727",
-            "sha1": "8a2c6b319456572158093beb67730e304bbfe67c",
-            "sha256": "ef03bba46f4408554c96ef3355fa19dd94ca2a03e02d9d36eb8a96312e93b780",
-            "sha512": "d033f889aa74277ae3eaabc4b80af73d272db5b30414f45b0661f17e89bc85a286e35f73af660a78f749a69874dd3bbb80f53481801a99a920deeb082893b4b0",
-            "size": 1502120,
-            "upstream_version": "0.14.7",
-            "url": "https://github.com/ClementTsang/bottom/releases/download/0.14.7/bottom_0.14.7-1_amd64.deb"
+            "filename": "bottom_0.14.8-1_amd64.deb",
+            "md5": "220e4dd44d0f507d5edd4c0cb625856c",
+            "sha1": "00dfdb8e04fb9c723e8b29070b480da1983344d9",
+            "sha256": "c5c454894176ec6943df523b2a81e21188dd3a3e7076fdaf4d61fdfe6264d635",
+            "sha512": "9b2b905efa56bc514ccfcd36ca97689936337de36b8f07a558cec4ed6c97b95575601c540b0039708804964748830feab85861535aa6cb5ca14f45e6cd592db0",
+            "size": 1506972,
+            "upstream_version": "0.14.8",
+            "url": "https://github.com/ClementTsang/bottom/releases/download/0.14.8/bottom_0.14.8-1_amd64.deb"
           },
-          "resolved_at": "2026-07-28T05:25:59+00:00",
+          "resolved_at": "2026-08-14T04:19:04+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "bottom_0.14.7-1_arm64.deb",
+            "asset_name": "bottom_0.14.8-1_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "btm",
               "Depends": "libc6 (>= 2.34)",
               "Description": "A customizable cross-platform graphical process/system monitor for the\n terminal. Supports Linux, macOS, and Windows.\n .\n By default, bottom will look for a config file in ~/.config/bottom/bottom.toml.\n A config file can be specified using `-C`. If a config file does not exist at\n the specified or default location, a default one will be created for the user\n there.",
               "Homepage": "https://bottom.pages.dev/stable",
-              "Installed-Size": "4356",
+              "Installed-Size": "4368",
               "Maintainer": "Clement Tsang <cjhtsang@uwaterloo.ca>",
               "Package": "bottom",
               "Priority": "optional",
               "Section": "utility",
-              "Version": "0.14.7-1"
+              "Version": "0.14.8-1"
             },
-            "filename": "bottom_0.14.7-1_arm64.deb",
-            "md5": "ee6d06de3610db21ee5a89ae5e1f9a25",
-            "sha1": "8684bd4fc3e89246081c3361156132c353f3c0cb",
-            "sha256": "3c8e014a71b6f367939c8e63746d8757acef55083d4de35df48bdef13d600d80",
-            "sha512": "868741ef3719cdfdee11833e075cef60b5fa4da8aa9f9c161765e7ad64cb560b0b08b961cdf29c6e1df2fbf725ccf318afbfc9c0329c008ca04b530b7f7abbe4",
-            "size": 1288904,
-            "upstream_version": "0.14.7",
-            "url": "https://github.com/ClementTsang/bottom/releases/download/0.14.7/bottom_0.14.7-1_arm64.deb"
+            "filename": "bottom_0.14.8-1_arm64.deb",
+            "md5": "d7764cd87524887d7da918e3ecf4688b",
+            "sha1": "dc14adf6aa1edefc6015e089caa0f4185a6e3739",
+            "sha256": "511c07cdc6d19a09abc5cba90fef85f7e3d840b2da21488906694f9544020a3c",
+            "sha512": "987bc3c5310852ecf212f2f39da4bf63af10c9f060a759766e9ecd96d943ff90d68e9c3e7ff3436835f5e875c4591017e6e4f6fec056cab527d01d24d13c4a1e",
+            "size": 1292324,
+            "upstream_version": "0.14.8",
+            "url": "https://github.com/ClementTsang/bottom/releases/download/0.14.8/bottom_0.14.8-1_arm64.deb"
           },
-          "resolved_at": "2026-07-28T05:25:59+00:00",
+          "resolved_at": "2026-08-14T04:19:04+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -301,25 +301,25 @@
               "Architecture": "amd64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "38358",
+              "Installed-Size": "38865",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.7.3"
+              "Version": "2026.8.1"
             },
             "filename": "cloudflared-linux-amd64.deb",
-            "md5": "8a8de6cf1a26b13bd862ee5c4b75dcb0",
-            "sha1": "76d35bf27d3114f9e02ff7707b0b684806532b01",
-            "sha256": "049777d30f9bf93da6df8bbe31383460eb2aa51a832c6551824d56f9fcc55974",
-            "sha512": "a0b34344761eef6762481d33b4c058dc8c84183fbfb85450fa188747e8f296766d7fff5a291d96606dcd4b1af05fb0f03511bdc7f41790d6502fcc84de9c8a74",
-            "size": 18898372,
-            "upstream_version": "2026.7.3",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.7.3/cloudflared-linux-amd64.deb"
+            "md5": "bbc8ac8a420e584bda946a92d78b8bcc",
+            "sha1": "0adfde07566113ffd84b418bec77f8367d19a473",
+            "sha256": "e430a257d74d60a80b870ac86d4c6be0bf6d4766f2a72461a6056afce9d8a140",
+            "sha512": "c425610fe4d8b945aa1103b6f7bd15148368cce5290070c875e1533b52722466c474c1819fc476d06ff6096db2aa9fa56eb53cf30c964a9c515d8af61a759382",
+            "size": 19146316,
+            "upstream_version": "2026.8.1",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.8.1/cloudflared-linux-amd64.deb"
           },
-          "resolved_at": "2026-07-24T05:30:56+00:00",
+          "resolved_at": "2026-08-14T04:19:04+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -330,25 +330,25 @@
               "Architecture": "arm64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "36124",
+              "Installed-Size": "36529",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.7.3"
+              "Version": "2026.8.1"
             },
             "filename": "cloudflared-linux-arm64.deb",
-            "md5": "4d14e2f571647c620b66e24061bf9c9b",
-            "sha1": "0966356e918840cc601c165b7658d2f7807c17c5",
-            "sha256": "d3ea7d22dd337b465da33d6bc1c4b3cfd381407447a2a7d29542c19783430db3",
-            "sha512": "0b28d61a86af81a7adc413621269e3578b13f8f06755630eac984db581cde682ec66871f47feb95971c322d888fce11db5526363953f89c1ed9643127b559e5c",
-            "size": 17432092,
-            "upstream_version": "2026.7.3",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.7.3/cloudflared-linux-arm64.deb"
+            "md5": "8fbf125f7ff639e8f82eed99903d424c",
+            "sha1": "18f73c16da3ab8912a5e16d25e461d26c40c8498",
+            "sha256": "ee3fe95ac038c70dc0bbe4823667a2794422fa30c6068520537dc2fe3d7ce282",
+            "sha512": "501280b66735a2a07ae01b79b6ae6670786fa9f141d1d9c4dd5b19bb56d359bdb3e070d7b3b1bb82cf8ccd53611e046a8747454a3d65a43165da32a95e4c0c1b",
+            "size": 17663144,
+            "upstream_version": "2026.8.1",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.8.1/cloudflared-linux-arm64.deb"
           },
-          "resolved_at": "2026-07-24T05:30:56+00:00",
+          "resolved_at": "2026-08-14T04:19:05+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.15.19_amd64.deb",
+            "asset_name": "cursor_3.16.13_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.14), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "960414",
+              "Installed-Size": "1036207",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.15.19-1786428592"
+              "Version": "3.16.13-1786592202"
             },
-            "filename": "cursor_3.15.19_amd64.deb",
-            "md5": "f48f96786c99793ea0c5fbef92e7b8a2",
-            "sha1": "4cf4535aa2033adc577f479f3016383583dabaf4",
-            "sha256": "f72c0a7f9f10d21d3bda06a88a91c286986f88662bf64183da8562a0a6c31492",
-            "sha512": "77d98fdafef453c9b2e872929d1764b735dcdda71564bbd42a8ca2e2e97a4a6208dcdd5dad7725a880ce2abff2a210a542d876869b9f03783a9861ee9bf28d2b",
-            "size": 207609040,
-            "upstream_version": "3.15.19",
-            "url": "https://downloads.cursor.com/production/de07bee81cefe43461ebf4f40c3d2d78d15052aa/linux/x64/deb/amd64/deb/cursor_3.15.19_amd64.deb"
+            "filename": "cursor_3.16.13_amd64.deb",
+            "md5": "a50ee12fc468186b4147684102c0023d",
+            "sha1": "18e374ecd8615c30ccc35f6d68631d6840ebc1c8",
+            "sha256": "a376759a71247110f03417df1b5afd0d8a71adc26bfd868e9c36cd6e2571354b",
+            "sha512": "e8776e3d8679e87c228d0af2652c69d804f185eca4ca1732612b242d31dce48904891c1f3112dae001d17009cb32bea85a40ab8c188d252d971360be5bb9d33a",
+            "size": 218384176,
+            "upstream_version": "3.16.13",
+            "url": "https://downloads.cursor.com/production/ea1aa2c63ff7f41a377f250d1c8fd7dd2230e283/linux/x64/deb/amd64/deb/cursor_3.16.13_amd64.deb"
           },
-          "resolved_at": "2026-08-12T04:18:44+00:00",
+          "resolved_at": "2026-08-14T04:19:13+00:00",
           "source": "aur",
           "update_policy": "track"
         }
