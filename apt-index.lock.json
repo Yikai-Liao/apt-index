@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14T04:19:23+00:00",
+  "generated_at": "2026-08-15T03:06:50+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -64,13 +64,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_6.0.0_amd64.deb",
+            "asset_name": "beekeeper-studio_6.0.1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "972881",
+              "Installed-Size": "971176",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -78,30 +78,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "6.0.0"
+              "Version": "6.0.1"
             },
-            "filename": "beekeeper-studio_6.0.0_amd64.deb",
-            "md5": "7e4e929d9d421c37d94110b2fd70971f",
-            "sha1": "d39caa7fc48b68adc606674887a7020cbc069111",
-            "sha256": "9934b97a5cf9e006db605e80b4f69e66f6d1ef2b01e9aea2bbe95b693af0bf99",
-            "sha512": "ac86d69469a73b7857010e9f298e2a79fabe707f7f88c97148a94272adfa66fe40ad8ec4190235a445b14f42b7186ec80c6cf8b105d31f6cc616263556e4642a",
-            "size": 207110488,
-            "upstream_version": "v6.0.0",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.0.0/beekeeper-studio_6.0.0_amd64.deb"
+            "filename": "beekeeper-studio_6.0.1_amd64.deb",
+            "md5": "7d46e329b7df8172963f12b304e4df7d",
+            "sha1": "9fbbe56e373b865de0632a5977ab82297370d3f3",
+            "sha256": "09a4cf3743b2087636c63d239a5f4ed147434a152d98932c5526734901681482",
+            "sha512": "4bda35b2118030d7668b1a140ddf2d0074559f98d621d3d9af4a15c91cc1ef68f0954139626035953e5426691d0fee03ac1a2fdccce6cad448b757df76262a35",
+            "size": 206364028,
+            "upstream_version": "v6.0.1",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.0.1/beekeeper-studio_6.0.1_amd64.deb"
           },
-          "resolved_at": "2026-08-12T04:18:39+00:00",
+          "resolved_at": "2026-08-15T03:06:33+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_6.0.0_arm64.deb",
+            "asset_name": "beekeeper-studio_6.0.1_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "965779",
+              "Installed-Size": "964085",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -109,18 +109,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "6.0.0"
+              "Version": "6.0.1"
             },
-            "filename": "beekeeper-studio_6.0.0_arm64.deb",
-            "md5": "7a5a76524ec5d5725260939ce145113f",
-            "sha1": "a2a4905554864326e75b18317fc2613a84b770ef",
-            "sha256": "292cfad28491e54715339a7cb3046a0426649c6a1beff30432d008d9498dd90d",
-            "sha512": "80949c2791c1a043f55b6701a2369078ad278f73ebc7fe7691a6d98a4aa12eaf50fac9dbc35400b68a48c430aaf4b2c352d5de044491eeeb972da4f64af811a3",
-            "size": 198296816,
-            "upstream_version": "v6.0.0",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.0.0/beekeeper-studio_6.0.0_arm64.deb"
+            "filename": "beekeeper-studio_6.0.1_arm64.deb",
+            "md5": "51e3d896f4a3b66b411cd87fa4b7960b",
+            "sha1": "4db39a1c4a0cc9e779e9ae085d0042051acaa3e4",
+            "sha256": "1a73ff7c10708c0cb33901278b5d30357992cf5499e2dac247632d4349299c72",
+            "sha512": "257746881ce2a5cc034d8e2e9ec706290914a34a5d49df6c6eea6a1b8515eb71e0ab9f908035e5796fb55a14875a99278a3b0e92f90305a980b5ccbcde643372",
+            "size": 197044556,
+            "upstream_version": "v6.0.1",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.0.1/beekeeper-studio_6.0.1_arm64.deb"
           },
-          "resolved_at": "2026-08-12T04:18:45+00:00",
+          "resolved_at": "2026-08-15T03:06:36+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -301,25 +301,25 @@
               "Architecture": "amd64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "38865",
+              "Installed-Size": "38867",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.8.1"
+              "Version": "2026.8.2"
             },
             "filename": "cloudflared-linux-amd64.deb",
-            "md5": "bbc8ac8a420e584bda946a92d78b8bcc",
-            "sha1": "0adfde07566113ffd84b418bec77f8367d19a473",
-            "sha256": "e430a257d74d60a80b870ac86d4c6be0bf6d4766f2a72461a6056afce9d8a140",
-            "sha512": "c425610fe4d8b945aa1103b6f7bd15148368cce5290070c875e1533b52722466c474c1819fc476d06ff6096db2aa9fa56eb53cf30c964a9c515d8af61a759382",
-            "size": 19146316,
-            "upstream_version": "2026.8.1",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.8.1/cloudflared-linux-amd64.deb"
+            "md5": "bd0e9f17ebf6ff28ee8e643b87cb7400",
+            "sha1": "b9254644352266ffccc825baeb1c887d17df3bd2",
+            "sha256": "c805c7c8102190c04dfc16e3b4cc4acc9007d5b19b3afbcd608ea6fed7645a43",
+            "sha512": "18131ce535760549b191720a3e091b1368f4329ddcc3d0463520e6a4107b4cad902b41dd6c7789aad717659fe71406a500b017b1af2eec820af0ffe45a6cb4af",
+            "size": 19146390,
+            "upstream_version": "2026.8.2",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.8.2/cloudflared-linux-amd64.deb"
           },
-          "resolved_at": "2026-08-14T04:19:04+00:00",
+          "resolved_at": "2026-08-15T03:06:31+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -330,25 +330,25 @@
               "Architecture": "arm64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "36529",
+              "Installed-Size": "36528",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.8.1"
+              "Version": "2026.8.2"
             },
             "filename": "cloudflared-linux-arm64.deb",
-            "md5": "8fbf125f7ff639e8f82eed99903d424c",
-            "sha1": "18f73c16da3ab8912a5e16d25e461d26c40c8498",
-            "sha256": "ee3fe95ac038c70dc0bbe4823667a2794422fa30c6068520537dc2fe3d7ce282",
-            "sha512": "501280b66735a2a07ae01b79b6ae6670786fa9f141d1d9c4dd5b19bb56d359bdb3e070d7b3b1bb82cf8ccd53611e046a8747454a3d65a43165da32a95e4c0c1b",
-            "size": 17663144,
-            "upstream_version": "2026.8.1",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.8.1/cloudflared-linux-arm64.deb"
+            "md5": "846897567094a60ca09b97511afaa88b",
+            "sha1": "e826b4ca7d9bb63e8478c3c6f6dffa5e4db0398d",
+            "sha256": "096739c69f62cace40b144f0e6c81e61333f3d320ce07a265c7b17b5e925731c",
+            "sha512": "9d7a42074e2f5f75d363895ad26c6a10b9c456401619d21c1a1dcfd906613651bb1fe48e92b889a34f44485ecf4241b3933ec723ccce6c9d33412a4f4e55e24b",
+            "size": 17661398,
+            "upstream_version": "2026.8.2",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.8.2/cloudflared-linux-arm64.deb"
           },
-          "resolved_at": "2026-08-14T04:19:05+00:00",
+          "resolved_at": "2026-08-15T03:06:31+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.16.13_amd64.deb",
+            "asset_name": "cursor_3.16.17_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.14), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "1036207",
+              "Installed-Size": "1036329",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.16.13-1786592202"
+              "Version": "3.16.17-1786674287"
             },
-            "filename": "cursor_3.16.13_amd64.deb",
-            "md5": "a50ee12fc468186b4147684102c0023d",
-            "sha1": "18e374ecd8615c30ccc35f6d68631d6840ebc1c8",
-            "sha256": "a376759a71247110f03417df1b5afd0d8a71adc26bfd868e9c36cd6e2571354b",
-            "sha512": "e8776e3d8679e87c228d0af2652c69d804f185eca4ca1732612b242d31dce48904891c1f3112dae001d17009cb32bea85a40ab8c188d252d971360be5bb9d33a",
-            "size": 218384176,
-            "upstream_version": "3.16.13",
-            "url": "https://downloads.cursor.com/production/ea1aa2c63ff7f41a377f250d1c8fd7dd2230e283/linux/x64/deb/amd64/deb/cursor_3.16.13_amd64.deb"
+            "filename": "cursor_3.16.17_amd64.deb",
+            "md5": "3256becb7685c9cf5aebb28ab970c176",
+            "sha1": "a8d58d4aab07841986f6fed0a7721a52acfb79f7",
+            "sha256": "89068d0db65a8b9bbd723470c261573ab1dd6011ee699ab9ac1c587bc74e9b96",
+            "sha512": "d33b0269fa8ff4ac8780c1119024a84ca37cc884653aa0ae5e7f51f871ca0d85a52afa7faea441c09fd3e2695a52626521917b3dfc2f2477ac73db4563297735",
+            "size": 218417452,
+            "upstream_version": "3.16.17",
+            "url": "https://downloads.cursor.com/production/6b2afae0257df2bb5e1835f15165dc2f0de056b2/linux/x64/deb/amd64/deb/cursor_3.16.17_amd64.deb"
           },
-          "resolved_at": "2026-08-14T04:19:13+00:00",
+          "resolved_at": "2026-08-15T03:06:36+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -597,23 +597,23 @@
               "Depends": "libc6 (>= 2.35)",
               "Description": "Fast neofetch-like system information tool\n fastfetch is a neofetch-like tool for fetching system information and displaying them in a pretty way. It is written mostly in C to achieve much better performance.",
               "Homepage": "https://github.com/fastfetch-cli/fastfetch",
-              "Installed-Size": "16783",
+              "Installed-Size": "16788",
               "Maintainer": "Carter Li <zhangsongcui@live.cn>",
               "Package": "fastfetch",
               "Priority": "optional",
               "Section": "devel",
-              "Version": "2.67.0"
+              "Version": "2.67.1"
             },
             "filename": "fastfetch-linux-amd64.deb",
-            "md5": "13c94ece42d1e022fcfb2e1dccdab1d6",
-            "sha1": "10e9c8adb8d0b1457e0e84c541bd8db0d7c10688",
-            "sha256": "d27b68638d49ae109294b47e7328b7868f5c5568e9cd2be83514eb0d674c863e",
-            "sha512": "6d0e5505da512dd2e4c7940c66a6441b7a12521e729eb8d325fc8c6d97dc80f09359e1935399490f3b0c3f283b62c22a2770c0636a2ebd2aa688cdf911e0c474",
-            "size": 6176110,
-            "upstream_version": "2.67.0",
-            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.67.0/fastfetch-linux-amd64.deb"
+            "md5": "a5d55117fca822ec2a989fe046c78dce",
+            "sha1": "8a868dcf2b4a6a3db0310d19c31c55968a09e6b8",
+            "sha256": "41fcc5f96ce952ce4147a7ba7ad70ddd319d15f88b7691fe615045d5adb329d8",
+            "sha512": "7f306bec5d2ae5f4d6e2617383b71f5385e40f8960f6d84d9bcdf9847514215dc9d8b9107b357f94a674a601642b2ebfe73babf66b950e86e31b1455d8853410",
+            "size": 6177506,
+            "upstream_version": "2.67.1",
+            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.67.1/fastfetch-linux-amd64.deb"
           },
-          "resolved_at": "2026-08-07T04:33:20+00:00",
+          "resolved_at": "2026-08-15T03:06:34+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -625,23 +625,23 @@
               "Depends": "libc6 (>= 2.35)",
               "Description": "Fast neofetch-like system information tool\n fastfetch is a neofetch-like tool for fetching system information and displaying them in a pretty way. It is written mostly in C to achieve much better performance.",
               "Homepage": "https://github.com/fastfetch-cli/fastfetch",
-              "Installed-Size": "16787",
+              "Installed-Size": "16788",
               "Maintainer": "Carter Li <zhangsongcui@live.cn>",
               "Package": "fastfetch",
               "Priority": "optional",
               "Section": "devel",
-              "Version": "2.67.0"
+              "Version": "2.67.1"
             },
-            "filename": "fastfetch_2.67.0_arm64.deb",
-            "md5": "ddbf941615a8a106e8205943e6c0f3bb",
-            "sha1": "629aadfc69b387f9f9679f8c0da1a3e9392746c4",
-            "sha256": "1a7532c7bc6b6faf04e61d04025fbcc2b89c6906772c983f5f3b8497aaaab155",
-            "sha512": "9b14eb38dd3c78cd387f96b5b92ce0ede62ca6caa162fec873c41de3478982935a45354819a1117460632a2d17b036c852ccb6600607b948cef62f4b3a8fbe30",
-            "size": 6049904,
-            "upstream_version": "2.67.0",
-            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.67.0/fastfetch-linux-aarch64.deb"
+            "filename": "fastfetch_2.67.1_arm64.deb",
+            "md5": "2983e4ca525bf1f632f1c3c58272e649",
+            "sha1": "475a706feefa0153304133bcdb0496567df1bf89",
+            "sha256": "70bd6d802358ea91afb78e32b7dfe186d801e64275f7b4674d02c3cb3656d538",
+            "sha512": "c6e6e5e76210849780fc058829a401800da8e896a6d184f4241f81ec5e82dbda4fbf0fa9feebb9247d0ee19467b9fcd8e1cef0c56d1788544efae44ea0931925",
+            "size": 6050376,
+            "upstream_version": "2.67.1",
+            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.67.1/fastfetch-linux-aarch64.deb"
           },
-          "resolved_at": "2026-08-07T04:33:21+00:00",
+          "resolved_at": "2026-08-15T03:06:34+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -843,10 +843,10 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "FlClash-0.8.94-linux-amd64.deb",
+            "asset_name": "FlClash-0.8.95-linux-amd64.deb",
             "control": {
               "Architecture": "amd64",
-              "Depends": "libayatana-appindicator3-dev, libkeybinder-3.0-dev",
+              "Depends": "libayatana-appindicator3-dev, libkeybinder-3.0-dev, libsecret-1-0",
               "Description": "A multi-platform proxy client based on ClashMeta, simple and easy to use, open-source and ad-free.",
               "Essential": "no",
               "Installed-Size": "6604",
@@ -854,27 +854,27 @@
               "Package": "FlClash",
               "Priority": "optional",
               "Section": "x11",
-              "Version": "0.8.94+2026071102"
+              "Version": "0.8.95+2026081401"
             },
-            "filename": "FlClash-0.8.94-linux-amd64.deb",
-            "md5": "c825c475a436c63dbdb79a281119985a",
-            "sha1": "850f918a109e2c1df64e507877b58b1424a4a01d",
-            "sha256": "e3d7ad04d6918cbe40d69a146c214ab3674cfb8ce4494d6ab5ae5d8105fea643",
-            "sha512": "6fe06552f12f7b30c730a088312a7fae74b583353c17335f02d220e97ed3ee0ea3a9e6084321959dd347bbb3a3dc208ae3cb6be32245592ea565ed9562a808b9",
-            "size": 41930074,
-            "upstream_version": "v0.8.94",
-            "url": "https://github.com/chen08209/FlClash/releases/download/v0.8.94/FlClash-0.8.94-linux-amd64.deb"
+            "filename": "FlClash-0.8.95-linux-amd64.deb",
+            "md5": "cbc073fe0c95405c196f90a505e164e3",
+            "sha1": "0a754d8b2a682d60fc3cd88e50518dfbfa0f8bdc",
+            "sha256": "f81b3e31e525588e9970dc783191780889a2f47debda96f628cb22a5d4543ee2",
+            "sha512": "5b90fb27a43d020c67b35b14e20ae77f7c282288d150669c133ba660fcf0597295a0bb206a519e67ed9393c6bd475156886c57497f67f12c7d69cea91e96e96f",
+            "size": 42087442,
+            "upstream_version": "v0.8.95",
+            "url": "https://github.com/chen08209/FlClash/releases/download/v0.8.95/FlClash-0.8.95-linux-amd64.deb"
           },
-          "resolved_at": "2026-07-12T05:39:14+00:00",
+          "resolved_at": "2026-08-15T03:06:35+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "FlClash-0.8.94-linux-arm64.deb",
+            "asset_name": "FlClash-0.8.95-linux-arm64.deb",
             "control": {
               "Architecture": "arm64",
-              "Depends": "libayatana-appindicator3-dev, libkeybinder-3.0-dev",
+              "Depends": "libayatana-appindicator3-dev, libkeybinder-3.0-dev, libsecret-1-0",
               "Description": "A multi-platform proxy client based on ClashMeta, simple and easy to use, open-source and ad-free.",
               "Essential": "no",
               "Installed-Size": "6604",
@@ -882,18 +882,18 @@
               "Package": "FlClash",
               "Priority": "optional",
               "Section": "x11",
-              "Version": "0.8.94+2026071102"
+              "Version": "0.8.95+2026081401"
             },
-            "filename": "FlClash-0.8.94-linux-arm64.deb",
-            "md5": "db9c44d32eda2d17162be895b87f1a40",
-            "sha1": "4f7e16f27354838dffe9826a2e021e432e876dac",
-            "sha256": "d48739dfb7f2f78498d93491a2f979e3e3584922d8abeff65777a6c61e0821fc",
-            "sha512": "67ebb9e36c5f4a93dc317a36ec50b68b48f8c675cc64c0ee06b7c20edc71663a696cdb04890b1ad8255c3fcf44e433df262da3a0893b9bd78d399a25661aa160",
-            "size": 39151456,
-            "upstream_version": "v0.8.94",
-            "url": "https://github.com/chen08209/FlClash/releases/download/v0.8.94/FlClash-0.8.94-linux-arm64.deb"
+            "filename": "FlClash-0.8.95-linux-arm64.deb",
+            "md5": "4e462a2d793752307f1789e2f3d7c3de",
+            "sha1": "66b798f065fd14e14b6bf85dd5dcb76495baf0f6",
+            "sha256": "af302b1a06a3209fab1ae0f7d8c1eba72f208800707dd5b4d64e79502a382bf1",
+            "sha512": "6bb1ce43aab974e966c5bbe945d21851175eb86ec48aa2f14ef83a8880c015589e97dc20d848092055dba6e075a683c92182d710f6b0902da8a150fa8e4f35b9",
+            "size": 39029856,
+            "upstream_version": "v0.8.95",
+            "url": "https://github.com/chen08209/FlClash/releases/download/v0.8.95/FlClash-0.8.95-linux-arm64.deb"
           },
-          "resolved_at": "2026-07-12T05:39:15+00:00",
+          "resolved_at": "2026-08-15T03:06:36+00:00",
           "source": "github",
           "update_policy": "track"
         }
