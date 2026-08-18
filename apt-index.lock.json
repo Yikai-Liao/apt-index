@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-16T03:14:42+00:00",
+  "generated_at": "2026-08-18T03:10:29+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -843,7 +843,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "FlClash-0.8.95-linux-amd64.deb",
+            "asset_name": "FlClash-0.8.96-linux-amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libayatana-appindicator3-dev, libkeybinder-3.0-dev, libsecret-1-0",
@@ -854,24 +854,24 @@
               "Package": "FlClash",
               "Priority": "optional",
               "Section": "x11",
-              "Version": "0.8.95+2026081401"
+              "Version": "0.8.96+2026081701"
             },
-            "filename": "FlClash-0.8.95-linux-amd64.deb",
-            "md5": "cbc073fe0c95405c196f90a505e164e3",
-            "sha1": "0a754d8b2a682d60fc3cd88e50518dfbfa0f8bdc",
-            "sha256": "f81b3e31e525588e9970dc783191780889a2f47debda96f628cb22a5d4543ee2",
-            "sha512": "5b90fb27a43d020c67b35b14e20ae77f7c282288d150669c133ba660fcf0597295a0bb206a519e67ed9393c6bd475156886c57497f67f12c7d69cea91e96e96f",
-            "size": 42087442,
-            "upstream_version": "v0.8.95",
-            "url": "https://github.com/chen08209/FlClash/releases/download/v0.8.95/FlClash-0.8.95-linux-amd64.deb"
+            "filename": "FlClash-0.8.96-linux-amd64.deb",
+            "md5": "e3dd0952b9843e0a08f15ab040adb0a2",
+            "sha1": "d442e64e150637dadc9a8adaf1e76f4a3d5a31d8",
+            "sha256": "b24f5aa073952fabfb5b65d67f2800c824fb6a5bce8663524382dc7319d3864c",
+            "sha512": "acd00edc51385f53930068cbc8ffa35859d28f9f23e8d6592a4522df3aa97777d3bb020f92440e97e0cb8ea627b5e36e539c7715eba6a2ded7084d5d9e3ca13d",
+            "size": 42085932,
+            "upstream_version": "v0.8.96",
+            "url": "https://github.com/chen08209/FlClash/releases/download/v0.8.96/FlClash-0.8.96-linux-amd64.deb"
           },
-          "resolved_at": "2026-08-15T03:06:35+00:00",
+          "resolved_at": "2026-08-18T03:10:13+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "FlClash-0.8.95-linux-arm64.deb",
+            "asset_name": "FlClash-0.8.96-linux-arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libayatana-appindicator3-dev, libkeybinder-3.0-dev, libsecret-1-0",
@@ -882,18 +882,18 @@
               "Package": "FlClash",
               "Priority": "optional",
               "Section": "x11",
-              "Version": "0.8.95+2026081401"
+              "Version": "0.8.96+2026081701"
             },
-            "filename": "FlClash-0.8.95-linux-arm64.deb",
-            "md5": "4e462a2d793752307f1789e2f3d7c3de",
-            "sha1": "66b798f065fd14e14b6bf85dd5dcb76495baf0f6",
-            "sha256": "af302b1a06a3209fab1ae0f7d8c1eba72f208800707dd5b4d64e79502a382bf1",
-            "sha512": "6bb1ce43aab974e966c5bbe945d21851175eb86ec48aa2f14ef83a8880c015589e97dc20d848092055dba6e075a683c92182d710f6b0902da8a150fa8e4f35b9",
-            "size": 39029856,
-            "upstream_version": "v0.8.95",
-            "url": "https://github.com/chen08209/FlClash/releases/download/v0.8.95/FlClash-0.8.95-linux-arm64.deb"
+            "filename": "FlClash-0.8.96-linux-arm64.deb",
+            "md5": "6d2af654a729d1370fdbcba5050b23be",
+            "sha1": "e0d66e8950464d1ed34c662cd462ffd5ca9ce20a",
+            "sha256": "9156147ed59e6f71edfbe7a4e27e8187bfc79d43133d4aeb2f6e5fa5f76adca2",
+            "sha512": "10df427b82428e61539639301eab5be0a73893a20594ae4db879c4e8ffd0d53126b3b3df30998282e72ed886d62f429d64468603f3391cdac890bc73ac4d7c09",
+            "size": 39032818,
+            "upstream_version": "v0.8.96",
+            "url": "https://github.com/chen08209/FlClash/releases/download/v0.8.96/FlClash-0.8.96-linux-arm64.deb"
           },
-          "resolved_at": "2026-08-15T03:06:36+00:00",
+          "resolved_at": "2026-08-18T03:10:14+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1770,7 +1770,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "spotify-1.2.95.453-g0eeebbed-x86_64.deb",
+            "asset_name": "spotify-1.2.96.518-g366879e1-x86_64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libc6 (>= 2.39), libasound2, libatk-bridge2.0-0, libatomic1, libgbm1, libglib2.0-0, libgtk-3-0, libnss3, libxshmfence1, libxss1, libxtst6, xdg-utils, libayatana-appindicator3-1",
@@ -1783,18 +1783,18 @@
               "Recommends": "libavcodec61 | libavcodec60 | libavcodec58, libavformat61 | libavformat60 | libavformat58",
               "Section": "sound",
               "Suggests": "libnotify4",
-              "Version": "1:1.2.95.453.g0eeebbed"
+              "Version": "1:1.2.96.518.g366879e1"
             },
-            "filename": "spotify-client_1%3a1.2.95.453.g0eeebbed_amd64.deb",
-            "md5": "e9e7aa4f1c06b6634c041342cf4f952b",
-            "sha1": "c61d8978ad842181e230e8a23385d6c9bacd50da",
-            "sha256": "256e2eb1ec96fbc0c51afab247298e4e6eabfabbafafd4617584f44cca2fb31f",
-            "sha512": "902d9b8200d67e10a19ce5e34316ea14ed05e935fe5493c21f7a8db31b2ffc91375dd18a68734e781b815d57ac9e3aff36da79bce9ff6882a1f247542caab451",
-            "size": 171638972,
-            "upstream_version": "1.2.95.453",
-            "url": "http://repository.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.2.95.453.g0eeebbed_amd64.deb"
+            "filename": "spotify-client_1%3a1.2.96.518.g366879e1_amd64.deb",
+            "md5": "c0762da9fcfab98a77d32d08c08389a4",
+            "sha1": "ae2c91d7ac530f0c7bc43daf1875d912f9f98e41",
+            "sha256": "1a86581f53c2b0e2c406150665ea05e245b9e6b286390ea61d5d193ba617eb2f",
+            "sha512": "98d25bd748258ca8b8357313cd35c7188bb0b26ed2d4390b0208473aa9fa3491a095559762f8ba06ec0828d73e05ee8fb488f0f357340191da4c65dd1f93c519",
+            "size": 171650706,
+            "upstream_version": "1.2.96.518",
+            "url": "http://repository.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.2.96.518.g366879e1_amd64.deb"
           },
-          "resolved_at": "2026-08-12T04:18:50+00:00",
+          "resolved_at": "2026-08-18T03:10:21+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1870,13 +1870,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "teams-for-linux_2.15.0_amd64.deb",
+            "asset_name": "teams-for-linux_2.16.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Teams for Linux\n  Unofficial Microsoft Teams client for Linux using Electron. It uses the Web App and wraps it as a standalone application using Electron.",
               "Homepage": "https://github.com/IsmaelMartinez/teams-for-linux",
-              "Installed-Size": "348023",
+              "Installed-Size": "346047",
               "License": "GPL-3.0-or-later",
               "Maintainer": "Ismael Martinez <ismaelmartinez@gmail.com>",
               "Package": "teams-for-linux",
@@ -1884,30 +1884,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "net",
               "Vendor": "Ismael Martinez <ismaelmartinez@gmail.com>",
-              "Version": "2.15.0"
+              "Version": "2.16.0"
             },
-            "filename": "teams-for-linux_2.15.0_amd64.deb",
-            "md5": "b24b29238f53ccfd53cbcb3c783f399e",
-            "sha1": "e415992fa0268795990f9ec9747bef4d5b70baec",
-            "sha256": "1277cf19fb11aeb756412093fd6bd92fcaa7f7a96cec4f49e6db257ecaed5ab8",
-            "sha512": "ab1535b516e2f17f9658bc4b315211106fa97167eced56fe301a3efe42576786112db9b1dab58781306b0dfbca445cc2c701f68555e69b2bea090f1fa79ef15b",
-            "size": 113684620,
-            "upstream_version": "v2.15.0",
-            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.15.0/teams-for-linux_2.15.0_amd64.deb"
+            "filename": "teams-for-linux_2.16.0_amd64.deb",
+            "md5": "bcde515213955d27a230ed4c1ad2ae2d",
+            "sha1": "36aad03f5799335149ea4ae80b52cdf1e9672cef",
+            "sha256": "1101ebeb89fd6eefa24954c656b18f8f4e2e651ac2195ed697b6905436eb9a71",
+            "sha512": "49df07e74d8edade501c38addba56528fa44d62cb2fb9c669315580defd92175fa322526374b9ddbc1eb67b4c79df31dce371b45a3de9eb821f61a4b29af7884",
+            "size": 113016452,
+            "upstream_version": "v2.16.0",
+            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.16.0/teams-for-linux_2.16.0_amd64.deb"
           },
-          "resolved_at": "2026-08-16T03:14:34+00:00",
+          "resolved_at": "2026-08-18T03:10:18+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "teams-for-linux_2.15.0_arm64.deb",
+            "asset_name": "teams-for-linux_2.16.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Teams for Linux\n  Unofficial Microsoft Teams client for Linux using Electron. It uses the Web App and wraps it as a standalone application using Electron.",
               "Homepage": "https://github.com/IsmaelMartinez/teams-for-linux",
-              "Installed-Size": "348562",
+              "Installed-Size": "346614",
               "License": "GPL-3.0-or-later",
               "Maintainer": "Ismael Martinez <ismaelmartinez@gmail.com>",
               "Package": "teams-for-linux",
@@ -1915,18 +1915,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "net",
               "Vendor": "Ismael Martinez <ismaelmartinez@gmail.com>",
-              "Version": "2.15.0"
+              "Version": "2.16.0"
             },
-            "filename": "teams-for-linux_2.15.0_arm64.deb",
-            "md5": "fe45f5636c0e22c46c4bf58ffad52719",
-            "sha1": "dd7406b3c32debe886bb9df38f9b33b08522f513",
-            "sha256": "4bc5f2f38bbe4a81a97ad91e4055d9ffd3d78c6bffce019a460407d2461aac24",
-            "sha512": "9131504b32e166c137904b95201f3f1769db0c7e81a4838467d1267454f424bc986ec114efbbaae64cc8a1df9d8419d296de95c28103e32d8c9ad12ba297e361",
-            "size": 107579088,
-            "upstream_version": "v2.15.0",
-            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.15.0/teams-for-linux_2.15.0_arm64.deb"
+            "filename": "teams-for-linux_2.16.0_arm64.deb",
+            "md5": "123d36d467f48d5aab4b4312978b9989",
+            "sha1": "7f56e3c248696d75d2912e3ad5b9e398702ee906",
+            "sha256": "9d43d25d70c9074fd22dde626905ce68a9088502e2705f772986b529ba75e3a5",
+            "sha512": "05bb17e7b5cf7733a3062f6ce19e36f6c796903e67d20ae8e86dd02dde3650058a60560b5b025d99a67804c4ff013cccf287f73810538eee80cfa1f74bfe6890",
+            "size": 107004292,
+            "upstream_version": "v2.16.0",
+            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.16.0/teams-for-linux_2.16.0_arm64.deb"
           },
-          "resolved_at": "2026-08-16T03:14:38+00:00",
+          "resolved_at": "2026-08-18T03:10:20+00:00",
           "source": "github",
           "update_policy": "track"
         }
