@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-18T03:10:29+00:00",
+  "generated_at": "2026-08-19T03:12:44+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -64,13 +64,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_6.0.1_amd64.deb",
+            "asset_name": "beekeeper-studio_6.0.4_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "971176",
+              "Installed-Size": "971181",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -78,30 +78,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "6.0.1"
+              "Version": "6.0.4"
             },
-            "filename": "beekeeper-studio_6.0.1_amd64.deb",
-            "md5": "7d46e329b7df8172963f12b304e4df7d",
-            "sha1": "9fbbe56e373b865de0632a5977ab82297370d3f3",
-            "sha256": "09a4cf3743b2087636c63d239a5f4ed147434a152d98932c5526734901681482",
-            "sha512": "4bda35b2118030d7668b1a140ddf2d0074559f98d621d3d9af4a15c91cc1ef68f0954139626035953e5426691d0fee03ac1a2fdccce6cad448b757df76262a35",
-            "size": 206364028,
-            "upstream_version": "v6.0.1",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.0.1/beekeeper-studio_6.0.1_amd64.deb"
+            "filename": "beekeeper-studio_6.0.4_amd64.deb",
+            "md5": "5899fc93cff92dd94914df1a4e217463",
+            "sha1": "1ad0a80a77fd97890f2957cded944831ab5a325c",
+            "sha256": "b2645b2b90b1be907ff24ab75aa8c19e9236dbdca01d44c494e69d0e2f0d8ec9",
+            "sha512": "4c9e13e5c3763fafb8fb2fd247527db386746bc7a18b0fe6eb8d8f248cd5051b3f6ab676d2ca87d4a45bc6f1f54a2410c1c0284bc6c6b42b8540c6184d863727",
+            "size": 206362748,
+            "upstream_version": "v6.0.4",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.0.4/beekeeper-studio_6.0.4_amd64.deb"
           },
-          "resolved_at": "2026-08-15T03:06:33+00:00",
+          "resolved_at": "2026-08-19T03:12:25+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_6.0.1_arm64.deb",
+            "asset_name": "beekeeper-studio_6.0.4_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "964085",
+              "Installed-Size": "964090",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -109,18 +109,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "6.0.1"
+              "Version": "6.0.4"
             },
-            "filename": "beekeeper-studio_6.0.1_arm64.deb",
-            "md5": "51e3d896f4a3b66b411cd87fa4b7960b",
-            "sha1": "4db39a1c4a0cc9e779e9ae085d0042051acaa3e4",
-            "sha256": "1a73ff7c10708c0cb33901278b5d30357992cf5499e2dac247632d4349299c72",
-            "sha512": "257746881ce2a5cc034d8e2e9ec706290914a34a5d49df6c6eea6a1b8515eb71e0ab9f908035e5796fb55a14875a99278a3b0e92f90305a980b5ccbcde643372",
-            "size": 197044556,
-            "upstream_version": "v6.0.1",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.0.1/beekeeper-studio_6.0.1_arm64.deb"
+            "filename": "beekeeper-studio_6.0.4_arm64.deb",
+            "md5": "b49f57f19e02b06315271822d76c1510",
+            "sha1": "583e94c5f8151e3320d0c8b9cd43404bdc6a511f",
+            "sha256": "6cbfe80a8c8855b0b4275c17707a396bf7e5cce1ae3486642093ce1dbbfd10a4",
+            "sha512": "079199d1bd7e7633e17229829a3a845900b3d3ba91571f76fa0d320e6f972b88bb1de91dd202a257ce8ad7901adc14ce3f826100aa005f7960d1dfa940c12115",
+            "size": 197042188,
+            "upstream_version": "v6.0.4",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.0.4/beekeeper-studio_6.0.4_arm64.deb"
           },
-          "resolved_at": "2026-08-15T03:06:36+00:00",
+          "resolved_at": "2026-08-19T03:12:31+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.16.17_amd64.deb",
+            "asset_name": "cursor_3.16.29_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.14), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "1036329",
+              "Installed-Size": "1036670",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.16.17-1786674287"
+              "Version": "3.16.29-1787019013"
             },
-            "filename": "cursor_3.16.17_amd64.deb",
-            "md5": "3256becb7685c9cf5aebb28ab970c176",
-            "sha1": "a8d58d4aab07841986f6fed0a7721a52acfb79f7",
-            "sha256": "89068d0db65a8b9bbd723470c261573ab1dd6011ee699ab9ac1c587bc74e9b96",
-            "sha512": "d33b0269fa8ff4ac8780c1119024a84ca37cc884653aa0ae5e7f51f871ca0d85a52afa7faea441c09fd3e2695a52626521917b3dfc2f2477ac73db4563297735",
-            "size": 218417452,
-            "upstream_version": "3.16.17",
-            "url": "https://downloads.cursor.com/production/6b2afae0257df2bb5e1835f15165dc2f0de056b2/linux/x64/deb/amd64/deb/cursor_3.16.17_amd64.deb"
+            "filename": "cursor_3.16.29_amd64.deb",
+            "md5": "4da25810a9d2b03b372b1d260210e142",
+            "sha1": "2fb1dc81cfd6c711a8a40310195be109b2331bbf",
+            "sha256": "0e3b3bf55560121e0b4f9dfbb87059f9fd9b335ef8300f8a9d74fc150cbc1dcb",
+            "sha512": "1b637fdfcffb1764e3e5590da2fb0760dbc7ff93264477ae041ec3c40bb4bad88248e0fa452ec93c58602f3682c24f188d0c2634bd445ff2c0f3547b97525a7b",
+            "size": 218450704,
+            "upstream_version": "3.16.29",
+            "url": "https://downloads.cursor.com/production/6246455961129c32969845e00aa25d87ae926ec9/linux/x64/deb/amd64/deb/cursor_3.16.29_amd64.deb"
           },
-          "resolved_at": "2026-08-15T03:06:36+00:00",
+          "resolved_at": "2026-08-19T03:12:31+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1937,59 +1937,59 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "typora_1.13.6_amd64.deb",
+            "asset_name": "typora_1.14.9_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Description": "a minimal Markdown reading & writing app. Change Log: (https://typora.io/releases/all)\n Markdown Editor",
               "Homepage": "http://typora.io",
-              "Installed-Size": "367553",
+              "Installed-Size": "396125",
               "Maintainer": "typora<hi@typora.io>",
               "Package": "typora",
               "Priority": "optional",
               "Recommends": "lsb-release",
               "Section": "editors",
               "Suggests": "pandoc",
-              "Version": "1.13.6-1"
+              "Version": "1.14.9-1"
             },
-            "filename": "typora_1.13.6_amd64.deb",
-            "md5": "daa71fb94c67f5706c929d1eea15685d",
-            "sha1": "e6cf3ef8bed820c093e954b5de624606e2c240bb",
-            "sha256": "13056a3229ef0b6e91e542c31a288e3704b7b07dc6049fec3ebda99ea7d0479b",
-            "sha512": "a4b92a800731dee9186bcb3ddacbc2c3c99b66c4bec3c905dc80f945eb8900cf88bc0169077bca4660f2d4ea27562099e31093f0782ad1a849b9f4ebbf4de162",
-            "size": 106803918,
-            "upstream_version": "1.13.6",
-            "url": "https://download.typora.io/linux/typora_1.13.6_amd64.deb"
+            "filename": "typora_1.14.9_amd64.deb",
+            "md5": "44aa26e9a17c0263b5a28e1dee021ae8",
+            "sha1": "4839215cb30ae8fc84747a0655c8c83ff4fd8faf",
+            "sha256": "8885207cf9e2daeda2592fda9dcb05c12d6b5c4665a2a055a50e654800e633ea",
+            "sha512": "075db5be472077b4c8f898b2995a6d47c2b932482a1536badf417db4bdc51edfef50083a18e2f2b9eda741c90fad2b1796e92f2826ec9ab03d543931916237c4",
+            "size": 113032806,
+            "upstream_version": "1.14.9",
+            "url": "https://download.typora.io/linux/typora_1.14.9_amd64.deb"
           },
-          "resolved_at": "2026-06-16T02:53:07+00:00",
+          "resolved_at": "2026-08-19T03:12:38+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "typora_1.13.6_arm64.deb",
+            "asset_name": "typora_1.14.9_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Description": "a minimal Markdown reading & writing app. Change Log: (https://typora.io/releases/all)\n Markdown Editor",
               "Homepage": "http://typora.io",
-              "Installed-Size": "322956",
+              "Installed-Size": "367598",
               "Maintainer": "typora<hi@typora.io>",
               "Package": "typora",
               "Priority": "optional",
               "Recommends": "lsb-release",
               "Section": "editors",
               "Suggests": "pandoc",
-              "Version": "1.13.6-1"
+              "Version": "1.14.9-1"
             },
-            "filename": "typora_1.13.6_arm64.deb",
-            "md5": "8e942a76440afa870a83084a9d0a4b52",
-            "sha1": "b39d960471dd6d8e10466289f390078fecc4cf2b",
-            "sha256": "dff792f71002efe579e60ae11cf2d4ffdf8979f917808c8a944877bd192a654a",
-            "sha512": "b10a85fcbdfe89a0e2fc260d06005b60e298fc8f5513e60575d685ef8a679e73d3d90776f17dac03e0a716a05e0ae06bfa69af39a35f19aec910289db4bdfbe7",
-            "size": 87709172,
-            "upstream_version": "1.13.6",
-            "url": "https://download.typora.io/linux/typora_1.13.6_arm64.deb"
+            "filename": "typora_1.14.9_arm64.deb",
+            "md5": "bb0129697f34b77df7ea73f291b34b8c",
+            "sha1": "9cbfc2e32c4a47f5c8222ae59261c9ab7b08dceb",
+            "sha256": "4574902b011f7d371680547f3f4e1427f7b8d66af6e9819c182d9bc8dc86002c",
+            "sha512": "4471a428eeb839d34bd096d84db6a235a05122da53b1a9ac01147d5efc893f1fd78240f4fcee053ed1d766292069801e33d4043aac3396e2e8837943e97bfa1d",
+            "size": 95111692,
+            "upstream_version": "1.14.9",
+            "url": "https://download.typora.io/linux/typora_1.14.9_arm64.deb"
           },
-          "resolved_at": "2026-06-16T02:53:12+00:00",
+          "resolved_at": "2026-08-19T03:12:43+00:00",
           "source": "aur",
           "update_policy": "track"
         }
