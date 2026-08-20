@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T03:12:44+00:00",
+  "generated_at": "2026-08-20T03:11:53+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -526,28 +526,29 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "du-dust_1.2.4-1_amd64.deb",
+            "asset_name": "du-dust_1.2.5-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "",
               "Description": "A more intuitive version of du\n Dust is meant to give you an instant overview of which directories are using\n disk space without requiring sort or head. Dust will print a maximum of one\n 'Did not have permissions message'.",
               "Homepage": "https://github.com/bootandy/dust",
-              "Installed-Size": "3122",
+              "Installed-Size": "2967",
               "Maintainer": "bootandy <bootandy@gmail.com>",
               "Package": "du-dust",
               "Priority": "optional",
               "Section": "utils",
-              "Version": "1.2.4-1"
+              "Version": "1.2.5-1"
             },
-            "filename": "du-dust_1.2.4-1_amd64.deb",
-            "md5": "3f637b632b90f268df37c805aa075888",
-            "sha1": "027a389f1c0db58948b673984d5e5af1f6104ee1",
-            "sha256": "c1bd69dc1cd05bbc84d3581d6d355fe60063c235f2bfec5bd46d551e5baacc66",
-            "size": 992896,
-            "upstream_version": "v1.2.4",
-            "url": "https://github.com/bootandy/dust/releases/download/v1.2.4/du-dust_1.2.4-1_amd64.deb"
+            "filename": "du-dust_1.2.5-1_amd64.deb",
+            "md5": "0f13a1f28bda5b9ef25e769e311e485c",
+            "sha1": "eca8681e5649d1b3aa4cf2e5c1f422151efbd957",
+            "sha256": "42056f56bce095830d1c87f560f04a2c58ad6ac8e658cc44f78d25a8fa796920",
+            "sha512": "97c6f8a1d219649f13fe7261aca7874df2b842ef7ea546f20d0412eec20f498689f676156a0dde268cbde3f5982896563816500ab6f4555ec89aa40b2a9e91db",
+            "size": 951124,
+            "upstream_version": "v1.2.5",
+            "url": "https://github.com/bootandy/dust/releases/download/v1.2.5/du-dust_1.2.5-1_amd64.deb"
           },
-          "resolved_at": "2026-06-14T16:57:00+00:00",
+          "resolved_at": "2026-08-20T03:11:30+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -776,13 +777,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "Ferdium-linux-7.1.2-amd64.deb",
+            "asset_name": "Ferdium-linux-7.2.0-amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Messaging app for WhatsApp, Slack, Telegram, Gmail, Google Chat, and many more.\n  Desktop app bringing all your messaging services into one installable",
               "Homepage": "https://github.com/ferdium/ferdium-app",
-              "Installed-Size": "478243",
+              "Installed-Size": "508041",
               "License": "Apache-2.0",
               "Maintainer": "Ferdium Contributors <hello@ferdium.org>",
               "Package": "ferdium",
@@ -790,30 +791,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Ferdium Contributors <hello@ferdium.org>",
-              "Version": "7.1.2"
+              "Version": "7.2.0"
             },
-            "filename": "ferdium_7.1.2_amd64.deb",
-            "md5": "5504c73970c5653271a3d8f09a7a7832",
-            "sha1": "7d0ac6b2cbfe9aa5b06df727ea365a7fc943e274",
-            "sha256": "38340a16305adab889636e9a3da01f2f3b82c8b624079a184b1204dbc9cc9b06",
-            "sha512": "66fb007c1acda7ea1c34e8ff86137d754081a0f50411e5355a38f00725b574115df63ecbcaa09d5eef63fc8bedd58830c3cf2cee9d5bd8e621d68a984d82f953",
-            "size": 101567598,
-            "upstream_version": "v7.1.2",
-            "url": "https://github.com/ferdium/ferdium-app/releases/download/v7.1.2/Ferdium-linux-7.1.2-amd64.deb"
+            "filename": "ferdium_7.2.0_amd64.deb",
+            "md5": "d82df2aafb1bb567953cee6b67a175e1",
+            "sha1": "46ee2dfb599e6300693873d805e5da4cd2be6747",
+            "sha256": "1a4f52c1d93a8c3a0df14ce674f9e8b25cebbcdfbb1f9cbffc73de0791aa118f",
+            "sha512": "6d481387ca6435ca2f918085b41cf5c556cbfecee9cb5dd3c93b17e29eb9e458634a92c3e4b5627bedacf57922068b2bc1cbd2e05efd742d83256e6c299b8d3d",
+            "size": 126186148,
+            "upstream_version": "v7.2.0",
+            "url": "https://github.com/ferdium/ferdium-app/releases/download/v7.2.0/Ferdium-linux-7.2.0-amd64.deb"
           },
-          "resolved_at": "2026-06-16T02:52:59+00:00",
+          "resolved_at": "2026-08-20T03:11:32+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "Ferdium-linux-7.1.2-arm64.deb",
+            "asset_name": "Ferdium-linux-7.2.0-arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Messaging app for WhatsApp, Slack, Telegram, Gmail, Google Chat, and many more.\n  Desktop app bringing all your messaging services into one installable",
               "Homepage": "https://github.com/ferdium/ferdium-app",
-              "Installed-Size": "484386",
+              "Installed-Size": "508660",
               "License": "Apache-2.0",
               "Maintainer": "Ferdium Contributors <hello@ferdium.org>",
               "Package": "ferdium",
@@ -821,18 +822,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Ferdium Contributors <hello@ferdium.org>",
-              "Version": "7.1.2"
+              "Version": "7.2.0"
             },
-            "filename": "ferdium_7.1.2_arm64.deb",
-            "md5": "5f0b7d248e3befa8c4537b2f0bea8638",
-            "sha1": "f7023c65c596777a7e57ef062eeae050c13afcb7",
-            "sha256": "0981e84f0e8953253ade24ddf6d01b7d65676f8f16719806b63b61aa79400fc2",
-            "sha512": "383d72bf611cd6b5a92ae2e700daf7d485f8814c514fa89db0207308ae940c06e4938006d1ac7e93616047374348b0d81cea8a38085aefb0c76e97d3037728ae",
-            "size": 97346220,
-            "upstream_version": "v7.1.2",
-            "url": "https://github.com/ferdium/ferdium-app/releases/download/v7.1.2/Ferdium-linux-7.1.2-arm64.deb"
+            "filename": "ferdium_7.2.0_arm64.deb",
+            "md5": "19dc46d81c356d312c3d4579d7ff4b59",
+            "sha1": "d47a6745bcf82cf7a4a378920e340d54a381d38e",
+            "sha256": "1627500afa196fa9fe9cd06cdb2fb5518250d5b41e783eb0ce9c3df1427259e5",
+            "sha512": "bbdf209a65447ae71e12bde91402c46f12f95afab816e6a054ee3d4a0a6a40b1aaa3d0e280884a452ff133f0c85907f7843ae87051133229c0df542c85e4a11b",
+            "size": 120175812,
+            "upstream_version": "v7.2.0",
+            "url": "https://github.com/ferdium/ferdium-app/releases/download/v7.2.0/Ferdium-linux-7.2.0-arm64.deb"
           },
-          "resolved_at": "2026-06-16T02:53:00+00:00",
+          "resolved_at": "2026-08-20T03:11:37+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1087,30 +1088,30 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "google-chrome-stable_151.0.7922.137-1_amd64.deb",
+            "asset_name": "google-chrome-stable_151.0.7922.169-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "ca-certificates, fonts-liberation, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.25), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.35), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libvulkan1, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxrandr2, wget, xdg-utils (>= 1.0.2)",
               "Description": "The web browser from Google\n Google Chrome is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier.",
-              "Installed-Size": "441203",
+              "Installed-Size": "441335",
               "Maintainer": "Chrome Linux Team <chromium-dev@chromium.org>",
               "Package": "google-chrome-stable",
               "Pre-Depends": "dpkg (>= 1.14.0)",
               "Priority": "optional",
               "Provides": "www-browser",
               "Section": "web",
-              "Version": "151.0.7922.137-1"
+              "Version": "151.0.7922.169-1"
             },
-            "filename": "google-chrome-stable_151.0.7922.137-1_amd64.deb",
-            "md5": "3624d669f35e5e1442fc6d63d6c586e1",
-            "sha1": "3aeff25d4d534907c10d2371e5bd7718182b6131",
-            "sha256": "e6dabf044cf9cd0279cfe86efa431682c18bfc06d06339ce055aaa87ae871727",
-            "sha512": "1d6bb6aa793d3646605c0bb346e800d306f76ee8d30f5bcbe920a2d70ee90fbdb1203cd1552e26e21e243af8bbdc8d461c8ca49249b77a5f92533396606c1cd7",
-            "size": 140080344,
-            "upstream_version": "151.0.7922.137",
-            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_151.0.7922.137-1_amd64.deb"
+            "filename": "google-chrome-stable_151.0.7922.169-1_amd64.deb",
+            "md5": "00319d9dba393c8a990a418e37b27855",
+            "sha1": "448d17b26923d70be13fad512866fe9405eb7f82",
+            "sha256": "6572478310553cb25fdcb4ba2fb5459b472c2c765f5f68e9837d4964e8a87f1e",
+            "sha512": "172d8307490b8ef1590432b97d6a61dc83272ee91d3aa32854fe2985be6c566eaa45850612c6dddd0d90be1b41f57b0ec5e17b94c6decb0ad56039aff4a0d324",
+            "size": 140188716,
+            "upstream_version": "151.0.7922.169",
+            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_151.0.7922.169-1_amd64.deb"
           },
-          "resolved_at": "2026-08-13T04:21:45+00:00",
+          "resolved_at": "2026-08-20T03:11:35+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -2000,14 +2001,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "code_1.133.0_amd64.deb",
+            "asset_name": "code_1.134.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "1047712",
+              "Installed-Size": "1043977",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2015,31 +2016,31 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.133.0-1786487972"
+              "Version": "1.134.0-1787078834"
             },
-            "filename": "code_1.133.0_amd64.deb",
-            "md5": "2bba9db88877bd3a0c785a3f5b8f6ca2",
-            "sha1": "7caa165493fd5ac96faf502675f65d381bf1309d",
-            "sha256": "d064e87e22f556b8a91e1354b5227e340597324e52886dbb288551596b00e34a",
-            "sha512": "79c206941fea5bdc69c70e1537964bb5dccca96ddac5db68d8e4ff88b6c28d98cb83ea37f203074fc6e6b27e40840e0caf41a6b63926d2f434ecc04ddfb65ee7",
-            "size": 239359310,
-            "upstream_version": "1.133.0",
-            "url": "https://update.code.visualstudio.com/1.133.0/linux-deb-x64/stable"
+            "filename": "code_1.134.0_amd64.deb",
+            "md5": "f2eb96aa78d93c01874eb7e51d0d435b",
+            "sha1": "a1d2c8762aab9cea477a65643083dbbe3c829dba",
+            "sha256": "dcd3a2f52d53df079cd389662ff1fdbeb629938331d3a63655fed929f8d49f19",
+            "sha512": "8544a9dad599bc01557dc26fad460205992e3fe015352547aae84b2f0126acae5be8a6903ef98dc89e4feb8432e8e37e242d94303f37b4d66ff02a5b61ae6ff8",
+            "size": 238188742,
+            "upstream_version": "1.134.0",
+            "url": "https://update.code.visualstudio.com/1.134.0/linux-deb-x64/stable"
           },
-          "resolved_at": "2026-08-13T04:21:52+00:00",
+          "resolved_at": "2026-08-20T03:11:44+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "code_1.133.0_arm64.deb",
+            "asset_name": "code_1.134.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.17), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libstdc++6 (>= 4.1.1), libstdc++6 (>= 5), libstdc++6 (>= 5.2), libstdc++6 (>= 6), libstdc++6 (>= 9), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "989750",
+              "Installed-Size": "986040",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2047,18 +2048,18 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.133.0-1786487973"
+              "Version": "1.134.0-1787078750"
             },
-            "filename": "code_1.133.0_arm64.deb",
-            "md5": "d961b95be69ecf788cd7398a8a85a38a",
-            "sha1": "3757ee61718f650ab994bb22d3246b4993acc417",
-            "sha256": "b20bfb21c5b3656e3411391c5c18df1782aedd7cd3bda0b9c08363ea261fca4b",
-            "sha512": "557c2edb071bedefc9fcd543fcf5504118146d6d621f7a612ff425c1bdfea06545f803386c0d39c8a35e358845b5b149cb2fda6cd3557f5a9fefa7cc3b31fe62",
-            "size": 219321654,
-            "upstream_version": "1.133.0",
-            "url": "https://update.code.visualstudio.com/1.133.0/linux-deb-arm64/stable"
+            "filename": "code_1.134.0_arm64.deb",
+            "md5": "410eced69524b4bc8f96e151c38702d0",
+            "sha1": "a2416e4af2b189b721349b0a8531750a70ff9c00",
+            "sha256": "b30f5bda4855231681cc7fe22d4a59e7dbee2be170b0e4fb04c7e83b9f9affe5",
+            "sha512": "c6996fadf7faf98c680b96ed1b005495cd0186a2ac504019101b7fff69e9b4bd03552c8b532fb951c123f4b0b657478f82a71cc8b12fa0c7661ceb9e5c5d7989",
+            "size": 218630934,
+            "upstream_version": "1.134.0",
+            "url": "https://update.code.visualstudio.com/1.134.0/linux-deb-arm64/stable"
           },
-          "resolved_at": "2026-08-13T04:22:00+00:00",
+          "resolved_at": "2026-08-20T03:11:53+00:00",
           "source": "aur",
           "update_policy": "track"
         }
