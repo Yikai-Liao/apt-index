@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T03:11:53+00:00",
+  "generated_at": "2026-08-21T03:17:52+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -194,13 +194,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "bruno_4.0.0_amd64_linux.deb",
+            "asset_name": "bruno_4.1.0_amd64_linux.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, libasound2",
               "Description": "\n  Opensource API Client for Exploring and Testing APIs",
               "Homepage": "https://www.usebruno.com",
-              "Installed-Size": "529055",
+              "Installed-Size": "540581",
               "License": "unknown",
               "Maintainer": "Anoop M D <anoop.md1421@gmail.com>",
               "Package": "bruno",
@@ -208,30 +208,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Anoop M D <anoop.md1421@gmail.com>",
-              "Version": "4.0.0"
+              "Version": "4.1.0"
             },
-            "filename": "bruno_4.0.0_amd64_linux.deb",
-            "md5": "9440f8862c65b7f6e0c400e7f1a39506",
-            "sha1": "aa86e7e0d73b03849464cca7b44db627ddca15ae",
-            "sha256": "d3129c1115a11c95cbe3c259cc42fa05d994e579aecca7c7d4af20bf9ee54d38",
-            "sha512": "cdb5a30aae1988d386d2338eb97ba86282dd5ef4c98a423cb4574bbee5140125c76f257a4f12a3e67ccf7b8d320174f8f138af22441e0e918c8f403c7508f4bd",
-            "size": 104331108,
-            "upstream_version": "v4.0.0",
-            "url": "https://github.com/usebruno/bruno/releases/download/v4.0.0/bruno_4.0.0_amd64_linux.deb"
+            "filename": "bruno_4.1.0_amd64_linux.deb",
+            "md5": "148f7b4d884e0694bf002bcea0080ae1",
+            "sha1": "f0eaf9bfe0fffb1047fa1cd5f096f9d0bafa347c",
+            "sha256": "164f5181df081e493229306f00f1b68772a544c1ebc22c46f0eb6836f8a251f8",
+            "sha512": "73b145a704affc7dc5381451f51c8c68f6d411ecc2524342cd1e4d36c78ed1e81921d2d0f7f96f4cd87c63834ad8639b78a54eeb57c78d9aa58238d4d0534c56",
+            "size": 104900990,
+            "upstream_version": "v4.1.0",
+            "url": "https://github.com/usebruno/bruno/releases/download/v4.1.0/bruno_4.1.0_amd64_linux.deb"
           },
-          "resolved_at": "2026-07-24T05:30:51+00:00",
+          "resolved_at": "2026-08-21T03:17:33+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "bruno_4.0.0_arm64_linux.deb",
+            "asset_name": "bruno_4.1.0_arm64_linux.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, libasound2",
               "Description": "\n  Opensource API Client for Exploring and Testing APIs",
               "Homepage": "https://www.usebruno.com",
-              "Installed-Size": "533264",
+              "Installed-Size": "544790",
               "License": "unknown",
               "Maintainer": "Anoop M D <anoop.md1421@gmail.com>",
               "Package": "bruno",
@@ -239,18 +239,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Anoop M D <anoop.md1421@gmail.com>",
-              "Version": "4.0.0"
+              "Version": "4.1.0"
             },
-            "filename": "bruno_4.0.0_arm64_linux.deb",
-            "md5": "26e5d2cd9c468b6248dafdb762dafaf2",
-            "sha1": "ac39f4cb7dbd036c113eda4c3a97bf9faf8097e1",
-            "sha256": "7a5adc53546c30655091a490bcc466647d129ce44ef084dd3689aea6825efc0c",
-            "sha512": "4408407398d18d336cd2ffc4c6fc70b44d5d801dacf920e3e9ff487bb97408ecb2e6bd71079973ce01ea52c51d4332c00c7580422e833c58929fa99f9971234a",
-            "size": 99249516,
-            "upstream_version": "v4.0.0",
-            "url": "https://github.com/usebruno/bruno/releases/download/v4.0.0/bruno_4.0.0_arm64_linux.deb"
+            "filename": "bruno_4.1.0_arm64_linux.deb",
+            "md5": "d61850c7b9e254e4065a77c7d92883a7",
+            "sha1": "e007fbb59eeaec430de38177565d629285000e90",
+            "sha256": "bda69398c266353452911cbac87b86ef5c6de8f2efd0f5c234d88afaf1e11363",
+            "sha512": "bf828bbc2ebfd412e4a4d78600565e2fb0730103c4b426659090aab4b65ea2839e96adfa372f627378ebda881c24d15cab9ef3eeee1784328ecb85ebca0e21b3",
+            "size": 99821634,
+            "upstream_version": "v4.1.0",
+            "url": "https://github.com/usebruno/bruno/releases/download/v4.1.0/bruno_4.1.0_arm64_linux.deb"
           },
-          "resolved_at": "2026-07-24T05:30:57+00:00",
+          "resolved_at": "2026-08-21T03:17:35+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.16.29_amd64.deb",
+            "asset_name": "cursor_3.17.8_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.14), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "1036670",
+              "Installed-Size": "875835",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.16.29-1787019013"
+              "Version": "3.17.8-1787195533"
             },
-            "filename": "cursor_3.16.29_amd64.deb",
-            "md5": "4da25810a9d2b03b372b1d260210e142",
-            "sha1": "2fb1dc81cfd6c711a8a40310195be109b2331bbf",
-            "sha256": "0e3b3bf55560121e0b4f9dfbb87059f9fd9b335ef8300f8a9d74fc150cbc1dcb",
-            "sha512": "1b637fdfcffb1764e3e5590da2fb0760dbc7ff93264477ae041ec3c40bb4bad88248e0fa452ec93c58602f3682c24f188d0c2634bd445ff2c0f3547b97525a7b",
-            "size": 218450704,
-            "upstream_version": "3.16.29",
-            "url": "https://downloads.cursor.com/production/6246455961129c32969845e00aa25d87ae926ec9/linux/x64/deb/amd64/deb/cursor_3.16.29_amd64.deb"
+            "filename": "cursor_3.17.8_amd64.deb",
+            "md5": "2e87779ecaa88eece7d1838d55bf50c6",
+            "sha1": "30aef3ca954643ba516f67bc75fc3c64af157e2c",
+            "sha256": "8ea01e7d1c1d11f585d23899d59ae792b23046ba9e2747b213e5087f9ea442fb",
+            "sha512": "14778bf9f546d6778e534179c81618d3fd186585cb2423c72a000da6b1d16ab137144f054288a847ca1985ad4f7061ecd5c1c04c04ef1876f49a92d2b3ea94f7",
+            "size": 193254596,
+            "upstream_version": "3.17.8",
+            "url": "https://downloads.cursor.com/production/2fdd31c9f33f7fbe501f2d57772dc5bf64b63621/linux/x64/deb/amd64/deb/cursor_3.17.8_amd64.deb"
           },
-          "resolved_at": "2026-08-19T03:12:31+00:00",
+          "resolved_at": "2026-08-21T03:17:37+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -777,13 +777,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "Ferdium-linux-7.2.0-amd64.deb",
+            "asset_name": "Ferdium-linux-7.2.1-amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Messaging app for WhatsApp, Slack, Telegram, Gmail, Google Chat, and many more.\n  Desktop app bringing all your messaging services into one installable",
               "Homepage": "https://github.com/ferdium/ferdium-app",
-              "Installed-Size": "508041",
+              "Installed-Size": "508060",
               "License": "Apache-2.0",
               "Maintainer": "Ferdium Contributors <hello@ferdium.org>",
               "Package": "ferdium",
@@ -791,30 +791,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Ferdium Contributors <hello@ferdium.org>",
-              "Version": "7.2.0"
+              "Version": "7.2.1"
             },
-            "filename": "ferdium_7.2.0_amd64.deb",
-            "md5": "d82df2aafb1bb567953cee6b67a175e1",
-            "sha1": "46ee2dfb599e6300693873d805e5da4cd2be6747",
-            "sha256": "1a4f52c1d93a8c3a0df14ce674f9e8b25cebbcdfbb1f9cbffc73de0791aa118f",
-            "sha512": "6d481387ca6435ca2f918085b41cf5c556cbfecee9cb5dd3c93b17e29eb9e458634a92c3e4b5627bedacf57922068b2bc1cbd2e05efd742d83256e6c299b8d3d",
-            "size": 126186148,
-            "upstream_version": "v7.2.0",
-            "url": "https://github.com/ferdium/ferdium-app/releases/download/v7.2.0/Ferdium-linux-7.2.0-amd64.deb"
+            "filename": "ferdium_7.2.1_amd64.deb",
+            "md5": "fc2431b051d03b0976f4117262666c92",
+            "sha1": "707396f6e107399f0a52cfe20cfa97ab66f6c99b",
+            "sha256": "a3518a164235199b0edf3e1e7f5d0d3d3d9118ce1ff175191368f438fe21e08a",
+            "sha512": "e2c382ac98b88afa03642c029cb370676bb05d9757439e26ab533cd18aa14195ba9793c927884459247357e046beb65c7cc7843b1aef0b9e017a88e0a91f31d4",
+            "size": 126191696,
+            "upstream_version": "v7.2.1",
+            "url": "https://github.com/ferdium/ferdium-app/releases/download/v7.2.1/Ferdium-linux-7.2.1-amd64.deb"
           },
-          "resolved_at": "2026-08-20T03:11:32+00:00",
+          "resolved_at": "2026-08-21T03:17:37+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "Ferdium-linux-7.2.0-arm64.deb",
+            "asset_name": "Ferdium-linux-7.2.1-arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Messaging app for WhatsApp, Slack, Telegram, Gmail, Google Chat, and many more.\n  Desktop app bringing all your messaging services into one installable",
               "Homepage": "https://github.com/ferdium/ferdium-app",
-              "Installed-Size": "508660",
+              "Installed-Size": "508664",
               "License": "Apache-2.0",
               "Maintainer": "Ferdium Contributors <hello@ferdium.org>",
               "Package": "ferdium",
@@ -822,18 +822,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Ferdium Contributors <hello@ferdium.org>",
-              "Version": "7.2.0"
+              "Version": "7.2.1"
             },
-            "filename": "ferdium_7.2.0_arm64.deb",
-            "md5": "19dc46d81c356d312c3d4579d7ff4b59",
-            "sha1": "d47a6745bcf82cf7a4a378920e340d54a381d38e",
-            "sha256": "1627500afa196fa9fe9cd06cdb2fb5518250d5b41e783eb0ce9c3df1427259e5",
-            "sha512": "bbdf209a65447ae71e12bde91402c46f12f95afab816e6a054ee3d4a0a6a40b1aaa3d0e280884a452ff133f0c85907f7843ae87051133229c0df542c85e4a11b",
-            "size": 120175812,
-            "upstream_version": "v7.2.0",
-            "url": "https://github.com/ferdium/ferdium-app/releases/download/v7.2.0/Ferdium-linux-7.2.0-arm64.deb"
+            "filename": "ferdium_7.2.1_arm64.deb",
+            "md5": "8a4a08d4fb43f727d3f41197af4c44b8",
+            "sha1": "8eb24a722fd933b3ce68a01f9d86bb313fc76445",
+            "sha256": "dda299c24bc10c15c5090ffa02c48663b4a5cc746017b553b450adf2133618e8",
+            "sha512": "42a0012bf2eea6de17c9259e2bfe3c353cc2b9991afa9d6bd1802fd9d406a383614f03d50e9ad4d776d02a5f976b5717861e55aaf5ea19b9f0be757fd0e5c7a7",
+            "size": 120183636,
+            "upstream_version": "v7.2.1",
+            "url": "https://github.com/ferdium/ferdium-app/releases/download/v7.2.1/Ferdium-linux-7.2.1-arm64.deb"
           },
-          "resolved_at": "2026-08-20T03:11:37+00:00",
+          "resolved_at": "2026-08-21T03:17:39+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -964,57 +964,57 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "fooyin_0.12.4-bookworm_amd64.deb",
+            "asset_name": "fooyin_0.12.5-bookworm_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libc6,\n    libstdc++6,\n    libqt6sql6-sqlite (>= 6.4.0),\n    libqt6svg6 (>= 6.4.0),\n    qt6-image-formats-plugins (>= 6.4.0),\n    qt6-qpa-plugins,\n    zlib1g,\n    libasound2,\n    ffmpeg (>= 7:4.4),\n    pipewire,\n    libpulse0,\n    libsdl2-2.0-0,\n    libgme0,\n    libopenmpt0,\n    libarchive13,\n    libsndfile1,\n    libebur128-1,\n    libsoundtouch1,\n    libsoxr0, libicu72, libtag1v5, libqt6core6 (>= 6.4.0), libqt6gui6 (>= 6.4.0), libqt6widgets6 (>= 6.4.0), libqt6network6 (>= 6.4.0), libqt6concurrent6 (>= 6.4.0), libqt6sql6 (>= 6.4.0)",
               "Description": "A customisable music player",
               "Homepage": "https://www.fooyin.org",
-              "Installed-Size": "32619",
+              "Installed-Size": "33194",
               "Maintainer": "Luke Taylor <luket@pm.me>",
               "Package": "fooyin",
               "Priority": "optional",
               "Section": "sound",
-              "Version": "0.12.4"
+              "Version": "0.12.5"
             },
-            "filename": "fooyin_0.12.4-bookworm_amd64.deb",
-            "md5": "ff438f9b544d06c0b8f756fb93cda9ab",
-            "sha1": "2315a9be40b3b0f38dc4aab9ff05e524f594e085",
-            "sha256": "ff60972f73899b2db700fc35297b5787429fffd55175387a7930ed9c609732e5",
-            "sha512": "b0d5f0bbfdac532f1914d15a4dc561989c1c74ec287c12b10bf41caa985a896d822cb98b40153541e5761ffd370ea07aa60addc2d41ae9f6311b35ec93cad7c9",
-            "size": 10844222,
-            "upstream_version": "v0.12.4",
-            "url": "https://github.com/fooyin/fooyin/releases/download/v0.12.4/fooyin_0.12.4-bookworm_amd64.deb"
+            "filename": "fooyin_0.12.5-bookworm_amd64.deb",
+            "md5": "f32d9646cf8f90607ea069cce6275d9f",
+            "sha1": "807acac5c3a0ca8c78fe187c3c7783523a05fed4",
+            "sha256": "b324ab7f85211b2acf322b18687cbd9e1f7c12ecf29047bc7f86ff4749dbf1ba",
+            "sha512": "082f8fc4d67eb7caa565e92d8dc29782355b4aa676e8569afebc554d50b4fc4eaeb829ad505a5190313bc7478c50c2caa327df47767b00bbc5dcd6a9a4851073",
+            "size": 11011998,
+            "upstream_version": "v0.12.5",
+            "url": "https://github.com/fooyin/fooyin/releases/download/v0.12.5/fooyin_0.12.5-bookworm_amd64.deb"
           },
-          "resolved_at": "2026-08-13T04:21:41+00:00",
+          "resolved_at": "2026-08-21T03:17:37+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "fooyin_0.12.4-bookworm_arm64.deb",
+            "asset_name": "fooyin_0.12.5-bookworm_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libc6,\n    libstdc++6,\n    libqt6sql6-sqlite (>= 6.4.0),\n    libqt6svg6 (>= 6.4.0),\n    qt6-image-formats-plugins (>= 6.4.0),\n    qt6-qpa-plugins,\n    zlib1g,\n    libasound2,\n    ffmpeg (>= 7:4.4),\n    pipewire,\n    libpulse0,\n    libsdl2-2.0-0,\n    libgme0,\n    libopenmpt0,\n    libarchive13,\n    libsndfile1,\n    libebur128-1,\n    libsoundtouch1,\n    libsoxr0, libicu72, libtag1v5, libqt6core6 (>= 6.4.0), libqt6gui6 (>= 6.4.0), libqt6widgets6 (>= 6.4.0), libqt6network6 (>= 6.4.0), libqt6concurrent6 (>= 6.4.0), libqt6sql6 (>= 6.4.0)",
               "Description": "A customisable music player",
               "Homepage": "https://www.fooyin.org",
-              "Installed-Size": "31805",
+              "Installed-Size": "32355",
               "Maintainer": "Luke Taylor <luket@pm.me>",
               "Package": "fooyin",
               "Priority": "optional",
               "Section": "sound",
-              "Version": "0.12.4"
+              "Version": "0.12.5"
             },
-            "filename": "fooyin_0.12.4-bookworm_arm64.deb",
-            "md5": "5cd998c452a1579d83be675730ba6107",
-            "sha1": "a856b772f3daea72f21fa9e0a816a17345d0bda8",
-            "sha256": "50b38bde3bf5e6c6eb291ecc71188c74de4094c411d1894ffcef92ebfa312ce8",
-            "sha512": "80db6c259cd8b8e5c905148b748f2617806dc0e8cd92ba3d3d02fd3c7868b88a5267dc23a2aec59e6db6e379a8884e17fc24f21fc6a0a0a6b4eae1c3f79ca9e9",
-            "size": 10301564,
-            "upstream_version": "v0.12.4",
-            "url": "https://github.com/fooyin/fooyin/releases/download/v0.12.4/fooyin_0.12.4-bookworm_arm64.deb"
+            "filename": "fooyin_0.12.5-bookworm_arm64.deb",
+            "md5": "3580e1fc290be3c05addffb7a5fef4a4",
+            "sha1": "7b368b81f02df4e2c98026e169a80647a8e7a2f6",
+            "sha256": "21296a1ea705353ede97ebeb46404153ed2859423ee0c09f11880db9a253132f",
+            "sha512": "153c2a9eccf50daecc9b72f5dfa3af2e9c1436d5d504ac5c4133f823549ccfa02fa61194dd06ba118f888ea48476a053349cfc05da4694cd33f34118aa387c58",
+            "size": 10467602,
+            "upstream_version": "v0.12.5",
+            "url": "https://github.com/fooyin/fooyin/releases/download/v0.12.5/fooyin_0.12.5-bookworm_arm64.deb"
           },
-          "resolved_at": "2026-08-13T04:21:41+00:00",
+          "resolved_at": "2026-08-21T03:17:38+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1025,59 +1025,59 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "gh_2.97.0_linux_amd64.deb",
+            "asset_name": "gh_2.98.0_linux_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "git",
               "Description": "GitHub\u2019s official command line tool.",
               "Homepage": "https://github.com/cli/cli",
-              "Installed-Size": "40431",
+              "Installed-Size": "40808",
               "License": "MIT",
               "Maintainer": "GitHub",
               "Package": "gh",
               "Priority": "optional",
               "Section": "",
-              "Version": "2.97.0"
+              "Version": "2.98.0"
             },
-            "filename": "gh_2.97.0_linux_amd64.deb",
-            "md5": "7aed1409665c466e2b5d72e1f6883f8a",
-            "sha1": "b964c9511237557bc8cb608cad3bec3278166ec3",
-            "sha256": "7c7fa3bb890db0934baf65910d97b8c0fa437b2e590f7f7daf6bdf82c5c486d7",
-            "sha512": "9dde99f4d8a01ebc3e6d8ece3430b842fde2944a4aaa792f3cf8288e4946f6d2c953eda34ce32d75f6ee329fe7ab5b76ab042b7ec7e22a35f4fdd9695e78238d",
-            "size": 14841130,
-            "upstream_version": "v2.97.0",
-            "url": "https://github.com/cli/cli/releases/download/v2.97.0/gh_2.97.0_linux_amd64.deb"
+            "filename": "gh_2.98.0_linux_amd64.deb",
+            "md5": "6bb0299e3f690278ff70a52f29bf0038",
+            "sha1": "4df41baf17b8c65e3761eeb0d2e23c46e9a4fed8",
+            "sha256": "f65a3fa2fa0eb2e97c445ee3f5e087a40aae03b64847f45a8f13805e504535d6",
+            "sha512": "63b85a746f94640bdc4ddd0a6edadc7fbe5ea5118a08d3775e4695b951e1b2c48ab29c21fe125f68895ca01187121769a6a4949fd82799cfbdb764dad4035c88",
+            "size": 14935072,
+            "upstream_version": "v2.98.0",
+            "url": "https://github.com/cli/cli/releases/download/v2.98.0/gh_2.98.0_linux_amd64.deb"
           },
-          "resolved_at": "2026-07-31T05:46:24+00:00",
+          "resolved_at": "2026-08-21T03:17:38+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "gh_2.97.0_linux_arm64.deb",
+            "asset_name": "gh_2.98.0_linux_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "git",
               "Description": "GitHub\u2019s official command line tool.",
               "Homepage": "https://github.com/cli/cli",
-              "Installed-Size": "37583",
+              "Installed-Size": "38032",
               "License": "MIT",
               "Maintainer": "GitHub",
               "Package": "gh",
               "Priority": "optional",
               "Section": "",
-              "Version": "2.97.0"
+              "Version": "2.98.0"
             },
-            "filename": "gh_2.97.0_linux_arm64.deb",
-            "md5": "b168f26b73d0152a50e2a8625fc6b2ef",
-            "sha1": "2f718f318533c0ca184edcf67a62b70486a78b15",
-            "sha256": "0ba7a76739c865d82ebde24667d875d9b8caa55db47c7597c24accdd4defd2bb",
-            "sha512": "d3e60be511d83b4efa9a29e12e7bddde65e6656adaefddfc556b4e58af7aba86e4327e5fd6be4193ec15ada05c8be3df6c2b21cc476a966ac3ad50d9223ffadf",
-            "size": 13494906,
-            "upstream_version": "v2.97.0",
-            "url": "https://github.com/cli/cli/releases/download/v2.97.0/gh_2.97.0_linux_arm64.deb"
+            "filename": "gh_2.98.0_linux_arm64.deb",
+            "md5": "1b725f2168d8e3d74d00a230afb05043",
+            "sha1": "dca577a8bdf395fa602c5a52179585b0a9c09e79",
+            "sha256": "bbc4ac7964c2a091fd555cd1758d10a7cfcfdc472e405f0b0fb958f05d535cb6",
+            "sha512": "c93b16062c096a8cdfb8b355a358eac6decc5ac1de75c7d62caffce57435be31b7a314ff53e24bbbf97dfad36dc35ee0ca3c1b36f4360c14ad20c3806b5e5229",
+            "size": 13588892,
+            "upstream_version": "v2.98.0",
+            "url": "https://github.com/cli/cli/releases/download/v2.98.0/gh_2.98.0_linux_arm64.deb"
           },
-          "resolved_at": "2026-07-31T05:46:24+00:00",
+          "resolved_at": "2026-08-21T03:17:38+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1088,30 +1088,30 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "google-chrome-stable_151.0.7922.169-1_amd64.deb",
+            "asset_name": "google-chrome-stable_151.0.7922.173-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "ca-certificates, fonts-liberation, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.25), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.35), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libvulkan1, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxrandr2, wget, xdg-utils (>= 1.0.2)",
               "Description": "The web browser from Google\n Google Chrome is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier.",
-              "Installed-Size": "441335",
+              "Installed-Size": "441164",
               "Maintainer": "Chrome Linux Team <chromium-dev@chromium.org>",
               "Package": "google-chrome-stable",
               "Pre-Depends": "dpkg (>= 1.14.0)",
               "Priority": "optional",
               "Provides": "www-browser",
               "Section": "web",
-              "Version": "151.0.7922.169-1"
+              "Version": "151.0.7922.173-1"
             },
-            "filename": "google-chrome-stable_151.0.7922.169-1_amd64.deb",
-            "md5": "00319d9dba393c8a990a418e37b27855",
-            "sha1": "448d17b26923d70be13fad512866fe9405eb7f82",
-            "sha256": "6572478310553cb25fdcb4ba2fb5459b472c2c765f5f68e9837d4964e8a87f1e",
-            "sha512": "172d8307490b8ef1590432b97d6a61dc83272ee91d3aa32854fe2985be6c566eaa45850612c6dddd0d90be1b41f57b0ec5e17b94c6decb0ad56039aff4a0d324",
-            "size": 140188716,
-            "upstream_version": "151.0.7922.169",
-            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_151.0.7922.169-1_amd64.deb"
+            "filename": "google-chrome-stable_151.0.7922.173-1_amd64.deb",
+            "md5": "931b957e6d10279b76ce661cbd34dd94",
+            "sha1": "cf7001bc7dbda1bd0a2acdc7629bcfb44c06ffdf",
+            "sha256": "878e5ab495b8a694980fca61bc09b37e651ccedce2291c73434d16e48a2646fd",
+            "sha512": "1c099aacfc9cdb9bfae159a05076c3d06e6c13352aefb87d840daf8594ec2d445d20ba1ba53c5e349a87c07394ea1a58613209faa3fe5c5f5dabaf0cbe2d79b0",
+            "size": 140077524,
+            "upstream_version": "151.0.7922.173",
+            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_151.0.7922.173-1_amd64.deb"
           },
-          "resolved_at": "2026-08-20T03:11:35+00:00",
+          "resolved_at": "2026-08-21T03:17:41+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1871,13 +1871,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "teams-for-linux_2.16.0_amd64.deb",
+            "asset_name": "teams-for-linux_2.17.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Teams for Linux\n  Unofficial Microsoft Teams client for Linux using Electron. It uses the Web App and wraps it as a standalone application using Electron.",
               "Homepage": "https://github.com/IsmaelMartinez/teams-for-linux",
-              "Installed-Size": "346047",
+              "Installed-Size": "346127",
               "License": "GPL-3.0-or-later",
               "Maintainer": "Ismael Martinez <ismaelmartinez@gmail.com>",
               "Package": "teams-for-linux",
@@ -1885,30 +1885,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "net",
               "Vendor": "Ismael Martinez <ismaelmartinez@gmail.com>",
-              "Version": "2.16.0"
+              "Version": "2.17.0"
             },
-            "filename": "teams-for-linux_2.16.0_amd64.deb",
-            "md5": "bcde515213955d27a230ed4c1ad2ae2d",
-            "sha1": "36aad03f5799335149ea4ae80b52cdf1e9672cef",
-            "sha256": "1101ebeb89fd6eefa24954c656b18f8f4e2e651ac2195ed697b6905436eb9a71",
-            "sha512": "49df07e74d8edade501c38addba56528fa44d62cb2fb9c669315580defd92175fa322526374b9ddbc1eb67b4c79df31dce371b45a3de9eb821f61a4b29af7884",
-            "size": 113016452,
-            "upstream_version": "v2.16.0",
-            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.16.0/teams-for-linux_2.16.0_amd64.deb"
+            "filename": "teams-for-linux_2.17.0_amd64.deb",
+            "md5": "742bde6031d9cf32b62139ba22c3abdf",
+            "sha1": "fdad8e8a83a42a9c81f1841db22ed73bd2bda0c7",
+            "sha256": "80283457504e6bc46fbb14772316688bbcae653e67073838cfa338b5c40f1bdb",
+            "sha512": "f2578fd8a778624c6dd92bc05ad81f2a9958758b5b55127547a3ec0ee9766c86cca5143a84089932d5691191ab8e424d7ce6daf7925576d21be7738bb5f629ad",
+            "size": 113034172,
+            "upstream_version": "v2.17.0",
+            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.17.0/teams-for-linux_2.17.0_amd64.deb"
           },
-          "resolved_at": "2026-08-18T03:10:18+00:00",
+          "resolved_at": "2026-08-21T03:17:43+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "teams-for-linux_2.16.0_arm64.deb",
+            "asset_name": "teams-for-linux_2.17.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Teams for Linux\n  Unofficial Microsoft Teams client for Linux using Electron. It uses the Web App and wraps it as a standalone application using Electron.",
               "Homepage": "https://github.com/IsmaelMartinez/teams-for-linux",
-              "Installed-Size": "346614",
+              "Installed-Size": "346694",
               "License": "GPL-3.0-or-later",
               "Maintainer": "Ismael Martinez <ismaelmartinez@gmail.com>",
               "Package": "teams-for-linux",
@@ -1916,18 +1916,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "net",
               "Vendor": "Ismael Martinez <ismaelmartinez@gmail.com>",
-              "Version": "2.16.0"
+              "Version": "2.17.0"
             },
-            "filename": "teams-for-linux_2.16.0_arm64.deb",
-            "md5": "123d36d467f48d5aab4b4312978b9989",
-            "sha1": "7f56e3c248696d75d2912e3ad5b9e398702ee906",
-            "sha256": "9d43d25d70c9074fd22dde626905ce68a9088502e2705f772986b529ba75e3a5",
-            "sha512": "05bb17e7b5cf7733a3062f6ce19e36f6c796903e67d20ae8e86dd02dde3650058a60560b5b025d99a67804c4ff013cccf287f73810538eee80cfa1f74bfe6890",
-            "size": 107004292,
-            "upstream_version": "v2.16.0",
-            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.16.0/teams-for-linux_2.16.0_arm64.deb"
+            "filename": "teams-for-linux_2.17.0_arm64.deb",
+            "md5": "727807f75a8ff138853add329c0cc06c",
+            "sha1": "e4b3f0502739849eb667617118ea8c6faa598994",
+            "sha256": "4c9d0dc90313a20861ed5db53d564fa51e5eb04232563d7927782385680fefde",
+            "sha512": "b7995a9ecf49f1041288e213dee8f30590014259b6d42fda5b7484988439860711d3d5a12e4564d5c4e6762841a211b3762cda32e07650c7fa3d64711f0a702a",
+            "size": 107025476,
+            "upstream_version": "v2.17.0",
+            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.17.0/teams-for-linux_2.17.0_arm64.deb"
           },
-          "resolved_at": "2026-08-18T03:10:20+00:00",
+          "resolved_at": "2026-08-21T03:17:45+00:00",
           "source": "github",
           "update_policy": "track"
         }
