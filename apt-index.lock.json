@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T03:17:52+00:00",
+  "generated_at": "2026-08-22T03:09:40+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -459,13 +459,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "drawio-amd64-31.1.8.deb",
+            "asset_name": "drawio-amd64-31.3.1.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  draw.io desktop",
               "Homepage": "https://github.com/jgraph/drawio",
-              "Installed-Size": "458185",
+              "Installed-Size": "457278",
               "License": "Apache-2.0",
               "Maintainer": "draw.io <desktop@draw.io>",
               "Package": "draw.io",
@@ -473,30 +473,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "draw.io <desktop@draw.io>",
-              "Version": "31.1.8"
+              "Version": "31.3.1"
             },
-            "filename": "draw.io_31.1.8_amd64.deb",
-            "md5": "8c27164b40be9a22eb940f6eac2a51a1",
-            "sha1": "b516ddec60d25dce30c2ebb599ab451d1db76dab",
-            "sha256": "f4c49ed84422ea4afd95818f53c54bc666e57b33bd036d468c7096619b47ffd9",
-            "sha512": "662c0878661270a3c81963712c6118fbc9152d6ece821c92fe7ea4934b355c149ee3b53f2811b08b03655f2bfc3bd5fe2d990c4df174a16d63f4b793d4da8ec3",
-            "size": 134260036,
-            "upstream_version": "v31.1.8",
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v31.1.8/drawio-amd64-31.1.8.deb"
+            "filename": "draw.io_31.3.1_amd64.deb",
+            "md5": "5212fe96d5c20ae7982f07ad26e08057",
+            "sha1": "097c45d9e364ad50bd2bc442d86da2df381f5d24",
+            "sha256": "5314046cf4059e9484e876a6e5ba259502030c1cf185d63062c93e83d00a21ac",
+            "sha512": "5ddaefe33c236868fc0ad68c3d83d81de8706445411cbf23d7fe1120934799f805b73da3120ed415eb7dfb4e707168cf894b279948e634260bc831c9e731500c",
+            "size": 133862264,
+            "upstream_version": "v31.3.1",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v31.3.1/drawio-amd64-31.3.1.deb"
           },
-          "resolved_at": "2026-08-08T03:44:24+00:00",
+          "resolved_at": "2026-08-22T03:09:24+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "drawio-arm64-31.1.8.deb",
+            "asset_name": "drawio-arm64-31.3.1.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  draw.io desktop",
               "Homepage": "https://github.com/jgraph/drawio",
-              "Installed-Size": "458752",
+              "Installed-Size": "459461",
               "License": "Apache-2.0",
               "Maintainer": "draw.io <desktop@draw.io>",
               "Package": "draw.io",
@@ -504,18 +504,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "draw.io <desktop@draw.io>",
-              "Version": "31.1.8"
+              "Version": "31.3.1"
             },
-            "filename": "draw.io_31.1.8_arm64.deb",
-            "md5": "a8172b1bde2094c0d8669b41e3984837",
-            "sha1": "660a9b743a485567c6a52dd403874e50d6f54eae",
-            "sha256": "62a9ea636accada76076bd5a20f61b707e0e8093d3fd28c6583518663ca795d6",
-            "sha512": "533098a26aea3e911e968f1b2ea0fe5b0c938a218525d6e33d7e74efc2295e7a8ee3bb5f59fb51ebbbe067fc7a7e6076925a8910dc20daa8561a64d6187ee11b",
-            "size": 128218080,
-            "upstream_version": "v31.1.8",
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v31.1.8/drawio-arm64-31.1.8.deb"
+            "filename": "draw.io_31.3.1_arm64.deb",
+            "md5": "2153a5f03d8680ba72bc20050a560dde",
+            "sha1": "c3d02b096408646a3ce7160553148d7a37f3c2bd",
+            "sha256": "d3ad0e721ac24903f5bc810e5f458ff732fc7477d0bd7b709aa2f0c73aa8eec2",
+            "sha512": "1b7fd56febebf06a313642a893ab07a26e12a5eb5ca6e262e8a8e8ebd8c91e65e1504ed7a0e25ce5ee7b0e26407c5fdfadf66906534dc9572a3c8e6149c47456",
+            "size": 128380284,
+            "upstream_version": "v31.3.1",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v31.3.1/drawio-arm64-31.3.1.deb"
           },
-          "resolved_at": "2026-08-08T03:44:28+00:00",
+          "resolved_at": "2026-08-22T03:09:28+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1217,7 +1217,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "LocalSend-1.18.0-linux-x86-64.deb",
+            "asset_name": "LocalSend-1.18.2-linux-x86-64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libappindicator3-1 | libayatana-appindicator3-1, gir1.2-appindicator3-0.1 | gir1.2-ayatanaappindicator3-0.1, libayatana-ido3-0.4-0, xdg-user-dirs",
@@ -1231,24 +1231,24 @@
               "Priority": "optional",
               "Section": "x11",
               "Uploaders": "TheGB0077 <gb.lima.dev@gmail.com>",
-              "Version": "1.18.0+60"
+              "Version": "1.18.2+64"
             },
-            "filename": "localsend_1.18.0+60_amd64.deb",
-            "md5": "46d773feaab71e310883bbe58605a0dd",
-            "sha1": "d8ac6613151e72e941832c0f09f0bec4c81c70ef",
-            "sha256": "dae68192ad43a59a68df06454eb5fa4e9a9f86a343fe430165efd8b18863d0f4",
-            "sha512": "45406907a62f5f771e83acf035b7b246e418cfaf35c9ab6f4bd595d316c648d01910da7f116c0f1cbd070f7cc773ced80019b804af9e2dfd3936a0bc0c496090",
-            "size": 24582872,
-            "upstream_version": "v1.18.0",
-            "url": "https://github.com/localsend/localsend/releases/download/v1.18.0/LocalSend-1.18.0-linux-x86-64.deb"
+            "filename": "localsend_1.18.2+64_amd64.deb",
+            "md5": "a410fa2d461a583b07dc7994e4207db5",
+            "sha1": "a22fbc5c01e4f10215e0e15253e91c3769f888ba",
+            "sha256": "cc42a4f3eacdcb25ec31f0016b1272acb003145ab30484db8965450e20c72cd2",
+            "sha512": "2b4443eef800eb5aba2cf3e20ee3612696f285f680c93073c5ae9fad15c92508edc98a96b4b256c008c498923475ea19f2afaad464f2ecd03990f0868830500f",
+            "size": 24665458,
+            "upstream_version": "v1.18.2",
+            "url": "https://github.com/localsend/localsend/releases/download/v1.18.2/LocalSend-1.18.2-linux-x86-64.deb"
           },
-          "resolved_at": "2026-08-11T03:56:04+00:00",
+          "resolved_at": "2026-08-22T03:09:27+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "LocalSend-1.18.0-linux-arm-64.deb",
+            "asset_name": "LocalSend-1.18.2-linux-arm-64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libappindicator3-1 | libayatana-appindicator3-1, gir1.2-appindicator3-0.1 | gir1.2-ayatanaappindicator3-0.1, libayatana-ido3-0.4-0, xdg-user-dirs",
@@ -1262,18 +1262,18 @@
               "Priority": "optional",
               "Section": "x11",
               "Uploaders": "TheGB0077 <gb.lima.dev@gmail.com>",
-              "Version": "1.18.0+60"
+              "Version": "1.18.2+64"
             },
-            "filename": "localsend_1.18.0+60_arm64.deb",
-            "md5": "fcef9b10a4d0d2208212dcdf112153e3",
-            "sha1": "12044b84c582b12317570e5d63f54444efca576f",
-            "sha256": "eb24e724fbdf830c8fb07dfc66b76b8a649923d083278305a63d5d539db4b606",
-            "sha512": "d3635be2ab01c0ddc018c03d5d8b89174920b200f35ca36dd59f0630329b7c40bf49bc03609dc64c299594411c403c1841d5110861209129d84301c3740b1b4e",
-            "size": 24545108,
-            "upstream_version": "v1.18.0",
-            "url": "https://github.com/localsend/localsend/releases/download/v1.18.0/LocalSend-1.18.0-linux-arm-64.deb"
+            "filename": "localsend_1.18.2+64_arm64.deb",
+            "md5": "853972fd1ef681b2dc8dd94c792e3e03",
+            "sha1": "5c5e005eaa2e9b0a84ebc11d53777f3dffa9c985",
+            "sha256": "bbd8347b7979f936d3bae176a3f0d9b81431605707c585270d6240f7670feb1f",
+            "sha512": "937e33fab316b6abbe9f2ecbb6c31062eb58c454efe62226b05992302117938175bf7e6615ee5a7ec2641385f43bad9056b9d133b72fe8753a6a45d793e52f06",
+            "size": 24662482,
+            "upstream_version": "v1.18.2",
+            "url": "https://github.com/localsend/localsend/releases/download/v1.18.2/LocalSend-1.18.2-linux-arm-64.deb"
           },
-          "resolved_at": "2026-08-11T03:56:05+00:00",
+          "resolved_at": "2026-08-22T03:09:28+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1737,7 +1737,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "slack-desktop-4.51.180-amd64.deb",
+            "asset_name": "slack-desktop-4.51.191-amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libappindicator3-1, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, kde-cli-tools | kde-runtime | trash-cli | libglib2.0-bin | gvfs-bin, apt-transport-https",
@@ -1749,18 +1749,18 @@
               "Recommends": "pulseaudio | libasound2",
               "Section": "misc",
               "Suggests": "gir1.2-gnomekeyring-1.0, libgnome-keyring0, lsb-release",
-              "Version": "4.51.180"
+              "Version": "4.51.191"
             },
-            "filename": "slack-desktop-4.51.180-amd64.deb",
-            "md5": "645b22f905bbf7cf3e58687841a2ccb4",
-            "sha1": "c942da4af449d9fb6c894e1836837c98926d3993",
-            "sha256": "aa45e151794703377012a9ad78f0b2152c368852e085267ae689dafb5c308ea1",
-            "sha512": "898e28a68ead65bc2e6e4e1c6185a422d8a76bbe827746a7aeff7de375d7592ac90f23af3e2aac9e42f50ae7523b357ab4de885dabb289429762c6cc086ccfa5",
-            "size": 94403330,
-            "upstream_version": "4.51.180",
-            "url": "https://downloads.slack-edge.com/desktop-releases/linux/x64/4.51.180/slack-desktop-4.51.180-amd64.deb"
+            "filename": "slack-desktop-4.51.191-amd64.deb",
+            "md5": "5ec603c4fa0323bfd2524b89ee6e647d",
+            "sha1": "e32e784e35c303b76611ac9a7871e558d5b4b30e",
+            "sha256": "572474596216b635b69c4a72b42176a1d4d66f99e49e6267861aecdf3f79c1ed",
+            "sha512": "9db50dee921fa736229f3790be8b36970ac35fd47ded816a8cb3e00028581f8fa08aa508284ccae1723a2d2ef04f362338cf603da6c17bc2ef4f15e1fd95bbd2",
+            "size": 94954230,
+            "upstream_version": "4.51.191",
+            "url": "https://downloads.slack-edge.com/desktop-releases/linux/x64/4.51.191/slack-desktop-4.51.191-amd64.deb"
           },
-          "resolved_at": "2026-07-24T05:31:10+00:00",
+          "resolved_at": "2026-08-22T03:09:31+00:00",
           "source": "aur",
           "update_policy": "track"
         }
