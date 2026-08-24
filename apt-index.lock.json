@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-23T03:17:05+00:00",
+  "generated_at": "2026-08-24T03:18:36+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -712,12 +712,12 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "Feishu-linux_x64-7.66.11.deb",
+            "asset_name": "Feishu-linux_x64-7.72.23.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "ca-certificates, libc6 (>= 2.18), libgcc1 (>= 1:3.0), libnss3 (>= 3.14), libx11-6 (>= 2:1.4.99.1), libxcb1, libxext6, xdg-utils (>= 1.0.2), libgomp1, pulseaudio-utils",
               "Description": "\u98de\u4e66(Feishu)\n \u98de\u4e66\u6574\u5408\u5373\u65f6\u6d88\u606f\u3001\u65e5\u5386\u3001\u97f3\u89c6\u9891\u4f1a\u8bae\u3001\u4e91\u6587\u6863\u3001\u5de5\u4f5c\u53f0\u7b49\u529f\u80fd\u4e8e\u4e00\u4f53\uff0c\u6210\u5c31\u56e2\u961f\u548c\u4e2a\u4eba\uff0c\u66f4\u9ad8\u6548\u3001\u66f4\u6109\u60a6\u3002",
-              "Installed-Size": "1733500",
+              "Installed-Size": "1453359",
               "Maintainer": "Feishu Linux Team <contact@feishu.cn>",
               "Package": "bytedance-feishu-stable",
               "Pre-Depends": "dpkg (>= 1.14.0)",
@@ -725,29 +725,29 @@
               "Recommends": "libu2f-udev, libvulkan1",
               "Replaces": "bytedance-feishu-alpha, bytedance-feishu-beta, bytedance-feishu-dev, bytedance-feishu-release",
               "Section": "web",
-              "Version": "7.66.11-0"
+              "Version": "7.72.23-0"
             },
-            "filename": "bytedance-feishu-stable_7.66.11-0_amd64.deb",
-            "md5": "477346c92548e2250306ffa02268c7ad",
-            "sha1": "92ac179d4de3a18d611a0f2d53df3bb4e723b0ec",
-            "sha256": "dc4f0d2c2db3cc83bb9758cf71e3e131f09a7e08eec963b378d660c534ccfd31",
-            "sha512": "8d63eea94a03e31e8ce675bce1be6783f584ef1ed6e1b2d4c1824f5110c9dc973f875c6e1c59093e01319fd36f1fd372112a47990a5438f17766922befbc3d43",
-            "size": 437357976,
-            "upstream_version": "7.66.11",
-            "url": "https://sf3-cn.feishucdn.com/obj/ee-appcenter/6e3610b5/Feishu-linux_x64-7.66.11.deb"
+            "filename": "bytedance-feishu-stable_7.72.23-0_amd64.deb",
+            "md5": "e7303dfa07c4b6a5e6ef7f92756bee94",
+            "sha1": "0f4eeb6057b6f779a83599fcf260f60ee1938d07",
+            "sha256": "7c744ce101e29f50d8d0fc099788b64cb389dde3178178a7fce9ffcdbf296e13",
+            "sha512": "994bd9c414373c4be9b52074f75099e8a6e557c684193c26d7558bc653184bae729e2fb34f51c182b5e8ee614933c75077dc91f055b82e70a12dab08814baa66",
+            "size": 353992084,
+            "upstream_version": "7.72.23",
+            "url": "https://sf3-cn.feishucdn.com/obj/ee-appcenter/fc38d53a/Feishu-linux_x64-7.72.23.deb"
           },
-          "resolved_at": "2026-06-23T06:29:41+00:00",
+          "resolved_at": "2026-08-24T03:18:19+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "Feishu-linux_arm64-7.66.11.deb",
+            "asset_name": "Feishu-linux_arm64-7.72.23.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "ca-certificates, libc6 (>= 2.18), libgcc1 (>= 1:3.0), libnss3 (>= 3.14), libx11-6 (>= 2:1.4.99.1), libxcb1, libxext6, xdg-utils (>= 1.0.2), libgomp1, pulseaudio-utils",
               "Description": "\u98de\u4e66(Feishu)\n \u98de\u4e66\u6574\u5408\u5373\u65f6\u6d88\u606f\u3001\u65e5\u5386\u3001\u97f3\u89c6\u9891\u4f1a\u8bae\u3001\u4e91\u6587\u6863\u3001\u5de5\u4f5c\u53f0\u7b49\u529f\u80fd\u4e8e\u4e00\u4f53\uff0c\u6210\u5c31\u56e2\u961f\u548c\u4e2a\u4eba\uff0c\u66f4\u9ad8\u6548\u3001\u66f4\u6109\u60a6\u3002",
-              "Installed-Size": "1637697",
+              "Installed-Size": "1349038",
               "Maintainer": "Feishu Linux Team <contact@feishu.cn>",
               "Package": "bytedance-feishu-stable",
               "Pre-Depends": "dpkg (>= 1.14.0)",
@@ -755,18 +755,18 @@
               "Recommends": "libu2f-udev, libvulkan1",
               "Replaces": "bytedance-feishu-alpha, bytedance-feishu-beta, bytedance-feishu-dev, bytedance-feishu-release",
               "Section": "web",
-              "Version": "7.66.11-0"
+              "Version": "7.72.23-0"
             },
-            "filename": "bytedance-feishu-stable_7.66.11-0_arm64.deb",
-            "md5": "95aea4da6c3f278a3c9f7f873a3ee31b",
-            "sha1": "24e83b41694f29813a165520498afe91e026adf5",
-            "sha256": "da73070ae272d9d622a24c11ddd1409084de0601fc2bda6827d82424da78d9a4",
-            "sha512": "84cbb79288b307356812ca36b3990ee764b30ab23be9f1cb475551bc872ca4947dbe85ebc549828da7d855979d3b76c5a3608049fe6da4570028edb7c5d73887",
-            "size": 395021580,
-            "upstream_version": "7.66.11",
-            "url": "https://sf3-cn.feishucdn.com/obj/ee-appcenter/36c6e858/Feishu-linux_arm64-7.66.11.deb"
+            "filename": "bytedance-feishu-stable_7.72.23-0_arm64.deb",
+            "md5": "5b63b134ef4888c09f42d76d2f8d17f8",
+            "sha1": "e8aa45d3f3adb7d62956db172c4e41546b259ce4",
+            "sha256": "8052d22189546438e24b3691d64871805961ecea7a45804c75a2960ed2b8710e",
+            "sha512": "17a2b8b58951a4509c4797c76b90c1491973023260af0832d25e08152ae94a615635760fdcb85bcbc9ab79ad1c875609d9cf72859f3cc5563933b08a26c3ec37",
+            "size": 319927704,
+            "upstream_version": "7.72.23",
+            "url": "https://sf3-cn.feishucdn.com/obj/ee-appcenter/8d668c7a/Feishu-linux_arm64-7.72.23.deb"
           },
-          "resolved_at": "2026-06-23T06:30:12+00:00",
+          "resolved_at": "2026-08-24T03:18:36+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -777,13 +777,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "Ferdium-linux-7.2.1-amd64.deb",
+            "asset_name": "Ferdium-linux-7.2.2-amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Messaging app for WhatsApp, Slack, Telegram, Gmail, Google Chat, and many more.\n  Desktop app bringing all your messaging services into one installable",
               "Homepage": "https://github.com/ferdium/ferdium-app",
-              "Installed-Size": "508060",
+              "Installed-Size": "508070",
               "License": "Apache-2.0",
               "Maintainer": "Ferdium Contributors <hello@ferdium.org>",
               "Package": "ferdium",
@@ -791,30 +791,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Ferdium Contributors <hello@ferdium.org>",
-              "Version": "7.2.1"
+              "Version": "7.2.2"
             },
-            "filename": "ferdium_7.2.1_amd64.deb",
-            "md5": "fc2431b051d03b0976f4117262666c92",
-            "sha1": "707396f6e107399f0a52cfe20cfa97ab66f6c99b",
-            "sha256": "a3518a164235199b0edf3e1e7f5d0d3d3d9118ce1ff175191368f438fe21e08a",
-            "sha512": "e2c382ac98b88afa03642c029cb370676bb05d9757439e26ab533cd18aa14195ba9793c927884459247357e046beb65c7cc7843b1aef0b9e017a88e0a91f31d4",
-            "size": 126191696,
-            "upstream_version": "v7.2.1",
-            "url": "https://github.com/ferdium/ferdium-app/releases/download/v7.2.1/Ferdium-linux-7.2.1-amd64.deb"
+            "filename": "ferdium_7.2.2_amd64.deb",
+            "md5": "2e45c999aaf2268f577f9d8510348af0",
+            "sha1": "5489ca262afb45dbe0703f07849ef36afbb4509d",
+            "sha256": "cd325656fec21c41f74e0d5b0eaa7107e2a2adaa258b58d3bd0f615e7dcc3960",
+            "sha512": "a92e76dc4daafb6e651f347a1d8b4e8aa8b1e9cef8276f729e6ddde4f440ef591fdc603118118037063e37dd70fdc26d37c79319338b96d90f1d2e7507d0b8c5",
+            "size": 126197432,
+            "upstream_version": "v7.2.2",
+            "url": "https://github.com/ferdium/ferdium-app/releases/download/v7.2.2/Ferdium-linux-7.2.2-amd64.deb"
           },
-          "resolved_at": "2026-08-21T03:17:37+00:00",
+          "resolved_at": "2026-08-24T03:17:59+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "Ferdium-linux-7.2.1-arm64.deb",
+            "asset_name": "Ferdium-linux-7.2.2-arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Messaging app for WhatsApp, Slack, Telegram, Gmail, Google Chat, and many more.\n  Desktop app bringing all your messaging services into one installable",
               "Homepage": "https://github.com/ferdium/ferdium-app",
-              "Installed-Size": "508664",
+              "Installed-Size": "508674",
               "License": "Apache-2.0",
               "Maintainer": "Ferdium Contributors <hello@ferdium.org>",
               "Package": "ferdium",
@@ -822,18 +822,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Ferdium Contributors <hello@ferdium.org>",
-              "Version": "7.2.1"
+              "Version": "7.2.2"
             },
-            "filename": "ferdium_7.2.1_arm64.deb",
-            "md5": "8a4a08d4fb43f727d3f41197af4c44b8",
-            "sha1": "8eb24a722fd933b3ce68a01f9d86bb313fc76445",
-            "sha256": "dda299c24bc10c15c5090ffa02c48663b4a5cc746017b553b450adf2133618e8",
-            "sha512": "42a0012bf2eea6de17c9259e2bfe3c353cc2b9991afa9d6bd1802fd9d406a383614f03d50e9ad4d776d02a5f976b5717861e55aaf5ea19b9f0be757fd0e5c7a7",
-            "size": 120183636,
-            "upstream_version": "v7.2.1",
-            "url": "https://github.com/ferdium/ferdium-app/releases/download/v7.2.1/Ferdium-linux-7.2.1-arm64.deb"
+            "filename": "ferdium_7.2.2_arm64.deb",
+            "md5": "738f243789e25db3b3c4f766dd6c63f6",
+            "sha1": "b690332a6cef8d213f5a99fd43dd3e602db01d80",
+            "sha256": "bb0e47cc7fe765aa2b9e9445b4e0e9256268b6c760d1b8189d854870f794fe10",
+            "sha512": "4406823c78a47755453c6b0d5508eba360c49c5598e16f6775196040fc60cd5416c30a30c37b55350c5c23c5b0185f5d122f6ba94c8137ab7a4c4f37b86a0332",
+            "size": 120177900,
+            "upstream_version": "v7.2.2",
+            "url": "https://github.com/ferdium/ferdium-app/releases/download/v7.2.2/Ferdium-linux-7.2.2-arm64.deb"
           },
-          "resolved_at": "2026-08-21T03:17:39+00:00",
+          "resolved_at": "2026-08-24T03:18:01+00:00",
           "source": "github",
           "update_policy": "track"
         }
