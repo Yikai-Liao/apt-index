@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T03:18:36+00:00",
+  "generated_at": "2026-08-25T03:14:23+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -64,13 +64,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_6.0.4_amd64.deb",
+            "asset_name": "beekeeper-studio_6.0.5_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "971181",
+              "Installed-Size": "971183",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -78,30 +78,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "6.0.4"
+              "Version": "6.0.5"
             },
-            "filename": "beekeeper-studio_6.0.4_amd64.deb",
-            "md5": "5899fc93cff92dd94914df1a4e217463",
-            "sha1": "1ad0a80a77fd97890f2957cded944831ab5a325c",
-            "sha256": "b2645b2b90b1be907ff24ab75aa8c19e9236dbdca01d44c494e69d0e2f0d8ec9",
-            "sha512": "4c9e13e5c3763fafb8fb2fd247527db386746bc7a18b0fe6eb8d8f248cd5051b3f6ab676d2ca87d4a45bc6f1f54a2410c1c0284bc6c6b42b8540c6184d863727",
-            "size": 206362748,
-            "upstream_version": "v6.0.4",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.0.4/beekeeper-studio_6.0.4_amd64.deb"
+            "filename": "beekeeper-studio_6.0.5_amd64.deb",
+            "md5": "fe09d37683bf1e218d4a024c693c052d",
+            "sha1": "4dbe9a82b01425f792620ec2cae6849cb4260203",
+            "sha256": "0258a6c5f4f668c3d7250294ecdc529a1aa1400a485a9d4ae6a777c0546fa3fc",
+            "sha512": "a7a1ec2aded0d65ac47302e6d9225b97125868d7e99059080be3fceafae9165a0679dda7459d51c653b339da59e81ff9faef0cb0170978ba5d818c24a2f08c4a",
+            "size": 206365172,
+            "upstream_version": "v6.0.5",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.0.5/beekeeper-studio_6.0.5_amd64.deb"
           },
-          "resolved_at": "2026-08-19T03:12:25+00:00",
+          "resolved_at": "2026-08-25T03:14:06+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_6.0.4_arm64.deb",
+            "asset_name": "beekeeper-studio_6.0.5_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "964090",
+              "Installed-Size": "964093",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -109,18 +109,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "6.0.4"
+              "Version": "6.0.5"
             },
-            "filename": "beekeeper-studio_6.0.4_arm64.deb",
-            "md5": "b49f57f19e02b06315271822d76c1510",
-            "sha1": "583e94c5f8151e3320d0c8b9cd43404bdc6a511f",
-            "sha256": "6cbfe80a8c8855b0b4275c17707a396bf7e5cce1ae3486642093ce1dbbfd10a4",
-            "sha512": "079199d1bd7e7633e17229829a3a845900b3d3ba91571f76fa0d320e6f972b88bb1de91dd202a257ce8ad7901adc14ce3f826100aa005f7960d1dfa940c12115",
-            "size": 197042188,
-            "upstream_version": "v6.0.4",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.0.4/beekeeper-studio_6.0.4_arm64.deb"
+            "filename": "beekeeper-studio_6.0.5_arm64.deb",
+            "md5": "d94a7732be87a5512d8c14b8d5d1b160",
+            "sha1": "3dc4eb0684f2b5619a2b1ad79a7553a98d24a475",
+            "sha256": "5be02fbffc8a79f1a4eb85afcf7ac5ede858903ef711bb0c5ea7908bfb578edc",
+            "sha512": "114087c9ec02b022ee8454e164543508af5c009cfbb6dcbe12ec254227eb0bbe7c4c4b5afea25c78782d265b224dffb7bb0a972a97cff38b4311afe1a41744f2",
+            "size": 197046640,
+            "upstream_version": "v6.0.5",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.0.5/beekeeper-studio_6.0.5_arm64.deb"
           },
-          "resolved_at": "2026-08-19T03:12:31+00:00",
+          "resolved_at": "2026-08-25T03:14:09+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.17.8_amd64.deb",
+            "asset_name": "cursor_3.17.19_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.14), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "875835",
+              "Installed-Size": "875553",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.17.8-1787195533"
+              "Version": "3.17.19-1787556760"
             },
-            "filename": "cursor_3.17.8_amd64.deb",
-            "md5": "2e87779ecaa88eece7d1838d55bf50c6",
-            "sha1": "30aef3ca954643ba516f67bc75fc3c64af157e2c",
-            "sha256": "8ea01e7d1c1d11f585d23899d59ae792b23046ba9e2747b213e5087f9ea442fb",
-            "sha512": "14778bf9f546d6778e534179c81618d3fd186585cb2423c72a000da6b1d16ab137144f054288a847ca1985ad4f7061ecd5c1c04c04ef1876f49a92d2b3ea94f7",
-            "size": 193254596,
-            "upstream_version": "3.17.8",
-            "url": "https://downloads.cursor.com/production/2fdd31c9f33f7fbe501f2d57772dc5bf64b63621/linux/x64/deb/amd64/deb/cursor_3.17.8_amd64.deb"
+            "filename": "cursor_3.17.19_amd64.deb",
+            "md5": "225477de771f5ab8d068857c335130bb",
+            "sha1": "bba6d51de999ed52911acbf81f46af87974ab349",
+            "sha256": "b77c8f455ef899eb648787f07ae739cb3c5555e4eb3b58486f70743656fefefb",
+            "sha512": "ad2e8e0ac32e9788b428e408a50570b2ecd3e64872b7671b53eb40e4ce3730ab9122d75e9c7ca72625c69fdf80c1808049ddb7df57758940acda9dac85340ad4",
+            "size": 193174668,
+            "upstream_version": "3.17.19",
+            "url": "https://downloads.cursor.com/production/ae3a2b7231dd56194447fe4570dfdc61640b1e9a/linux/x64/deb/amd64/deb/cursor_3.17.19_amd64.deb"
           },
-          "resolved_at": "2026-08-21T03:17:37+00:00",
+          "resolved_at": "2026-08-25T03:14:09+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1871,13 +1871,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "teams-for-linux_2.17.0_amd64.deb",
+            "asset_name": "teams-for-linux_2.17.1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Teams for Linux\n  Unofficial Microsoft Teams client for Linux using Electron. It uses the Web App and wraps it as a standalone application using Electron.",
               "Homepage": "https://github.com/IsmaelMartinez/teams-for-linux",
-              "Installed-Size": "346127",
+              "Installed-Size": "346134",
               "License": "GPL-3.0-or-later",
               "Maintainer": "Ismael Martinez <ismaelmartinez@gmail.com>",
               "Package": "teams-for-linux",
@@ -1885,30 +1885,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "net",
               "Vendor": "Ismael Martinez <ismaelmartinez@gmail.com>",
-              "Version": "2.17.0"
+              "Version": "2.17.1"
             },
-            "filename": "teams-for-linux_2.17.0_amd64.deb",
-            "md5": "742bde6031d9cf32b62139ba22c3abdf",
-            "sha1": "fdad8e8a83a42a9c81f1841db22ed73bd2bda0c7",
-            "sha256": "80283457504e6bc46fbb14772316688bbcae653e67073838cfa338b5c40f1bdb",
-            "sha512": "f2578fd8a778624c6dd92bc05ad81f2a9958758b5b55127547a3ec0ee9766c86cca5143a84089932d5691191ab8e424d7ce6daf7925576d21be7738bb5f629ad",
-            "size": 113034172,
-            "upstream_version": "v2.17.0",
-            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.17.0/teams-for-linux_2.17.0_amd64.deb"
+            "filename": "teams-for-linux_2.17.1_amd64.deb",
+            "md5": "40064f4867153477facdfb151bf467d7",
+            "sha1": "3b29bded03192d0058885068fe947b755adb6118",
+            "sha256": "da00972366b49fb688e511029234f0ac3e2df3c4b34521b424b1210bb5262774",
+            "sha512": "eacb73c746c769ecd0158eac4d821c3310a113d098ad722baab50a33c572e5ac3e46cd4ba2a8aab130f649bbb810cea534ab8bb6e7944f28aa88d783c10eface",
+            "size": 113036696,
+            "upstream_version": "v2.17.1",
+            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.17.1/teams-for-linux_2.17.1_amd64.deb"
           },
-          "resolved_at": "2026-08-21T03:17:43+00:00",
+          "resolved_at": "2026-08-25T03:14:13+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "teams-for-linux_2.17.0_arm64.deb",
+            "asset_name": "teams-for-linux_2.17.1_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Teams for Linux\n  Unofficial Microsoft Teams client for Linux using Electron. It uses the Web App and wraps it as a standalone application using Electron.",
               "Homepage": "https://github.com/IsmaelMartinez/teams-for-linux",
-              "Installed-Size": "346694",
+              "Installed-Size": "346701",
               "License": "GPL-3.0-or-later",
               "Maintainer": "Ismael Martinez <ismaelmartinez@gmail.com>",
               "Package": "teams-for-linux",
@@ -1916,18 +1916,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "net",
               "Vendor": "Ismael Martinez <ismaelmartinez@gmail.com>",
-              "Version": "2.17.0"
+              "Version": "2.17.1"
             },
-            "filename": "teams-for-linux_2.17.0_arm64.deb",
-            "md5": "727807f75a8ff138853add329c0cc06c",
-            "sha1": "e4b3f0502739849eb667617118ea8c6faa598994",
-            "sha256": "4c9d0dc90313a20861ed5db53d564fa51e5eb04232563d7927782385680fefde",
-            "sha512": "b7995a9ecf49f1041288e213dee8f30590014259b6d42fda5b7484988439860711d3d5a12e4564d5c4e6762841a211b3762cda32e07650c7fa3d64711f0a702a",
-            "size": 107025476,
-            "upstream_version": "v2.17.0",
-            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.17.0/teams-for-linux_2.17.0_arm64.deb"
+            "filename": "teams-for-linux_2.17.1_arm64.deb",
+            "md5": "75e620baf078968e40f6d781b8ff5a45",
+            "sha1": "7c29bc625a2b7c8835ca4166003d95017d77e269",
+            "sha256": "5d3d0443ce26f5eeb8709b7385cbee9f406ad913f10e6041291c419c3f999e9e",
+            "sha512": "162b0924facb7b020c9090e3ab8daae3a856ed7716b015e8a920f431a6d8a8885319f46b9ad52c82fe6b9673e8ab39914e6e38795eb699529b6affb961376094",
+            "size": 107027964,
+            "upstream_version": "v2.17.1",
+            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.17.1/teams-for-linux_2.17.1_arm64.deb"
           },
-          "resolved_at": "2026-08-21T03:17:45+00:00",
+          "resolved_at": "2026-08-25T03:14:15+00:00",
           "source": "github",
           "update_policy": "track"
         }
