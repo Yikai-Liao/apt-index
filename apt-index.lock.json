@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T03:14:23+00:00",
+  "generated_at": "2026-08-26T03:27:23+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.17.19_amd64.deb",
+            "asset_name": "cursor_3.17.21_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.14), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "875553",
+              "Installed-Size": "875651",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.17.19-1787556760"
+              "Version": "3.17.21-1787622916"
             },
-            "filename": "cursor_3.17.19_amd64.deb",
-            "md5": "225477de771f5ab8d068857c335130bb",
-            "sha1": "bba6d51de999ed52911acbf81f46af87974ab349",
-            "sha256": "b77c8f455ef899eb648787f07ae739cb3c5555e4eb3b58486f70743656fefefb",
-            "sha512": "ad2e8e0ac32e9788b428e408a50570b2ecd3e64872b7671b53eb40e4ce3730ab9122d75e9c7ca72625c69fdf80c1808049ddb7df57758940acda9dac85340ad4",
-            "size": 193174668,
-            "upstream_version": "3.17.19",
-            "url": "https://downloads.cursor.com/production/ae3a2b7231dd56194447fe4570dfdc61640b1e9a/linux/x64/deb/amd64/deb/cursor_3.17.19_amd64.deb"
+            "filename": "cursor_3.17.21_amd64.deb",
+            "md5": "50a6d24b559f3da48c38fedcf5cfbda1",
+            "sha1": "629298261a0961a0c11c1b8f2532b1cdc754b31d",
+            "sha256": "711474041a7a3b206754fe430f0882a0ecc618d819860787c737c102dc563d0c",
+            "sha512": "a4b208c89930ed5e60a68f4060ddb8a0b70878707f0d2f1c3069529b97d619d3f75480f758a9ab5ca02b7d18d5d427bac229c876d7d93bbbcb90c54de92af049",
+            "size": 193173248,
+            "upstream_version": "3.17.21",
+            "url": "https://downloads.cursor.com/production/8f2a112cb2845a97b75fd932ea5c470579ca4063/linux/x64/deb/amd64/deb/cursor_3.17.21_amd64.deb"
           },
-          "resolved_at": "2026-08-25T03:14:09+00:00",
+          "resolved_at": "2026-08-26T03:27:23+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1088,30 +1088,30 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "google-chrome-stable_151.0.7922.173-1_amd64.deb",
+            "asset_name": "google-chrome-stable_152.0.7977.64-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
-              "Depends": "ca-certificates, fonts-liberation, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.25), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.35), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libvulkan1, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxrandr2, wget, xdg-utils (>= 1.0.2)",
+              "Depends": "ca-certificates, fonts-liberation, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.25), libcairo2 (>= 1.14.0), libcups2 (>= 1.7.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.35), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libvulkan1, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxrandr2, wget, xdg-utils (>= 1.0.2)",
               "Description": "The web browser from Google\n Google Chrome is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier.",
-              "Installed-Size": "441164",
+              "Installed-Size": "443557",
               "Maintainer": "Chrome Linux Team <chromium-dev@chromium.org>",
               "Package": "google-chrome-stable",
               "Pre-Depends": "dpkg (>= 1.14.0)",
               "Priority": "optional",
               "Provides": "www-browser",
               "Section": "web",
-              "Version": "151.0.7922.173-1"
+              "Version": "152.0.7977.64-1"
             },
-            "filename": "google-chrome-stable_151.0.7922.173-1_amd64.deb",
-            "md5": "931b957e6d10279b76ce661cbd34dd94",
-            "sha1": "cf7001bc7dbda1bd0a2acdc7629bcfb44c06ffdf",
-            "sha256": "878e5ab495b8a694980fca61bc09b37e651ccedce2291c73434d16e48a2646fd",
-            "sha512": "1c099aacfc9cdb9bfae159a05076c3d06e6c13352aefb87d840daf8594ec2d445d20ba1ba53c5e349a87c07394ea1a58613209faa3fe5c5f5dabaf0cbe2d79b0",
-            "size": 140077524,
-            "upstream_version": "151.0.7922.173",
-            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_151.0.7922.173-1_amd64.deb"
+            "filename": "google-chrome-stable_152.0.7977.64-1_amd64.deb",
+            "md5": "613c1cef3fa575f96d75343883b21e00",
+            "sha1": "f77d6d8f8a4ddbd8270e83771d772a5ee5f8bef6",
+            "sha256": "4eae0736a812d9bc851cd2937f7af00e47dbaf8305845eed452703ff009873c7",
+            "sha512": "8401cc4a4f11714bcef72c6139d53dc2ff68f97257339f34bc8c117f55c72bdacb47b8c2feb38ef79c4d5747f76fecd1a3dfe154e8d67fa247f842e9a2718eeb",
+            "size": 140878652,
+            "upstream_version": "152.0.7977.64",
+            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_152.0.7977.64-1_amd64.deb"
           },
-          "resolved_at": "2026-08-21T03:17:41+00:00",
+          "resolved_at": "2026-08-26T03:27:01+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1122,13 +1122,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "Insomnia.Core-13.1.0.deb",
+            "asset_name": "Insomnia.Core-13.2.0.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "The Collaborative API Client and Design Tool\n  The Collaborative API Design Tool",
               "Homepage": "https://konghq.com",
-              "Installed-Size": "1561844",
+              "Installed-Size": "1594315",
               "License": "Apache-2.0",
               "Maintainer": "Kong <office@konghq.com>",
               "Package": "insomnia",
@@ -1136,18 +1136,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Kong <office@konghq.com>",
-              "Version": "13.1.0"
+              "Version": "13.2.0"
             },
-            "filename": "insomnia_13.1.0_amd64.deb",
-            "md5": "34170ef3d8f688957cba873a039270be",
-            "sha1": "12a3c2c1bbf44515645af55311c73de833b4b080",
-            "sha256": "480a28f5895c14be17bdbce0c7398cf592081c2a13aefd362827be2f1628d2df",
-            "sha512": "1777bc20732ff3205e227ea9de6665fd855251340332ea21d3ba6bcf520e23d2fff7968c7b2c520f76b92f2c2f730f6d400808ad9e3c91715caa8ae5b360316e",
-            "size": 413480568,
-            "upstream_version": "core@13.1.0",
-            "url": "https://github.com/Kong/insomnia/releases/download/core%4013.1.0/Insomnia.Core-13.1.0.deb"
+            "filename": "insomnia_13.2.0_amd64.deb",
+            "md5": "dbcc305a6d30d0a5a0a86ca4a29950f7",
+            "sha1": "15e1c97b83c01863a18e571094631ac5bd795413",
+            "sha256": "176fdd5306fb0cd8c74195cc9ee7b5da4d390a909ffeb8b1e41681667e914a61",
+            "sha512": "2650cc6c48b7fd1921dfd00b8028c61a927f042c265ee402b90a7affb4b45c229208e441ebe2b6530baded409e1e36755839848bf2d52afd013b01444e9a58b8",
+            "size": 425009708,
+            "upstream_version": "core@13.2.0",
+            "url": "https://github.com/Kong/insomnia/releases/download/core%4013.2.0/Insomnia.Core-13.2.0.deb"
           },
-          "resolved_at": "2026-07-24T05:31:04+00:00",
+          "resolved_at": "2026-08-26T03:27:09+00:00",
           "source": "github",
           "update_policy": "track"
         }
