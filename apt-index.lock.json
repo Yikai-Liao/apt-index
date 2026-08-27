@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T03:27:23+00:00",
+  "generated_at": "2026-08-27T12:51:05+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -131,36 +131,36 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "bottom_0.14.8-1_amd64.deb",
+            "asset_name": "bottom_0.14.9-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "btm",
               "Depends": "libc6 (>= 2.34)",
               "Description": "A customizable cross-platform graphical process/system monitor for the\n terminal. Supports Linux, macOS, and Windows.\n .\n By default, bottom will look for a config file in ~/.config/bottom/bottom.toml.\n A config file can be specified using `-C`. If a config file does not exist at\n the specified or default location, a default one will be created for the user\n there.",
               "Homepage": "https://bottom.pages.dev/stable",
-              "Installed-Size": "5036",
+              "Installed-Size": "5040",
               "Maintainer": "Clement Tsang <cjhtsang@uwaterloo.ca>",
               "Package": "bottom",
               "Priority": "optional",
               "Section": "utility",
-              "Version": "0.14.8-1"
+              "Version": "0.14.9-1"
             },
-            "filename": "bottom_0.14.8-1_amd64.deb",
-            "md5": "220e4dd44d0f507d5edd4c0cb625856c",
-            "sha1": "00dfdb8e04fb9c723e8b29070b480da1983344d9",
-            "sha256": "c5c454894176ec6943df523b2a81e21188dd3a3e7076fdaf4d61fdfe6264d635",
-            "sha512": "9b2b905efa56bc514ccfcd36ca97689936337de36b8f07a558cec4ed6c97b95575601c540b0039708804964748830feab85861535aa6cb5ca14f45e6cd592db0",
-            "size": 1506972,
-            "upstream_version": "0.14.8",
-            "url": "https://github.com/ClementTsang/bottom/releases/download/0.14.8/bottom_0.14.8-1_amd64.deb"
+            "filename": "bottom_0.14.9-1_amd64.deb",
+            "md5": "8625988d8db2e0e350b7805acbc891d1",
+            "sha1": "47916144388f405ae7c96d37986c9bdf99333a14",
+            "sha256": "e8312526746c1190c3433e6ce0843f64c6e0c501003ee377552745c040dc6d56",
+            "sha512": "40050447e5105795dce0428566d6872a14ad1950ee78273f9342e136c483fbb7aa45b906d8e8a2b4f21d53911e7c7e6bdaab1df5f74764f87c00c886eff6d699",
+            "size": 1507180,
+            "upstream_version": "0.14.9",
+            "url": "https://github.com/ClementTsang/bottom/releases/download/0.14.9/bottom_0.14.9-1_amd64.deb"
           },
-          "resolved_at": "2026-08-14T04:19:04+00:00",
+          "resolved_at": "2026-08-27T12:50:34+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "bottom_0.14.8-1_arm64.deb",
+            "asset_name": "bottom_0.14.9-1_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "btm",
@@ -172,18 +172,18 @@
               "Package": "bottom",
               "Priority": "optional",
               "Section": "utility",
-              "Version": "0.14.8-1"
+              "Version": "0.14.9-1"
             },
-            "filename": "bottom_0.14.8-1_arm64.deb",
-            "md5": "d7764cd87524887d7da918e3ecf4688b",
-            "sha1": "dc14adf6aa1edefc6015e089caa0f4185a6e3739",
-            "sha256": "511c07cdc6d19a09abc5cba90fef85f7e3d840b2da21488906694f9544020a3c",
-            "sha512": "987bc3c5310852ecf212f2f39da4bf63af10c9f060a759766e9ecd96d943ff90d68e9c3e7ff3436835f5e875c4591017e6e4f6fec056cab527d01d24d13c4a1e",
-            "size": 1292324,
-            "upstream_version": "0.14.8",
-            "url": "https://github.com/ClementTsang/bottom/releases/download/0.14.8/bottom_0.14.8-1_arm64.deb"
+            "filename": "bottom_0.14.9-1_arm64.deb",
+            "md5": "048305cd05a454495c79c5da6f1bfa89",
+            "sha1": "abe6feb4829472e630fcd4a28925d79f981245dd",
+            "sha256": "a2d5fb1500c2209ffe3ec8711fe551b3b41830fad7bbde9fa1e58ae87010b9e5",
+            "sha512": "162a9d3fca932decc97c436eed8801f0d51c1ff59b803bc50e7948227ade45cf229425ca187920e64c7f62e39fa205599bf2d55583c02142328c2e4bc54df372",
+            "size": 1293500,
+            "upstream_version": "0.14.9",
+            "url": "https://github.com/ClementTsang/bottom/releases/download/0.14.9/bottom_0.14.9-1_arm64.deb"
           },
-          "resolved_at": "2026-08-14T04:19:04+00:00",
+          "resolved_at": "2026-08-27T12:50:34+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -653,7 +653,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "fd_10.4.2_amd64.deb",
+            "asset_name": "fd_10.5.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "fd-musl, fd-find",
@@ -664,23 +664,24 @@
               "Priority": "optional",
               "Provides": "fd",
               "Section": "utils",
-              "Version": "10.4.2"
+              "Version": "10.5.0"
             },
-            "filename": "fd_10.4.2_amd64.deb",
-            "md5": "dcd1d05b84fad841723f7322282f2258",
-            "sha1": "3ab5f2aa81b953b5f569e38aeaa2da926ee32c41",
-            "sha256": "0e44eb5fca93f09bc6f5430b90acdf44c8e069d0a903700aeb4820629337b67b",
-            "size": 1399120,
-            "upstream_version": "v10.4.2",
-            "url": "https://github.com/sharkdp/fd/releases/download/v10.4.2/fd_10.4.2_amd64.deb"
+            "filename": "fd_10.5.0_amd64.deb",
+            "md5": "11275142f970853a5cda6911c6c5f9e9",
+            "sha1": "2b6fbb49e6119a260b1efeb8ec8d930ca00627c4",
+            "sha256": "1fca9f8fb221f26fe37b425db4935dc8180099bdecfd8e031538bfc9396e95f8",
+            "sha512": "d8b2d0755f03e523012d20713cc33cbaa082a2f18fe51586db6684a5fbcb7931c00758d04c3ad9f79025fe2f8994607ef5a0a14c7a6e8ee871fef0c50381cfbd",
+            "size": 1235940,
+            "upstream_version": "v10.5.0",
+            "url": "https://github.com/sharkdp/fd/releases/download/v10.5.0/fd_10.5.0_amd64.deb"
           },
-          "resolved_at": "2026-06-15T02:35:48+00:00",
+          "resolved_at": "2026-08-27T12:50:36+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "fd_10.4.2_arm64.deb",
+            "asset_name": "fd_10.5.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "fd-musl, fd-find",
@@ -691,17 +692,18 @@
               "Priority": "optional",
               "Provides": "fd",
               "Section": "utils",
-              "Version": "10.4.2"
+              "Version": "10.5.0"
             },
-            "filename": "fd_10.4.2_arm64.deb",
-            "md5": "a478463c467395bf1b05cf81e27d9e0f",
-            "sha1": "a1ca7ea71da429ea3b26b32e5cfec9194b337761",
-            "sha256": "caa91b8c0fad7ba1964a78e4932a82e3a5deb747fa40d0922a8c692b6d5e0ce1",
-            "size": 1277486,
-            "upstream_version": "v10.4.2",
-            "url": "https://github.com/sharkdp/fd/releases/download/v10.4.2/fd_10.4.2_arm64.deb"
+            "filename": "fd_10.5.0_arm64.deb",
+            "md5": "fdd66b4d9dec35a7a4fe7ffd7c5877b8",
+            "sha1": "427ccf5c096ac156f09f9da68c50a7014eaede0f",
+            "sha256": "a3128d8e206dd646a27f4637ca081f311df2d6f21cd87bbead7fc92cc0952192",
+            "sha512": "60a2be5f637964aae8c6c9612f10f21643675fb31afa498617db6324661ee9796dd5e34cd5f260adc186693ce91b1aa0cdc3d1f16eee7618a5c9dc5ce8db8ea0",
+            "size": 1128796,
+            "upstream_version": "v10.5.0",
+            "url": "https://github.com/sharkdp/fd/releases/download/v10.5.0/fd_10.5.0_arm64.deb"
           },
-          "resolved_at": "2026-06-15T02:35:48+00:00",
+          "resolved_at": "2026-08-27T12:50:37+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1871,63 +1873,63 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "teams-for-linux_2.17.1_amd64.deb",
+            "asset_name": "teams-for-linux_2.18.1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Teams for Linux\n  Unofficial Microsoft Teams client for Linux using Electron. It uses the Web App and wraps it as a standalone application using Electron.",
               "Homepage": "https://github.com/IsmaelMartinez/teams-for-linux",
-              "Installed-Size": "346134",
+              "Installed-Size": "346226",
               "License": "GPL-3.0-or-later",
               "Maintainer": "Ismael Martinez <ismaelmartinez@gmail.com>",
               "Package": "teams-for-linux",
               "Priority": "optional",
-              "Recommends": "libappindicator3-1",
+              "Recommends": "libappindicator3-1, fido2-tools",
               "Section": "net",
               "Vendor": "Ismael Martinez <ismaelmartinez@gmail.com>",
-              "Version": "2.17.1"
+              "Version": "2.18.1"
             },
-            "filename": "teams-for-linux_2.17.1_amd64.deb",
-            "md5": "40064f4867153477facdfb151bf467d7",
-            "sha1": "3b29bded03192d0058885068fe947b755adb6118",
-            "sha256": "da00972366b49fb688e511029234f0ac3e2df3c4b34521b424b1210bb5262774",
-            "sha512": "eacb73c746c769ecd0158eac4d821c3310a113d098ad722baab50a33c572e5ac3e46cd4ba2a8aab130f649bbb810cea534ab8bb6e7944f28aa88d783c10eface",
-            "size": 113036696,
-            "upstream_version": "v2.17.1",
-            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.17.1/teams-for-linux_2.17.1_amd64.deb"
+            "filename": "teams-for-linux_2.18.1_amd64.deb",
+            "md5": "678197488e5a61c548803131c52691a8",
+            "sha1": "58bee13071a19c02c5c03803d1e536451ff3bc2a",
+            "sha256": "c047a0d87189002369fa891a1db37d3740b80d449242bb672b63a7d68b459a2f",
+            "sha512": "29db97f46b4befcfdf51d0c6aeb91a4c645d00795220da873e203d9b68ba6bbd53ccc37b6f6cc91b56dd46dbc6ab33c5cfe21c796cad474f17e994bbff0e72c7",
+            "size": 113058252,
+            "upstream_version": "v2.18.1",
+            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.18.1/teams-for-linux_2.18.1_amd64.deb"
           },
-          "resolved_at": "2026-08-25T03:14:13+00:00",
+          "resolved_at": "2026-08-27T12:50:44+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "teams-for-linux_2.17.1_arm64.deb",
+            "asset_name": "teams-for-linux_2.18.1_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Teams for Linux\n  Unofficial Microsoft Teams client for Linux using Electron. It uses the Web App and wraps it as a standalone application using Electron.",
               "Homepage": "https://github.com/IsmaelMartinez/teams-for-linux",
-              "Installed-Size": "346701",
+              "Installed-Size": "348410",
               "License": "GPL-3.0-or-later",
               "Maintainer": "Ismael Martinez <ismaelmartinez@gmail.com>",
               "Package": "teams-for-linux",
               "Priority": "optional",
-              "Recommends": "libappindicator3-1",
+              "Recommends": "libappindicator3-1, fido2-tools",
               "Section": "net",
               "Vendor": "Ismael Martinez <ismaelmartinez@gmail.com>",
-              "Version": "2.17.1"
+              "Version": "2.18.1"
             },
-            "filename": "teams-for-linux_2.17.1_arm64.deb",
-            "md5": "75e620baf078968e40f6d781b8ff5a45",
-            "sha1": "7c29bc625a2b7c8835ca4166003d95017d77e269",
-            "sha256": "5d3d0443ce26f5eeb8709b7385cbee9f406ad913f10e6041291c419c3f999e9e",
-            "sha512": "162b0924facb7b020c9090e3ab8daae3a856ed7716b015e8a920f431a6d8a8885319f46b9ad52c82fe6b9673e8ab39914e6e38795eb699529b6affb961376094",
-            "size": 107027964,
-            "upstream_version": "v2.17.1",
-            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.17.1/teams-for-linux_2.17.1_arm64.deb"
+            "filename": "teams-for-linux_2.18.1_arm64.deb",
+            "md5": "42dcb4519a55a608967be00535ea2032",
+            "sha1": "ed927964cb5056e9aeea264f87af44c84e52d634",
+            "sha256": "4e7d0de6f671ed133284961be61b15228db6f857cfdadb407b4a5331a308bf55",
+            "sha512": "47724021207fb155f68ae0aed4ce54854fa4e983bf8748b71d08159a2c11eb53af9e7fd437091dc6e2a5adbd500748799a30ead1400c7bf5c2ab16dab4ed87e9",
+            "size": 107570092,
+            "upstream_version": "v2.18.1",
+            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.18.1/teams-for-linux_2.18.1_arm64.deb"
           },
-          "resolved_at": "2026-08-25T03:14:15+00:00",
+          "resolved_at": "2026-08-27T12:50:47+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -2001,14 +2003,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "code_1.134.0_amd64.deb",
+            "asset_name": "code_1.135.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "1043977",
+              "Installed-Size": "1044663",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2016,31 +2018,31 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.134.0-1787078834"
+              "Version": "1.135.0-1787669172"
             },
-            "filename": "code_1.134.0_amd64.deb",
-            "md5": "f2eb96aa78d93c01874eb7e51d0d435b",
-            "sha1": "a1d2c8762aab9cea477a65643083dbbe3c829dba",
-            "sha256": "dcd3a2f52d53df079cd389662ff1fdbeb629938331d3a63655fed929f8d49f19",
-            "sha512": "8544a9dad599bc01557dc26fad460205992e3fe015352547aae84b2f0126acae5be8a6903ef98dc89e4feb8432e8e37e242d94303f37b4d66ff02a5b61ae6ff8",
-            "size": 238188742,
-            "upstream_version": "1.134.0",
-            "url": "https://update.code.visualstudio.com/1.134.0/linux-deb-x64/stable"
+            "filename": "code_1.135.0_amd64.deb",
+            "md5": "0298eb30903d16bdba868564cac635cd",
+            "sha1": "229cae1cbfd1397bafa1d6020e77aabfdbaab17a",
+            "sha256": "e8101720f0a48f8e6ae5a4112d10ffea5f13d298e7d0a7012b4e36eebc53022c",
+            "sha512": "17ade6a0a981ba192dc2d5fc432bc155f4200bef02c7330dc279e6843456be0d29a2e4c7303821e41114b7f6a5057ed92068e083afc9bbb191842606f01752d1",
+            "size": 238360878,
+            "upstream_version": "1.135.0",
+            "url": "https://update.code.visualstudio.com/1.135.0/linux-deb-x64/stable"
           },
-          "resolved_at": "2026-08-20T03:11:44+00:00",
+          "resolved_at": "2026-08-27T12:50:51+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "code_1.134.0_arm64.deb",
+            "asset_name": "code_1.135.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.17), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libstdc++6 (>= 4.1.1), libstdc++6 (>= 5), libstdc++6 (>= 5.2), libstdc++6 (>= 6), libstdc++6 (>= 9), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "986040",
+              "Installed-Size": "986720",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2048,18 +2050,18 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.134.0-1787078750"
+              "Version": "1.135.0-1787669187"
             },
-            "filename": "code_1.134.0_arm64.deb",
-            "md5": "410eced69524b4bc8f96e151c38702d0",
-            "sha1": "a2416e4af2b189b721349b0a8531750a70ff9c00",
-            "sha256": "b30f5bda4855231681cc7fe22d4a59e7dbee2be170b0e4fb04c7e83b9f9affe5",
-            "sha512": "c6996fadf7faf98c680b96ed1b005495cd0186a2ac504019101b7fff69e9b4bd03552c8b532fb951c123f4b0b657478f82a71cc8b12fa0c7661ceb9e5c5d7989",
-            "size": 218630934,
-            "upstream_version": "1.134.0",
-            "url": "https://update.code.visualstudio.com/1.134.0/linux-deb-arm64/stable"
+            "filename": "code_1.135.0_arm64.deb",
+            "md5": "f33b6d29e4773837d8e6c697083df255",
+            "sha1": "442bd8dde4b6e83a95a39bbbc3ef92647062cfdd",
+            "sha256": "20f1717805ed723c8846e14df3280c6132a663ff71e32068aaa70f3e4c8b1ca4",
+            "sha512": "b20762f941ab5ce0549e80f7b101f486228e898091bce4d02596441d784f811a82976a7d161bc85b276e2e4a17fba306122668532742a21d5b211881eea659a0",
+            "size": 218820010,
+            "upstream_version": "1.135.0",
+            "url": "https://update.code.visualstudio.com/1.135.0/linux-deb-arm64/stable"
           },
-          "resolved_at": "2026-08-20T03:11:53+00:00",
+          "resolved_at": "2026-08-27T12:51:05+00:00",
           "source": "aur",
           "update_policy": "track"
         }
