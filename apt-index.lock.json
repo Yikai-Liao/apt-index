@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T08:24:43+00:00",
+  "generated_at": "2026-09-01T07:51:15+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -301,25 +301,25 @@
               "Architecture": "amd64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "38867",
+              "Installed-Size": "38832",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.8.2"
+              "Version": "2026.8.3"
             },
             "filename": "cloudflared-linux-amd64.deb",
-            "md5": "bd0e9f17ebf6ff28ee8e643b87cb7400",
-            "sha1": "b9254644352266ffccc825baeb1c887d17df3bd2",
-            "sha256": "c805c7c8102190c04dfc16e3b4cc4acc9007d5b19b3afbcd608ea6fed7645a43",
-            "sha512": "18131ce535760549b191720a3e091b1368f4329ddcc3d0463520e6a4107b4cad902b41dd6c7789aad717659fe71406a500b017b1af2eec820af0ffe45a6cb4af",
-            "size": 19146390,
-            "upstream_version": "2026.8.2",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.8.2/cloudflared-linux-amd64.deb"
+            "md5": "46b8c92fdeb368be8f1c60e851f4ca9a",
+            "sha1": "8f1be7ea2344fd4998ed9ab51bb5fa5c151c831e",
+            "sha256": "660b348d473bba81997445b534e7eaefaf4c4e16331866922326c338a7013dd9",
+            "sha512": "906204b79ebf46a068fe1f79e525c1adfe46186a744effa7209f1fa4e941eaeab39f8a55e093826687b41b0de07fa896f57eb96c6f64eb144b5ebc65e0fd3994",
+            "size": 19130860,
+            "upstream_version": "2026.8.3",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.8.3/cloudflared-linux-amd64.deb"
           },
-          "resolved_at": "2026-08-15T03:06:31+00:00",
+          "resolved_at": "2026-09-01T07:50:56+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -330,25 +330,25 @@
               "Architecture": "arm64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "36528",
+              "Installed-Size": "36506",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.8.2"
+              "Version": "2026.8.3"
             },
             "filename": "cloudflared-linux-arm64.deb",
-            "md5": "846897567094a60ca09b97511afaa88b",
-            "sha1": "e826b4ca7d9bb63e8478c3c6f6dffa5e4db0398d",
-            "sha256": "096739c69f62cace40b144f0e6c81e61333f3d320ce07a265c7b17b5e925731c",
-            "sha512": "9d7a42074e2f5f75d363895ad26c6a10b9c456401619d21c1a1dcfd906613651bb1fe48e92b889a34f44485ecf4241b3933ec723ccce6c9d33412a4f4e55e24b",
-            "size": 17661398,
-            "upstream_version": "2026.8.2",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.8.2/cloudflared-linux-arm64.deb"
+            "md5": "6cc27805a8e96c1304ed179c613eef3a",
+            "sha1": "e75c20a9d9c185aa63a369d6c54f97b0f108d7a9",
+            "sha256": "2c0d991ed6061e55d2e0148b794d86f594ddb473c1db43cf0647278b62e326ab",
+            "sha512": "7cbb2a9bd996d2a1091bd6fa2cd59ed311e581630829f11f7f65a88f15e71e9fd171c7500e2e282dafde9b37476e23e3a0119f1d3c9bdff2e0b61ee8278ecfb7",
+            "size": 17633020,
+            "upstream_version": "2026.8.3",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.8.3/cloudflared-linux-arm64.deb"
           },
-          "resolved_at": "2026-08-15T03:06:31+00:00",
+          "resolved_at": "2026-09-01T07:50:57+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.18.9_amd64.deb",
+            "asset_name": "cursor_3.18.25_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.14), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "877981",
+              "Installed-Size": "878289",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.18.9-1787797867"
+              "Version": "3.18.25-1788220737"
             },
-            "filename": "cursor_3.18.9_amd64.deb",
-            "md5": "60a7e2ddfd26f1b2bc72dd77a55738e4",
-            "sha1": "39985d62805f9975a65ce5bed1e378b5305d34e8",
-            "sha256": "ad4a8a16d81500f7359bd9fce1488962cd88f310c1b8c4e6efec9d3118f05126",
-            "sha512": "35730fc22f7a3fe7a47c51e7c1b2a9119c6dc7005a837386dd1d29a291e2c3f8f79896631f84d4d2a74c3d9bfb91ea4124b08a5bbb6b5bb30d2cd0b5aa32a9b1",
-            "size": 194150416,
-            "upstream_version": "3.18.9",
-            "url": "https://downloads.cursor.com/production/2ba48ff3f7514cc4643c52ca9f7b3173d9b66137/linux/x64/deb/amd64/deb/cursor_3.18.9_amd64.deb"
+            "filename": "cursor_3.18.25_amd64.deb",
+            "md5": "9a65bc857183ac66ea5a144c6210dfc1",
+            "sha1": "3e1b9c76ee6f2c136d3730fe28ae88a0334105e8",
+            "sha256": "e691499d730b5b9714b96dd382c784fc1c5e499383ea6da98537acb3f0494deb",
+            "sha512": "5f25c9dccf75c764b6266e74136ad5cf6e99330804c7ae3ed22d4210304791b1ac1233efb07b291da490fbfe3d4801cb46680a171ddf6b2815e0267741ec339a",
+            "size": 194156080,
+            "upstream_version": "3.18.25",
+            "url": "https://downloads.cursor.com/production/280eca2911f1774689696e5f1efa5a4f97a87af3/linux/x64/deb/amd64/deb/cursor_3.18.25_amd64.deb"
           },
-          "resolved_at": "2026-08-28T14:23:36+00:00",
+          "resolved_at": "2026-09-01T07:51:03+00:00",
           "source": "aur",
           "update_policy": "track"
         }
