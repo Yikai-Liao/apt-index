@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T07:51:15+00:00",
+  "generated_at": "2026-09-02T07:08:26+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -598,23 +598,23 @@
               "Depends": "libc6 (>= 2.35)",
               "Description": "Fast neofetch-like system information tool\n fastfetch is a neofetch-like tool for fetching system information and displaying them in a pretty way. It is written mostly in C to achieve much better performance.",
               "Homepage": "https://github.com/fastfetch-cli/fastfetch",
-              "Installed-Size": "16788",
+              "Installed-Size": "19354",
               "Maintainer": "Carter Li <zhangsongcui@live.cn>",
               "Package": "fastfetch",
               "Priority": "optional",
               "Section": "devel",
-              "Version": "2.67.1"
+              "Version": "2.68.1"
             },
             "filename": "fastfetch-linux-amd64.deb",
-            "md5": "a5d55117fca822ec2a989fe046c78dce",
-            "sha1": "8a868dcf2b4a6a3db0310d19c31c55968a09e6b8",
-            "sha256": "41fcc5f96ce952ce4147a7ba7ad70ddd319d15f88b7691fe615045d5adb329d8",
-            "sha512": "7f306bec5d2ae5f4d6e2617383b71f5385e40f8960f6d84d9bcdf9847514215dc9d8b9107b357f94a674a601642b2ebfe73babf66b950e86e31b1455d8853410",
-            "size": 6177506,
-            "upstream_version": "2.67.1",
-            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.67.1/fastfetch-linux-amd64.deb"
+            "md5": "6c43ebf9432a65fd1116f7634ed3770e",
+            "sha1": "81b81ef623375fc714f1f0c43843e7caa170a8c2",
+            "sha256": "33b046a620b4f15fb6d0f9b3ef2491e6147ae15e40d699a6eef13555634a1b28",
+            "sha512": "e82f1e3fb5f4b8afb5bc775713cc75eaf6b314b8f8bfaea7ed2ff0b1a59f86563ce183828cdedaeff9f5d7739b9297be01006255216a9a344eedfbb937a4d600",
+            "size": 7083552,
+            "upstream_version": "2.68.1",
+            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.68.1/fastfetch-linux-amd64.deb"
           },
-          "resolved_at": "2026-08-15T03:06:34+00:00",
+          "resolved_at": "2026-09-02T07:08:09+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -626,23 +626,23 @@
               "Depends": "libc6 (>= 2.35)",
               "Description": "Fast neofetch-like system information tool\n fastfetch is a neofetch-like tool for fetching system information and displaying them in a pretty way. It is written mostly in C to achieve much better performance.",
               "Homepage": "https://github.com/fastfetch-cli/fastfetch",
-              "Installed-Size": "16788",
+              "Installed-Size": "19319",
               "Maintainer": "Carter Li <zhangsongcui@live.cn>",
               "Package": "fastfetch",
               "Priority": "optional",
               "Section": "devel",
-              "Version": "2.67.1"
+              "Version": "2.68.1"
             },
-            "filename": "fastfetch_2.67.1_arm64.deb",
-            "md5": "2983e4ca525bf1f632f1c3c58272e649",
-            "sha1": "475a706feefa0153304133bcdb0496567df1bf89",
-            "sha256": "70bd6d802358ea91afb78e32b7dfe186d801e64275f7b4674d02c3cb3656d538",
-            "sha512": "c6e6e5e76210849780fc058829a401800da8e896a6d184f4241f81ec5e82dbda4fbf0fa9feebb9247d0ee19467b9fcd8e1cef0c56d1788544efae44ea0931925",
-            "size": 6050376,
-            "upstream_version": "2.67.1",
-            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.67.1/fastfetch-linux-aarch64.deb"
+            "filename": "fastfetch_2.68.1_arm64.deb",
+            "md5": "f105ccba7c81960c8fe3a8d788f97911",
+            "sha1": "c0798be0f5019a7c8626db809d9d29f8ba9f0f95",
+            "sha256": "0290a96bf225e0142a2e21238be9ef36c63c959c489f2f3ba6b4c72b5a767b9a",
+            "sha512": "1cc53d02f1aad1578fa988cd5d423e1ebf6b880b593de95115e86b6ad0ee10744313cead9f7867c60bdd8cd54415e84dfc4908fb4691341632c0b2ff72dfb437",
+            "size": 6930652,
+            "upstream_version": "2.68.1",
+            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.68.1/fastfetch-linux-aarch64.deb"
           },
-          "resolved_at": "2026-08-15T03:06:34+00:00",
+          "resolved_at": "2026-09-02T07:08:10+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1027,59 +1027,59 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "gh_2.98.0_linux_amd64.deb",
+            "asset_name": "gh_2.99.0_linux_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "git",
               "Description": "GitHub\u2019s official command line tool.",
               "Homepage": "https://github.com/cli/cli",
-              "Installed-Size": "40808",
+              "Installed-Size": "40950",
               "License": "MIT",
               "Maintainer": "GitHub",
               "Package": "gh",
               "Priority": "optional",
               "Section": "",
-              "Version": "2.98.0"
+              "Version": "2.99.0"
             },
-            "filename": "gh_2.98.0_linux_amd64.deb",
-            "md5": "6bb0299e3f690278ff70a52f29bf0038",
-            "sha1": "4df41baf17b8c65e3761eeb0d2e23c46e9a4fed8",
-            "sha256": "f65a3fa2fa0eb2e97c445ee3f5e087a40aae03b64847f45a8f13805e504535d6",
-            "sha512": "63b85a746f94640bdc4ddd0a6edadc7fbe5ea5118a08d3775e4695b951e1b2c48ab29c21fe125f68895ca01187121769a6a4949fd82799cfbdb764dad4035c88",
-            "size": 14935072,
-            "upstream_version": "v2.98.0",
-            "url": "https://github.com/cli/cli/releases/download/v2.98.0/gh_2.98.0_linux_amd64.deb"
+            "filename": "gh_2.99.0_linux_amd64.deb",
+            "md5": "cd0b3b8611700443ce843687475d0dc4",
+            "sha1": "6555c6f171996978671431a8b22142412225cfbb",
+            "sha256": "471feb449cc98d527fc9a67601b9ea04296c100b666d970a784a07dc17a59a8f",
+            "sha512": "73f5a62b120e897e9b2e6df38235d8bedc07594ff2c7508dece13939392c6a0e64c1c8a955c991f798c9e57945ad8d4c43d8a6f6748672fc656bbea5eaadf352",
+            "size": 15005414,
+            "upstream_version": "v2.99.0",
+            "url": "https://github.com/cli/cli/releases/download/v2.99.0/gh_2.99.0_linux_amd64.deb"
           },
-          "resolved_at": "2026-08-21T03:17:38+00:00",
+          "resolved_at": "2026-09-02T07:08:11+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "gh_2.98.0_linux_arm64.deb",
+            "asset_name": "gh_2.99.0_linux_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "git",
               "Description": "GitHub\u2019s official command line tool.",
               "Homepage": "https://github.com/cli/cli",
-              "Installed-Size": "38032",
+              "Installed-Size": "38166",
               "License": "MIT",
               "Maintainer": "GitHub",
               "Package": "gh",
               "Priority": "optional",
               "Section": "",
-              "Version": "2.98.0"
+              "Version": "2.99.0"
             },
-            "filename": "gh_2.98.0_linux_arm64.deb",
-            "md5": "1b725f2168d8e3d74d00a230afb05043",
-            "sha1": "dca577a8bdf395fa602c5a52179585b0a9c09e79",
-            "sha256": "bbc4ac7964c2a091fd555cd1758d10a7cfcfdc472e405f0b0fb958f05d535cb6",
-            "sha512": "c93b16062c096a8cdfb8b355a358eac6decc5ac1de75c7d62caffce57435be31b7a314ff53e24bbbf97dfad36dc35ee0ca3c1b36f4360c14ad20c3806b5e5229",
-            "size": 13588892,
-            "upstream_version": "v2.98.0",
-            "url": "https://github.com/cli/cli/releases/download/v2.98.0/gh_2.98.0_linux_arm64.deb"
+            "filename": "gh_2.99.0_linux_arm64.deb",
+            "md5": "c96860c03efcf68070520e3ca8695d67",
+            "sha1": "b30075c05b8d96b7e0e09461d9d43927b2d94f8d",
+            "sha256": "20ccc660b06aef27e2164ae0de5085108e1a3d1e7ba4440e7be10bd9b4b5d0ab",
+            "sha512": "dc9b90000b5f9ca0dc0728f6727d750756cfdb9142fd415dffe00b1eabdf967ded18fc049d38c8b571ab6b0410d1a8f2f223e595dcc0a8a60eea55728bfee44b",
+            "size": 13648746,
+            "upstream_version": "v2.99.0",
+            "url": "https://github.com/cli/cli/releases/download/v2.99.0/gh_2.99.0_linux_arm64.deb"
           },
-          "resolved_at": "2026-08-21T03:17:38+00:00",
+          "resolved_at": "2026-09-02T07:08:11+00:00",
           "source": "github",
           "update_policy": "track"
         }
