@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T07:16:42+00:00",
+  "generated_at": "2026-09-09T07:25:18+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.19.13_amd64.deb",
+            "asset_name": "cursor_3.19.19_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0) | libglib2.0-0t64 (>= 2.12.0), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "890347",
+              "Installed-Size": "890367",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.19.13-1788547236"
+              "Version": "3.19.19-1788887598"
             },
-            "filename": "cursor_3.19.13_amd64.deb",
-            "md5": "28b9fc5fb30b5abfbc8e64d6bfdb07f7",
-            "sha1": "2d120ca1dc119f952363eb63d636f0057730ecc2",
-            "sha256": "71f578186fbf7828cf52c8871e3760cc8de18bfd3f0df5976f06051a385deba7",
-            "sha512": "3c952035fa1809caded7059b7addbb01a9143cd248ecff27cdb3cb3af47d4bc824ed60dfd9757e105a342e53280e075d81f775790295a3272818bab5a994b305",
-            "size": 200242988,
-            "upstream_version": "3.19.13",
-            "url": "https://downloads.cursor.com/production/dd066f332fcea7382764400fde902f61920648d5/linux/x64/deb/amd64/deb/cursor_3.19.13_amd64.deb"
+            "filename": "cursor_3.19.19_amd64.deb",
+            "md5": "34a299c7b21d6dcc83943cbd1c4e4373",
+            "sha1": "eae2caf4eb1f4835042915584acd4b8ce68251f2",
+            "sha256": "2e633ff3e6871aa7bdf7879f91693e2163a11bff5a0e085426b1139fabb3dd62",
+            "sha512": "7aab8dd6ebda9a771a9e09970e0de35f5ff969cca679fe1db7f72adc6398b58db0b922c3aa594eb9ba959b1132d786f470b4e506cfafa058ee510875ff84bff7",
+            "size": 200262504,
+            "upstream_version": "3.19.19",
+            "url": "https://downloads.cursor.com/production/6496ea8a068aebfcd21990e70ff522e9abf10c8c/linux/x64/deb/amd64/deb/cursor_3.19.19_amd64.deb"
           },
-          "resolved_at": "2026-09-06T07:09:40+00:00",
+          "resolved_at": "2026-09-09T07:25:05+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -459,13 +459,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "drawio-amd64-31.4.4.deb",
+            "asset_name": "drawio-amd64-31.4.5.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  draw.io desktop",
               "Homepage": "https://github.com/jgraph/drawio",
-              "Installed-Size": "434228",
+              "Installed-Size": "354265",
               "License": "Apache-2.0",
               "Maintainer": "draw.io <desktop@draw.io>",
               "Package": "draw.io",
@@ -473,30 +473,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "draw.io <desktop@draw.io>",
-              "Version": "31.4.4"
+              "Version": "31.4.5"
             },
-            "filename": "draw.io_31.4.4_amd64.deb",
-            "md5": "4be6af6e3c012745be0fb8ebdcc71abf",
-            "sha1": "f01bfa374de2591e8a6f5d31e09b71c8b3c2d651",
-            "sha256": "60bfcfba8a98f6efab049b22097a50833e57fcf4f80d2a1a784a9f1d8d551714",
-            "sha512": "23e16ae81fc19684ea51128aa9a7769e4690925c8dd19f172cd9ee44ab9695dc6d09ba3aadfa332c151a4835feffe4ed97b0f0ab2da76cc171fb09ff0dcdf880",
-            "size": 135794932,
-            "upstream_version": "v31.4.4",
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v31.4.4/drawio-amd64-31.4.4.deb"
+            "filename": "draw.io_31.4.5_amd64.deb",
+            "md5": "c3b13223cb6cdc2c57bc3cc023ec2515",
+            "sha1": "39cd59bd21338ed21e3c22c0f59814f6d8b26c2c",
+            "sha256": "296729ee18f781dc82deb757de2b3399fbe04fe0ddad3093909013e707ee2ae4",
+            "sha512": "c6b80cea7ad56f5ad7ee1edb416e48e7ffd7fd13abcc94993dc71b15822d4340c0abeb6cdd34630723cf293eacee190fa664361a6d75d8b2807bc3af41de325c",
+            "size": 124710044,
+            "upstream_version": "v31.4.5",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v31.4.5/drawio-amd64-31.4.5.deb"
           },
-          "resolved_at": "2026-09-07T07:21:42+00:00",
+          "resolved_at": "2026-09-09T07:24:58+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "drawio-arm64-31.4.4.deb",
+            "asset_name": "drawio-arm64-31.4.5.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  draw.io desktop",
               "Homepage": "https://github.com/jgraph/drawio",
-              "Installed-Size": "439123",
+              "Installed-Size": "359160",
               "License": "Apache-2.0",
               "Maintainer": "draw.io <desktop@draw.io>",
               "Package": "draw.io",
@@ -504,18 +504,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "draw.io <desktop@draw.io>",
-              "Version": "31.4.4"
+              "Version": "31.4.5"
             },
-            "filename": "draw.io_31.4.4_arm64.deb",
-            "md5": "493a6dcfd54247ba95777161b9662202",
-            "sha1": "1c0c307aaa31d3af42382b743a89fee775ae8788",
-            "sha256": "4a6634429936031ae30a76fbe206aa6d3e7017d3d68b99a31286534a39eeb184",
-            "sha512": "c3909eb8b628d7bb04cce62457d50703e9b1ec7ff078f744ef2ebdb5f3decded275401e00658f4cddb0f7f050bdfec2a492decb6e9434e59d117dd74c643a182",
-            "size": 130990232,
-            "upstream_version": "v31.4.4",
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v31.4.4/drawio-arm64-31.4.4.deb"
+            "filename": "draw.io_31.4.5_arm64.deb",
+            "md5": "c8e4c0ccc5e7f0556ffb406ee313a6be",
+            "sha1": "9a3f4020bb26fbeecae4519abbae1368ecb8177a",
+            "sha256": "b75aee5a4a24252acae14d62122ff4ab15f27199619a5a701bcbc01acd2b8127",
+            "sha512": "d31653855b64f21c978fb58ff8b4c04e86245139a8511875e9a200eab900a80f0f6dcd1d25d2f909abfd130069a2cac17582dad15b51f4ccc0e333103e057c5b",
+            "size": 119904076,
+            "upstream_version": "v31.4.5",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v31.4.5/drawio-arm64-31.4.5.deb"
           },
-          "resolved_at": "2026-09-07T07:21:44+00:00",
+          "resolved_at": "2026-09-09T07:25:00+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1808,61 +1808,61 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "syncthing_2.1.3_amd64.deb",
+            "asset_name": "syncthing_2.1.5_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libc6, procps",
               "Description": "Open Source Continuous File Synchronization",
               "Homepage": "https://syncthing.net/",
-              "Installed-Size": "26627",
+              "Installed-Size": "26408",
               "License": "MPL-2",
               "Maintainer": "Syncthing Release Management <release@syncthing.net>",
               "Package": "syncthing",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Syncthing Release Management <release@syncthing.net>",
-              "Version": "2.1.3"
+              "Version": "2.1.5"
             },
-            "filename": "syncthing_2.1.3_amd64.deb",
-            "md5": "7a2bfbb441c9e24e3caaedfed6459918",
-            "sha1": "873300551177a0db74e4e1e0dffbe1be5ae83c62",
-            "sha256": "ed148130661a27cd3961fda58bd91c17b205fa3d7ab312a1d6cbf21e59731f30",
-            "sha512": "25619bf5d2fa30f397170e47c4afa833c19a4fa35ddb666ed9fc2c4d13dd6311dcb6092c845245432962b1fb61bd8092508c6fb6f7ebc22140004a94bad76d9e",
-            "size": 11844458,
-            "upstream_version": "v2.1.3",
-            "url": "https://github.com/syncthing/syncthing/releases/download/v2.1.3/syncthing_2.1.3_amd64.deb"
+            "filename": "syncthing_2.1.5_amd64.deb",
+            "md5": "1e18d276db09c73f7d847cb1e97c7f3a",
+            "sha1": "2a5b299298864dc4f92ec111eb7ad529198eeb56",
+            "sha256": "fd8daf356255a56db4d9259e0a6972193a9bdc0bb6229ed1c091f4a418280a39",
+            "sha512": "623dc2c68054e6ff5f14101527bff12e7a2002bba8a6801dd3396ad7d0e19fdc3689afceea24808035076817def1d423a77cef5e6b0f7432052a09eea3a8ec9b",
+            "size": 11806144,
+            "upstream_version": "v2.1.5",
+            "url": "https://github.com/syncthing/syncthing/releases/download/v2.1.5/syncthing_2.1.5_amd64.deb"
           },
-          "resolved_at": "2026-08-06T05:28:14+00:00",
+          "resolved_at": "2026-09-09T07:25:07+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "syncthing_2.1.3_arm64.deb",
+            "asset_name": "syncthing_2.1.5_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libc6, procps",
               "Description": "Open Source Continuous File Synchronization",
               "Homepage": "https://syncthing.net/",
-              "Installed-Size": "24848",
+              "Installed-Size": "24606",
               "License": "MPL-2",
               "Maintainer": "Syncthing Release Management <release@syncthing.net>",
               "Package": "syncthing",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Syncthing Release Management <release@syncthing.net>",
-              "Version": "2.1.3"
+              "Version": "2.1.5"
             },
-            "filename": "syncthing_2.1.3_arm64.deb",
-            "md5": "73187ec4960fe505604c5c9bf0e0c195",
-            "sha1": "a7b2b68da39108680ca24cfb10680b01bec865ef",
-            "sha256": "a20698cff4137b145d5536ae33da34c922cd29882cf3a430c8fe34d2c740a0a9",
-            "sha512": "d3928d76f9e28eb516f6c6033f730c188a88251f181042369c76f91b1721e8afb1e4a18c1a6c63fe42dd1ec2270b40d9a05fe696e058a254155db4cc2e8820ee",
-            "size": 10940238,
-            "upstream_version": "v2.1.3",
-            "url": "https://github.com/syncthing/syncthing/releases/download/v2.1.3/syncthing_2.1.3_arm64.deb"
+            "filename": "syncthing_2.1.5_arm64.deb",
+            "md5": "86065c9fc860856b74f98ffcc23d736f",
+            "sha1": "4f074cb7e594118116f1dd47c0a2f6607c2f374f",
+            "sha256": "35cf54b9bac9e2f37f022e19affee4856200128747b8794afa2aec167ecec999",
+            "sha512": "d175372237fe3144285bd49d671b8fa327a7d700da24bd70b1aad4b6c655b056b9b621d0dd29685f001868a58a7f0b4f9d79c0bdd319740380a33656cfd82c72",
+            "size": 10883972,
+            "upstream_version": "v2.1.5",
+            "url": "https://github.com/syncthing/syncthing/releases/download/v2.1.5/syncthing_2.1.5_arm64.deb"
           },
-          "resolved_at": "2026-08-06T05:28:14+00:00",
+          "resolved_at": "2026-09-09T07:25:08+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -2003,14 +2003,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "code_1.136.1_amd64.deb",
+            "asset_name": "code_1.136.2_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.15), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "1067644",
+              "Installed-Size": "1068080",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2018,31 +2018,31 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.136.1-1788413865"
+              "Version": "1.136.2-1788561671"
             },
-            "filename": "code_1.136.1_amd64.deb",
-            "md5": "83857d6f187a332cdfba0a6773ffe1a2",
-            "sha1": "333c3bd4669ecfd426407a517021e5204dbaed9f",
-            "sha256": "4463c4e249a19d7746603f2ec3745c345d3cd55b009d36e824158d15c35509ef",
-            "sha512": "35d600cfa961d926071393665672727771444723293e817429b607eaea116dfd496ca8af2c53f3b267d94c17b09c48357f1fbfed98e8b42cf10c846af5d8c8c8",
-            "size": 243690526,
-            "upstream_version": "1.136.1",
-            "url": "https://update.code.visualstudio.com/1.136.1/linux-deb-x64/stable"
+            "filename": "code_1.136.2_amd64.deb",
+            "md5": "428ee1a74a8047572352bea4177a9a09",
+            "sha1": "dcb90a5b8191b7d52585e0e6aa3bc58c1affce54",
+            "sha256": "2493226f723f66c8e83b9d806e3fbe83dcc43f381ece51eaa03d88889542b0c0",
+            "sha512": "978198e91a18416d0d39596b3da56a4c0b1007f2318982b1b0c58a0cbb354671d1c2a1a229fb4ac95380d720ae05e675fd0ef8490becdb20edf28ff9e55ae2e3",
+            "size": 243692346,
+            "upstream_version": "1.136.2",
+            "url": "https://update.code.visualstudio.com/1.136.2/linux-deb-x64/stable"
           },
-          "resolved_at": "2026-09-04T07:16:06+00:00",
+          "resolved_at": "2026-09-09T07:25:12+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "code_1.136.1_arm64.deb",
+            "asset_name": "code_1.136.2_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.17), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libstdc++6 (>= 4.1.1), libstdc++6 (>= 5), libstdc++6 (>= 5.2), libstdc++6 (>= 6), libstdc++6 (>= 9), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "1013615",
+              "Installed-Size": "1007844",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2050,18 +2050,18 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.136.1-1788414014"
+              "Version": "1.136.2-1788561667"
             },
-            "filename": "code_1.136.1_arm64.deb",
-            "md5": "58018b57ceb8d3f04b46acc86c107997",
-            "sha1": "12f3872350bad839e3da4b0e8d4950343d951184",
-            "sha256": "baa72f92d3feaa76d015202c57271475ea15809e635587279171a972cdd612a4",
-            "sha512": "614d23abc6f9065334f83111d7488b8bf498904abe2ea8fcdace5f3959f32246b9abc35902fba73c27dcf1618dcb2592d82e4ae80ca2c597e9884aaae21bf3c8",
-            "size": 224610346,
-            "upstream_version": "1.136.1",
-            "url": "https://update.code.visualstudio.com/1.136.1/linux-deb-arm64/stable"
+            "filename": "code_1.136.2_arm64.deb",
+            "md5": "b2cbf5c53c8c6048bd49fa96f0a024d8",
+            "sha1": "4adcea976a1a55483a41fa92860e2e761c6fedba",
+            "sha256": "2e6f3289ddd418ac3a80c37d617f59afd101a245edc99c98782d5297f2812f70",
+            "sha512": "f890f9d3578399d70cf194bbec9123ab3acdab6fed52a987d2154dde6c40f1163b858bb4f2e1c837317d63ef81662fe0414c29b06014c6c9719fa8570deda49c",
+            "size": 225240210,
+            "upstream_version": "1.136.2",
+            "url": "https://update.code.visualstudio.com/1.136.2/linux-deb-arm64/stable"
           },
-          "resolved_at": "2026-09-04T07:16:11+00:00",
+          "resolved_at": "2026-09-09T07:25:18+00:00",
           "source": "aur",
           "update_policy": "track"
         }
