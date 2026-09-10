@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T07:25:18+00:00",
+  "generated_at": "2026-09-10T07:21:07+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -301,25 +301,25 @@
               "Architecture": "amd64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "38832",
+              "Installed-Size": "38904",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.8.3"
+              "Version": "2026.9.0"
             },
             "filename": "cloudflared-linux-amd64.deb",
-            "md5": "46b8c92fdeb368be8f1c60e851f4ca9a",
-            "sha1": "8f1be7ea2344fd4998ed9ab51bb5fa5c151c831e",
-            "sha256": "660b348d473bba81997445b534e7eaefaf4c4e16331866922326c338a7013dd9",
-            "sha512": "906204b79ebf46a068fe1f79e525c1adfe46186a744effa7209f1fa4e941eaeab39f8a55e093826687b41b0de07fa896f57eb96c6f64eb144b5ebc65e0fd3994",
-            "size": 19130860,
-            "upstream_version": "2026.8.3",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.8.3/cloudflared-linux-amd64.deb"
+            "md5": "192d5df40a97d2bfd7fc4cf2e5d7fcc3",
+            "sha1": "ff43c0514a4b24dc717611c8441df8c19aede944",
+            "sha256": "1ea48af7a774376b71e329c6fdc0b7853298df270356132a294f8d8d5eb0e543",
+            "sha512": "68af7b0ec1f815d70718753836bfe9526750d1cd04b775c4b832cb4fadc8a5b8bdb9d3c1d423b24d235bab6bfc0a31a7fe243c72e8a77f16c7a0ddc93d149ec3",
+            "size": 19159328,
+            "upstream_version": "2026.9.0",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.9.0/cloudflared-linux-amd64.deb"
           },
-          "resolved_at": "2026-09-01T07:50:56+00:00",
+          "resolved_at": "2026-09-10T07:20:47+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -330,25 +330,25 @@
               "Architecture": "arm64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "36506",
+              "Installed-Size": "36589",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.8.3"
+              "Version": "2026.9.0"
             },
             "filename": "cloudflared-linux-arm64.deb",
-            "md5": "6cc27805a8e96c1304ed179c613eef3a",
-            "sha1": "e75c20a9d9c185aa63a369d6c54f97b0f108d7a9",
-            "sha256": "2c0d991ed6061e55d2e0148b794d86f594ddb473c1db43cf0647278b62e326ab",
-            "sha512": "7cbb2a9bd996d2a1091bd6fa2cd59ed311e581630829f11f7f65a88f15e71e9fd171c7500e2e282dafde9b37476e23e3a0119f1d3c9bdff2e0b61ee8278ecfb7",
-            "size": 17633020,
-            "upstream_version": "2026.8.3",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.8.3/cloudflared-linux-arm64.deb"
+            "md5": "d24804f12b860d55b0f3786a89229eaf",
+            "sha1": "bed73006349d460ca36317aface1fe3f354df52e",
+            "sha256": "2355fac318375a79d4f62690251e92a52d56f2737e30f053bb3419000fc32593",
+            "sha512": "3695a3e55433d92a7db06fb2fae3a61da79f4bb9dadba4ec8275b941f13ba2a9d08f3b0ea8744556fd30be287dbc158bb7e3b82ef1b0143879195e52e9fe45ed",
+            "size": 17666688,
+            "upstream_version": "2026.9.0",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.9.0/cloudflared-linux-arm64.deb"
           },
-          "resolved_at": "2026-09-01T07:50:57+00:00",
+          "resolved_at": "2026-09-10T07:20:48+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -846,10 +846,10 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "FlClash-0.8.96-linux-amd64.deb",
+            "asset_name": "FlClash-0.8.97-linux-amd64.deb",
             "control": {
               "Architecture": "amd64",
-              "Depends": "libayatana-appindicator3-dev, libkeybinder-3.0-dev, libsecret-1-0",
+              "Depends": "libayatana-appindicator3-1, libsecret-1-0",
               "Description": "A multi-platform proxy client based on ClashMeta, simple and easy to use, open-source and ad-free.",
               "Essential": "no",
               "Installed-Size": "6604",
@@ -857,27 +857,27 @@
               "Package": "FlClash",
               "Priority": "optional",
               "Section": "x11",
-              "Version": "0.8.96+2026081701"
+              "Version": "0.8.97+2026091001"
             },
-            "filename": "FlClash-0.8.96-linux-amd64.deb",
-            "md5": "e3dd0952b9843e0a08f15ab040adb0a2",
-            "sha1": "d442e64e150637dadc9a8adaf1e76f4a3d5a31d8",
-            "sha256": "b24f5aa073952fabfb5b65d67f2800c824fb6a5bce8663524382dc7319d3864c",
-            "sha512": "acd00edc51385f53930068cbc8ffa35859d28f9f23e8d6592a4522df3aa97777d3bb020f92440e97e0cb8ea627b5e36e539c7715eba6a2ded7084d5d9e3ca13d",
-            "size": 42085932,
-            "upstream_version": "v0.8.96",
-            "url": "https://github.com/chen08209/FlClash/releases/download/v0.8.96/FlClash-0.8.96-linux-amd64.deb"
+            "filename": "FlClash-0.8.97-linux-amd64.deb",
+            "md5": "a36abd495faebe166d77c078b45d084a",
+            "sha1": "0ee180b30259ccb3d7ccafa60796e4a58722ea73",
+            "sha256": "67033c75d657249f208a9a3a1f9caeae61a5bdcf7e04156b251d0ea686c2733d",
+            "sha512": "fce76ad141788fd350979d00a034b0c263aa2456ef19e287b792376e8572f8284329315e95cfa9dbf4152695a3d84b54de26756c4bf1b9c970387aa4907b7dcd",
+            "size": 43476502,
+            "upstream_version": "v0.8.97",
+            "url": "https://github.com/chen08209/FlClash/releases/download/v0.8.97/FlClash-0.8.97-linux-amd64.deb"
           },
-          "resolved_at": "2026-08-18T03:10:13+00:00",
+          "resolved_at": "2026-09-10T07:20:49+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "FlClash-0.8.96-linux-arm64.deb",
+            "asset_name": "FlClash-0.8.97-linux-arm64.deb",
             "control": {
               "Architecture": "arm64",
-              "Depends": "libayatana-appindicator3-dev, libkeybinder-3.0-dev, libsecret-1-0",
+              "Depends": "libayatana-appindicator3-1, libsecret-1-0",
               "Description": "A multi-platform proxy client based on ClashMeta, simple and easy to use, open-source and ad-free.",
               "Essential": "no",
               "Installed-Size": "6604",
@@ -885,18 +885,18 @@
               "Package": "FlClash",
               "Priority": "optional",
               "Section": "x11",
-              "Version": "0.8.96+2026081701"
+              "Version": "0.8.97+2026091001"
             },
-            "filename": "FlClash-0.8.96-linux-arm64.deb",
-            "md5": "6d2af654a729d1370fdbcba5050b23be",
-            "sha1": "e0d66e8950464d1ed34c662cd462ffd5ca9ce20a",
-            "sha256": "9156147ed59e6f71edfbe7a4e27e8187bfc79d43133d4aeb2f6e5fa5f76adca2",
-            "sha512": "10df427b82428e61539639301eab5be0a73893a20594ae4db879c4e8ffd0d53126b3b3df30998282e72ed886d62f429d64468603f3391cdac890bc73ac4d7c09",
-            "size": 39032818,
-            "upstream_version": "v0.8.96",
-            "url": "https://github.com/chen08209/FlClash/releases/download/v0.8.96/FlClash-0.8.96-linux-arm64.deb"
+            "filename": "FlClash-0.8.97-linux-arm64.deb",
+            "md5": "6025a67d24f38eb73408565eecd67290",
+            "sha1": "30fefacefabfa3a8d0de404ccc4799ad7164b0d2",
+            "sha256": "5eb71c8305ee5d7bd291b874be219509e55b29e8b0b8207f0b812f617b69843f",
+            "sha512": "24007f9e7d0a5c5892026155470bdc2e1fd126ac00c35aae7d1f7f5cda62f921d4d53352b59787fea72aafdf8432fe377beef9984a1c5d8dc0275784b4dbd238",
+            "size": 40605904,
+            "upstream_version": "v0.8.97",
+            "url": "https://github.com/chen08209/FlClash/releases/download/v0.8.97/FlClash-0.8.97-linux-arm64.deb"
           },
-          "resolved_at": "2026-08-18T03:10:14+00:00",
+          "resolved_at": "2026-09-10T07:20:51+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -2003,14 +2003,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "code_1.136.2_amd64.deb",
+            "asset_name": "code_1.137.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.15), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "1068080",
+              "Installed-Size": "1019647",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2018,31 +2018,31 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.136.2-1788561671"
+              "Version": "1.137.0-1788902055"
             },
-            "filename": "code_1.136.2_amd64.deb",
-            "md5": "428ee1a74a8047572352bea4177a9a09",
-            "sha1": "dcb90a5b8191b7d52585e0e6aa3bc58c1affce54",
-            "sha256": "2493226f723f66c8e83b9d806e3fbe83dcc43f381ece51eaa03d88889542b0c0",
-            "sha512": "978198e91a18416d0d39596b3da56a4c0b1007f2318982b1b0c58a0cbb354671d1c2a1a229fb4ac95380d720ae05e675fd0ef8490becdb20edf28ff9e55ae2e3",
-            "size": 243692346,
-            "upstream_version": "1.136.2",
-            "url": "https://update.code.visualstudio.com/1.136.2/linux-deb-x64/stable"
+            "filename": "code_1.137.0_amd64.deb",
+            "md5": "43ea09abbdb065c1cb0a524475c85f82",
+            "sha1": "629ff972e233ee3f2daf1bc89e2a1c072dc57dd2",
+            "sha256": "fd4dff72c44598d3acb885b448256f5d82cf53f59538d97fc7d3c8d8d9d574d3",
+            "sha512": "ce71ceac3d70088419e073840d9e792853de00862047c704a7094c161fc4394b178b8f44fba9a617134443eb4e37cac1ea58b85432a6b44f458e2f059d8ae45e",
+            "size": 237130638,
+            "upstream_version": "1.137.0",
+            "url": "https://update.code.visualstudio.com/1.137.0/linux-deb-x64/stable"
           },
-          "resolved_at": "2026-09-09T07:25:12+00:00",
+          "resolved_at": "2026-09-10T07:21:01+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "code_1.136.2_arm64.deb",
+            "asset_name": "code_1.137.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.17), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libstdc++6 (>= 4.1.1), libstdc++6 (>= 5), libstdc++6 (>= 5.2), libstdc++6 (>= 6), libstdc++6 (>= 9), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "1007844",
+              "Installed-Size": "973447",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2050,18 +2050,18 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.136.2-1788561667"
+              "Version": "1.137.0-1788902074"
             },
-            "filename": "code_1.136.2_arm64.deb",
-            "md5": "b2cbf5c53c8c6048bd49fa96f0a024d8",
-            "sha1": "4adcea976a1a55483a41fa92860e2e761c6fedba",
-            "sha256": "2e6f3289ddd418ac3a80c37d617f59afd101a245edc99c98782d5297f2812f70",
-            "sha512": "f890f9d3578399d70cf194bbec9123ab3acdab6fed52a987d2154dde6c40f1163b858bb4f2e1c837317d63ef81662fe0414c29b06014c6c9719fa8570deda49c",
-            "size": 225240210,
-            "upstream_version": "1.136.2",
-            "url": "https://update.code.visualstudio.com/1.136.2/linux-deb-arm64/stable"
+            "filename": "code_1.137.0_arm64.deb",
+            "md5": "c74c0095082c1a3d6fd3f3f58a4b7ef6",
+            "sha1": "af7aa672d10be99d666f77d006985f958fafd93d",
+            "sha256": "8bff558a659d351328f5a1e319802073b59dac42f95cc0f9b2ef1b0c27387431",
+            "sha512": "0c9820fe84b11745c7407328159ca9c04475a7a37705141692fe80f70ab3cfdad1ad6f88dce6e3ff19db3a6af86ec7442085fbd8b9065452a1330ceb2fec86ab",
+            "size": 218442494,
+            "upstream_version": "1.137.0",
+            "url": "https://update.code.visualstudio.com/1.137.0/linux-deb-arm64/stable"
           },
-          "resolved_at": "2026-09-09T07:25:18+00:00",
+          "resolved_at": "2026-09-10T07:21:07+00:00",
           "source": "aur",
           "update_policy": "track"
         }
