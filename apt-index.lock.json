@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-10T07:21:07+00:00",
+  "generated_at": "2026-09-11T07:19:21+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.19.19_amd64.deb",
+            "asset_name": "cursor_3.20.10_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0) | libglib2.0-0t64 (>= 2.12.0), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "890367",
+              "Installed-Size": "971120",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.19.19-1788887598"
+              "Version": "3.20.10-1789077235"
             },
-            "filename": "cursor_3.19.19_amd64.deb",
-            "md5": "34a299c7b21d6dcc83943cbd1c4e4373",
-            "sha1": "eae2caf4eb1f4835042915584acd4b8ce68251f2",
-            "sha256": "2e633ff3e6871aa7bdf7879f91693e2163a11bff5a0e085426b1139fabb3dd62",
-            "sha512": "7aab8dd6ebda9a771a9e09970e0de35f5ff969cca679fe1db7f72adc6398b58db0b922c3aa594eb9ba959b1132d786f470b4e506cfafa058ee510875ff84bff7",
-            "size": 200262504,
-            "upstream_version": "3.19.19",
-            "url": "https://downloads.cursor.com/production/6496ea8a068aebfcd21990e70ff522e9abf10c8c/linux/x64/deb/amd64/deb/cursor_3.19.19_amd64.deb"
+            "filename": "cursor_3.20.10_amd64.deb",
+            "md5": "dde3b8a73e050bab6d2c687cb778cec7",
+            "sha1": "4e238b66ac1cf6c20d11f6d82f3857e2578009b5",
+            "sha256": "b2a70fd35d6306e714e82b2da8d725f09be1fc73b720c40f85bfc63c5a5b20aa",
+            "sha512": "cee826a72bdc9502b968cd1c3b185fa576861a92dfa5a751b0422fceb23e45328fed7e16917cebe605c5fc674b86f0717bc74c03a0545b9242bcc635861d246f",
+            "size": 207450956,
+            "upstream_version": "3.20.10",
+            "url": "https://downloads.cursor.com/production/d6f462cdd0a6a6d1cff570daf980e671d0a63ded/linux/x64/deb/amd64/deb/cursor_3.20.10_amd64.deb"
           },
-          "resolved_at": "2026-09-09T07:25:05+00:00",
+          "resolved_at": "2026-09-11T07:19:07+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1090,30 +1090,30 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "google-chrome-stable_152.0.7977.82-1_amd64.deb",
+            "asset_name": "google-chrome-stable_153.0.8010.36-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "ca-certificates, fonts-liberation, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.25), libcairo2 (>= 1.14.0), libcups2 (>= 1.7.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.35), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libvulkan1, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxrandr2, wget, xdg-utils (>= 1.0.2)",
               "Description": "The web browser from Google\n Google Chrome is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier.",
-              "Installed-Size": "446515",
+              "Installed-Size": "444375",
               "Maintainer": "Chrome Linux Team <chromium-dev@chromium.org>",
               "Package": "google-chrome-stable",
               "Pre-Depends": "dpkg (>= 1.14.0)",
               "Priority": "optional",
               "Provides": "www-browser",
               "Section": "web",
-              "Version": "152.0.7977.82-1"
+              "Version": "153.0.8010.36-1"
             },
-            "filename": "google-chrome-stable_152.0.7977.82-1_amd64.deb",
-            "md5": "2449647956e640d01a9cd3a9fc108c5e",
-            "sha1": "f6b2ca983bb71a030aeb4cc3be6fd2bea7d7c060",
-            "sha256": "4d25e4a028c78a7ae910683551c2f234792cc5595e7e3e34939f599342ada446",
-            "sha512": "867c023deb01fb838aa6a53291a617a9e18b8ff147a35c8b4af77956d633418544c49fadfd8e53a767d0a23a1f75e3b11e7ee32695c3242c24c65aa2b23791d7",
-            "size": 141157492,
-            "upstream_version": "152.0.7977.82",
-            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_152.0.7977.82-1_amd64.deb"
+            "filename": "google-chrome-stable_153.0.8010.36-1_amd64.deb",
+            "md5": "37a3c7e2178de5e6c16e9381c4a998ea",
+            "sha1": "572809271c80f51dc975deff14183fba2a4f3482",
+            "sha256": "9bb44e33031c2f2857cf36b4343051a12f93058e4b781e3c76313df87f6c8d32",
+            "sha512": "a021007d23ff41cf51e4805b339b6923581e349a6fc9ea32dcea7182622b961a38ce102564904ee0de25113f005b538fcf5f22b8a6ed28e1d596370c5a3bc35a",
+            "size": 141931876,
+            "upstream_version": "153.0.8010.36",
+            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_153.0.8010.36-1_amd64.deb"
           },
-          "resolved_at": "2026-09-04T07:15:57+00:00",
+          "resolved_at": "2026-09-11T07:19:09+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1477,53 +1477,53 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "MotrixNext_3.9.8_amd64.deb",
+            "asset_name": "MotrixNext_3.9.9_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libayatana-appindicator3-1, libwebkit2gtk-4.1-0, libgtk-3-0",
               "Description": "A full-featured download manager\n (none)",
-              "Installed-Size": "75293",
+              "Installed-Size": "75710",
               "Maintainer": "AnInsomniacy",
               "Package": "motrix-next",
               "Priority": "optional",
-              "Version": "3.9.8"
+              "Version": "3.9.9"
             },
-            "filename": "motrix-next_3.9.8_amd64.deb",
-            "md5": "224244c5b07b7c9aa8c1c321beb3387b",
-            "sha1": "250488696105e2e6c2ed49b0297bc850537fc3f8",
-            "sha256": "e7e8f5dea95b870894420edfa3b65aa38abeed27703e0dea4297294e2aa8f860",
-            "sha512": "b3c035acccd1dcdc4655d9970b1e86f20650497248f7700aa2ff506646938fea884bc805108db7f3f22eb2ddb4ccdefe1d6e1893187ceca562b524314b05b375",
-            "size": 29945916,
-            "upstream_version": "v3.9.8",
-            "url": "https://github.com/AnInsomniacy/motrix-next/releases/download/v3.9.8/MotrixNext_3.9.8_amd64.deb"
+            "filename": "motrix-next_3.9.9_amd64.deb",
+            "md5": "2ec5b4e63a476b072a761829b048323f",
+            "sha1": "7662397219de5b88dad286770da8b27e5d018cd9",
+            "sha256": "b41d65dc5fdfe8ebacfa981ce184783d7d6fe45c6f674673869b0bc12b55a766",
+            "sha512": "5ab083822c8b1e487f0d7fe8d0dad533158228a6aa4c54fa1643bca2f0aa637e324ca588e3a84b41f8fb90981e247940ba3ede7e94f672396793f5aac1bf7ec8",
+            "size": 30068490,
+            "upstream_version": "v3.9.9",
+            "url": "https://github.com/AnInsomniacy/motrix-next/releases/download/v3.9.9/MotrixNext_3.9.9_amd64.deb"
           },
-          "resolved_at": "2026-09-08T07:16:29+00:00",
+          "resolved_at": "2026-09-11T07:19:09+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "MotrixNext_3.9.8_arm64.deb",
+            "asset_name": "MotrixNext_3.9.9_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libayatana-appindicator3-1, libwebkit2gtk-4.1-0, libgtk-3-0",
               "Description": "A full-featured download manager\n (none)",
-              "Installed-Size": "72350",
+              "Installed-Size": "72734",
               "Maintainer": "AnInsomniacy",
               "Package": "motrix-next",
               "Priority": "optional",
-              "Version": "3.9.8"
+              "Version": "3.9.9"
             },
-            "filename": "motrix-next_3.9.8_arm64.deb",
-            "md5": "5041e7b85e844d0b789cc3d1919ada7c",
-            "sha1": "23201f753698b1e69a59575a74316c4788769948",
-            "sha256": "aae0b34c8638ff6cfb302914b175cb1c5bc5b01542e7bb9c996f2c114242dffc",
-            "sha512": "4f025f1587b2d03e08bcefad7195c7226a9c6c074be973cfa0aca95ec022dd24030ad6fb03faed83f0f78f88eb3776fc96c64a1ce6fec55cfec0e7b2e8ac8bb6",
-            "size": 30771896,
-            "upstream_version": "v3.9.8",
-            "url": "https://github.com/AnInsomniacy/motrix-next/releases/download/v3.9.8/MotrixNext_3.9.8_arm64.deb"
+            "filename": "motrix-next_3.9.9_arm64.deb",
+            "md5": "9cdd2be224dee74b88269728b74b12cb",
+            "sha1": "6d202bc5555c5667b71826e82aae4da64aad1963",
+            "sha256": "1ec0dc63bddec8ce587755dad75fec30e83e69688f7a05489c20b2aa190ab228",
+            "sha512": "44b16bf9b6bc03978a84c13c5533c02bf2f26728e551ce0c3b8e02a16b47f8435b6779655e13760760995aac7b7a17607afcabfe82a395ca932e9e868ffc02b4",
+            "size": 30902984,
+            "upstream_version": "v3.9.9",
+            "url": "https://github.com/AnInsomniacy/motrix-next/releases/download/v3.9.9/MotrixNext_3.9.9_arm64.deb"
           },
-          "resolved_at": "2026-09-08T07:16:29+00:00",
+          "resolved_at": "2026-09-11T07:19:09+00:00",
           "source": "github",
           "update_policy": "track"
         }
