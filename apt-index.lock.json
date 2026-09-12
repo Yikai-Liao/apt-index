@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T07:19:21+00:00",
+  "generated_at": "2026-09-12T07:11:45+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -301,25 +301,25 @@
               "Architecture": "amd64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "38904",
+              "Installed-Size": "38905",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.9.0"
+              "Version": "2026.9.1"
             },
             "filename": "cloudflared-linux-amd64.deb",
-            "md5": "192d5df40a97d2bfd7fc4cf2e5d7fcc3",
-            "sha1": "ff43c0514a4b24dc717611c8441df8c19aede944",
-            "sha256": "1ea48af7a774376b71e329c6fdc0b7853298df270356132a294f8d8d5eb0e543",
-            "sha512": "68af7b0ec1f815d70718753836bfe9526750d1cd04b775c4b832cb4fadc8a5b8bdb9d3c1d423b24d235bab6bfc0a31a7fe243c72e8a77f16c7a0ddc93d149ec3",
-            "size": 19159328,
-            "upstream_version": "2026.9.0",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.9.0/cloudflared-linux-amd64.deb"
+            "md5": "a0f6a8ba228e5d5516e7b7a2cb0ee183",
+            "sha1": "9d338a0e4391f35b590a83ce5741f2971362311b",
+            "sha256": "3be76adc4185d36a0bfb4c2dd8663292f0ed363797f2180333b513b43c81d419",
+            "sha512": "5c7861fe94350c57214b6b8862ab3fc3691416c6737436c61259b0b69cf3036f7d2403cf0f25003a1747fd463f217a383fc468c3cc7694884994c08798f957e5",
+            "size": 19160216,
+            "upstream_version": "2026.9.1",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.9.1/cloudflared-linux-amd64.deb"
           },
-          "resolved_at": "2026-09-10T07:20:47+00:00",
+          "resolved_at": "2026-09-12T07:11:28+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -330,25 +330,25 @@
               "Architecture": "arm64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "36589",
+              "Installed-Size": "36588",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.9.0"
+              "Version": "2026.9.1"
             },
             "filename": "cloudflared-linux-arm64.deb",
-            "md5": "d24804f12b860d55b0f3786a89229eaf",
-            "sha1": "bed73006349d460ca36317aface1fe3f354df52e",
-            "sha256": "2355fac318375a79d4f62690251e92a52d56f2737e30f053bb3419000fc32593",
-            "sha512": "3695a3e55433d92a7db06fb2fae3a61da79f4bb9dadba4ec8275b941f13ba2a9d08f3b0ea8744556fd30be287dbc158bb7e3b82ef1b0143879195e52e9fe45ed",
-            "size": 17666688,
-            "upstream_version": "2026.9.0",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.9.0/cloudflared-linux-arm64.deb"
+            "md5": "98c3a004db3cded849de4ef121158a6c",
+            "sha1": "1edd4619b0d577dde541ca83cb57a3ad322438aa",
+            "sha256": "2a870d5bf6ea74d16c0923b804eabbf4943f1fd7c63a5c20fd41cc66b629c725",
+            "sha512": "12326f57fcecbb8dbfa3f09c89e0e367cedc88862fd3457fb006d3aed788a8f99a5066e80b195d89a49c32b8915365ff64c45be822885a357726c7457a8f4da3",
+            "size": 17667370,
+            "upstream_version": "2026.9.1",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.9.1/cloudflared-linux-arm64.deb"
           },
-          "resolved_at": "2026-09-10T07:20:48+00:00",
+          "resolved_at": "2026-09-12T07:11:28+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.20.10_amd64.deb",
+            "asset_name": "cursor_3.20.15_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0) | libglib2.0-0t64 (>= 2.12.0), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "971120",
+              "Installed-Size": "971119",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.20.10-1789077235"
+              "Version": "3.20.15-1789177515"
             },
-            "filename": "cursor_3.20.10_amd64.deb",
-            "md5": "dde3b8a73e050bab6d2c687cb778cec7",
-            "sha1": "4e238b66ac1cf6c20d11f6d82f3857e2578009b5",
-            "sha256": "b2a70fd35d6306e714e82b2da8d725f09be1fc73b720c40f85bfc63c5a5b20aa",
-            "sha512": "cee826a72bdc9502b968cd1c3b185fa576861a92dfa5a751b0422fceb23e45328fed7e16917cebe605c5fc674b86f0717bc74c03a0545b9242bcc635861d246f",
-            "size": 207450956,
-            "upstream_version": "3.20.10",
-            "url": "https://downloads.cursor.com/production/d6f462cdd0a6a6d1cff570daf980e671d0a63ded/linux/x64/deb/amd64/deb/cursor_3.20.10_amd64.deb"
+            "filename": "cursor_3.20.15_amd64.deb",
+            "md5": "a09e549adb3cb4f0e51f7333021c13d4",
+            "sha1": "5918387c682ef7732c4823544b0b73edf152a816",
+            "sha256": "8b5dde191a8ae018dd1785602fb9973fd15e81e460003a6ad77d5539b3801bd2",
+            "sha512": "7c3cb5cd7506520eefd74665ae915d4b95a293d04b8e34515dfdb981390491101091853ae2c837bcad5b85fe65cacba5c8eb2168e84a158eba7b44028f6bab56",
+            "size": 207424548,
+            "upstream_version": "3.20.15",
+            "url": "https://downloads.cursor.com/production/6691559b11c7056a0c0cbd75aa399b6ffed8c5bc/linux/x64/deb/amd64/deb/cursor_3.20.15_amd64.deb"
           },
-          "resolved_at": "2026-09-11T07:19:07+00:00",
+          "resolved_at": "2026-09-12T07:11:34+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1873,13 +1873,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "teams-for-linux_2.20.0_amd64.deb",
+            "asset_name": "teams-for-linux_2.20.1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Teams for Linux\n  Unofficial Microsoft Teams client for Linux using Electron. It uses the Web App and wraps it as a standalone application using Electron.",
               "Homepage": "https://github.com/IsmaelMartinez/teams-for-linux",
-              "Installed-Size": "346390",
+              "Installed-Size": "346402",
               "License": "GPL-3.0-or-later",
               "Maintainer": "Ismael Martinez <ismaelmartinez@gmail.com>",
               "Package": "teams-for-linux",
@@ -1887,30 +1887,30 @@
               "Recommends": "libappindicator3-1, fido2-tools",
               "Section": "net",
               "Vendor": "Ismael Martinez <ismaelmartinez@gmail.com>",
-              "Version": "2.20.0"
+              "Version": "2.20.1"
             },
-            "filename": "teams-for-linux_2.20.0_amd64.deb",
-            "md5": "799d456a28d548394834e6f405bec268",
-            "sha1": "3a829a99e5d5d613421b46926a2c814c126e5906",
-            "sha256": "c2c727faff235a4901496f42d0e0348ea62ebe278074319b0f70757b457f426b",
-            "sha512": "ac1af42887470a700c73d284e5c39cdc2143f77f3aa4ce4582d6d435ce9acd0596fc5d96e71f8f6d342d7d836646186a84d08509493fc6ccdbb80d6126c96fc6",
-            "size": 113095700,
-            "upstream_version": "v2.20.0",
-            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.20.0/teams-for-linux_2.20.0_amd64.deb"
+            "filename": "teams-for-linux_2.20.1_amd64.deb",
+            "md5": "19d5e319a556480bb19011769a564e06",
+            "sha1": "3ad8f4f8c278f106b376cef5997dcd60660af153",
+            "sha256": "62ee5733dc35cfad84ecc6fe15f09fd74e518ec91eefd0759bae60c775e74d8d",
+            "sha512": "c475fe9e8052cba69d5c8e1ae6f46abfb6a93e4388d3c4ddeabb75b6fbf19bc679744d02c5729c620f0962c5c2246aa4f5dc02d80598b7df6005990c4e295507",
+            "size": 113084864,
+            "upstream_version": "v2.20.1",
+            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.20.1/teams-for-linux_2.20.1_amd64.deb"
           },
-          "resolved_at": "2026-09-06T07:09:44+00:00",
+          "resolved_at": "2026-09-12T07:11:36+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "teams-for-linux_2.20.0_arm64.deb",
+            "asset_name": "teams-for-linux_2.20.1_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Teams for Linux\n  Unofficial Microsoft Teams client for Linux using Electron. It uses the Web App and wraps it as a standalone application using Electron.",
               "Homepage": "https://github.com/IsmaelMartinez/teams-for-linux",
-              "Installed-Size": "348574",
+              "Installed-Size": "348586",
               "License": "GPL-3.0-or-later",
               "Maintainer": "Ismael Martinez <ismaelmartinez@gmail.com>",
               "Package": "teams-for-linux",
@@ -1918,18 +1918,18 @@
               "Recommends": "libappindicator3-1, fido2-tools",
               "Section": "net",
               "Vendor": "Ismael Martinez <ismaelmartinez@gmail.com>",
-              "Version": "2.20.0"
+              "Version": "2.20.1"
             },
-            "filename": "teams-for-linux_2.20.0_arm64.deb",
-            "md5": "805c55b7a3fe0e3096bce40b38d71924",
-            "sha1": "be68c7b1820d4cec3eb4dde4c04c6447a5d61233",
-            "sha256": "05496b5917ae4c51f0110563cba3e9de992494cb125e0f989b56489d62e311e9",
-            "sha512": "b81ae6f0e7b962e2f199757f775721f6eb0db9f51155994be9300749ce2215437b1333f9f6ae0ceed2d6dbeb3019fba248ce2023993331bc4a50503ab0e3ff4b",
-            "size": 107609060,
-            "upstream_version": "v2.20.0",
-            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.20.0/teams-for-linux_2.20.0_arm64.deb"
+            "filename": "teams-for-linux_2.20.1_arm64.deb",
+            "md5": "07ffcd00d6fc868a7389717575f1320e",
+            "sha1": "54f08d140e7422dcec4cd8f55011f4a306c7fd06",
+            "sha256": "3c956f7692b17d954076c4d81a1f35ff5fd86f3aee43cd729de2c1eef04115e4",
+            "sha512": "14638943c04e1771ed72c7ab1818dbad582733c57cac08d8360a68ab39a031ca9bb3c5604c682a9ff8eb35b235811e375574736228d0d5c9e765afb105e46cbb",
+            "size": 107580472,
+            "upstream_version": "v2.20.1",
+            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.20.1/teams-for-linux_2.20.1_arm64.deb"
           },
-          "resolved_at": "2026-09-06T07:09:46+00:00",
+          "resolved_at": "2026-09-12T07:11:37+00:00",
           "source": "github",
           "update_policy": "track"
         }
