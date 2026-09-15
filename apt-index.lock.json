@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T07:56:17+00:00",
+  "generated_at": "2026-09-15T07:48:59+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -64,13 +64,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_6.0.5_amd64.deb",
+            "asset_name": "beekeeper-studio_6.1.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "971183",
+              "Installed-Size": "1105360",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -78,30 +78,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "6.0.5"
+              "Version": "6.1.0"
             },
-            "filename": "beekeeper-studio_6.0.5_amd64.deb",
-            "md5": "fe09d37683bf1e218d4a024c693c052d",
-            "sha1": "4dbe9a82b01425f792620ec2cae6849cb4260203",
-            "sha256": "0258a6c5f4f668c3d7250294ecdc529a1aa1400a485a9d4ae6a777c0546fa3fc",
-            "sha512": "a7a1ec2aded0d65ac47302e6d9225b97125868d7e99059080be3fceafae9165a0679dda7459d51c653b339da59e81ff9faef0cb0170978ba5d818c24a2f08c4a",
-            "size": 206365172,
-            "upstream_version": "v6.0.5",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.0.5/beekeeper-studio_6.0.5_amd64.deb"
+            "filename": "beekeeper-studio_6.1.0_amd64.deb",
+            "md5": "88fc862309d777bbeb13fd1bb7b40726",
+            "sha1": "1bf8fa723b6a349f86d7443e4012226b6ed2d62d",
+            "sha256": "ed3579f18c95ec3539e31d6616186c3567632bf4e799feb0e01c479563b7321c",
+            "sha512": "84bb89b65ff8cc91a9bbbdc2fc29ef0396f7ca6e556232d88334b5a2bf24e8435de30d0839b3ac9f5076c8b353dce7000d6e5c348058089ceed08e0a34ae5434",
+            "size": 260870504,
+            "upstream_version": "v6.1.0",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.1.0/beekeeper-studio_6.1.0_amd64.deb"
           },
-          "resolved_at": "2026-08-25T03:14:06+00:00",
+          "resolved_at": "2026-09-15T07:48:43+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_6.0.5_arm64.deb",
+            "asset_name": "beekeeper-studio_6.1.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "964093",
+              "Installed-Size": "1101491",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -109,18 +109,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "6.0.5"
+              "Version": "6.1.0"
             },
-            "filename": "beekeeper-studio_6.0.5_arm64.deb",
-            "md5": "d94a7732be87a5512d8c14b8d5d1b160",
-            "sha1": "3dc4eb0684f2b5619a2b1ad79a7553a98d24a475",
-            "sha256": "5be02fbffc8a79f1a4eb85afcf7ac5ede858903ef711bb0c5ea7908bfb578edc",
-            "sha512": "114087c9ec02b022ee8454e164543508af5c009cfbb6dcbe12ec254227eb0bbe7c4c4b5afea25c78782d265b224dffb7bb0a972a97cff38b4311afe1a41744f2",
-            "size": 197046640,
-            "upstream_version": "v6.0.5",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.0.5/beekeeper-studio_6.0.5_arm64.deb"
+            "filename": "beekeeper-studio_6.1.0_arm64.deb",
+            "md5": "62ad67fb4743aab9b11d0967ae218da8",
+            "sha1": "47a4a47176235d3bf059897a15a7c11158ca6441",
+            "sha256": "215dda1ab851e9653c13e3c2aa6711907fd81793d6e5ce5214c0d2cb82b9dbdc",
+            "sha512": "a506d195a90ad6c95efaa48c4abc5a0f270e6f913f8428dcf6ec7fb9bb5ceba12e4ddb17756506b802b0f42135af33c5602af6d345c224b80c8a17b153154dd0",
+            "size": 252315732,
+            "upstream_version": "v6.1.0",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.1.0/beekeeper-studio_6.1.0_arm64.deb"
           },
-          "resolved_at": "2026-08-25T03:14:09+00:00",
+          "resolved_at": "2026-09-15T07:48:52+00:00",
           "source": "github",
           "update_policy": "track"
         }
