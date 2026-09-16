@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15T07:48:59+00:00",
+  "generated_at": "2026-09-16T07:44:12+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -64,13 +64,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_6.1.0_amd64.deb",
+            "asset_name": "beekeeper-studio_6.1.1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "1105360",
+              "Installed-Size": "1105362",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -78,30 +78,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "6.1.0"
+              "Version": "6.1.1"
             },
-            "filename": "beekeeper-studio_6.1.0_amd64.deb",
-            "md5": "88fc862309d777bbeb13fd1bb7b40726",
-            "sha1": "1bf8fa723b6a349f86d7443e4012226b6ed2d62d",
-            "sha256": "ed3579f18c95ec3539e31d6616186c3567632bf4e799feb0e01c479563b7321c",
-            "sha512": "84bb89b65ff8cc91a9bbbdc2fc29ef0396f7ca6e556232d88334b5a2bf24e8435de30d0839b3ac9f5076c8b353dce7000d6e5c348058089ceed08e0a34ae5434",
-            "size": 260870504,
-            "upstream_version": "v6.1.0",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.1.0/beekeeper-studio_6.1.0_amd64.deb"
+            "filename": "beekeeper-studio_6.1.1_amd64.deb",
+            "md5": "2c0289b308afff0177e9f25ae9984bc4",
+            "sha1": "d1956f4a41b3e6fb221f6b587877ab2109c794fa",
+            "sha256": "b187c0c710470d5f83fbd11c6c73f6e3f9f551af7b7b779272acfff8332e71e8",
+            "sha512": "52199bc2b98108b2f03028cc2c6097780e15a28b180520727af1b3dbe304139d145bba3a7bc9485e8d60e64b8b0f31d843a191870f047959d791feffe22cab75",
+            "size": 260871336,
+            "upstream_version": "v6.1.1",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.1.1/beekeeper-studio_6.1.1_amd64.deb"
           },
-          "resolved_at": "2026-09-15T07:48:43+00:00",
+          "resolved_at": "2026-09-16T07:43:56+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_6.1.0_arm64.deb",
+            "asset_name": "beekeeper-studio_6.1.1_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "1101491",
+              "Installed-Size": "1101493",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -109,18 +109,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "6.1.0"
+              "Version": "6.1.1"
             },
-            "filename": "beekeeper-studio_6.1.0_arm64.deb",
-            "md5": "62ad67fb4743aab9b11d0967ae218da8",
-            "sha1": "47a4a47176235d3bf059897a15a7c11158ca6441",
-            "sha256": "215dda1ab851e9653c13e3c2aa6711907fd81793d6e5ce5214c0d2cb82b9dbdc",
-            "sha512": "a506d195a90ad6c95efaa48c4abc5a0f270e6f913f8428dcf6ec7fb9bb5ceba12e4ddb17756506b802b0f42135af33c5602af6d345c224b80c8a17b153154dd0",
-            "size": 252315732,
-            "upstream_version": "v6.1.0",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.1.0/beekeeper-studio_6.1.0_arm64.deb"
+            "filename": "beekeeper-studio_6.1.1_arm64.deb",
+            "md5": "c2eb60ff88b0283737f60caf5c96eacd",
+            "sha1": "21fa0214af6e658f4c56d27b3d8b759cd27c7cd0",
+            "sha256": "1063c93d0f825159e2db05ed2c952498db613909c2fab416e40e0bc8d3e09aa6",
+            "sha512": "d621a07b3e76bb5fb9cf68146a54244eccaea89d59d9bae498689e71c4c105a07e0b29fe3c5fd60621b739a49b6d0ccb7b63c138076c2f66a20f407b4b995b39",
+            "size": 252318444,
+            "upstream_version": "v6.1.1",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.1.1/beekeeper-studio_6.1.1_arm64.deb"
           },
-          "resolved_at": "2026-09-15T07:48:52+00:00",
+          "resolved_at": "2026-09-16T07:44:02+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1027,59 +1027,59 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "gh_2.100.0_linux_amd64.deb",
+            "asset_name": "gh_2.101.0_linux_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "git",
               "Description": "GitHub\u2019s official command line tool.",
               "Homepage": "https://github.com/cli/cli",
-              "Installed-Size": "41607",
+              "Installed-Size": "41395",
               "License": "MIT",
               "Maintainer": "GitHub",
               "Package": "gh",
               "Priority": "optional",
               "Section": "",
-              "Version": "2.100.0"
+              "Version": "2.101.0"
             },
-            "filename": "gh_2.100.0_linux_amd64.deb",
-            "md5": "c5388627e1c6c0cf26cd53267b9cb733",
-            "sha1": "7eb97f786a19114a7b9ac23fa3281142d8d07faf",
-            "sha256": "698c8d88cc19cc92bfe96bad58d10b2a5b274c52433d6dc57799c81f6139d5fc",
-            "sha512": "f7b9bb419f934f82e108d121f12572484ddb4b01d94b4a6ea11e5ca303baf4fe65cb79de89dd7efb556faea5a5bca88e7336ed683dae5822cef92b219f89f8ff",
-            "size": 15227466,
-            "upstream_version": "v2.100.0",
-            "url": "https://github.com/cli/cli/releases/download/v2.100.0/gh_2.100.0_linux_amd64.deb"
+            "filename": "gh_2.101.0_linux_amd64.deb",
+            "md5": "55870acb3ecb6d4ff02ae1376329c507",
+            "sha1": "7b3d949b17dbb15529f1d40136458a78b46fbf39",
+            "sha256": "f876a3b87bf67c94f773d17becca4dc7340b056dab901473a9260ee2a73e237b",
+            "sha512": "4a733639f52148254e65deb96e63402486e844a446d90d7b9cc75937091ee1cc08b330f1e022f2e337f43e92c19ca9a568d660bc6e812273b5e79af142d56fba",
+            "size": 15352870,
+            "upstream_version": "v2.101.0",
+            "url": "https://github.com/cli/cli/releases/download/v2.101.0/gh_2.101.0_linux_amd64.deb"
           },
-          "resolved_at": "2026-09-04T07:15:54+00:00",
+          "resolved_at": "2026-09-16T07:43:57+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "gh_2.100.0_linux_arm64.deb",
+            "asset_name": "gh_2.101.0_linux_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "git",
               "Description": "GitHub\u2019s official command line tool.",
               "Homepage": "https://github.com/cli/cli",
-              "Installed-Size": "38679",
+              "Installed-Size": "38423",
               "License": "MIT",
               "Maintainer": "GitHub",
               "Package": "gh",
               "Priority": "optional",
               "Section": "",
-              "Version": "2.100.0"
+              "Version": "2.101.0"
             },
-            "filename": "gh_2.100.0_linux_arm64.deb",
-            "md5": "0803effe32c32296bb998aa9648d9e3c",
-            "sha1": "ba863af468fde5e4c38f11af692601f07ddf0c22",
-            "sha256": "33ccd2ad7ce639c927e1cb209e36555b0e1fbb89f7a38239c0568040ec758612",
-            "sha512": "44bd46fd18813d160e0bbd5b66b50ef4149424dddf1d35d94a2ce3c14f0b9c63ca229c1a943fec0942e505c0cb36f732f929f7c527bf81d8d04c22d992ec9571",
-            "size": 13854760,
-            "upstream_version": "v2.100.0",
-            "url": "https://github.com/cli/cli/releases/download/v2.100.0/gh_2.100.0_linux_arm64.deb"
+            "filename": "gh_2.101.0_linux_arm64.deb",
+            "md5": "3b01bc2fe52e6fd501b7282b7ca4fc91",
+            "sha1": "77f53116f5c6886f8578aa4813b5aefffe66c0f4",
+            "sha256": "9aec87f9a011b1521556b06cb003776e7e214144c8efd2144924a28d90c23057",
+            "sha512": "d6259f64331dda732b3b9b1f9b4d9ac97a41fb99bfecb7b64a646f2c55151a254c5768230ab9915f76216a09e8efade290beb38dc235799a736a7f2148e1d6e1",
+            "size": 13948022,
+            "upstream_version": "v2.101.0",
+            "url": "https://github.com/cli/cli/releases/download/v2.101.0/gh_2.101.0_linux_arm64.deb"
           },
-          "resolved_at": "2026-09-04T07:15:54+00:00",
+          "resolved_at": "2026-09-16T07:43:58+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1090,30 +1090,30 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "google-chrome-stable_153.0.8010.36-1_amd64.deb",
+            "asset_name": "google-chrome-stable_153.0.8010.47-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "ca-certificates, fonts-liberation, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.25), libcairo2 (>= 1.14.0), libcups2 (>= 1.7.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.35), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libvulkan1, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxrandr2, wget, xdg-utils (>= 1.0.2)",
               "Description": "The web browser from Google\n Google Chrome is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier.",
-              "Installed-Size": "444375",
+              "Installed-Size": "444279",
               "Maintainer": "Chrome Linux Team <chromium-dev@chromium.org>",
               "Package": "google-chrome-stable",
               "Pre-Depends": "dpkg (>= 1.14.0)",
               "Priority": "optional",
               "Provides": "www-browser",
               "Section": "web",
-              "Version": "153.0.8010.36-1"
+              "Version": "153.0.8010.47-1"
             },
-            "filename": "google-chrome-stable_153.0.8010.36-1_amd64.deb",
-            "md5": "37a3c7e2178de5e6c16e9381c4a998ea",
-            "sha1": "572809271c80f51dc975deff14183fba2a4f3482",
-            "sha256": "9bb44e33031c2f2857cf36b4343051a12f93058e4b781e3c76313df87f6c8d32",
-            "sha512": "a021007d23ff41cf51e4805b339b6923581e349a6fc9ea32dcea7182622b961a38ce102564904ee0de25113f005b538fcf5f22b8a6ed28e1d596370c5a3bc35a",
-            "size": 141931876,
-            "upstream_version": "153.0.8010.36",
-            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_153.0.8010.36-1_amd64.deb"
+            "filename": "google-chrome-stable_153.0.8010.47-1_amd64.deb",
+            "md5": "3d418b8ec978ce6506c7099edbd2c0cb",
+            "sha1": "1ebb0113f73c9823a71ae8f21e61f9f3fc26935a",
+            "sha256": "a326defde54de2f1c0d46d8bf4b6b5f3f76f0c897bd30b20b025097139a05bde",
+            "sha512": "cd70639f4737c043a9eb2c349dd2d447b1929b78eba972fa997c4120e7730018f62aa3ddcda1e5f0fe06b76c786076f281b4a5b50e96a62dfe4cf4aa35b70238",
+            "size": 141932640,
+            "upstream_version": "153.0.8010.47",
+            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_153.0.8010.47-1_amd64.deb"
           },
-          "resolved_at": "2026-09-11T07:19:09+00:00",
+          "resolved_at": "2026-09-16T07:44:00+00:00",
           "source": "aur",
           "update_policy": "track"
         }
