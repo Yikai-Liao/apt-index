@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T07:44:12+00:00",
+  "generated_at": "2026-09-17T07:44:42+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.20.21_amd64.deb",
+            "asset_name": "cursor_3.21.9_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0) | libglib2.0-0t64 (>= 2.12.0), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "971178",
+              "Installed-Size": "960670",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.20.21-1789329270"
+              "Version": "3.21.9-1789614338"
             },
-            "filename": "cursor_3.20.21_amd64.deb",
-            "md5": "67bdfce1c0c94b298bc7cea780a18cd7",
-            "sha1": "16da3a46d0a6cebbb7abef1cd648c8cbce4734e9",
-            "sha256": "bebc910ecca2f4cce3cce5cda9a3982ffd64a63e71910365f58e8fa9a61910b2",
-            "sha512": "8329138d207309d16410f1cb58da18eea1a034a35f2bdd022ef9b373bb8f1b3d80e489e65256b7283c40e10da77962d158bfa3a64e742337a942633810d80dbe",
-            "size": 207511760,
-            "upstream_version": "3.20.21",
-            "url": "https://downloads.cursor.com/production/f09fca384ceca23f7bf21f9c23655b162641d747/linux/x64/deb/amd64/deb/cursor_3.20.21_amd64.deb"
+            "filename": "cursor_3.21.9_amd64.deb",
+            "md5": "371b75f0a4489020a54f69d000e6e446",
+            "sha1": "5fababad5d5764ddf9761d6cfe8ba6fa068c1617",
+            "sha256": "1df6d32292ad324055e6fee4633af9f2e59c6eb37d00f6b53cffe1d0006b4f0a",
+            "sha512": "a1c26cc9add2bb593068f11bbb18165a5934ccaebe380019b84a552641aad41c942357c600d55998e47cbcd86f0a1d862a295b3502d269f06167cd6891043d71",
+            "size": 206795740,
+            "upstream_version": "3.21.9",
+            "url": "https://downloads.cursor.com/production/9998796a6096ce83d83a9332bfe7473b985db750/linux/x64/deb/amd64/deb/cursor_3.21.9_amd64.deb"
           },
-          "resolved_at": "2026-09-14T07:56:05+00:00",
+          "resolved_at": "2026-09-17T07:44:03+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -526,7 +526,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "du-dust_1.2.5-1_amd64.deb",
+            "asset_name": "du-dust_1.2.6-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "",
@@ -537,18 +537,18 @@
               "Package": "du-dust",
               "Priority": "optional",
               "Section": "utils",
-              "Version": "1.2.5-1"
+              "Version": "1.2.6-1"
             },
-            "filename": "du-dust_1.2.5-1_amd64.deb",
-            "md5": "0f13a1f28bda5b9ef25e769e311e485c",
-            "sha1": "eca8681e5649d1b3aa4cf2e5c1f422151efbd957",
-            "sha256": "42056f56bce095830d1c87f560f04a2c58ad6ac8e658cc44f78d25a8fa796920",
-            "sha512": "97c6f8a1d219649f13fe7261aca7874df2b842ef7ea546f20d0412eec20f498689f676156a0dde268cbde3f5982896563816500ab6f4555ec89aa40b2a9e91db",
-            "size": 951124,
-            "upstream_version": "v1.2.5",
-            "url": "https://github.com/bootandy/dust/releases/download/v1.2.5/du-dust_1.2.5-1_amd64.deb"
+            "filename": "du-dust_1.2.6-1_amd64.deb",
+            "md5": "b5eb59c5002762e411d7a494b77bf2a4",
+            "sha1": "319c7dd2d7b9160824e7daaa2a331eebf35331d9",
+            "sha256": "c6e247e6097efca343373ab4c91548799d8815c1d84c9a15fa8ea38fc2bb50f8",
+            "sha512": "8166ec90c235516ec63d6115ae1440d35cf80e7b7726eff484bce2693e558bb0c485eda663001e251c08bf1b7f2a022b2530d65a7fee61f944c7c346baf80352",
+            "size": 952656,
+            "upstream_version": "v1.2.6",
+            "url": "https://github.com/bootandy/dust/releases/download/v1.2.6/du-dust_1.2.6-1_amd64.deb"
           },
-          "resolved_at": "2026-08-20T03:11:30+00:00",
+          "resolved_at": "2026-09-17T07:43:54+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1343,13 +1343,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "mockoon-9.8.0.amd64.deb",
+            "asset_name": "mockoon-9.9.0.amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  Mockoon is the easiest and quickest way to run mock APIs locally. No remote deployment, no account required, open source.",
               "Homepage": "https://mockoon.com",
-              "Installed-Size": "368127",
+              "Installed-Size": "338850",
               "License": "MIT",
               "Maintainer": "Mockoon <team@mockoon.com>",
               "Package": "mockoon",
@@ -1357,30 +1357,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Mockoon <team@mockoon.com>",
-              "Version": "9.8.0"
+              "Version": "9.9.0"
             },
-            "filename": "mockoon-9.8.0.amd64.deb",
-            "md5": "7b3e5d589049f0d3dcb27de9cb039043",
-            "sha1": "1ae0ff3b40fd610a2b2e5a462972390a53c9b046",
-            "sha256": "a9f4e01ccb82ce3bd510b4fb5b5c524bba61228ca4971f7f51658dac6ce62fb8",
-            "sha512": "2fa17d714704c157d09fcfbc62c50b683d366c0d531ff98adbce5e301ebb5a39eb5679b155feb7e6ad4f2a5c32ecd36faf80c26b630906ab9754ffca423abec4",
-            "size": 105635848,
-            "upstream_version": "v9.8.0",
-            "url": "https://github.com/mockoon/mockoon/releases/download/v9.8.0/mockoon-9.8.0.amd64.deb"
+            "filename": "mockoon-9.9.0.amd64.deb",
+            "md5": "283ade628c002e0f8a795080a6159349",
+            "sha1": "6004cf09472ec752243097b8360149add209919c",
+            "sha256": "5ad57a6a3900e4857810802a8d0c49869f2c72defa01d360a99559728c605eb5",
+            "sha512": "8dd6a096b799e8e1794ade37a8093069794bf75ee29c9aea80a75cb8ff496f2eb4fb37b2d046523a8fd9fba390fc37df9ae60eba1628b2ee75ade3389237e488",
+            "size": 105238912,
+            "upstream_version": "v9.9.0",
+            "url": "https://github.com/mockoon/mockoon/releases/download/v9.9.0/mockoon-9.9.0.amd64.deb"
           },
-          "resolved_at": "2026-08-01T05:37:14+00:00",
+          "resolved_at": "2026-09-17T07:44:03+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "mockoon-9.8.0.arm64.deb",
+            "asset_name": "mockoon-9.9.0.arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  Mockoon is the easiest and quickest way to run mock APIs locally. No remote deployment, no account required, open source.",
               "Homepage": "https://mockoon.com",
-              "Installed-Size": "369494",
+              "Installed-Size": "343856",
               "License": "MIT",
               "Maintainer": "Mockoon <team@mockoon.com>",
               "Package": "mockoon",
@@ -1388,18 +1388,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Mockoon <team@mockoon.com>",
-              "Version": "9.8.0"
+              "Version": "9.9.0"
             },
-            "filename": "mockoon-9.8.0.arm64.deb",
-            "md5": "129c462180fd1727c37649e8ceefc19a",
-            "sha1": "989249676e72999eef4d8af7d86d6de302b5a1c2",
-            "sha256": "d02a5ce396bb50b1e28d92370990e938abda6f95e303f21f1621879142e5fb4d",
-            "sha512": "212c28c10da6f4b86b4fb124cc887c5e80483fdf43d19829083288aafbec509d8432a0f44a700231b50c9d34bf38400bac9b23ec7af03526936508a3d7a7a1c2",
-            "size": 99773376,
-            "upstream_version": "v9.8.0",
-            "url": "https://github.com/mockoon/mockoon/releases/download/v9.8.0/mockoon-9.8.0.arm64.deb"
+            "filename": "mockoon-9.9.0.arm64.deb",
+            "md5": "984e83056c190cbe2300e7b73cc1615a",
+            "sha1": "fbfcf7eabf49afa21214f0c094f1052d9a720f78",
+            "sha256": "ef6b149b6819673a485da916e26063972d069371069e3acdca6d6850ef62ff15",
+            "sha512": "da67981b7ddbf07f45623fe39107a0e1be1086b0cec5b3759c13f7045638a3ac1eef6b0610015beb666d0c35e3826ad067d1fa1a34de88946f87e54ceecfab2f",
+            "size": 100447368,
+            "upstream_version": "v9.9.0",
+            "url": "https://github.com/mockoon/mockoon/releases/download/v9.9.0/mockoon-9.9.0.arm64.deb"
           },
-          "resolved_at": "2026-08-01T05:37:16+00:00",
+          "resolved_at": "2026-09-17T07:44:07+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -2003,14 +2003,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "code_1.137.0_amd64.deb",
+            "asset_name": "code_1.138.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.15), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "1019647",
+              "Installed-Size": "1023072",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2018,31 +2018,31 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.137.0-1788902055"
+              "Version": "1.138.0-1789458761"
             },
-            "filename": "code_1.137.0_amd64.deb",
-            "md5": "43ea09abbdb065c1cb0a524475c85f82",
-            "sha1": "629ff972e233ee3f2daf1bc89e2a1c072dc57dd2",
-            "sha256": "fd4dff72c44598d3acb885b448256f5d82cf53f59538d97fc7d3c8d8d9d574d3",
-            "sha512": "ce71ceac3d70088419e073840d9e792853de00862047c704a7094c161fc4394b178b8f44fba9a617134443eb4e37cac1ea58b85432a6b44f458e2f059d8ae45e",
-            "size": 237130638,
-            "upstream_version": "1.137.0",
-            "url": "https://update.code.visualstudio.com/1.137.0/linux-deb-x64/stable"
+            "filename": "code_1.138.0_amd64.deb",
+            "md5": "c02135948edde4c2a613e30127e9432d",
+            "sha1": "a6dad63968b235e82f67b8eb56895e8bc5cd74e0",
+            "sha256": "73389cdcef7e66171a2039d1e49b9530e5ed02937e6159d3e6af93484e63cbad",
+            "sha512": "0d400eb3b4823a12d111d29d1c8271ac182259438abf87ab1ec603b16b7ae48f7df29295239dd0ab58c8cefb45f2686ff251937952a792158e7d97ae7ade6afb",
+            "size": 237965026,
+            "upstream_version": "1.138.0",
+            "url": "https://update.code.visualstudio.com/1.138.0/linux-deb-x64/stable"
           },
-          "resolved_at": "2026-09-10T07:21:01+00:00",
+          "resolved_at": "2026-09-17T07:44:10+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "code_1.137.0_arm64.deb",
+            "asset_name": "code_1.138.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.17), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libstdc++6 (>= 4.1.1), libstdc++6 (>= 5), libstdc++6 (>= 5.2), libstdc++6 (>= 6), libstdc++6 (>= 9), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "973447",
+              "Installed-Size": "977079",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2050,18 +2050,18 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.137.0-1788902074"
+              "Version": "1.138.0-1789458676"
             },
-            "filename": "code_1.137.0_arm64.deb",
-            "md5": "c74c0095082c1a3d6fd3f3f58a4b7ef6",
-            "sha1": "af7aa672d10be99d666f77d006985f958fafd93d",
-            "sha256": "8bff558a659d351328f5a1e319802073b59dac42f95cc0f9b2ef1b0c27387431",
-            "sha512": "0c9820fe84b11745c7407328159ca9c04475a7a37705141692fe80f70ab3cfdad1ad6f88dce6e3ff19db3a6af86ec7442085fbd8b9065452a1330ceb2fec86ab",
-            "size": 218442494,
-            "upstream_version": "1.137.0",
-            "url": "https://update.code.visualstudio.com/1.137.0/linux-deb-arm64/stable"
+            "filename": "code_1.138.0_arm64.deb",
+            "md5": "0feecef5d175f420f12c667b2864458f",
+            "sha1": "ec83859dd8ec28cc535f103803905f8e68612bdd",
+            "sha256": "09760b73fb96ca19f8c6e483ec5b69123f34edd2c762cc9e0faf73fa3d400145",
+            "sha512": "0c8354a13914f8f39b1abad4d2b09af939dd2e919793be326993077a86e92b03894abef80985d02f86ca2626d04152bd7fb60193c9ba6dcfbcc4968f1abe8501",
+            "size": 219966878,
+            "upstream_version": "1.138.0",
+            "url": "https://update.code.visualstudio.com/1.138.0/linux-deb-arm64/stable"
           },
-          "resolved_at": "2026-09-10T07:21:07+00:00",
+          "resolved_at": "2026-09-17T07:44:42+00:00",
           "source": "aur",
           "update_policy": "track"
         }
