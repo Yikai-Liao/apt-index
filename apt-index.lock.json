@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-17T07:44:42+00:00",
+  "generated_at": "2026-09-18T07:26:38+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -64,7 +64,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_6.1.1_amd64.deb",
+            "asset_name": "beekeeper-studio_6.1.2_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
@@ -78,24 +78,24 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "6.1.1"
+              "Version": "6.1.2"
             },
-            "filename": "beekeeper-studio_6.1.1_amd64.deb",
-            "md5": "2c0289b308afff0177e9f25ae9984bc4",
-            "sha1": "d1956f4a41b3e6fb221f6b587877ab2109c794fa",
-            "sha256": "b187c0c710470d5f83fbd11c6c73f6e3f9f551af7b7b779272acfff8332e71e8",
-            "sha512": "52199bc2b98108b2f03028cc2c6097780e15a28b180520727af1b3dbe304139d145bba3a7bc9485e8d60e64b8b0f31d843a191870f047959d791feffe22cab75",
-            "size": 260871336,
-            "upstream_version": "v6.1.1",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.1.1/beekeeper-studio_6.1.1_amd64.deb"
+            "filename": "beekeeper-studio_6.1.2_amd64.deb",
+            "md5": "dd7f6597f860dee94650ff17103bfdf8",
+            "sha1": "5aa25ccb71cb3aae04ffe82ecf8716129a6b2a8a",
+            "sha256": "c964dbdf72efd864bcfdb177cb4af2a3f4e3cb97317a02b57bc02a7d4e45ea33",
+            "sha512": "c57d5a786902853cccfae3a52c91a70ee3617a0052fa911891df9fe1b3ad441c039999166a61a2aa46db72475ecc1e0482052146af0354a6006a4db0a8b9e5f0",
+            "size": 260870932,
+            "upstream_version": "v6.1.2",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.1.2/beekeeper-studio_6.1.2_amd64.deb"
           },
-          "resolved_at": "2026-09-16T07:43:56+00:00",
+          "resolved_at": "2026-09-18T07:26:22+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_6.1.1_arm64.deb",
+            "asset_name": "beekeeper-studio_6.1.2_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
@@ -109,18 +109,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "6.1.1"
+              "Version": "6.1.2"
             },
-            "filename": "beekeeper-studio_6.1.1_arm64.deb",
-            "md5": "c2eb60ff88b0283737f60caf5c96eacd",
-            "sha1": "21fa0214af6e658f4c56d27b3d8b759cd27c7cd0",
-            "sha256": "1063c93d0f825159e2db05ed2c952498db613909c2fab416e40e0bc8d3e09aa6",
-            "sha512": "d621a07b3e76bb5fb9cf68146a54244eccaea89d59d9bae498689e71c4c105a07e0b29fe3c5fd60621b739a49b6d0ccb7b63c138076c2f66a20f407b4b995b39",
-            "size": 252318444,
-            "upstream_version": "v6.1.1",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.1.1/beekeeper-studio_6.1.1_arm64.deb"
+            "filename": "beekeeper-studio_6.1.2_arm64.deb",
+            "md5": "644eccea2c05a6e56b92e2bec0e79f35",
+            "sha1": "72c17333a6533500dca5c6f4581aafc0bb66aeb5",
+            "sha256": "4686333e2bec1b58c04619a9edd071647424b05125e7b4d0172cbb74342c6259",
+            "sha512": "75a49f199526c7e3f23e108d2a499cbc52a73f2c98e76be7b7179bed3afa4c2489a55f44501aec046a2fd89dcd6771f9c206907d089fc39798a86bcbb4149f08",
+            "size": 252317896,
+            "upstream_version": "v6.1.2",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.1.2/beekeeper-studio_6.1.2_arm64.deb"
           },
-          "resolved_at": "2026-09-16T07:44:02+00:00",
+          "resolved_at": "2026-09-18T07:26:25+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.21.9_amd64.deb",
+            "asset_name": "cursor_3.21.12_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0) | libglib2.0-0t64 (>= 2.12.0), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "960670",
+              "Installed-Size": "960683",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.21.9-1789614338"
+              "Version": "3.21.12-1789698863"
             },
-            "filename": "cursor_3.21.9_amd64.deb",
-            "md5": "371b75f0a4489020a54f69d000e6e446",
-            "sha1": "5fababad5d5764ddf9761d6cfe8ba6fa068c1617",
-            "sha256": "1df6d32292ad324055e6fee4633af9f2e59c6eb37d00f6b53cffe1d0006b4f0a",
-            "sha512": "a1c26cc9add2bb593068f11bbb18165a5934ccaebe380019b84a552641aad41c942357c600d55998e47cbcd86f0a1d862a295b3502d269f06167cd6891043d71",
-            "size": 206795740,
-            "upstream_version": "3.21.9",
-            "url": "https://downloads.cursor.com/production/9998796a6096ce83d83a9332bfe7473b985db750/linux/x64/deb/amd64/deb/cursor_3.21.9_amd64.deb"
+            "filename": "cursor_3.21.12_amd64.deb",
+            "md5": "8925884732c69029c2f3ff4d699998b6",
+            "sha1": "605c9c6c8c6f7eab2c36be0bcd2be9fa8f8afd8e",
+            "sha256": "e3c4418cf4a4ee81ae93c39890f27236ba8e599c78c627e9cb7c9ad1c9f60936",
+            "sha512": "37e98596998c9afdf659a0a22bf76c6730593e58ffd74136538015d967b7ebda16e3e1f030b501f2630f3e63a384f3b5372210b891ffa84381cc1a5f1bf92255",
+            "size": 206812956,
+            "upstream_version": "3.21.12",
+            "url": "https://downloads.cursor.com/production/05ddb9e824590e2c1db6bd2548dd71bf67ac9d2b/linux/x64/deb/amd64/deb/cursor_3.21.12_amd64.deb"
           },
-          "resolved_at": "2026-09-17T07:44:03+00:00",
+          "resolved_at": "2026-09-18T07:26:26+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1495,9 +1495,9 @@
             "sha512": "5ab083822c8b1e487f0d7fe8d0dad533158228a6aa4c54fa1643bca2f0aa637e324ca588e3a84b41f8fb90981e247940ba3ede7e94f672396793f5aac1bf7ec8",
             "size": 30068490,
             "upstream_version": "v3.9.9",
-            "url": "https://github.com/AnInsomniacy/motrix-next/releases/download/v3.9.9/MotrixNext_3.9.9_amd64.deb"
+            "url": "https://github.com/AnInsomniacy/rayburst/releases/download/v3.9.9/MotrixNext_3.9.9_amd64.deb"
           },
-          "resolved_at": "2026-09-11T07:19:09+00:00",
+          "resolved_at": "2026-09-18T07:26:27+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -1521,9 +1521,9 @@
             "sha512": "44b16bf9b6bc03978a84c13c5533c02bf2f26728e551ce0c3b8e02a16b47f8435b6779655e13760760995aac7b7a17607afcabfe82a395ca932e9e868ffc02b4",
             "size": 30902984,
             "upstream_version": "v3.9.9",
-            "url": "https://github.com/AnInsomniacy/motrix-next/releases/download/v3.9.9/MotrixNext_3.9.9_arm64.deb"
+            "url": "https://github.com/AnInsomniacy/rayburst/releases/download/v3.9.9/MotrixNext_3.9.9_arm64.deb"
           },
-          "resolved_at": "2026-09-11T07:19:09+00:00",
+          "resolved_at": "2026-09-18T07:26:27+00:00",
           "source": "github",
           "update_policy": "track"
         }
