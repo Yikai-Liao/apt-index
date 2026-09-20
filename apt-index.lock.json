@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T07:22:31+00:00",
+  "generated_at": "2026-09-20T07:46:45+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.21.13_amd64.deb",
+            "asset_name": "cursor_3.21.16_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0) | libglib2.0-0t64 (>= 2.12.0), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "960702",
+              "Installed-Size": "960709",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.21.13-1789716832"
+              "Version": "3.21.16-1789803172"
             },
-            "filename": "cursor_3.21.13_amd64.deb",
-            "md5": "ef0d3102d7dd9c931e8392863d723956",
-            "sha1": "bc82830515fa40a739eb0e4b8f2fc658a58c969b",
-            "sha256": "a2fbc93a0545afa1e98f4020a6aee24b316885d73b0715e6b611d2f4112ca403",
-            "sha512": "d64e007342c29f30593f3df0a518a4af9dac6071fe6f1c7728d7272f3d180011b76eb165656e0abd67f51ab3cf76891c776ed018ff0e690901e1368e5a6fc769",
-            "size": 206778884,
-            "upstream_version": "3.21.13",
-            "url": "https://downloads.cursor.com/production/e44a49c17e334d442e58bbde931d791200f014a2/linux/x64/deb/amd64/deb/cursor_3.21.13_amd64.deb"
+            "filename": "cursor_3.21.16_amd64.deb",
+            "md5": "6419b456a0c658a3d653bf18a9bd1c91",
+            "sha1": "ecd562bf6034d87794c31cb99af859ba57c2164c",
+            "sha256": "51b3556aa327c3c435ef5b12fd6a654e277e7d313b04c5e2183e2076bde0868e",
+            "sha512": "032c86a5d51f154ce36b1a0bf34aa06b2d117666b4372a787ea3117fc0b2b1686e952c721388f2eaf7787f2e0581378c98608048126f7470df2e85e9dbd75ca4",
+            "size": 206780584,
+            "upstream_version": "3.21.16",
+            "url": "https://downloads.cursor.com/production/8ae78e8eee1e63479c7e0504b664bc0a80c6800f/linux/x64/deb/amd64/deb/cursor_3.21.16_amd64.deb"
           },
-          "resolved_at": "2026-09-19T07:22:20+00:00",
+          "resolved_at": "2026-09-20T07:46:20+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1090,30 +1090,30 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "google-chrome-stable_153.0.8010.47-1_amd64.deb",
+            "asset_name": "google-chrome-stable_153.0.8010.52-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "ca-certificates, fonts-liberation, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.25), libcairo2 (>= 1.14.0), libcups2 (>= 1.7.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.35), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libvulkan1, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxrandr2, wget, xdg-utils (>= 1.0.2)",
               "Description": "The web browser from Google\n Google Chrome is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier.",
-              "Installed-Size": "444279",
+              "Installed-Size": "444367",
               "Maintainer": "Chrome Linux Team <chromium-dev@chromium.org>",
               "Package": "google-chrome-stable",
               "Pre-Depends": "dpkg (>= 1.14.0)",
               "Priority": "optional",
               "Provides": "www-browser",
               "Section": "web",
-              "Version": "153.0.8010.47-1"
+              "Version": "153.0.8010.52-1"
             },
-            "filename": "google-chrome-stable_153.0.8010.47-1_amd64.deb",
-            "md5": "3d418b8ec978ce6506c7099edbd2c0cb",
-            "sha1": "1ebb0113f73c9823a71ae8f21e61f9f3fc26935a",
-            "sha256": "a326defde54de2f1c0d46d8bf4b6b5f3f76f0c897bd30b20b025097139a05bde",
-            "sha512": "cd70639f4737c043a9eb2c349dd2d447b1929b78eba972fa997c4120e7730018f62aa3ddcda1e5f0fe06b76c786076f281b4a5b50e96a62dfe4cf4aa35b70238",
-            "size": 141932640,
-            "upstream_version": "153.0.8010.47",
-            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_153.0.8010.47-1_amd64.deb"
+            "filename": "google-chrome-stable_153.0.8010.52-1_amd64.deb",
+            "md5": "98c319517cf6fc06638a8534f8ba39b1",
+            "sha1": "ab9f46304dd9fe555b617bffe5e0e98287676f73",
+            "sha256": "29e0e4b5af01213915ffdb7f4e49a11956dc5fc591165c85af8688dcdff907ac",
+            "sha512": "3be99341f606e62aed2ccdecef6a9741b23e77ad1c192385a336820604392fe8317c66f5e25f1053b4af94df8fdc785b03c25b6f43151b1651ce1e677828e3d7",
+            "size": 141915424,
+            "upstream_version": "153.0.8010.52",
+            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_153.0.8010.52-1_amd64.deb"
           },
-          "resolved_at": "2026-09-16T07:44:00+00:00",
+          "resolved_at": "2026-09-20T07:46:23+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -2139,59 +2139,59 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "wechat-x86-4.1.13.9.deb",
+            "asset_name": "wechat-x86-4.1.13.23.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "fonts-noto-cjk | google-noto-cjk-fonts",
               "Description": "wechat from Tencent",
-              "Installed-Size": "761190",
+              "Installed-Size": "770959",
               "Maintainer": "WeChat Team <>",
               "Package": "wechat",
               "Pre-Depends": "dpkg (>= 1.14.0)",
               "Priority": "optional",
               "Provides": "wechat",
               "Source": "wechat-stable",
-              "Version": "4.1.13.9"
+              "Version": "4.1.13.23"
             },
-            "filename": "wechat_4.1.13.9_amd64.deb",
-            "md5": "1ec6051897c80e13085fce6c84712642",
-            "sha1": "9bab0219b143a7c703495d979cab9fc24b331f78",
-            "sha256": "096865e050ba0d3c1a23887227e2400bf343037b1d7d658c84c88ff26bfdc17f",
-            "sha512": "97c7e792a65236a593bad854fbc705a8262806812bd62f0c7b5c16941eebf3e8e2a114d34e37d1e3737908c75df882e3d03e263fe358c960948da7fd3baa667c",
-            "size": 226602424,
-            "upstream_version": "4.1.13.9",
+            "filename": "wechat_4.1.13.23_amd64.deb",
+            "md5": "6a5a5b57e8a696c258af895911cd9b1d",
+            "sha1": "ba7df8a60515832c7ed2c0b9bb1a2c6f4c753e4d",
+            "sha256": "b7d0f8d53e9f648bc2c77a6096a04100d008f2d9f0d3988a2a4859b5992aca0a",
+            "sha512": "a40abf403be28de6833e42a5f04c7c2c109599e2500f244d8c5336fc1ea92c2eee15629d2f1e34433140ba4eba523c25af578453916a8a9c2779160a103398a7",
+            "size": 231359624,
+            "upstream_version": "4.1.13.23",
             "url": "https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.deb"
           },
-          "resolved_at": "2026-09-06T07:09:56+00:00",
+          "resolved_at": "2026-09-20T07:46:37+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "wechat-arm-4.1.13.9.deb",
+            "asset_name": "wechat-arm-4.1.13.23.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "fonts-noto-cjk | google-noto-cjk-fonts",
               "Description": "wechat from Tencent",
-              "Installed-Size": "726458",
+              "Installed-Size": "734246",
               "Maintainer": "WeChat Team <>",
               "Package": "wechat",
               "Pre-Depends": "dpkg (>= 1.14.0)",
               "Priority": "optional",
               "Provides": "wechat",
               "Source": "wechat-stable",
-              "Version": "4.1.13.9"
+              "Version": "4.1.13.23"
             },
-            "filename": "wechat_4.1.13.9_arm64.deb",
-            "md5": "ebab575fd8e988553578838f5612641d",
-            "sha1": "f9aab6675cc921b9c9a2b6ad1c7338b4f8be42bf",
-            "sha256": "a6d115d24dfe3ed1b7e7de16cf6cc02acef8df5668150f702ac8d8c5256405fa",
-            "sha512": "c5290ee3bcb68b87365d09664d34f4685a83e3936f2f0b578ac185755f87282c64f142a81fefb2bd50729686934e717a04d508b893220bc4129f5b980e888268",
-            "size": 209059272,
-            "upstream_version": "4.1.13.9",
+            "filename": "wechat_4.1.13.23_arm64.deb",
+            "md5": "22b13c8be781082c5a441f4e363b18cb",
+            "sha1": "cab350fd63e05791e0a08c95ddb61bc1a5653e3b",
+            "sha256": "51784a262c725ef1595dd833f456190e913583dd81c24dd8fe587532bc91c0dc",
+            "sha512": "45836aaa2ec8ab33f2489bd904b15b61e4abc605534f42e6ca7111a7993e3ebde28aa5c63e25d4739f9c4df83e91eea723102ca0e4ca0557315ca22cb98b7e71",
+            "size": 211550900,
+            "upstream_version": "4.1.13.23",
             "url": "https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_arm64.deb"
           },
-          "resolved_at": "2026-09-06T07:10:02+00:00",
+          "resolved_at": "2026-09-20T07:46:45+00:00",
           "source": "aur",
           "update_policy": "track"
         }
