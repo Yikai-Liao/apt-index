@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T07:45:12+00:00",
+  "generated_at": "2026-09-23T07:50:07+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.21.16_amd64.deb",
+            "asset_name": "cursor_3.21.18_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0) | libglib2.0-0t64 (>= 2.12.0), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "960709",
+              "Installed-Size": "960756",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.21.16-1789803172"
+              "Version": "3.21.18-1790045713"
             },
-            "filename": "cursor_3.21.16_amd64.deb",
-            "md5": "6419b456a0c658a3d653bf18a9bd1c91",
-            "sha1": "ecd562bf6034d87794c31cb99af859ba57c2164c",
-            "sha256": "51b3556aa327c3c435ef5b12fd6a654e277e7d313b04c5e2183e2076bde0868e",
-            "sha512": "032c86a5d51f154ce36b1a0bf34aa06b2d117666b4372a787ea3117fc0b2b1686e952c721388f2eaf7787f2e0581378c98608048126f7470df2e85e9dbd75ca4",
-            "size": 206780584,
-            "upstream_version": "3.21.16",
-            "url": "https://downloads.cursor.com/production/8ae78e8eee1e63479c7e0504b664bc0a80c6800f/linux/x64/deb/amd64/deb/cursor_3.21.16_amd64.deb"
+            "filename": "cursor_3.21.18_amd64.deb",
+            "md5": "5e7c9fa13201b4e114cc11393509626b",
+            "sha1": "ff6c434b18ad69c2b1f2404db67ade82c6c00631",
+            "sha256": "6966b4a4082b802d10e985b8228d428020690b2ca43d6d1d74c10a0703d1e1b1",
+            "sha512": "3a313c610aa88b54f19b28e40aa5531733f4890d3df0e28da94a8c6e915bcd1400640857c7c8091579a66bd388c054b632b3be730026b289638b47c08fa185d9",
+            "size": 206837088,
+            "upstream_version": "3.21.18",
+            "url": "https://downloads.cursor.com/production/c4730f7d93d787d9ab120af715999f0345ee5bc5/linux/x64/deb/amd64/deb/cursor_3.21.18_amd64.deb"
           },
-          "resolved_at": "2026-09-20T07:46:20+00:00",
+          "resolved_at": "2026-09-23T07:47:52+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1090,30 +1090,30 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "google-chrome-stable_153.0.8010.52-1_amd64.deb",
+            "asset_name": "google-chrome-stable_154.0.8037.57-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "ca-certificates, fonts-liberation, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.25), libcairo2 (>= 1.14.0), libcups2 (>= 1.7.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.35), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libvulkan1, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxrandr2, wget, xdg-utils (>= 1.0.2)",
               "Description": "The web browser from Google\n Google Chrome is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier.",
-              "Installed-Size": "444367",
+              "Installed-Size": "446257",
               "Maintainer": "Chrome Linux Team <chromium-dev@chromium.org>",
               "Package": "google-chrome-stable",
               "Pre-Depends": "dpkg (>= 1.14.0)",
               "Priority": "optional",
               "Provides": "www-browser",
               "Section": "web",
-              "Version": "153.0.8010.52-1"
+              "Version": "154.0.8037.57-1"
             },
-            "filename": "google-chrome-stable_153.0.8010.52-1_amd64.deb",
-            "md5": "98c319517cf6fc06638a8534f8ba39b1",
-            "sha1": "ab9f46304dd9fe555b617bffe5e0e98287676f73",
-            "sha256": "29e0e4b5af01213915ffdb7f4e49a11956dc5fc591165c85af8688dcdff907ac",
-            "sha512": "3be99341f606e62aed2ccdecef6a9741b23e77ad1c192385a336820604392fe8317c66f5e25f1053b4af94df8fdc785b03c25b6f43151b1651ce1e677828e3d7",
-            "size": 141915424,
-            "upstream_version": "153.0.8010.52",
-            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_153.0.8010.52-1_amd64.deb"
+            "filename": "google-chrome-stable_154.0.8037.57-1_amd64.deb",
+            "md5": "a32496489fc445e1ad74ec97939b1a2e",
+            "sha1": "36503f5dca58e2acaa3de36b26809e36047fef35",
+            "sha256": "66c0645f6a19871bab2844b8537c11a0db2e7d3bea8ef85a1c7cb52a54e65a3e",
+            "sha512": "503bfdac8639dddeb44c339b37a295383a5a766e47204b26f4e3e11b550937a1e1c1b0c41d63c3bcbbcf26795d53a2b731385065c9245fb5509f33e59cff6864",
+            "size": 142114088,
+            "upstream_version": "154.0.8037.57",
+            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_154.0.8037.57-1_amd64.deb"
           },
-          "resolved_at": "2026-09-20T07:46:23+00:00",
+          "resolved_at": "2026-09-23T07:47:56+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1639,13 +1639,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "linuxqq_3.2.33-52892_amd64.deb",
+            "asset_name": "linuxqq_3.2.34-53644_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  QQ",
               "Homepage": "https://im.qq.com",
-              "Installed-Size": "622536",
+              "Installed-Size": "623683",
               "License": "unknown",
               "Maintainer": "Tencent <QQ-Team@tencent.com>",
               "Package": "linuxqq",
@@ -1653,30 +1653,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Tencent <QQ-Team@tencent.com>",
-              "Version": "3.2.33-52892"
+              "Version": "3.2.34-53644"
             },
-            "filename": "linuxqq_3.2.33-52892_amd64.deb",
-            "md5": "1763096b7549949fdd73449b56c90b16",
-            "sha1": "f472ff468ff16cbae11b21bd9b3e218a1ca9877a",
-            "sha256": "502a978f2d03af9f21acefc461f9d1d1fe09b65bad620bbfcdb589a79ac53b7e",
-            "sha512": "8b12141690c38708508627817f40188d23da5e357164a0cdd6395530b9abad88d06da44c36ff85262872eb8bf2995c184c391048f63a004be81284a444ebb53e",
-            "size": 187398382,
-            "upstream_version": "3.2.33_52892",
-            "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.35/beta/1763096b/linuxqq_3.2.33-52892_amd64.deb"
+            "filename": "linuxqq_3.2.34-53644_amd64.deb",
+            "md5": "9ee04bef55fa54d43cfa995fb23a7b9e",
+            "sha1": "e335b2f17fefec8092a3ff807f569d54580f1bce",
+            "sha256": "436c65e1dd28422e128a21cbddb5fe4e2e6c079d7f27fec2541e014d38cc336e",
+            "sha512": "774e45cd7238dc51b31c02ee494f9f86e773c487a90851790a806f776e130af125110045844e90dd68d0b073dc53bdd4d1c6d8fb7225b8f214fc0e35d1a20e32",
+            "size": 187185496,
+            "upstream_version": "3.2.34_53644",
+            "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.36/beta/9ee04bef/linuxqq_3.2.34-53644_amd64.deb"
           },
-          "resolved_at": "2026-08-30T08:22:38+00:00",
+          "resolved_at": "2026-09-23T07:48:57+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "linuxqq_3.2.33-52892_arm64.deb",
+            "asset_name": "linuxqq_3.2.34-53644_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  QQ",
               "Homepage": "https://im.qq.com",
-              "Installed-Size": "654571",
+              "Installed-Size": "655698",
               "License": "unknown",
               "Maintainer": "Tencent <QQ-Team@tencent.com>",
               "Package": "linuxqq",
@@ -1684,18 +1684,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Tencent <QQ-Team@tencent.com>",
-              "Version": "3.2.33-52892"
+              "Version": "3.2.34-53644"
             },
-            "filename": "linuxqq_3.2.33-52892_arm64.deb",
-            "md5": "c0a63a77fe0bc9fb3df1cf2b2f29012e",
-            "sha1": "12a25d8e97704aaab2dae4879d4a935287591977",
-            "sha256": "806e036ee1c19ffeae22f19b5f0c2e1a7789abb5f4383bd67309995a73ea26de",
-            "sha512": "27636f05d56ef2cc21bd5ae45375648cfe2d6ce1ebb7418a8ae0318ae7d61aab44482d276a29552dce374420dbbd9ee66653406e0ddcac0a5f87211a320ea6fc",
-            "size": 207755288,
-            "upstream_version": "3.2.33_52892",
-            "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.35/beta/1763096b/linuxqq_3.2.33-52892_arm64.deb"
+            "filename": "linuxqq_3.2.34-53644_arm64.deb",
+            "md5": "e34131b20def8dd8901d5a1d3b1c24ff",
+            "sha1": "f53a2beabcd4ce5f2200afd4c8ff652893d1f882",
+            "sha256": "181b895cb573548e396e54bb0548cca92ffdc1b1a4b018fa4551bb062385fdca",
+            "sha512": "fa1424d41f934798a8f20b6cad8749f1eb99f29957501b3578449ade06fe105387e038e98cafb1bcc57d4d35010d771312ca0de7b14e62da0765cd29b005a5d1",
+            "size": 207538924,
+            "upstream_version": "3.2.34_53644",
+            "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.36/beta/9ee04bef/linuxqq_3.2.34-53644_arm64.deb"
           },
-          "resolved_at": "2026-08-30T08:23:47+00:00",
+          "resolved_at": "2026-09-23T07:50:07+00:00",
           "source": "aur",
           "update_policy": "track"
         }
