@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-23T07:50:07+00:00",
+  "generated_at": "2026-09-24T07:38:35+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -194,13 +194,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "bruno_4.1.0_amd64_linux.deb",
+            "asset_name": "bruno_4.2.0_amd64_linux.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, libasound2",
               "Description": "\n  Opensource API Client for Exploring and Testing APIs",
               "Homepage": "https://www.usebruno.com",
-              "Installed-Size": "540581",
+              "Installed-Size": "539550",
               "License": "unknown",
               "Maintainer": "Anoop M D <anoop.md1421@gmail.com>",
               "Package": "bruno",
@@ -208,30 +208,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Anoop M D <anoop.md1421@gmail.com>",
-              "Version": "4.1.0"
+              "Version": "4.2.0"
             },
-            "filename": "bruno_4.1.0_amd64_linux.deb",
-            "md5": "148f7b4d884e0694bf002bcea0080ae1",
-            "sha1": "f0eaf9bfe0fffb1047fa1cd5f096f9d0bafa347c",
-            "sha256": "164f5181df081e493229306f00f1b68772a544c1ebc22c46f0eb6836f8a251f8",
-            "sha512": "73b145a704affc7dc5381451f51c8c68f6d411ecc2524342cd1e4d36c78ed1e81921d2d0f7f96f4cd87c63834ad8639b78a54eeb57c78d9aa58238d4d0534c56",
-            "size": 104900990,
-            "upstream_version": "v4.1.0",
-            "url": "https://github.com/usebruno/bruno/releases/download/v4.1.0/bruno_4.1.0_amd64_linux.deb"
+            "filename": "bruno_4.2.0_amd64_linux.deb",
+            "md5": "d0419be7f982664de6d088929decc6c8",
+            "sha1": "0c42798ce2a9d70cfae9c6f8f5477d5a9458895f",
+            "sha256": "128af062d60badba11368e65d0f3ed1f9c27ed63a1b319434fad445ea269f1b3",
+            "sha512": "1cd152c2601eb7d5f612e9760fde5a73d7387e56e54bbb69867800d007c14ef313239c5bc5fa0f1fe41353b38d22621210d46b72679b2139009aee71ac2fb0ad",
+            "size": 104919866,
+            "upstream_version": "v4.2.0",
+            "url": "https://github.com/usebruno/bruno/releases/download/v4.2.0/bruno_4.2.0_amd64_linux.deb"
           },
-          "resolved_at": "2026-08-21T03:17:33+00:00",
+          "resolved_at": "2026-09-24T07:38:06+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "bruno_4.1.0_arm64_linux.deb",
+            "asset_name": "bruno_4.2.0_arm64_linux.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, libasound2",
               "Description": "\n  Opensource API Client for Exploring and Testing APIs",
               "Homepage": "https://www.usebruno.com",
-              "Installed-Size": "544790",
+              "Installed-Size": "543759",
               "License": "unknown",
               "Maintainer": "Anoop M D <anoop.md1421@gmail.com>",
               "Package": "bruno",
@@ -239,18 +239,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Anoop M D <anoop.md1421@gmail.com>",
-              "Version": "4.1.0"
+              "Version": "4.2.0"
             },
-            "filename": "bruno_4.1.0_arm64_linux.deb",
-            "md5": "d61850c7b9e254e4065a77c7d92883a7",
-            "sha1": "e007fbb59eeaec430de38177565d629285000e90",
-            "sha256": "bda69398c266353452911cbac87b86ef5c6de8f2efd0f5c234d88afaf1e11363",
-            "sha512": "bf828bbc2ebfd412e4a4d78600565e2fb0730103c4b426659090aab4b65ea2839e96adfa372f627378ebda881c24d15cab9ef3eeee1784328ecb85ebca0e21b3",
-            "size": 99821634,
-            "upstream_version": "v4.1.0",
-            "url": "https://github.com/usebruno/bruno/releases/download/v4.1.0/bruno_4.1.0_arm64_linux.deb"
+            "filename": "bruno_4.2.0_arm64_linux.deb",
+            "md5": "91379ac8a0ee4b98c1261bd51292b30a",
+            "sha1": "7a54371e00877790f8d0256147d2a749629d924a",
+            "sha256": "e22c3952dc32fea2e77139482304613b8aa093342dc94ca083fbff0f67692ed4",
+            "sha512": "d26d9ab0b4efe7ca8ce3e07ab940a8b6b5c4d8f77563f4d89c5a91b2c5d3208749a8dc417ec1a3524c9f0ecb87d95c19109ae8ab056ff9b40e57b3647ae7f002",
+            "size": 99883616,
+            "upstream_version": "v4.2.0",
+            "url": "https://github.com/usebruno/bruno/releases/download/v4.2.0/bruno_4.2.0_arm64_linux.deb"
           },
-          "resolved_at": "2026-08-21T03:17:35+00:00",
+          "resolved_at": "2026-09-24T07:38:07+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1124,13 +1124,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "Insomnia.Core-13.2.0.deb",
+            "asset_name": "Insomnia.Core-13.3.0.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "The Collaborative API Client and Design Tool\n  The Collaborative API Design Tool",
               "Homepage": "https://konghq.com",
-              "Installed-Size": "1594315",
+              "Installed-Size": "1599959",
               "License": "Apache-2.0",
               "Maintainer": "Kong <office@konghq.com>",
               "Package": "insomnia",
@@ -1138,18 +1138,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Kong <office@konghq.com>",
-              "Version": "13.2.0"
+              "Version": "13.3.0"
             },
-            "filename": "insomnia_13.2.0_amd64.deb",
-            "md5": "dbcc305a6d30d0a5a0a86ca4a29950f7",
-            "sha1": "15e1c97b83c01863a18e571094631ac5bd795413",
-            "sha256": "176fdd5306fb0cd8c74195cc9ee7b5da4d390a909ffeb8b1e41681667e914a61",
-            "sha512": "2650cc6c48b7fd1921dfd00b8028c61a927f042c265ee402b90a7affb4b45c229208e441ebe2b6530baded409e1e36755839848bf2d52afd013b01444e9a58b8",
-            "size": 425009708,
-            "upstream_version": "core@13.2.0",
-            "url": "https://github.com/Kong/insomnia/releases/download/core%4013.2.0/Insomnia.Core-13.2.0.deb"
+            "filename": "insomnia_13.3.0_amd64.deb",
+            "md5": "3aba8b27112debb7566b6bbc8813e152",
+            "sha1": "6170325a2c11e34032d50f2909b19cea25d2b13e",
+            "sha256": "96776cea5dffcb6c81557c157d0e788197248ab3f1d2932c611f502411f06d8f",
+            "sha512": "d0c55074bbabff8c59eddbe18f6169e27eb6a21e2e3c0fd2f25db0f8275e96c4e25fef81afa258fb9ca5b74d50ab340c57862c22e02229f48fd483124377287f",
+            "size": 427330664,
+            "upstream_version": "core@13.3.0",
+            "url": "https://github.com/Kong/insomnia/releases/download/core%4013.3.0/Insomnia.Core-13.3.0.deb"
           },
-          "resolved_at": "2026-08-26T03:27:09+00:00",
+          "resolved_at": "2026-09-24T07:38:12+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1873,13 +1873,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "teams-for-linux_2.20.1_amd64.deb",
+            "asset_name": "teams-for-linux_2.22.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Teams for Linux\n  Unofficial Microsoft Teams client for Linux using Electron. It uses the Web App and wraps it as a standalone application using Electron.",
               "Homepage": "https://github.com/IsmaelMartinez/teams-for-linux",
-              "Installed-Size": "346402",
+              "Installed-Size": "354968",
               "License": "GPL-3.0-or-later",
               "Maintainer": "Ismael Martinez <ismaelmartinez@gmail.com>",
               "Package": "teams-for-linux",
@@ -1887,30 +1887,30 @@
               "Recommends": "libappindicator3-1, fido2-tools",
               "Section": "net",
               "Vendor": "Ismael Martinez <ismaelmartinez@gmail.com>",
-              "Version": "2.20.1"
+              "Version": "2.22.0"
             },
-            "filename": "teams-for-linux_2.20.1_amd64.deb",
-            "md5": "19d5e319a556480bb19011769a564e06",
-            "sha1": "3ad8f4f8c278f106b376cef5997dcd60660af153",
-            "sha256": "62ee5733dc35cfad84ecc6fe15f09fd74e518ec91eefd0759bae60c775e74d8d",
-            "sha512": "c475fe9e8052cba69d5c8e1ae6f46abfb6a93e4388d3c4ddeabb75b6fbf19bc679744d02c5729c620f0962c5c2246aa4f5dc02d80598b7df6005990c4e295507",
-            "size": 113084864,
-            "upstream_version": "v2.20.1",
-            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.20.1/teams-for-linux_2.20.1_amd64.deb"
+            "filename": "teams-for-linux_2.22.0_amd64.deb",
+            "md5": "16ff79d342181aa722057d2e569c5e35",
+            "sha1": "b09974b0541b211781325605d7eb43fd8378dfce",
+            "sha256": "b8eb06ff669e83c2e27efe522328dc6d1545a08afbe6e5399c8ec8b5c2da3d3f",
+            "sha512": "e5e10e2401d2023676be677c76034970caac1efe672999d14bae1bbc92bf470221f5289cc9fcb916367842c4b0a2601535dc93b34e486ba22b4e37353f7732e4",
+            "size": 116451940,
+            "upstream_version": "v2.22.0",
+            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.22.0/teams-for-linux_2.22.0_amd64.deb"
           },
-          "resolved_at": "2026-09-12T07:11:36+00:00",
+          "resolved_at": "2026-09-24T07:38:13+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "teams-for-linux_2.20.1_arm64.deb",
+            "asset_name": "teams-for-linux_2.22.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Teams for Linux\n  Unofficial Microsoft Teams client for Linux using Electron. It uses the Web App and wraps it as a standalone application using Electron.",
               "Homepage": "https://github.com/IsmaelMartinez/teams-for-linux",
-              "Installed-Size": "348586",
+              "Installed-Size": "359742",
               "License": "GPL-3.0-or-later",
               "Maintainer": "Ismael Martinez <ismaelmartinez@gmail.com>",
               "Package": "teams-for-linux",
@@ -1918,18 +1918,18 @@
               "Recommends": "libappindicator3-1, fido2-tools",
               "Section": "net",
               "Vendor": "Ismael Martinez <ismaelmartinez@gmail.com>",
-              "Version": "2.20.1"
+              "Version": "2.22.0"
             },
-            "filename": "teams-for-linux_2.20.1_arm64.deb",
-            "md5": "07ffcd00d6fc868a7389717575f1320e",
-            "sha1": "54f08d140e7422dcec4cd8f55011f4a306c7fd06",
-            "sha256": "3c956f7692b17d954076c4d81a1f35ff5fd86f3aee43cd729de2c1eef04115e4",
-            "sha512": "14638943c04e1771ed72c7ab1818dbad582733c57cac08d8360a68ab39a031ca9bb3c5604c682a9ff8eb35b235811e375574736228d0d5c9e765afb105e46cbb",
-            "size": 107580472,
-            "upstream_version": "v2.20.1",
-            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.20.1/teams-for-linux_2.20.1_arm64.deb"
+            "filename": "teams-for-linux_2.22.0_arm64.deb",
+            "md5": "3326b3d2ae4634db8b36f757df17ea19",
+            "sha1": "820b0c0f8eb7d594683039244a3afb5874b26d49",
+            "sha256": "33135faa9e9f63a69e168906bc177626c457fb8be29d626800b5c209a97f5b98",
+            "sha512": "1531b897141c8fbcc1c036a35eda5c6a4d098f23c3c3685e6e2ad8523c319908047092daed3141145752a429ff75f4dc695cf77bd6732289fd7d6113a4bf379e",
+            "size": 111429576,
+            "upstream_version": "v2.22.0",
+            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.22.0/teams-for-linux_2.22.0_arm64.deb"
           },
-          "resolved_at": "2026-09-12T07:11:37+00:00",
+          "resolved_at": "2026-09-24T07:38:14+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -2003,14 +2003,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "code_1.138.0_amd64.deb",
+            "asset_name": "code_1.139.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.15), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "1023072",
+              "Installed-Size": "986472",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2018,31 +2018,31 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.138.0-1789458761"
+              "Version": "1.139.0-1790100840"
             },
-            "filename": "code_1.138.0_amd64.deb",
-            "md5": "c02135948edde4c2a613e30127e9432d",
-            "sha1": "a6dad63968b235e82f67b8eb56895e8bc5cd74e0",
-            "sha256": "73389cdcef7e66171a2039d1e49b9530e5ed02937e6159d3e6af93484e63cbad",
-            "sha512": "0d400eb3b4823a12d111d29d1c8271ac182259438abf87ab1ec603b16b7ae48f7df29295239dd0ab58c8cefb45f2686ff251937952a792158e7d97ae7ade6afb",
-            "size": 237965026,
-            "upstream_version": "1.138.0",
-            "url": "https://update.code.visualstudio.com/1.138.0/linux-deb-x64/stable"
+            "filename": "code_1.139.0_amd64.deb",
+            "md5": "1de78cf3d27b1bc18e8cae3d064ead77",
+            "sha1": "da65727bcbe039530049e9e129c02bae1a1abec8",
+            "sha256": "5031849ea13d2297ec7c8f1af70c0bc7d585250cae306b53d668cb6a7a900623",
+            "sha512": "dae7fb4594a6019daf2708513131dd94d4cbf95537bcf3caa2f81c2be2bb9f393dc14e8296ca1864036dc2660f38a1ef76659706c4fa6976dc7a4128d3ed7dd3",
+            "size": 236717410,
+            "upstream_version": "1.139.0",
+            "url": "https://update.code.visualstudio.com/1.139.0/linux-deb-x64/stable"
           },
-          "resolved_at": "2026-09-17T07:44:10+00:00",
+          "resolved_at": "2026-09-24T07:38:21+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "code_1.138.0_arm64.deb",
+            "asset_name": "code_1.139.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.17), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libstdc++6 (>= 4.1.1), libstdc++6 (>= 5), libstdc++6 (>= 5.2), libstdc++6 (>= 6), libstdc++6 (>= 9), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "977079",
+              "Installed-Size": "939931",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2050,18 +2050,18 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.138.0-1789458676"
+              "Version": "1.139.0-1790091463"
             },
-            "filename": "code_1.138.0_arm64.deb",
-            "md5": "0feecef5d175f420f12c667b2864458f",
-            "sha1": "ec83859dd8ec28cc535f103803905f8e68612bdd",
-            "sha256": "09760b73fb96ca19f8c6e483ec5b69123f34edd2c762cc9e0faf73fa3d400145",
-            "sha512": "0c8354a13914f8f39b1abad4d2b09af939dd2e919793be326993077a86e92b03894abef80985d02f86ca2626d04152bd7fb60193c9ba6dcfbcc4968f1abe8501",
-            "size": 219966878,
-            "upstream_version": "1.138.0",
-            "url": "https://update.code.visualstudio.com/1.138.0/linux-deb-arm64/stable"
+            "filename": "code_1.139.0_arm64.deb",
+            "md5": "5caaa175ea16d1c177f11828e5d83821",
+            "sha1": "d2712686114e42e1cd2952cd731122f5781965dc",
+            "sha256": "0cfabe5641de0ec70b2d9cdb4a14bbee029f70ffa2c9b63119fe93957dae20ce",
+            "sha512": "c61e045860555ce0d0da3d617f692ff04569893329612e44fa4dcb8ab4b0fb885bf4e0dad9a5b121a8f5eae9de8717563feeefcb7c65c69e3f2497382f5eeb84",
+            "size": 219190162,
+            "upstream_version": "1.139.0",
+            "url": "https://update.code.visualstudio.com/1.139.0/linux-deb-arm64/stable"
           },
-          "resolved_at": "2026-09-17T07:44:42+00:00",
+          "resolved_at": "2026-09-24T07:38:35+00:00",
           "source": "aur",
           "update_policy": "track"
         }
