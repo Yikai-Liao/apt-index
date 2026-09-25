@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T07:38:35+00:00",
+  "generated_at": "2026-09-25T07:53:57+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -301,25 +301,25 @@
               "Architecture": "amd64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "38905",
+              "Installed-Size": "39182",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.9.1"
+              "Version": "2026.9.3"
             },
             "filename": "cloudflared-linux-amd64.deb",
-            "md5": "a0f6a8ba228e5d5516e7b7a2cb0ee183",
-            "sha1": "9d338a0e4391f35b590a83ce5741f2971362311b",
-            "sha256": "3be76adc4185d36a0bfb4c2dd8663292f0ed363797f2180333b513b43c81d419",
-            "sha512": "5c7861fe94350c57214b6b8862ab3fc3691416c6737436c61259b0b69cf3036f7d2403cf0f25003a1747fd463f217a383fc468c3cc7694884994c08798f957e5",
-            "size": 19160216,
-            "upstream_version": "2026.9.1",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.9.1/cloudflared-linux-amd64.deb"
+            "md5": "fc40e4a161b65565e033422cf7b080d5",
+            "sha1": "6d77a125fb2b11423671c6f18aafe2a229e7186d",
+            "sha256": "bc073ef293d504cf5ac533bd0aa1c824ef6b4f358765ccaa6628a8a95cacb4b7",
+            "sha512": "975a692eece97700183b05fbcb633a82f9e94c01e44de19bc6e0b2030d26221a221f8f1ae5f304e66db99c1a3c3953fd52582eb6d7f8b5dccad7b337d1219f53",
+            "size": 19311574,
+            "upstream_version": "2026.9.3",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.9.3/cloudflared-linux-amd64.deb"
           },
-          "resolved_at": "2026-09-12T07:11:28+00:00",
+          "resolved_at": "2026-09-25T07:53:39+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -330,25 +330,25 @@
               "Architecture": "arm64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "36588",
+              "Installed-Size": "36802",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.9.1"
+              "Version": "2026.9.3"
             },
             "filename": "cloudflared-linux-arm64.deb",
-            "md5": "98c3a004db3cded849de4ef121158a6c",
-            "sha1": "1edd4619b0d577dde541ca83cb57a3ad322438aa",
-            "sha256": "2a870d5bf6ea74d16c0923b804eabbf4943f1fd7c63a5c20fd41cc66b629c725",
-            "sha512": "12326f57fcecbb8dbfa3f09c89e0e367cedc88862fd3457fb006d3aed788a8f99a5066e80b195d89a49c32b8915365ff64c45be822885a357726c7457a8f4da3",
-            "size": 17667370,
-            "upstream_version": "2026.9.1",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.9.1/cloudflared-linux-arm64.deb"
+            "md5": "51ab89e201008233fcd51665beb51ee6",
+            "sha1": "04014bdd28ab85f59f6b7fa24124c4f9c84a90c1",
+            "sha256": "bcce0111878f13d26e66b1d2ea7f270c8bde4bd549e32ce74d32474521583ca3",
+            "sha512": "dad6e6bcbf000592208aa2fffc051d6d219907247c4abb86e07f03326ee729c832722e306181e914f2102bc21155800e43e0f80f724b63507245e80a48d07c9e",
+            "size": 17809408,
+            "upstream_version": "2026.9.3",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.9.3/cloudflared-linux-arm64.deb"
           },
-          "resolved_at": "2026-09-12T07:11:28+00:00",
+          "resolved_at": "2026-09-25T07:53:40+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.21.18_amd64.deb",
+            "asset_name": "cursor_3.22.7_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0) | libglib2.0-0t64 (>= 2.12.0), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "960756",
+              "Installed-Size": "964352",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.21.18-1790045713"
+              "Version": "3.22.7-1790228161"
             },
-            "filename": "cursor_3.21.18_amd64.deb",
-            "md5": "5e7c9fa13201b4e114cc11393509626b",
-            "sha1": "ff6c434b18ad69c2b1f2404db67ade82c6c00631",
-            "sha256": "6966b4a4082b802d10e985b8228d428020690b2ca43d6d1d74c10a0703d1e1b1",
-            "sha512": "3a313c610aa88b54f19b28e40aa5531733f4890d3df0e28da94a8c6e915bcd1400640857c7c8091579a66bd388c054b632b3be730026b289638b47c08fa185d9",
-            "size": 206837088,
-            "upstream_version": "3.21.18",
-            "url": "https://downloads.cursor.com/production/c4730f7d93d787d9ab120af715999f0345ee5bc5/linux/x64/deb/amd64/deb/cursor_3.21.18_amd64.deb"
+            "filename": "cursor_3.22.7_amd64.deb",
+            "md5": "f14d7bc979b896e47f92a914b2e71c55",
+            "sha1": "870e1e045a0ec0d86ff5e2528d8da4de02d331a2",
+            "sha256": "923fd2d29cd11ceb0e230032b5649571c03c3076fd629a5d5b169b0f337800ab",
+            "sha512": "f061675a7de3552feebda762d6ff5a296035e13527da9405c73e89cde9604137c52a1c8681ef29ad6aeb37b29ad6ab3733fe46e342950850241c91041c6613f8",
+            "size": 207824004,
+            "upstream_version": "3.22.7",
+            "url": "https://downloads.cursor.com/production/37076c6c3f9e253c0fa2305197e45befd13a2268/linux/x64/deb/amd64/deb/cursor_3.22.7_amd64.deb"
           },
-          "resolved_at": "2026-09-23T07:47:52+00:00",
+          "resolved_at": "2026-09-25T07:53:44+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -459,13 +459,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "drawio-amd64-31.4.5.deb",
+            "asset_name": "drawio-amd64-31.5.2.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  draw.io desktop",
               "Homepage": "https://github.com/jgraph/drawio",
-              "Installed-Size": "354265",
+              "Installed-Size": "352699",
               "License": "Apache-2.0",
               "Maintainer": "draw.io <desktop@draw.io>",
               "Package": "draw.io",
@@ -473,30 +473,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "draw.io <desktop@draw.io>",
-              "Version": "31.4.5"
+              "Version": "31.5.2"
             },
-            "filename": "draw.io_31.4.5_amd64.deb",
-            "md5": "c3b13223cb6cdc2c57bc3cc023ec2515",
-            "sha1": "39cd59bd21338ed21e3c22c0f59814f6d8b26c2c",
-            "sha256": "296729ee18f781dc82deb757de2b3399fbe04fe0ddad3093909013e707ee2ae4",
-            "sha512": "c6b80cea7ad56f5ad7ee1edb416e48e7ffd7fd13abcc94993dc71b15822d4340c0abeb6cdd34630723cf293eacee190fa664361a6d75d8b2807bc3af41de325c",
-            "size": 124710044,
-            "upstream_version": "v31.4.5",
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v31.4.5/drawio-amd64-31.4.5.deb"
+            "filename": "draw.io_31.5.2_amd64.deb",
+            "md5": "9da500ab6eab37d98b9f0d66ecd56866",
+            "sha1": "58f9980de320a828756acbf96636cb60cc9f0973",
+            "sha256": "d59482f68ad4f5c1ee9a4f911861786e6173bf2e9880536b404d68d31149def7",
+            "sha512": "ec41218c58eb85dfb20ddc5b065504bba7c8095cea10ce53756609680568da5179df6aab830581a3a2ec85aca504180fb93ad87b204c647d26c107056377d85f",
+            "size": 125008436,
+            "upstream_version": "v31.5.2",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v31.5.2/drawio-amd64-31.5.2.deb"
           },
-          "resolved_at": "2026-09-09T07:24:58+00:00",
+          "resolved_at": "2026-09-25T07:53:41+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "drawio-arm64-31.4.5.deb",
+            "asset_name": "drawio-arm64-31.5.2.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  draw.io desktop",
               "Homepage": "https://github.com/jgraph/drawio",
-              "Installed-Size": "359160",
+              "Installed-Size": "357538",
               "License": "Apache-2.0",
               "Maintainer": "draw.io <desktop@draw.io>",
               "Package": "draw.io",
@@ -504,18 +504,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "draw.io <desktop@draw.io>",
-              "Version": "31.4.5"
+              "Version": "31.5.2"
             },
-            "filename": "draw.io_31.4.5_arm64.deb",
-            "md5": "c8e4c0ccc5e7f0556ffb406ee313a6be",
-            "sha1": "9a3f4020bb26fbeecae4519abbae1368ecb8177a",
-            "sha256": "b75aee5a4a24252acae14d62122ff4ab15f27199619a5a701bcbc01acd2b8127",
-            "sha512": "d31653855b64f21c978fb58ff8b4c04e86245139a8511875e9a200eab900a80f0f6dcd1d25d2f909abfd130069a2cac17582dad15b51f4ccc0e333103e057c5b",
-            "size": 119904076,
-            "upstream_version": "v31.4.5",
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v31.4.5/drawio-arm64-31.4.5.deb"
+            "filename": "draw.io_31.5.2_arm64.deb",
+            "md5": "fde5e278a8a28884649efc5bcba83b33",
+            "sha1": "57335c9cba1d16a665078649dd987311ecb7003a",
+            "sha256": "0d2b4d1bb21ccb1e30a04f2cad28f735ecf2bf51478eb8384de93a1f901159d2",
+            "sha512": "b2bdb0e463e17818537b97f91437608d47f41486f63937b791bc1e4a343635885ee004a1c474cac3b3e38a96384bfa74c342ea61e07a9d47ce7f82d1dd3d2e4a",
+            "size": 120163304,
+            "upstream_version": "v31.5.2",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v31.5.2/drawio-arm64-31.5.2.deb"
           },
-          "resolved_at": "2026-09-09T07:25:00+00:00",
+          "resolved_at": "2026-09-25T07:53:42+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -966,57 +966,57 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "fooyin_0.13.0-bookworm_amd64.deb",
+            "asset_name": "fooyin_0.13.1-bookworm_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libc6,\n    libstdc++6,\n    libqt6sql6-sqlite (>= 6.4.0),\n    libqt6svg6 (>= 6.4.0),\n    qt6-image-formats-plugins (>= 6.4.0),\n    qt6-qpa-plugins,\n    zlib1g,\n    libasound2,\n    ffmpeg (>= 7:4.4),\n    pipewire,\n    libpulse0,\n    libsdl2-2.0-0,\n    libgme0,\n    libopenmpt0,\n    libarchive13,\n    libsndfile1,\n    libebur128-1,\n    libsoundtouch1,\n    libsoxr0, libicu72, libtag1v5, libqt6core6 (>= 6.4.0), libqt6gui6 (>= 6.4.0), libqt6widgets6 (>= 6.4.0), libqt6network6 (>= 6.4.0), libqt6concurrent6 (>= 6.4.0), libqt6sql6 (>= 6.4.0)",
               "Description": "A customisable music player",
               "Homepage": "https://www.fooyin.org",
-              "Installed-Size": "36930",
+              "Installed-Size": "37129",
               "Maintainer": "Luke Taylor <luket@pm.me>",
               "Package": "fooyin",
               "Priority": "optional",
               "Section": "sound",
-              "Version": "0.13.0-1~debian.12~bookworm"
+              "Version": "0.13.1-1~debian.12~bookworm"
             },
-            "filename": "fooyin_0.13.0-bookworm_amd64.deb",
-            "md5": "2c840536ce218d119020fc16657c59e4",
-            "sha1": "227882854cda90f336cdb58de0334c4a647b0a77",
-            "sha256": "242077701a58156159d5d017e7fbc51e1b7c9eece2ba9e0f7c4f1358ee8fca21",
-            "sha512": "dd65a795acb8b550a451ea5fdddc5af7189f86de0d3d63cfa688e24e9c758e563fb2aa4926c6bed5cd51590706efa40660588ac9070781231f5a1fa0372971e9",
-            "size": 12334656,
-            "upstream_version": "v0.13.0",
-            "url": "https://github.com/fooyin/fooyin/releases/download/v0.13.0/fooyin_0.13.0-bookworm_amd64.deb"
+            "filename": "fooyin_0.13.1-bookworm_amd64.deb",
+            "md5": "c2a6e7452e5b834d54bfbfc213018a16",
+            "sha1": "f41039b435c37abed0b29fcf6d87efe2444fd3c2",
+            "sha256": "e38d79eeb15d00cca20207815ca7d07953a3142cd6596082e8910e47654284f3",
+            "sha512": "faedef91fbe17b7ba526075304c727b921edc51b683f1e42e6d8094162f768f82240c13412ded304a0dd6cbd100d07d13507dfa379d0b476b76fea1d90c54328",
+            "size": 12459890,
+            "upstream_version": "v0.13.1",
+            "url": "https://github.com/fooyin/fooyin/releases/download/v0.13.1/fooyin_0.13.1-bookworm_amd64.deb"
           },
-          "resolved_at": "2026-09-22T07:44:57+00:00",
+          "resolved_at": "2026-09-25T07:53:43+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "fooyin_0.13.0-bookworm_arm64.deb",
+            "asset_name": "fooyin_0.13.1-bookworm_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libc6,\n    libstdc++6,\n    libqt6sql6-sqlite (>= 6.4.0),\n    libqt6svg6 (>= 6.4.0),\n    qt6-image-formats-plugins (>= 6.4.0),\n    qt6-qpa-plugins,\n    zlib1g,\n    libasound2,\n    ffmpeg (>= 7:4.4),\n    pipewire,\n    libpulse0,\n    libsdl2-2.0-0,\n    libgme0,\n    libopenmpt0,\n    libarchive13,\n    libsndfile1,\n    libebur128-1,\n    libsoundtouch1,\n    libsoxr0, libicu72, libtag1v5, libqt6core6 (>= 6.4.0), libqt6gui6 (>= 6.4.0), libqt6widgets6 (>= 6.4.0), libqt6network6 (>= 6.4.0), libqt6concurrent6 (>= 6.4.0), libqt6sql6 (>= 6.4.0)",
               "Description": "A customisable music player",
               "Homepage": "https://www.fooyin.org",
-              "Installed-Size": "35828",
+              "Installed-Size": "36054",
               "Maintainer": "Luke Taylor <luket@pm.me>",
               "Package": "fooyin",
               "Priority": "optional",
               "Section": "sound",
-              "Version": "0.13.0-1~debian.12~bookworm"
+              "Version": "0.13.1-1~debian.12~bookworm"
             },
-            "filename": "fooyin_0.13.0-bookworm_arm64.deb",
-            "md5": "f65a6972d5ac0e8a79264884cb80355c",
-            "sha1": "e705a9cac76e9880b7eb2e742ccef07279e9ed2a",
-            "sha256": "3e507508b0bbaaa6aaffe8225e80ac582bc6c27ec248344eed060bd12f8a3901",
-            "sha512": "efcef9746c07d7fadef15948132aedc396c71491826968d850e74f7abf4bec8fc2f4b12448b992c8d8d8d5091c978f4b0c5881d07463a68004e194560c87a8f4",
-            "size": 11712446,
-            "upstream_version": "v0.13.0",
-            "url": "https://github.com/fooyin/fooyin/releases/download/v0.13.0/fooyin_0.13.0-bookworm_arm64.deb"
+            "filename": "fooyin_0.13.1-bookworm_arm64.deb",
+            "md5": "55e3764fcb33e898d1356d55a33f1b7a",
+            "sha1": "9f9d54636228bcea293424a6abcbced455354f19",
+            "sha256": "028de322518d54c4f36a15dceb3f9beed4fd4f036f232741b6bab6e8b0c6fbe0",
+            "sha512": "fc1af2e16a11074ab454578b56fa55a3b1e25a35b6751dace944536e2c2d19d635d0f201af4b954862fa078d85aba68b8747e5583bf06df7d00dde5904b407a9",
+            "size": 11831962,
+            "upstream_version": "v0.13.1",
+            "url": "https://github.com/fooyin/fooyin/releases/download/v0.13.1/fooyin_0.13.1-bookworm_arm64.deb"
           },
-          "resolved_at": "2026-09-22T07:44:57+00:00",
+          "resolved_at": "2026-09-25T07:53:44+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1739,7 +1739,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "slack-desktop-4.52.155-amd64.deb",
+            "asset_name": "slack-desktop-4.52.162-amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libappindicator3-1, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, kde-cli-tools | kde-runtime | trash-cli | libglib2.0-bin | gvfs-bin, apt-transport-https",
@@ -1751,18 +1751,18 @@
               "Recommends": "pulseaudio | libasound2",
               "Section": "misc",
               "Suggests": "gir1.2-gnomekeyring-1.0, libgnome-keyring0, lsb-release",
-              "Version": "4.52.155"
+              "Version": "4.52.162"
             },
-            "filename": "slack-desktop-4.52.155-amd64.deb",
-            "md5": "b641d4b1ce03149184cae7e1353b5773",
-            "sha1": "d3556880ad49a42ac4eb0fadc64f1c928f437333",
-            "sha256": "966536026f5afcd1c75a395dddd87b9596580931f659b40cebb21ab3add71b2f",
-            "sha512": "ff99b2b58ab753b7c14323ed64ce479ecc6b4d2fef2875b71cf087a62253506b508dcdb65ae7f1ea9ae9c08848d781ddbfe25d2e6f094b0f2fa0eddc9c2ef90a",
-            "size": 94856778,
-            "upstream_version": "4.52.155",
-            "url": "https://downloads.slack-edge.com/desktop-releases/linux/x64/4.52.155/slack-desktop-4.52.155-amd64.deb"
+            "filename": "slack-desktop-4.52.162-amd64.deb",
+            "md5": "77d2af7f2f50ff6d7c98d0df8fdb8e29",
+            "sha1": "4402172c6a54a8e2ae59bd171e716580457c0e4b",
+            "sha256": "5a1973ac9666889207787bf0e5330b62c6deddc3632ee6fcd3ece8c5eb823472",
+            "sha512": "9c7d64f87dadb4000ea6594c0a0c0fb41a18f26d93564e688c1af49e8bc9d1ecb17ccaa92a57a9ac72efd8db28aad6c30016d1e8a20d9adf35e4d42c72e1062c",
+            "size": 95172078,
+            "upstream_version": "4.52.162",
+            "url": "https://downloads.slack-edge.com/desktop-releases/linux/x64/4.52.162/slack-desktop-4.52.162-amd64.deb"
           },
-          "resolved_at": "2026-09-06T07:09:45+00:00",
+          "resolved_at": "2026-09-25T07:53:48+00:00",
           "source": "aur",
           "update_policy": "track"
         }
