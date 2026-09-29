@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-27T08:15:56+00:00",
+  "generated_at": "2026-09-29T08:36:43+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -64,13 +64,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_6.1.2_amd64.deb",
+            "asset_name": "beekeeper-studio_6.1.4_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "1105362",
+              "Installed-Size": "1105360",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -78,30 +78,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "6.1.2"
+              "Version": "6.1.4"
             },
-            "filename": "beekeeper-studio_6.1.2_amd64.deb",
-            "md5": "dd7f6597f860dee94650ff17103bfdf8",
-            "sha1": "5aa25ccb71cb3aae04ffe82ecf8716129a6b2a8a",
-            "sha256": "c964dbdf72efd864bcfdb177cb4af2a3f4e3cb97317a02b57bc02a7d4e45ea33",
-            "sha512": "c57d5a786902853cccfae3a52c91a70ee3617a0052fa911891df9fe1b3ad441c039999166a61a2aa46db72475ecc1e0482052146af0354a6006a4db0a8b9e5f0",
-            "size": 260870932,
-            "upstream_version": "v6.1.2",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.1.2/beekeeper-studio_6.1.2_amd64.deb"
+            "filename": "beekeeper-studio_6.1.4_amd64.deb",
+            "md5": "728eb6be6c0dc708445a911e7723a454",
+            "sha1": "5ff781c5a163b870fe8444859daed92cd0a8c6b3",
+            "sha256": "f115aa607006d8e9143d08cdc214917f1b046d78f1b21d3103f12e510c60fdbe",
+            "sha512": "3ddf6d02c772a1a70ab6aca4392e0b2e4326388b0084aa213642fe73e3478af41d969ef32cda308043926022541aea1e4073f68c13695b502ff6c01c83f1d7b7",
+            "size": 260871208,
+            "upstream_version": "v6.1.4",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.1.4/beekeeper-studio_6.1.4_amd64.deb"
           },
-          "resolved_at": "2026-09-18T07:26:22+00:00",
+          "resolved_at": "2026-09-29T08:36:27+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_6.1.2_arm64.deb",
+            "asset_name": "beekeeper-studio_6.1.4_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "1101493",
+              "Installed-Size": "1101491",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -109,18 +109,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "6.1.2"
+              "Version": "6.1.4"
             },
-            "filename": "beekeeper-studio_6.1.2_arm64.deb",
-            "md5": "644eccea2c05a6e56b92e2bec0e79f35",
-            "sha1": "72c17333a6533500dca5c6f4581aafc0bb66aeb5",
-            "sha256": "4686333e2bec1b58c04619a9edd071647424b05125e7b4d0172cbb74342c6259",
-            "sha512": "75a49f199526c7e3f23e108d2a499cbc52a73f2c98e76be7b7179bed3afa4c2489a55f44501aec046a2fd89dcd6771f9c206907d089fc39798a86bcbb4149f08",
-            "size": 252317896,
-            "upstream_version": "v6.1.2",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.1.2/beekeeper-studio_6.1.2_arm64.deb"
+            "filename": "beekeeper-studio_6.1.4_arm64.deb",
+            "md5": "462c5108516ab1952b646d602e05dcdb",
+            "sha1": "62ebeb1dbee8e6a931a835258a6bcec18683480a",
+            "sha256": "8af5ed8198e586843484121b754c77559258fd0525a21f166abd0e94dda039f3",
+            "sha512": "25ce621c8350a3fd3feb04633e601a9c45077cde8648cf708d6f99d89146fd87f2376c33b6346b4e9bf836a3532a0378b9731f0c459acbf727c6c90d1e05df2a",
+            "size": 252314616,
+            "upstream_version": "v6.1.4",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.1.4/beekeeper-studio_6.1.4_arm64.deb"
           },
-          "resolved_at": "2026-09-18T07:26:25+00:00",
+          "resolved_at": "2026-09-29T08:36:29+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.22.7_amd64.deb",
+            "asset_name": "cursor_3.22.12_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0) | libglib2.0-0t64 (>= 2.12.0), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "964352",
+              "Installed-Size": "964444",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.22.7-1790228161"
+              "Version": "3.22.12-1790400601"
             },
-            "filename": "cursor_3.22.7_amd64.deb",
-            "md5": "f14d7bc979b896e47f92a914b2e71c55",
-            "sha1": "870e1e045a0ec0d86ff5e2528d8da4de02d331a2",
-            "sha256": "923fd2d29cd11ceb0e230032b5649571c03c3076fd629a5d5b169b0f337800ab",
-            "sha512": "f061675a7de3552feebda762d6ff5a296035e13527da9405c73e89cde9604137c52a1c8681ef29ad6aeb37b29ad6ab3733fe46e342950850241c91041c6613f8",
-            "size": 207824004,
-            "upstream_version": "3.22.7",
-            "url": "https://downloads.cursor.com/production/37076c6c3f9e253c0fa2305197e45befd13a2268/linux/x64/deb/amd64/deb/cursor_3.22.7_amd64.deb"
+            "filename": "cursor_3.22.12_amd64.deb",
+            "md5": "96895834dd5de3b6cfab867b3ce80d43",
+            "sha1": "507e5e95c3e4b7f68afe53f8909a3f0d79042d4b",
+            "sha256": "8b9198f7dde79f7e27cc83dabf3c66a93ca5303b6919719100c82f29d9498a65",
+            "sha512": "3b77b8a2007599ce170b831e7a5d594e89f6f9646abcbcad86e1b3674bc3ccd412138590b48b5d9b59b92ad94d0728e106092c1703c4ef1c3a4dd52915e6aa58",
+            "size": 207823240,
+            "upstream_version": "3.22.12",
+            "url": "https://downloads.cursor.com/production/3a92974361033b2051526321308c2740fe5912c5/linux/x64/deb/amd64/deb/cursor_3.22.12_amd64.deb"
           },
-          "resolved_at": "2026-09-25T07:53:44+00:00",
+          "resolved_at": "2026-09-29T08:36:29+00:00",
           "source": "aur",
           "update_policy": "track"
         }
