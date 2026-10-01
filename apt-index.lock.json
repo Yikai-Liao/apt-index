@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T08:38:22+00:00",
+  "generated_at": "2026-10-01T09:00:54+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -194,13 +194,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "bruno_4.2.0_amd64_linux.deb",
+            "asset_name": "bruno_4.2.1_amd64_linux.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, libasound2",
               "Description": "\n  Opensource API Client for Exploring and Testing APIs",
               "Homepage": "https://www.usebruno.com",
-              "Installed-Size": "539550",
+              "Installed-Size": "539431",
               "License": "unknown",
               "Maintainer": "Anoop M D <anoop.md1421@gmail.com>",
               "Package": "bruno",
@@ -208,30 +208,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Anoop M D <anoop.md1421@gmail.com>",
-              "Version": "4.2.0"
+              "Version": "4.2.1"
             },
-            "filename": "bruno_4.2.0_amd64_linux.deb",
-            "md5": "d0419be7f982664de6d088929decc6c8",
-            "sha1": "0c42798ce2a9d70cfae9c6f8f5477d5a9458895f",
-            "sha256": "128af062d60badba11368e65d0f3ed1f9c27ed63a1b319434fad445ea269f1b3",
-            "sha512": "1cd152c2601eb7d5f612e9760fde5a73d7387e56e54bbb69867800d007c14ef313239c5bc5fa0f1fe41353b38d22621210d46b72679b2139009aee71ac2fb0ad",
-            "size": 104919866,
-            "upstream_version": "v4.2.0",
-            "url": "https://github.com/usebruno/bruno/releases/download/v4.2.0/bruno_4.2.0_amd64_linux.deb"
+            "filename": "bruno_4.2.1_amd64_linux.deb",
+            "md5": "3a0ca4cc749fedefa3d36a3746fb9aa5",
+            "sha1": "e4da8c1636a45e753ec7537ff14fc0d2a050baea",
+            "sha256": "7c36f0d7f15899bb48ab298d362da2741edc392c702faf13dd96ee12afd47a88",
+            "sha512": "315e190264a6bebabcf827b8b3d759639325a3ff107c94c822ab1e7727a09605b6125e1ccf84a5a5187030559250f51bd7be5df325eba5f18c3f641526768458",
+            "size": 104580672,
+            "upstream_version": "v4.2.1",
+            "url": "https://github.com/usebruno/bruno/releases/download/v4.2.1/bruno_4.2.1_amd64_linux.deb"
           },
-          "resolved_at": "2026-09-24T07:38:06+00:00",
+          "resolved_at": "2026-10-01T09:00:34+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "bruno_4.2.0_arm64_linux.deb",
+            "asset_name": "bruno_4.2.1_arm64_linux.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, libasound2",
               "Description": "\n  Opensource API Client for Exploring and Testing APIs",
               "Homepage": "https://www.usebruno.com",
-              "Installed-Size": "543759",
+              "Installed-Size": "543640",
               "License": "unknown",
               "Maintainer": "Anoop M D <anoop.md1421@gmail.com>",
               "Package": "bruno",
@@ -239,18 +239,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Anoop M D <anoop.md1421@gmail.com>",
-              "Version": "4.2.0"
+              "Version": "4.2.1"
             },
-            "filename": "bruno_4.2.0_arm64_linux.deb",
-            "md5": "91379ac8a0ee4b98c1261bd51292b30a",
-            "sha1": "7a54371e00877790f8d0256147d2a749629d924a",
-            "sha256": "e22c3952dc32fea2e77139482304613b8aa093342dc94ca083fbff0f67692ed4",
-            "sha512": "d26d9ab0b4efe7ca8ce3e07ab940a8b6b5c4d8f77563f4d89c5a91b2c5d3208749a8dc417ec1a3524c9f0ecb87d95c19109ae8ab056ff9b40e57b3647ae7f002",
-            "size": 99883616,
-            "upstream_version": "v4.2.0",
-            "url": "https://github.com/usebruno/bruno/releases/download/v4.2.0/bruno_4.2.0_arm64_linux.deb"
+            "filename": "bruno_4.2.1_arm64_linux.deb",
+            "md5": "2d628f1bab136659db5302007844f2b3",
+            "sha1": "3e0361750535ca162e88e09c3d6c2b8eaf8e40e8",
+            "sha256": "ea55359c8cd4e48d20cae7c5f01ed3b6e1c6f242d1d8900c8eea2b64510c4893",
+            "sha512": "30d26a553016fe3d6ba1bb8e04cf0e02af2755e514bf210d3003058391e9d903b77e6acd6b9f91b0665dba1a238d4ef937710aa24ca45a67e8c96fd8719af333",
+            "size": 99599756,
+            "upstream_version": "v4.2.1",
+            "url": "https://github.com/usebruno/bruno/releases/download/v4.2.1/bruno_4.2.1_arm64_linux.deb"
           },
-          "resolved_at": "2026-09-24T07:38:07+00:00",
+          "resolved_at": "2026-10-01T09:00:36+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.22.12_amd64.deb",
+            "asset_name": "cursor_3.23.10_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0) | libglib2.0-0t64 (>= 2.12.0), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "964444",
+              "Installed-Size": "964166",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.22.12-1790400601"
+              "Version": "3.23.10-1790806709"
             },
-            "filename": "cursor_3.22.12_amd64.deb",
-            "md5": "96895834dd5de3b6cfab867b3ce80d43",
-            "sha1": "507e5e95c3e4b7f68afe53f8909a3f0d79042d4b",
-            "sha256": "8b9198f7dde79f7e27cc83dabf3c66a93ca5303b6919719100c82f29d9498a65",
-            "sha512": "3b77b8a2007599ce170b831e7a5d594e89f6f9646abcbcad86e1b3674bc3ccd412138590b48b5d9b59b92ad94d0728e106092c1703c4ef1c3a4dd52915e6aa58",
-            "size": 207823240,
-            "upstream_version": "3.22.12",
-            "url": "https://downloads.cursor.com/production/3a92974361033b2051526321308c2740fe5912c5/linux/x64/deb/amd64/deb/cursor_3.22.12_amd64.deb"
+            "filename": "cursor_3.23.10_amd64.deb",
+            "md5": "e4ce356be0fe2313de4c67d8721e4c68",
+            "sha1": "4e173c2d8c97b515a8fe80ec3e0394aeb8548873",
+            "sha256": "040b122a0986368b4603c8148503370e96b50c7b72db85477e1e3c8a1f796e90",
+            "sha512": "1f311a5c64f3a68947589a60157ecd05c79b3850a054efa097a2429923685efedffbdde4a0a8558c5b5e9cb0438d0f06452ec9610c4337bebde228f3e18ae55c",
+            "size": 208004748,
+            "upstream_version": "3.23.10",
+            "url": "https://downloads.cursor.com/production/e5c99d77d20a6f86647a0a257b866dfe9b116982/linux/x64/deb/amd64/deb/cursor_3.23.10_amd64.deb"
           },
-          "resolved_at": "2026-09-29T08:36:29+00:00",
+          "resolved_at": "2026-10-01T09:00:40+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -2003,14 +2003,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "code_1.139.1_amd64.deb",
+            "asset_name": "code_1.140.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.15), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "986514",
+              "Installed-Size": "1004332",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2018,31 +2018,31 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.139.1-1790309529"
+              "Version": "1.140.0-1790759618"
             },
-            "filename": "code_1.139.1_amd64.deb",
-            "md5": "3dd20fcab2c05398d2b6bf0e4a92d62c",
-            "sha1": "bc1bdbec5165fa90c1843e6d1ee75a60e48792e6",
-            "sha256": "cc8e35cf69ff4c7e515e19fa981bf6aba41f61ddb61c79370e9fe460c5dbaf8b",
-            "sha512": "e4c31aa25776d799f9336805a88987c4d82e097f59b7517731511d882fb2c6606f78ae328295449e54a0d60378bf9976dede285534c7ca57ed623c53f5c864bc",
-            "size": 236699190,
-            "upstream_version": "1.139.1",
-            "url": "https://update.code.visualstudio.com/1.139.1/linux-deb-x64/stable"
+            "filename": "code_1.140.0_amd64.deb",
+            "md5": "2eef67b1bcb945651250bfe9e65cb6f9",
+            "sha1": "d4e26fabcccb6630244e0bee1eca68cae419afb5",
+            "sha256": "e5ddfa528d68ce907c92cba18ed4edd7420874fe828cbaaf8e4484aa33530c3b",
+            "sha512": "2a92271e518f5989c48a4611d5ee760e557e95bedbb1b7d5fd823b55bad46fc3f5863758e46a1da8d8ef70a17a3750eeb9645b07cd72880f4d34eb0971f31c1d",
+            "size": 241278114,
+            "upstream_version": "1.140.0",
+            "url": "https://update.code.visualstudio.com/1.140.0/linux-deb-x64/stable"
           },
-          "resolved_at": "2026-09-26T07:47:14+00:00",
+          "resolved_at": "2026-10-01T09:00:48+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "code_1.139.1_arm64.deb",
+            "asset_name": "code_1.140.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.17), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libstdc++6 (>= 4.1.1), libstdc++6 (>= 5), libstdc++6 (>= 5.2), libstdc++6 (>= 6), libstdc++6 (>= 9), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "939974",
+              "Installed-Size": "955536",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2050,18 +2050,18 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.139.1-1790309508"
+              "Version": "1.140.0-1790759479"
             },
-            "filename": "code_1.139.1_arm64.deb",
-            "md5": "3e1af25473a2275f350fcc15bb896131",
-            "sha1": "7c0fb784c1dc314a1d4c87d3958b523af22b132f",
-            "sha256": "53cdf61fd870ec9663ea7baa5e4f79014acafc36d8c45b2678a8ce80d72d737d",
-            "sha512": "fd620c0d3465348a6760c4e0f66f33bcdf3da7bf44f66859331680615aeb51092ee91d8ce9d689f462177383cdda432ba55e5b8fe6bbbbe44cda21a5d0e86791",
-            "size": 219225454,
-            "upstream_version": "1.139.1",
-            "url": "https://update.code.visualstudio.com/1.139.1/linux-deb-arm64/stable"
+            "filename": "code_1.140.0_arm64.deb",
+            "md5": "c4f8ec9570ea29450c37d3516c2ad4d7",
+            "sha1": "9af7430fa4c21caef716ff0d1466f259b3ebd6d0",
+            "sha256": "e48fc67195d140081bf9363d34dabf07d348e3bf1e78380dfd6abb11e346a9c3",
+            "sha512": "39ea3d664c33efd1a52ca9b4072857d2a90e749a4b5b72af4fc79183049d5fb1ddc097c4767b56043a83ff91ad5b07c397f56bc03a83a1962b95a61913af75e5",
+            "size": 224198742,
+            "upstream_version": "1.140.0",
+            "url": "https://update.code.visualstudio.com/1.140.0/linux-deb-arm64/stable"
           },
-          "resolved_at": "2026-09-26T07:47:20+00:00",
+          "resolved_at": "2026-10-01T09:00:54+00:00",
           "source": "aur",
           "update_policy": "track"
         }
