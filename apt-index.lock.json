@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T08:12:00+00:00",
+  "generated_at": "2026-10-04T08:29:59+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -846,7 +846,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "FlClash-0.8.98-linux-amd64.deb",
+            "asset_name": "FlClash-0.8.99-linux-amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libayatana-appindicator3-1, libsecret-1-0",
@@ -857,24 +857,24 @@
               "Package": "FlClash",
               "Priority": "optional",
               "Section": "x11",
-              "Version": "0.8.98+2026091401"
+              "Version": "0.8.99+2026100301"
             },
-            "filename": "FlClash-0.8.98-linux-amd64.deb",
-            "md5": "956ccb78181f4d280aa85a75878a9661",
-            "sha1": "a2e893508489921ccccc9066d39d87fa04e0e9f4",
-            "sha256": "19ef8fbe6c82b5534784eb97ac8e93696cb63d62f77b5f1cb6fb7ffe52f4ea66",
-            "sha512": "20fa6da7d41b379c2df3478271476a2778fa67ebe74f1e1975d68f678fb81861de33d596349fe65f6686bb7a2da63af0f0fc01a710738329385546aa5b855b53",
-            "size": 43478434,
-            "upstream_version": "v0.8.98",
-            "url": "https://github.com/chen08209/FlClash/releases/download/v0.8.98/FlClash-0.8.98-linux-amd64.deb"
+            "filename": "FlClash-0.8.99-linux-amd64.deb",
+            "md5": "303957c0652f4305f7d956653b895d43",
+            "sha1": "7dbe62334cac76a0dc2a89e1f8f09ade247953f6",
+            "sha256": "dd5b60d68aafb0f762692d497050fd2edcbdd772f4c53822a06eb2837cbf885f",
+            "sha512": "f89f3ade6301b7dd5b3093841c0c6e296cb3ace1980a59b8d000bda561d884929790adb2ae165eeda5bc5dbacc0d0889e4f2dd9798ddb56f798126f56b80c21c",
+            "size": 47338628,
+            "upstream_version": "v0.8.99",
+            "url": "https://github.com/chen08209/FlClash/releases/download/v0.8.99/FlClash-0.8.99-linux-amd64.deb"
           },
-          "resolved_at": "2026-09-14T07:56:02+00:00",
+          "resolved_at": "2026-10-04T08:29:46+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "FlClash-0.8.98-linux-arm64.deb",
+            "asset_name": "FlClash-0.8.99-linux-arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libayatana-appindicator3-1, libsecret-1-0",
@@ -885,18 +885,18 @@
               "Package": "FlClash",
               "Priority": "optional",
               "Section": "x11",
-              "Version": "0.8.98+2026091401"
+              "Version": "0.8.99+2026100301"
             },
-            "filename": "FlClash-0.8.98-linux-arm64.deb",
-            "md5": "06966b32f1bf1bf589d1895b4934eaf9",
-            "sha1": "77ad185bdf01789e627094faab988222f9730a58",
-            "sha256": "384ba5507fffb1b6d3af50bd430fa02b13fc945193dd21b7331a99f7da5f3ab9",
-            "sha512": "6ae50e7eb7e28268e79e2de08a6cee9821f25bfb9310d6ea2fc58fd1ebb2b8d73589e98eec9651779d3df12516a9179be6621f1c3fe79de1b5a02743590ad059",
-            "size": 40601166,
-            "upstream_version": "v0.8.98",
-            "url": "https://github.com/chen08209/FlClash/releases/download/v0.8.98/FlClash-0.8.98-linux-arm64.deb"
+            "filename": "FlClash-0.8.99-linux-arm64.deb",
+            "md5": "345eec692a95195f0c7a30418eda4d07",
+            "sha1": "4cc881e32ac37bc1f4607ef9ebdde928e7e62f23",
+            "sha256": "e9f8e88a159975af2b20302e4ae9938ead1ce865ca62cfaafd780deed30f4b1c",
+            "sha512": "9a0203ca35391678e697b0a4d8028f01c383c6071ea6cc3b722e719e122532ab18eb28e7a6f7e4de545d9c5558791e1778345717ce8cd5a5077cbcf50de74b7b",
+            "size": 44324302,
+            "upstream_version": "v0.8.99",
+            "url": "https://github.com/chen08209/FlClash/releases/download/v0.8.99/FlClash-0.8.99-linux-arm64.deb"
           },
-          "resolved_at": "2026-09-14T07:56:04+00:00",
+          "resolved_at": "2026-10-04T08:29:47+00:00",
           "source": "github",
           "update_policy": "track"
         }
