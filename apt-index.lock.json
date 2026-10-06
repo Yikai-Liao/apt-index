@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-04T08:29:59+00:00",
+  "generated_at": "2026-10-06T09:03:06+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -301,25 +301,25 @@
               "Architecture": "amd64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "39182",
+              "Installed-Size": "39189",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.9.3"
+              "Version": "2026.10.0"
             },
             "filename": "cloudflared-linux-amd64.deb",
-            "md5": "fc40e4a161b65565e033422cf7b080d5",
-            "sha1": "6d77a125fb2b11423671c6f18aafe2a229e7186d",
-            "sha256": "bc073ef293d504cf5ac533bd0aa1c824ef6b4f358765ccaa6628a8a95cacb4b7",
-            "sha512": "975a692eece97700183b05fbcb633a82f9e94c01e44de19bc6e0b2030d26221a221f8f1ae5f304e66db99c1a3c3953fd52582eb6d7f8b5dccad7b337d1219f53",
-            "size": 19311574,
-            "upstream_version": "2026.9.3",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.9.3/cloudflared-linux-amd64.deb"
+            "md5": "25380c3d5c02329d92ac37a3b4f62926",
+            "sha1": "14def06bfc296a12cc01f42e6dc84e0ccd226a99",
+            "sha256": "9721287c28f78cb623e77c7b95a63feea87e909054d75666a0ec9eff20e5d548",
+            "sha512": "c2c46bd54ccec75e7352b9aa005b6c47722f201873f5aabf5c4644d3b3c574545def6aae5eb17e711b81085f9e960725ecbd400990882d50881cf17c6b4c7291",
+            "size": 19316284,
+            "upstream_version": "2026.10.0",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.0/cloudflared-linux-amd64.deb"
           },
-          "resolved_at": "2026-09-25T07:53:39+00:00",
+          "resolved_at": "2026-10-06T09:02:48+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -330,25 +330,25 @@
               "Architecture": "arm64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "36802",
+              "Installed-Size": "36804",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.9.3"
+              "Version": "2026.10.0"
             },
             "filename": "cloudflared-linux-arm64.deb",
-            "md5": "51ab89e201008233fcd51665beb51ee6",
-            "sha1": "04014bdd28ab85f59f6b7fa24124c4f9c84a90c1",
-            "sha256": "bcce0111878f13d26e66b1d2ea7f270c8bde4bd549e32ce74d32474521583ca3",
-            "sha512": "dad6e6bcbf000592208aa2fffc051d6d219907247c4abb86e07f03326ee729c832722e306181e914f2102bc21155800e43e0f80f724b63507245e80a48d07c9e",
-            "size": 17809408,
-            "upstream_version": "2026.9.3",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.9.3/cloudflared-linux-arm64.deb"
+            "md5": "d33a6c7d5ff2132afc26649c2d68e736",
+            "sha1": "53c666e52be8907b5e83e70bee3340f98f907c1c",
+            "sha256": "7e0d76de3858b6396bd234ae26182bee222133398667d2647b90381d00c00e98",
+            "sha512": "d8952ba0aef16a853426cc223f25dd1bbc1c57779ddb3fb5858072d18e82ba2ff4ba7683c7acd98bb8f65753e972c0ec8441c11e96ce9e3e28332066f08b25ea",
+            "size": 17812848,
+            "upstream_version": "2026.10.0",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.0/cloudflared-linux-arm64.deb"
           },
-          "resolved_at": "2026-09-25T07:53:40+00:00",
+          "resolved_at": "2026-10-06T09:02:49+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.23.12_amd64.deb",
+            "asset_name": "cursor_3.23.23_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0) | libglib2.0-0t64 (>= 2.12.0), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "964230",
+              "Installed-Size": "964428",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.23.12-1790831722"
+              "Version": "3.23.23-1791166813"
             },
-            "filename": "cursor_3.23.12_amd64.deb",
-            "md5": "808cc8d25203d4d1ac0fb41705eea581",
-            "sha1": "a9e2890334f28acdbb113ee62d3b4f9935f39a08",
-            "sha256": "4b38d23926c72f2080e2ba108593e38f3688312464d70adc9088db63a53c0346",
-            "sha512": "45f25a65d42018fef96c67b555401c579f4354ea5a66489f24c92817b598702eb8a6aa904b52222eed229903c960130ed1312f222525549dcd8cc91f6ab72ecd",
-            "size": 207998356,
-            "upstream_version": "3.23.12",
-            "url": "https://downloads.cursor.com/production/2d29876d567da1607532b23bbf2cd5ddbca496fe/linux/x64/deb/amd64/deb/cursor_3.23.12_amd64.deb"
+            "filename": "cursor_3.23.23_amd64.deb",
+            "md5": "bc1764bee3fdc9adea56dd981e64a1ab",
+            "sha1": "1b842cd5aafe3512ab68f8bd262915e055ac8fe5",
+            "sha256": "74759a4d67c116ee9603452c02e86723fb03c139fb4f1cc0e8de609d81672deb",
+            "sha512": "acdf6f2677cd817c41fe91181075f8fa2cbf6fe21211c937a750769f1b036911a05c2e48c3f5186cc5e3d71a1b56aac8e6fbfead84a3c86902c39b77f8776328",
+            "size": 208096608,
+            "upstream_version": "3.23.23",
+            "url": "https://downloads.cursor.com/production/2dac2428994fe34f12658d9ecad1541b98db2c04/linux/x64/deb/amd64/deb/cursor_3.23.23_amd64.deb"
           },
-          "resolved_at": "2026-10-02T08:36:06+00:00",
+          "resolved_at": "2026-10-06T09:02:53+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1534,13 +1534,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "obsidian_1.13.7_amd64.deb",
+            "asset_name": "obsidian_1.14.4_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  Obsidian",
               "Homepage": "https://obsidian.md",
-              "Installed-Size": "345553",
+              "Installed-Size": "350310",
               "License": "UNLICENSED",
               "Maintainer": "Dynalist Inc.",
               "Package": "obsidian",
@@ -1548,18 +1548,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Dynalist Inc.",
-              "Version": "1.13.7"
+              "Version": "1.14.4"
             },
-            "filename": "obsidian_1.13.7_amd64.deb",
-            "md5": "d9a1ef3fa1356934b990b0d1b1c6da10",
-            "sha1": "770cf7dca77a77b509fd0222e3915e8340cc5bb3",
-            "sha256": "17dc33b49cb3e785ecc27edd2ea0c79e40207798b554fd2886e36ebee7af9ae0",
-            "sha512": "4de799d9acf236611e01ba5101d3ca71708b7f4ef8ac820575813656eacf3f7e10440146f569c13c9d54775a9de16f1d5eba6a26ba7b1a4de7b88d36fa740d04",
-            "size": 107021628,
-            "upstream_version": "v1.13.7",
-            "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.13.7/obsidian_1.13.7_amd64.deb"
+            "filename": "obsidian_1.14.4_amd64.deb",
+            "md5": "782aae9b4d3ca3ae8d0ef1d41e7dd756",
+            "sha1": "6c0419d7a87090d7713a85940238a208c4d3d2c7",
+            "sha256": "85b10dcba6edfc1c0460a6d18260cf31c30447a444bd858a6440b9c9c8806d25",
+            "sha512": "56e7fa4e200075dbbc313a13fa49acb6d3c23bf20903f4fe5e8f23490f59507ec865c13c3349363e6ab9266769d4cf6574b4a2a5f48c6724ce6203f5f81e5c66",
+            "size": 108364996,
+            "upstream_version": "v1.14.4",
+            "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.14.4/obsidian_1.14.4_amd64.deb"
           },
-          "resolved_at": "2026-08-13T04:21:44+00:00",
+          "resolved_at": "2026-10-06T09:02:55+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1808,61 +1808,61 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "syncthing_2.1.5_amd64.deb",
+            "asset_name": "syncthing_2.1.6_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libc6, procps",
               "Description": "Open Source Continuous File Synchronization",
               "Homepage": "https://syncthing.net/",
-              "Installed-Size": "26408",
+              "Installed-Size": "26420",
               "License": "MPL-2",
               "Maintainer": "Syncthing Release Management <release@syncthing.net>",
               "Package": "syncthing",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Syncthing Release Management <release@syncthing.net>",
-              "Version": "2.1.5"
+              "Version": "2.1.6"
             },
-            "filename": "syncthing_2.1.5_amd64.deb",
-            "md5": "1e18d276db09c73f7d847cb1e97c7f3a",
-            "sha1": "2a5b299298864dc4f92ec111eb7ad529198eeb56",
-            "sha256": "fd8daf356255a56db4d9259e0a6972193a9bdc0bb6229ed1c091f4a418280a39",
-            "sha512": "623dc2c68054e6ff5f14101527bff12e7a2002bba8a6801dd3396ad7d0e19fdc3689afceea24808035076817def1d423a77cef5e6b0f7432052a09eea3a8ec9b",
-            "size": 11806144,
-            "upstream_version": "v2.1.5",
-            "url": "https://github.com/syncthing/syncthing/releases/download/v2.1.5/syncthing_2.1.5_amd64.deb"
+            "filename": "syncthing_2.1.6_amd64.deb",
+            "md5": "440afafb45a7cb015fd655377e5370ea",
+            "sha1": "b6241eb92890582e5560e77c7f9c3abf98b5ff27",
+            "sha256": "1c2412c50df54b61bd18d61a947943122a92169e9e73dcc54ad787f295935938",
+            "sha512": "4e2729d49d05c7d4fb95e3c8c904850fd558812e12dfa207778e85cde078bb7c86adae940a7f00f5b8a0d0fbad25cdf17af735c1bd27a28a706eefc610d612b7",
+            "size": 11814934,
+            "upstream_version": "v2.1.6",
+            "url": "https://github.com/syncthing/syncthing/releases/download/v2.1.6/syncthing_2.1.6_amd64.deb"
           },
-          "resolved_at": "2026-09-09T07:25:07+00:00",
+          "resolved_at": "2026-10-06T09:02:56+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "syncthing_2.1.5_arm64.deb",
+            "asset_name": "syncthing_2.1.6_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libc6, procps",
               "Description": "Open Source Continuous File Synchronization",
               "Homepage": "https://syncthing.net/",
-              "Installed-Size": "24606",
+              "Installed-Size": "24618",
               "License": "MPL-2",
               "Maintainer": "Syncthing Release Management <release@syncthing.net>",
               "Package": "syncthing",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Syncthing Release Management <release@syncthing.net>",
-              "Version": "2.1.5"
+              "Version": "2.1.6"
             },
-            "filename": "syncthing_2.1.5_arm64.deb",
-            "md5": "86065c9fc860856b74f98ffcc23d736f",
-            "sha1": "4f074cb7e594118116f1dd47c0a2f6607c2f374f",
-            "sha256": "35cf54b9bac9e2f37f022e19affee4856200128747b8794afa2aec167ecec999",
-            "sha512": "d175372237fe3144285bd49d671b8fa327a7d700da24bd70b1aad4b6c655b056b9b621d0dd29685f001868a58a7f0b4f9d79c0bdd319740380a33656cfd82c72",
-            "size": 10883972,
-            "upstream_version": "v2.1.5",
-            "url": "https://github.com/syncthing/syncthing/releases/download/v2.1.5/syncthing_2.1.5_arm64.deb"
+            "filename": "syncthing_2.1.6_arm64.deb",
+            "md5": "421e837e0373cfc6871eacd7ad34c2c6",
+            "sha1": "6cfc2e44037231c5c9cdc71a251fb4f6f37e72df",
+            "sha256": "b1ebceb1f07b1fe41903def0c98d80e48fc3e243a6e3f3477fac5e76ff807b0a",
+            "sha512": "03c008aacf9d23f6ead1ef2a6bb857c9997224ae164c3bca9ae4ff1add878427c2d12a46bd905ee340bda8969a0a736b3f088982effbbee7bbd2340c63e0e37a",
+            "size": 10892992,
+            "upstream_version": "v2.1.6",
+            "url": "https://github.com/syncthing/syncthing/releases/download/v2.1.6/syncthing_2.1.6_arm64.deb"
           },
-          "resolved_at": "2026-09-09T07:25:08+00:00",
+          "resolved_at": "2026-10-06T09:02:56+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1873,13 +1873,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "teams-for-linux_2.23.0_amd64.deb",
+            "asset_name": "teams-for-linux_2.24.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Teams for Linux\n  Unofficial Microsoft Teams client for Linux using Electron. It uses the Web App and wraps it as a standalone application using Electron.",
               "Homepage": "https://github.com/IsmaelMartinez/teams-for-linux",
-              "Installed-Size": "353917",
+              "Installed-Size": "341186",
               "License": "GPL-3.0-or-later",
               "Maintainer": "Ismael Martinez <ismaelmartinez@gmail.com>",
               "Package": "teams-for-linux",
@@ -1887,30 +1887,30 @@
               "Recommends": "libappindicator3-1, fido2-tools",
               "Section": "net",
               "Vendor": "Ismael Martinez <ismaelmartinez@gmail.com>",
-              "Version": "2.23.0"
+              "Version": "2.24.0"
             },
-            "filename": "teams-for-linux_2.23.0_amd64.deb",
-            "md5": "f32c38bc401693e45d13b979858150d8",
-            "sha1": "bae63f3cb155d8a1e402720564b4c449e938879c",
-            "sha256": "7ec5b3b7d500c25c9a3315075db1ca3a96c7be3bb0f46f7f37044a0d7418d392",
-            "sha512": "47606f190a1f825384339fe3a0522bd4780f073c8dc4d9b01750cf4b76290e7a6fc3f7fe0df568c0754be5ea19e03abccfecc21a64edb1b1dc28eca13f296c91",
-            "size": 116388896,
-            "upstream_version": "v2.23.0",
-            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.23.0/teams-for-linux_2.23.0_amd64.deb"
+            "filename": "teams-for-linux_2.24.0_amd64.deb",
+            "md5": "bbaf5c1229d65f2e80e2d6b21b26e991",
+            "sha1": "0f83366c6b942105901deb81978f48600552d9ea",
+            "sha256": "bca91bdae2922863b2c188de4f71e7c2c20260d44f29dfc4e2c18df8657a851d",
+            "sha512": "f5cf7c962e6f34d529a7283faae3bbd0122ec3556f5bf3307d2ffb6f0af60a1fc5bffb6ea4b9f1f33ddc4ec8ba1a6ecebfa902cb4e609e59e9ee9984d195b5da",
+            "size": 104801060,
+            "upstream_version": "v2.24.0",
+            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.24.0/teams-for-linux_2.24.0_amd64.deb"
           },
-          "resolved_at": "2026-10-03T08:11:52+00:00",
+          "resolved_at": "2026-10-06T09:02:58+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "teams-for-linux_2.23.0_arm64.deb",
+            "asset_name": "teams-for-linux_2.24.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Teams for Linux\n  Unofficial Microsoft Teams client for Linux using Electron. It uses the Web App and wraps it as a standalone application using Electron.",
               "Homepage": "https://github.com/IsmaelMartinez/teams-for-linux",
-              "Installed-Size": "358692",
+              "Installed-Size": "345960",
               "License": "GPL-3.0-or-later",
               "Maintainer": "Ismael Martinez <ismaelmartinez@gmail.com>",
               "Package": "teams-for-linux",
@@ -1918,18 +1918,18 @@
               "Recommends": "libappindicator3-1, fido2-tools",
               "Section": "net",
               "Vendor": "Ismael Martinez <ismaelmartinez@gmail.com>",
-              "Version": "2.23.0"
+              "Version": "2.24.0"
             },
-            "filename": "teams-for-linux_2.23.0_arm64.deb",
-            "md5": "d753e7a6a6fe9927425e0cf57c59641b",
-            "sha1": "cf3d53cac3107f217b2a5d57874c48fccb18bd6e",
-            "sha256": "f8a5c926946921c1f2a1b6e76cb8282a9235b4c570d0bca303516ce0553aecb6",
-            "sha512": "e64b3183247eef989fd0fe7374be1f0f9b5e712dc80f2a0fe6231fdfbd1bac295747f42d458ad6389f49491ab94f5cdf48497ed7f2b935b431586823bd3655ac",
-            "size": 111375284,
-            "upstream_version": "v2.23.0",
-            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.23.0/teams-for-linux_2.23.0_arm64.deb"
+            "filename": "teams-for-linux_2.24.0_arm64.deb",
+            "md5": "9972d8e6644e39c1375d48e1addb9a9a",
+            "sha1": "1ab194d7cccdb50be792f7b3cbf56fbbb83b38a1",
+            "sha256": "a5710c44aaa85dc8cefecba7d4ca960331c1ed05a9742b675ad93cc3b00df9de",
+            "sha512": "1b8a3c28cb1d6d1b364a23886bc3161e25fe2cd70bccd94209d96c57d8987fb8aafba9d90b03e3ede59d716d5bc4fa0af2f606d4eaa531074513bdd7d9d589e8",
+            "size": 99789228,
+            "upstream_version": "v2.24.0",
+            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.24.0/teams-for-linux_2.24.0_arm64.deb"
           },
-          "resolved_at": "2026-10-03T08:11:54+00:00",
+          "resolved_at": "2026-10-06T09:02:59+00:00",
           "source": "github",
           "update_policy": "track"
         }
