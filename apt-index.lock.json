@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-07T08:45:09+00:00",
+  "generated_at": "2026-10-08T09:03:34+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -64,13 +64,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_6.1.5_amd64.deb",
+            "asset_name": "beekeeper-studio_6.1.6_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "1105817",
+              "Installed-Size": "1183804",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -78,30 +78,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "6.1.5"
+              "Version": "6.1.6"
             },
-            "filename": "beekeeper-studio_6.1.5_amd64.deb",
-            "md5": "95ed441dad495dcc45ce6f84880ba6f8",
-            "sha1": "8952cb286e36832426e561e3332510b1df10d81e",
-            "sha256": "74d8b1d7e77987788c19726d7da20a93fa73c88d94196270690872042142681e",
-            "sha512": "349e824ea7e7dfb7321e8374d9c370db3a2f35f19a89cb60bad904067a37ce7a6496b43dd5085ad7633d678486f1066a613a0ab643e53b1c84d863c8e79418bb",
-            "size": 260956332,
-            "upstream_version": "v6.1.5",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.1.5/beekeeper-studio_6.1.5_amd64.deb"
+            "filename": "beekeeper-studio_6.1.6_amd64.deb",
+            "md5": "13e9bf656c888b97660d5a9c2611e428",
+            "sha1": "38fb6aa0cf60e4b92979b075df3c8007c9fa6cbd",
+            "sha256": "750e29237ae2bd488d69dd994ff1dc5691d3335f9abff9f6def4539bf1302b3c",
+            "sha512": "c83deb5b11db0a3205e2dae062b184daada7b6f12143dfba9369bfff0c3ee8c9e81422c9120051dc6bdaa9dc9babae0ab02d150b24a0c5e4f37bab9f41290d11",
+            "size": 281298876,
+            "upstream_version": "v6.1.6",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.1.6/beekeeper-studio_6.1.6_amd64.deb"
           },
-          "resolved_at": "2026-10-03T08:11:43+00:00",
+          "resolved_at": "2026-10-08T09:03:14+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_6.1.5_arm64.deb",
+            "asset_name": "beekeeper-studio_6.1.6_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "1101948",
+              "Installed-Size": "1172000",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -109,18 +109,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "6.1.5"
+              "Version": "6.1.6"
             },
-            "filename": "beekeeper-studio_6.1.5_arm64.deb",
-            "md5": "ca6a69f7e47712a128d81d9106af3e81",
-            "sha1": "1ef37c574dc3498ca9fd4147ae68cf8cad3e4fee",
-            "sha256": "cd387b6afeda702d512c8dbbf22c332c8c97e8d25e05b4a828c786c26fe1b3a9",
-            "sha512": "2eb8dc21c2a33d38e9dd4a0bc8b12c51818230802b7ff34233c3704dc717deaa9156a3fdf1e7eb974ad83b6c82357f8f5777cec1936a6e18e3c751ba9e80abb7",
-            "size": 252402164,
-            "upstream_version": "v6.1.5",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.1.5/beekeeper-studio_6.1.5_arm64.deb"
+            "filename": "beekeeper-studio_6.1.6_arm64.deb",
+            "md5": "62a891cedf5939bbedc854ca7b890f81",
+            "sha1": "8d55fc039356bfd777b772b3af010131ff53db6c",
+            "sha256": "544acfd49cd4fccacf5acc9be1d8ec28f4c32d8dc94e276011029d0d86ce74ca",
+            "sha512": "fc6ad5f6c68a67409fb57d9e26954417625d722a9a8043c44d30a536fb69c61dc6cb53c646ecca9bd891a868fc73cb6930134b97713e46ead814eb7fc6007227",
+            "size": 270047652,
+            "upstream_version": "v6.1.6",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.1.6/beekeeper-studio_6.1.6_arm64.deb"
           },
-          "resolved_at": "2026-10-03T08:11:46+00:00",
+          "resolved_at": "2026-10-08T09:03:17+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -459,13 +459,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "drawio-amd64-31.7.0.deb",
+            "asset_name": "drawio-amd64-32.3.0.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  draw.io desktop",
               "Homepage": "https://github.com/jgraph/drawio",
-              "Installed-Size": "352495",
+              "Installed-Size": "350722",
               "License": "GPL-3.0-only",
               "Maintainer": "draw.io <desktop@draw.io>",
               "Package": "draw.io",
@@ -473,30 +473,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "draw.io <desktop@draw.io>",
-              "Version": "31.7.0"
+              "Version": "32.3.0"
             },
-            "filename": "draw.io_31.7.0_amd64.deb",
-            "md5": "37721a347f8dc65d9bd137babf3ef619",
-            "sha1": "e7bb16a7a0f5ad2be7b30c5656aa4c8a4a20a2b5",
-            "sha256": "eb9695e208fcc5ccfbfc496aa8ab2f52a273297d83715de2177b231c172c13de",
-            "sha512": "99889997eeae2305a12c3bb2edc4f0ad2b57d11c01f84eabb38ea373903bff613ff497aaa06d5905ccbe49d78ab0744836c9472646be8fd042dcc51bea302774",
-            "size": 124598040,
-            "upstream_version": "v31.7.0",
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v31.7.0/drawio-amd64-31.7.0.deb"
+            "filename": "draw.io_32.3.0_amd64.deb",
+            "md5": "fcc8c53ecf83093aa45c2a99779d8193",
+            "sha1": "baa97779008ae7fcbd02792ae0c5462586177310",
+            "sha256": "ef60ee194d8b45990dfaef2541cce8792c81d4df4cd17c7ccdcc3c3f8b3a1754",
+            "sha512": "170adf4ed05ba08d5572fa566ea11cce2dcf2c146081253000a751cf96b6490d2dedacd5fe30912d7495327965c503b60555d20459f061109b6f9e919fd68e02",
+            "size": 121949672,
+            "upstream_version": "v32.3.0",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v32.3.0/drawio-amd64-32.3.0.deb"
           },
-          "resolved_at": "2026-10-02T08:36:03+00:00",
+          "resolved_at": "2026-10-08T09:03:14+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "drawio-arm64-31.7.0.deb",
+            "asset_name": "drawio-arm64-32.3.0.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  draw.io desktop",
               "Homepage": "https://github.com/jgraph/drawio",
-              "Installed-Size": "357249",
+              "Installed-Size": "355501",
               "License": "GPL-3.0-only",
               "Maintainer": "draw.io <desktop@draw.io>",
               "Package": "draw.io",
@@ -504,18 +504,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "draw.io <desktop@draw.io>",
-              "Version": "31.7.0"
+              "Version": "32.3.0"
             },
-            "filename": "draw.io_31.7.0_arm64.deb",
-            "md5": "783bda68f93fa401c37042760193b504",
-            "sha1": "6d8ee8ab7eafdfa9c5ca74a846112db5b8ce23f2",
-            "sha256": "ad7acb0546768a6a7b6563c96d9beb0cd4cef3165e830e56a8cbc2ca0faf25de",
-            "sha512": "e349526979188bab7bbfaa6cda372a41fe2204d5383b75cf463a37cc3fb650a6d80140a4267efb3d5812e1e805e7dbfb255079528a3c6ec1f0656bd282acc9a1",
-            "size": 119767840,
-            "upstream_version": "v31.7.0",
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v31.7.0/drawio-arm64-31.7.0.deb"
+            "filename": "draw.io_32.3.0_arm64.deb",
+            "md5": "626e30419186ee692843410bfea9e2f5",
+            "sha1": "5b07dd3e5208c7c0886e63a1de9d2ec66024066d",
+            "sha256": "c5854b98bf506a419a5c952b086965f15e9a2e51ec3c837049b41fafe0ca6127",
+            "sha512": "a2b2a7d8e27d151b84fdb5c37bf4b8f2667ccfa76b473df3e92d57c11510a1ee9ca86bead0238aafc60b515173dcf2d4cdaa400577c40ca9a8c41bf98128e9f6",
+            "size": 117092376,
+            "upstream_version": "v32.3.0",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v32.3.0/drawio-arm64-32.3.0.deb"
           },
-          "resolved_at": "2026-10-02T08:36:06+00:00",
+          "resolved_at": "2026-10-08T09:03:16+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -2003,14 +2003,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "code_1.140.0_amd64.deb",
+            "asset_name": "code_1.141.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.15), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "1004332",
+              "Installed-Size": "1037274",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2018,31 +2018,31 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.140.0-1790759618"
+              "Version": "1.141.0-1791276758"
             },
-            "filename": "code_1.140.0_amd64.deb",
-            "md5": "2eef67b1bcb945651250bfe9e65cb6f9",
-            "sha1": "d4e26fabcccb6630244e0bee1eca68cae419afb5",
-            "sha256": "e5ddfa528d68ce907c92cba18ed4edd7420874fe828cbaaf8e4484aa33530c3b",
-            "sha512": "2a92271e518f5989c48a4611d5ee760e557e95bedbb1b7d5fd823b55bad46fc3f5863758e46a1da8d8ef70a17a3750eeb9645b07cd72880f4d34eb0971f31c1d",
-            "size": 241278114,
-            "upstream_version": "1.140.0",
-            "url": "https://update.code.visualstudio.com/1.140.0/linux-deb-x64/stable"
+            "filename": "code_1.141.0_amd64.deb",
+            "md5": "005079adc24907b5e108b54546af1d44",
+            "sha1": "47d51a9592ce576d6d47d66f73802f8a84bae4af",
+            "sha256": "d0ff4f7702957d897d2e06956f8d42a08250c5df8339de3bec8190e56f726277",
+            "sha512": "8a36f09af4f31061381a4e6a3946efba4c2aae7aa0af60deac6e9c6b6011756cb9e4033cc9583523bb0ad4a39b11175cb2d99796ff413551d791a5d4b9e8728a",
+            "size": 249220234,
+            "upstream_version": "1.141.0",
+            "url": "https://update.code.visualstudio.com/1.141.0/linux-deb-x64/stable"
           },
-          "resolved_at": "2026-10-01T09:00:48+00:00",
+          "resolved_at": "2026-10-08T09:03:27+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "code_1.140.0_arm64.deb",
+            "asset_name": "code_1.141.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.17), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libstdc++6 (>= 4.1.1), libstdc++6 (>= 5), libstdc++6 (>= 5.2), libstdc++6 (>= 6), libstdc++6 (>= 9), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "955536",
+              "Installed-Size": "987494",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2050,18 +2050,18 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.140.0-1790759479"
+              "Version": "1.141.0-1791276699"
             },
-            "filename": "code_1.140.0_arm64.deb",
-            "md5": "c4f8ec9570ea29450c37d3516c2ad4d7",
-            "sha1": "9af7430fa4c21caef716ff0d1466f259b3ebd6d0",
-            "sha256": "e48fc67195d140081bf9363d34dabf07d348e3bf1e78380dfd6abb11e346a9c3",
-            "sha512": "39ea3d664c33efd1a52ca9b4072857d2a90e749a4b5b72af4fc79183049d5fb1ddc097c4767b56043a83ff91ad5b07c397f56bc03a83a1962b95a61913af75e5",
-            "size": 224198742,
-            "upstream_version": "1.140.0",
-            "url": "https://update.code.visualstudio.com/1.140.0/linux-deb-arm64/stable"
+            "filename": "code_1.141.0_arm64.deb",
+            "md5": "8a5ce36db82ef54775cc70db862090da",
+            "sha1": "03131760146c9e237d4ab770092e577d9380dcc2",
+            "sha256": "873d5dac55b7cdb4f0af7172187ae3cc1709f6250331524ad41f1136589e62f2",
+            "sha512": "358d80bc943b386ea703cfb2b85215592e91c339257e8e77802065c7462739867abe18aead4c555434785b0078e9bfc5d90148c1c9aa6b7e4bf53610aef606ee",
+            "size": 230777686,
+            "upstream_version": "1.141.0",
+            "url": "https://update.code.visualstudio.com/1.141.0/linux-deb-arm64/stable"
           },
-          "resolved_at": "2026-10-01T09:00:54+00:00",
+          "resolved_at": "2026-10-08T09:03:34+00:00",
           "source": "aur",
           "update_policy": "track"
         }
