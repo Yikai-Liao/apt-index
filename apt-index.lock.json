@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-09T09:10:30+00:00",
+  "generated_at": "2026-10-10T08:34:00+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -261,31 +261,31 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cloudflare-warp-bin-2026.7.1377.deb",
+            "asset_name": "cloudflare-warp-bin-2026.8.2100.0.deb",
             "control": {
               "Architecture": "amd64",
-              "Depends": "libdbus-1-3, libc6, iproute2, nftables, gnupg2, desktop-file-utils, libcap2-bin, libnss3-tools, ca-certificates, libpcap0.8, libayatana-appindicator3-1, libwebkit2gtk-4.1-0, libtss2-esys-3.0.2-0t64, libtss2-tctildr0t64",
-              "Description": "Cloudflare Warp Client",
+              "Depends": "libdbus-1-3, libc6, iproute2, nftables, gnupg2, libcap2-bin, libnss3-tools, ca-certificates, libpcap0.8, libtss2-esys-3.0.2-0t64, libtss2-tctildr0t64, desktop-file-utils, libayatana-appindicator3-1, libwebkit2gtk-4.1-0",
+              "Description": "Cloudflare WARP Client",
               "Homepage": "https://1.1.1.1",
-              "Installed-Size": "216572",
+              "Installed-Size": "220951",
               "License": "unknown",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflare-warp",
               "Priority": "optional",
               "Section": "net",
               "Suggests": "traceroute",
-              "Version": "2026.7.1377.0"
+              "Version": "2026.8.2100.0"
             },
-            "filename": "cloudflare-warp_2026.7.1377.0_amd64.deb",
-            "md5": "f300c22fa02336422d80303d204663a6",
-            "sha1": "fd7d6f504b250baeba78912c4a54d619a1fc59cc",
-            "sha256": "a73429701c47ee9dc3c8307a0ead67054530787239bd71a12e7f93acdbe96f65",
-            "sha512": "a4fe8eb9480db8e05b3620c795abd3a7acffab5a5235f711bbc122a5570990bc59ddf8939575ec458e14f5f57e212b2e8ad30c4ba4db7cd52ce68915d3d8a6a1",
-            "size": 72711962,
-            "upstream_version": "2026.7.1377",
-            "url": "https://pkg.cloudflareclient.com/pool/noble/main/c/cloudflare-warp/cloudflare-warp_2026.7.1377.0_amd64.deb"
+            "filename": "cloudflare-warp_2026.8.2100.0_amd64.deb",
+            "md5": "7fadc31f9c6b9f360cf4354a827527c3",
+            "sha1": "6be92babfaeb6554d132dbb903679d6d4b3292f1",
+            "sha256": "28b8cf4c89084cf598065a328aef65e75af7fece382e38dd47a4c6caf1fca96b",
+            "sha512": "34fc2f25e7b91ada9d484d3794c1dc6147a876ddcbf2c0c9d09bc435d1f70ab966f403fcd612aa9d7b9e4dc8767e12ac5f71ac1f02146ecb9201d88e9c173dda",
+            "size": 74701528,
+            "upstream_version": "2026.8.2100.0",
+            "url": "https://pkg.cloudflareclient.com/pool/resolute/main/c/cloudflare-warp/cloudflare-warp_2026.8.2100.0_amd64.deb"
           },
-          "resolved_at": "2026-08-30T08:24:43+00:00",
+          "resolved_at": "2026-10-10T08:33:45+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.24.9_amd64.deb",
+            "asset_name": "cursor_3.24.12_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0) | libglib2.0-0t64 (>= 2.12.0), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "969768",
+              "Installed-Size": "969920",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.24.9-1791439478"
+              "Version": "3.24.12-1791581056"
             },
-            "filename": "cursor_3.24.9_amd64.deb",
-            "md5": "47cadff20fb707dc3318760e4b113818",
-            "sha1": "6b37ebbc4dc541b619490d6d676ba71a561f2e71",
-            "sha256": "a31c903c7d7261f83caf04c24494fbb17ea15820b2219c2c4b6d4adfb2b2d032",
-            "sha512": "16a6af7ab907ed78e0bd42f94e879cc1e162dfc0e5a40d817f7d660978a1630bdf3aadefd7f93308d1cd91b78973af6ec8cd4ef28d6c337f501d000c2272daa8",
-            "size": 209180428,
-            "upstream_version": "3.24.9",
-            "url": "https://downloads.cursor.com/production/cd6d2a1f2e56e9841f0ed9c7c24542087b4e69be/linux/x64/deb/amd64/deb/cursor_3.24.9_amd64.deb"
+            "filename": "cursor_3.24.12_amd64.deb",
+            "md5": "6d15724e05c1c251c158f157eed68c29",
+            "sha1": "c4fe12d60369268f94b90fb295ddd165c02b42b8",
+            "sha256": "880b5b69cd6cd79df4b81a778ea1f3429aaf775e771aab6c19c688de16a275f4",
+            "sha512": "336dc2b642cbb6d16a65bbd79cd4241e53c0d1fd3d9189850d7a922d1afcc9c37908d8a1e24d8c06429a12b375e7629a06e5f168c51e7be12e0b57430f6f1b86",
+            "size": 209185820,
+            "upstream_version": "3.24.12",
+            "url": "https://downloads.cursor.com/production/37b865941ccb31e2fc90c685157534efca87f964/linux/x64/deb/amd64/deb/cursor_3.24.12_amd64.deb"
           },
-          "resolved_at": "2026-10-09T09:10:16+00:00",
+          "resolved_at": "2026-10-10T08:33:48+00:00",
           "source": "aur",
           "update_policy": "track"
         }
