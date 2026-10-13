@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T08:34:00+00:00",
+  "generated_at": "2026-10-13T09:29:15+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -1773,7 +1773,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "spotify-1.2.96.518-g366879e1-x86_64.deb",
+            "asset_name": "spotify-1.3.4.258-gc60b10b0946a-x86_64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libc6 (>= 2.39), libasound2, libatk-bridge2.0-0, libatomic1, libgbm1, libglib2.0-0, libgtk-3-0, libnss3, libxshmfence1, libxss1, libxtst6, xdg-utils, libayatana-appindicator3-1",
@@ -1786,18 +1786,18 @@
               "Recommends": "libavcodec61 | libavcodec60 | libavcodec58, libavformat61 | libavformat60 | libavformat58",
               "Section": "sound",
               "Suggests": "libnotify4",
-              "Version": "1:1.2.96.518.g366879e1"
+              "Version": "1:1.3.4.258.gc60b10b0946a"
             },
-            "filename": "spotify-client_1%3a1.2.96.518.g366879e1_amd64.deb",
-            "md5": "c0762da9fcfab98a77d32d08c08389a4",
-            "sha1": "ae2c91d7ac530f0c7bc43daf1875d912f9f98e41",
-            "sha256": "1a86581f53c2b0e2c406150665ea05e245b9e6b286390ea61d5d193ba617eb2f",
-            "sha512": "98d25bd748258ca8b8357313cd35c7188bb0b26ed2d4390b0208473aa9fa3491a095559762f8ba06ec0828d73e05ee8fb488f0f357340191da4c65dd1f93c519",
-            "size": 171650706,
-            "upstream_version": "1.2.96.518",
-            "url": "http://repository.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.2.96.518.g366879e1_amd64.deb"
+            "filename": "spotify-client_1%3a1.3.4.258.gc60b10b0946a_amd64.deb",
+            "md5": "dd1522ce53b4d15e031a76075d3e859b",
+            "sha1": "29412384bbab5f097a4a94b478fc845d528b65df",
+            "sha256": "20f327441d11b202c82e65b69ec990ef631eb66605da15f41076c049acb718e4",
+            "sha512": "ad2198da6be2f3286a661d0315c124cb94c51084fabf630e34a296f3683599f1d8067e95512c150ed04b3c86526c8a0cff9b93584b39a145befaf6c478deb883",
+            "size": 179241028,
+            "upstream_version": "1.3.4.258",
+            "url": "http://repository.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.3.4.258.gc60b10b0946a_amd64.deb"
           },
-          "resolved_at": "2026-08-18T03:10:21+00:00",
+          "resolved_at": "2026-10-13T09:28:55+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -2139,59 +2139,59 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "wechat-x86-4.1.13.23.deb",
+            "asset_name": "wechat-x86-4.1.13.26.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "fonts-noto-cjk | google-noto-cjk-fonts",
               "Description": "wechat from Tencent",
-              "Installed-Size": "770959",
+              "Installed-Size": "771664",
               "Maintainer": "WeChat Team <>",
               "Package": "wechat",
               "Pre-Depends": "dpkg (>= 1.14.0)",
               "Priority": "optional",
               "Provides": "wechat",
               "Source": "wechat-stable",
-              "Version": "4.1.13.23"
+              "Version": "4.1.13.26"
             },
-            "filename": "wechat_4.1.13.23_amd64.deb",
-            "md5": "6a5a5b57e8a696c258af895911cd9b1d",
-            "sha1": "ba7df8a60515832c7ed2c0b9bb1a2c6f4c753e4d",
-            "sha256": "b7d0f8d53e9f648bc2c77a6096a04100d008f2d9f0d3988a2a4859b5992aca0a",
-            "sha512": "a40abf403be28de6833e42a5f04c7c2c109599e2500f244d8c5336fc1ea92c2eee15629d2f1e34433140ba4eba523c25af578453916a8a9c2779160a103398a7",
-            "size": 231359624,
-            "upstream_version": "4.1.13.23",
+            "filename": "wechat_4.1.13.26_amd64.deb",
+            "md5": "3293e535c3bbcde61d82a8f5b16963f8",
+            "sha1": "f1bce108c9299bdc330da706d764278ca5b1cd62",
+            "sha256": "a0db8caeee8d1e6cfe0aa5ce58710270f8d74a90ff4920f53a3fc22aa0956fe9",
+            "sha512": "b3ec30ea855e2d9a69ced8d101d20afcced81d936d9d9a619d5d374354e7bbec7bef2475cecf1f418bfc0216fbff211905be689e1107f41e993d2f4db4148549",
+            "size": 231861976,
+            "upstream_version": "4.1.13.26",
             "url": "https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.deb"
           },
-          "resolved_at": "2026-09-20T07:46:37+00:00",
+          "resolved_at": "2026-10-13T09:29:06+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "wechat-arm-4.1.13.23.deb",
+            "asset_name": "wechat-arm-4.1.13.26.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "fonts-noto-cjk | google-noto-cjk-fonts",
               "Description": "wechat from Tencent",
-              "Installed-Size": "734246",
+              "Installed-Size": "734912",
               "Maintainer": "WeChat Team <>",
               "Package": "wechat",
               "Pre-Depends": "dpkg (>= 1.14.0)",
               "Priority": "optional",
               "Provides": "wechat",
               "Source": "wechat-stable",
-              "Version": "4.1.13.23"
+              "Version": "4.1.13.26"
             },
-            "filename": "wechat_4.1.13.23_arm64.deb",
-            "md5": "22b13c8be781082c5a441f4e363b18cb",
-            "sha1": "cab350fd63e05791e0a08c95ddb61bc1a5653e3b",
-            "sha256": "51784a262c725ef1595dd833f456190e913583dd81c24dd8fe587532bc91c0dc",
-            "sha512": "45836aaa2ec8ab33f2489bd904b15b61e4abc605534f42e6ca7111a7993e3ebde28aa5c63e25d4739f9c4df83e91eea723102ca0e4ca0557315ca22cb98b7e71",
-            "size": 211550900,
-            "upstream_version": "4.1.13.23",
+            "filename": "wechat_4.1.13.26_arm64.deb",
+            "md5": "8f0d9577d7797cc4e0816853db6f9684",
+            "sha1": "c1d5c8d4570060b09367f222fd73f543e56ba899",
+            "sha256": "374732eda88a6f3a7e4eb315e64e5fac73ef17923d504d242964f19ed1b80c75",
+            "sha512": "0983ecd98e05f7ffaef4ad275be5d6c8d8aeebe1cc996b1d4e8446e355c9d12ec7dcaba1434add018e7c6234c7f8d35709ded819404e42a852803730a58042ec",
+            "size": 211858460,
+            "upstream_version": "4.1.13.26",
             "url": "https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_arm64.deb"
           },
-          "resolved_at": "2026-09-20T07:46:45+00:00",
+          "resolved_at": "2026-10-13T09:29:15+00:00",
           "source": "aur",
           "update_policy": "track"
         }
