@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T09:29:15+00:00",
+  "generated_at": "2026-10-14T07:42:15+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.24.12_amd64.deb",
+            "asset_name": "cursor_3.24.18_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0) | libglib2.0-0t64 (>= 2.12.0), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "969920",
+              "Installed-Size": "969952",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.24.12-1791581056"
+              "Version": "3.24.18-1791916893"
             },
-            "filename": "cursor_3.24.12_amd64.deb",
-            "md5": "6d15724e05c1c251c158f157eed68c29",
-            "sha1": "c4fe12d60369268f94b90fb295ddd165c02b42b8",
-            "sha256": "880b5b69cd6cd79df4b81a778ea1f3429aaf775e771aab6c19c688de16a275f4",
-            "sha512": "336dc2b642cbb6d16a65bbd79cd4241e53c0d1fd3d9189850d7a922d1afcc9c37908d8a1e24d8c06429a12b375e7629a06e5f168c51e7be12e0b57430f6f1b86",
-            "size": 209185820,
-            "upstream_version": "3.24.12",
-            "url": "https://downloads.cursor.com/production/37b865941ccb31e2fc90c685157534efca87f964/linux/x64/deb/amd64/deb/cursor_3.24.12_amd64.deb"
+            "filename": "cursor_3.24.18_amd64.deb",
+            "md5": "2f8e37be380fc118d3afb28940575ff3",
+            "sha1": "71473c9a0f0abfe46296e3aef3c10d43d8f2e0cb",
+            "sha256": "251f2172bbdb124f2c9a2e93903580a6db98d266a4f42c40a79a50a3fa067e77",
+            "sha512": "2c22d7795af46f97b23ff432a80525c2697e5a2a2ac00ee97c9043898240e8ee01136fb53a6cce19dcb3e0bd23d81f21c1277320db6334873c809be7b71db45a",
+            "size": 209159572,
+            "upstream_version": "3.24.18",
+            "url": "https://downloads.cursor.com/production/be4c9e5350d77747b42cd467cbd3370a753d464b/linux/x64/deb/amd64/deb/cursor_3.24.18_amd64.deb"
           },
-          "resolved_at": "2026-10-10T08:33:48+00:00",
+          "resolved_at": "2026-10-14T07:42:01+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -846,7 +846,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "FlClash-0.8.99-linux-amd64.deb",
+            "asset_name": "FlClash-0.9.0-linux-amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libayatana-appindicator3-1, libsecret-1-0",
@@ -857,24 +857,24 @@
               "Package": "FlClash",
               "Priority": "optional",
               "Section": "x11",
-              "Version": "0.8.99+2026100301"
+              "Version": "0.9.0+2026101401"
             },
-            "filename": "FlClash-0.8.99-linux-amd64.deb",
-            "md5": "303957c0652f4305f7d956653b895d43",
-            "sha1": "7dbe62334cac76a0dc2a89e1f8f09ade247953f6",
-            "sha256": "dd5b60d68aafb0f762692d497050fd2edcbdd772f4c53822a06eb2837cbf885f",
-            "sha512": "f89f3ade6301b7dd5b3093841c0c6e296cb3ace1980a59b8d000bda561d884929790adb2ae165eeda5bc5dbacc0d0889e4f2dd9798ddb56f798126f56b80c21c",
-            "size": 47338628,
-            "upstream_version": "v0.8.99",
-            "url": "https://github.com/chen08209/FlClash/releases/download/v0.8.99/FlClash-0.8.99-linux-amd64.deb"
+            "filename": "FlClash-0.9.0-linux-amd64.deb",
+            "md5": "b8dc603c0cfa47a35e1b74049af7f44c",
+            "sha1": "afcb97bbe26c051002deadc608ce69543f49b418",
+            "sha256": "f0c2ca66a38c5facf0a23737323343e258ed90e67f03ccc270afc5faa156a0d6",
+            "sha512": "ac4b89e75f5f2be9d4270acb7d3bae3bf1a1e8b77cebef71899b578cb251942ec4bc71f0a5ba5cddbeb2b9f3af2664601476f2bc8590df399e1e71660a8be422",
+            "size": 47631780,
+            "upstream_version": "v0.9.0",
+            "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.0/FlClash-0.9.0-linux-amd64.deb"
           },
-          "resolved_at": "2026-10-04T08:29:46+00:00",
+          "resolved_at": "2026-10-14T07:41:55+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "FlClash-0.8.99-linux-arm64.deb",
+            "asset_name": "FlClash-0.9.0-linux-arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libayatana-appindicator3-1, libsecret-1-0",
@@ -885,18 +885,18 @@
               "Package": "FlClash",
               "Priority": "optional",
               "Section": "x11",
-              "Version": "0.8.99+2026100301"
+              "Version": "0.9.0+2026101401"
             },
-            "filename": "FlClash-0.8.99-linux-arm64.deb",
-            "md5": "345eec692a95195f0c7a30418eda4d07",
-            "sha1": "4cc881e32ac37bc1f4607ef9ebdde928e7e62f23",
-            "sha256": "e9f8e88a159975af2b20302e4ae9938ead1ce865ca62cfaafd780deed30f4b1c",
-            "sha512": "9a0203ca35391678e697b0a4d8028f01c383c6071ea6cc3b722e719e122532ab18eb28e7a6f7e4de545d9c5558791e1778345717ce8cd5a5077cbcf50de74b7b",
-            "size": 44324302,
-            "upstream_version": "v0.8.99",
-            "url": "https://github.com/chen08209/FlClash/releases/download/v0.8.99/FlClash-0.8.99-linux-arm64.deb"
+            "filename": "FlClash-0.9.0-linux-arm64.deb",
+            "md5": "542535bdd9058a4f2a672612769e88c1",
+            "sha1": "0a471c8cf86c5be2e8eb6097970c4bb779e6b6aa",
+            "sha256": "c4b3add5d94931eec7c2e1d28014179de57a70a28a0b525e70c077f6eb0185cb",
+            "sha512": "c875d25b93bc99f0588346b324ef2a3394191b83da06637a8800a4014826f7c577a1c4bf1ce7c5a7b9fd6e73fddea26a26fe3009fe8ebdbc2396ee99ba27f12d",
+            "size": 44669876,
+            "upstream_version": "v0.9.0",
+            "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.0/FlClash-0.9.0-linux-arm64.deb"
           },
-          "resolved_at": "2026-10-04T08:29:47+00:00",
+          "resolved_at": "2026-10-14T07:41:56+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1090,30 +1090,30 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "google-chrome-stable_155.0.8059.39-1_amd64.deb",
+            "asset_name": "google-chrome-stable_155.0.8059.79-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "ca-certificates, fonts-liberation, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.25), libcairo2 (>= 1.14.0), libcups2 (>= 1.7.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.49.3), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.35), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libvulkan1, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxrandr2, wget, xdg-utils (>= 1.0.2)",
               "Description": "The web browser from Google\n Google Chrome is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier.",
-              "Installed-Size": "451100",
+              "Installed-Size": "451487",
               "Maintainer": "Chrome Linux Team <chromium-dev@chromium.org>",
               "Package": "google-chrome-stable",
               "Pre-Depends": "dpkg (>= 1.14.0)",
               "Priority": "optional",
               "Provides": "www-browser",
               "Section": "web",
-              "Version": "155.0.8059.39-1"
+              "Version": "155.0.8059.79-1"
             },
-            "filename": "google-chrome-stable_155.0.8059.39-1_amd64.deb",
-            "md5": "83b8a060da8adb5dfcefd947d53ce5b5",
-            "sha1": "67b988eb3517eaa91f1d6abfab6dbd3651b9f4ca",
-            "sha256": "c58aa0f2cd66179c9f050e062c882d27aa9b9f8c2b7c73fee3498560b5ed0b38",
-            "sha512": "42b4ec9ec61fee532a848fdf35973d3aba6c083028ee45c98572f1bbd9e51e865cbd5bf9fbbe695b6c9a76936472aaccd58f860ecb8bcce380afa6fd57bcb472",
-            "size": 143552428,
-            "upstream_version": "155.0.8059.39",
-            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_155.0.8059.39-1_amd64.deb"
+            "filename": "google-chrome-stable_155.0.8059.79-1_amd64.deb",
+            "md5": "2058ac23653de722aaf9e98129f92063",
+            "sha1": "f3a29309f174a56e88559f32072a4b95c7fac638",
+            "sha256": "b7726070ca707965e9a17b38e4f15ba283bf6f65c339626c092862af7b19badc",
+            "sha512": "dd2cca7444e08b905c69255f39f78dca698224ea9aad733777a1434c3cd9964dae7df299405a88a5e1b3a85e71b7cb1a4f84ad3881439d89e6f2596ede28f71c",
+            "size": 143638568,
+            "upstream_version": "155.0.8059.79",
+            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_155.0.8059.79-1_amd64.deb"
           },
-          "resolved_at": "2026-10-07T08:44:57+00:00",
+          "resolved_at": "2026-10-14T07:42:00+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1574,9 +1574,9 @@
             "control": {
               "Architecture": "amd64",
               "Conflicts": "onlyoffice-desktopeditors-enterprise",
-              "Depends": "x11-common, libasound2, curl | wget, desktop-file-utils, gstreamer1.0-libav, gstreamer1.0-plugins-ugly, libxss1, libatk1.0-0, libgtk-3-0, libcairo2, libstdc++6 (>= 4.8), libxkbcommon-x11-0, libnotify4, fonts-dejavu | ttf-dejavu, fonts-liberation, fonts-crosextra-carlito, xdg-utils",
+              "Depends": "x11-common, libasound2, curl, libcups2 | libcups2t64, desktop-file-utils, gstreamer1.0-libav, gstreamer1.0-plugins-ugly, libxss1, libatk1.0-0, libgtk-3-0, libcairo2, libstdc++6 (>= 4.8), libxkbcommon-x11-0, libnotify4, fonts-dejavu | ttf-dejavu, fonts-liberation, fonts-crosextra-carlito, xdg-utils",
               "Description": "Desktop editors for text docs, spreadsheets, presentations, PDFs, and PDF forms.\n Open-source office suite pack that comprises all the tools you need to\n work offline with documents, spreadsheets, presentations, PDFs, and PDF forms.",
-              "Installed-Size": "1285365",
+              "Installed-Size": "1067031",
               "Maintainer": "Ascensio System SIA <support@onlyoffice.com>",
               "Package": "onlyoffice-desktopeditors",
               "Pre-Depends": "dpkg (>= 1.14.0)",
@@ -1585,18 +1585,18 @@
               "Recommends": "ttf-mscorefonts-installer, fonts-takao-gothic",
               "Section": "editors",
               "Suggests": "onlyoffice-desktopeditors-help",
-              "Version": "9.4.0-129"
+              "Version": "10.0.0-169"
             },
             "filename": "onlyoffice-desktopeditors_amd64.deb",
-            "md5": "657747156cf352aa4f418eb3d8fb8824",
-            "sha1": "5e9051bf6c39949ba3b89b478ca6a9ef4e10ee99",
-            "sha256": "4271434e81be42b1559fd989d24bf6d413482f278dc6a5e328202a4fc1a18649",
-            "sha512": "76414c2674a63f11b4eaee57957321e3ebcb730785bb261e6c435eafe7c80a4b6e509168dfea86aa9600645fc4ae2ff5dc0198de03c813c6bc804ce887d76bb9",
-            "size": 364644136,
-            "upstream_version": "v9.4.0",
-            "url": "https://github.com/ONLYOFFICE/DesktopEditors/releases/download/v9.4.0/onlyoffice-desktopeditors_amd64.deb"
+            "md5": "216a2101508495b617a3ce4537d310af",
+            "sha1": "b99eb5a00111ef9d6d65ced6ee0cc322da1bb85e",
+            "sha256": "2190edb4022a2ac2f6eee0f78815520f0e4ece1e8a1097c645a6f9b225c8b59c",
+            "sha512": "8180a712fae116361991b881d8f9fecb3145822a87b0b55e5da363c5a7e35e632862530e8a87710962fce262a7bc6029eeab5ba23792fda79b1d547d6cdb09dd",
+            "size": 279357060,
+            "upstream_version": "v10.0.0",
+            "url": "https://github.com/ONLYOFFICE/DesktopEditors/releases/download/v10.0.0/onlyoffice-desktopeditors_amd64.deb"
           },
-          "resolved_at": "2026-06-15T13:39:10+00:00",
+          "resolved_at": "2026-10-14T07:42:01+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -1606,9 +1606,9 @@
             "control": {
               "Architecture": "arm64",
               "Conflicts": "onlyoffice-desktopeditors-enterprise",
-              "Depends": "x11-common, libasound2, curl | wget, desktop-file-utils, gstreamer1.0-libav, gstreamer1.0-plugins-ugly, libxss1, libatk1.0-0, libgtk-3-0, libcairo2, libstdc++6 (>= 4.8), libxkbcommon-x11-0, libnotify4, fonts-dejavu | ttf-dejavu, fonts-liberation, fonts-crosextra-carlito, xdg-utils",
+              "Depends": "x11-common, libasound2, curl, libcups2 | libcups2t64, desktop-file-utils, gstreamer1.0-libav, gstreamer1.0-plugins-ugly, libxss1, libatk1.0-0, libgtk-3-0, libcairo2, libstdc++6 (>= 4.8), libxkbcommon-x11-0, libnotify4, fonts-dejavu | ttf-dejavu, fonts-liberation, fonts-crosextra-carlito, xdg-utils",
               "Description": "Desktop editors for text docs, spreadsheets, presentations, PDFs, and PDF forms.\n Open-source office suite pack that comprises all the tools you need to\n work offline with documents, spreadsheets, presentations, PDFs, and PDF forms.",
-              "Installed-Size": "1342499",
+              "Installed-Size": "1123932",
               "Maintainer": "Ascensio System SIA <support@onlyoffice.com>",
               "Package": "onlyoffice-desktopeditors",
               "Pre-Depends": "dpkg (>= 1.14.0)",
@@ -1617,18 +1617,18 @@
               "Recommends": "ttf-mscorefonts-installer, fonts-takao-gothic",
               "Section": "editors",
               "Suggests": "onlyoffice-desktopeditors-help",
-              "Version": "9.4.0-129"
+              "Version": "10.0.0-169"
             },
             "filename": "onlyoffice-desktopeditors_arm64.deb",
-            "md5": "e45aab2f48c82ff8c65d39387bf6eae5",
-            "sha1": "bf8828e36f389badd3e35a5ab0825fcfe5d054d2",
-            "sha256": "ce141a103051e220a89839dd5dc8511172ae5b989e8de9bda0e07c34b0b7702c",
-            "sha512": "9fabd492633c36974fcfeedb9c601d0c30eefbd0ad58e3eb7f1713260cb6078e3dc57ac2cdc61977726768d1e07291f8164dcf55972b7508c4ecf962b9f2aa56",
-            "size": 354101716,
-            "upstream_version": "v9.4.0",
-            "url": "https://github.com/ONLYOFFICE/DesktopEditors/releases/download/v9.4.0/onlyoffice-desktopeditors_arm64.deb"
+            "md5": "9f9c436647ddc5d59c723c20d0c25bda",
+            "sha1": "8fc822bd41afeff6f7b6cf844582b74b24a4016d",
+            "sha256": "e176077c17977ea2f69c93e10821386b2f42faa5b923d5f9bd3a12e19ce3b040",
+            "sha512": "70c06b3ddfe53fda74ef9ad463fbf2b6cafe389050aa4e5cc94b8c3143f1228ceb5de0b1e8caf4264cdd6796833ba70a8bb7704302dd46bbe2f4ca4cb1235368",
+            "size": 272498820,
+            "upstream_version": "v10.0.0",
+            "url": "https://github.com/ONLYOFFICE/DesktopEditors/releases/download/v10.0.0/onlyoffice-desktopeditors_arm64.deb"
           },
-          "resolved_at": "2026-06-15T13:39:22+00:00",
+          "resolved_at": "2026-10-14T07:42:05+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -2035,14 +2035,14 @@
         },
         "arm64": {
           "artifact": {
-            "asset_name": "code_1.141.0_arm64.deb",
+            "asset_name": "code_1.141.1_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.17), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libstdc++6 (>= 4.1.1), libstdc++6 (>= 5), libstdc++6 (>= 5.2), libstdc++6 (>= 6), libstdc++6 (>= 9), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "987494",
+              "Installed-Size": "987555",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2050,18 +2050,18 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.141.0-1791276699"
+              "Version": "1.141.1-1791833063"
             },
-            "filename": "code_1.141.0_arm64.deb",
-            "md5": "8a5ce36db82ef54775cc70db862090da",
-            "sha1": "03131760146c9e237d4ab770092e577d9380dcc2",
-            "sha256": "873d5dac55b7cdb4f0af7172187ae3cc1709f6250331524ad41f1136589e62f2",
-            "sha512": "358d80bc943b386ea703cfb2b85215592e91c339257e8e77802065c7462739867abe18aead4c555434785b0078e9bfc5d90148c1c9aa6b7e4bf53610aef606ee",
-            "size": 230777686,
-            "upstream_version": "1.141.0",
-            "url": "https://update.code.visualstudio.com/1.141.0/linux-deb-arm64/stable"
+            "filename": "code_1.141.1_arm64.deb",
+            "md5": "66ea5a6466a71058dc010c403671afe5",
+            "sha1": "9475fbe9c9656e1f0bf059a206b6c0ab3a77ae1e",
+            "sha256": "483edfbc3b019a48486a8739b5fe5e79840ae931c55d52ed4d4e4b0139b25844",
+            "sha512": "5e0464b4511c246942a340c0f97953a761b6a70d5bd8f9f972b84830b4a1ce68798866eaff23ae4e808d481549c4756fd9639e7665879d369dc0a2a64408d3bc",
+            "size": 230782098,
+            "upstream_version": "1.141.1",
+            "url": "https://update.code.visualstudio.com/1.141.1/linux-deb-arm64/stable"
           },
-          "resolved_at": "2026-10-08T09:03:34+00:00",
+          "resolved_at": "2026-10-14T07:42:15+00:00",
           "source": "aur",
           "update_policy": "track"
         }
