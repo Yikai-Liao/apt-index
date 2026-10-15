@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T07:42:15+00:00",
+  "generated_at": "2026-10-15T07:30:18+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.24.18_amd64.deb",
+            "asset_name": "cursor_3.25.6_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0) | libglib2.0-0t64 (>= 2.12.0), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "969952",
+              "Installed-Size": "970437",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.24.18-1791916893"
+              "Version": "3.25.6-1792019953"
             },
-            "filename": "cursor_3.24.18_amd64.deb",
-            "md5": "2f8e37be380fc118d3afb28940575ff3",
-            "sha1": "71473c9a0f0abfe46296e3aef3c10d43d8f2e0cb",
-            "sha256": "251f2172bbdb124f2c9a2e93903580a6db98d266a4f42c40a79a50a3fa067e77",
-            "sha512": "2c22d7795af46f97b23ff432a80525c2697e5a2a2ac00ee97c9043898240e8ee01136fb53a6cce19dcb3e0bd23d81f21c1277320db6334873c809be7b71db45a",
-            "size": 209159572,
-            "upstream_version": "3.24.18",
-            "url": "https://downloads.cursor.com/production/be4c9e5350d77747b42cd467cbd3370a753d464b/linux/x64/deb/amd64/deb/cursor_3.24.18_amd64.deb"
+            "filename": "cursor_3.25.6_amd64.deb",
+            "md5": "c8d170bef11b39271ff6f8b3cf471297",
+            "sha1": "ea2b09752f30270f6bfc79d6559fe95370711b2f",
+            "sha256": "2b64b908214a8fa47e09303de80d8a25d78702216e2f765dcac73f8ae9c1ee15",
+            "sha512": "d081ff15c089719091185dce472be1611968f0fd70798defd4120a7cd1fd5a65d1a764ad53dde168c5cc6abc1809edf0e87d16d03e1e28353b1537d106c3d1f8",
+            "size": 209066536,
+            "upstream_version": "3.25.6",
+            "url": "https://downloads.cursor.com/production/f0df777c412b670d09e3eaf214967d779e67c088/linux/x64/deb/amd64/deb/cursor_3.25.6_amd64.deb"
           },
-          "resolved_at": "2026-10-14T07:42:01+00:00",
+          "resolved_at": "2026-10-15T07:29:58+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -559,7 +559,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "ente-auth-v4.4.24-x86_64.deb",
+            "asset_name": "ente-auth-v4.4.25-x86_64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libcurl4, libsqlite3-0, libsodium23, libsecret-1-0, policykit-1 | polkitd, libayatana-appindicator3-1, gir1.2-ayatanaappindicator3-0.1, libayatana-ido3-0.4-0",
@@ -570,18 +570,18 @@
               "Package": "enteauth",
               "Priority": "optional",
               "Section": "x11",
-              "Version": "4.4.24"
+              "Version": "4.4.25"
             },
-            "filename": "enteauth_4.4.24_amd64.deb",
-            "md5": "cd1899db4ef2e9be85f2d9440b0def81",
-            "sha1": "3591a657812d0a3f9c9f535dc39900ea31016e6a",
-            "sha256": "b6ea5c0f298226e9feaf1ebb98b1884ca025641e35c2b454f15b3356355a1f31",
-            "sha512": "2e4391ba4216abed5cab257b8e8005de4911680432b23a2aa668cd738d35f645918e1c53b157376423c02015237fbfc56ffc6e5e25b56abd45cda25c7d9d5768",
-            "size": 24026704,
-            "upstream_version": "4.4.24",
-            "url": "https://github.com/ente-io/ente/releases/download/auth-v4.4.24/ente-auth-v4.4.24-x86_64.deb"
+            "filename": "enteauth_4.4.25_amd64.deb",
+            "md5": "e97e4841b40d41066805641212fa2f1a",
+            "sha1": "00bc95727f13f19f675f5ac738885399623a713d",
+            "sha256": "00ff315f040ee69dd1100d74ecf4ddf0fabd246c796d17c6170dc84172ca38af",
+            "sha512": "be4f9d05c06e12fbdfacc7b51ca7229921d43cfb9dad7cb8e75d9e1bd4ad1cd107a124b640bcc4592984303d27cd361d84fcc10a7c154c3b3b0d9d9f636ccb35",
+            "size": 24145980,
+            "upstream_version": "4.4.25",
+            "url": "https://github.com/ente-io/ente/releases/download/auth-v4.4.25/ente-auth-v4.4.25-x86_64.deb"
           },
-          "resolved_at": "2026-07-07T06:19:28+00:00",
+          "resolved_at": "2026-10-15T07:29:55+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -598,23 +598,23 @@
               "Depends": "libc6 (>= 2.35)",
               "Description": "Fast neofetch-like system information tool\n fastfetch is a neofetch-like tool for fetching system information and displaying them in a pretty way. It is written mostly in C to achieve much better performance.",
               "Homepage": "https://github.com/fastfetch-cli/fastfetch",
-              "Installed-Size": "19637",
+              "Installed-Size": "4493",
               "Maintainer": "Carter Li <zhangsongcui@live.cn>",
               "Package": "fastfetch",
               "Priority": "optional",
               "Section": "devel",
-              "Version": "2.69.0"
+              "Version": "2.70.0"
             },
             "filename": "fastfetch-linux-amd64.deb",
-            "md5": "b3f98b6492a183c8822317a71ee65a75",
-            "sha1": "a0587d8bf54af5dd78945781bb361cd0443594ca",
-            "sha256": "cd91bc80ba416e2089e4dd40ea087e9e02028aeeb65988f92e17ede8da1c1bda",
-            "sha512": "7fc3772930c8389388ea76b18faff5591952aa48aa653b4c869f47a5c727121dc6f4dabf18b9ade5103f0e49f052d0ecef90deedefd3f4c387bb6852aa621ca2",
-            "size": 7192316,
-            "upstream_version": "2.69.0",
-            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.69.0/fastfetch-linux-amd64.deb"
+            "md5": "508e45806c6f3d1dc535002b371bac05",
+            "sha1": "f0ce7c5139686fedd6f3c524e933fb09eb6436df",
+            "sha256": "06e9a1be9a863dc815f8a31a6b1abec7b29967be30084ffcc29c1bca072d801b",
+            "sha512": "543ddaa0441988dcc532e04fb398b2dd513501ba2bfe7ef74d0dee2b370aa4ab79dee73baaadcf343e26efab2028c3e06cd084a5034c910d0e973530309c3892",
+            "size": 1490960,
+            "upstream_version": "2.70.0",
+            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.70.0/fastfetch-linux-amd64.deb"
           },
-          "resolved_at": "2026-09-26T07:47:01+00:00",
+          "resolved_at": "2026-10-15T07:29:53+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -626,23 +626,23 @@
               "Depends": "libc6 (>= 2.35)",
               "Description": "Fast neofetch-like system information tool\n fastfetch is a neofetch-like tool for fetching system information and displaying them in a pretty way. It is written mostly in C to achieve much better performance.",
               "Homepage": "https://github.com/fastfetch-cli/fastfetch",
-              "Installed-Size": "19528",
+              "Installed-Size": "4308",
               "Maintainer": "Carter Li <zhangsongcui@live.cn>",
               "Package": "fastfetch",
               "Priority": "optional",
               "Section": "devel",
-              "Version": "2.69.0"
+              "Version": "2.70.0"
             },
-            "filename": "fastfetch_2.69.0_arm64.deb",
-            "md5": "10dbda831968858427faacd12dbb58ca",
-            "sha1": "8a4ecd05a4156ffdcabc9e6aaf1c1f015d0532b7",
-            "sha256": "0ce0a8d10b0390b6b4b2e1da5eb6fd840272fd21d07460caed59ba7b8a522975",
-            "sha512": "4017df02c365edbfa8607c9126c8cef263a425ea9473c18d7791b4ffdeaff8eadf23ae7b990fb59ade1923b90cd9d09b2d503b418861e9a1f85335355d97f034",
-            "size": 7032516,
-            "upstream_version": "2.69.0",
-            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.69.0/fastfetch-linux-aarch64.deb"
+            "filename": "fastfetch_2.70.0_arm64.deb",
+            "md5": "f47832a6c530bfeb4dc34233c234d922",
+            "sha1": "836f90289f991a6fd547d339b93445beaa2f831d",
+            "sha256": "25053651486d97b8731dd6bc59e725944e39adcdcd903741334c1c3282a7281d",
+            "sha512": "cc812c9f2a994cdf0689dddde4a14368e149deec51931626d18f0a3a3084bd3ea9f261b36c1a29a932f947c52b12ea46dd36f745725d4f94fccff85634363592",
+            "size": 1520810,
+            "upstream_version": "2.70.0",
+            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.70.0/fastfetch-linux-aarch64.deb"
           },
-          "resolved_at": "2026-09-26T07:47:03+00:00",
+          "resolved_at": "2026-10-15T07:29:53+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1739,7 +1739,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "slack-desktop-4.52.171-amd64.deb",
+            "asset_name": "slack-desktop-4.52.178-amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libappindicator3-1, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, kde-cli-tools | kde-runtime | trash-cli | libglib2.0-bin | gvfs-bin, apt-transport-https",
@@ -1751,18 +1751,18 @@
               "Recommends": "pulseaudio | libasound2",
               "Section": "misc",
               "Suggests": "gir1.2-gnomekeyring-1.0, libgnome-keyring0, lsb-release",
-              "Version": "4.52.171"
+              "Version": "4.52.178"
             },
-            "filename": "slack-desktop-4.52.171-amd64.deb",
-            "md5": "446ff21fca73c226369810ab04618f84",
-            "sha1": "58157db474b198dd890e8a5c004d1c8c6d4e3127",
-            "sha256": "c6199816e6d842289869a9e84a05042af6e0de68959df7a15e7273873b86dc36",
-            "sha512": "9f7343d8fa55239ac8d5794d171f8b99178532548b8c6605b98f5a3360473f5a7ab4adfbefaa9f3475a308d3493b426caaf55f78ac8e70006038edf6f79f95c8",
-            "size": 95293726,
-            "upstream_version": "4.52.171",
-            "url": "https://downloads.slack-edge.com/desktop-releases/linux/x64/4.52.171/slack-desktop-4.52.171-amd64.deb"
+            "filename": "slack-desktop-4.52.178-amd64.deb",
+            "md5": "53824bdd95529e2afca79129eef60c57",
+            "sha1": "f25db5c1ce91680b8b8f3a2f25c6e0035bace019",
+            "sha256": "1f110efeeb7d82e927fa209cd767278f27a4ddc7fed4a60c23fbc4ab374e1d3a",
+            "sha512": "04a7d953d96527d48693d36d72be6955be1f94167e88092bf15ab65fd9a4f4ee5e19ef65723b367b85b2ca4d98a8877ab0efd70800d96df9b812df6cc8b96842",
+            "size": 95292754,
+            "upstream_version": "4.52.178",
+            "url": "https://downloads.slack-edge.com/desktop-releases/linux/x64/4.52.178/slack-desktop-4.52.178-amd64.deb"
           },
-          "resolved_at": "2026-10-02T08:36:11+00:00",
+          "resolved_at": "2026-10-15T07:30:01+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -2003,14 +2003,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "code_1.141.0_amd64.deb",
+            "asset_name": "code_1.142.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.15), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "1037274",
+              "Installed-Size": "995096",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2018,31 +2018,31 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.141.0-1791276758"
+              "Version": "1.142.0-1792035033"
             },
-            "filename": "code_1.141.0_amd64.deb",
-            "md5": "005079adc24907b5e108b54546af1d44",
-            "sha1": "47d51a9592ce576d6d47d66f73802f8a84bae4af",
-            "sha256": "d0ff4f7702957d897d2e06956f8d42a08250c5df8339de3bec8190e56f726277",
-            "sha512": "8a36f09af4f31061381a4e6a3946efba4c2aae7aa0af60deac6e9c6b6011756cb9e4033cc9583523bb0ad4a39b11175cb2d99796ff413551d791a5d4b9e8728a",
-            "size": 249220234,
-            "upstream_version": "1.141.0",
-            "url": "https://update.code.visualstudio.com/1.141.0/linux-deb-x64/stable"
+            "filename": "code_1.142.0_amd64.deb",
+            "md5": "6afdb836ad86542b08455a84c81885bf",
+            "sha1": "6976d275541aeea0e1234128fb2abb9b37a24a06",
+            "sha256": "33454f7d2d7bc79a5925b3e794d106fb454a10c6a635ddfeb908a63659a44ec5",
+            "sha512": "24b0da3d5e2f5637b833a4b953eb91dbef64cc095dfe643d67fbf75d04fd54803e7f0b96ca2a49adefc71891ae77df89f90d4c74bfbc6113f6acd80b46aae92b",
+            "size": 239610838,
+            "upstream_version": "1.142.0",
+            "url": "https://update.code.visualstudio.com/1.142.0/linux-deb-x64/stable"
           },
-          "resolved_at": "2026-10-08T09:03:27+00:00",
+          "resolved_at": "2026-10-15T07:30:07+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "code_1.141.1_arm64.deb",
+            "asset_name": "code_1.142.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.17), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libstdc++6 (>= 4.1.1), libstdc++6 (>= 5), libstdc++6 (>= 5.2), libstdc++6 (>= 6), libstdc++6 (>= 9), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "987555",
+              "Installed-Size": "951016",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2050,18 +2050,18 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.141.1-1791833063"
+              "Version": "1.142.0-1792034974"
             },
-            "filename": "code_1.141.1_arm64.deb",
-            "md5": "66ea5a6466a71058dc010c403671afe5",
-            "sha1": "9475fbe9c9656e1f0bf059a206b6c0ab3a77ae1e",
-            "sha256": "483edfbc3b019a48486a8739b5fe5e79840ae931c55d52ed4d4e4b0139b25844",
-            "sha512": "5e0464b4511c246942a340c0f97953a761b6a70d5bd8f9f972b84830b4a1ce68798866eaff23ae4e808d481549c4756fd9639e7665879d369dc0a2a64408d3bc",
-            "size": 230782098,
-            "upstream_version": "1.141.1",
-            "url": "https://update.code.visualstudio.com/1.141.1/linux-deb-arm64/stable"
+            "filename": "code_1.142.0_arm64.deb",
+            "md5": "9b28191e57c27dbe32d9d9a8ad0ad217",
+            "sha1": "cf65d0a917d9079ab256187a99952e88aa734935",
+            "sha256": "036b445fe4c634f0917cb0d09f4ce43048da1b2797d3fd2169c645ea9a261af8",
+            "sha512": "d61622a8309503b993a1625a6b147c1bb1e6048e8ac13958169704f6d1c4377861d17d895b02586cad6bcf15f8e881558a6657cbb70962bd5339c79bf851c6c1",
+            "size": 224533002,
+            "upstream_version": "1.142.0",
+            "url": "https://update.code.visualstudio.com/1.142.0/linux-deb-arm64/stable"
           },
-          "resolved_at": "2026-10-14T07:42:15+00:00",
+          "resolved_at": "2026-10-15T07:30:18+00:00",
           "source": "aur",
           "update_policy": "track"
         }
