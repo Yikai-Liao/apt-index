@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T07:30:18+00:00",
+  "generated_at": "2026-10-16T07:15:11+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -261,31 +261,31 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cloudflare-warp-bin-2026.8.2100.0.deb",
+            "asset_name": "cloudflare-warp-bin-2026.8.2110.0.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libdbus-1-3, libc6, iproute2, nftables, gnupg2, libcap2-bin, libnss3-tools, ca-certificates, libpcap0.8, libtss2-esys-3.0.2-0t64, libtss2-tctildr0t64, desktop-file-utils, libayatana-appindicator3-1, libwebkit2gtk-4.1-0",
               "Description": "Cloudflare WARP Client",
               "Homepage": "https://1.1.1.1",
-              "Installed-Size": "220951",
+              "Installed-Size": "220876",
               "License": "unknown",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflare-warp",
               "Priority": "optional",
               "Section": "net",
               "Suggests": "traceroute",
-              "Version": "2026.8.2100.0"
+              "Version": "2026.8.2110.0"
             },
-            "filename": "cloudflare-warp_2026.8.2100.0_amd64.deb",
-            "md5": "7fadc31f9c6b9f360cf4354a827527c3",
-            "sha1": "6be92babfaeb6554d132dbb903679d6d4b3292f1",
-            "sha256": "28b8cf4c89084cf598065a328aef65e75af7fece382e38dd47a4c6caf1fca96b",
-            "sha512": "34fc2f25e7b91ada9d484d3794c1dc6147a876ddcbf2c0c9d09bc435d1f70ab966f403fcd612aa9d7b9e4dc8767e12ac5f71ac1f02146ecb9201d88e9c173dda",
-            "size": 74701528,
-            "upstream_version": "2026.8.2100.0",
-            "url": "https://pkg.cloudflareclient.com/pool/resolute/main/c/cloudflare-warp/cloudflare-warp_2026.8.2100.0_amd64.deb"
+            "filename": "cloudflare-warp_2026.8.2110.0_amd64.deb",
+            "md5": "cbd81592da345a3799c34114750dfff9",
+            "sha1": "79ff113be8494001be30ff5e7e75e908ef0057d2",
+            "sha256": "10f006447bf7443262a91687ea35237b39c8e23fc7bc5691f3d686d152df221a",
+            "sha512": "0ed212571da793d32ce608f74d860aaec9e143566815fb3f529ce5d3a7baf39592e89333fe1328a1fe9e3cb20df2b8dfc2d7a180712114cdfa3509a336d28990",
+            "size": 74690010,
+            "upstream_version": "2026.8.2110.0",
+            "url": "https://pkg.cloudflareclient.com/pool/resolute/main/c/cloudflare-warp/cloudflare-warp_2026.8.2110.0_amd64.deb"
           },
-          "resolved_at": "2026-10-10T08:33:45+00:00",
+          "resolved_at": "2026-10-16T07:14:56+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -301,25 +301,25 @@
               "Architecture": "amd64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "39189",
+              "Installed-Size": "39284",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.10.0"
+              "Version": "2026.10.1"
             },
             "filename": "cloudflared-linux-amd64.deb",
-            "md5": "25380c3d5c02329d92ac37a3b4f62926",
-            "sha1": "14def06bfc296a12cc01f42e6dc84e0ccd226a99",
-            "sha256": "9721287c28f78cb623e77c7b95a63feea87e909054d75666a0ec9eff20e5d548",
-            "sha512": "c2c46bd54ccec75e7352b9aa005b6c47722f201873f5aabf5c4644d3b3c574545def6aae5eb17e711b81085f9e960725ecbd400990882d50881cf17c6b4c7291",
-            "size": 19316284,
-            "upstream_version": "2026.10.0",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.0/cloudflared-linux-amd64.deb"
+            "md5": "479359bb448b8084f6927701e0b0c486",
+            "sha1": "f3a7e4b55953e62efd6ccebf3c71e0d85194e257",
+            "sha256": "200573c872174ab449965655febadef8edfbb144ebcaa391b700b2dedbadb3cd",
+            "sha512": "1ce5c0239b1bf1053ac6896da3d14d41bb22a9db01ae42da39b811523be41e77f58dd3a6a1be9c0e8115cfac87f7b6fbd488f156a201fab7905f85bff1c1268c",
+            "size": 19897896,
+            "upstream_version": "2026.10.1",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.1/cloudflared-linux-amd64.deb"
           },
-          "resolved_at": "2026-10-06T09:02:48+00:00",
+          "resolved_at": "2026-10-16T07:14:53+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -330,25 +330,25 @@
               "Architecture": "arm64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "36804",
+              "Installed-Size": "36770",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.10.0"
+              "Version": "2026.10.1"
             },
             "filename": "cloudflared-linux-arm64.deb",
-            "md5": "d33a6c7d5ff2132afc26649c2d68e736",
-            "sha1": "53c666e52be8907b5e83e70bee3340f98f907c1c",
-            "sha256": "7e0d76de3858b6396bd234ae26182bee222133398667d2647b90381d00c00e98",
-            "sha512": "d8952ba0aef16a853426cc223f25dd1bbc1c57779ddb3fb5858072d18e82ba2ff4ba7683c7acd98bb8f65753e972c0ec8441c11e96ce9e3e28332066f08b25ea",
-            "size": 17812848,
-            "upstream_version": "2026.10.0",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.0/cloudflared-linux-arm64.deb"
+            "md5": "fe8e27ff0670f8bb675d0f1a28429cc3",
+            "sha1": "3fefb5cf70a684e6e3b68d47d3a09f392734115f",
+            "sha256": "f16c16b776a7f8edf7c5b365b5d2eba9544043b9867676295c930082448035b6",
+            "sha512": "bed53efe52553b1015f94aa7f2fa19cb0b6ca90274d6d848f52a7e021d8fde4548b3c929ce9b4012269a01454ba63ac7fe7b2c09e607cbd180c8eb3b35bf58b9",
+            "size": 18264968,
+            "upstream_version": "2026.10.1",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.1/cloudflared-linux-arm64.deb"
           },
-          "resolved_at": "2026-10-06T09:02:49+00:00",
+          "resolved_at": "2026-10-16T07:14:54+00:00",
           "source": "github",
           "update_policy": "track"
         }
