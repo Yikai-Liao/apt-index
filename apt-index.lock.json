@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-19T07:51:46+00:00",
+  "generated_at": "2026-10-20T07:39:24+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -907,55 +907,55 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "fonts-lxgw-wenkai-nerd_1.522_all.deb",
+            "asset_name": "fonts-lxgw-wenkai-nerd_1.530_all.deb",
             "control": {
               "Architecture": "all",
               "Depends": "fontconfig",
               "Description": "LXGW WenKai fonts patched with Nerd Font glyphs\n LXGW WenKai Nerd Font is a patched build of LXGW WenKai with Nerd Font\n symbols. This package includes proportional and monospace variants in Light,\n Regular, and Medium weights.",
-              "Installed-Size": "167912",
+              "Installed-Size": "170676",
               "Maintainer": "LXGW WenKai Nerd Font maintainers <noreply@github.com>",
               "Package": "fonts-lxgw-wenkai-nerd",
               "Priority": "optional",
               "Section": "fonts",
-              "Version": "1.522"
+              "Version": "1.530"
             },
-            "filename": "fonts-lxgw-wenkai-nerd_1.522_all.deb",
-            "md5": "2b1ace385eb080941b3144d8065dfd07",
-            "sha1": "d063b9a740641455b1a0b386f8d91e2ef442ad7c",
-            "sha256": "874d3693e0db3f084fc939545a1a6691171cabfe79c2bfddc48e3e11656630c0",
-            "sha512": "c8557e2e63ce0f64b5d382a35b254baeffcdc48c1123b3bcb8a8a9548a104eaa5c313058bde1b133327e7e1578635893f46d7214e0e6095b5681864acb787b05",
-            "size": 70870434,
-            "upstream_version": "v1.522",
-            "url": "https://github.com/Yikai-Liao/LxgwWenKaiNerdFont/releases/download/v1.522/fonts-lxgw-wenkai-nerd_1.522_all.deb"
+            "filename": "fonts-lxgw-wenkai-nerd_1.530_all.deb",
+            "md5": "f009edce61bec6be82609a4d69f5160d",
+            "sha1": "c98af7f979f36ea59330b1eedab9cdb9cb648867",
+            "sha256": "3da2cda6ef812c015a6dada819bae6e3a6501d9826e11c0fbe9368aa46b8c55a",
+            "sha512": "0692d23a7cb1fc95d0fb3b69e3afeb10b17accfc0af557375e551139ced8f095648eb1f1be5fb9413b9b3922bc0db4f8ee13b989d62eedd8030503494badb7e6",
+            "size": 72182908,
+            "upstream_version": "v1.530",
+            "url": "https://github.com/Yikai-Liao/LxgwWenKaiNerdFont/releases/download/v1.530/fonts-lxgw-wenkai-nerd_1.530_all.deb"
           },
-          "resolved_at": "2026-06-17T07:55:52+00:00",
+          "resolved_at": "2026-10-20T07:39:10+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "fonts-lxgw-wenkai-nerd_1.522_all.deb",
+            "asset_name": "fonts-lxgw-wenkai-nerd_1.530_all.deb",
             "control": {
               "Architecture": "all",
               "Depends": "fontconfig",
               "Description": "LXGW WenKai fonts patched with Nerd Font glyphs\n LXGW WenKai Nerd Font is a patched build of LXGW WenKai with Nerd Font\n symbols. This package includes proportional and monospace variants in Light,\n Regular, and Medium weights.",
-              "Installed-Size": "167912",
+              "Installed-Size": "170676",
               "Maintainer": "LXGW WenKai Nerd Font maintainers <noreply@github.com>",
               "Package": "fonts-lxgw-wenkai-nerd",
               "Priority": "optional",
               "Section": "fonts",
-              "Version": "1.522"
+              "Version": "1.530"
             },
-            "filename": "fonts-lxgw-wenkai-nerd_1.522_all.deb",
-            "md5": "2b1ace385eb080941b3144d8065dfd07",
-            "sha1": "d063b9a740641455b1a0b386f8d91e2ef442ad7c",
-            "sha256": "874d3693e0db3f084fc939545a1a6691171cabfe79c2bfddc48e3e11656630c0",
-            "sha512": "c8557e2e63ce0f64b5d382a35b254baeffcdc48c1123b3bcb8a8a9548a104eaa5c313058bde1b133327e7e1578635893f46d7214e0e6095b5681864acb787b05",
-            "size": 70870434,
-            "upstream_version": "v1.522",
-            "url": "https://github.com/Yikai-Liao/LxgwWenKaiNerdFont/releases/download/v1.522/fonts-lxgw-wenkai-nerd_1.522_all.deb"
+            "filename": "fonts-lxgw-wenkai-nerd_1.530_all.deb",
+            "md5": "f009edce61bec6be82609a4d69f5160d",
+            "sha1": "c98af7f979f36ea59330b1eedab9cdb9cb648867",
+            "sha256": "3da2cda6ef812c015a6dada819bae6e3a6501d9826e11c0fbe9368aa46b8c55a",
+            "sha512": "0692d23a7cb1fc95d0fb3b69e3afeb10b17accfc0af557375e551139ced8f095648eb1f1be5fb9413b9b3922bc0db4f8ee13b989d62eedd8030503494badb7e6",
+            "size": 72182908,
+            "upstream_version": "v1.530",
+            "url": "https://github.com/Yikai-Liao/LxgwWenKaiNerdFont/releases/download/v1.530/fonts-lxgw-wenkai-nerd_1.530_all.deb"
           },
-          "resolved_at": "2026-06-17T07:55:53+00:00",
+          "resolved_at": "2026-10-20T07:39:10+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1873,13 +1873,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "teams-for-linux_2.25.0_amd64.deb",
+            "asset_name": "teams-for-linux_2.26.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, libgbm1, libasound2t64 | libasound2",
               "Description": "Teams for Linux\n  Unofficial Microsoft Teams client for Linux using Electron. It uses the Web App and wraps it as a standalone application using Electron.",
               "Homepage": "https://github.com/IsmaelMartinez/teams-for-linux",
-              "Installed-Size": "341251",
+              "Installed-Size": "341263",
               "License": "GPL-3.0-or-later",
               "Maintainer": "Ismael Martinez <ismaelmartinez@gmail.com>",
               "Package": "teams-for-linux",
@@ -1887,30 +1887,30 @@
               "Recommends": "libappindicator3-1, fido2-tools",
               "Section": "net",
               "Vendor": "Ismael Martinez <ismaelmartinez@gmail.com>",
-              "Version": "2.25.0"
+              "Version": "2.26.0"
             },
-            "filename": "teams-for-linux_2.25.0_amd64.deb",
-            "md5": "8373664c32fa4eb985785700ac35c09a",
-            "sha1": "e797695008e816b0942346cd943506f0a94b9962",
-            "sha256": "f5ba60a0933dd2513c1c86e0b1151dd15bc303e2771555fb0007be6a3d1a8719",
-            "sha512": "61827a1d3f1d584d25530fa696f8e0aaa40a1cee8555cd3d9006c31b4cbac240474b6296c083264414bf491e53c76e0babe386c59aa1d56d91ae200bf5c335d3",
-            "size": 104817688,
-            "upstream_version": "v2.25.0",
-            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.25.0/teams-for-linux_2.25.0_amd64.deb"
+            "filename": "teams-for-linux_2.26.0_amd64.deb",
+            "md5": "bd1c861d8f8d9b162bcba532cd15c78e",
+            "sha1": "a3c4a1e0ea6bd42ea988a10a2c40af18f99f5373",
+            "sha256": "3a6614071b53e98a67b8629fc8dfdb790e7c48930e675fedcb5c1fd1c7da9910",
+            "sha512": "2541247ce23ec0f83e55adaed9ed4ff13d874ad72893e1517d2e40dc81195003d2d1d5d2b87714202c4dbd788b7e4c16e6ef540821b35d85b122d98e0727f292",
+            "size": 104821496,
+            "upstream_version": "v2.26.0",
+            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.26.0/teams-for-linux_2.26.0_amd64.deb"
           },
-          "resolved_at": "2026-10-18T07:15:43+00:00",
+          "resolved_at": "2026-10-20T07:39:13+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "teams-for-linux_2.25.0_arm64.deb",
+            "asset_name": "teams-for-linux_2.26.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, libgbm1, libasound2t64 | libasound2",
               "Description": "Teams for Linux\n  Unofficial Microsoft Teams client for Linux using Electron. It uses the Web App and wraps it as a standalone application using Electron.",
               "Homepage": "https://github.com/IsmaelMartinez/teams-for-linux",
-              "Installed-Size": "346025",
+              "Installed-Size": "346038",
               "License": "GPL-3.0-or-later",
               "Maintainer": "Ismael Martinez <ismaelmartinez@gmail.com>",
               "Package": "teams-for-linux",
@@ -1918,18 +1918,18 @@
               "Recommends": "libappindicator3-1, fido2-tools",
               "Section": "net",
               "Vendor": "Ismael Martinez <ismaelmartinez@gmail.com>",
-              "Version": "2.25.0"
+              "Version": "2.26.0"
             },
-            "filename": "teams-for-linux_2.25.0_arm64.deb",
-            "md5": "85e48e1228fa2026e6ae97006699a172",
-            "sha1": "53c52e05fe0a7fb44e4de72d28aece135af20098",
-            "sha256": "e4b805f2ef9ac084817ff48719d0595710d656c37af90e9f23f97c12ca7ff586",
-            "sha512": "ff19ab94d79f4235455560e6ca69e81f17776e906cc078e155f746c5a5d1860819dd5ee9c3e61e1be330c4d7d6b24b049bd2d2c2dd68a6c70d204ef4ec2a7c3b",
-            "size": 99805988,
-            "upstream_version": "v2.25.0",
-            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.25.0/teams-for-linux_2.25.0_arm64.deb"
+            "filename": "teams-for-linux_2.26.0_arm64.deb",
+            "md5": "61932310fbad49a54858653e3439fbd5",
+            "sha1": "2197084f3bac9b8c1ba4f824c10e346f48df0bb2",
+            "sha256": "120ca7a88e879c2319f419dbb7568c6414eac58bc11550f0b8e03ba44536ddfa",
+            "sha512": "7ea9be0bc646748bc25ca93724fbdc0ba2e1fdab8291353286ae8768b90606d2ed34dd641c4c957526388d40b00221181b4cdca062cf391241a307878e7e57a3",
+            "size": 99807084,
+            "upstream_version": "v2.26.0",
+            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.26.0/teams-for-linux_2.26.0_arm64.deb"
           },
-          "resolved_at": "2026-10-18T07:15:45+00:00",
+          "resolved_at": "2026-10-20T07:39:14+00:00",
           "source": "github",
           "update_policy": "track"
         }
