@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T07:38:58+00:00",
+  "generated_at": "2026-10-23T07:36:26+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -194,13 +194,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "bruno_4.2.1_amd64_linux.deb",
+            "asset_name": "bruno_4.3.0_amd64_linux.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, libasound2",
               "Description": "\n  Opensource API Client for Exploring and Testing APIs",
               "Homepage": "https://www.usebruno.com",
-              "Installed-Size": "539431",
+              "Installed-Size": "540805",
               "License": "unknown",
               "Maintainer": "Anoop M D <anoop.md1421@gmail.com>",
               "Package": "bruno",
@@ -208,30 +208,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Anoop M D <anoop.md1421@gmail.com>",
-              "Version": "4.2.1"
+              "Version": "4.3.0"
             },
-            "filename": "bruno_4.2.1_amd64_linux.deb",
-            "md5": "3a0ca4cc749fedefa3d36a3746fb9aa5",
-            "sha1": "e4da8c1636a45e753ec7537ff14fc0d2a050baea",
-            "sha256": "7c36f0d7f15899bb48ab298d362da2741edc392c702faf13dd96ee12afd47a88",
-            "sha512": "315e190264a6bebabcf827b8b3d759639325a3ff107c94c822ab1e7727a09605b6125e1ccf84a5a5187030559250f51bd7be5df325eba5f18c3f641526768458",
-            "size": 104580672,
-            "upstream_version": "v4.2.1",
-            "url": "https://github.com/usebruno/bruno/releases/download/v4.2.1/bruno_4.2.1_amd64_linux.deb"
+            "filename": "bruno_4.3.0_amd64_linux.deb",
+            "md5": "ed970cd180efd254326c2004f981a704",
+            "sha1": "5814d7a993601c9176141de5d0cffce491f73a97",
+            "sha256": "45117e3cc3c221801d10c8984c8e796f11bdf16d28e3a51b35e976603d3c3a02",
+            "sha512": "4128757d44b54227094357711daf3365433b998e1cc56e6b7432cdb35b283874467d7ee6c7f349c546b46cc840a73611c888ebbd299fa1a02a21969fc2eeb54d",
+            "size": 105317598,
+            "upstream_version": "v4.3.0",
+            "url": "https://github.com/usebruno/bruno/releases/download/v4.3.0/bruno_4.3.0_amd64_linux.deb"
           },
-          "resolved_at": "2026-10-01T09:00:34+00:00",
+          "resolved_at": "2026-10-23T07:35:57+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "bruno_4.2.1_arm64_linux.deb",
+            "asset_name": "bruno_4.3.0_arm64_linux.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, libasound2",
               "Description": "\n  Opensource API Client for Exploring and Testing APIs",
               "Homepage": "https://www.usebruno.com",
-              "Installed-Size": "543640",
+              "Installed-Size": "545015",
               "License": "unknown",
               "Maintainer": "Anoop M D <anoop.md1421@gmail.com>",
               "Package": "bruno",
@@ -239,18 +239,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Anoop M D <anoop.md1421@gmail.com>",
-              "Version": "4.2.1"
+              "Version": "4.3.0"
             },
-            "filename": "bruno_4.2.1_arm64_linux.deb",
-            "md5": "2d628f1bab136659db5302007844f2b3",
-            "sha1": "3e0361750535ca162e88e09c3d6c2b8eaf8e40e8",
-            "sha256": "ea55359c8cd4e48d20cae7c5f01ed3b6e1c6f242d1d8900c8eea2b64510c4893",
-            "sha512": "30d26a553016fe3d6ba1bb8e04cf0e02af2755e514bf210d3003058391e9d903b77e6acd6b9f91b0665dba1a238d4ef937710aa24ca45a67e8c96fd8719af333",
-            "size": 99599756,
-            "upstream_version": "v4.2.1",
-            "url": "https://github.com/usebruno/bruno/releases/download/v4.2.1/bruno_4.2.1_arm64_linux.deb"
+            "filename": "bruno_4.3.0_arm64_linux.deb",
+            "md5": "7664437efb1a3f2b204a85800c356185",
+            "sha1": "9fbc02803dd3f3bfd1b16a5d81f452c396b064c8",
+            "sha256": "c976dd90dc24ff0d7832d25babd5579f48077a665e0047327a6c3d7486ba0cad",
+            "sha512": "09a527825360e1776490c21b504bfe6bf282219721aa3389a16aecb48d9363a680d4c633e8aba57211ad56a8ac4a4e0278444de81601b456a3cdb2c4af047e3a",
+            "size": 100324850,
+            "upstream_version": "v4.3.0",
+            "url": "https://github.com/usebruno/bruno/releases/download/v4.3.0/bruno_4.3.0_arm64_linux.deb"
           },
-          "resolved_at": "2026-10-01T09:00:36+00:00",
+          "resolved_at": "2026-10-23T07:35:59+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.27.6_amd64.deb",
+            "asset_name": "cursor_3.27.12_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0) | libglib2.0-0t64 (>= 2.12.0), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "1050973",
+              "Installed-Size": "1052736",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.27.6-1792578269"
+              "Version": "3.27.12-1792724272"
             },
-            "filename": "cursor_3.27.6_amd64.deb",
-            "md5": "e2d8591fcac8d58d85741b3093fe640d",
-            "sha1": "2c2fab6b9195243a610a40c2c0e9200a323ec00c",
-            "sha256": "cf5f443556a5ac5cbf308eeae8f33e44ea34e5421a6910b1c34f977c2541e67f",
-            "sha512": "31d6fd7184942968f59b6b2d9c5cf55eee8374346498832853eadf644a12fcdff4f69013c59a97982206726e7ea6863b8348c47db740081ae39ed7deb21caff6",
-            "size": 222814068,
-            "upstream_version": "3.27.6",
-            "url": "https://downloads.cursor.com/production/f7119520544accb8dcf6d27119b9f1963d8ee5ae/linux/x64/deb/amd64/deb/cursor_3.27.6_amd64.deb"
+            "filename": "cursor_3.27.12_amd64.deb",
+            "md5": "bd4c34f2e843eedcdc3328e38fe908df",
+            "sha1": "64f7bb0ae41d3dba633a5d10deb62371b5a59b15",
+            "sha256": "d4ef921445ace628a9cb2b41b5d82d734d370a672e2d22ddef728a951655a036",
+            "sha512": "a588283d2ca5c84b9b69013cd14ea5d64eecfccdf3155db3ba7f9c5669571b020bcbd39b1c012e78dd24566f0dea5114c2e81568143a5ac2695e87a593ad5abe",
+            "size": 223585004,
+            "upstream_version": "3.27.12",
+            "url": "https://downloads.cursor.com/production/df132ffba90dfc15a12e6b8f020ba4e5d026c4be/linux/x64/deb/amd64/deb/cursor_3.27.12_amd64.deb"
           },
-          "resolved_at": "2026-10-22T07:38:42+00:00",
+          "resolved_at": "2026-10-23T07:36:03+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -966,57 +966,57 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "fooyin_0.14.0-bookworm_amd64.deb",
+            "asset_name": "fooyin_0.14.1-bookworm_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libc6,\n    libstdc++6,\n    libqt6sql6-sqlite (>= 6.4.0),\n    libqt6svg6 (>= 6.4.0),\n    qt6-image-formats-plugins (>= 6.4.0),\n    qt6-qpa-plugins,\n    zlib1g,\n    libasound2,\n    libjack-jackd2-0,\n    ffmpeg (>= 7:4.4),\n    pipewire,\n    libpulse0,\n    libsdl2-2.0-0,\n    libgme0,\n    libopenmpt0,\n    libarchive13,\n    libsndfile1,\n    libebur128-1,\n    libopusfile0,\n    libvorbisfile3,\n    libsoundtouch1,\n    libsoxr0, libicu72, libtag1v5, libflac12, libmpg123-0, libqt6core6 (>= 6.4.0), libqt6gui6 (>= 6.4.0), libqt6widgets6 (>= 6.4.0), libqt6network6 (>= 6.4.0), libqt6concurrent6 (>= 6.4.0), libqt6sql6 (>= 6.4.0)",
               "Description": "A customisable music player",
               "Homepage": "https://www.fooyin.org",
-              "Installed-Size": "39676",
+              "Installed-Size": "39767",
               "Maintainer": "Luke Taylor <luket@pm.me>",
               "Package": "fooyin",
               "Priority": "optional",
               "Section": "sound",
-              "Version": "0.14.0-1~debian.12~bookworm"
+              "Version": "0.14.1-1~debian.12~bookworm"
             },
-            "filename": "fooyin_0.14.0-bookworm_amd64.deb",
-            "md5": "956da4accd68c91a1819c532b2f89ed4",
-            "sha1": "f74bb52c7fb2d0b1c531632779e0be122c4c7b52",
-            "sha256": "9637e715e2a9c5e36259ed7e587a0419e26bcbacbdf68173b81f4419466ff1d9",
-            "sha512": "8363b0eac60312e97e739e01d02b9b73bd350016100c171f4852c64e358953d72cd096709fbc940c7011600dd52e964183222fd46a998c867389b2725d666c3e",
-            "size": 13392808,
-            "upstream_version": "v0.14.0",
-            "url": "https://github.com/fooyin/fooyin/releases/download/v0.14.0/fooyin_0.14.0-bookworm_amd64.deb"
+            "filename": "fooyin_0.14.1-bookworm_amd64.deb",
+            "md5": "99893c148f9dd0c9ed66b63ba8c79a8c",
+            "sha1": "a447fb75dc9934def3c8817f8e5a3307989a73a3",
+            "sha256": "3b424732a1e1e4082e34a79c81b98e2d201237b822e8322cf718db2cf88e1aba",
+            "sha512": "3242143acad243c8880cd0729bc60ccc9d00c5d2242a01707d0f60d78575c24b0ec0b5c0791bce7d054cb5809a9573f3aeadb47a8af5d0f0861174c3176ed93e",
+            "size": 13427524,
+            "upstream_version": "v0.14.1",
+            "url": "https://github.com/fooyin/fooyin/releases/download/v0.14.1/fooyin_0.14.1-bookworm_amd64.deb"
           },
-          "resolved_at": "2026-10-22T07:38:40+00:00",
+          "resolved_at": "2026-10-23T07:36:02+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "fooyin_0.14.0-bookworm_arm64.deb",
+            "asset_name": "fooyin_0.14.1-bookworm_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libc6,\n    libstdc++6,\n    libqt6sql6-sqlite (>= 6.4.0),\n    libqt6svg6 (>= 6.4.0),\n    qt6-image-formats-plugins (>= 6.4.0),\n    qt6-qpa-plugins,\n    zlib1g,\n    libasound2,\n    libjack-jackd2-0,\n    ffmpeg (>= 7:4.4),\n    pipewire,\n    libpulse0,\n    libsdl2-2.0-0,\n    libgme0,\n    libopenmpt0,\n    libarchive13,\n    libsndfile1,\n    libebur128-1,\n    libopusfile0,\n    libvorbisfile3,\n    libsoundtouch1,\n    libsoxr0, libicu72, libtag1v5, libflac12, libmpg123-0, libqt6core6 (>= 6.4.0), libqt6gui6 (>= 6.4.0), libqt6widgets6 (>= 6.4.0), libqt6network6 (>= 6.4.0), libqt6concurrent6 (>= 6.4.0), libqt6sql6 (>= 6.4.0)",
               "Description": "A customisable music player",
               "Homepage": "https://www.fooyin.org",
-              "Installed-Size": "38501",
+              "Installed-Size": "38578",
               "Maintainer": "Luke Taylor <luket@pm.me>",
               "Package": "fooyin",
               "Priority": "optional",
               "Section": "sound",
-              "Version": "0.14.0-1~debian.12~bookworm"
+              "Version": "0.14.1-1~debian.12~bookworm"
             },
-            "filename": "fooyin_0.14.0-bookworm_arm64.deb",
-            "md5": "f528c4100a364b90e3eb8c88f3c89455",
-            "sha1": "cdbd9ebf955a386ae73e8e87ec7764f73135af6b",
-            "sha256": "9e72d391b1a8ceb59cefeedd3e7e6354b515a86bb36ecd17bdd12e0465a42b0a",
-            "sha512": "366a7cf77aa628802d3aa4c9750cbaf228b778993085407aad54cd2dee15e354db6272b4b91b2eaea937b9aa4466d9f5ff3a7b2cd9f7be8be3b6ceeb7179f528",
-            "size": 12702000,
-            "upstream_version": "v0.14.0",
-            "url": "https://github.com/fooyin/fooyin/releases/download/v0.14.0/fooyin_0.14.0-bookworm_arm64.deb"
+            "filename": "fooyin_0.14.1-bookworm_arm64.deb",
+            "md5": "c047efc4986c8931557b4cb7d14dda14",
+            "sha1": "93490a633e98cbd9c7316c6ef3568bc787e56b5d",
+            "sha256": "4cb2607fb048ec3d6bb9809c54b817b9a795e23e990b8ed69667456dc7caa81e",
+            "sha512": "605bf69008de97292d64cac2e612deef141ddae2fc1d1c790476d2e8352544f26d68b3efe58aa7cea959abf9ece791b937153a58f6f5d71af8b97509609caa55",
+            "size": 12743462,
+            "upstream_version": "v0.14.1",
+            "url": "https://github.com/fooyin/fooyin/releases/download/v0.14.1/fooyin_0.14.1-bookworm_arm64.deb"
           },
-          "resolved_at": "2026-10-22T07:38:41+00:00",
+          "resolved_at": "2026-10-23T07:36:03+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1534,13 +1534,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "obsidian_1.14.4_amd64.deb",
+            "asset_name": "obsidian_1.14.5_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  Obsidian",
               "Homepage": "https://obsidian.md",
-              "Installed-Size": "350310",
+              "Installed-Size": "351451",
               "License": "UNLICENSED",
               "Maintainer": "Dynalist Inc.",
               "Package": "obsidian",
@@ -1548,18 +1548,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Dynalist Inc.",
-              "Version": "1.14.4"
+              "Version": "1.14.5"
             },
-            "filename": "obsidian_1.14.4_amd64.deb",
-            "md5": "782aae9b4d3ca3ae8d0ef1d41e7dd756",
-            "sha1": "6c0419d7a87090d7713a85940238a208c4d3d2c7",
-            "sha256": "85b10dcba6edfc1c0460a6d18260cf31c30447a444bd858a6440b9c9c8806d25",
-            "sha512": "56e7fa4e200075dbbc313a13fa49acb6d3c23bf20903f4fe5e8f23490f59507ec865c13c3349363e6ab9266769d4cf6574b4a2a5f48c6724ce6203f5f81e5c66",
-            "size": 108364996,
-            "upstream_version": "v1.14.4",
-            "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.14.4/obsidian_1.14.4_amd64.deb"
+            "filename": "obsidian_1.14.5_amd64.deb",
+            "md5": "21972b8b0578b46dd7e62374caf3c3a3",
+            "sha1": "919f433c87441678dcbb53cac7f7bba405b267ff",
+            "sha256": "c37fb46a966f604823337fb36ab23bd1baf8ce912ec35af59d62358a93357bee",
+            "sha512": "0404210eca2c5237ff73f1459ff78211aec2445bfc972d584b7250678b851414f3e14b1d9d5988723752847a93cd8a8608e498c4d4ccc1fbcbf411e2a74af2ae",
+            "size": 108711244,
+            "upstream_version": "v1.14.5",
+            "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.14.5/obsidian_1.14.5_amd64.deb"
           },
-          "resolved_at": "2026-10-06T09:02:55+00:00",
+          "resolved_at": "2026-10-23T07:36:06+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -2003,7 +2003,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "code_1.143.0_amd64.deb",
+            "asset_name": "code_1.143.1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "visual-studio-code",
@@ -2018,24 +2018,24 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.143.0-1792533444"
+              "Version": "1.143.1-1792691907"
             },
-            "filename": "code_1.143.0_amd64.deb",
-            "md5": "e3dffc7e6615b50c2d5299d5d57c342c",
-            "sha1": "1a2ebbf06c2abac83ba056ab5a23ffe6f06f0575",
-            "sha256": "f045a886dbfd1aa47ec49dd6880d79a95570c9afde627510897b5cf692db5f2a",
-            "sha512": "121427edc0e8be3bb8b1b4e26ca54c358f1ae35fac994b20e2b947482e3d8c4cc9f26c1ff9805802110054d6bf478e7b919a737d35ceb8c82a6b4d52c2266018",
-            "size": 243195326,
-            "upstream_version": "1.143.0",
-            "url": "https://update.code.visualstudio.com/1.143.0/linux-deb-x64/stable"
+            "filename": "code_1.143.1_amd64.deb",
+            "md5": "ffa356b4d12e8c58c895ffe4c343d33b",
+            "sha1": "f094f48d5407ed3b438a06ba9e56e78e9ee463af",
+            "sha256": "e459729dee13758960924be07157da44f0ba69503ab5edf4586fcde936bac9b9",
+            "sha512": "fce0da1d20baf73e2c33232234fe1432021ce83a5beec3f39ad8cadf338a3993d7edac5457a83c5f0cc833690b81e341833d29fdb73b0bc26ee46f595273088d",
+            "size": 243172986,
+            "upstream_version": "1.143.1",
+            "url": "https://update.code.visualstudio.com/1.143.1/linux-deb-x64/stable"
           },
-          "resolved_at": "2026-10-22T07:38:52+00:00",
+          "resolved_at": "2026-10-23T07:36:13+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "code_1.143.0_arm64.deb",
+            "asset_name": "code_1.143.1_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "visual-studio-code",
@@ -2050,18 +2050,18 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.143.0-1792533331"
+              "Version": "1.143.1-1792691836"
             },
-            "filename": "code_1.143.0_arm64.deb",
-            "md5": "2326e630a14cfc35d8b0e7c11476dcad",
-            "sha1": "ff75b86ada31a0245c92dd43bacdabc376d1fd5e",
-            "sha256": "f2e0ffb9f370b46b8ddbe49fa099f436e9f6344579ddd15a534bc7825ab4ed98",
-            "sha512": "6194c4c13cc851c3beb188f017d717bcb24085c6ec0156856c07b989a346d2447ccea6d431287f5786417e711aacb9dfa76282d5b37b55b01baca1e202998070",
-            "size": 227683418,
-            "upstream_version": "1.143.0",
-            "url": "https://update.code.visualstudio.com/1.143.0/linux-deb-arm64/stable"
+            "filename": "code_1.143.1_arm64.deb",
+            "md5": "5c1f383e095d4981fea2f7791c3d53cc",
+            "sha1": "efcb8db84315818fa8f376fdd04424e1cff59b85",
+            "sha256": "b5163fe68935a3d11c954de08c2ca953532f1ba70204df1bc95e736c1eea31ff",
+            "sha512": "0b080c8a2b4c2c35e363f27466de52289a4ebf1fbdf3ef4b5139fcb2dfd560813dbe90463b1c7606029b63158a604d8f1630770a4205cb26d94b07768e4fece3",
+            "size": 227660978,
+            "upstream_version": "1.143.1",
+            "url": "https://update.code.visualstudio.com/1.143.1/linux-deb-arm64/stable"
           },
-          "resolved_at": "2026-10-22T07:38:58+00:00",
+          "resolved_at": "2026-10-23T07:36:26+00:00",
           "source": "aur",
           "update_policy": "track"
         }
