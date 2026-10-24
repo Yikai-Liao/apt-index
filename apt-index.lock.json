@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T07:36:26+00:00",
+  "generated_at": "2026-10-24T07:21:37+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -459,13 +459,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "drawio-amd64-32.5.5.deb",
+            "asset_name": "drawio-amd64-32.6.1.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  draw.io desktop",
               "Homepage": "https://github.com/jgraph/drawio",
-              "Installed-Size": "351897",
+              "Installed-Size": "351834",
               "License": "GPL-3.0-only",
               "Maintainer": "draw.io <desktop@draw.io>",
               "Package": "draw.io",
@@ -473,30 +473,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "draw.io <desktop@draw.io>",
-              "Version": "32.5.5"
+              "Version": "32.6.1"
             },
-            "filename": "draw.io_32.5.5_amd64.deb",
-            "md5": "7a68a179173d5da012e631d7cecd8577",
-            "sha1": "57aa7025f1a908330a2fba0c74eb09f2d3ed8644",
-            "sha256": "0ca81780c79d3e5b9f459390173823697f80048d0f7f1e26c3be5077f5c3f611",
-            "sha512": "b3d8ff205a92b8ced83b9a660b37c64c1e853d394664ff26718bff579f024468a19d48965be0df62689dbd5c2dd9215f58c6a7ba42f7d4c1e3c50f6be5526250",
-            "size": 122289636,
-            "upstream_version": "v32.5.5",
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v32.5.5/drawio-amd64-32.5.5.deb"
+            "filename": "draw.io_32.6.1_amd64.deb",
+            "md5": "0bd8fe80a9d573d9f64c5f32d94f1a62",
+            "sha1": "b83488663ad50bbc6702d7706ed059f3c814329b",
+            "sha256": "515a975fbdb982e0d736b6f99248dbbb856a8b07bb72d6d3648a54b850fa33db",
+            "sha512": "9d0dacacb026f71cae91d38b40ec0e734f1757999ec9578fc0b9546a552638683c8158160b6ef81fb3b1368195271bbe09e52a4b9eb86fdd025fd85603ea9ceb",
+            "size": 122314596,
+            "upstream_version": "v32.6.1",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v32.6.1/drawio-amd64-32.6.1.deb"
           },
-          "resolved_at": "2026-10-19T07:51:30+00:00",
+          "resolved_at": "2026-10-24T07:21:20+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "drawio-arm64-32.5.5.deb",
+            "asset_name": "drawio-arm64-32.6.1.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  draw.io desktop",
               "Homepage": "https://github.com/jgraph/drawio",
-              "Installed-Size": "356578",
+              "Installed-Size": "356497",
               "License": "GPL-3.0-only",
               "Maintainer": "draw.io <desktop@draw.io>",
               "Package": "draw.io",
@@ -504,18 +504,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "draw.io <desktop@draw.io>",
-              "Version": "32.5.5"
+              "Version": "32.6.1"
             },
-            "filename": "draw.io_32.5.5_arm64.deb",
-            "md5": "1484b61d1946763a01292796c5234f9e",
-            "sha1": "80d9c3f7db4f95f1016b3f194f9f5266218bc056",
-            "sha256": "ae7a98babc63156a5adfa3e00dbb5b818160ff71bdff49bdc8476fa82e751d2a",
-            "sha512": "a119b5510e87c7e2ff56c1ad9bb7dd83d7b2a168807ee7662cb0676ee67b3fdeeb0734a0d335a381187afb4838bfd69bfcf5699b2f3de9106acc77736a515b73",
-            "size": 117397592,
-            "upstream_version": "v32.5.5",
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v32.5.5/drawio-arm64-32.5.5.deb"
+            "filename": "draw.io_32.6.1_arm64.deb",
+            "md5": "bae34f9a490d6a7de6151124dcf98009",
+            "sha1": "2b264289029b19d32da2f3f923218568f2f284a3",
+            "sha256": "eb3354233d55e27624c2e8361680572fdb9528cfc5728d1d44bb7764306b4f61",
+            "sha512": "cd86ec4c00f102ef403bdedc6fd15875ff81011264b9f581b15bde975129fa09a8ea11644aebaf098595f25a223a0225dcd557b6981315af3f192c5952ae6852",
+            "size": 117389248,
+            "upstream_version": "v32.6.1",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v32.6.1/drawio-arm64-32.6.1.deb"
           },
-          "resolved_at": "2026-10-19T07:51:31+00:00",
+          "resolved_at": "2026-10-24T07:21:22+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -846,7 +846,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "FlClash-0.9.1-linux-amd64.deb",
+            "asset_name": "FlClash-0.9.2-linux-amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libayatana-appindicator3-1, libsecret-1-0",
@@ -857,24 +857,24 @@
               "Package": "FlClash",
               "Priority": "optional",
               "Section": "x11",
-              "Version": "0.9.1+2026101702"
+              "Version": "0.9.2+2026102401"
             },
-            "filename": "FlClash-0.9.1-linux-amd64.deb",
-            "md5": "cf7a23c1b4f08a5f2a87e201d71bd704",
-            "sha1": "11db900116e1599c97eabf9159f55b0be814eda1",
-            "sha256": "33efbb0ccf747d14294291ae1f0db950dae34f453cb51d4374e6cb6a17e22917",
-            "sha512": "f52a912bf263e5d50dad316e2737d43a7c5be075e87beabbe398c6eb2273ca89f3b27c1bbfaee9103303da50ce2c1f9f0151ae9f30861fa6677be9aa7f4c4751",
-            "size": 48045408,
-            "upstream_version": "v0.9.1",
-            "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.1/FlClash-0.9.1-linux-amd64.deb"
+            "filename": "FlClash-0.9.2-linux-amd64.deb",
+            "md5": "4c3dc9b362444de0d0370db2fbdc8e7e",
+            "sha1": "d84b8bc544634374458a43ed4b78a02eaded173f",
+            "sha256": "c6ca37446db92b57309d1c709fba6209f2c679b6d33cfc748f73b8eb1a59a6e8",
+            "sha512": "4696f5e24cda820dec4304a485ac848a34e18bd6c82b1e9e3e78657ff0760693b894421c88f02c594a02a0e854bd24ad4250e7dbc2f0392896bef94d668aa98d",
+            "size": 40536736,
+            "upstream_version": "v0.9.2",
+            "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.2/FlClash-0.9.2-linux-amd64.deb"
           },
-          "resolved_at": "2026-10-18T07:15:35+00:00",
+          "resolved_at": "2026-10-24T07:21:23+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "FlClash-0.9.1-linux-arm64.deb",
+            "asset_name": "FlClash-0.9.2-linux-arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libayatana-appindicator3-1, libsecret-1-0",
@@ -885,18 +885,18 @@
               "Package": "FlClash",
               "Priority": "optional",
               "Section": "x11",
-              "Version": "0.9.1+2026101702"
+              "Version": "0.9.2+2026102401"
             },
-            "filename": "FlClash-0.9.1-linux-arm64.deb",
-            "md5": "4da1a4d6f10677afe52a13b84e18505d",
-            "sha1": "4276fd5f036025e0625b53a60aa2b862da99f863",
-            "sha256": "a778cdb681f9b60a871165249525785c55dcb1876c4c14fbb9f2c39a7ec4e371",
-            "sha512": "21a3365228bf3f7b1757a51da10d6df04b226cf42920a1695289ff6129d711916d24136fd78eb163efbf3f23038c2cf15f2330a9a4f0202b582c78a128348344",
-            "size": 45108228,
-            "upstream_version": "v0.9.1",
-            "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.1/FlClash-0.9.1-linux-arm64.deb"
+            "filename": "FlClash-0.9.2-linux-arm64.deb",
+            "md5": "be744bf2ba5d23a0581a8db194770889",
+            "sha1": "fcbd861f1688bbf721a64e32eb2eef9f92a92c89",
+            "sha256": "15702119218d288943978611db674eeb7495911d07ba5e1444744361353df3e6",
+            "sha512": "b9004ee2a6901e4dcc5b2848d6e790a4eba303d979884ea0d9072074c97ffe103daa1bb88465a628d3fed9d7d254f313fd19740d4e34306c61024f7223ef27cf",
+            "size": 36902216,
+            "upstream_version": "v0.9.2",
+            "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.2/FlClash-0.9.2-linux-arm64.deb"
           },
-          "resolved_at": "2026-10-18T07:15:36+00:00",
+          "resolved_at": "2026-10-24T07:21:24+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1027,7 +1027,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "gh_2.103.0_linux_amd64.deb",
+            "asset_name": "gh_2.103.2_linux_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "git",
@@ -1039,24 +1039,24 @@
               "Package": "gh",
               "Priority": "optional",
               "Section": "",
-              "Version": "2.103.0"
+              "Version": "2.103.2"
             },
-            "filename": "gh_2.103.0_linux_amd64.deb",
-            "md5": "719c076d28218129e450fe792312a075",
-            "sha1": "e768423df6e2d42a2ead6ca78959bc5b4d221b26",
-            "sha256": "4a48fa23b9ce9581f3304b822f3e014812f26519b134f89b37db8bc7d74746e1",
-            "sha512": "b270034d1975d22533e7c739bea460520ecb9227c24448bd6965cc148a28f82946ee5d9ac9c5cb815d0275bd92710a263497389997036f8b528130d33e18ae0f",
-            "size": 15103762,
-            "upstream_version": "v2.103.0",
-            "url": "https://github.com/cli/cli/releases/download/v2.103.0/gh_2.103.0_linux_amd64.deb"
+            "filename": "gh_2.103.2_linux_amd64.deb",
+            "md5": "92d7b75145741c0c229e06b28d1e3aa6",
+            "sha1": "b664a3b13b31141ae7ebee7b8e6ac95f7ef8a5ad",
+            "sha256": "30463d8e1fdce73f178f76b0082b7ab0657b0740b87274890e831def647ca979",
+            "sha512": "c28268194b417b15daf55655e8816aba28a0f39173dda13c49da6dde4520ee316412504837e6e3c71d832ef851be0ae524c9754b4f9d434d4eea09be6886494d",
+            "size": 15104240,
+            "upstream_version": "v2.103.2",
+            "url": "https://github.com/cli/cli/releases/download/v2.103.2/gh_2.103.2_linux_amd64.deb"
           },
-          "resolved_at": "2026-10-22T07:38:41+00:00",
+          "resolved_at": "2026-10-24T07:21:23+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "gh_2.103.0_linux_arm64.deb",
+            "asset_name": "gh_2.103.2_linux_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "git",
@@ -1068,18 +1068,18 @@
               "Package": "gh",
               "Priority": "optional",
               "Section": "",
-              "Version": "2.103.0"
+              "Version": "2.103.2"
             },
-            "filename": "gh_2.103.0_linux_arm64.deb",
-            "md5": "7c5665d453c8ccfa1f757cc91d555ee7",
-            "sha1": "2b155f724b49445357c03bc48ac0525ea5dae6a7",
-            "sha256": "5e218097cf3e02c4855a07fd4f5719b1523fa799f24eeb70d6b795a9a74fffe2",
-            "sha512": "cc3c597cedbb4300db0a2152a6efc2d015c1729934f22d7a780980aebf890c8638567beeb5e382760075f0764e15139010aa7ad4fc3ba98417373d09e60217dc",
-            "size": 13721044,
-            "upstream_version": "v2.103.0",
-            "url": "https://github.com/cli/cli/releases/download/v2.103.0/gh_2.103.0_linux_arm64.deb"
+            "filename": "gh_2.103.2_linux_arm64.deb",
+            "md5": "2aa974757867f3c6c04a74e859a4530a",
+            "sha1": "e102050bfa7fc4ca72d69ec8fd34d891d9b819a2",
+            "sha256": "41290f26363155b0bef44a751d011994771f537e1f8c4253d1f53b5cf3b8641e",
+            "sha512": "e1cbb45a75c1dbf85f8b99887a19b2deb2aa1db5fe88c8360dcd91617a799faccc6a7c476b890be664a6b331beba47361e59ab93df0bd7a7e2eded7b411ceaca",
+            "size": 13723352,
+            "upstream_version": "v2.103.2",
+            "url": "https://github.com/cli/cli/releases/download/v2.103.2/gh_2.103.2_linux_arm64.deb"
           },
-          "resolved_at": "2026-10-22T07:38:41+00:00",
+          "resolved_at": "2026-10-24T07:21:23+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1410,63 +1410,63 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "Motrix_1.8.19_amd64.deb",
+            "asset_name": "Motrix_2.0.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
-              "Description": "\n  A full-featured download manager",
+              "Description": "Full-featured download manager\n  Motrix is a full-featured download manager that supports HTTP, FTP, BitTorrent and Magnet downloads.",
               "Homepage": "https://motrix.app",
-              "Installed-Size": "245431",
+              "Installed-Size": "327084",
               "License": "MIT",
               "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
-              "Package": "motrix",
+              "Package": "motrix-turbo",
               "Priority": "optional",
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
-              "Version": "1.8.19"
+              "Version": "2.0.0"
             },
-            "filename": "motrix_1.8.19_amd64.deb",
-            "md5": "0b878031c5eeb536e09dbc17b5fc0b54",
-            "sha1": "58394832c7c4d306e227c366d82fc822f6e1b9bb",
-            "sha256": "a21d1fcc0988325073b3778de875660c9d544834f3f92b2396a0a124a14fed11",
-            "sha512": "8a3dab9c731268c2291f286d8efa7815046bbe00046deb938db061863d3ad3e14ddcb50ba4a7e44ada2c11d196d660bb6a762af4e6e589ddb38692266010e61a",
-            "size": 71298984,
-            "upstream_version": "v1.8.19",
-            "url": "https://github.com/agalwood/Motrix/releases/download/v1.8.19/Motrix_1.8.19_amd64.deb"
+            "filename": "motrix-turbo_2.0.0_amd64.deb",
+            "md5": "be659d6964f08e7388370e7a37fe19fb",
+            "sha1": "845dcddb9614eb9c5adfc53602fbfbbf63fc919a",
+            "sha256": "6a2eeff4e330646c2a29587aedeb226d2f3d9c93e9197448069ef1d4d3df42a2",
+            "sha512": "3d1122906cb1d964c706e6b8b4566f81cfcc9e9ac8ee9060cd7a319a326c40a0f13ba934e004c6425c483f45493aa8476ebec5b8327915e1f711002ccd4a6e62",
+            "size": 112239992,
+            "upstream_version": "v2.0.0",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v2.0.0/Motrix_2.0.0_amd64.deb"
           },
-          "resolved_at": "2026-06-15T13:20:34+00:00",
+          "resolved_at": "2026-10-24T07:21:26+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "Motrix_1.8.19_arm64.deb",
+            "asset_name": "Motrix_2.0.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
-              "Description": "\n  A full-featured download manager",
+              "Description": "Full-featured download manager\n  Motrix is a full-featured download manager that supports HTTP, FTP, BitTorrent and Magnet downloads.",
               "Homepage": "https://motrix.app",
-              "Installed-Size": "249147",
+              "Installed-Size": "331236",
               "License": "MIT",
               "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
-              "Package": "motrix",
+              "Package": "motrix-turbo",
               "Priority": "optional",
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
-              "Version": "1.8.19"
+              "Version": "2.0.0"
             },
-            "filename": "motrix_1.8.19_arm64.deb",
-            "md5": "f55e76696960c4b0c56f39f85e81c72c",
-            "sha1": "e7953a8dd3f1758729d7699158b36f4c8437ecf7",
-            "sha256": "d191a0338bb4ae46e475f976bf926f3b61e8e5c96e9ac266242e883baaafd48a",
-            "sha512": "3ea865afc8d3c214a87e381f44249789330064cd44e8313b377d188fe983a1fd8cb3ccab879d6b26f3fdbf00f5971054f5529aa1dcb05017a184b8c8ed0993c7",
-            "size": 66839298,
-            "upstream_version": "v1.8.19",
-            "url": "https://github.com/agalwood/Motrix/releases/download/v1.8.19/Motrix_1.8.19_arm64.deb"
+            "filename": "motrix-turbo_2.0.0_arm64.deb",
+            "md5": "90a1dbdc55d9bf16d318dcd6b712d96c",
+            "sha1": "c5eba2ea9e93d6c1eeb1eed08c070bfec64c94b8",
+            "sha256": "f57a92a359aefd5be74fa3928eee4df6dfb0094d852e6e27b26dfd8011eee941",
+            "sha512": "142055026aed7ab44b181595cd9d74e021e0992c76daf3787452a09068e35c3d7fbf5a14069e0e542f10573a387ed7181aa9ced58565eb47722cb6b874926be4",
+            "size": 107130816,
+            "upstream_version": "v2.0.0",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v2.0.0/Motrix_2.0.0_arm64.deb"
           },
-          "resolved_at": "2026-06-15T13:20:35+00:00",
+          "resolved_at": "2026-10-24T07:21:29+00:00",
           "source": "github",
           "update_policy": "track"
         }
