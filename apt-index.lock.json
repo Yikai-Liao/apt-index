@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T07:21:37+00:00",
+  "generated_at": "2026-10-25T07:38:02+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -1410,63 +1410,69 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "Motrix_2.0.0_amd64.deb",
+            "asset_name": "Motrix_2.0.1_amd64.deb",
             "control": {
               "Architecture": "amd64",
+              "Conflicts": "motrix-turbo",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Full-featured download manager\n  Motrix is a full-featured download manager that supports HTTP, FTP, BitTorrent and Magnet downloads.",
               "Homepage": "https://motrix.app",
-              "Installed-Size": "327084",
+              "Installed-Size": "327202",
               "License": "MIT",
               "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
-              "Package": "motrix-turbo",
+              "Package": "motrix",
               "Priority": "optional",
+              "Provides": "motrix-turbo",
               "Recommends": "libappindicator3-1",
+              "Replaces": "motrix-turbo",
               "Section": "default",
               "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
-              "Version": "2.0.0"
+              "Version": "2.0.1"
             },
-            "filename": "motrix-turbo_2.0.0_amd64.deb",
-            "md5": "be659d6964f08e7388370e7a37fe19fb",
-            "sha1": "845dcddb9614eb9c5adfc53602fbfbbf63fc919a",
-            "sha256": "6a2eeff4e330646c2a29587aedeb226d2f3d9c93e9197448069ef1d4d3df42a2",
-            "sha512": "3d1122906cb1d964c706e6b8b4566f81cfcc9e9ac8ee9060cd7a319a326c40a0f13ba934e004c6425c483f45493aa8476ebec5b8327915e1f711002ccd4a6e62",
-            "size": 112239992,
-            "upstream_version": "v2.0.0",
-            "url": "https://github.com/agalwood/Motrix/releases/download/v2.0.0/Motrix_2.0.0_amd64.deb"
+            "filename": "motrix_2.0.1_amd64.deb",
+            "md5": "27f4a2242aeaa96b9033f73ded42392e",
+            "sha1": "347111c8612d6616457d47d4896d4c4070bffa6d",
+            "sha256": "e7beab6230b54908acaad0ebbc79e2eb2998867a96ff5022b6326dc87e6dba4a",
+            "sha512": "7bdd6c8fd04fcc3fbf95928e196a6885d97bfaa9bcc135e7216347292465170b16acf4d268eed455d1aa4298fedb3cf0d091f59a5f173ab8061b5b75234f4401",
+            "size": 112259440,
+            "upstream_version": "v2.0.1",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v2.0.1/Motrix_2.0.1_amd64.deb"
           },
-          "resolved_at": "2026-10-24T07:21:26+00:00",
+          "resolved_at": "2026-10-25T07:37:50+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "Motrix_2.0.0_arm64.deb",
+            "asset_name": "Motrix_2.0.1_arm64.deb",
             "control": {
               "Architecture": "arm64",
+              "Conflicts": "motrix-turbo",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Full-featured download manager\n  Motrix is a full-featured download manager that supports HTTP, FTP, BitTorrent and Magnet downloads.",
               "Homepage": "https://motrix.app",
-              "Installed-Size": "331236",
+              "Installed-Size": "331350",
               "License": "MIT",
               "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
-              "Package": "motrix-turbo",
+              "Package": "motrix",
               "Priority": "optional",
+              "Provides": "motrix-turbo",
               "Recommends": "libappindicator3-1",
+              "Replaces": "motrix-turbo",
               "Section": "default",
               "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
-              "Version": "2.0.0"
+              "Version": "2.0.1"
             },
-            "filename": "motrix-turbo_2.0.0_arm64.deb",
-            "md5": "90a1dbdc55d9bf16d318dcd6b712d96c",
-            "sha1": "c5eba2ea9e93d6c1eeb1eed08c070bfec64c94b8",
-            "sha256": "f57a92a359aefd5be74fa3928eee4df6dfb0094d852e6e27b26dfd8011eee941",
-            "sha512": "142055026aed7ab44b181595cd9d74e021e0992c76daf3787452a09068e35c3d7fbf5a14069e0e542f10573a387ed7181aa9ced58565eb47722cb6b874926be4",
-            "size": 107130816,
-            "upstream_version": "v2.0.0",
-            "url": "https://github.com/agalwood/Motrix/releases/download/v2.0.0/Motrix_2.0.0_arm64.deb"
+            "filename": "motrix_2.0.1_arm64.deb",
+            "md5": "1c329c7f94084e8e5b65acd7ec868774",
+            "sha1": "fc3d98f6e2a059d48406dfcd520a3c217056f70d",
+            "sha256": "3810be835a1e13e886efe52253c5b8a478e9b446da0309c98769be9ebaa51ffc",
+            "sha512": "a058036858f62eee3df565f2dea1d895f9964f7ac5dd0231a381fb80ad5a64285b939b9107e2712f525c092aea71def0f89cbe21de2b1581b85f1a38016fdf10",
+            "size": 107168416,
+            "upstream_version": "v2.0.1",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v2.0.1/Motrix_2.0.1_arm64.deb"
           },
-          "resolved_at": "2026-10-24T07:21:29+00:00",
+          "resolved_at": "2026-10-25T07:37:52+00:00",
           "source": "github",
           "update_policy": "track"
         }
