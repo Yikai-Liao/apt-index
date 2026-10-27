@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T07:51:18+00:00",
+  "generated_at": "2026-10-27T07:56:55+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -261,31 +261,31 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cloudflare-warp-bin-2026.8.2110.0.deb",
+            "asset_name": "cloudflare-warp-bin-2026.8.2115.0.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libdbus-1-3, libc6, iproute2, nftables, gnupg2, libcap2-bin, libnss3-tools, ca-certificates, libpcap0.8, libtss2-esys-3.0.2-0t64, libtss2-tctildr0t64, desktop-file-utils, libayatana-appindicator3-1, libwebkit2gtk-4.1-0",
               "Description": "Cloudflare WARP Client",
               "Homepage": "https://1.1.1.1",
-              "Installed-Size": "220876",
+              "Installed-Size": "220811",
               "License": "unknown",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflare-warp",
               "Priority": "optional",
               "Section": "net",
               "Suggests": "traceroute",
-              "Version": "2026.8.2110.0"
+              "Version": "2026.8.2115.0"
             },
-            "filename": "cloudflare-warp_2026.8.2110.0_amd64.deb",
-            "md5": "cbd81592da345a3799c34114750dfff9",
-            "sha1": "79ff113be8494001be30ff5e7e75e908ef0057d2",
-            "sha256": "10f006447bf7443262a91687ea35237b39c8e23fc7bc5691f3d686d152df221a",
-            "sha512": "0ed212571da793d32ce608f74d860aaec9e143566815fb3f529ce5d3a7baf39592e89333fe1328a1fe9e3cb20df2b8dfc2d7a180712114cdfa3509a336d28990",
-            "size": 74690010,
-            "upstream_version": "2026.8.2110.0",
-            "url": "https://pkg.cloudflareclient.com/pool/resolute/main/c/cloudflare-warp/cloudflare-warp_2026.8.2110.0_amd64.deb"
+            "filename": "cloudflare-warp_2026.8.2115.0_amd64.deb",
+            "md5": "6e2eaf6df1f34cd4a1e82b558702d9ee",
+            "sha1": "a3062749ccdda26bbc4f46047d14779550887ead",
+            "sha256": "021bfd4741366ee8cb24b71609bbfdf2df4182c7b72fd63fd1520f43092f5747",
+            "sha512": "503ce026bfa0c22abb610823567c2b0d6f56ad41c9ed45c92eabff6872ebef4ca39d5f10a7517ecc61fe24d1d46cbe4394981abc40bd117dbbd2355cd096ef96",
+            "size": 74679294,
+            "upstream_version": "2026.8.2115.0",
+            "url": "https://pkg.cloudflareclient.com/pool/resolute/main/c/cloudflare-warp/cloudflare-warp_2026.8.2115.0_amd64.deb"
           },
-          "resolved_at": "2026-10-16T07:14:56+00:00",
+          "resolved_at": "2026-10-27T07:56:08+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -301,25 +301,25 @@
               "Architecture": "amd64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "39285",
+              "Installed-Size": "39304",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.10.3"
+              "Version": "2026.10.4"
             },
             "filename": "cloudflared-linux-amd64.deb",
-            "md5": "ec7f4f1f4695ec1a2dcde2f9a2af844b",
-            "sha1": "c5b5e5313efd565ed9a3a2fbeca8270955169b75",
-            "sha256": "297d906a8fef396ec888b51571e783d594bde280f3b44d63e8fa343ef2c4cc4e",
-            "sha512": "cd01fd2e5d8c53e8fc25bdce18da9a1b4d86fee7f83592c01442b826104977bdeb18fa55aa4f2b07436ae6ef6b79182d9778c362f81b11d59fc13d20cb53cd52",
-            "size": 19899586,
-            "upstream_version": "2026.10.3",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.3/cloudflared-linux-amd64.deb"
+            "md5": "091915ffd9fe98b964e1aa6e7820531c",
+            "sha1": "8b692695e116cc02e1b866cee28146880390f1eb",
+            "sha256": "3d73cd9f085de5a947fce8a72d0acc34a6a18cb23f369549b1cd0efc51121e98",
+            "sha512": "65dd69b9feb2fbf782abc8741b31f146e9e5aad7582f279620bc4956e8e7cd4ca18d80c14c13b9a157153395cc6a5ebf29fa960112e582a9c0076fec5c9ed50d",
+            "size": 19909004,
+            "upstream_version": "2026.10.4",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.4/cloudflared-linux-amd64.deb"
           },
-          "resolved_at": "2026-10-22T07:38:37+00:00",
+          "resolved_at": "2026-10-27T07:56:05+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -330,25 +330,25 @@
               "Architecture": "arm64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "36770",
+              "Installed-Size": "36778",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.10.3"
+              "Version": "2026.10.4"
             },
             "filename": "cloudflared-linux-arm64.deb",
-            "md5": "5ca4c896946b0b3aaa0233d86d6fc564",
-            "sha1": "aaa2a80228428bf1554b4971c7897a0559ac4ead",
-            "sha256": "9382c5406c5cb64821114360550b8903c600b20052e9e82359acf343834be2b7",
-            "sha512": "cf529e6d2c0d598f9432ba2bf175ecb55a98d037109828d5d9f25d0e5e85b9c99b949db421e2e77d2103c82f20aeb73df0730db958c6ed33b16f746be06353be",
-            "size": 18268018,
-            "upstream_version": "2026.10.3",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.3/cloudflared-linux-arm64.deb"
+            "md5": "843b2b30c219203e418bfb8027d76b26",
+            "sha1": "3494b7b02707c29e4fe50ec8a809b07cc14c3a49",
+            "sha256": "d0d08a43521e52ba0707900ebe67314e7ca6f610b88024fe6562a408ab6a0f4d",
+            "sha512": "730bcc7fccd5301f73bb0942007b82629a494e379736cd2386f0d4dd11c39d7689dfec40da8551a11f094c123eb4e2e75bb0b9df344b17e338aa5f1b7b1ef366",
+            "size": 18281760,
+            "upstream_version": "2026.10.4",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.4/cloudflared-linux-arm64.deb"
           },
-          "resolved_at": "2026-10-22T07:38:37+00:00",
+          "resolved_at": "2026-10-27T07:56:06+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.27.14_amd64.deb",
+            "asset_name": "cursor_3.27.22_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0) | libglib2.0-0t64 (>= 2.12.0), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "1052758",
+              "Installed-Size": "1053014",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.27.14-1792793819"
+              "Version": "3.27.22-1793067078"
             },
-            "filename": "cursor_3.27.14_amd64.deb",
-            "md5": "b69bca1ed5218c7716067f1598bfedeb",
-            "sha1": "abf04fa4da73128afb4bb34ab46d3bcaf400b92e",
-            "sha256": "568d29638285343b172475e92151d85d03435cd40e64aa8e58ab4e91b0ddaf37",
-            "sha512": "b8443abaab8176c33995a630ad2046c63f663992b89c244ca11984c00d4a3f897c358541d30fa767e034cec8526ef156e53b215c75a37591594252560402a69b",
-            "size": 223592596,
-            "upstream_version": "3.27.14",
-            "url": "https://downloads.cursor.com/production/69b724ebc67ec522c1b5d287a5025f7a7e81be97/linux/x64/deb/amd64/deb/cursor_3.27.14_amd64.deb"
+            "filename": "cursor_3.27.22_amd64.deb",
+            "md5": "5e7c0f776ccb165509dc1c3ce85b6672",
+            "sha1": "cd17882c1647b598d5e20e4226f35be9c66c966f",
+            "sha256": "863a9dd15ca5fe84dd2f8e74fe2e926e8b438692f202277a89dd0ec3d928bf98",
+            "sha512": "9aeaade82e088b7d02be764c3d82d33043bdbe3b986b064bd41aa2d22155fcee26d292ed64a8b1957e1face1c01817f8d45f0b141b3e014772af62641103ca2c",
+            "size": 223442636,
+            "upstream_version": "3.27.22",
+            "url": "https://downloads.cursor.com/production/b1aa50cb6db84fd3e8c808259cb172ea73425c1f/linux/x64/deb/amd64/deb/cursor_3.27.22_amd64.deb"
           },
-          "resolved_at": "2026-10-26T07:51:05+00:00",
+          "resolved_at": "2026-10-27T07:56:14+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1027,7 +1027,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "gh_2.103.2_linux_amd64.deb",
+            "asset_name": "gh_2.103.3_linux_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "git",
@@ -1039,24 +1039,24 @@
               "Package": "gh",
               "Priority": "optional",
               "Section": "",
-              "Version": "2.103.2"
+              "Version": "2.103.3"
             },
-            "filename": "gh_2.103.2_linux_amd64.deb",
-            "md5": "92d7b75145741c0c229e06b28d1e3aa6",
-            "sha1": "b664a3b13b31141ae7ebee7b8e6ac95f7ef8a5ad",
-            "sha256": "30463d8e1fdce73f178f76b0082b7ab0657b0740b87274890e831def647ca979",
-            "sha512": "c28268194b417b15daf55655e8816aba28a0f39173dda13c49da6dde4520ee316412504837e6e3c71d832ef851be0ae524c9754b4f9d434d4eea09be6886494d",
-            "size": 15104240,
-            "upstream_version": "v2.103.2",
-            "url": "https://github.com/cli/cli/releases/download/v2.103.2/gh_2.103.2_linux_amd64.deb"
+            "filename": "gh_2.103.3_linux_amd64.deb",
+            "md5": "9bf91ade82efb5d87768c7c78b46001f",
+            "sha1": "3e1456b08fdbd4a045b0a7a025422aaf12d85e93",
+            "sha256": "e3bafef96328d1a67de3a968bdfe1cc2ffd58cf6aba8b5e201356897ed06bb3d",
+            "sha512": "416bce1a52e1a116470162ca77f73abaf8eaeac208a50f15920a23872afa4089481442ed1ae8ba10a3550677783ba991dc2d4f486af06108262884418df54b25",
+            "size": 15105286,
+            "upstream_version": "v2.103.3",
+            "url": "https://github.com/cli/cli/releases/download/v2.103.3/gh_2.103.3_linux_amd64.deb"
           },
-          "resolved_at": "2026-10-24T07:21:23+00:00",
+          "resolved_at": "2026-10-27T07:56:11+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "gh_2.103.2_linux_arm64.deb",
+            "asset_name": "gh_2.103.3_linux_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "git",
@@ -1068,18 +1068,18 @@
               "Package": "gh",
               "Priority": "optional",
               "Section": "",
-              "Version": "2.103.2"
+              "Version": "2.103.3"
             },
-            "filename": "gh_2.103.2_linux_arm64.deb",
-            "md5": "2aa974757867f3c6c04a74e859a4530a",
-            "sha1": "e102050bfa7fc4ca72d69ec8fd34d891d9b819a2",
-            "sha256": "41290f26363155b0bef44a751d011994771f537e1f8c4253d1f53b5cf3b8641e",
-            "sha512": "e1cbb45a75c1dbf85f8b99887a19b2deb2aa1db5fe88c8360dcd91617a799faccc6a7c476b890be664a6b331beba47361e59ab93df0bd7a7e2eded7b411ceaca",
-            "size": 13723352,
-            "upstream_version": "v2.103.2",
-            "url": "https://github.com/cli/cli/releases/download/v2.103.2/gh_2.103.2_linux_arm64.deb"
+            "filename": "gh_2.103.3_linux_arm64.deb",
+            "md5": "6b8541c8d57246844e564a7fe128c6cb",
+            "sha1": "aea1843ce04aa0cf9e695dfac876b0a25b956b61",
+            "sha256": "cac3ff84b60b68e64cca69f31f303210c26320361cc3286b773655d4226b7b06",
+            "sha512": "3600448d334da8789833dab38457b25d5ffa499f6189fb7da6bb70f4532cfba85736cea9f5fddd84fb5d5cd4eef5c8a09518333950c3702205a0fcb1ad231d42",
+            "size": 13724980,
+            "upstream_version": "v2.103.3",
+            "url": "https://github.com/cli/cli/releases/download/v2.103.3/gh_2.103.3_linux_arm64.deb"
           },
-          "resolved_at": "2026-10-24T07:21:23+00:00",
+          "resolved_at": "2026-10-27T07:56:12+00:00",
           "source": "github",
           "update_policy": "track"
         }
