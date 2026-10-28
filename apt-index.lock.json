@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27T07:56:55+00:00",
+  "generated_at": "2026-10-28T08:38:15+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -301,25 +301,25 @@
               "Architecture": "amd64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "39304",
+              "Installed-Size": "39320",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.10.4"
+              "Version": "2026.10.5"
             },
             "filename": "cloudflared-linux-amd64.deb",
-            "md5": "091915ffd9fe98b964e1aa6e7820531c",
-            "sha1": "8b692695e116cc02e1b866cee28146880390f1eb",
-            "sha256": "3d73cd9f085de5a947fce8a72d0acc34a6a18cb23f369549b1cd0efc51121e98",
-            "sha512": "65dd69b9feb2fbf782abc8741b31f146e9e5aad7582f279620bc4956e8e7cd4ca18d80c14c13b9a157153395cc6a5ebf29fa960112e582a9c0076fec5c9ed50d",
-            "size": 19909004,
-            "upstream_version": "2026.10.4",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.4/cloudflared-linux-amd64.deb"
+            "md5": "63039a4057223ad295014f314a4010f4",
+            "sha1": "123be210ad3caa379f2f05385968ecb6c5d215b3",
+            "sha256": "149d1ec4ac8e58bdbf08a41cc42347da9184d9fb4ef0df6528d75c90a85ac0ed",
+            "sha512": "d1dccf9f805dd7a8d58c4c4abe3e13f067ef6d5f6a38e20f6b3c174a3cb74c4150b84e3680ea61a03007a64e058bd42ae31ed1a1c918eca49d6a56f0c36630a3",
+            "size": 19919388,
+            "upstream_version": "2026.10.5",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.5/cloudflared-linux-amd64.deb"
           },
-          "resolved_at": "2026-10-27T07:56:05+00:00",
+          "resolved_at": "2026-10-28T08:37:58+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -330,25 +330,25 @@
               "Architecture": "arm64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "36778",
+              "Installed-Size": "36780",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.10.4"
+              "Version": "2026.10.5"
             },
             "filename": "cloudflared-linux-arm64.deb",
-            "md5": "843b2b30c219203e418bfb8027d76b26",
-            "sha1": "3494b7b02707c29e4fe50ec8a809b07cc14c3a49",
-            "sha256": "d0d08a43521e52ba0707900ebe67314e7ca6f610b88024fe6562a408ab6a0f4d",
-            "sha512": "730bcc7fccd5301f73bb0942007b82629a494e379736cd2386f0d4dd11c39d7689dfec40da8551a11f094c123eb4e2e75bb0b9df344b17e338aa5f1b7b1ef366",
-            "size": 18281760,
-            "upstream_version": "2026.10.4",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.4/cloudflared-linux-arm64.deb"
+            "md5": "7092a712545830e66d7df9a9f193d891",
+            "sha1": "47077122a880782b6c62211e85bc4d2a9e3d47f4",
+            "sha256": "361584f9c6a1af6f9c553011291494b72fb6c887841ce6735dc6df8b6e727e72",
+            "sha512": "71753922d85d90a4f11cb682bc35eefa8dd644b81b0ba13ca2f3d9d77e68381c078e5f0e66e03916a519068f0c8f7593fd9f4ad805c74493e2bcc55836199ec4",
+            "size": 18283824,
+            "upstream_version": "2026.10.5",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.5/cloudflared-linux-arm64.deb"
           },
-          "resolved_at": "2026-10-27T07:56:06+00:00",
+          "resolved_at": "2026-10-28T08:37:59+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1090,30 +1090,30 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "google-chrome-stable_156.0.8078.47-1_amd64.deb",
+            "asset_name": "google-chrome-stable_156.0.8078.73-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "ca-certificates, fonts-liberation, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.25), libcairo2 (>= 1.14.0), libcups2 (>= 1.7.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.49.3), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.35), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libvulkan1, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxrandr2, wget, xdg-utils (>= 1.0.2)",
               "Description": "The web browser from Google\n Google Chrome is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier.",
-              "Installed-Size": "455104",
+              "Installed-Size": "456029",
               "Maintainer": "Chrome Linux Team <chromium-dev@chromium.org>",
               "Package": "google-chrome-stable",
               "Pre-Depends": "dpkg (>= 1.14.0)",
               "Priority": "optional",
               "Provides": "www-browser",
               "Section": "web",
-              "Version": "156.0.8078.47-1"
+              "Version": "156.0.8078.73-1"
             },
-            "filename": "google-chrome-stable_156.0.8078.47-1_amd64.deb",
-            "md5": "c41cda457a11b99ae2398e1ea568f580",
-            "sha1": "c085a467378aa181ef100d48ad17d361b20f7cf7",
-            "sha256": "6c92cd22e90c6e3e255d782991543fa2091db8614e8536a971a7433a5c4d7ac8",
-            "sha512": "ffd886eb17c3993aef9fe440a2ab56c7b82b95555c693eb81efe09eeb3cf308434a69293bec36b7e363f55d453925c1b2763c989b66d847df67e714ef237b3fc",
-            "size": 144849192,
-            "upstream_version": "156.0.8078.47",
-            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_156.0.8078.47-1_amd64.deb"
+            "filename": "google-chrome-stable_156.0.8078.73-1_amd64.deb",
+            "md5": "5aae924c05bced239e557aa60e7cc2cc",
+            "sha1": "2eb922ae6a4d4b9265ff312cdcbf817cd0ecb5c7",
+            "sha256": "fd19c6895dad77f4d7f712c2d9f0d5eb682f4a6e7ff22b1bd0d40d03710d288c",
+            "sha512": "eef6703a0187bc871f90167cc82cdedab109685d21a2a8a2a457e3918229cbdef7c9ab2891e337f6ceed3081c3ea163de61d4e62e72bd400156e347e9204e4de",
+            "size": 145617708,
+            "upstream_version": "156.0.8078.73",
+            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_156.0.8078.73-1_amd64.deb"
           },
-          "resolved_at": "2026-10-21T07:43:12+00:00",
+          "resolved_at": "2026-10-28T08:38:04+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1410,14 +1410,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "Motrix_2.0.1_amd64.deb",
+            "asset_name": "Motrix_2.1.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "motrix-turbo",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Full-featured download manager\n  Motrix is a full-featured download manager that supports HTTP, FTP, BitTorrent and Magnet downloads.",
               "Homepage": "https://motrix.app",
-              "Installed-Size": "327202",
+              "Installed-Size": "327281",
               "License": "MIT",
               "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
               "Package": "motrix",
@@ -1427,31 +1427,31 @@
               "Replaces": "motrix-turbo",
               "Section": "default",
               "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
-              "Version": "2.0.1"
+              "Version": "2.1.0"
             },
-            "filename": "motrix_2.0.1_amd64.deb",
-            "md5": "27f4a2242aeaa96b9033f73ded42392e",
-            "sha1": "347111c8612d6616457d47d4896d4c4070bffa6d",
-            "sha256": "e7beab6230b54908acaad0ebbc79e2eb2998867a96ff5022b6326dc87e6dba4a",
-            "sha512": "7bdd6c8fd04fcc3fbf95928e196a6885d97bfaa9bcc135e7216347292465170b16acf4d268eed455d1aa4298fedb3cf0d091f59a5f173ab8061b5b75234f4401",
-            "size": 112259440,
-            "upstream_version": "v2.0.1",
-            "url": "https://github.com/agalwood/Motrix/releases/download/v2.0.1/Motrix_2.0.1_amd64.deb"
+            "filename": "motrix_2.1.0_amd64.deb",
+            "md5": "8705a6823a92ec69cb5dcd472950b9d1",
+            "sha1": "df2a4a3604e581872286c9644893c4510dba61f5",
+            "sha256": "d17641a8ec5f5fdf599be4917322428bf6ebb1ffc60a8f80eb3d63d9da07f3fe",
+            "sha512": "4383a2037fc7bfd946bda9a531289ab76f572efa7f14bf0451f266822269df03eeb51c3c76673c8e25e0b3900044c45a387fd7d4a7228f8ca5eba06bf5b16fc2",
+            "size": 111985860,
+            "upstream_version": "v2.1.0",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v2.1.0/Motrix_2.1.0_amd64.deb"
           },
-          "resolved_at": "2026-10-25T07:37:50+00:00",
+          "resolved_at": "2026-10-28T08:38:03+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "Motrix_2.0.1_arm64.deb",
+            "asset_name": "Motrix_2.1.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "motrix-turbo",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Full-featured download manager\n  Motrix is a full-featured download manager that supports HTTP, FTP, BitTorrent and Magnet downloads.",
               "Homepage": "https://motrix.app",
-              "Installed-Size": "331350",
+              "Installed-Size": "331262",
               "License": "MIT",
               "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
               "Package": "motrix",
@@ -1461,18 +1461,18 @@
               "Replaces": "motrix-turbo",
               "Section": "default",
               "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
-              "Version": "2.0.1"
+              "Version": "2.1.0"
             },
-            "filename": "motrix_2.0.1_arm64.deb",
-            "md5": "1c329c7f94084e8e5b65acd7ec868774",
-            "sha1": "fc3d98f6e2a059d48406dfcd520a3c217056f70d",
-            "sha256": "3810be835a1e13e886efe52253c5b8a478e9b446da0309c98769be9ebaa51ffc",
-            "sha512": "a058036858f62eee3df565f2dea1d895f9964f7ac5dd0231a381fb80ad5a64285b939b9107e2712f525c092aea71def0f89cbe21de2b1581b85f1a38016fdf10",
-            "size": 107168416,
-            "upstream_version": "v2.0.1",
-            "url": "https://github.com/agalwood/Motrix/releases/download/v2.0.1/Motrix_2.0.1_arm64.deb"
+            "filename": "motrix_2.1.0_arm64.deb",
+            "md5": "d4dca56cae8d11ca983dd5d35dfe1c00",
+            "sha1": "3bc1f05b8bb5a180583f7620a74ad01415216c63",
+            "sha256": "c16d941b484a15d53ce0243dd2f55586455c67a7cd55fded68634e13dd26e3ec",
+            "sha512": "843c7781ad9cd086c8a5276e1f8096fbecff898833e3cb8f4fa57b663f11c574004a285f594608e610ef1052ab98663783d443a477bf3a6eb6637a8c7e5dd8c6",
+            "size": 107134020,
+            "upstream_version": "v2.1.0",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v2.1.0/Motrix_2.1.0_arm64.deb"
           },
-          "resolved_at": "2026-10-25T07:37:52+00:00",
+          "resolved_at": "2026-10-28T08:38:05+00:00",
           "source": "github",
           "update_policy": "track"
         }
