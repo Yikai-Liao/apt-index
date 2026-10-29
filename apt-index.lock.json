@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T08:38:15+00:00",
+  "generated_at": "2026-10-29T08:35:15+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -64,13 +64,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_6.1.6_amd64.deb",
+            "asset_name": "beekeeper-studio_6.2.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "1183804",
+              "Installed-Size": "1127338",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -78,30 +78,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "6.1.6"
+              "Version": "6.2.0"
             },
-            "filename": "beekeeper-studio_6.1.6_amd64.deb",
-            "md5": "13e9bf656c888b97660d5a9c2611e428",
-            "sha1": "38fb6aa0cf60e4b92979b075df3c8007c9fa6cbd",
-            "sha256": "750e29237ae2bd488d69dd994ff1dc5691d3335f9abff9f6def4539bf1302b3c",
-            "sha512": "c83deb5b11db0a3205e2dae062b184daada7b6f12143dfba9369bfff0c3ee8c9e81422c9120051dc6bdaa9dc9babae0ab02d150b24a0c5e4f37bab9f41290d11",
-            "size": 281298876,
-            "upstream_version": "v6.1.6",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.1.6/beekeeper-studio_6.1.6_amd64.deb"
+            "filename": "beekeeper-studio_6.2.0_amd64.deb",
+            "md5": "042a36413ec9cc184d6e02bb15be4dbd",
+            "sha1": "56fa6309bc5c08f8abab821d4566eee93fd5a7fb",
+            "sha256": "428c446415e14040c76160254cc10073332cd7b53a5a27ef8b1e5cc9639474f6",
+            "sha512": "ccac3769cb19810438d01e0840d929ce7d5851da2768625eab3073a33d31afeba6baaebf5e71654ddb09de3a7df0ff0a45d2ff5c0be18a3a07174b9fd0b92025",
+            "size": 276177844,
+            "upstream_version": "v6.2.0",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.2.0/beekeeper-studio_6.2.0_amd64.deb"
           },
-          "resolved_at": "2026-10-08T09:03:14+00:00",
+          "resolved_at": "2026-10-29T08:34:49+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_6.1.6_arm64.deb",
+            "asset_name": "beekeeper-studio_6.2.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "1172000",
+              "Installed-Size": "1124129",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -109,18 +109,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "6.1.6"
+              "Version": "6.2.0"
             },
-            "filename": "beekeeper-studio_6.1.6_arm64.deb",
-            "md5": "62a891cedf5939bbedc854ca7b890f81",
-            "sha1": "8d55fc039356bfd777b772b3af010131ff53db6c",
-            "sha256": "544acfd49cd4fccacf5acc9be1d8ec28f4c32d8dc94e276011029d0d86ce74ca",
-            "sha512": "fc6ad5f6c68a67409fb57d9e26954417625d722a9a8043c44d30a536fb69c61dc6cb53c646ecca9bd891a868fc73cb6930134b97713e46ead814eb7fc6007227",
-            "size": 270047652,
-            "upstream_version": "v6.1.6",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.1.6/beekeeper-studio_6.1.6_arm64.deb"
+            "filename": "beekeeper-studio_6.2.0_arm64.deb",
+            "md5": "d359c10b03d2051bf9f097e04bf2a895",
+            "sha1": "fba3a76dde52ea08eb02935cb1ab45e4a75656af",
+            "sha256": "c5423270c6298a21b4d26e9c215fcbd006515d6c8c049573224db19fee36d551",
+            "sha512": "4c43930e103de36716e058cfeb74d288a532733c927786148e3ff8056f70c8243611dab1376a6c4e3e85cc3e078b09973e799d6c132740041db33056d99f8f0e",
+            "size": 268534200,
+            "upstream_version": "v6.2.0",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.2.0/beekeeper-studio_6.2.0_arm64.deb"
           },
-          "resolved_at": "2026-10-08T09:03:17+00:00",
+          "resolved_at": "2026-10-29T08:34:59+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -396,59 +396,59 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "deadbeef-static_1.10.3~alpha-1_amd64.deb",
+            "asset_name": "deadbeef-static_1.10.4~alpha-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libasound2 (>> 1.0.16), libc6 (>= 2.7-1), libcairo2 (>= 1.2.4), libgcc1 (>= 1:4.1.1), libglib2.0-0 (>= 2.16.0), libgtk2.0-0 (>= 2.12.0), libx11-6",
               "Description": "The Ultimate Music Player\n DeaDBeeF (as in 0xDEADBEEF) is a cross-platform audio player\n .\n Features:\n .\n  * mp3, ogg vorbis, flac, ape, wv, wav\n  * ID3v1, ID3v2.2, ID3v2.3, ID3v2.4, APEv2, xing/info tags support\n  * character set detection for non-unicode ID3 tags - supports cp1251\n    and iso8859-1\n  * unicode tags are fully supported as well (both utf8 and ucs2)\n  * cuesheet support for mp3, ogg, flac, ape\n  * autodetection of utf8/cp1251/iso8859-1 charsets in cuesheets\n  * sid and some popular chiptune formats like nsf\n  * tracker modules like mod, s3m, it, xm, etc\n  * HVSC song length database support for sid\n  * gtk2 interface with custom highly speed/memory optimized widgets\n  * no GNOME or KDE dependencies - just gtk2 and several small libraries\n  * minimize to tray, with scrollwheel volume control\n  * drag and drop, both inside of playlist, and from filemanagers and such\n  * control playback from command line (allows global hotkeys using xbindkeys)\n  * seeking works in all supported formats\n  * plugin support; ships with several standard plugins, such as global hotkeys\n    and last.fm scrobbler; sdk is included\n  * duration calculation is as precise as possible for vbr mp3\n    files (with and without xing/info tags)",
               "Homepage": "http://deadbeef.sourceforge.net/",
-              "Installed-Size": "27930",
+              "Installed-Size": "31869",
               "Maintainer": "Oleksiy Yakovenko <waker@users.sf.net>",
               "Package": "deadbeef-static",
               "Priority": "optional",
               "Recommends": "libpulse0, libdbus-1-3",
               "Section": "sound",
-              "Version": "1.10.3-alpha-1"
+              "Version": "1.10.4-alpha-1"
             },
-            "filename": "deadbeef-static_1.10.3~alpha-1_amd64.deb",
-            "md5": "7f2a0b9157a170548446500031f6a5bf",
-            "sha1": "6bfec2bf0203d3feb2240ed8504f8c7c1a09ac60",
-            "sha256": "b63946da4555255a572b03fe6a153b84e1c3d3f0dea9a861661c237026316593",
-            "sha512": "f85effb312a1cb0ef9f083bae097851a34fbd7600c7345295b8aff00d2aecd67f2a002f73279879b88888d636426d057a133ed5f56ffe5717de49a0e3ab29d05",
-            "size": 11864122,
-            "upstream_version": "deadbeef-static_1.10.3~alpha-1_amd64.deb",
-            "url": "https://sourceforge.net/projects/deadbeef/files/Builds/master/linux/deadbeef-static_1.10.3~alpha-1_amd64.deb/download"
+            "filename": "deadbeef-static_1.10.4~alpha-1_amd64.deb",
+            "md5": "fad59475d54706cbee64d1ea2c667940",
+            "sha1": "02412916a56ce44b196cdeebf1ea73d371119de1",
+            "sha256": "e3a7eab0bb9d5995807357180e544c48987dc81c692c7e6c47aae769d4ea8d0c",
+            "sha512": "b27669199d416eec9d61e58ce590f456ea70bd22c62aaea23e75e6705d4edbad0686b24bec2e883e208e13619b34caaf54f636d3c65058d6cc05f7b7333e92ec",
+            "size": 13196924,
+            "upstream_version": "deadbeef-static_1.10.4~alpha-1_amd64.deb",
+            "url": "https://sourceforge.net/projects/deadbeef/files/Builds/master/linux/deadbeef-static_1.10.4~alpha-1_amd64.deb/download"
           },
-          "resolved_at": "2026-06-30T06:34:05+00:00",
+          "resolved_at": "2026-10-29T08:34:46+00:00",
           "source": "sourceforge",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "deadbeef-static_1.10.3~alpha-1_arm64.deb",
+            "asset_name": "deadbeef-static_1.10.4~alpha-1_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libasound2 (>> 1.0.16), libc6 (>= 2.7-1), libcairo2 (>= 1.2.4), libgcc1 (>= 1:4.1.1), libglib2.0-0 (>= 2.16.0), libgtk2.0-0 (>= 2.12.0), libx11-6",
               "Description": "The Ultimate Music Player\n DeaDBeeF (as in 0xDEADBEEF) is a cross-platform audio player\n .\n Features:\n .\n  * mp3, ogg vorbis, flac, ape, wv, wav\n  * ID3v1, ID3v2.2, ID3v2.3, ID3v2.4, APEv2, xing/info tags support\n  * character set detection for non-unicode ID3 tags - supports cp1251\n    and iso8859-1\n  * unicode tags are fully supported as well (both utf8 and ucs2)\n  * cuesheet support for mp3, ogg, flac, ape\n  * autodetection of utf8/cp1251/iso8859-1 charsets in cuesheets\n  * sid and some popular chiptune formats like nsf\n  * tracker modules like mod, s3m, it, xm, etc\n  * HVSC song length database support for sid\n  * gtk2 interface with custom highly speed/memory optimized widgets\n  * no GNOME or KDE dependencies - just gtk2 and several small libraries\n  * minimize to tray, with scrollwheel volume control\n  * drag and drop, both inside of playlist, and from filemanagers and such\n  * control playback from command line (allows global hotkeys using xbindkeys)\n  * seeking works in all supported formats\n  * plugin support; ships with several standard plugins, such as global hotkeys\n    and last.fm scrobbler; sdk is included\n  * duration calculation is as precise as possible for vbr mp3\n    files (with and without xing/info tags)",
               "Homepage": "http://deadbeef.sourceforge.net/",
-              "Installed-Size": "26572",
+              "Installed-Size": "30509",
               "Maintainer": "Oleksiy Yakovenko <waker@users.sf.net>",
               "Package": "deadbeef-static",
               "Priority": "optional",
               "Recommends": "libpulse0, libdbus-1-3",
               "Section": "sound",
-              "Version": "1.10.3-alpha-1"
+              "Version": "1.10.4-alpha-1"
             },
-            "filename": "deadbeef-static_1.10.3~alpha-1_arm64.deb",
-            "md5": "a26feaee20d02b714bb002439f33c83e",
-            "sha1": "f84d0ed87950c78a1c4c33c7b37325839f927905",
-            "sha256": "696f94cc65953dac4bd4c1dbd0cc03d7716077f0a0ac1cb3da7fc932c61e5fea",
-            "sha512": "11571627033c0b5ddfb47dc419cf7084ccc84ba83c085e88b13565df65ab9b00cf30187b22a653b0d3cf1d869298cf1e66f7cf04f859c1339f543dbfe5cf2647",
-            "size": 11432434,
-            "upstream_version": "deadbeef-static_1.10.3~alpha-1_arm64.deb",
-            "url": "https://sourceforge.net/projects/deadbeef/files/Builds/master/linux/deadbeef-static_1.10.3~alpha-1_arm64.deb/download"
+            "filename": "deadbeef-static_1.10.4~alpha-1_arm64.deb",
+            "md5": "fc7f26fa9d80a9b96b3948525e6ea20f",
+            "sha1": "2f04f488ae4a88e21ed122c04e0fc616d58600ab",
+            "sha256": "0ae8addaf4ca35069d57d3ea55b169358a44e21560d0d7d54bcb0505ef259c7c",
+            "sha512": "3dcad81fd2de4ef07df7466fb58cab5cd49cfe62440c1911dbcc06aadaf505ac0c3b5922c0b4dd1873dffb7b841f60e49b7993c8e2eb47b0057df8e2b3cd2f2e",
+            "size": 12753802,
+            "upstream_version": "deadbeef-static_1.10.4~alpha-1_arm64.deb",
+            "url": "https://sourceforge.net/projects/deadbeef/files/Builds/master/linux/deadbeef-static_1.10.4~alpha-1_arm64.deb/download"
           },
-          "resolved_at": "2026-06-30T06:34:08+00:00",
+          "resolved_at": "2026-10-29T08:34:48+00:00",
           "source": "sourceforge",
           "update_policy": "track"
         }
@@ -2009,14 +2009,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "code_1.143.1_amd64.deb",
+            "asset_name": "code_1.144.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.15), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "1009395",
+              "Installed-Size": "1055208",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2024,31 +2024,31 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.143.1-1792691907"
+              "Version": "1.144.0-1793133881"
             },
-            "filename": "code_1.143.1_amd64.deb",
-            "md5": "ffa356b4d12e8c58c895ffe4c343d33b",
-            "sha1": "f094f48d5407ed3b438a06ba9e56e78e9ee463af",
-            "sha256": "e459729dee13758960924be07157da44f0ba69503ab5edf4586fcde936bac9b9",
-            "sha512": "fce0da1d20baf73e2c33232234fe1432021ce83a5beec3f39ad8cadf338a3993d7edac5457a83c5f0cc833690b81e341833d29fdb73b0bc26ee46f595273088d",
-            "size": 243172986,
-            "upstream_version": "1.143.1",
-            "url": "https://update.code.visualstudio.com/1.143.1/linux-deb-x64/stable"
+            "filename": "code_1.144.0_amd64.deb",
+            "md5": "31c5d3f21cd29a37bb6e0d29e8c990aa",
+            "sha1": "96eeba88fdbc66c0423cb65300a7a19cd8a02581",
+            "sha256": "b8fbff92d8d95908990eed0acf004c980f29003725469e794ddbd017ea511a20",
+            "sha512": "6c4ebe5097828c84127681b81f6991562b706b84269bdd738185596f417a1df9a2a858f8893723c01546cb44dc25305fbe51d7b8cca94f2a26b587347a7df2b5",
+            "size": 258781214,
+            "upstream_version": "1.144.0",
+            "url": "https://update.code.visualstudio.com/1.144.0/linux-deb-x64/stable"
           },
-          "resolved_at": "2026-10-23T07:36:13+00:00",
+          "resolved_at": "2026-10-29T08:35:03+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "code_1.143.1_arm64.deb",
+            "asset_name": "code_1.144.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.17), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libstdc++6 (>= 4.1.1), libstdc++6 (>= 5), libstdc++6 (>= 5.2), libstdc++6 (>= 6), libstdc++6 (>= 9), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "964333",
+              "Installed-Size": "964946",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2056,18 +2056,18 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.143.1-1792691836"
+              "Version": "1.144.0-1793133877"
             },
-            "filename": "code_1.143.1_arm64.deb",
-            "md5": "5c1f383e095d4981fea2f7791c3d53cc",
-            "sha1": "efcb8db84315818fa8f376fdd04424e1cff59b85",
-            "sha256": "b5163fe68935a3d11c954de08c2ca953532f1ba70204df1bc95e736c1eea31ff",
-            "sha512": "0b080c8a2b4c2c35e363f27466de52289a4ebf1fbdf3ef4b5139fcb2dfd560813dbe90463b1c7606029b63158a604d8f1630770a4205cb26d94b07768e4fece3",
-            "size": 227660978,
-            "upstream_version": "1.143.1",
-            "url": "https://update.code.visualstudio.com/1.143.1/linux-deb-arm64/stable"
+            "filename": "code_1.144.0_arm64.deb",
+            "md5": "26d59b74998b14ce90abe85a7ebcb6d3",
+            "sha1": "00ef5aee4df61ad88461c3f04f147e4c1f50f968",
+            "sha256": "044e1cfd2ba1a93ff05b1d58f4b720896142c939f862c9a9204c2efe6c87b3af",
+            "sha512": "d76ada00e27c762d513927bc676d83c839eb2c270d43f9e4c44672fb15548d5e7910b72ab4f0b4bd4829e55caed7c1be66be677635f31c2a944e3f98eb4a00d4",
+            "size": 228863502,
+            "upstream_version": "1.144.0",
+            "url": "https://update.code.visualstudio.com/1.144.0/linux-deb-arm64/stable"
           },
-          "resolved_at": "2026-10-23T07:36:26+00:00",
+          "resolved_at": "2026-10-29T08:35:15+00:00",
           "source": "aur",
           "update_policy": "track"
         }
