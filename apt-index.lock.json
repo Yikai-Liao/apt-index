@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-29T08:35:15+00:00",
+  "generated_at": "2026-10-30T08:45:03+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -301,25 +301,25 @@
               "Architecture": "amd64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "39320",
+              "Installed-Size": "39331",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.10.5"
+              "Version": "2026.10.6"
             },
             "filename": "cloudflared-linux-amd64.deb",
-            "md5": "63039a4057223ad295014f314a4010f4",
-            "sha1": "123be210ad3caa379f2f05385968ecb6c5d215b3",
-            "sha256": "149d1ec4ac8e58bdbf08a41cc42347da9184d9fb4ef0df6528d75c90a85ac0ed",
-            "sha512": "d1dccf9f805dd7a8d58c4c4abe3e13f067ef6d5f6a38e20f6b3c174a3cb74c4150b84e3680ea61a03007a64e058bd42ae31ed1a1c918eca49d6a56f0c36630a3",
-            "size": 19919388,
-            "upstream_version": "2026.10.5",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.5/cloudflared-linux-amd64.deb"
+            "md5": "bd003ec470f69479366a2d3364c5fa00",
+            "sha1": "c36d0079e3c57a66e893e669be46e6880121a3e6",
+            "sha256": "13d9a724a4d4271958a3728982ee983870a100959a159d2fa263b3450d0be72a",
+            "sha512": "d6ee6c6d247fd038ddda28e90a956ce601978748ac0a0b0c244c04c7cd77ce301bec6e29be57b06e10f2794ef32ebc395ffda5332800f6af950f1d08ab4c76f9",
+            "size": 19925620,
+            "upstream_version": "2026.10.6",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.6/cloudflared-linux-amd64.deb"
           },
-          "resolved_at": "2026-10-28T08:37:58+00:00",
+          "resolved_at": "2026-10-30T08:42:03+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -330,25 +330,25 @@
               "Architecture": "arm64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "36780",
+              "Installed-Size": "36786",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.10.5"
+              "Version": "2026.10.6"
             },
             "filename": "cloudflared-linux-arm64.deb",
-            "md5": "7092a712545830e66d7df9a9f193d891",
-            "sha1": "47077122a880782b6c62211e85bc4d2a9e3d47f4",
-            "sha256": "361584f9c6a1af6f9c553011291494b72fb6c887841ce6735dc6df8b6e727e72",
-            "sha512": "71753922d85d90a4f11cb682bc35eefa8dd644b81b0ba13ca2f3d9d77e68381c078e5f0e66e03916a519068f0c8f7593fd9f4ad805c74493e2bcc55836199ec4",
-            "size": 18283824,
-            "upstream_version": "2026.10.5",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.5/cloudflared-linux-arm64.deb"
+            "md5": "7f898c8d73c4dfa45f46508a33941902",
+            "sha1": "e4938611718c9a55a77fafd751ea2b22857ea4c3",
+            "sha256": "621cd69e4c01c04813d74f446ccdd7eead7808dd9f6bfe0d15f7126d15a75792",
+            "sha512": "c9fc30c98b67426be2cf7c4ab8d6578fab1e4ee6fff1fae72ec5c6667f6ba531bfbbf4ce8af3fb98c1aa464f851069cb078bd19065d99f8cf517a2e7720aae42",
+            "size": 18294398,
+            "upstream_version": "2026.10.6",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.6/cloudflared-linux-arm64.deb"
           },
-          "resolved_at": "2026-10-28T08:37:59+00:00",
+          "resolved_at": "2026-10-30T08:42:03+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1090,30 +1090,30 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "google-chrome-stable_156.0.8078.73-1_amd64.deb",
+            "asset_name": "google-chrome-stable_156.0.8078.79-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "ca-certificates, fonts-liberation, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.25), libcairo2 (>= 1.14.0), libcups2 (>= 1.7.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.49.3), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.35), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libvulkan1, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxrandr2, wget, xdg-utils (>= 1.0.2)",
               "Description": "The web browser from Google\n Google Chrome is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier.",
-              "Installed-Size": "456029",
+              "Installed-Size": "456133",
               "Maintainer": "Chrome Linux Team <chromium-dev@chromium.org>",
               "Package": "google-chrome-stable",
               "Pre-Depends": "dpkg (>= 1.14.0)",
               "Priority": "optional",
               "Provides": "www-browser",
               "Section": "web",
-              "Version": "156.0.8078.73-1"
+              "Version": "156.0.8078.79-1"
             },
-            "filename": "google-chrome-stable_156.0.8078.73-1_amd64.deb",
-            "md5": "5aae924c05bced239e557aa60e7cc2cc",
-            "sha1": "2eb922ae6a4d4b9265ff312cdcbf817cd0ecb5c7",
-            "sha256": "fd19c6895dad77f4d7f712c2d9f0d5eb682f4a6e7ff22b1bd0d40d03710d288c",
-            "sha512": "eef6703a0187bc871f90167cc82cdedab109685d21a2a8a2a457e3918229cbdef7c9ab2891e337f6ceed3081c3ea163de61d4e62e72bd400156e347e9204e4de",
-            "size": 145617708,
-            "upstream_version": "156.0.8078.73",
-            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_156.0.8078.73-1_amd64.deb"
+            "filename": "google-chrome-stable_156.0.8078.79-1_amd64.deb",
+            "md5": "5dde941d565d874e9db1f017e7817948",
+            "sha1": "4f27c388f592ec7fe7edebf8d0becec241d9c13a",
+            "sha256": "be1a1e161419f5c8272432f6860912550d8e29985e925913fa800493a0d0c955",
+            "sha512": "68ea17afbc84d788ed9e1b6c2c16e979a5e5773b1ae6b6b30e4485d0c39547d7f3a74f028bc5e134cc1412c8534cfdf31b4f85e9f3016fc8b70430d768324315",
+            "size": 145633696,
+            "upstream_version": "156.0.8078.79",
+            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_156.0.8078.79-1_amd64.deb"
           },
-          "resolved_at": "2026-10-28T08:38:04+00:00",
+          "resolved_at": "2026-10-30T08:42:10+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1124,13 +1124,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "Insomnia.Core-13.3.1.deb",
+            "asset_name": "Insomnia.Core-13.4.0.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "The Collaborative API Client and Design Tool\n  The Collaborative API Design Tool",
               "Homepage": "https://konghq.com",
-              "Installed-Size": "1599959",
+              "Installed-Size": "1640253",
               "License": "Apache-2.0",
               "Maintainer": "Kong <office@konghq.com>",
               "Package": "insomnia",
@@ -1138,18 +1138,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Kong <office@konghq.com>",
-              "Version": "13.3.1"
+              "Version": "13.4.0"
             },
-            "filename": "insomnia_13.3.1_amd64.deb",
-            "md5": "426e930ed12e6895b13925d84095d0e6",
-            "sha1": "1f78a9fc63e624a50f9ecd7c20e9a708c9eb3a2f",
-            "sha256": "f5bc1aa5bd8becf9767a128d8f01b81e3f7e55608f204a9e51108b4b5e78f881",
-            "sha512": "a336783e1192c74ab65c7430e2ff83f08fd7a61c3bea1152e432360fd80bdbbd3bdfc12e363dee7f17e435fe768df5dfb68f085ca320320cacb8ff4ce8f8200f",
-            "size": 427860080,
-            "upstream_version": "core@13.3.1",
-            "url": "https://github.com/Kong/insomnia/releases/download/core%4013.3.1/Insomnia.Core-13.3.1.deb"
+            "filename": "insomnia_13.4.0_amd64.deb",
+            "md5": "4718df65bf960fdb69f7069566ef3f7f",
+            "sha1": "2bede6d9e885e90a9098ddbc396c0dd2d9b3b1e1",
+            "sha256": "b566d3d6b5a59d4baf0e705f156889f5bcbcfc9822930dcb5b5a180b8e5e9d4d",
+            "sha512": "9b7b95da999e8ec33d0d5f0f68e6cc78f33a4e7afb370464567edefba2602f604dfcda18ae7c757ba6097482352a914298a220ba6dc4ea3bf0fbeb6dea48f02b",
+            "size": 466756188,
+            "upstream_version": "core@13.4.0",
+            "url": "https://github.com/Kong/insomnia/releases/download/core%4013.4.0/Insomnia.Core-13.4.0.deb"
           },
-          "resolved_at": "2026-10-09T09:10:25+00:00",
+          "resolved_at": "2026-10-30T08:42:10+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1410,14 +1410,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "Motrix_2.1.0_amd64.deb",
+            "asset_name": "Motrix_2.1.1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "motrix-turbo",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Full-featured download manager\n  Motrix is a full-featured download manager that supports HTTP, FTP, BitTorrent and Magnet downloads.",
               "Homepage": "https://motrix.app",
-              "Installed-Size": "327281",
+              "Installed-Size": "327322",
               "License": "MIT",
               "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
               "Package": "motrix",
@@ -1427,31 +1427,31 @@
               "Replaces": "motrix-turbo",
               "Section": "default",
               "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
-              "Version": "2.1.0"
+              "Version": "2.1.1"
             },
-            "filename": "motrix_2.1.0_amd64.deb",
-            "md5": "8705a6823a92ec69cb5dcd472950b9d1",
-            "sha1": "df2a4a3604e581872286c9644893c4510dba61f5",
-            "sha256": "d17641a8ec5f5fdf599be4917322428bf6ebb1ffc60a8f80eb3d63d9da07f3fe",
-            "sha512": "4383a2037fc7bfd946bda9a531289ab76f572efa7f14bf0451f266822269df03eeb51c3c76673c8e25e0b3900044c45a387fd7d4a7228f8ca5eba06bf5b16fc2",
-            "size": 111985860,
-            "upstream_version": "v2.1.0",
-            "url": "https://github.com/agalwood/Motrix/releases/download/v2.1.0/Motrix_2.1.0_amd64.deb"
+            "filename": "motrix_2.1.1_amd64.deb",
+            "md5": "b103f98e8efa28f99bf87c69e4b28022",
+            "sha1": "ac50e936376fac94adde175564097ef3ea9e92df",
+            "sha256": "4644dfb275159843ae2356b02c36ff39069a4aa9d778ed70c400977da0a4ee9f",
+            "sha512": "2ec4e6c9fb5370e9f217ab6fa40e76b6549fab2a7d2529f9ab4ea92f3aadc422f3b79c22fdbb7896bdc14b4a6e9a3356518fd1f230cbb340feec144a389f8666",
+            "size": 111999720,
+            "upstream_version": "v2.1.1",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v2.1.1/Motrix_2.1.1_amd64.deb"
           },
-          "resolved_at": "2026-10-28T08:38:03+00:00",
+          "resolved_at": "2026-10-30T08:42:10+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "Motrix_2.1.0_arm64.deb",
+            "asset_name": "Motrix_2.1.1_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "motrix-turbo",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Full-featured download manager\n  Motrix is a full-featured download manager that supports HTTP, FTP, BitTorrent and Magnet downloads.",
               "Homepage": "https://motrix.app",
-              "Installed-Size": "331262",
+              "Installed-Size": "331304",
               "License": "MIT",
               "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
               "Package": "motrix",
@@ -1461,18 +1461,18 @@
               "Replaces": "motrix-turbo",
               "Section": "default",
               "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
-              "Version": "2.1.0"
+              "Version": "2.1.1"
             },
-            "filename": "motrix_2.1.0_arm64.deb",
-            "md5": "d4dca56cae8d11ca983dd5d35dfe1c00",
-            "sha1": "3bc1f05b8bb5a180583f7620a74ad01415216c63",
-            "sha256": "c16d941b484a15d53ce0243dd2f55586455c67a7cd55fded68634e13dd26e3ec",
-            "sha512": "843c7781ad9cd086c8a5276e1f8096fbecff898833e3cb8f4fa57b663f11c574004a285f594608e610ef1052ab98663783d443a477bf3a6eb6637a8c7e5dd8c6",
-            "size": 107134020,
-            "upstream_version": "v2.1.0",
-            "url": "https://github.com/agalwood/Motrix/releases/download/v2.1.0/Motrix_2.1.0_arm64.deb"
+            "filename": "motrix_2.1.1_arm64.deb",
+            "md5": "ad92815b68ca5c1f9d55bc89aad9b7a0",
+            "sha1": "507880e347b7a47bbca215b8e7ad5698835fe193",
+            "sha256": "44a77987bd08e3352446534fe11b1eaab1563f4c5deea86166b911751811b78e",
+            "sha512": "7c60c61041969e872db82fe91cda5413fec89e81266b567e9bfc9bda5368611f8de912a904b18c4a0c4f1502a07fbc7cda4bffb591d8e3d4b12c63181df2e1c1",
+            "size": 107176588,
+            "upstream_version": "v2.1.1",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v2.1.1/Motrix_2.1.1_arm64.deb"
           },
-          "resolved_at": "2026-10-28T08:38:05+00:00",
+          "resolved_at": "2026-10-30T08:42:12+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1645,13 +1645,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "linuxqq_3.2.34-53644_amd64.deb",
+            "asset_name": "linuxqq_3.2.35-54395_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  QQ",
               "Homepage": "https://im.qq.com",
-              "Installed-Size": "623683",
+              "Installed-Size": "625692",
               "License": "unknown",
               "Maintainer": "Tencent <QQ-Team@tencent.com>",
               "Package": "linuxqq",
@@ -1659,30 +1659,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Tencent <QQ-Team@tencent.com>",
-              "Version": "3.2.34-53644"
+              "Version": "3.2.35-54395"
             },
-            "filename": "linuxqq_3.2.34-53644_amd64.deb",
-            "md5": "9ee04bef55fa54d43cfa995fb23a7b9e",
-            "sha1": "e335b2f17fefec8092a3ff807f569d54580f1bce",
-            "sha256": "436c65e1dd28422e128a21cbddb5fe4e2e6c079d7f27fec2541e014d38cc336e",
-            "sha512": "774e45cd7238dc51b31c02ee494f9f86e773c487a90851790a806f776e130af125110045844e90dd68d0b073dc53bdd4d1c6d8fb7225b8f214fc0e35d1a20e32",
-            "size": 187185496,
-            "upstream_version": "3.2.34_53644",
-            "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.36/beta/9ee04bef/linuxqq_3.2.34-53644_amd64.deb"
+            "filename": "linuxqq_3.2.35-54395_amd64.deb",
+            "md5": "816b3c7967761f1215316feb737c4d80",
+            "sha1": "828699e6707d2714e79a87e87a814963c1362017",
+            "sha256": "7de03862327abbd16da27130413698c9517782b27194afc593bc3abf9b55f9ac",
+            "sha512": "c1dc085f2b50702a7c408aa6b89754ea5588c0646cf259fdf5c34a63f9883e0617008d6503469e6ae25e85bd1fd4063b56d8479dcd86529587c21a7f7316e95c",
+            "size": 188287504,
+            "upstream_version": "3.2.35_54395",
+            "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.37/beta/816b3c79/linuxqq_3.2.35-54395_amd64.deb"
           },
-          "resolved_at": "2026-09-23T07:48:57+00:00",
+          "resolved_at": "2026-10-30T08:43:53+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "linuxqq_3.2.34-53644_arm64.deb",
+            "asset_name": "linuxqq_3.2.35-54395_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  QQ",
               "Homepage": "https://im.qq.com",
-              "Installed-Size": "655698",
+              "Installed-Size": "657652",
               "License": "unknown",
               "Maintainer": "Tencent <QQ-Team@tencent.com>",
               "Package": "linuxqq",
@@ -1690,18 +1690,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Tencent <QQ-Team@tencent.com>",
-              "Version": "3.2.34-53644"
+              "Version": "3.2.35-54395"
             },
-            "filename": "linuxqq_3.2.34-53644_arm64.deb",
-            "md5": "e34131b20def8dd8901d5a1d3b1c24ff",
-            "sha1": "f53a2beabcd4ce5f2200afd4c8ff652893d1f882",
-            "sha256": "181b895cb573548e396e54bb0548cca92ffdc1b1a4b018fa4551bb062385fdca",
-            "sha512": "fa1424d41f934798a8f20b6cad8749f1eb99f29957501b3578449ade06fe105387e038e98cafb1bcc57d4d35010d771312ca0de7b14e62da0765cd29b005a5d1",
-            "size": 207538924,
-            "upstream_version": "3.2.34_53644",
-            "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.36/beta/9ee04bef/linuxqq_3.2.34-53644_arm64.deb"
+            "filename": "linuxqq_3.2.35-54395_arm64.deb",
+            "md5": "151465e82e10acb14e2b986a1ffa50ad",
+            "sha1": "d84b023eee6ed05868181af61ffbc36e91818f57",
+            "sha256": "5f93ea62347dd772c7be4115413c95d2a60d189f3dd81bc194834bd4d7343cf2",
+            "sha512": "adb5c09354deacc3568607bbea95afcdc8f7c1c076761f08531bc8fcb6bcafdad9c704608635f6680f928c2b7d9bdee26cb4a6cdbcef335cb94566e5c88992c9",
+            "size": 208717176,
+            "upstream_version": "3.2.35_54395",
+            "url": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.37/beta/816b3c79/linuxqq_3.2.35-54395_arm64.deb"
           },
-          "resolved_at": "2026-09-23T07:50:07+00:00",
+          "resolved_at": "2026-10-30T08:45:03+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1745,7 +1745,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "slack-desktop-4.52.182-amd64.deb",
+            "asset_name": "slack-desktop-4.53.276-amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libappindicator3-1, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, kde-cli-tools | kde-runtime | trash-cli | libglib2.0-bin | gvfs-bin, apt-transport-https",
@@ -1757,18 +1757,18 @@
               "Recommends": "pulseaudio | libasound2",
               "Section": "misc",
               "Suggests": "gir1.2-gnomekeyring-1.0, libgnome-keyring0, lsb-release",
-              "Version": "4.52.182"
+              "Version": "4.53.276"
             },
-            "filename": "slack-desktop-4.52.182-amd64.deb",
-            "md5": "4dd5b5f48985e15d9f5d37d7462f2362",
-            "sha1": "94a51bafc6306b24ba3e1a584c965c24ebd81ee7",
-            "sha256": "568f9e76a143a5ead69645192e38131897f85af7645d7d81897f36fdaac8f700",
-            "sha512": "77cacbf545393a38892b2f9744d37eb47d480f9a11205cd8d0c6c84b0898580940d7a66d650b7533a00a9a60b8fee861b63e2ca0a6038a614be011d0d06aa55a",
-            "size": 95363102,
-            "upstream_version": "4.52.182",
-            "url": "https://downloads.slack-edge.com/desktop-releases/linux/x64/4.52.182/slack-desktop-4.52.182-amd64.deb"
+            "filename": "slack-desktop-4.53.276-amd64.deb",
+            "md5": "021a7db1334f2c93be080aa568012874",
+            "sha1": "112d3672c0864c6dcfc0cffafdc375ad999984f9",
+            "sha256": "8974c6a9b3ffd4ef09ced4403acaa444d743d113a185504d5a1dc405be46e746",
+            "sha512": "f60d13669620887df5f2f15376353452c3e9e1664928d3561655f3b58eb79c9f3811399e45018354d90ba2b8156e61ecf03b19c695a235712f12f0a1d0affeef",
+            "size": 96988654,
+            "upstream_version": "4.53.276",
+            "url": "https://downloads.slack-edge.com/desktop-releases/linux/x64/4.53.276/slack-desktop-4.53.276-amd64.deb"
           },
-          "resolved_at": "2026-10-21T07:43:15+00:00",
+          "resolved_at": "2026-10-30T08:42:12+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1879,13 +1879,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "teams-for-linux_2.27.0_amd64.deb",
+            "asset_name": "teams-for-linux_2.28.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, libgbm1, libasound2t64 | libasound2",
               "Description": "Teams for Linux\n  Unofficial Microsoft Teams client for Linux using Electron. It uses the Web App and wraps it as a standalone application using Electron.",
               "Homepage": "https://github.com/IsmaelMartinez/teams-for-linux",
-              "Installed-Size": "308180",
+              "Installed-Size": "308211",
               "License": "GPL-3.0-or-later",
               "Maintainer": "Ismael Martinez <ismaelmartinez@gmail.com>",
               "Package": "teams-for-linux",
@@ -1893,30 +1893,30 @@
               "Recommends": "libappindicator3-1, fido2-tools",
               "Section": "net",
               "Vendor": "Ismael Martinez <ismaelmartinez@gmail.com>",
-              "Version": "2.27.0"
+              "Version": "2.28.0"
             },
-            "filename": "teams-for-linux_2.27.0_amd64.deb",
-            "md5": "77933b9068f7145035375f93208706e0",
-            "sha1": "e2cdb0739d4033534ced1021530f3b41aff77e39",
-            "sha256": "3d22b506364584b68fc4b5f17491d4b87be88c897cc6fb513e478ad65f264ba2",
-            "sha512": "c490fcc538c48403fdafc46171f704e63a70101e64e98e0b40900f6cff01620b228368c5029d8a0f344e49a1bbabc353597979fddbc418b20da14f0c6e372e54",
-            "size": 103303064,
-            "upstream_version": "v2.27.0",
-            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.27.0/teams-for-linux_2.27.0_amd64.deb"
+            "filename": "teams-for-linux_2.28.0_amd64.deb",
+            "md5": "86fddd2e6c70e435d4a8731f36047e34",
+            "sha1": "834d1411c401bbc6005ae21c81ea293140567567",
+            "sha256": "f97d8dff9a9a95546c2f762184b1c0155a7b75375af835f1f476bb40c89068bc",
+            "sha512": "7209e27784a149048969c78470a3200fdf49a4f60c1b550f08e3fa62abefae29edcc000750ce430ca2a09d5019628a0a90c0dafc63a7bd6ed61f89c32b2ba73f",
+            "size": 103312012,
+            "upstream_version": "v2.28.0",
+            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.28.0/teams-for-linux_2.28.0_amd64.deb"
           },
-          "resolved_at": "2026-10-26T07:51:07+00:00",
+          "resolved_at": "2026-10-30T08:42:14+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "teams-for-linux_2.27.0_arm64.deb",
+            "asset_name": "teams-for-linux_2.28.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, libgbm1, libasound2t64 | libasound2",
               "Description": "Teams for Linux\n  Unofficial Microsoft Teams client for Linux using Electron. It uses the Web App and wraps it as a standalone application using Electron.",
               "Homepage": "https://github.com/IsmaelMartinez/teams-for-linux",
-              "Installed-Size": "312861",
+              "Installed-Size": "312893",
               "License": "GPL-3.0-or-later",
               "Maintainer": "Ismael Martinez <ismaelmartinez@gmail.com>",
               "Package": "teams-for-linux",
@@ -1924,18 +1924,18 @@
               "Recommends": "libappindicator3-1, fido2-tools",
               "Section": "net",
               "Vendor": "Ismael Martinez <ismaelmartinez@gmail.com>",
-              "Version": "2.27.0"
+              "Version": "2.28.0"
             },
-            "filename": "teams-for-linux_2.27.0_arm64.deb",
-            "md5": "4b18941a2e7ca26285e8b1dccd32411f",
-            "sha1": "73aa5afa70d225c4bef432bf1a23e5a7916f54b2",
-            "sha256": "487d3d9011ec41f3d43db3e53025af6341a9cbe9e511949c88f86e127cf95d03",
-            "sha512": "e1e6a92834f43a7589556d81c2b252dc1423ff581fd241eed8ebe504262cae9620c26a66ad5510b40fb76b7224d2b00c9a4d6d9ec8da03ba711fcf1d699a673a",
-            "size": 98412312,
-            "upstream_version": "v2.27.0",
-            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.27.0/teams-for-linux_2.27.0_arm64.deb"
+            "filename": "teams-for-linux_2.28.0_arm64.deb",
+            "md5": "5c27fcaa6c375c816a097e2654870d70",
+            "sha1": "c7fb6737d9a711bff797adcc529f597ff85d854d",
+            "sha256": "03ef33c4c6a549db6dd84cfc0350540fff1f97bd6f8a6e7c480c20927affa809",
+            "sha512": "6aebcc11fb1bb7996219e9702d965bfe2c0df5813907a5ce58e6b6092ca1ed88468dcf2c771ab2495ccba139aacadeacf57a492a4fa7cb8b0e3b739b64e12f35",
+            "size": 98422072,
+            "upstream_version": "v2.28.0",
+            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.28.0/teams-for-linux_2.28.0_arm64.deb"
           },
-          "resolved_at": "2026-10-26T07:51:08+00:00",
+          "resolved_at": "2026-10-30T08:42:16+00:00",
           "source": "github",
           "update_policy": "track"
         }
