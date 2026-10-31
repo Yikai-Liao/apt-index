@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-30T08:45:03+00:00",
+  "generated_at": "2026-10-31T08:28:54+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -308,18 +308,18 @@
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.10.6"
+              "Version": "2026.10.7"
             },
             "filename": "cloudflared-linux-amd64.deb",
-            "md5": "bd003ec470f69479366a2d3364c5fa00",
-            "sha1": "c36d0079e3c57a66e893e669be46e6880121a3e6",
-            "sha256": "13d9a724a4d4271958a3728982ee983870a100959a159d2fa263b3450d0be72a",
-            "sha512": "d6ee6c6d247fd038ddda28e90a956ce601978748ac0a0b0c244c04c7cd77ce301bec6e29be57b06e10f2794ef32ebc395ffda5332800f6af950f1d08ab4c76f9",
-            "size": 19925620,
-            "upstream_version": "2026.10.6",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.6/cloudflared-linux-amd64.deb"
+            "md5": "85c61495e970c64a00864f4224d720f5",
+            "sha1": "6af2603115cd9bb42435991ee569d87d55b7b916",
+            "sha256": "70b1a1e0f46033ffc8d90b406e554044ba6cbf2e4360295ef1163aed31e09393",
+            "sha512": "3a3fc9058784f2b8c76c5520a77bc66f40c5ac5f8a383d84ff647604dd736233ae7e28b4fdb53d26a8a9b67519f7d0ebbe2b47ef997d468b506b581258641aa4",
+            "size": 19925068,
+            "upstream_version": "2026.10.7",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.7/cloudflared-linux-amd64.deb"
           },
-          "resolved_at": "2026-10-30T08:42:03+00:00",
+          "resolved_at": "2026-10-31T08:28:36+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -330,25 +330,25 @@
               "Architecture": "arm64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "36786",
+              "Installed-Size": "36785",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.10.6"
+              "Version": "2026.10.7"
             },
             "filename": "cloudflared-linux-arm64.deb",
-            "md5": "7f898c8d73c4dfa45f46508a33941902",
-            "sha1": "e4938611718c9a55a77fafd751ea2b22857ea4c3",
-            "sha256": "621cd69e4c01c04813d74f446ccdd7eead7808dd9f6bfe0d15f7126d15a75792",
-            "sha512": "c9fc30c98b67426be2cf7c4ab8d6578fab1e4ee6fff1fae72ec5c6667f6ba531bfbbf4ce8af3fb98c1aa464f851069cb078bd19065d99f8cf517a2e7720aae42",
-            "size": 18294398,
-            "upstream_version": "2026.10.6",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.6/cloudflared-linux-arm64.deb"
+            "md5": "6bd5b4c7facb6cca3e97b099ae6388e7",
+            "sha1": "fcf949b0389a027854817159d74ebbc7c62fe647",
+            "sha256": "d9407eb6e70ac31f54978a6b408a0320b51b664a6d0b498248692d7ac56bf836",
+            "sha512": "6aeeb5fdf149c655baff65198af27505fe9cf5619b10466474c062b6e241166cb1f9d016de9f93f582d62feebec11585dfe8e850fcd962bcaaebaa8890f8543e",
+            "size": 18293962,
+            "upstream_version": "2026.10.7",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.7/cloudflared-linux-arm64.deb"
           },
-          "resolved_at": "2026-10-30T08:42:03+00:00",
+          "resolved_at": "2026-10-31T08:28:36+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -402,7 +402,7 @@
               "Depends": "libasound2 (>> 1.0.16), libc6 (>= 2.7-1), libcairo2 (>= 1.2.4), libgcc1 (>= 1:4.1.1), libglib2.0-0 (>= 2.16.0), libgtk2.0-0 (>= 2.12.0), libx11-6",
               "Description": "The Ultimate Music Player\n DeaDBeeF (as in 0xDEADBEEF) is a cross-platform audio player\n .\n Features:\n .\n  * mp3, ogg vorbis, flac, ape, wv, wav\n  * ID3v1, ID3v2.2, ID3v2.3, ID3v2.4, APEv2, xing/info tags support\n  * character set detection for non-unicode ID3 tags - supports cp1251\n    and iso8859-1\n  * unicode tags are fully supported as well (both utf8 and ucs2)\n  * cuesheet support for mp3, ogg, flac, ape\n  * autodetection of utf8/cp1251/iso8859-1 charsets in cuesheets\n  * sid and some popular chiptune formats like nsf\n  * tracker modules like mod, s3m, it, xm, etc\n  * HVSC song length database support for sid\n  * gtk2 interface with custom highly speed/memory optimized widgets\n  * no GNOME or KDE dependencies - just gtk2 and several small libraries\n  * minimize to tray, with scrollwheel volume control\n  * drag and drop, both inside of playlist, and from filemanagers and such\n  * control playback from command line (allows global hotkeys using xbindkeys)\n  * seeking works in all supported formats\n  * plugin support; ships with several standard plugins, such as global hotkeys\n    and last.fm scrobbler; sdk is included\n  * duration calculation is as precise as possible for vbr mp3\n    files (with and without xing/info tags)",
               "Homepage": "http://deadbeef.sourceforge.net/",
-              "Installed-Size": "31869",
+              "Installed-Size": "31926",
               "Maintainer": "Oleksiy Yakovenko <waker@users.sf.net>",
               "Package": "deadbeef-static",
               "Priority": "optional",
@@ -411,15 +411,15 @@
               "Version": "1.10.4-alpha-1"
             },
             "filename": "deadbeef-static_1.10.4~alpha-1_amd64.deb",
-            "md5": "fad59475d54706cbee64d1ea2c667940",
-            "sha1": "02412916a56ce44b196cdeebf1ea73d371119de1",
-            "sha256": "e3a7eab0bb9d5995807357180e544c48987dc81c692c7e6c47aae769d4ea8d0c",
-            "sha512": "b27669199d416eec9d61e58ce590f456ea70bd22c62aaea23e75e6705d4edbad0686b24bec2e883e208e13619b34caaf54f636d3c65058d6cc05f7b7333e92ec",
-            "size": 13196924,
+            "md5": "137e020121217b4dd1b007bce470940d",
+            "sha1": "f421b71ff4a17c2240082308c72b5fe0a2800b24",
+            "sha256": "8d4c064b18f11895246d83cb51b0786408de29a4c49f8317c818c754bec06eba",
+            "sha512": "66828b479dbcad6d021d4ae123949b0d93d8cab15f99b6c9b3e3652519aa2375cd1288f5cef0e3ba32edea6fa037c206664dc3071b5ba6df7d22a32ec7c1dd72",
+            "size": 13212794,
             "upstream_version": "deadbeef-static_1.10.4~alpha-1_amd64.deb",
             "url": "https://sourceforge.net/projects/deadbeef/files/Builds/master/linux/deadbeef-static_1.10.4~alpha-1_amd64.deb/download"
           },
-          "resolved_at": "2026-10-29T08:34:46+00:00",
+          "resolved_at": "2026-10-31T08:28:37+00:00",
           "source": "sourceforge",
           "update_policy": "track"
         },
@@ -431,7 +431,7 @@
               "Depends": "libasound2 (>> 1.0.16), libc6 (>= 2.7-1), libcairo2 (>= 1.2.4), libgcc1 (>= 1:4.1.1), libglib2.0-0 (>= 2.16.0), libgtk2.0-0 (>= 2.12.0), libx11-6",
               "Description": "The Ultimate Music Player\n DeaDBeeF (as in 0xDEADBEEF) is a cross-platform audio player\n .\n Features:\n .\n  * mp3, ogg vorbis, flac, ape, wv, wav\n  * ID3v1, ID3v2.2, ID3v2.3, ID3v2.4, APEv2, xing/info tags support\n  * character set detection for non-unicode ID3 tags - supports cp1251\n    and iso8859-1\n  * unicode tags are fully supported as well (both utf8 and ucs2)\n  * cuesheet support for mp3, ogg, flac, ape\n  * autodetection of utf8/cp1251/iso8859-1 charsets in cuesheets\n  * sid and some popular chiptune formats like nsf\n  * tracker modules like mod, s3m, it, xm, etc\n  * HVSC song length database support for sid\n  * gtk2 interface with custom highly speed/memory optimized widgets\n  * no GNOME or KDE dependencies - just gtk2 and several small libraries\n  * minimize to tray, with scrollwheel volume control\n  * drag and drop, both inside of playlist, and from filemanagers and such\n  * control playback from command line (allows global hotkeys using xbindkeys)\n  * seeking works in all supported formats\n  * plugin support; ships with several standard plugins, such as global hotkeys\n    and last.fm scrobbler; sdk is included\n  * duration calculation is as precise as possible for vbr mp3\n    files (with and without xing/info tags)",
               "Homepage": "http://deadbeef.sourceforge.net/",
-              "Installed-Size": "30509",
+              "Installed-Size": "30558",
               "Maintainer": "Oleksiy Yakovenko <waker@users.sf.net>",
               "Package": "deadbeef-static",
               "Priority": "optional",
@@ -440,15 +440,15 @@
               "Version": "1.10.4-alpha-1"
             },
             "filename": "deadbeef-static_1.10.4~alpha-1_arm64.deb",
-            "md5": "fc7f26fa9d80a9b96b3948525e6ea20f",
-            "sha1": "2f04f488ae4a88e21ed122c04e0fc616d58600ab",
-            "sha256": "0ae8addaf4ca35069d57d3ea55b169358a44e21560d0d7d54bcb0505ef259c7c",
-            "sha512": "3dcad81fd2de4ef07df7466fb58cab5cd49cfe62440c1911dbcc06aadaf505ac0c3b5922c0b4dd1873dffb7b841f60e49b7993c8e2eb47b0057df8e2b3cd2f2e",
-            "size": 12753802,
+            "md5": "c0a2467cdfbe742bae273e4059186f49",
+            "sha1": "d67acdba99cd2b949c8422e81824fb8fc33e2076",
+            "sha256": "2e11c0cf18701125bd819d1831db51cb57ba819fbc4c0ab004c2a21affb33f74",
+            "sha512": "5dc2a22c2e7599294e69c8190d2f7cd580674f3576b27006d8cc1fa2603bfccb255e8ff7ac218da53cc14a781c9298e2e2f148c954461b87fade7369e99029ab",
+            "size": 12772996,
             "upstream_version": "deadbeef-static_1.10.4~alpha-1_arm64.deb",
             "url": "https://sourceforge.net/projects/deadbeef/files/Builds/master/linux/deadbeef-static_1.10.4~alpha-1_arm64.deb/download"
           },
-          "resolved_at": "2026-10-29T08:34:48+00:00",
+          "resolved_at": "2026-10-31T08:28:39+00:00",
           "source": "sourceforge",
           "update_policy": "track"
         }
@@ -1343,13 +1343,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "mockoon-9.9.0.amd64.deb",
+            "asset_name": "mockoon-9.10.0.amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  Mockoon is the easiest and quickest way to run mock APIs locally. No remote deployment, no account required, open source.",
               "Homepage": "https://mockoon.com",
-              "Installed-Size": "338850",
+              "Installed-Size": "330792",
               "License": "MIT",
               "Maintainer": "Mockoon <team@mockoon.com>",
               "Package": "mockoon",
@@ -1357,30 +1357,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Mockoon <team@mockoon.com>",
-              "Version": "9.9.0"
+              "Version": "9.10.0"
             },
-            "filename": "mockoon-9.9.0.amd64.deb",
-            "md5": "283ade628c002e0f8a795080a6159349",
-            "sha1": "6004cf09472ec752243097b8360149add209919c",
-            "sha256": "5ad57a6a3900e4857810802a8d0c49869f2c72defa01d360a99559728c605eb5",
-            "sha512": "8dd6a096b799e8e1794ade37a8093069794bf75ee29c9aea80a75cb8ff496f2eb4fb37b2d046523a8fd9fba390fc37df9ae60eba1628b2ee75ade3389237e488",
-            "size": 105238912,
-            "upstream_version": "v9.9.0",
-            "url": "https://github.com/mockoon/mockoon/releases/download/v9.9.0/mockoon-9.9.0.amd64.deb"
+            "filename": "mockoon-9.10.0.amd64.deb",
+            "md5": "14b241848808dc18e5c9081cbd9aabc7",
+            "sha1": "4ee9e35eaf56e7fd7b6cfe7e8713b352e699008b",
+            "sha256": "a7ab76e0f26672ffc891c332594337ef35bf1275123e4c49570413061325ddf4",
+            "sha512": "5e45b2883c0b0ab06b32a663f6809419427ca02bc1fe48b70f17fa71cc58f6ee4f51389217026b9ae741f778b3fb3371f65a2533414a42a4197333dfa662fb5f",
+            "size": 107132820,
+            "upstream_version": "v9.10.0",
+            "url": "https://github.com/mockoon/mockoon/releases/download/v9.10.0/mockoon-9.10.0.amd64.deb"
           },
-          "resolved_at": "2026-09-17T07:44:03+00:00",
+          "resolved_at": "2026-10-31T08:28:41+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "mockoon-9.9.0.arm64.deb",
+            "asset_name": "mockoon-9.10.0.arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  Mockoon is the easiest and quickest way to run mock APIs locally. No remote deployment, no account required, open source.",
               "Homepage": "https://mockoon.com",
-              "Installed-Size": "343856",
+              "Installed-Size": "335644",
               "License": "MIT",
               "Maintainer": "Mockoon <team@mockoon.com>",
               "Package": "mockoon",
@@ -1388,18 +1388,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Mockoon <team@mockoon.com>",
-              "Version": "9.9.0"
+              "Version": "9.10.0"
             },
-            "filename": "mockoon-9.9.0.arm64.deb",
-            "md5": "984e83056c190cbe2300e7b73cc1615a",
-            "sha1": "fbfcf7eabf49afa21214f0c094f1052d9a720f78",
-            "sha256": "ef6b149b6819673a485da916e26063972d069371069e3acdca6d6850ef62ff15",
-            "sha512": "da67981b7ddbf07f45623fe39107a0e1be1086b0cec5b3759c13f7045638a3ac1eef6b0610015beb666d0c35e3826ad067d1fa1a34de88946f87e54ceecfab2f",
-            "size": 100447368,
-            "upstream_version": "v9.9.0",
-            "url": "https://github.com/mockoon/mockoon/releases/download/v9.9.0/mockoon-9.9.0.arm64.deb"
+            "filename": "mockoon-9.10.0.arm64.deb",
+            "md5": "76ac4f5d9606dc8180e1056326074081",
+            "sha1": "a94ccac5b76fd9fbeab732f26943ca45688c3665",
+            "sha256": "e3203fd1fb55c49c9d92d47e802a79c0cb2f9dc810b3f75477845e99f396ca0d",
+            "sha512": "aaa0ffb13e181115e95b9b74add553431025ea1f6cd191a3549f57111d9e84d29a6c8120b5dad677baa11adbd53a7c333ac388609a9a699f5a031acf53777707",
+            "size": 102020056,
+            "upstream_version": "v9.10.0",
+            "url": "https://github.com/mockoon/mockoon/releases/download/v9.10.0/mockoon-9.10.0.arm64.deb"
           },
-          "resolved_at": "2026-09-17T07:44:07+00:00",
+          "resolved_at": "2026-10-31T08:28:42+00:00",
           "source": "github",
           "update_policy": "track"
         }
