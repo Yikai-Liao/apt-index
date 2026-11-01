@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T08:28:54+00:00",
+  "generated_at": "2026-11-01T09:19:31+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -131,59 +131,59 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "bottom_0.14.9-1_amd64.deb",
+            "asset_name": "bottom_0.15.0-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "btm",
               "Depends": "libc6 (>= 2.34)",
               "Description": "A customizable cross-platform graphical process/system monitor for the\n terminal. Supports Linux, macOS, and Windows.\n .\n By default, bottom will look for a config file in ~/.config/bottom/bottom.toml.\n A config file can be specified using `-C`. If a config file does not exist at\n the specified or default location, a default one will be created for the user\n there.",
               "Homepage": "https://bottom.pages.dev/stable",
-              "Installed-Size": "5040",
+              "Installed-Size": "5057",
               "Maintainer": "Clement Tsang <cjhtsang@uwaterloo.ca>",
               "Package": "bottom",
               "Priority": "optional",
               "Section": "utility",
-              "Version": "0.14.9-1"
+              "Version": "0.15.0-1"
             },
-            "filename": "bottom_0.14.9-1_amd64.deb",
-            "md5": "8625988d8db2e0e350b7805acbc891d1",
-            "sha1": "47916144388f405ae7c96d37986c9bdf99333a14",
-            "sha256": "e8312526746c1190c3433e6ce0843f64c6e0c501003ee377552745c040dc6d56",
-            "sha512": "40050447e5105795dce0428566d6872a14ad1950ee78273f9342e136c483fbb7aa45b906d8e8a2b4f21d53911e7c7e6bdaab1df5f74764f87c00c886eff6d699",
-            "size": 1507180,
-            "upstream_version": "0.14.9",
-            "url": "https://github.com/ClementTsang/bottom/releases/download/0.14.9/bottom_0.14.9-1_amd64.deb"
+            "filename": "bottom_0.15.0-1_amd64.deb",
+            "md5": "90c480088dbd866f3cb07de5c7b29f26",
+            "sha1": "c366b92aadaece7e34bd3002dc01a98b6ff282ec",
+            "sha256": "02aabca9cd9dd41d3fbf3642e96b5a7b266027fd0ba9eb78a96e4c5eeabcd8c8",
+            "sha512": "4048c1ac3f718e9d8c2d39781531ebba8773a34ed36658543333bc7f5f78959bbe7ffd06299f0e25814ddf15978f9e82c8c4329334331197f9e78a40218deaaf",
+            "size": 1516576,
+            "upstream_version": "0.15.0",
+            "url": "https://github.com/ClementTsang/bottom/releases/download/0.15.0/bottom_0.15.0-1_amd64.deb"
           },
-          "resolved_at": "2026-08-27T12:50:34+00:00",
+          "resolved_at": "2026-11-01T09:19:12+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "bottom_0.14.9-1_arm64.deb",
+            "asset_name": "bottom_0.15.0-1_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "btm",
               "Depends": "libc6 (>= 2.34)",
               "Description": "A customizable cross-platform graphical process/system monitor for the\n terminal. Supports Linux, macOS, and Windows.\n .\n By default, bottom will look for a config file in ~/.config/bottom/bottom.toml.\n A config file can be specified using `-C`. If a config file does not exist at\n the specified or default location, a default one will be created for the user\n there.",
               "Homepage": "https://bottom.pages.dev/stable",
-              "Installed-Size": "4368",
+              "Installed-Size": "4389",
               "Maintainer": "Clement Tsang <cjhtsang@uwaterloo.ca>",
               "Package": "bottom",
               "Priority": "optional",
               "Section": "utility",
-              "Version": "0.14.9-1"
+              "Version": "0.15.0-1"
             },
-            "filename": "bottom_0.14.9-1_arm64.deb",
-            "md5": "048305cd05a454495c79c5da6f1bfa89",
-            "sha1": "abe6feb4829472e630fcd4a28925d79f981245dd",
-            "sha256": "a2d5fb1500c2209ffe3ec8711fe551b3b41830fad7bbde9fa1e58ae87010b9e5",
-            "sha512": "162a9d3fca932decc97c436eed8801f0d51c1ff59b803bc50e7948227ade45cf229425ca187920e64c7f62e39fa205599bf2d55583c02142328c2e4bc54df372",
-            "size": 1293500,
-            "upstream_version": "0.14.9",
-            "url": "https://github.com/ClementTsang/bottom/releases/download/0.14.9/bottom_0.14.9-1_arm64.deb"
+            "filename": "bottom_0.15.0-1_arm64.deb",
+            "md5": "37d679d75fe4d9884eed79ed4d184971",
+            "sha1": "ae7e6044a92572ebdd30597e48d5be1b937931f7",
+            "sha256": "1b70cef7d66fedc6df227f85d34a4238d99f3e3800cfb3fd14bafb072b6dece9",
+            "sha512": "c84d61624ec31ebb3291990a899a54988b890ca57a8ad1851b4baa59e7eb3c1e0614faecddabebad23f4c9a237d96aba6a93447093218c215c602389cd16bdb7",
+            "size": 1296112,
+            "upstream_version": "0.15.0",
+            "url": "https://github.com/ClementTsang/bottom/releases/download/0.15.0/bottom_0.15.0-1_arm64.deb"
           },
-          "resolved_at": "2026-08-27T12:50:34+00:00",
+          "resolved_at": "2026-11-01T09:19:12+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -402,7 +402,7 @@
               "Depends": "libasound2 (>> 1.0.16), libc6 (>= 2.7-1), libcairo2 (>= 1.2.4), libgcc1 (>= 1:4.1.1), libglib2.0-0 (>= 2.16.0), libgtk2.0-0 (>= 2.12.0), libx11-6",
               "Description": "The Ultimate Music Player\n DeaDBeeF (as in 0xDEADBEEF) is a cross-platform audio player\n .\n Features:\n .\n  * mp3, ogg vorbis, flac, ape, wv, wav\n  * ID3v1, ID3v2.2, ID3v2.3, ID3v2.4, APEv2, xing/info tags support\n  * character set detection for non-unicode ID3 tags - supports cp1251\n    and iso8859-1\n  * unicode tags are fully supported as well (both utf8 and ucs2)\n  * cuesheet support for mp3, ogg, flac, ape\n  * autodetection of utf8/cp1251/iso8859-1 charsets in cuesheets\n  * sid and some popular chiptune formats like nsf\n  * tracker modules like mod, s3m, it, xm, etc\n  * HVSC song length database support for sid\n  * gtk2 interface with custom highly speed/memory optimized widgets\n  * no GNOME or KDE dependencies - just gtk2 and several small libraries\n  * minimize to tray, with scrollwheel volume control\n  * drag and drop, both inside of playlist, and from filemanagers and such\n  * control playback from command line (allows global hotkeys using xbindkeys)\n  * seeking works in all supported formats\n  * plugin support; ships with several standard plugins, such as global hotkeys\n    and last.fm scrobbler; sdk is included\n  * duration calculation is as precise as possible for vbr mp3\n    files (with and without xing/info tags)",
               "Homepage": "http://deadbeef.sourceforge.net/",
-              "Installed-Size": "31926",
+              "Installed-Size": "31932",
               "Maintainer": "Oleksiy Yakovenko <waker@users.sf.net>",
               "Package": "deadbeef-static",
               "Priority": "optional",
@@ -411,15 +411,15 @@
               "Version": "1.10.4-alpha-1"
             },
             "filename": "deadbeef-static_1.10.4~alpha-1_amd64.deb",
-            "md5": "137e020121217b4dd1b007bce470940d",
-            "sha1": "f421b71ff4a17c2240082308c72b5fe0a2800b24",
-            "sha256": "8d4c064b18f11895246d83cb51b0786408de29a4c49f8317c818c754bec06eba",
-            "sha512": "66828b479dbcad6d021d4ae123949b0d93d8cab15f99b6c9b3e3652519aa2375cd1288f5cef0e3ba32edea6fa037c206664dc3071b5ba6df7d22a32ec7c1dd72",
-            "size": 13212794,
+            "md5": "a62f45dc09fda72fbd85f56384be7af7",
+            "sha1": "2708f338893f75fb46d275bb685a38ccbb00604d",
+            "sha256": "71038cf1f64657d0a57ce4bb2ea262cab9d3fb1ebfcc5f5a976ccb9b21c150c4",
+            "sha512": "a5f5df7032dab0d86a1560add28ced24dceae822b0e9db835c4814e9aa091ddceb6bdaf9d82852baec12bfad3811fd2639aee629dcf05e0413e2bfed8404c7fe",
+            "size": 13221260,
             "upstream_version": "deadbeef-static_1.10.4~alpha-1_amd64.deb",
             "url": "https://sourceforge.net/projects/deadbeef/files/Builds/master/linux/deadbeef-static_1.10.4~alpha-1_amd64.deb/download"
           },
-          "resolved_at": "2026-10-31T08:28:37+00:00",
+          "resolved_at": "2026-11-01T09:19:14+00:00",
           "source": "sourceforge",
           "update_policy": "track"
         },
@@ -431,7 +431,7 @@
               "Depends": "libasound2 (>> 1.0.16), libc6 (>= 2.7-1), libcairo2 (>= 1.2.4), libgcc1 (>= 1:4.1.1), libglib2.0-0 (>= 2.16.0), libgtk2.0-0 (>= 2.12.0), libx11-6",
               "Description": "The Ultimate Music Player\n DeaDBeeF (as in 0xDEADBEEF) is a cross-platform audio player\n .\n Features:\n .\n  * mp3, ogg vorbis, flac, ape, wv, wav\n  * ID3v1, ID3v2.2, ID3v2.3, ID3v2.4, APEv2, xing/info tags support\n  * character set detection for non-unicode ID3 tags - supports cp1251\n    and iso8859-1\n  * unicode tags are fully supported as well (both utf8 and ucs2)\n  * cuesheet support for mp3, ogg, flac, ape\n  * autodetection of utf8/cp1251/iso8859-1 charsets in cuesheets\n  * sid and some popular chiptune formats like nsf\n  * tracker modules like mod, s3m, it, xm, etc\n  * HVSC song length database support for sid\n  * gtk2 interface with custom highly speed/memory optimized widgets\n  * no GNOME or KDE dependencies - just gtk2 and several small libraries\n  * minimize to tray, with scrollwheel volume control\n  * drag and drop, both inside of playlist, and from filemanagers and such\n  * control playback from command line (allows global hotkeys using xbindkeys)\n  * seeking works in all supported formats\n  * plugin support; ships with several standard plugins, such as global hotkeys\n    and last.fm scrobbler; sdk is included\n  * duration calculation is as precise as possible for vbr mp3\n    files (with and without xing/info tags)",
               "Homepage": "http://deadbeef.sourceforge.net/",
-              "Installed-Size": "30558",
+              "Installed-Size": "30576",
               "Maintainer": "Oleksiy Yakovenko <waker@users.sf.net>",
               "Package": "deadbeef-static",
               "Priority": "optional",
@@ -440,15 +440,15 @@
               "Version": "1.10.4-alpha-1"
             },
             "filename": "deadbeef-static_1.10.4~alpha-1_arm64.deb",
-            "md5": "c0a2467cdfbe742bae273e4059186f49",
-            "sha1": "d67acdba99cd2b949c8422e81824fb8fc33e2076",
-            "sha256": "2e11c0cf18701125bd819d1831db51cb57ba819fbc4c0ab004c2a21affb33f74",
-            "sha512": "5dc2a22c2e7599294e69c8190d2f7cd580674f3576b27006d8cc1fa2603bfccb255e8ff7ac218da53cc14a781c9298e2e2f148c954461b87fade7369e99029ab",
-            "size": 12772996,
+            "md5": "be49ceb5f94b7f2b2566deefcde7dfe6",
+            "sha1": "2a21e981851e54faebd9531283bb0bec046eab5d",
+            "sha256": "0a4cb4f2c6fbd137f88c1be45a8ef0cf206a035996eb1a73291e409b8138bbca",
+            "sha512": "abfa48c1f95c93bcbebadf84c2f6c431969b036a1f4c7a0bbbd7b55a07a87268011c24f4254338fbbe37323aecf55a428c232cc07897d3d8c3869a52bd7c9aa3",
+            "size": 12778098,
             "upstream_version": "deadbeef-static_1.10.4~alpha-1_arm64.deb",
             "url": "https://sourceforge.net/projects/deadbeef/files/Builds/master/linux/deadbeef-static_1.10.4~alpha-1_arm64.deb/download"
           },
-          "resolved_at": "2026-10-31T08:28:39+00:00",
+          "resolved_at": "2026-11-01T09:19:18+00:00",
           "source": "sourceforge",
           "update_policy": "track"
         }
@@ -1410,14 +1410,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "Motrix_2.1.1_amd64.deb",
+            "asset_name": "Motrix_2.2.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "motrix-turbo",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Full-featured download manager\n  Motrix is a full-featured download manager that supports HTTP, FTP, BitTorrent and Magnet downloads.",
               "Homepage": "https://motrix.app",
-              "Installed-Size": "327322",
+              "Installed-Size": "327207",
               "License": "MIT",
               "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
               "Package": "motrix",
@@ -1427,31 +1427,31 @@
               "Replaces": "motrix-turbo",
               "Section": "default",
               "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
-              "Version": "2.1.1"
+              "Version": "2.2.0"
             },
-            "filename": "motrix_2.1.1_amd64.deb",
-            "md5": "b103f98e8efa28f99bf87c69e4b28022",
-            "sha1": "ac50e936376fac94adde175564097ef3ea9e92df",
-            "sha256": "4644dfb275159843ae2356b02c36ff39069a4aa9d778ed70c400977da0a4ee9f",
-            "sha512": "2ec4e6c9fb5370e9f217ab6fa40e76b6549fab2a7d2529f9ab4ea92f3aadc422f3b79c22fdbb7896bdc14b4a6e9a3356518fd1f230cbb340feec144a389f8666",
-            "size": 111999720,
-            "upstream_version": "v2.1.1",
-            "url": "https://github.com/agalwood/Motrix/releases/download/v2.1.1/Motrix_2.1.1_amd64.deb"
+            "filename": "motrix_2.2.0_amd64.deb",
+            "md5": "f634547a9ae8fd0024cff2afc1168625",
+            "sha1": "f270a0cd5bd68c57fce0a5efb9aceb91f00f44f2",
+            "sha256": "82f3b0cec5bb1d89135c9bdbe6adf4bdc4a0d5f04b3e37df67d8dc5a3a8baa0f",
+            "sha512": "ce00fd50b17e2f8f1f50ba5f0c8ed2f2f8d9423d64b0ed2e8084db199227798c20a3f3dfecc6915cbe2a3a6ac6e53a2969713fe505f97b763026ac2a4fd5cec1",
+            "size": 111854548,
+            "upstream_version": "v2.2.0",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v2.2.0/Motrix_2.2.0_amd64.deb"
           },
-          "resolved_at": "2026-10-30T08:42:10+00:00",
+          "resolved_at": "2026-11-01T09:19:22+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "Motrix_2.1.1_arm64.deb",
+            "asset_name": "Motrix_2.2.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "motrix-turbo",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Full-featured download manager\n  Motrix is a full-featured download manager that supports HTTP, FTP, BitTorrent and Magnet downloads.",
               "Homepage": "https://motrix.app",
-              "Installed-Size": "331304",
+              "Installed-Size": "331244",
               "License": "MIT",
               "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
               "Package": "motrix",
@@ -1461,18 +1461,18 @@
               "Replaces": "motrix-turbo",
               "Section": "default",
               "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
-              "Version": "2.1.1"
+              "Version": "2.2.0"
             },
-            "filename": "motrix_2.1.1_arm64.deb",
-            "md5": "ad92815b68ca5c1f9d55bc89aad9b7a0",
-            "sha1": "507880e347b7a47bbca215b8e7ad5698835fe193",
-            "sha256": "44a77987bd08e3352446534fe11b1eaab1563f4c5deea86166b911751811b78e",
-            "sha512": "7c60c61041969e872db82fe91cda5413fec89e81266b567e9bfc9bda5368611f8de912a904b18c4a0c4f1502a07fbc7cda4bffb591d8e3d4b12c63181df2e1c1",
-            "size": 107176588,
-            "upstream_version": "v2.1.1",
-            "url": "https://github.com/agalwood/Motrix/releases/download/v2.1.1/Motrix_2.1.1_arm64.deb"
+            "filename": "motrix_2.2.0_arm64.deb",
+            "md5": "a682ad8357db2d5a9372cb48108a5c52",
+            "sha1": "d8e43fe1a77e59e3646f68ad53ccae9ec25278c5",
+            "sha256": "9756d25d4c2b4f38f0ebffb29a3cb221c4f7f5850a8e7593d9bf55c96b92229f",
+            "sha512": "5fda717cc63c51864b1e1d408d386ead796c06a25c8ef33416cf4e673b94f6e56d3c115674ba0c83469f8b7f44a7bd460fc9bc026645a13640668dbc2d9d3e76",
+            "size": 107075752,
+            "upstream_version": "v2.2.0",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v2.2.0/Motrix_2.2.0_arm64.deb"
           },
-          "resolved_at": "2026-10-30T08:42:12+00:00",
+          "resolved_at": "2026-11-01T09:19:24+00:00",
           "source": "github",
           "update_policy": "track"
         }
