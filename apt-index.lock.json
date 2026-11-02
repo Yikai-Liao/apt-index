@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T09:19:31+00:00",
+  "generated_at": "2026-11-02T09:34:58+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -402,7 +402,7 @@
               "Depends": "libasound2 (>> 1.0.16), libc6 (>= 2.7-1), libcairo2 (>= 1.2.4), libgcc1 (>= 1:4.1.1), libglib2.0-0 (>= 2.16.0), libgtk2.0-0 (>= 2.12.0), libx11-6",
               "Description": "The Ultimate Music Player\n DeaDBeeF (as in 0xDEADBEEF) is a cross-platform audio player\n .\n Features:\n .\n  * mp3, ogg vorbis, flac, ape, wv, wav\n  * ID3v1, ID3v2.2, ID3v2.3, ID3v2.4, APEv2, xing/info tags support\n  * character set detection for non-unicode ID3 tags - supports cp1251\n    and iso8859-1\n  * unicode tags are fully supported as well (both utf8 and ucs2)\n  * cuesheet support for mp3, ogg, flac, ape\n  * autodetection of utf8/cp1251/iso8859-1 charsets in cuesheets\n  * sid and some popular chiptune formats like nsf\n  * tracker modules like mod, s3m, it, xm, etc\n  * HVSC song length database support for sid\n  * gtk2 interface with custom highly speed/memory optimized widgets\n  * no GNOME or KDE dependencies - just gtk2 and several small libraries\n  * minimize to tray, with scrollwheel volume control\n  * drag and drop, both inside of playlist, and from filemanagers and such\n  * control playback from command line (allows global hotkeys using xbindkeys)\n  * seeking works in all supported formats\n  * plugin support; ships with several standard plugins, such as global hotkeys\n    and last.fm scrobbler; sdk is included\n  * duration calculation is as precise as possible for vbr mp3\n    files (with and without xing/info tags)",
               "Homepage": "http://deadbeef.sourceforge.net/",
-              "Installed-Size": "31932",
+              "Installed-Size": "31946",
               "Maintainer": "Oleksiy Yakovenko <waker@users.sf.net>",
               "Package": "deadbeef-static",
               "Priority": "optional",
@@ -411,15 +411,15 @@
               "Version": "1.10.4-alpha-1"
             },
             "filename": "deadbeef-static_1.10.4~alpha-1_amd64.deb",
-            "md5": "a62f45dc09fda72fbd85f56384be7af7",
-            "sha1": "2708f338893f75fb46d275bb685a38ccbb00604d",
-            "sha256": "71038cf1f64657d0a57ce4bb2ea262cab9d3fb1ebfcc5f5a976ccb9b21c150c4",
-            "sha512": "a5f5df7032dab0d86a1560add28ced24dceae822b0e9db835c4814e9aa091ddceb6bdaf9d82852baec12bfad3811fd2639aee629dcf05e0413e2bfed8404c7fe",
-            "size": 13221260,
+            "md5": "254941418af0a3dd4c446d98571137e7",
+            "sha1": "7d21bda867f8a687b012d38d5ed7c7cd56748150",
+            "sha256": "f1095951510cc0f6c55b4ed514640dd0e9ecd95d62abcecd2bc12ec401273107",
+            "sha512": "863d4defe4bb6f43323b1176a892d939280ae015246762ba5adc3ab8215e8d8fc0a29e66a205d7b505618be36d4b3687cface0dbf5a03d89555b6d207c856961",
+            "size": 13224366,
             "upstream_version": "deadbeef-static_1.10.4~alpha-1_amd64.deb",
             "url": "https://sourceforge.net/projects/deadbeef/files/Builds/master/linux/deadbeef-static_1.10.4~alpha-1_amd64.deb/download"
           },
-          "resolved_at": "2026-11-01T09:19:14+00:00",
+          "resolved_at": "2026-11-02T09:34:42+00:00",
           "source": "sourceforge",
           "update_policy": "track"
         },
@@ -431,7 +431,7 @@
               "Depends": "libasound2 (>> 1.0.16), libc6 (>= 2.7-1), libcairo2 (>= 1.2.4), libgcc1 (>= 1:4.1.1), libglib2.0-0 (>= 2.16.0), libgtk2.0-0 (>= 2.12.0), libx11-6",
               "Description": "The Ultimate Music Player\n DeaDBeeF (as in 0xDEADBEEF) is a cross-platform audio player\n .\n Features:\n .\n  * mp3, ogg vorbis, flac, ape, wv, wav\n  * ID3v1, ID3v2.2, ID3v2.3, ID3v2.4, APEv2, xing/info tags support\n  * character set detection for non-unicode ID3 tags - supports cp1251\n    and iso8859-1\n  * unicode tags are fully supported as well (both utf8 and ucs2)\n  * cuesheet support for mp3, ogg, flac, ape\n  * autodetection of utf8/cp1251/iso8859-1 charsets in cuesheets\n  * sid and some popular chiptune formats like nsf\n  * tracker modules like mod, s3m, it, xm, etc\n  * HVSC song length database support for sid\n  * gtk2 interface with custom highly speed/memory optimized widgets\n  * no GNOME or KDE dependencies - just gtk2 and several small libraries\n  * minimize to tray, with scrollwheel volume control\n  * drag and drop, both inside of playlist, and from filemanagers and such\n  * control playback from command line (allows global hotkeys using xbindkeys)\n  * seeking works in all supported formats\n  * plugin support; ships with several standard plugins, such as global hotkeys\n    and last.fm scrobbler; sdk is included\n  * duration calculation is as precise as possible for vbr mp3\n    files (with and without xing/info tags)",
               "Homepage": "http://deadbeef.sourceforge.net/",
-              "Installed-Size": "30576",
+              "Installed-Size": "30590",
               "Maintainer": "Oleksiy Yakovenko <waker@users.sf.net>",
               "Package": "deadbeef-static",
               "Priority": "optional",
@@ -440,15 +440,15 @@
               "Version": "1.10.4-alpha-1"
             },
             "filename": "deadbeef-static_1.10.4~alpha-1_arm64.deb",
-            "md5": "be49ceb5f94b7f2b2566deefcde7dfe6",
-            "sha1": "2a21e981851e54faebd9531283bb0bec046eab5d",
-            "sha256": "0a4cb4f2c6fbd137f88c1be45a8ef0cf206a035996eb1a73291e409b8138bbca",
-            "sha512": "abfa48c1f95c93bcbebadf84c2f6c431969b036a1f4c7a0bbbd7b55a07a87268011c24f4254338fbbe37323aecf55a428c232cc07897d3d8c3869a52bd7c9aa3",
-            "size": 12778098,
+            "md5": "1b617db20214e73d0561a47b8d9e25cb",
+            "sha1": "cdc9592a63fdf654e1678613cccfc03250158716",
+            "sha256": "8742b0b2136545be92fca273a5589f001d639b01f22aefd2b408677d3dfdc088",
+            "sha512": "725758c7a8d6eb441507e46b77d0b59baf519b36329d7ea6bd8016c6dd55b81730297d44667163151ca0e89ab2b120b4404ca7f04fea580ac2c042c939cc6c8d",
+            "size": 12783822,
             "upstream_version": "deadbeef-static_1.10.4~alpha-1_arm64.deb",
             "url": "https://sourceforge.net/projects/deadbeef/files/Builds/master/linux/deadbeef-static_1.10.4~alpha-1_arm64.deb/download"
           },
-          "resolved_at": "2026-11-01T09:19:18+00:00",
+          "resolved_at": "2026-11-02T09:34:45+00:00",
           "source": "sourceforge",
           "update_policy": "track"
         }
@@ -526,29 +526,29 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "du-dust_1.2.6-1_amd64.deb",
+            "asset_name": "du-dust_1.2.7-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "",
               "Description": "A more intuitive version of du\n Dust is meant to give you an instant overview of which directories are using\n disk space without requiring sort or head. Dust will print a maximum of one\n 'Did not have permissions message'.",
               "Homepage": "https://github.com/bootandy/dust",
-              "Installed-Size": "2967",
+              "Installed-Size": "2963",
               "Maintainer": "bootandy <bootandy@gmail.com>",
               "Package": "du-dust",
               "Priority": "optional",
               "Section": "utils",
-              "Version": "1.2.6-1"
+              "Version": "1.2.7-1"
             },
-            "filename": "du-dust_1.2.6-1_amd64.deb",
-            "md5": "b5eb59c5002762e411d7a494b77bf2a4",
-            "sha1": "319c7dd2d7b9160824e7daaa2a331eebf35331d9",
-            "sha256": "c6e247e6097efca343373ab4c91548799d8815c1d84c9a15fa8ea38fc2bb50f8",
-            "sha512": "8166ec90c235516ec63d6115ae1440d35cf80e7b7726eff484bce2693e558bb0c485eda663001e251c08bf1b7f2a022b2530d65a7fee61f944c7c346baf80352",
-            "size": 952656,
-            "upstream_version": "v1.2.6",
-            "url": "https://github.com/bootandy/dust/releases/download/v1.2.6/du-dust_1.2.6-1_amd64.deb"
+            "filename": "du-dust_1.2.7-1_amd64.deb",
+            "md5": "3db2295342f74ccf6ec9d3d724eaf1e5",
+            "sha1": "b66383738e07d91f40c9cdbf45dc0b2b07ea5956",
+            "sha256": "84217d34c4ef92ced959781d16bda64344c2795fad735267378be1652d0a019f",
+            "sha512": "8e76a0dba21a733376bc0c9a227a8bd760b18c578e183252ae4477aa6a113d48ac2e949086a70e8560a60ce5aefeee23367a9b80c1d90238ce042f74bbc17bde",
+            "size": 954688,
+            "upstream_version": "v1.2.7",
+            "url": "https://github.com/bootandy/dust/releases/download/v1.2.7/du-dust_1.2.7-1_amd64.deb"
           },
-          "resolved_at": "2026-09-17T07:43:54+00:00",
+          "resolved_at": "2026-11-02T09:34:41+00:00",
           "source": "github",
           "update_policy": "track"
         }
