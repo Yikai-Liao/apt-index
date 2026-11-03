@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T09:34:58+00:00",
+  "generated_at": "2026-11-03T09:37:58+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.27.22_amd64.deb",
+            "asset_name": "cursor_3.28.7_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0) | libglib2.0-0t64 (>= 2.12.0), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "1053014",
+              "Installed-Size": "1055043",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.27.22-1793067078"
+              "Version": "3.28.7-1793673029"
             },
-            "filename": "cursor_3.27.22_amd64.deb",
-            "md5": "5e7c0f776ccb165509dc1c3ce85b6672",
-            "sha1": "cd17882c1647b598d5e20e4226f35be9c66c966f",
-            "sha256": "863a9dd15ca5fe84dd2f8e74fe2e926e8b438692f202277a89dd0ec3d928bf98",
-            "sha512": "9aeaade82e088b7d02be764c3d82d33043bdbe3b986b064bd41aa2d22155fcee26d292ed64a8b1957e1face1c01817f8d45f0b141b3e014772af62641103ca2c",
-            "size": 223442636,
-            "upstream_version": "3.27.22",
-            "url": "https://downloads.cursor.com/production/b1aa50cb6db84fd3e8c808259cb172ea73425c1f/linux/x64/deb/amd64/deb/cursor_3.27.22_amd64.deb"
+            "filename": "cursor_3.28.7_amd64.deb",
+            "md5": "9c541cc85f7101b74799c60f1a24e904",
+            "sha1": "22cd262e82312ea179f57255e15d0039fcb9e619",
+            "sha256": "4610c4915aff5ddd2b637e2ff3f48490e258239f4bfa34869b9ab2f0be5f38d0",
+            "sha512": "f8390889fc3bef9edbcd7d94d58d7d608236ccd9a0fa9eefca4d6a4f275c12ab95ea846a84ef7edaa70d42dd4f2984956ae4cd8c18cfd015c93e25ad7b28ddd7",
+            "size": 225351968,
+            "upstream_version": "3.28.7",
+            "url": "https://downloads.cursor.com/production/25b52e7d03ebf2d5608914158e119f7992432a34/linux/x64/deb/amd64/deb/cursor_3.28.7_amd64.deb"
           },
-          "resolved_at": "2026-10-27T07:56:14+00:00",
+          "resolved_at": "2026-11-03T09:37:42+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -411,15 +411,15 @@
               "Version": "1.10.4-alpha-1"
             },
             "filename": "deadbeef-static_1.10.4~alpha-1_amd64.deb",
-            "md5": "254941418af0a3dd4c446d98571137e7",
-            "sha1": "7d21bda867f8a687b012d38d5ed7c7cd56748150",
-            "sha256": "f1095951510cc0f6c55b4ed514640dd0e9ecd95d62abcecd2bc12ec401273107",
-            "sha512": "863d4defe4bb6f43323b1176a892d939280ae015246762ba5adc3ab8215e8d8fc0a29e66a205d7b505618be36d4b3687cface0dbf5a03d89555b6d207c856961",
-            "size": 13224366,
+            "md5": "3e71f534aa5ec8afdcfd0070a3cc3373",
+            "sha1": "e8fa66ee40b93a568b64709979b9408ed0491bdb",
+            "sha256": "fa1193fb167a92117dbf28a52a058d1ab66df1a0b5606aa3df6cd7d61f880795",
+            "sha512": "580390bb7628449de38cb45c4fa261cf93b03a9717b65e4784ce31ffe006d5f6e6b2718a7c40699c18729331a1d7c0af2683d00cbcf93004c657f72075af4031",
+            "size": 13223504,
             "upstream_version": "deadbeef-static_1.10.4~alpha-1_amd64.deb",
             "url": "https://sourceforge.net/projects/deadbeef/files/Builds/master/linux/deadbeef-static_1.10.4~alpha-1_amd64.deb/download"
           },
-          "resolved_at": "2026-11-02T09:34:42+00:00",
+          "resolved_at": "2026-11-03T09:37:37+00:00",
           "source": "sourceforge",
           "update_policy": "track"
         },
@@ -440,15 +440,15 @@
               "Version": "1.10.4-alpha-1"
             },
             "filename": "deadbeef-static_1.10.4~alpha-1_arm64.deb",
-            "md5": "1b617db20214e73d0561a47b8d9e25cb",
-            "sha1": "cdc9592a63fdf654e1678613cccfc03250158716",
-            "sha256": "8742b0b2136545be92fca273a5589f001d639b01f22aefd2b408677d3dfdc088",
-            "sha512": "725758c7a8d6eb441507e46b77d0b59baf519b36329d7ea6bd8016c6dd55b81730297d44667163151ca0e89ab2b120b4404ca7f04fea580ac2c042c939cc6c8d",
-            "size": 12783822,
+            "md5": "d01d9c8af41e9f38606b01bda421e3a8",
+            "sha1": "1310348518e86dcfe26edf9bcc3cd0977a62e92d",
+            "sha256": "4de71a83e433d2819d70fd3810b1afbe1b51903cca57024276ca6026e5558d18",
+            "sha512": "87f5a1dab69864fa1ba3908a163f368a53fad30b5a5034af9952edc168f0eb3c4d2007093f57c28174afec5df954f4e389b925dcb45efbca8faee3a6ade474a7",
+            "size": 12786330,
             "upstream_version": "deadbeef-static_1.10.4~alpha-1_arm64.deb",
             "url": "https://sourceforge.net/projects/deadbeef/files/Builds/master/linux/deadbeef-static_1.10.4~alpha-1_arm64.deb/download"
           },
-          "resolved_at": "2026-11-02T09:34:45+00:00",
+          "resolved_at": "2026-11-03T09:37:39+00:00",
           "source": "sourceforge",
           "update_policy": "track"
         }
@@ -1410,14 +1410,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "Motrix_2.2.0_amd64.deb",
+            "asset_name": "Motrix_2.2.1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "motrix-turbo",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Full-featured download manager\n  Motrix is a full-featured download manager that supports HTTP, FTP, BitTorrent and Magnet downloads.",
               "Homepage": "https://motrix.app",
-              "Installed-Size": "327207",
+              "Installed-Size": "327237",
               "License": "MIT",
               "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
               "Package": "motrix",
@@ -1427,31 +1427,31 @@
               "Replaces": "motrix-turbo",
               "Section": "default",
               "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
-              "Version": "2.2.0"
+              "Version": "2.2.1"
             },
-            "filename": "motrix_2.2.0_amd64.deb",
-            "md5": "f634547a9ae8fd0024cff2afc1168625",
-            "sha1": "f270a0cd5bd68c57fce0a5efb9aceb91f00f44f2",
-            "sha256": "82f3b0cec5bb1d89135c9bdbe6adf4bdc4a0d5f04b3e37df67d8dc5a3a8baa0f",
-            "sha512": "ce00fd50b17e2f8f1f50ba5f0c8ed2f2f8d9423d64b0ed2e8084db199227798c20a3f3dfecc6915cbe2a3a6ac6e53a2969713fe505f97b763026ac2a4fd5cec1",
-            "size": 111854548,
-            "upstream_version": "v2.2.0",
-            "url": "https://github.com/agalwood/Motrix/releases/download/v2.2.0/Motrix_2.2.0_amd64.deb"
+            "filename": "motrix_2.2.1_amd64.deb",
+            "md5": "93eca0a1827c237dbd239692af2ef0f7",
+            "sha1": "072b227473508dcaab05efdab1445df7cdeac796",
+            "sha256": "fd680002de467c2457a729c377339032af53f1e37dfff467ee8bf5c48a58995c",
+            "sha512": "88edd84560dfa3056b3ccc2c893bafebc52cc9d48e7894a7b0d448501ef65cf0200804e7b7ec563a01ba75698aca295c7f862ea4da6309138291882f31030356",
+            "size": 111866812,
+            "upstream_version": "v2.2.1",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v2.2.1/Motrix_2.2.1_amd64.deb"
           },
-          "resolved_at": "2026-11-01T09:19:22+00:00",
+          "resolved_at": "2026-11-03T09:37:45+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "Motrix_2.2.0_arm64.deb",
+            "asset_name": "Motrix_2.2.1_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "motrix-turbo",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Full-featured download manager\n  Motrix is a full-featured download manager that supports HTTP, FTP, BitTorrent and Magnet downloads.",
               "Homepage": "https://motrix.app",
-              "Installed-Size": "331244",
+              "Installed-Size": "331279",
               "License": "MIT",
               "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
               "Package": "motrix",
@@ -1461,18 +1461,18 @@
               "Replaces": "motrix-turbo",
               "Section": "default",
               "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
-              "Version": "2.2.0"
+              "Version": "2.2.1"
             },
-            "filename": "motrix_2.2.0_arm64.deb",
-            "md5": "a682ad8357db2d5a9372cb48108a5c52",
-            "sha1": "d8e43fe1a77e59e3646f68ad53ccae9ec25278c5",
-            "sha256": "9756d25d4c2b4f38f0ebffb29a3cb221c4f7f5850a8e7593d9bf55c96b92229f",
-            "sha512": "5fda717cc63c51864b1e1d408d386ead796c06a25c8ef33416cf4e673b94f6e56d3c115674ba0c83469f8b7f44a7bd460fc9bc026645a13640668dbc2d9d3e76",
-            "size": 107075752,
-            "upstream_version": "v2.2.0",
-            "url": "https://github.com/agalwood/Motrix/releases/download/v2.2.0/Motrix_2.2.0_arm64.deb"
+            "filename": "motrix_2.2.1_arm64.deb",
+            "md5": "54ec3fe408cd5dacfda468ef54214104",
+            "sha1": "6797dbf9ef1cfd0a82f818710ecc58631597efa9",
+            "sha256": "2e0574cdc577ba0425b25d9e5f9a452d487988b25ca3e2988049f331cad7e0c2",
+            "sha512": "e22ee2e321cf448d4be08ff50b9736784806f12bf01c56a695ba1812ced5344adc8df6a32626a5fb0a46774a73f6581b36d54fe3a56689fd2675c62b6d259b44",
+            "size": 107137116,
+            "upstream_version": "v2.2.1",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v2.2.1/Motrix_2.2.1_arm64.deb"
           },
-          "resolved_at": "2026-11-01T09:19:24+00:00",
+          "resolved_at": "2026-11-03T09:37:47+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1540,13 +1540,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "obsidian_1.14.5_amd64.deb",
+            "asset_name": "obsidian_1.15.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  Obsidian",
               "Homepage": "https://obsidian.md",
-              "Installed-Size": "351451",
+              "Installed-Size": "347550",
               "License": "UNLICENSED",
               "Maintainer": "Dynalist Inc.",
               "Package": "obsidian",
@@ -1554,18 +1554,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Dynalist Inc.",
-              "Version": "1.14.5"
+              "Version": "1.15.0"
             },
-            "filename": "obsidian_1.14.5_amd64.deb",
-            "md5": "21972b8b0578b46dd7e62374caf3c3a3",
-            "sha1": "919f433c87441678dcbb53cac7f7bba405b267ff",
-            "sha256": "c37fb46a966f604823337fb36ab23bd1baf8ce912ec35af59d62358a93357bee",
-            "sha512": "0404210eca2c5237ff73f1459ff78211aec2445bfc972d584b7250678b851414f3e14b1d9d5988723752847a93cd8a8608e498c4d4ccc1fbcbf411e2a74af2ae",
-            "size": 108711244,
-            "upstream_version": "v1.14.5",
-            "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.14.5/obsidian_1.14.5_amd64.deb"
+            "filename": "obsidian_1.15.0_amd64.deb",
+            "md5": "16c8bbe7e469b7314990b5f832df8c7e",
+            "sha1": "ea0b512c2046598ac28e760b47e6daa68fd1410f",
+            "sha256": "251805fdcb696af32129e8f5e8656f6688802fc38b169822175d23a74c5174b3",
+            "sha512": "5498984fbaeefacb1ab2d4aa30d1fce12bdf507cca8f38b6e01f94584233b5ea0619af12abf098a1f4e9541b208076fb9bc0e41fab4f8d1fe971cc3354bd7cab",
+            "size": 107879792,
+            "upstream_version": "v1.15.0",
+            "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.15.0/obsidian_1.15.0_amd64.deb"
           },
-          "resolved_at": "2026-10-23T07:36:06+00:00",
+          "resolved_at": "2026-11-03T09:37:45+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -2009,14 +2009,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "code_1.144.0_amd64.deb",
+            "asset_name": "code_1.144.1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.15), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "1055208",
+              "Installed-Size": "1055222",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2024,31 +2024,31 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.144.0-1793133881"
+              "Version": "1.144.1-1793549573"
             },
-            "filename": "code_1.144.0_amd64.deb",
-            "md5": "31c5d3f21cd29a37bb6e0d29e8c990aa",
-            "sha1": "96eeba88fdbc66c0423cb65300a7a19cd8a02581",
-            "sha256": "b8fbff92d8d95908990eed0acf004c980f29003725469e794ddbd017ea511a20",
-            "sha512": "6c4ebe5097828c84127681b81f6991562b706b84269bdd738185596f417a1df9a2a858f8893723c01546cb44dc25305fbe51d7b8cca94f2a26b587347a7df2b5",
-            "size": 258781214,
-            "upstream_version": "1.144.0",
-            "url": "https://update.code.visualstudio.com/1.144.0/linux-deb-x64/stable"
+            "filename": "code_1.144.1_amd64.deb",
+            "md5": "8a83643a2f2bbccd8fa2d0b2f6cb1e1d",
+            "sha1": "8afb3fda4e95338492b095239ca5a4a23f559362",
+            "sha256": "6ea99a41d03b62a5c6658bab66f12210322ebe4214dfa5f0bf1a3ca97501b848",
+            "sha512": "378637ab6b33f3a900e55a381dd0e68f8a58c58546b5ff05cfbbda4b63ac379a0e140d522062a379a3690493d8d810fd16280ed4135a0a91743617c1cda257d4",
+            "size": 258786350,
+            "upstream_version": "1.144.1",
+            "url": "https://update.code.visualstudio.com/1.144.1/linux-deb-x64/stable"
           },
-          "resolved_at": "2026-10-29T08:35:03+00:00",
+          "resolved_at": "2026-11-03T09:37:53+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "code_1.144.0_arm64.deb",
+            "asset_name": "code_1.144.1_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.17), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libstdc++6 (>= 4.1.1), libstdc++6 (>= 5), libstdc++6 (>= 5.2), libstdc++6 (>= 6), libstdc++6 (>= 9), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "964946",
+              "Installed-Size": "964956",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2056,18 +2056,18 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.144.0-1793133877"
+              "Version": "1.144.1-1793549527"
             },
-            "filename": "code_1.144.0_arm64.deb",
-            "md5": "26d59b74998b14ce90abe85a7ebcb6d3",
-            "sha1": "00ef5aee4df61ad88461c3f04f147e4c1f50f968",
-            "sha256": "044e1cfd2ba1a93ff05b1d58f4b720896142c939f862c9a9204c2efe6c87b3af",
-            "sha512": "d76ada00e27c762d513927bc676d83c839eb2c270d43f9e4c44672fb15548d5e7910b72ab4f0b4bd4829e55caed7c1be66be677635f31c2a944e3f98eb4a00d4",
-            "size": 228863502,
-            "upstream_version": "1.144.0",
-            "url": "https://update.code.visualstudio.com/1.144.0/linux-deb-arm64/stable"
+            "filename": "code_1.144.1_arm64.deb",
+            "md5": "840fdebbc15d0e66843bd700fcd10380",
+            "sha1": "061a70367166625deb9d34c21b6f6fe567c7b35c",
+            "sha256": "799be313359c09cb91dd32b2b7c951497a6cb5d423a0950d074a870828ca3465",
+            "sha512": "13cdd342df6849096313eeb45df1d088f8938b2b0b0384858ddc472cefe24d73c326c93f6944582e439c913060495560907c7b630f89f6abd275a452e1c33979",
+            "size": 228857446,
+            "upstream_version": "1.144.1",
+            "url": "https://update.code.visualstudio.com/1.144.1/linux-deb-arm64/stable"
           },
-          "resolved_at": "2026-10-29T08:35:15+00:00",
+          "resolved_at": "2026-11-03T09:37:58+00:00",
           "source": "aur",
           "update_policy": "track"
         }
