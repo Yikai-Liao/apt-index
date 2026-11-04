@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T09:37:58+00:00",
+  "generated_at": "2026-11-04T09:22:39+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -64,7 +64,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_6.2.0_amd64.deb",
+            "asset_name": "beekeeper-studio_6.2.1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
@@ -78,24 +78,24 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "6.2.0"
+              "Version": "6.2.1"
             },
-            "filename": "beekeeper-studio_6.2.0_amd64.deb",
-            "md5": "042a36413ec9cc184d6e02bb15be4dbd",
-            "sha1": "56fa6309bc5c08f8abab821d4566eee93fd5a7fb",
-            "sha256": "428c446415e14040c76160254cc10073332cd7b53a5a27ef8b1e5cc9639474f6",
-            "sha512": "ccac3769cb19810438d01e0840d929ce7d5851da2768625eab3073a33d31afeba6baaebf5e71654ddb09de3a7df0ff0a45d2ff5c0be18a3a07174b9fd0b92025",
-            "size": 276177844,
-            "upstream_version": "v6.2.0",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.2.0/beekeeper-studio_6.2.0_amd64.deb"
+            "filename": "beekeeper-studio_6.2.1_amd64.deb",
+            "md5": "e633e92f62c903b5b12ef15c80d0d294",
+            "sha1": "9fdab5ed080955a1fd96fa1111812783dd91893b",
+            "sha256": "4087e2695f5f9529911ebc9468b00124d6c3c308fa7d92061b7ad6cfb7e21122",
+            "sha512": "24efde1c854b05a0e0d69aeb3c6eb97e2a660c16ab4705f5be33ff0fd5590077d784df121f03663b249666a6cacd18bb70223cbc846b20f47377956cdec859e3",
+            "size": 276176864,
+            "upstream_version": "v6.2.1",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.2.1/beekeeper-studio_6.2.1_amd64.deb"
           },
-          "resolved_at": "2026-10-29T08:34:49+00:00",
+          "resolved_at": "2026-11-04T09:22:19+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_6.2.0_arm64.deb",
+            "asset_name": "beekeeper-studio_6.2.1_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
@@ -109,18 +109,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "6.2.0"
+              "Version": "6.2.1"
             },
-            "filename": "beekeeper-studio_6.2.0_arm64.deb",
-            "md5": "d359c10b03d2051bf9f097e04bf2a895",
-            "sha1": "fba3a76dde52ea08eb02935cb1ab45e4a75656af",
-            "sha256": "c5423270c6298a21b4d26e9c215fcbd006515d6c8c049573224db19fee36d551",
-            "sha512": "4c43930e103de36716e058cfeb74d288a532733c927786148e3ff8056f70c8243611dab1376a6c4e3e85cc3e078b09973e799d6c132740041db33056d99f8f0e",
-            "size": 268534200,
-            "upstream_version": "v6.2.0",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.2.0/beekeeper-studio_6.2.0_arm64.deb"
+            "filename": "beekeeper-studio_6.2.1_arm64.deb",
+            "md5": "4cf4cc68d7b6ba8a27b77a9b92a1a204",
+            "sha1": "f0ff70fc2dd15bddaf0644f30a294c2e227ced6a",
+            "sha256": "2306facb8f6324c9cbf93f57fa65229b87e0e76183484f08fcdcd9e661b85d45",
+            "sha512": "95b06f14526ba0fd0f3a75f9f466842158dace3733f600d28507a9ef0dd8c2f1e3952f8e3348e1d6f4d57ee9d2e265da221f64fb12d7eb246d0da647927592f6",
+            "size": 268533296,
+            "upstream_version": "v6.2.1",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.2.1/beekeeper-studio_6.2.1_arm64.deb"
           },
-          "resolved_at": "2026-10-29T08:34:59+00:00",
+          "resolved_at": "2026-11-04T09:22:26+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -653,7 +653,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "fd_10.5.0_amd64.deb",
+            "asset_name": "fd_10.5.1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "fd-musl, fd-find",
@@ -664,24 +664,24 @@
               "Priority": "optional",
               "Provides": "fd",
               "Section": "utils",
-              "Version": "10.5.0"
+              "Version": "10.5.1"
             },
-            "filename": "fd_10.5.0_amd64.deb",
-            "md5": "11275142f970853a5cda6911c6c5f9e9",
-            "sha1": "2b6fbb49e6119a260b1efeb8ec8d930ca00627c4",
-            "sha256": "1fca9f8fb221f26fe37b425db4935dc8180099bdecfd8e031538bfc9396e95f8",
-            "sha512": "d8b2d0755f03e523012d20713cc33cbaa082a2f18fe51586db6684a5fbcb7931c00758d04c3ad9f79025fe2f8994607ef5a0a14c7a6e8ee871fef0c50381cfbd",
-            "size": 1235940,
-            "upstream_version": "v10.5.0",
-            "url": "https://github.com/sharkdp/fd/releases/download/v10.5.0/fd_10.5.0_amd64.deb"
+            "filename": "fd_10.5.1_amd64.deb",
+            "md5": "cdda6719d414e31bb3d1d0305847b0cf",
+            "sha1": "20feaeb8659801f821304add412deedfacb57a51",
+            "sha256": "0e349541d682a4c6e9ef70de3734f11e2b6a1043a73f88ac9e028282a1e5a5ef",
+            "sha512": "00f2c6d6fe81c8c92c48f0d9c2713da2bc0617e119a9f3704c51e12a96459a2295af132b5b12d92d9c5566b4cfb6ae26ee0a4b0d043d42d94132f3bf61acda6e",
+            "size": 1435716,
+            "upstream_version": "v10.5.1",
+            "url": "https://github.com/sharkdp/fd/releases/download/v10.5.1/fd_10.5.1_amd64.deb"
           },
-          "resolved_at": "2026-08-27T12:50:36+00:00",
+          "resolved_at": "2026-11-04T09:22:15+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "fd_10.5.0_arm64.deb",
+            "asset_name": "fd_10.5.1_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "fd-musl, fd-find",
@@ -692,18 +692,18 @@
               "Priority": "optional",
               "Provides": "fd",
               "Section": "utils",
-              "Version": "10.5.0"
+              "Version": "10.5.1"
             },
-            "filename": "fd_10.5.0_arm64.deb",
-            "md5": "fdd66b4d9dec35a7a4fe7ffd7c5877b8",
-            "sha1": "427ccf5c096ac156f09f9da68c50a7014eaede0f",
-            "sha256": "a3128d8e206dd646a27f4637ca081f311df2d6f21cd87bbead7fc92cc0952192",
-            "sha512": "60a2be5f637964aae8c6c9612f10f21643675fb31afa498617db6324661ee9796dd5e34cd5f260adc186693ce91b1aa0cdc3d1f16eee7618a5c9dc5ce8db8ea0",
-            "size": 1128796,
-            "upstream_version": "v10.5.0",
-            "url": "https://github.com/sharkdp/fd/releases/download/v10.5.0/fd_10.5.0_arm64.deb"
+            "filename": "fd_10.5.1_arm64.deb",
+            "md5": "5322b09a52ede064e1e4791d216455a3",
+            "sha1": "4d3e42e8ea3cf667c8d3f30300744c022a53c598",
+            "sha256": "61a62ec2e3dc2583a07caec09b76bc9f54630452b0e3290833657f31924adace",
+            "sha512": "44bfb1b6b9e8091f8006e11da0e5b670da1f29ca115fa753f766dde557de2168513516027f2d752500faaed0f2157f48a676b99578ed00767b3d81797e8c3275",
+            "size": 1303356,
+            "upstream_version": "v10.5.1",
+            "url": "https://github.com/sharkdp/fd/releases/download/v10.5.1/fd_10.5.1_arm64.deb"
           },
-          "resolved_at": "2026-08-27T12:50:37+00:00",
+          "resolved_at": "2026-11-04T09:22:16+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -846,7 +846,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "FlClash-0.9.2-linux-amd64.deb",
+            "asset_name": "FlClash-0.9.3-linux-amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libayatana-appindicator3-1, libsecret-1-0",
@@ -857,24 +857,24 @@
               "Package": "FlClash",
               "Priority": "optional",
               "Section": "x11",
-              "Version": "0.9.2+2026102401"
+              "Version": "0.9.3+2026110401"
             },
-            "filename": "FlClash-0.9.2-linux-amd64.deb",
-            "md5": "4c3dc9b362444de0d0370db2fbdc8e7e",
-            "sha1": "d84b8bc544634374458a43ed4b78a02eaded173f",
-            "sha256": "c6ca37446db92b57309d1c709fba6209f2c679b6d33cfc748f73b8eb1a59a6e8",
-            "sha512": "4696f5e24cda820dec4304a485ac848a34e18bd6c82b1e9e3e78657ff0760693b894421c88f02c594a02a0e854bd24ad4250e7dbc2f0392896bef94d668aa98d",
-            "size": 40536736,
-            "upstream_version": "v0.9.2",
-            "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.2/FlClash-0.9.2-linux-amd64.deb"
+            "filename": "FlClash-0.9.3-linux-amd64.deb",
+            "md5": "3aa76f96388cc424507e417ab1f1bc0c",
+            "sha1": "cd5359e601eaccddda26d4645dac2d76663928c6",
+            "sha256": "4064254329bb39c6289c743e16e5726ae56b5853e86d9f88e0145e2af032351b",
+            "sha512": "5a2dfec2008952e5d9cf08d862d48a9269852b0412393395273eb7e9cd71b8a836a352c8d99012e351d89eb2dd83e202ec85ff7f7610a7f5bbaaf07e3fc75bc6",
+            "size": 40482184,
+            "upstream_version": "v0.9.3",
+            "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.3/FlClash-0.9.3-linux-amd64.deb"
           },
-          "resolved_at": "2026-10-24T07:21:23+00:00",
+          "resolved_at": "2026-11-04T09:22:18+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "FlClash-0.9.2-linux-arm64.deb",
+            "asset_name": "FlClash-0.9.3-linux-arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libayatana-appindicator3-1, libsecret-1-0",
@@ -885,18 +885,18 @@
               "Package": "FlClash",
               "Priority": "optional",
               "Section": "x11",
-              "Version": "0.9.2+2026102401"
+              "Version": "0.9.3+2026110401"
             },
-            "filename": "FlClash-0.9.2-linux-arm64.deb",
-            "md5": "be744bf2ba5d23a0581a8db194770889",
-            "sha1": "fcbd861f1688bbf721a64e32eb2eef9f92a92c89",
-            "sha256": "15702119218d288943978611db674eeb7495911d07ba5e1444744361353df3e6",
-            "sha512": "b9004ee2a6901e4dcc5b2848d6e790a4eba303d979884ea0d9072074c97ffe103daa1bb88465a628d3fed9d7d254f313fd19740d4e34306c61024f7223ef27cf",
-            "size": 36902216,
-            "upstream_version": "v0.9.2",
-            "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.2/FlClash-0.9.2-linux-arm64.deb"
+            "filename": "FlClash-0.9.3-linux-arm64.deb",
+            "md5": "00957e9619be804973c2e27b472f71fa",
+            "sha1": "6865417a44917e4dda6ae14b276892553c552db3",
+            "sha256": "86789e784786e7d53dce44858ff9bdcd8f430a3bd1366bc9d071bf68622be7a7",
+            "sha512": "103fe4ffca55eeab21e50947a3d8d73345c302a86eb7d144836dd416680562f2ff157bea8cdaba983e87b38c8e1a5f28b0f482804785cf89ce74dc69d54123cd",
+            "size": 36860748,
+            "upstream_version": "v0.9.3",
+            "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.3/FlClash-0.9.3-linux-arm64.deb"
           },
-          "resolved_at": "2026-10-24T07:21:24+00:00",
+          "resolved_at": "2026-11-04T09:22:19+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1090,30 +1090,30 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "google-chrome-stable_156.0.8078.79-1_amd64.deb",
+            "asset_name": "google-chrome-stable_157.0.8103.38-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "ca-certificates, fonts-liberation, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.25), libcairo2 (>= 1.14.0), libcups2 (>= 1.7.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.49.3), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.35), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libvulkan1, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxrandr2, wget, xdg-utils (>= 1.0.2)",
               "Description": "The web browser from Google\n Google Chrome is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier.",
-              "Installed-Size": "456133",
+              "Installed-Size": "462822",
               "Maintainer": "Chrome Linux Team <chromium-dev@chromium.org>",
               "Package": "google-chrome-stable",
               "Pre-Depends": "dpkg (>= 1.14.0)",
               "Priority": "optional",
               "Provides": "www-browser",
               "Section": "web",
-              "Version": "156.0.8078.79-1"
+              "Version": "157.0.8103.38-1"
             },
-            "filename": "google-chrome-stable_156.0.8078.79-1_amd64.deb",
-            "md5": "5dde941d565d874e9db1f017e7817948",
-            "sha1": "4f27c388f592ec7fe7edebf8d0becec241d9c13a",
-            "sha256": "be1a1e161419f5c8272432f6860912550d8e29985e925913fa800493a0d0c955",
-            "sha512": "68ea17afbc84d788ed9e1b6c2c16e979a5e5773b1ae6b6b30e4485d0c39547d7f3a74f028bc5e134cc1412c8534cfdf31b4f85e9f3016fc8b70430d768324315",
-            "size": 145633696,
-            "upstream_version": "156.0.8078.79",
-            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_156.0.8078.79-1_amd64.deb"
+            "filename": "google-chrome-stable_157.0.8103.38-1_amd64.deb",
+            "md5": "f25cb333b14d40a7ac334b5542af16ad",
+            "sha1": "e2106107411c11d8e3ddc174dcfb1b6d9157090c",
+            "sha256": "a62b277dc03da2cff50cc04589deb66f6875be339c066d46adb49b49eedb629d",
+            "sha512": "92a77ba2ef2fce868ecfef0e288e4ef6f6c7b390cb249eb592287a3ce42d21fc36181f4dd234ff072cfa927abcb24cfd9dfa3bdb736d1dcf23eae6adaf91e706",
+            "size": 147633324,
+            "upstream_version": "157.0.8103.38",
+            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_157.0.8103.38-1_amd64.deb"
           },
-          "resolved_at": "2026-10-30T08:42:10+00:00",
+          "resolved_at": "2026-11-04T09:22:21+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -2009,14 +2009,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "code_1.144.1_amd64.deb",
+            "asset_name": "code_1.145.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.15), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "1055222",
+              "Installed-Size": "1072162",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2024,31 +2024,31 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.144.1-1793549573"
+              "Version": "1.145.0-1793749366"
             },
-            "filename": "code_1.144.1_amd64.deb",
-            "md5": "8a83643a2f2bbccd8fa2d0b2f6cb1e1d",
-            "sha1": "8afb3fda4e95338492b095239ca5a4a23f559362",
-            "sha256": "6ea99a41d03b62a5c6658bab66f12210322ebe4214dfa5f0bf1a3ca97501b848",
-            "sha512": "378637ab6b33f3a900e55a381dd0e68f8a58c58546b5ff05cfbbda4b63ac379a0e140d522062a379a3690493d8d810fd16280ed4135a0a91743617c1cda257d4",
-            "size": 258786350,
-            "upstream_version": "1.144.1",
-            "url": "https://update.code.visualstudio.com/1.144.1/linux-deb-x64/stable"
+            "filename": "code_1.145.0_amd64.deb",
+            "md5": "8a9bb83022d5af64009a70eb4990091f",
+            "sha1": "d2dbbac3051f576f489527df52e06c90a7e37db8",
+            "sha256": "64cb445811a347df1b5118a17117cfd5ac0ab7e2cc41832351b938364d17cacd",
+            "sha512": "595dd1ccc1aa3750fd043b344b12a300fbb50d7b176d40a4f49ffb7bde00a9ed62c7afff01159feb94928b27580b6042c2bda235d9338817fd7261cdce209bca",
+            "size": 263019110,
+            "upstream_version": "1.145.0",
+            "url": "https://update.code.visualstudio.com/1.145.0/linux-deb-x64/stable"
           },
-          "resolved_at": "2026-11-03T09:37:53+00:00",
+          "resolved_at": "2026-11-04T09:22:31+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "code_1.144.1_arm64.deb",
+            "asset_name": "code_1.145.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.17), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libstdc++6 (>= 4.1.1), libstdc++6 (>= 5), libstdc++6 (>= 5.2), libstdc++6 (>= 6), libstdc++6 (>= 9), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "964956",
+              "Installed-Size": "981120",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2056,18 +2056,18 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.144.1-1793549527"
+              "Version": "1.145.0-1793748906"
             },
-            "filename": "code_1.144.1_arm64.deb",
-            "md5": "840fdebbc15d0e66843bd700fcd10380",
-            "sha1": "061a70367166625deb9d34c21b6f6fe567c7b35c",
-            "sha256": "799be313359c09cb91dd32b2b7c951497a6cb5d423a0950d074a870828ca3465",
-            "sha512": "13cdd342df6849096313eeb45df1d088f8938b2b0b0384858ddc472cefe24d73c326c93f6944582e439c913060495560907c7b630f89f6abd275a452e1c33979",
-            "size": 228857446,
-            "upstream_version": "1.144.1",
-            "url": "https://update.code.visualstudio.com/1.144.1/linux-deb-arm64/stable"
+            "filename": "code_1.145.0_arm64.deb",
+            "md5": "76ad58c9f62e1cfb0129376f8094694c",
+            "sha1": "a44c7a5307f0998320cc1800dc246af3d6da9b51",
+            "sha256": "da4c873ae450a5da60c55e409a15672c01baacfe5d36e2d4b56b06ea0db14c41",
+            "sha512": "fa1c3f62ec8d303ffd1d0d53abc20f73609020f99f8bf3abfb7a3e20b73b941fa885636e056538b114ed00ba6346184b85f58bee901e69982a25ce964e45414e",
+            "size": 233468790,
+            "upstream_version": "1.145.0",
+            "url": "https://update.code.visualstudio.com/1.145.0/linux-deb-arm64/stable"
           },
-          "resolved_at": "2026-11-03T09:37:58+00:00",
+          "resolved_at": "2026-11-04T09:22:39+00:00",
           "source": "aur",
           "update_policy": "track"
         }
