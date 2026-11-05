@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T09:22:39+00:00",
+  "generated_at": "2026-11-05T09:33:22+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -402,7 +402,7 @@
               "Depends": "libasound2 (>> 1.0.16), libc6 (>= 2.7-1), libcairo2 (>= 1.2.4), libgcc1 (>= 1:4.1.1), libglib2.0-0 (>= 2.16.0), libgtk2.0-0 (>= 2.12.0), libx11-6",
               "Description": "The Ultimate Music Player\n DeaDBeeF (as in 0xDEADBEEF) is a cross-platform audio player\n .\n Features:\n .\n  * mp3, ogg vorbis, flac, ape, wv, wav\n  * ID3v1, ID3v2.2, ID3v2.3, ID3v2.4, APEv2, xing/info tags support\n  * character set detection for non-unicode ID3 tags - supports cp1251\n    and iso8859-1\n  * unicode tags are fully supported as well (both utf8 and ucs2)\n  * cuesheet support for mp3, ogg, flac, ape\n  * autodetection of utf8/cp1251/iso8859-1 charsets in cuesheets\n  * sid and some popular chiptune formats like nsf\n  * tracker modules like mod, s3m, it, xm, etc\n  * HVSC song length database support for sid\n  * gtk2 interface with custom highly speed/memory optimized widgets\n  * no GNOME or KDE dependencies - just gtk2 and several small libraries\n  * minimize to tray, with scrollwheel volume control\n  * drag and drop, both inside of playlist, and from filemanagers and such\n  * control playback from command line (allows global hotkeys using xbindkeys)\n  * seeking works in all supported formats\n  * plugin support; ships with several standard plugins, such as global hotkeys\n    and last.fm scrobbler; sdk is included\n  * duration calculation is as precise as possible for vbr mp3\n    files (with and without xing/info tags)",
               "Homepage": "http://deadbeef.sourceforge.net/",
-              "Installed-Size": "31946",
+              "Installed-Size": "31950",
               "Maintainer": "Oleksiy Yakovenko <waker@users.sf.net>",
               "Package": "deadbeef-static",
               "Priority": "optional",
@@ -411,15 +411,15 @@
               "Version": "1.10.4-alpha-1"
             },
             "filename": "deadbeef-static_1.10.4~alpha-1_amd64.deb",
-            "md5": "3e71f534aa5ec8afdcfd0070a3cc3373",
-            "sha1": "e8fa66ee40b93a568b64709979b9408ed0491bdb",
-            "sha256": "fa1193fb167a92117dbf28a52a058d1ab66df1a0b5606aa3df6cd7d61f880795",
-            "sha512": "580390bb7628449de38cb45c4fa261cf93b03a9717b65e4784ce31ffe006d5f6e6b2718a7c40699c18729331a1d7c0af2683d00cbcf93004c657f72075af4031",
-            "size": 13223504,
+            "md5": "f975291bb7a1a02e7ea1328958364e67",
+            "sha1": "0eadf5eac3b1989228fbb5e747d422fad91c2d2f",
+            "sha256": "c13af478f3e326432f02e711e4a2e434996ef106ff39974b9cc5dbe2f8cd8816",
+            "sha512": "473bd9ee6d6e1a6a55577495a83d4f73e3171d5c6473edc3b10dfa17b44af65a72926176393537302ab72b5b3b9de9394ef8aa8c200241c10586a1fa433046da",
+            "size": 13224246,
             "upstream_version": "deadbeef-static_1.10.4~alpha-1_amd64.deb",
             "url": "https://sourceforge.net/projects/deadbeef/files/Builds/master/linux/deadbeef-static_1.10.4~alpha-1_amd64.deb/download"
           },
-          "resolved_at": "2026-11-03T09:37:37+00:00",
+          "resolved_at": "2026-11-05T09:33:05+00:00",
           "source": "sourceforge",
           "update_policy": "track"
         },
@@ -440,15 +440,15 @@
               "Version": "1.10.4-alpha-1"
             },
             "filename": "deadbeef-static_1.10.4~alpha-1_arm64.deb",
-            "md5": "d01d9c8af41e9f38606b01bda421e3a8",
-            "sha1": "1310348518e86dcfe26edf9bcc3cd0977a62e92d",
-            "sha256": "4de71a83e433d2819d70fd3810b1afbe1b51903cca57024276ca6026e5558d18",
-            "sha512": "87f5a1dab69864fa1ba3908a163f368a53fad30b5a5034af9952edc168f0eb3c4d2007093f57c28174afec5df954f4e389b925dcb45efbca8faee3a6ade474a7",
-            "size": 12786330,
+            "md5": "0bf5d029c3c97676f9480c3e8e83ab99",
+            "sha1": "a85d2a48f3f82b9394a4558d525fe072d3400df0",
+            "sha256": "736bf54014d7722dd33dd348aa26913dc10ed0ff8f1bb44aae6021b7137a7c75",
+            "sha512": "7ea514d1d13f5c933010f2be3496b9c9c96bb31def5c56332946f17578154d45b29f640098b8e9d51cebabf1be614044c2605f5f76fc0b0b1a504229a8499594",
+            "size": 12785780,
             "upstream_version": "deadbeef-static_1.10.4~alpha-1_arm64.deb",
             "url": "https://sourceforge.net/projects/deadbeef/files/Builds/master/linux/deadbeef-static_1.10.4~alpha-1_arm64.deb/download"
           },
-          "resolved_at": "2026-11-03T09:37:39+00:00",
+          "resolved_at": "2026-11-05T09:33:08+00:00",
           "source": "sourceforge",
           "update_policy": "track"
         }
@@ -459,13 +459,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "drawio-amd64-32.6.1.deb",
+            "asset_name": "drawio-amd64-32.6.10.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  draw.io desktop",
               "Homepage": "https://github.com/jgraph/drawio",
-              "Installed-Size": "351834",
+              "Installed-Size": "352494",
               "License": "GPL-3.0-only",
               "Maintainer": "draw.io <desktop@draw.io>",
               "Package": "draw.io",
@@ -473,30 +473,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "draw.io <desktop@draw.io>",
-              "Version": "32.6.1"
+              "Version": "32.6.10"
             },
-            "filename": "draw.io_32.6.1_amd64.deb",
-            "md5": "0bd8fe80a9d573d9f64c5f32d94f1a62",
-            "sha1": "b83488663ad50bbc6702d7706ed059f3c814329b",
-            "sha256": "515a975fbdb982e0d736b6f99248dbbb856a8b07bb72d6d3648a54b850fa33db",
-            "sha512": "9d0dacacb026f71cae91d38b40ec0e734f1757999ec9578fc0b9546a552638683c8158160b6ef81fb3b1368195271bbe09e52a4b9eb86fdd025fd85603ea9ceb",
-            "size": 122314596,
-            "upstream_version": "v32.6.1",
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v32.6.1/drawio-amd64-32.6.1.deb"
+            "filename": "draw.io_32.6.10_amd64.deb",
+            "md5": "2b772b1fd4b90437972d323ba8e15afa",
+            "sha1": "185505fd321e82f6a2d62281b21243a297c1876e",
+            "sha256": "fc96faafe68cb4e06c0b7116779891592b20fce2cde7907adec504f23c5af83c",
+            "sha512": "fca80a5129a7f9c7b56b74869e66f5ce89c99dddecbea4d97d79240f05db4f6231e2bca0e6e86e9005a7ebd12d845f801b1b0caf15667390df82808d44cfcea5",
+            "size": 122104752,
+            "upstream_version": "v32.6.10",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v32.6.10/drawio-amd64-32.6.10.deb"
           },
-          "resolved_at": "2026-10-24T07:21:20+00:00",
+          "resolved_at": "2026-11-05T09:33:05+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "drawio-arm64-32.6.1.deb",
+            "asset_name": "drawio-arm64-32.6.10.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  draw.io desktop",
               "Homepage": "https://github.com/jgraph/drawio",
-              "Installed-Size": "356497",
+              "Installed-Size": "357109",
               "License": "GPL-3.0-only",
               "Maintainer": "draw.io <desktop@draw.io>",
               "Package": "draw.io",
@@ -504,18 +504,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "draw.io <desktop@draw.io>",
-              "Version": "32.6.1"
+              "Version": "32.6.10"
             },
-            "filename": "draw.io_32.6.1_arm64.deb",
-            "md5": "bae34f9a490d6a7de6151124dcf98009",
-            "sha1": "2b264289029b19d32da2f3f923218568f2f284a3",
-            "sha256": "eb3354233d55e27624c2e8361680572fdb9528cfc5728d1d44bb7764306b4f61",
-            "sha512": "cd86ec4c00f102ef403bdedc6fd15875ff81011264b9f581b15bde975129fa09a8ea11644aebaf098595f25a223a0225dcd557b6981315af3f192c5952ae6852",
-            "size": 117389248,
-            "upstream_version": "v32.6.1",
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v32.6.1/drawio-arm64-32.6.1.deb"
+            "filename": "draw.io_32.6.10_arm64.deb",
+            "md5": "f11c329003f0e4b4a027cf24d2711f84",
+            "sha1": "924e96ac7b93bfd482eb6524fab30917cce499f7",
+            "sha256": "3cd0b69b31f9113f09df43f47f149e78f1a109d628282ae713e13d0e5d320800",
+            "sha512": "c9e86c9fab4c13d5021e04f43a9588eb129de3b77aac3da44c8b5f50e0d35fa2fa9b561ca02a6af65545ecf43373d5297cb090a55c7faac615d6cf11a842467d",
+            "size": 117186256,
+            "upstream_version": "v32.6.10",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v32.6.10/drawio-arm64-32.6.10.deb"
           },
-          "resolved_at": "2026-10-24T07:21:22+00:00",
+          "resolved_at": "2026-11-05T09:33:07+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1410,14 +1410,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "Motrix_2.2.1_amd64.deb",
+            "asset_name": "Motrix_2.3.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "motrix-turbo",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Full-featured download manager\n  Motrix is a full-featured download manager that supports HTTP, FTP, BitTorrent and Magnet downloads.",
               "Homepage": "https://motrix.app",
-              "Installed-Size": "327237",
+              "Installed-Size": "327582",
               "License": "MIT",
               "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
               "Package": "motrix",
@@ -1427,31 +1427,31 @@
               "Replaces": "motrix-turbo",
               "Section": "default",
               "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
-              "Version": "2.2.1"
+              "Version": "2.3.0"
             },
-            "filename": "motrix_2.2.1_amd64.deb",
-            "md5": "93eca0a1827c237dbd239692af2ef0f7",
-            "sha1": "072b227473508dcaab05efdab1445df7cdeac796",
-            "sha256": "fd680002de467c2457a729c377339032af53f1e37dfff467ee8bf5c48a58995c",
-            "sha512": "88edd84560dfa3056b3ccc2c893bafebc52cc9d48e7894a7b0d448501ef65cf0200804e7b7ec563a01ba75698aca295c7f862ea4da6309138291882f31030356",
-            "size": 111866812,
-            "upstream_version": "v2.2.1",
-            "url": "https://github.com/agalwood/Motrix/releases/download/v2.2.1/Motrix_2.2.1_amd64.deb"
+            "filename": "motrix_2.3.0_amd64.deb",
+            "md5": "9603159743f2cbf162fc498479f7fae3",
+            "sha1": "6782794d70552e98366e22ce856897b2f2e85d11",
+            "sha256": "f7ed04969b0739cf3ba6099f0c3362979f7a81c5fc7b4fc4e7dae538206421e6",
+            "sha512": "d84d15b4c59ca651f9c249aa44955340e16ef01cf0031be04e68f731764e562c4ff88ac720fc2058b7a2a6026b4740bf4c3b7f90041a997d51db613596df56c4",
+            "size": 112271164,
+            "upstream_version": "v2.3.0",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v2.3.0/Motrix_2.3.0_amd64.deb"
           },
-          "resolved_at": "2026-11-03T09:37:45+00:00",
+          "resolved_at": "2026-11-05T09:33:12+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "Motrix_2.2.1_arm64.deb",
+            "asset_name": "Motrix_2.3.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "motrix-turbo",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Full-featured download manager\n  Motrix is a full-featured download manager that supports HTTP, FTP, BitTorrent and Magnet downloads.",
               "Homepage": "https://motrix.app",
-              "Installed-Size": "331279",
+              "Installed-Size": "331620",
               "License": "MIT",
               "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
               "Package": "motrix",
@@ -1461,18 +1461,18 @@
               "Replaces": "motrix-turbo",
               "Section": "default",
               "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
-              "Version": "2.2.1"
+              "Version": "2.3.0"
             },
-            "filename": "motrix_2.2.1_arm64.deb",
-            "md5": "54ec3fe408cd5dacfda468ef54214104",
-            "sha1": "6797dbf9ef1cfd0a82f818710ecc58631597efa9",
-            "sha256": "2e0574cdc577ba0425b25d9e5f9a452d487988b25ca3e2988049f331cad7e0c2",
-            "sha512": "e22ee2e321cf448d4be08ff50b9736784806f12bf01c56a695ba1812ced5344adc8df6a32626a5fb0a46774a73f6581b36d54fe3a56689fd2675c62b6d259b44",
-            "size": 107137116,
-            "upstream_version": "v2.2.1",
-            "url": "https://github.com/agalwood/Motrix/releases/download/v2.2.1/Motrix_2.2.1_arm64.deb"
+            "filename": "motrix_2.3.0_arm64.deb",
+            "md5": "c5abcd3c6f025d438eab36d8adf453dc",
+            "sha1": "2b7eaaecd86d05db585c65d914057b3901f1e2f8",
+            "sha256": "47fcb44a81e70bcab96200c13f248191e761136f19588ea15b1e6fd28065ccac",
+            "sha512": "cd72b221636587ff08f3241dc21f59ef96e4c2a2ddeb1fd29801d3fbebf1d9c2ff570c802dceea0234e3372f933dd6059ef5a06f4b8adb915afc693c9f4853c5",
+            "size": 107397404,
+            "upstream_version": "v2.3.0",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v2.3.0/Motrix_2.3.0_arm64.deb"
           },
-          "resolved_at": "2026-11-03T09:37:47+00:00",
+          "resolved_at": "2026-11-05T09:33:13+00:00",
           "source": "github",
           "update_policy": "track"
         }
