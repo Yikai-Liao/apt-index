@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T09:33:22+00:00",
+  "generated_at": "2026-11-07T08:51:28+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -64,13 +64,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_6.2.1_amd64.deb",
+            "asset_name": "beekeeper-studio_6.2.2_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "1127338",
+              "Installed-Size": "1127342",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -78,30 +78,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "6.2.1"
+              "Version": "6.2.2"
             },
-            "filename": "beekeeper-studio_6.2.1_amd64.deb",
-            "md5": "e633e92f62c903b5b12ef15c80d0d294",
-            "sha1": "9fdab5ed080955a1fd96fa1111812783dd91893b",
-            "sha256": "4087e2695f5f9529911ebc9468b00124d6c3c308fa7d92061b7ad6cfb7e21122",
-            "sha512": "24efde1c854b05a0e0d69aeb3c6eb97e2a660c16ab4705f5be33ff0fd5590077d784df121f03663b249666a6cacd18bb70223cbc846b20f47377956cdec859e3",
-            "size": 276176864,
-            "upstream_version": "v6.2.1",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.2.1/beekeeper-studio_6.2.1_amd64.deb"
+            "filename": "beekeeper-studio_6.2.2_amd64.deb",
+            "md5": "ba627efe005f1802136c71b042870d3d",
+            "sha1": "d9bd27ceae24b4ad0040213a87013667c6e39d6f",
+            "sha256": "0caa2388da9c1dd5494446977269053c00c9a309b7f893689d58c569282e3636",
+            "sha512": "31b156edebd93cc4b01730140f68c20dea915dc9aad777183da546082a93bcb38a3c31fde4be4758e0b5719db16c9f3ac6977dacd62e13901ae5113a3ce13540",
+            "size": 276178024,
+            "upstream_version": "v6.2.2",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.2.2/beekeeper-studio_6.2.2_amd64.deb"
           },
-          "resolved_at": "2026-11-04T09:22:19+00:00",
+          "resolved_at": "2026-11-07T08:51:08+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_6.2.1_arm64.deb",
+            "asset_name": "beekeeper-studio_6.2.2_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "1124129",
+              "Installed-Size": "1124133",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -109,18 +109,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "6.2.1"
+              "Version": "6.2.2"
             },
-            "filename": "beekeeper-studio_6.2.1_arm64.deb",
-            "md5": "4cf4cc68d7b6ba8a27b77a9b92a1a204",
-            "sha1": "f0ff70fc2dd15bddaf0644f30a294c2e227ced6a",
-            "sha256": "2306facb8f6324c9cbf93f57fa65229b87e0e76183484f08fcdcd9e661b85d45",
-            "sha512": "95b06f14526ba0fd0f3a75f9f466842158dace3733f600d28507a9ef0dd8c2f1e3952f8e3348e1d6f4d57ee9d2e265da221f64fb12d7eb246d0da647927592f6",
-            "size": 268533296,
-            "upstream_version": "v6.2.1",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.2.1/beekeeper-studio_6.2.1_arm64.deb"
+            "filename": "beekeeper-studio_6.2.2_arm64.deb",
+            "md5": "6ee0f5e801ef45f5de3021c076420cf5",
+            "sha1": "2f01bfcee70334f71a19b5b0c7ba2ea5c82ea60f",
+            "sha256": "359673b654df6301ca1f39014c8253b3816854511c57aa1c120615c19409a057",
+            "sha512": "a096626aa605ebc6dbaadd23f8aee5532246efb637056f2725dcd065022f8e5a89e18478e0ce5996e8702b245d012a4851872001443537d2eaa3fe052de5debe",
+            "size": 268533908,
+            "upstream_version": "v6.2.2",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.2.2/beekeeper-studio_6.2.2_arm64.deb"
           },
-          "resolved_at": "2026-11-04T09:22:26+00:00",
+          "resolved_at": "2026-11-07T08:51:13+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.28.7_amd64.deb",
+            "asset_name": "cursor_3.29.9_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0) | libglib2.0-0t64 (>= 2.12.0), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "1055043",
+              "Installed-Size": "1023553",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.28.7-1793673029"
+              "Version": "3.29.9-1793846899"
             },
-            "filename": "cursor_3.28.7_amd64.deb",
-            "md5": "9c541cc85f7101b74799c60f1a24e904",
-            "sha1": "22cd262e82312ea179f57255e15d0039fcb9e619",
-            "sha256": "4610c4915aff5ddd2b637e2ff3f48490e258239f4bfa34869b9ab2f0be5f38d0",
-            "sha512": "f8390889fc3bef9edbcd7d94d58d7d608236ccd9a0fa9eefca4d6a4f275c12ab95ea846a84ef7edaa70d42dd4f2984956ae4cd8c18cfd015c93e25ad7b28ddd7",
-            "size": 225351968,
-            "upstream_version": "3.28.7",
-            "url": "https://downloads.cursor.com/production/25b52e7d03ebf2d5608914158e119f7992432a34/linux/x64/deb/amd64/deb/cursor_3.28.7_amd64.deb"
+            "filename": "cursor_3.29.9_amd64.deb",
+            "md5": "84ae0b887b58ca4c9e26a2ccd1c6650b",
+            "sha1": "cf25c468a279deaffebaeeaba9ba0b24c442f17c",
+            "sha256": "f6ce65c4482ff538f00731c129f439e872661ad37764983433cdcaaced7b9339",
+            "sha512": "2609f1aef48b349d2dbfd84d73f5625f340cff96e94b203f8f8ce9fac8287e461c369cbee73c39ce53486255e04b569bb8d9d025967757e8b0a8889c5b998bae",
+            "size": 226997236,
+            "upstream_version": "3.29.9",
+            "url": "https://downloads.cursor.com/production/306d153d51d714882ab7b1bc49649cab624e8a31/linux/x64/deb/amd64/deb/cursor_3.29.9_amd64.deb"
           },
-          "resolved_at": "2026-11-03T09:37:42+00:00",
+          "resolved_at": "2026-11-07T08:51:12+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -598,23 +598,23 @@
               "Depends": "libc6 (>= 2.35)",
               "Description": "Fast neofetch-like system information tool\n fastfetch is a neofetch-like tool for fetching system information and displaying them in a pretty way. It is written mostly in C to achieve much better performance.",
               "Homepage": "https://github.com/fastfetch-cli/fastfetch",
-              "Installed-Size": "4493",
+              "Installed-Size": "4542",
               "Maintainer": "Carter Li <zhangsongcui@live.cn>",
               "Package": "fastfetch",
               "Priority": "optional",
               "Section": "devel",
-              "Version": "2.70.0"
+              "Version": "2.71.0"
             },
             "filename": "fastfetch-linux-amd64.deb",
-            "md5": "508e45806c6f3d1dc535002b371bac05",
-            "sha1": "f0ce7c5139686fedd6f3c524e933fb09eb6436df",
-            "sha256": "06e9a1be9a863dc815f8a31a6b1abec7b29967be30084ffcc29c1bca072d801b",
-            "sha512": "543ddaa0441988dcc532e04fb398b2dd513501ba2bfe7ef74d0dee2b370aa4ab79dee73baaadcf343e26efab2028c3e06cd084a5034c910d0e973530309c3892",
-            "size": 1490960,
-            "upstream_version": "2.70.0",
-            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.70.0/fastfetch-linux-amd64.deb"
+            "md5": "f41e52ed90c0c99303e1de6bfdc594f1",
+            "sha1": "b70a7b0c5702bfe79a48a25b177b6a4c178bcffc",
+            "sha256": "6dc0b71c03e58f9f981a6b3c62b4fa3fb30b9d5ee9fa783302c91ea4c2a3600e",
+            "sha512": "9e70d4497d8a62bf92e8fb7949eded27bde2ca62e9292da2851f0aeb89e71468ac08a2b431bf30c34c2ebe469973c6c304c2a674e55b6358fe20d40deba778c9",
+            "size": 1512482,
+            "upstream_version": "2.71.0",
+            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.71.0/fastfetch-linux-amd64.deb"
           },
-          "resolved_at": "2026-10-15T07:29:53+00:00",
+          "resolved_at": "2026-11-07T08:51:08+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -626,23 +626,23 @@
               "Depends": "libc6 (>= 2.35)",
               "Description": "Fast neofetch-like system information tool\n fastfetch is a neofetch-like tool for fetching system information and displaying them in a pretty way. It is written mostly in C to achieve much better performance.",
               "Homepage": "https://github.com/fastfetch-cli/fastfetch",
-              "Installed-Size": "4308",
+              "Installed-Size": "4349",
               "Maintainer": "Carter Li <zhangsongcui@live.cn>",
               "Package": "fastfetch",
               "Priority": "optional",
               "Section": "devel",
-              "Version": "2.70.0"
+              "Version": "2.71.0"
             },
-            "filename": "fastfetch_2.70.0_arm64.deb",
-            "md5": "f47832a6c530bfeb4dc34233c234d922",
-            "sha1": "836f90289f991a6fd547d339b93445beaa2f831d",
-            "sha256": "25053651486d97b8731dd6bc59e725944e39adcdcd903741334c1c3282a7281d",
-            "sha512": "cc812c9f2a994cdf0689dddde4a14368e149deec51931626d18f0a3a3084bd3ea9f261b36c1a29a932f947c52b12ea46dd36f745725d4f94fccff85634363592",
-            "size": 1520810,
-            "upstream_version": "2.70.0",
-            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.70.0/fastfetch-linux-aarch64.deb"
+            "filename": "fastfetch_2.71.0_arm64.deb",
+            "md5": "96db22ad18b71869c464afaf28dcb67d",
+            "sha1": "3363b50608cb644a84d63d8696244f9c68c27d74",
+            "sha256": "ee894a030fb6fecc5151ebe83ce55c9c72966fd1c708ee6be23af448c0a5f149",
+            "sha512": "8c819de1a8e6efc6bd3168c4c7aaf5f6dd93e3fa2979519416ad8fe6f3060135367a5fc1f07858b4ddfcfe7e7dd19f42811acee62ea4c00d9a4238e4cd8d8b98",
+            "size": 1539938,
+            "upstream_version": "2.71.0",
+            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.71.0/fastfetch-linux-aarch64.deb"
           },
-          "resolved_at": "2026-10-15T07:29:53+00:00",
+          "resolved_at": "2026-11-07T08:51:08+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -653,7 +653,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "fd_10.5.1_amd64.deb",
+            "asset_name": "fd_10.5.2_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "fd-musl, fd-find",
@@ -664,24 +664,24 @@
               "Priority": "optional",
               "Provides": "fd",
               "Section": "utils",
-              "Version": "10.5.1"
+              "Version": "10.5.2"
             },
-            "filename": "fd_10.5.1_amd64.deb",
-            "md5": "cdda6719d414e31bb3d1d0305847b0cf",
-            "sha1": "20feaeb8659801f821304add412deedfacb57a51",
-            "sha256": "0e349541d682a4c6e9ef70de3734f11e2b6a1043a73f88ac9e028282a1e5a5ef",
-            "sha512": "00f2c6d6fe81c8c92c48f0d9c2713da2bc0617e119a9f3704c51e12a96459a2295af132b5b12d92d9c5566b4cfb6ae26ee0a4b0d043d42d94132f3bf61acda6e",
-            "size": 1435716,
-            "upstream_version": "v10.5.1",
-            "url": "https://github.com/sharkdp/fd/releases/download/v10.5.1/fd_10.5.1_amd64.deb"
+            "filename": "fd_10.5.2_amd64.deb",
+            "md5": "712733fcbc3a56ba0761431685fb7351",
+            "sha1": "959230bbc1b209d45252b011144f63439555b137",
+            "sha256": "342a9d1618c4340668cb7ad96d353064bf226ac403add80e587103975d5fa49c",
+            "sha512": "35f7cff3ff012877648acb12daefe551d0cdf4682ebb51e8056dc53a9825c0fdde82d13c9ae815404fe97fc84b6d95db24816760a4b149820e91473bc2229fad",
+            "size": 1437022,
+            "upstream_version": "v10.5.2",
+            "url": "https://github.com/sharkdp/fd/releases/download/v10.5.2/fd_10.5.2_amd64.deb"
           },
-          "resolved_at": "2026-11-04T09:22:15+00:00",
+          "resolved_at": "2026-11-07T08:51:09+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "fd_10.5.1_arm64.deb",
+            "asset_name": "fd_10.5.2_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "fd-musl, fd-find",
@@ -692,18 +692,18 @@
               "Priority": "optional",
               "Provides": "fd",
               "Section": "utils",
-              "Version": "10.5.1"
+              "Version": "10.5.2"
             },
-            "filename": "fd_10.5.1_arm64.deb",
-            "md5": "5322b09a52ede064e1e4791d216455a3",
-            "sha1": "4d3e42e8ea3cf667c8d3f30300744c022a53c598",
-            "sha256": "61a62ec2e3dc2583a07caec09b76bc9f54630452b0e3290833657f31924adace",
-            "sha512": "44bfb1b6b9e8091f8006e11da0e5b670da1f29ca115fa753f766dde557de2168513516027f2d752500faaed0f2157f48a676b99578ed00767b3d81797e8c3275",
-            "size": 1303356,
-            "upstream_version": "v10.5.1",
-            "url": "https://github.com/sharkdp/fd/releases/download/v10.5.1/fd_10.5.1_arm64.deb"
+            "filename": "fd_10.5.2_arm64.deb",
+            "md5": "63f301272d7ca91a0845322b10eb1c37",
+            "sha1": "c2bceec1e497b1396da249c2133924187529e0b7",
+            "sha256": "5e42e06db345fe3b0b337c7efb2ec6b29eb2cf955e3826a152160940770c6db6",
+            "sha512": "91223960e6fb0c66b292582f2799302dc833fd59ab235125a8e98a8c29cd82b11374563b7e3ba3d49b016293af396e669b87d35dc6b1e7df30f282ab14f3f144",
+            "size": 1306046,
+            "upstream_version": "v10.5.2",
+            "url": "https://github.com/sharkdp/fd/releases/download/v10.5.2/fd_10.5.2_arm64.deb"
           },
-          "resolved_at": "2026-11-04T09:22:16+00:00",
+          "resolved_at": "2026-11-07T08:51:09+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -2009,14 +2009,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "code_1.145.0_amd64.deb",
+            "asset_name": "code_1.145.2_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.15), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "1072162",
+              "Installed-Size": "1078390",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2024,31 +2024,31 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.145.0-1793749366"
+              "Version": "1.145.2-1793945276"
             },
-            "filename": "code_1.145.0_amd64.deb",
-            "md5": "8a9bb83022d5af64009a70eb4990091f",
-            "sha1": "d2dbbac3051f576f489527df52e06c90a7e37db8",
-            "sha256": "64cb445811a347df1b5118a17117cfd5ac0ab7e2cc41832351b938364d17cacd",
-            "sha512": "595dd1ccc1aa3750fd043b344b12a300fbb50d7b176d40a4f49ffb7bde00a9ed62c7afff01159feb94928b27580b6042c2bda235d9338817fd7261cdce209bca",
-            "size": 263019110,
-            "upstream_version": "1.145.0",
-            "url": "https://update.code.visualstudio.com/1.145.0/linux-deb-x64/stable"
+            "filename": "code_1.145.2_amd64.deb",
+            "md5": "a6acba4e1c1026cf20000c31a8cf039c",
+            "sha1": "1bc0159d4bafb230f7142a35b7f9f6fcd559bb72",
+            "sha256": "aa2bfc5a3db4f0971e8b50ce08d07b1849894a9caca2b0f8ea5b07ac8d68da8d",
+            "sha512": "139012d72f09be9f258116f936d722f2f2df89d024f2dbaf70cb33535c5c17a9d1d250ee286461a5cebe46c0a9bf71b799f6240498da92586b3d32e78823f52d",
+            "size": 263203070,
+            "upstream_version": "1.145.2",
+            "url": "https://update.code.visualstudio.com/1.145.2/linux-deb-x64/stable"
           },
-          "resolved_at": "2026-11-04T09:22:31+00:00",
+          "resolved_at": "2026-11-07T08:51:22+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "code_1.145.0_arm64.deb",
+            "asset_name": "code_1.145.2_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.17), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libstdc++6 (>= 4.1.1), libstdc++6 (>= 5), libstdc++6 (>= 5.2), libstdc++6 (>= 6), libstdc++6 (>= 9), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "981120",
+              "Installed-Size": "987348",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2056,18 +2056,18 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.145.0-1793748906"
+              "Version": "1.145.2-1793945203"
             },
-            "filename": "code_1.145.0_arm64.deb",
-            "md5": "76ad58c9f62e1cfb0129376f8094694c",
-            "sha1": "a44c7a5307f0998320cc1800dc246af3d6da9b51",
-            "sha256": "da4c873ae450a5da60c55e409a15672c01baacfe5d36e2d4b56b06ea0db14c41",
-            "sha512": "fa1c3f62ec8d303ffd1d0d53abc20f73609020f99f8bf3abfb7a3e20b73b941fa885636e056538b114ed00ba6346184b85f58bee901e69982a25ce964e45414e",
-            "size": 233468790,
-            "upstream_version": "1.145.0",
-            "url": "https://update.code.visualstudio.com/1.145.0/linux-deb-arm64/stable"
+            "filename": "code_1.145.2_arm64.deb",
+            "md5": "9685056ceaefbbf9d4ab5938f3fb390d",
+            "sha1": "f49290a60140e4de9af956fa7ac710b70cb1135b",
+            "sha256": "a224279b3651eac641bae9e9c9bd3977d93c46af799393f3f368aa1ec55c7c7f",
+            "sha512": "dc7ef9cc6cea32203a58da272e42aab6c7ba7a126b57f6bb515613b16ab3ee064a0650d2ba00d306b2d40303cfb5d7c999829190fbddfba7d2ef9e6a532fce36",
+            "size": 234010762,
+            "upstream_version": "1.145.2",
+            "url": "https://update.code.visualstudio.com/1.145.2/linux-deb-arm64/stable"
           },
-          "resolved_at": "2026-11-04T09:22:39+00:00",
+          "resolved_at": "2026-11-07T08:51:28+00:00",
           "source": "aur",
           "update_policy": "track"
         }
