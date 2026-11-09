@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T08:51:28+00:00",
+  "generated_at": "2026-11-09T09:52:58+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -411,15 +411,15 @@
               "Version": "1.10.4-alpha-1"
             },
             "filename": "deadbeef-static_1.10.4~alpha-1_amd64.deb",
-            "md5": "f975291bb7a1a02e7ea1328958364e67",
-            "sha1": "0eadf5eac3b1989228fbb5e747d422fad91c2d2f",
-            "sha256": "c13af478f3e326432f02e711e4a2e434996ef106ff39974b9cc5dbe2f8cd8816",
-            "sha512": "473bd9ee6d6e1a6a55577495a83d4f73e3171d5c6473edc3b10dfa17b44af65a72926176393537302ab72b5b3b9de9394ef8aa8c200241c10586a1fa433046da",
-            "size": 13224246,
+            "md5": "e16854656246f010fd68c9e4add53db7",
+            "sha1": "81bf1ada3690abd475fe8ababd3c24521aa045ce",
+            "sha256": "0a9a9a770049c4e476748660e80909dabcd04c2da107e3a8f10bbc9d58a99c6f",
+            "sha512": "ec1dcd2fbea8226be584ae309492a2848887138342c7f7bdc4925879421e919184e1232d1b1302aee27c6a640b12d7d1d98fe3e61657b75e70b7ee8065991923",
+            "size": 13223628,
             "upstream_version": "deadbeef-static_1.10.4~alpha-1_amd64.deb",
             "url": "https://sourceforge.net/projects/deadbeef/files/Builds/master/linux/deadbeef-static_1.10.4~alpha-1_amd64.deb/download"
           },
-          "resolved_at": "2026-11-05T09:33:05+00:00",
+          "resolved_at": "2026-11-09T09:52:21+00:00",
           "source": "sourceforge",
           "update_policy": "track"
         },
@@ -440,15 +440,15 @@
               "Version": "1.10.4-alpha-1"
             },
             "filename": "deadbeef-static_1.10.4~alpha-1_arm64.deb",
-            "md5": "0bf5d029c3c97676f9480c3e8e83ab99",
-            "sha1": "a85d2a48f3f82b9394a4558d525fe072d3400df0",
-            "sha256": "736bf54014d7722dd33dd348aa26913dc10ed0ff8f1bb44aae6021b7137a7c75",
-            "sha512": "7ea514d1d13f5c933010f2be3496b9c9c96bb31def5c56332946f17578154d45b29f640098b8e9d51cebabf1be614044c2605f5f76fc0b0b1a504229a8499594",
-            "size": 12785780,
+            "md5": "6ccf2ff50431ef73cb190d3c96e317c2",
+            "sha1": "3885a6bc2cec938c54bdd22cc94b04aec9e38f19",
+            "sha256": "76cadc9beafae6b1ba87f3f302a9840fcf10a1e5d0479b0ffa50db849ea1909c",
+            "sha512": "1fe19fa6ec67575d10f03fd970f09a706ab5d36a718bd9d2147d754c8df3e79d6802c6b7b8f409e3b86907b1b75efe87b455ed63c8eda9222bba62302c2438c8",
+            "size": 12785680,
             "upstream_version": "deadbeef-static_1.10.4~alpha-1_arm64.deb",
             "url": "https://sourceforge.net/projects/deadbeef/files/Builds/master/linux/deadbeef-static_1.10.4~alpha-1_arm64.deb/download"
           },
-          "resolved_at": "2026-11-05T09:33:08+00:00",
+          "resolved_at": "2026-11-09T09:52:58+00:00",
           "source": "sourceforge",
           "update_policy": "track"
         }
@@ -966,57 +966,57 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "fooyin_0.14.1-bookworm_amd64.deb",
+            "asset_name": "fooyin_0.15.0-bookworm_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libc6,\n    libstdc++6,\n    libqt6sql6-sqlite (>= 6.4.0),\n    libqt6svg6 (>= 6.4.0),\n    qt6-image-formats-plugins (>= 6.4.0),\n    qt6-qpa-plugins,\n    zlib1g,\n    libasound2,\n    libjack-jackd2-0,\n    ffmpeg (>= 7:4.4),\n    pipewire,\n    libpulse0,\n    libsdl2-2.0-0,\n    libgme0,\n    libopenmpt0,\n    libarchive13,\n    libsndfile1,\n    libebur128-1,\n    libopusfile0,\n    libvorbisfile3,\n    libsoundtouch1,\n    libsoxr0, libicu72, libtag1v5, libflac12, libmpg123-0, libqt6core6 (>= 6.4.0), libqt6gui6 (>= 6.4.0), libqt6widgets6 (>= 6.4.0), libqt6network6 (>= 6.4.0), libqt6concurrent6 (>= 6.4.0), libqt6sql6 (>= 6.4.0)",
               "Description": "A customisable music player",
               "Homepage": "https://www.fooyin.org",
-              "Installed-Size": "39767",
+              "Installed-Size": "42022",
               "Maintainer": "Luke Taylor <luket@pm.me>",
               "Package": "fooyin",
               "Priority": "optional",
               "Section": "sound",
-              "Version": "0.14.1-1~debian.12~bookworm"
+              "Version": "0.15.0-1~debian.12~bookworm"
             },
-            "filename": "fooyin_0.14.1-bookworm_amd64.deb",
-            "md5": "99893c148f9dd0c9ed66b63ba8c79a8c",
-            "sha1": "a447fb75dc9934def3c8817f8e5a3307989a73a3",
-            "sha256": "3b424732a1e1e4082e34a79c81b98e2d201237b822e8322cf718db2cf88e1aba",
-            "sha512": "3242143acad243c8880cd0729bc60ccc9d00c5d2242a01707d0f60d78575c24b0ec0b5c0791bce7d054cb5809a9573f3aeadb47a8af5d0f0861174c3176ed93e",
-            "size": 13427524,
-            "upstream_version": "v0.14.1",
-            "url": "https://github.com/fooyin/fooyin/releases/download/v0.14.1/fooyin_0.14.1-bookworm_amd64.deb"
+            "filename": "fooyin_0.15.0-bookworm_amd64.deb",
+            "md5": "c48d306496abb19403f04cb8c86a3774",
+            "sha1": "b2c7b165c329bd9bfc374413635f1b8a0060dc1b",
+            "sha256": "d84af37eec5987b2d65b8c8673773851fd887e35d91eb19c7b7a133f32cac388",
+            "sha512": "003bff79edd08b26292d142c15ef65936fe640e91c8891a1dbc189a8bd77560f1d21eedb3bcf613e362d7a58a22761accf80e61cb95dd8b0a8a7eaeb8f7607e3",
+            "size": 14227328,
+            "upstream_version": "v0.15.0",
+            "url": "https://github.com/fooyin/fooyin/releases/download/v0.15.0/fooyin_0.15.0-bookworm_amd64.deb"
           },
-          "resolved_at": "2026-10-23T07:36:02+00:00",
+          "resolved_at": "2026-11-09T09:52:23+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "fooyin_0.14.1-bookworm_arm64.deb",
+            "asset_name": "fooyin_0.15.0-bookworm_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libc6,\n    libstdc++6,\n    libqt6sql6-sqlite (>= 6.4.0),\n    libqt6svg6 (>= 6.4.0),\n    qt6-image-formats-plugins (>= 6.4.0),\n    qt6-qpa-plugins,\n    zlib1g,\n    libasound2,\n    libjack-jackd2-0,\n    ffmpeg (>= 7:4.4),\n    pipewire,\n    libpulse0,\n    libsdl2-2.0-0,\n    libgme0,\n    libopenmpt0,\n    libarchive13,\n    libsndfile1,\n    libebur128-1,\n    libopusfile0,\n    libvorbisfile3,\n    libsoundtouch1,\n    libsoxr0, libicu72, libtag1v5, libflac12, libmpg123-0, libqt6core6 (>= 6.4.0), libqt6gui6 (>= 6.4.0), libqt6widgets6 (>= 6.4.0), libqt6network6 (>= 6.4.0), libqt6concurrent6 (>= 6.4.0), libqt6sql6 (>= 6.4.0)",
               "Description": "A customisable music player",
               "Homepage": "https://www.fooyin.org",
-              "Installed-Size": "38578",
+              "Installed-Size": "40626",
               "Maintainer": "Luke Taylor <luket@pm.me>",
               "Package": "fooyin",
               "Priority": "optional",
               "Section": "sound",
-              "Version": "0.14.1-1~debian.12~bookworm"
+              "Version": "0.15.0-1~debian.12~bookworm"
             },
-            "filename": "fooyin_0.14.1-bookworm_arm64.deb",
-            "md5": "c047efc4986c8931557b4cb7d14dda14",
-            "sha1": "93490a633e98cbd9c7316c6ef3568bc787e56b5d",
-            "sha256": "4cb2607fb048ec3d6bb9809c54b817b9a795e23e990b8ed69667456dc7caa81e",
-            "sha512": "605bf69008de97292d64cac2e612deef141ddae2fc1d1c790476d2e8352544f26d68b3efe58aa7cea959abf9ece791b937153a58f6f5d71af8b97509609caa55",
-            "size": 12743462,
-            "upstream_version": "v0.14.1",
-            "url": "https://github.com/fooyin/fooyin/releases/download/v0.14.1/fooyin_0.14.1-bookworm_arm64.deb"
+            "filename": "fooyin_0.15.0-bookworm_arm64.deb",
+            "md5": "96437abcaf8152522aa89cf3002ef478",
+            "sha1": "d2b268fb2efd51da85037849014d6cac5e57296d",
+            "sha256": "29f736dd447cc23e2aed6e0c356c756366c01dd001977a8f74cc1ba401907cb8",
+            "sha512": "42ba69f31fe426a3e17f618eaf833266247287f85d6971487754c07e3295eac6a7aabde4d3fa3416351624d791a406aa39d6edd648db05b5d10b462b6ffd77a5",
+            "size": 13473432,
+            "upstream_version": "v0.15.0",
+            "url": "https://github.com/fooyin/fooyin/releases/download/v0.15.0/fooyin_0.15.0-bookworm_arm64.deb"
           },
-          "resolved_at": "2026-10-23T07:36:03+00:00",
+          "resolved_at": "2026-11-09T09:52:24+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1410,14 +1410,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "Motrix_2.3.0_amd64.deb",
+            "asset_name": "Motrix_2.4.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "motrix-turbo",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Full-featured download manager\n  Motrix is a full-featured download manager that supports HTTP, FTP, BitTorrent and Magnet downloads.",
               "Homepage": "https://motrix.app",
-              "Installed-Size": "327582",
+              "Installed-Size": "328170",
               "License": "MIT",
               "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
               "Package": "motrix",
@@ -1427,31 +1427,31 @@
               "Replaces": "motrix-turbo",
               "Section": "default",
               "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
-              "Version": "2.3.0"
+              "Version": "2.4.0"
             },
-            "filename": "motrix_2.3.0_amd64.deb",
-            "md5": "9603159743f2cbf162fc498479f7fae3",
-            "sha1": "6782794d70552e98366e22ce856897b2f2e85d11",
-            "sha256": "f7ed04969b0739cf3ba6099f0c3362979f7a81c5fc7b4fc4e7dae538206421e6",
-            "sha512": "d84d15b4c59ca651f9c249aa44955340e16ef01cf0031be04e68f731764e562c4ff88ac720fc2058b7a2a6026b4740bf4c3b7f90041a997d51db613596df56c4",
-            "size": 112271164,
-            "upstream_version": "v2.3.0",
-            "url": "https://github.com/agalwood/Motrix/releases/download/v2.3.0/Motrix_2.3.0_amd64.deb"
+            "filename": "motrix_2.4.0_amd64.deb",
+            "md5": "d9cb76b3b53a11ce4e1717cd683fafa2",
+            "sha1": "3bb65118b86e5188b8e145a21e102225b2ecd529",
+            "sha256": "602634a91ed182a74408c5afea4a804f7181da4d4ad6104edca0dd28ed35a4cd",
+            "sha512": "2e89af22c5c574692bb237046f0c7411c6a33b2b9fad23b266c539cfbb88381bc328b30482727c5348e2a51af1ec12b639a3913e1d517703508b5113be3e5558",
+            "size": 112566216,
+            "upstream_version": "v2.4.0",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v2.4.0/Motrix_2.4.0_amd64.deb"
           },
-          "resolved_at": "2026-11-05T09:33:12+00:00",
+          "resolved_at": "2026-11-09T09:52:27+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "Motrix_2.3.0_arm64.deb",
+            "asset_name": "Motrix_2.4.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "motrix-turbo",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Full-featured download manager\n  Motrix is a full-featured download manager that supports HTTP, FTP, BitTorrent and Magnet downloads.",
               "Homepage": "https://motrix.app",
-              "Installed-Size": "331620",
+              "Installed-Size": "332077",
               "License": "MIT",
               "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
               "Package": "motrix",
@@ -1461,18 +1461,18 @@
               "Replaces": "motrix-turbo",
               "Section": "default",
               "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
-              "Version": "2.3.0"
+              "Version": "2.4.0"
             },
-            "filename": "motrix_2.3.0_arm64.deb",
-            "md5": "c5abcd3c6f025d438eab36d8adf453dc",
-            "sha1": "2b7eaaecd86d05db585c65d914057b3901f1e2f8",
-            "sha256": "47fcb44a81e70bcab96200c13f248191e761136f19588ea15b1e6fd28065ccac",
-            "sha512": "cd72b221636587ff08f3241dc21f59ef96e4c2a2ddeb1fd29801d3fbebf1d9c2ff570c802dceea0234e3372f933dd6059ef5a06f4b8adb915afc693c9f4853c5",
-            "size": 107397404,
-            "upstream_version": "v2.3.0",
-            "url": "https://github.com/agalwood/Motrix/releases/download/v2.3.0/Motrix_2.3.0_arm64.deb"
+            "filename": "motrix_2.4.0_arm64.deb",
+            "md5": "feb3ac0a5d9784c4d2e2ec24eff65b2f",
+            "sha1": "293bb578cd837bbed86b992820d78cf0770c67b3",
+            "sha256": "4ab43be5be09d064b60b8dbf1a1017f60a09cd88799980500225029ac8e19722",
+            "sha512": "306655e2ac78421732301e95e8247c5ddef0a9d01b189bdce64bde20dfc98c1e74e1d2d457da8562446a4b8843941a8d2fe2372f351b8cd5f4e2986a88894f86",
+            "size": 107577376,
+            "upstream_version": "v2.4.0",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v2.4.0/Motrix_2.4.0_arm64.deb"
           },
-          "resolved_at": "2026-11-05T09:33:13+00:00",
+          "resolved_at": "2026-11-09T09:52:28+00:00",
           "source": "github",
           "update_policy": "track"
         }
