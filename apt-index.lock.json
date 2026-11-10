@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T09:52:58+00:00",
+  "generated_at": "2026-11-10T09:56:24+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.29.9_amd64.deb",
+            "asset_name": "cursor_3.29.15_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0) | libglib2.0-0t64 (>= 2.12.0), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "1023553",
+              "Installed-Size": "1024319",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.29.9-1793846899"
+              "Version": "3.29.15-1794174137"
             },
-            "filename": "cursor_3.29.9_amd64.deb",
-            "md5": "84ae0b887b58ca4c9e26a2ccd1c6650b",
-            "sha1": "cf25c468a279deaffebaeeaba9ba0b24c442f17c",
-            "sha256": "f6ce65c4482ff538f00731c129f439e872661ad37764983433cdcaaced7b9339",
-            "sha512": "2609f1aef48b349d2dbfd84d73f5625f340cff96e94b203f8f8ce9fac8287e461c369cbee73c39ce53486255e04b569bb8d9d025967757e8b0a8889c5b998bae",
-            "size": 226997236,
-            "upstream_version": "3.29.9",
-            "url": "https://downloads.cursor.com/production/306d153d51d714882ab7b1bc49649cab624e8a31/linux/x64/deb/amd64/deb/cursor_3.29.9_amd64.deb"
+            "filename": "cursor_3.29.15_amd64.deb",
+            "md5": "307559b7f066a74cc62df2d5d8e92ffa",
+            "sha1": "b625d6d45f4c7bca1cd22a1ec823fa8d227dc0c6",
+            "sha256": "bc2d010514ce079bc55acff0332757e311e18b0da48dc24dc364bc8f695c11e5",
+            "sha512": "c0506c9459a4388259d4e51e56607a518f60ae7d79649764a97e7886e56502cb35eca72a0156676656e0913f45c77bb67df15c5b93cad2566cf4f2503f909f03",
+            "size": 227031988,
+            "upstream_version": "3.29.15",
+            "url": "https://downloads.cursor.com/production/86776fcb52ca505783155631089b65d646f9b03f/linux/x64/deb/amd64/deb/cursor_3.29.15_amd64.deb"
           },
-          "resolved_at": "2026-11-07T08:51:12+00:00",
+          "resolved_at": "2026-11-10T09:56:12+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1410,14 +1410,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "Motrix_2.4.0_amd64.deb",
+            "asset_name": "Motrix_2.4.1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "motrix-turbo",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Full-featured download manager\n  Motrix is a full-featured download manager that supports HTTP, FTP, BitTorrent and Magnet downloads.",
               "Homepage": "https://motrix.app",
-              "Installed-Size": "328170",
+              "Installed-Size": "328162",
               "License": "MIT",
               "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
               "Package": "motrix",
@@ -1427,31 +1427,31 @@
               "Replaces": "motrix-turbo",
               "Section": "default",
               "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
-              "Version": "2.4.0"
+              "Version": "2.4.1"
             },
-            "filename": "motrix_2.4.0_amd64.deb",
-            "md5": "d9cb76b3b53a11ce4e1717cd683fafa2",
-            "sha1": "3bb65118b86e5188b8e145a21e102225b2ecd529",
-            "sha256": "602634a91ed182a74408c5afea4a804f7181da4d4ad6104edca0dd28ed35a4cd",
-            "sha512": "2e89af22c5c574692bb237046f0c7411c6a33b2b9fad23b266c539cfbb88381bc328b30482727c5348e2a51af1ec12b639a3913e1d517703508b5113be3e5558",
-            "size": 112566216,
-            "upstream_version": "v2.4.0",
-            "url": "https://github.com/agalwood/Motrix/releases/download/v2.4.0/Motrix_2.4.0_amd64.deb"
+            "filename": "motrix_2.4.1_amd64.deb",
+            "md5": "8ab2777e29f303f08105bd0cca83b58d",
+            "sha1": "fc434633225947d0c6c52c1a95e2164e0866a005",
+            "sha256": "84ceae97312905de5885560b02ab9a76816e9b256a5c30ae98f1fab7952153fa",
+            "sha512": "16d3527e3a132250b25b057c513d56958b50edbb633be9b798b3fa674f08b42c93639bbbe1437321ec4e9ba53e23fc49812235feeb95a711a832c280c7113d5f",
+            "size": 112565028,
+            "upstream_version": "v2.4.1",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v2.4.1/Motrix_2.4.1_amd64.deb"
           },
-          "resolved_at": "2026-11-09T09:52:27+00:00",
+          "resolved_at": "2026-11-10T09:56:13+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "Motrix_2.4.0_arm64.deb",
+            "asset_name": "Motrix_2.4.1_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "motrix-turbo",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Full-featured download manager\n  Motrix is a full-featured download manager that supports HTTP, FTP, BitTorrent and Magnet downloads.",
               "Homepage": "https://motrix.app",
-              "Installed-Size": "332077",
+              "Installed-Size": "332069",
               "License": "MIT",
               "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
               "Package": "motrix",
@@ -1461,18 +1461,18 @@
               "Replaces": "motrix-turbo",
               "Section": "default",
               "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
-              "Version": "2.4.0"
+              "Version": "2.4.1"
             },
-            "filename": "motrix_2.4.0_arm64.deb",
-            "md5": "feb3ac0a5d9784c4d2e2ec24eff65b2f",
-            "sha1": "293bb578cd837bbed86b992820d78cf0770c67b3",
-            "sha256": "4ab43be5be09d064b60b8dbf1a1017f60a09cd88799980500225029ac8e19722",
-            "sha512": "306655e2ac78421732301e95e8247c5ddef0a9d01b189bdce64bde20dfc98c1e74e1d2d457da8562446a4b8843941a8d2fe2372f351b8cd5f4e2986a88894f86",
-            "size": 107577376,
-            "upstream_version": "v2.4.0",
-            "url": "https://github.com/agalwood/Motrix/releases/download/v2.4.0/Motrix_2.4.0_arm64.deb"
+            "filename": "motrix_2.4.1_arm64.deb",
+            "md5": "ca7052b54f3832347beff2073c031dbe",
+            "sha1": "1ab070590dccfb1d85f5ef2e9546a180f33d3a83",
+            "sha256": "1cba769ce15ffbf492018fd637e3929c07eec9d8added7b4e5e26918d0032d4f",
+            "sha512": "e4bb82cafd125ee56795a77875a64cbac7b17dc72da1c111668c3fe63927cf183858c24abdab2bb7d288faaebccb4ffdc1b1f587224f2e7581efd9de7767f893",
+            "size": 107561180,
+            "upstream_version": "v2.4.1",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v2.4.1/Motrix_2.4.1_arm64.deb"
           },
-          "resolved_at": "2026-11-09T09:52:28+00:00",
+          "resolved_at": "2026-11-10T09:56:15+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1779,7 +1779,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "spotify-1.3.4.258-gc60b10b0946a-x86_64.deb",
+            "asset_name": "spotify-1.3.8.620-g39b276d5d7ac-x86_64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libc6 (>= 2.39), libasound2, libatk-bridge2.0-0, libatomic1, libgbm1, libglib2.0-0, libgtk-3-0, libnss3, libxshmfence1, libxss1, libxtst6, xdg-utils, libayatana-appindicator3-1",
@@ -1792,18 +1792,18 @@
               "Recommends": "libavcodec61 | libavcodec60 | libavcodec58, libavformat61 | libavformat60 | libavformat58",
               "Section": "sound",
               "Suggests": "libnotify4",
-              "Version": "1:1.3.4.258.gc60b10b0946a"
+              "Version": "1:1.3.8.620.g39b276d5d7ac"
             },
-            "filename": "spotify-client_1%3a1.3.4.258.gc60b10b0946a_amd64.deb",
-            "md5": "dd1522ce53b4d15e031a76075d3e859b",
-            "sha1": "29412384bbab5f097a4a94b478fc845d528b65df",
-            "sha256": "20f327441d11b202c82e65b69ec990ef631eb66605da15f41076c049acb718e4",
-            "sha512": "ad2198da6be2f3286a661d0315c124cb94c51084fabf630e34a296f3683599f1d8067e95512c150ed04b3c86526c8a0cff9b93584b39a145befaf6c478deb883",
-            "size": 179241028,
-            "upstream_version": "1.3.4.258",
-            "url": "http://repository.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.3.4.258.gc60b10b0946a_amd64.deb"
+            "filename": "spotify-client_1%3a1.3.8.620.g39b276d5d7ac_amd64.deb",
+            "md5": "71b62339ddbdd3813bf7932ebb9a2b17",
+            "sha1": "456bbe88b76feff0d9b3eb2d18810db046fa5251",
+            "sha256": "35a0c40059c379ca6af97505918c27dffab467392da65b5e2b51273486589a77",
+            "sha512": "09179c52c37666b7e66f32b9aeb640eb5d8babb163f79ddb68922dfa44c4f1bdb3541bc3b1116d3df3f9747f2756568d9cb4e2fb1c28a66e0152770aa9d4b06d",
+            "size": 181674710,
+            "upstream_version": "1.3.8.620",
+            "url": "http://repository.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.3.8.620.g39b276d5d7ac_amd64.deb"
           },
-          "resolved_at": "2026-10-13T09:28:55+00:00",
+          "resolved_at": "2026-11-10T09:56:17+00:00",
           "source": "aur",
           "update_policy": "track"
         }
