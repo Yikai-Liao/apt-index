@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T09:30:28+00:00",
+  "generated_at": "2026-11-12T09:53:59+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.29.15_amd64.deb",
+            "asset_name": "cursor_3.30.8_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0) | libglib2.0-0t64 (>= 2.12.0), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "1024319",
+              "Installed-Size": "1024962",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.29.15-1794174137"
+              "Version": "3.30.8-1794433409"
             },
-            "filename": "cursor_3.29.15_amd64.deb",
-            "md5": "307559b7f066a74cc62df2d5d8e92ffa",
-            "sha1": "b625d6d45f4c7bca1cd22a1ec823fa8d227dc0c6",
-            "sha256": "bc2d010514ce079bc55acff0332757e311e18b0da48dc24dc364bc8f695c11e5",
-            "sha512": "c0506c9459a4388259d4e51e56607a518f60ae7d79649764a97e7886e56502cb35eca72a0156676656e0913f45c77bb67df15c5b93cad2566cf4f2503f909f03",
-            "size": 227031988,
-            "upstream_version": "3.29.15",
-            "url": "https://downloads.cursor.com/production/86776fcb52ca505783155631089b65d646f9b03f/linux/x64/deb/amd64/deb/cursor_3.29.15_amd64.deb"
+            "filename": "cursor_3.30.8_amd64.deb",
+            "md5": "ca0f63a76df9555f4a01b82c5f53dfd8",
+            "sha1": "06bdc116fc5378ac28c97e5b247928748fee27a7",
+            "sha256": "9c5ec4cab93cdb0c591ee13bb3be467547d6ad3b06eeb54e19ab45102e8c3094",
+            "sha512": "5df9026e6f8de6bfcd8889d393ced5c91f72f2e1c99233febbc5b5dfaefd2e3833d8fbeaa04952a5bfed06078b0a0c4463dd4d38c4590b2fe58e5739bab0b2a0",
+            "size": 228245692,
+            "upstream_version": "3.30.8",
+            "url": "https://downloads.cursor.com/production/4a44c846d0b817fab060823f93c63ea2861ac192/linux/x64/deb/amd64/deb/cursor_3.30.8_amd64.deb"
           },
-          "resolved_at": "2026-11-10T09:56:12+00:00",
+          "resolved_at": "2026-11-12T09:53:43+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -2009,14 +2009,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "code_1.145.3_amd64.deb",
+            "asset_name": "code_1.146.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.15), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "1071560",
+              "Installed-Size": "1111972",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2024,31 +2024,31 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.145.3-1794015171"
+              "Version": "1.146.0-1794340865"
             },
-            "filename": "code_1.145.3_amd64.deb",
-            "md5": "f81064092a9e026fbf8804129133cd3e",
-            "sha1": "2c3eae54612e22c5108e7620a2f28d9e7f99f746",
-            "sha256": "68d94e293056455af5b40431f71a750eb3cd790813278e546668c7f154ae4258",
-            "sha512": "43f09baf81837b8bcc9fdb138f9989c84c3a7962c71359808ebe3032e1bf8853ea9631bc17f783052802b0072d683dd0350e68935218984514091f69d9ef47f1",
-            "size": 263042646,
-            "upstream_version": "1.145.3",
-            "url": "https://update.code.visualstudio.com/1.145.3/linux-deb-x64/stable"
+            "filename": "code_1.146.0_amd64.deb",
+            "md5": "adb5de970452d4b45bb6286d411581cd",
+            "sha1": "63d04e99120eba84f3dcc6fa05e65d72ecfd6b61",
+            "sha256": "f83565f7f11a60b256807fe2216da8405f9728f193754959695242eecd148992",
+            "sha512": "4a57258fbafa7e12c69b56e5b8c95c21d02d838c320ba58a446f84cd3ced28957cb7ec57ccea4f86a7ea858196043337341a247db693b6ed9af57f108d8fac1b",
+            "size": 291523322,
+            "upstream_version": "1.146.0",
+            "url": "https://update.code.visualstudio.com/1.146.0/linux-deb-x64/stable"
           },
-          "resolved_at": "2026-11-11T09:30:18+00:00",
+          "resolved_at": "2026-11-12T09:53:51+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "code_1.145.3_arm64.deb",
+            "asset_name": "code_1.146.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.17), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libstdc++6 (>= 4.1.1), libstdc++6 (>= 5), libstdc++6 (>= 5.2), libstdc++6 (>= 6), libstdc++6 (>= 9), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "980790",
+              "Installed-Size": "1031445",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2056,18 +2056,18 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.145.3-1794015050"
+              "Version": "1.146.0-1794340783"
             },
-            "filename": "code_1.145.3_arm64.deb",
-            "md5": "b85810eb4102cdaf3e32dceaa49ed2c0",
-            "sha1": "e277e3eb66d38678b4e6fac701d4e843cf85c778",
-            "sha256": "0338c2ebc083bcc7a93470ed7a79d9814ea43f36870a3e3778e5c829abefd356",
-            "sha512": "c2c0f4b3dd4973e1bb46741b605392f0fddf4a04a854f7f644a5bf81577c296134252beee09c4735f3c206371e5048708b5f8bb0b090c316f760375426bc2fec",
-            "size": 233421134,
-            "upstream_version": "1.145.3",
-            "url": "https://update.code.visualstudio.com/1.145.3/linux-deb-arm64/stable"
+            "filename": "code_1.146.0_arm64.deb",
+            "md5": "6f0f1795ebd4a83f5a480496dad97848",
+            "sha1": "0a92e9b5d5d93eee05ad3912518cb997e9952eb0",
+            "sha256": "ae7c714ee9c80bd98323e53cdf211d3c9249a83f34d78b8fd6cfbc143ba2424f",
+            "sha512": "c3f47bb9269ee0394ca88da760ebbfbb2ed29ef9be3785d792140d3daa4ec0ea70db27d50e847f4387a16c8c471d21bf105bcbe03a78b3a483deab1a58e746d5",
+            "size": 262905366,
+            "upstream_version": "1.146.0",
+            "url": "https://update.code.visualstudio.com/1.146.0/linux-deb-arm64/stable"
           },
-          "resolved_at": "2026-11-11T09:30:28+00:00",
+          "resolved_at": "2026-11-12T09:53:59+00:00",
           "source": "aur",
           "update_policy": "track"
         }
