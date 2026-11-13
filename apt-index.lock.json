@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T09:53:59+00:00",
+  "generated_at": "2026-11-13T09:37:06+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -301,25 +301,25 @@
               "Architecture": "amd64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "39331",
+              "Installed-Size": "39339",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.10.7"
+              "Version": "2026.11.0"
             },
             "filename": "cloudflared-linux-amd64.deb",
-            "md5": "85c61495e970c64a00864f4224d720f5",
-            "sha1": "6af2603115cd9bb42435991ee569d87d55b7b916",
-            "sha256": "70b1a1e0f46033ffc8d90b406e554044ba6cbf2e4360295ef1163aed31e09393",
-            "sha512": "3a3fc9058784f2b8c76c5520a77bc66f40c5ac5f8a383d84ff647604dd736233ae7e28b4fdb53d26a8a9b67519f7d0ebbe2b47ef997d468b506b581258641aa4",
-            "size": 19925068,
-            "upstream_version": "2026.10.7",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.7/cloudflared-linux-amd64.deb"
+            "md5": "d740312947a42ee2d9c67998f3dc5c13",
+            "sha1": "4c0c8996a241954b2100f4a04f7c6235aecfb72e",
+            "sha256": "5305dbaf62984e92e7daa29cdd6a35a4797edc23385d4c5b8422ff97eb96a19b",
+            "sha512": "fc1f2e838e66fefe174119381e8f95dc4d66b69963400b7e9aca7e92577ed913ad165adf3b79a82c771f3dec8f43bc9c674fcdf55a965147ccd31135128f0d99",
+            "size": 19929932,
+            "upstream_version": "2026.11.0",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.11.0/cloudflared-linux-amd64.deb"
           },
-          "resolved_at": "2026-10-31T08:28:36+00:00",
+          "resolved_at": "2026-11-13T09:36:47+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -330,25 +330,25 @@
               "Architecture": "arm64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "36785",
+              "Installed-Size": "36786",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.10.7"
+              "Version": "2026.11.0"
             },
             "filename": "cloudflared-linux-arm64.deb",
-            "md5": "6bd5b4c7facb6cca3e97b099ae6388e7",
-            "sha1": "fcf949b0389a027854817159d74ebbc7c62fe647",
-            "sha256": "d9407eb6e70ac31f54978a6b408a0320b51b664a6d0b498248692d7ac56bf836",
-            "sha512": "6aeeb5fdf149c655baff65198af27505fe9cf5619b10466474c062b6e241166cb1f9d016de9f93f582d62feebec11585dfe8e850fcd962bcaaebaa8890f8543e",
-            "size": 18293962,
-            "upstream_version": "2026.10.7",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.7/cloudflared-linux-arm64.deb"
+            "md5": "cbfa10da489d98c2232fc33b809db730",
+            "sha1": "de3fc0ab7853c8636ad9abe23b1b4c1a3851a836",
+            "sha256": "ce671bc2b4afbd16b43f9a3c279527e9e2be8b30b87648047a1f95cccfbacdfd",
+            "sha512": "4a9214ab2946ce89be5ba33415dd6e51c177f9c4f8624c38bfebd53a43ac19b1b770c3dd1ec5a1c13b237699f9f9b6d6f7deb67ede66894ad4014074fda36ca6",
+            "size": 18293984,
+            "upstream_version": "2026.11.0",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.11.0/cloudflared-linux-arm64.deb"
           },
-          "resolved_at": "2026-10-31T08:28:36+00:00",
+          "resolved_at": "2026-11-13T09:36:48+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1027,36 +1027,36 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "gh_2.103.3_linux_amd64.deb",
+            "asset_name": "gh_2.104.0_linux_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "git",
               "Description": "GitHub\u2019s official command line tool.",
               "Homepage": "https://github.com/cli/cli",
-              "Installed-Size": "40533",
+              "Installed-Size": "40545",
               "License": "MIT",
               "Maintainer": "GitHub",
               "Package": "gh",
               "Priority": "optional",
               "Section": "",
-              "Version": "2.103.3"
+              "Version": "2.104.0"
             },
-            "filename": "gh_2.103.3_linux_amd64.deb",
-            "md5": "9bf91ade82efb5d87768c7c78b46001f",
-            "sha1": "3e1456b08fdbd4a045b0a7a025422aaf12d85e93",
-            "sha256": "e3bafef96328d1a67de3a968bdfe1cc2ffd58cf6aba8b5e201356897ed06bb3d",
-            "sha512": "416bce1a52e1a116470162ca77f73abaf8eaeac208a50f15920a23872afa4089481442ed1ae8ba10a3550677783ba991dc2d4f486af06108262884418df54b25",
-            "size": 15105286,
-            "upstream_version": "v2.103.3",
-            "url": "https://github.com/cli/cli/releases/download/v2.103.3/gh_2.103.3_linux_amd64.deb"
+            "filename": "gh_2.104.0_linux_amd64.deb",
+            "md5": "09c7d8a38d6e64a9d622c8bfc9f1ff0a",
+            "sha1": "7b808c6ca0c48f639140ecd8b82466cc11753e20",
+            "sha256": "f90d578cbc4c3b067dfc4a1a540cef41faef64eebfb280b548ab32455977a21f",
+            "sha512": "0d48d3c931ac422f24eef919795fe4b58026069ec572fe46e7cbcb0fd18515b41e03c78b8e832e81b8d2b1f8810d05a43e3898dd0c7284762b6b9f28411ff900",
+            "size": 15077566,
+            "upstream_version": "v2.104.0",
+            "url": "https://github.com/cli/cli/releases/download/v2.104.0/gh_2.104.0_linux_amd64.deb"
           },
-          "resolved_at": "2026-10-27T07:56:11+00:00",
+          "resolved_at": "2026-11-13T09:36:51+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "gh_2.103.3_linux_arm64.deb",
+            "asset_name": "gh_2.104.0_linux_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "git",
@@ -1068,18 +1068,18 @@
               "Package": "gh",
               "Priority": "optional",
               "Section": "",
-              "Version": "2.103.3"
+              "Version": "2.104.0"
             },
-            "filename": "gh_2.103.3_linux_arm64.deb",
-            "md5": "6b8541c8d57246844e564a7fe128c6cb",
-            "sha1": "aea1843ce04aa0cf9e695dfac876b0a25b956b61",
-            "sha256": "cac3ff84b60b68e64cca69f31f303210c26320361cc3286b773655d4226b7b06",
-            "sha512": "3600448d334da8789833dab38457b25d5ffa499f6189fb7da6bb70f4532cfba85736cea9f5fddd84fb5d5cd4eef5c8a09518333950c3702205a0fcb1ad231d42",
-            "size": 13724980,
-            "upstream_version": "v2.103.3",
-            "url": "https://github.com/cli/cli/releases/download/v2.103.3/gh_2.103.3_linux_arm64.deb"
+            "filename": "gh_2.104.0_linux_arm64.deb",
+            "md5": "52a96fd7dd464a5dc2d1532fd67298a9",
+            "sha1": "b94ee2dacaf3522a29b772949575257815d02ee8",
+            "sha256": "95b0632a7e1b12761248b7266825b0eab0853cefb84a1e272d905acb6e436f6c",
+            "sha512": "7804578f1bb2652ad86d4540a090d4fa0429939d785ea5656cb9f298e89fe3559e46f17cfb88e3b743ad477ee5138f1c50a1a60b48cc5768cbd6bba1725285b7",
+            "size": 13705886,
+            "upstream_version": "v2.104.0",
+            "url": "https://github.com/cli/cli/releases/download/v2.104.0/gh_2.104.0_linux_arm64.deb"
           },
-          "resolved_at": "2026-10-27T07:56:12+00:00",
+          "resolved_at": "2026-11-13T09:36:52+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1540,13 +1540,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "obsidian_1.15.0_amd64.deb",
+            "asset_name": "obsidian_1.15.1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  Obsidian",
               "Homepage": "https://obsidian.md",
-              "Installed-Size": "347550",
+              "Installed-Size": "347799",
               "License": "UNLICENSED",
               "Maintainer": "Dynalist Inc.",
               "Package": "obsidian",
@@ -1554,18 +1554,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Dynalist Inc.",
-              "Version": "1.15.0"
+              "Version": "1.15.1"
             },
-            "filename": "obsidian_1.15.0_amd64.deb",
-            "md5": "16c8bbe7e469b7314990b5f832df8c7e",
-            "sha1": "ea0b512c2046598ac28e760b47e6daa68fd1410f",
-            "sha256": "251805fdcb696af32129e8f5e8656f6688802fc38b169822175d23a74c5174b3",
-            "sha512": "5498984fbaeefacb1ab2d4aa30d1fce12bdf507cca8f38b6e01f94584233b5ea0619af12abf098a1f4e9541b208076fb9bc0e41fab4f8d1fe971cc3354bd7cab",
-            "size": 107879792,
-            "upstream_version": "v1.15.0",
-            "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.15.0/obsidian_1.15.0_amd64.deb"
+            "filename": "obsidian_1.15.1_amd64.deb",
+            "md5": "9d1fba1b972810c8fbbcfabee533d6dc",
+            "sha1": "0515a0e5d18fa16c78c880b877cf7347796b757f",
+            "sha256": "f77b6dfc8c040214f2febad2b1b9b051b6a838a47b0f4fb90a31cfcb79b8fcec",
+            "sha512": "5349036981fad92a43277a7fee064935f30dafd9f41309f427c1f4a0a6cf22543e06989ddbfe60b3fde753a1c6a001131c1640cd3fc4b404ff0c3c41a902908c",
+            "size": 107976848,
+            "upstream_version": "v1.15.1",
+            "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.15.1/obsidian_1.15.1_amd64.deb"
           },
-          "resolved_at": "2026-11-03T09:37:45+00:00",
+          "resolved_at": "2026-11-13T09:36:54+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1745,7 +1745,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "slack-desktop-4.53.276-amd64.deb",
+            "asset_name": "slack-desktop-4.53.287-amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libappindicator3-1, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, kde-cli-tools | kde-runtime | trash-cli | libglib2.0-bin | gvfs-bin, apt-transport-https",
@@ -1757,18 +1757,18 @@
               "Recommends": "pulseaudio | libasound2",
               "Section": "misc",
               "Suggests": "gir1.2-gnomekeyring-1.0, libgnome-keyring0, lsb-release",
-              "Version": "4.53.276"
+              "Version": "4.53.287"
             },
-            "filename": "slack-desktop-4.53.276-amd64.deb",
-            "md5": "021a7db1334f2c93be080aa568012874",
-            "sha1": "112d3672c0864c6dcfc0cffafdc375ad999984f9",
-            "sha256": "8974c6a9b3ffd4ef09ced4403acaa444d743d113a185504d5a1dc405be46e746",
-            "sha512": "f60d13669620887df5f2f15376353452c3e9e1664928d3561655f3b58eb79c9f3811399e45018354d90ba2b8156e61ecf03b19c695a235712f12f0a1d0affeef",
-            "size": 96988654,
-            "upstream_version": "4.53.276",
-            "url": "https://downloads.slack-edge.com/desktop-releases/linux/x64/4.53.276/slack-desktop-4.53.276-amd64.deb"
+            "filename": "slack-desktop-4.53.287-amd64.deb",
+            "md5": "f748a627acb986eab215b56c8a9ef3ff",
+            "sha1": "94489516071737acd6c9edd3ee73af8663d94246",
+            "sha256": "c2057f221e41275b7eadc5b658edc00289466b6fb55c912c5894831f6900f969",
+            "sha512": "f0e349308f8294dafca6adba25c3feee62625f2b5aa0665f4b3af9c5b661cb1ef01209f26ed57891e81ece7fa7295469259778f2e1678c25a2939f3d1e927a90",
+            "size": 97157874,
+            "upstream_version": "4.53.287",
+            "url": "https://downloads.slack-edge.com/desktop-releases/linux/x64/4.53.287/slack-desktop-4.53.287-amd64.deb"
           },
-          "resolved_at": "2026-10-30T08:42:12+00:00",
+          "resolved_at": "2026-11-13T09:36:56+00:00",
           "source": "aur",
           "update_policy": "track"
         }
