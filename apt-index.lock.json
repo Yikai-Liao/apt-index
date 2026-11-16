@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-15T09:31:21+00:00",
+  "generated_at": "2026-11-16T09:50:17+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -1410,14 +1410,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "Motrix_2.4.1_amd64.deb",
+            "asset_name": "Motrix_2.4.2_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "motrix-turbo",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Full-featured download manager\n  Motrix is a full-featured download manager that supports HTTP, FTP, BitTorrent and Magnet downloads.",
               "Homepage": "https://motrix.app",
-              "Installed-Size": "328162",
+              "Installed-Size": "327890",
               "License": "MIT",
               "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
               "Package": "motrix",
@@ -1427,31 +1427,31 @@
               "Replaces": "motrix-turbo",
               "Section": "default",
               "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
-              "Version": "2.4.1"
+              "Version": "2.4.2"
             },
-            "filename": "motrix_2.4.1_amd64.deb",
-            "md5": "8ab2777e29f303f08105bd0cca83b58d",
-            "sha1": "fc434633225947d0c6c52c1a95e2164e0866a005",
-            "sha256": "84ceae97312905de5885560b02ab9a76816e9b256a5c30ae98f1fab7952153fa",
-            "sha512": "16d3527e3a132250b25b057c513d56958b50edbb633be9b798b3fa674f08b42c93639bbbe1437321ec4e9ba53e23fc49812235feeb95a711a832c280c7113d5f",
-            "size": 112565028,
-            "upstream_version": "v2.4.1",
-            "url": "https://github.com/agalwood/Motrix/releases/download/v2.4.1/Motrix_2.4.1_amd64.deb"
+            "filename": "motrix_2.4.2_amd64.deb",
+            "md5": "b0511ff4f0b52f909f5506891484df34",
+            "sha1": "112094a6c8e6e3be5c2c2ad7b1c8a460050c6f40",
+            "sha256": "fab158b707b056537f3b4b3e1bff87089ba4d1105284e1baeae50aa84a53637a",
+            "sha512": "a67901a893f045480d56ac8314064d774991f7fde995679c8bbfadcffc1ef417301584d9e9652ab4b8a455ee82da28402a4b6a4d661d2a5793794ddbd118c5f8",
+            "size": 112485268,
+            "upstream_version": "v2.4.2",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v2.4.2/Motrix_2.4.2_amd64.deb"
           },
-          "resolved_at": "2026-11-10T09:56:13+00:00",
+          "resolved_at": "2026-11-16T09:50:07+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "Motrix_2.4.1_arm64.deb",
+            "asset_name": "Motrix_2.4.2_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "motrix-turbo",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Full-featured download manager\n  Motrix is a full-featured download manager that supports HTTP, FTP, BitTorrent and Magnet downloads.",
               "Homepage": "https://motrix.app",
-              "Installed-Size": "332069",
+              "Installed-Size": "332002",
               "License": "MIT",
               "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
               "Package": "motrix",
@@ -1461,18 +1461,18 @@
               "Replaces": "motrix-turbo",
               "Section": "default",
               "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
-              "Version": "2.4.1"
+              "Version": "2.4.2"
             },
-            "filename": "motrix_2.4.1_arm64.deb",
-            "md5": "ca7052b54f3832347beff2073c031dbe",
-            "sha1": "1ab070590dccfb1d85f5ef2e9546a180f33d3a83",
-            "sha256": "1cba769ce15ffbf492018fd637e3929c07eec9d8added7b4e5e26918d0032d4f",
-            "sha512": "e4bb82cafd125ee56795a77875a64cbac7b17dc72da1c111668c3fe63927cf183858c24abdab2bb7d288faaebccb4ffdc1b1f587224f2e7581efd9de7767f893",
-            "size": 107561180,
-            "upstream_version": "v2.4.1",
-            "url": "https://github.com/agalwood/Motrix/releases/download/v2.4.1/Motrix_2.4.1_arm64.deb"
+            "filename": "motrix_2.4.2_arm64.deb",
+            "md5": "bdef1ab9fcb7571417d70dc8d015fb5c",
+            "sha1": "f13c4c69bcaec52dd25b7341c749d60956ff621d",
+            "sha256": "196c9fbc423603b2f9ba57189081d65ccb5eb0c09020ce92387712850a039ca3",
+            "sha512": "00e179484886b6a4ada90bc63567c200106f0dc1ff32a4193c778c1c5f23e5cb8cf70bd8104f9670502eaaac3f2a888f83ecb6f2ba3f45ad161cdd08f27044f0",
+            "size": 107586528,
+            "upstream_version": "v2.4.2",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v2.4.2/Motrix_2.4.2_arm64.deb"
           },
-          "resolved_at": "2026-11-10T09:56:15+00:00",
+          "resolved_at": "2026-11-16T09:50:10+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1879,13 +1879,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "teams-for-linux_2.31.1_amd64.deb",
+            "asset_name": "teams-for-linux_2.32.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, libgbm1, libasound2t64 | libasound2",
               "Description": "Teams for Linux\n  Unofficial Microsoft Teams client for Linux using Electron. It uses the Web App and wraps it as a standalone application using Electron.",
               "Homepage": "https://github.com/IsmaelMartinez/teams-for-linux",
-              "Installed-Size": "321251",
+              "Installed-Size": "321356",
               "License": "GPL-3.0-or-later",
               "Maintainer": "Ismael Martinez <ismaelmartinez@gmail.com>",
               "Package": "teams-for-linux",
@@ -1893,30 +1893,30 @@
               "Recommends": "libappindicator3-1, fido2-tools",
               "Section": "net",
               "Vendor": "Ismael Martinez <ismaelmartinez@gmail.com>",
-              "Version": "2.31.1"
+              "Version": "2.32.0"
             },
-            "filename": "teams-for-linux_2.31.1_amd64.deb",
-            "md5": "190e047b11fb0cc1bc5e9088bc9b8670",
-            "sha1": "67d76f3a1738dcfa5450fce0cb4f96af82c1ad38",
-            "sha256": "0e856313d87b25aa0ac70c7db82be1e0ebfdfcc6c919067697fdc299b0ab19c1",
-            "sha512": "19cb6f8681bc7ece0d8fe8718cba522edc8e25512775f5af2a5c670a061c97af0c9ef145f90325035f5095a9f49152c4a86fe7fd0f103c0452166bc93083af06",
-            "size": 115745660,
-            "upstream_version": "v2.31.1",
-            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.31.1/teams-for-linux_2.31.1_amd64.deb"
+            "filename": "teams-for-linux_2.32.0_amd64.deb",
+            "md5": "a8c7181aaf8260690d73bec41f9839ab",
+            "sha1": "2ea1b8e34de251d5d7f4e11b2fed73cd393f4156",
+            "sha256": "7f996071b363d964148e066cf9fe68dd03443f1841376e35cd4a39c35f7c4ff4",
+            "sha512": "e93cc256f6765d297b0c7ab658825b84f2c745d3dbf5a01d8f3320ed8e9eb25c24e7a824d2b6e19db05025f78d5b4e8a8de7e20eff02914addcfc87a66c4df22",
+            "size": 115780968,
+            "upstream_version": "v2.32.0",
+            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.32.0/teams-for-linux_2.32.0_amd64.deb"
           },
-          "resolved_at": "2026-11-15T09:31:11+00:00",
+          "resolved_at": "2026-11-16T09:50:10+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "teams-for-linux_2.31.1_arm64.deb",
+            "asset_name": "teams-for-linux_2.32.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, libgbm1, libasound2t64 | libasound2",
               "Description": "Teams for Linux\n  Unofficial Microsoft Teams client for Linux using Electron. It uses the Web App and wraps it as a standalone application using Electron.",
               "Homepage": "https://github.com/IsmaelMartinez/teams-for-linux",
-              "Installed-Size": "326002",
+              "Installed-Size": "326107",
               "License": "GPL-3.0-or-later",
               "Maintainer": "Ismael Martinez <ismaelmartinez@gmail.com>",
               "Package": "teams-for-linux",
@@ -1924,18 +1924,18 @@
               "Recommends": "libappindicator3-1, fido2-tools",
               "Section": "net",
               "Vendor": "Ismael Martinez <ismaelmartinez@gmail.com>",
-              "Version": "2.31.1"
+              "Version": "2.32.0"
             },
-            "filename": "teams-for-linux_2.31.1_arm64.deb",
-            "md5": "e4efda3140df1b847fa3f2fe6c4ef830",
-            "sha1": "f3b32795fb63180c180cf6c1b605a0aef332db8f",
-            "sha256": "42fcd1b6dc43cce1347c7b8dbf3f6699b1b28c48cc17258a8eae22fc5b243de1",
-            "sha512": "7ac061258996110705b211f7a795c503b513ee63809a08da3d4a1586c8deca075267ea7ffe54b668ff9eb3955d7f51b20bc40055d49ca16a3fcf4a455195588d",
-            "size": 110807128,
-            "upstream_version": "v2.31.1",
-            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.31.1/teams-for-linux_2.31.1_arm64.deb"
+            "filename": "teams-for-linux_2.32.0_arm64.deb",
+            "md5": "837ae6d8028f3ff61b7faff0e764027b",
+            "sha1": "c1c9fae8dd430154e5597424e996b576b590bfe2",
+            "sha256": "0bd04c93f4427566fd0022dee920017ea9bdc14fb85ed91e8bdd7cdb5146f69f",
+            "sha512": "6d4e0afd440412e11b0fee79301c43f38da1f006270557fc6f110fabf5da09a795ec8781c0204aedbd9a7935ad502ff09f4ff607d77cfc1528315a6fac3612f7",
+            "size": 110825924,
+            "upstream_version": "v2.32.0",
+            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.32.0/teams-for-linux_2.32.0_arm64.deb"
           },
-          "resolved_at": "2026-11-15T09:31:13+00:00",
+          "resolved_at": "2026-11-16T09:50:11+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -2078,13 +2078,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "VutronMusic-3.2.0_linux_amd64.deb",
+            "asset_name": "VutronMusic-4.0.0_linux_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n .",
               "Homepage": "https://github.com/stark81",
-              "Installed-Size": "496218",
+              "Installed-Size": "554978",
               "License": "MIT",
               "Maintainer": "stark81 <qq2995734001@gmail.com>",
               "Package": "vutronmusic",
@@ -2092,30 +2092,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "stark81 <qq2995734001@gmail.com>",
-              "Version": "3.2.0"
+              "Version": "4.0.0"
             },
-            "filename": "vutronmusic_3.2.0_amd64.deb",
-            "md5": "e133765fa871cdd2705f8ca2d577d93d",
-            "sha1": "6c07e655006cd142275328037316637d2952b5b8",
-            "sha256": "97c0b5cadc3f5a6b6c3b5d44d9bc13346a5eb6c21577453c17382759b9a8a4fe",
-            "sha512": "a2440a473c774d87ccddfff90b9f8b6971e5c64f72c9ab2ff23eb66354abba1d8e5afc35c95e6fdb9cbec22b0e58b567104e6087b0e6de17046c4a7d19b2cbb5",
-            "size": 142405532,
-            "upstream_version": "v3.2.0",
-            "url": "https://github.com/stark81/VutronMusic/releases/download/v3.2.0/VutronMusic-3.2.0_linux_amd64.deb"
+            "filename": "vutronmusic_4.0.0_amd64.deb",
+            "md5": "11d1341b105ac4ce8c534b84cba4d10d",
+            "sha1": "820220ed6fbbe3c04b9ff4a2e76aed4852c29a47",
+            "sha256": "c215e89e6c2706ef71513f3f5b7fb6df72aa55d775eda8b34d5eb11e6beda8f6",
+            "sha512": "728a042d85632b8ff6ba5f877586c87ee90a4484a6d8e0be2378ac13189c1308718c324ad2c4d985d5d10fbefc0601de5bd6539f79c6b30fd0dd58082fda196b",
+            "size": 164044324,
+            "upstream_version": "v4.0.0",
+            "url": "https://github.com/stark81/VutronMusic/releases/download/v4.0.0/VutronMusic-4.0.0_linux_amd64.deb"
           },
-          "resolved_at": "2026-06-15T15:54:38+00:00",
+          "resolved_at": "2026-11-16T09:50:13+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "VutronMusic-3.2.0_linux_arm64.deb",
+            "asset_name": "VutronMusic-4.0.0_linux_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n .",
               "Homepage": "https://github.com/stark81",
-              "Installed-Size": "500171",
+              "Installed-Size": "559673",
               "License": "MIT",
               "Maintainer": "stark81 <qq2995734001@gmail.com>",
               "Package": "vutronmusic",
@@ -2123,18 +2123,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "stark81 <qq2995734001@gmail.com>",
-              "Version": "3.2.0"
+              "Version": "4.0.0"
             },
-            "filename": "vutronmusic_3.2.0_arm64.deb",
-            "md5": "7f1b2020561e970e23fc40004adc5433",
-            "sha1": "c2b35c582e1c6d6e6259fa5bba79ef481abc35d7",
-            "sha256": "fc5293b9afaaec4aa1fbd73fbbdf6c2aacbc21e3e5ec0f21f5b52f7c9a419191",
-            "sha512": "6eb900720f8b7cadefd1395d3a872e30d70c11d346ebe89bb97aba2819e813b6768ec7a02a991435aa9c3360325bcfa4ff9d47bfdbf6671153d95f1a900ae1b8",
-            "size": 136479844,
-            "upstream_version": "v3.2.0",
-            "url": "https://github.com/stark81/VutronMusic/releases/download/v3.2.0/VutronMusic-3.2.0_linux_arm64.deb"
+            "filename": "vutronmusic_4.0.0_arm64.deb",
+            "md5": "c386f4ce2ebbc0cb7b07c1dd6ecdd1b9",
+            "sha1": "9f358ecedf54263cc0aeb2c3ad7a25c89e053e96",
+            "sha256": "312ae2e09c9a2f61ab362715e4d972e0e1fc195bec57263576169537d2617444",
+            "sha512": "97a26fdbac59108b84d14b89ac1ff203aa87aa6e42390bc7dd44d86878d0a0071ecd21b65575253c177e85d4f794cbbeeaa3093e78d097b715aa18124662178c",
+            "size": 158350572,
+            "upstream_version": "v4.0.0",
+            "url": "https://github.com/stark81/VutronMusic/releases/download/v4.0.0/VutronMusic-4.0.0_linux_arm64.deb"
           },
-          "resolved_at": "2026-06-15T15:54:41+00:00",
+          "resolved_at": "2026-11-16T09:50:16+00:00",
           "source": "github",
           "update_policy": "track"
         }
