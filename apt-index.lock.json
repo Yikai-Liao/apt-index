@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T09:50:17+00:00",
+  "generated_at": "2026-11-17T10:47:36+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -64,13 +64,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_6.2.2_amd64.deb",
+            "asset_name": "beekeeper-studio_6.3.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "1127342",
+              "Installed-Size": "1158658",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -78,30 +78,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "6.2.2"
+              "Version": "6.3.0"
             },
-            "filename": "beekeeper-studio_6.2.2_amd64.deb",
-            "md5": "ba627efe005f1802136c71b042870d3d",
-            "sha1": "d9bd27ceae24b4ad0040213a87013667c6e39d6f",
-            "sha256": "0caa2388da9c1dd5494446977269053c00c9a309b7f893689d58c569282e3636",
-            "sha512": "31b156edebd93cc4b01730140f68c20dea915dc9aad777183da546082a93bcb38a3c31fde4be4758e0b5719db16c9f3ac6977dacd62e13901ae5113a3ce13540",
-            "size": 276178024,
-            "upstream_version": "v6.2.2",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.2.2/beekeeper-studio_6.2.2_amd64.deb"
+            "filename": "beekeeper-studio_6.3.0_amd64.deb",
+            "md5": "95af277cf2318757666876872045c7a2",
+            "sha1": "0a23498e837c38de944cfe73889877f41cdea6a4",
+            "sha256": "763961a067054a45fe9c929a883c1d6e1d931f6605f3ed48dc2be76c372517ed",
+            "sha512": "9b4a42c134e22076a5d4f98cf54376d9883ea45b71b0236b4be850b2dea83c0efc010e2842b158205ac3b4fcedc15da40224dc6f2480aa5ffff8b3146f7664ad",
+            "size": 275088256,
+            "upstream_version": "v6.3.0",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.3.0/beekeeper-studio_6.3.0_amd64.deb"
           },
-          "resolved_at": "2026-11-07T08:51:08+00:00",
+          "resolved_at": "2026-11-17T10:47:22+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_6.2.2_arm64.deb",
+            "asset_name": "beekeeper-studio_6.3.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "1124133",
+              "Installed-Size": "1156366",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -109,18 +109,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "6.2.2"
+              "Version": "6.3.0"
             },
-            "filename": "beekeeper-studio_6.2.2_arm64.deb",
-            "md5": "6ee0f5e801ef45f5de3021c076420cf5",
-            "sha1": "2f01bfcee70334f71a19b5b0c7ba2ea5c82ea60f",
-            "sha256": "359673b654df6301ca1f39014c8253b3816854511c57aa1c120615c19409a057",
-            "sha512": "a096626aa605ebc6dbaadd23f8aee5532246efb637056f2725dcd065022f8e5a89e18478e0ce5996e8702b245d012a4851872001443537d2eaa3fe052de5debe",
-            "size": 268533908,
-            "upstream_version": "v6.2.2",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.2.2/beekeeper-studio_6.2.2_arm64.deb"
+            "filename": "beekeeper-studio_6.3.0_arm64.deb",
+            "md5": "815f762a89b891041ed04ab81b0c39e8",
+            "sha1": "8def8d177f358c9cf005a989f552f8b725d707e3",
+            "sha256": "282a0f1b2304ad0e3da12959d694c11d1303c879d272a2137784b3930ad0746f",
+            "sha512": "dae408c9f3d3820b3cb808535f0549404800cda11f6eda167cc8210160648bf80cda9054e0f325db946796b5942845d8fc925147fbb5dc4c8d3de0f1e6d43255",
+            "size": 267748688,
+            "upstream_version": "v6.3.0",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.3.0/beekeeper-studio_6.3.0_arm64.deb"
           },
-          "resolved_at": "2026-11-07T08:51:13+00:00",
+          "resolved_at": "2026-11-17T10:47:27+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1410,14 +1410,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "Motrix_2.4.2_amd64.deb",
+            "asset_name": "Motrix_2.4.3_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "motrix-turbo",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Full-featured download manager\n  Motrix is a full-featured download manager that supports HTTP, FTP, BitTorrent and Magnet downloads.",
               "Homepage": "https://motrix.app",
-              "Installed-Size": "327890",
+              "Installed-Size": "328070",
               "License": "MIT",
               "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
               "Package": "motrix",
@@ -1427,31 +1427,31 @@
               "Replaces": "motrix-turbo",
               "Section": "default",
               "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
-              "Version": "2.4.2"
+              "Version": "2.4.3"
             },
-            "filename": "motrix_2.4.2_amd64.deb",
-            "md5": "b0511ff4f0b52f909f5506891484df34",
-            "sha1": "112094a6c8e6e3be5c2c2ad7b1c8a460050c6f40",
-            "sha256": "fab158b707b056537f3b4b3e1bff87089ba4d1105284e1baeae50aa84a53637a",
-            "sha512": "a67901a893f045480d56ac8314064d774991f7fde995679c8bbfadcffc1ef417301584d9e9652ab4b8a455ee82da28402a4b6a4d661d2a5793794ddbd118c5f8",
-            "size": 112485268,
-            "upstream_version": "v2.4.2",
-            "url": "https://github.com/agalwood/Motrix/releases/download/v2.4.2/Motrix_2.4.2_amd64.deb"
+            "filename": "motrix_2.4.3_amd64.deb",
+            "md5": "350f2ab8e6d96d9e52d0aa4b39947743",
+            "sha1": "7ec6d1e53571f6f7812fb7679ec15768e2c29237",
+            "sha256": "b7b4fff6bf8c79f05f2f98e7a27d7c2bbc0472b8de6be38e03ceeb969944aafd",
+            "sha512": "31ce6507f835f2a5ccbeddd0d10d9fbe2775d36f8a2af48ed62066481dbb35dfbc3af8abbd94b85fb4abeea1578131882a9b2ca09b6fd2668a54b32b568d53c4",
+            "size": 112522096,
+            "upstream_version": "v2.4.3",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v2.4.3/Motrix_2.4.3_amd64.deb"
           },
-          "resolved_at": "2026-11-16T09:50:07+00:00",
+          "resolved_at": "2026-11-17T10:47:25+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "Motrix_2.4.2_arm64.deb",
+            "asset_name": "Motrix_2.4.3_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "motrix-turbo",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Full-featured download manager\n  Motrix is a full-featured download manager that supports HTTP, FTP, BitTorrent and Magnet downloads.",
               "Homepage": "https://motrix.app",
-              "Installed-Size": "332002",
+              "Installed-Size": "332246",
               "License": "MIT",
               "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
               "Package": "motrix",
@@ -1461,18 +1461,18 @@
               "Replaces": "motrix-turbo",
               "Section": "default",
               "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
-              "Version": "2.4.2"
+              "Version": "2.4.3"
             },
-            "filename": "motrix_2.4.2_arm64.deb",
-            "md5": "bdef1ab9fcb7571417d70dc8d015fb5c",
-            "sha1": "f13c4c69bcaec52dd25b7341c749d60956ff621d",
-            "sha256": "196c9fbc423603b2f9ba57189081d65ccb5eb0c09020ce92387712850a039ca3",
-            "sha512": "00e179484886b6a4ada90bc63567c200106f0dc1ff32a4193c778c1c5f23e5cb8cf70bd8104f9670502eaaac3f2a888f83ecb6f2ba3f45ad161cdd08f27044f0",
-            "size": 107586528,
-            "upstream_version": "v2.4.2",
-            "url": "https://github.com/agalwood/Motrix/releases/download/v2.4.2/Motrix_2.4.2_arm64.deb"
+            "filename": "motrix_2.4.3_arm64.deb",
+            "md5": "817ef97968de51ee2ce643f34eae986b",
+            "sha1": "51c7b06ec69237b2059f800e28d26c1262db077f",
+            "sha256": "d8721c752d67498503c744efd83e9b605ed33a1e482df5f6ecb7596a8f47f535",
+            "sha512": "2d0513343256d30b201b7d66a2fbf2ab77441145a644bf13b43e3e223daf9ee9cf54c0c111f4c1e2a5bada1a11e2e74210290ff804690c8e9d9e6e6be8052082",
+            "size": 107617324,
+            "upstream_version": "v2.4.3",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v2.4.3/Motrix_2.4.3_arm64.deb"
           },
-          "resolved_at": "2026-11-16T09:50:10+00:00",
+          "resolved_at": "2026-11-17T10:47:27+00:00",
           "source": "github",
           "update_policy": "track"
         }
