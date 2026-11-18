@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T10:47:36+00:00",
+  "generated_at": "2026-11-18T10:15:17+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -64,13 +64,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_6.3.0_amd64.deb",
+            "asset_name": "beekeeper-studio_6.3.2_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "1158658",
+              "Installed-Size": "1158661",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -78,30 +78,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "6.3.0"
+              "Version": "6.3.2"
             },
-            "filename": "beekeeper-studio_6.3.0_amd64.deb",
-            "md5": "95af277cf2318757666876872045c7a2",
-            "sha1": "0a23498e837c38de944cfe73889877f41cdea6a4",
-            "sha256": "763961a067054a45fe9c929a883c1d6e1d931f6605f3ed48dc2be76c372517ed",
-            "sha512": "9b4a42c134e22076a5d4f98cf54376d9883ea45b71b0236b4be850b2dea83c0efc010e2842b158205ac3b4fcedc15da40224dc6f2480aa5ffff8b3146f7664ad",
-            "size": 275088256,
-            "upstream_version": "v6.3.0",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.3.0/beekeeper-studio_6.3.0_amd64.deb"
+            "filename": "beekeeper-studio_6.3.2_amd64.deb",
+            "md5": "399019d70ff1e9883b8c77e1f5bce77a",
+            "sha1": "3821f8d032fcb941896f320eb47d6ecc7f82b674",
+            "sha256": "26b719c71e5af2074e45dcfa30fd439579e8b236ec48f9a2f40e02353dc41628",
+            "sha512": "8ca5897448f7c02bee19175d3e02a7c132be2366e0b58ae20e653ca8fd2c91e8bcc33176252706e22e63e02eabc94a41a0b8f5ce3e4eaa932d0f0b032168bbff",
+            "size": 275088012,
+            "upstream_version": "v6.3.2",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.3.2/beekeeper-studio_6.3.2_amd64.deb"
           },
-          "resolved_at": "2026-11-17T10:47:22+00:00",
+          "resolved_at": "2026-11-18T10:15:01+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_6.3.0_arm64.deb",
+            "asset_name": "beekeeper-studio_6.3.2_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "1156366",
+              "Installed-Size": "1156369",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -109,18 +109,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "6.3.0"
+              "Version": "6.3.2"
             },
-            "filename": "beekeeper-studio_6.3.0_arm64.deb",
-            "md5": "815f762a89b891041ed04ab81b0c39e8",
-            "sha1": "8def8d177f358c9cf005a989f552f8b725d707e3",
-            "sha256": "282a0f1b2304ad0e3da12959d694c11d1303c879d272a2137784b3930ad0746f",
-            "sha512": "dae408c9f3d3820b3cb808535f0549404800cda11f6eda167cc8210160648bf80cda9054e0f325db946796b5942845d8fc925147fbb5dc4c8d3de0f1e6d43255",
-            "size": 267748688,
-            "upstream_version": "v6.3.0",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.3.0/beekeeper-studio_6.3.0_arm64.deb"
+            "filename": "beekeeper-studio_6.3.2_arm64.deb",
+            "md5": "84e5345f311dc9f5bc87119768d5e565",
+            "sha1": "0df124728046e51b041fa2fd66efffefdde4d200",
+            "sha256": "36b6241c13d0f21e626d7ccfd919676f0784fe565c89be3a5590ce2ac68c227c",
+            "sha512": "2b31b4f3a9c639bd97b9f3b4bc8a03f36083d0b9149e1ce602ff725cc0990b6a31017338f684e7097171f8c7fff109ed7d2513c89cd016e2693b1c26004aad5e",
+            "size": 267748396,
+            "upstream_version": "v6.3.2",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.3.2/beekeeper-studio_6.3.2_arm64.deb"
           },
-          "resolved_at": "2026-11-17T10:47:27+00:00",
+          "resolved_at": "2026-11-18T10:15:06+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -301,25 +301,25 @@
               "Architecture": "amd64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "39339",
+              "Installed-Size": "39401",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.11.0"
+              "Version": "2026.11.1"
             },
             "filename": "cloudflared-linux-amd64.deb",
-            "md5": "d740312947a42ee2d9c67998f3dc5c13",
-            "sha1": "4c0c8996a241954b2100f4a04f7c6235aecfb72e",
-            "sha256": "5305dbaf62984e92e7daa29cdd6a35a4797edc23385d4c5b8422ff97eb96a19b",
-            "sha512": "fc1f2e838e66fefe174119381e8f95dc4d66b69963400b7e9aca7e92577ed913ad165adf3b79a82c771f3dec8f43bc9c674fcdf55a965147ccd31135128f0d99",
-            "size": 19929932,
-            "upstream_version": "2026.11.0",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.11.0/cloudflared-linux-amd64.deb"
+            "md5": "404fbb400741ac9a2637eea022c3a210",
+            "sha1": "0c9a8d8f29a404025d6499ebc80d67f283617de4",
+            "sha256": "744ce90be92adb361103d51c85f78646314c47e4a68bbaadfe12ab5acc16c9b6",
+            "sha512": "2a6b9bf028cbbc05d85c252322346975b59f7485495e976a175b794c4ee8096994c837bbeafe2a4c52147adab6e3c0d306a7a24cd68f316b6c0aacb632530cfc",
+            "size": 19960148,
+            "upstream_version": "2026.11.1",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.11.1/cloudflared-linux-amd64.deb"
           },
-          "resolved_at": "2026-11-13T09:36:47+00:00",
+          "resolved_at": "2026-11-18T10:14:59+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -330,25 +330,25 @@
               "Architecture": "arm64",
               "Description": "Cloudflare Tunnel daemon",
               "Homepage": "https://github.com/cloudflare/cloudflared",
-              "Installed-Size": "36786",
+              "Installed-Size": "36932",
               "License": "Apache License Version 2.0",
               "Maintainer": "Cloudflare <support@cloudflare.com>",
               "Package": "cloudflared",
               "Priority": "optional",
               "Section": "default",
               "Vendor": "Cloudflare",
-              "Version": "2026.11.0"
+              "Version": "2026.11.1"
             },
             "filename": "cloudflared-linux-arm64.deb",
-            "md5": "cbfa10da489d98c2232fc33b809db730",
-            "sha1": "de3fc0ab7853c8636ad9abe23b1b4c1a3851a836",
-            "sha256": "ce671bc2b4afbd16b43f9a3c279527e9e2be8b30b87648047a1f95cccfbacdfd",
-            "sha512": "4a9214ab2946ce89be5ba33415dd6e51c177f9c4f8624c38bfebd53a43ac19b1b770c3dd1ec5a1c13b237699f9f9b6d6f7deb67ede66894ad4014074fda36ca6",
-            "size": 18293984,
-            "upstream_version": "2026.11.0",
-            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.11.0/cloudflared-linux-arm64.deb"
+            "md5": "4856efada365f40c5ba471986cd1f23b",
+            "sha1": "c35b45f92b196eb1f4cea1742b3529ec8ce20850",
+            "sha256": "225d7ef16e5c98dc9595329f4450ad9f2efe736dca79fc70fade22d20de5a72c",
+            "sha512": "fb98af9babf794612177a85592ce1e410c777afb682fe504a97fab99ee11b4bb073efd5a237e6183eab0e2c8ad878cb13f6470c412896a5ef41492cd1596ee54",
+            "size": 18323164,
+            "upstream_version": "2026.11.1",
+            "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.11.1/cloudflared-linux-arm64.deb"
           },
-          "resolved_at": "2026-11-13T09:36:48+00:00",
+          "resolved_at": "2026-11-18T10:15:00+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -459,13 +459,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "drawio-amd64-32.6.10.deb",
+            "asset_name": "drawio-amd64-32.7.4.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  draw.io desktop",
               "Homepage": "https://github.com/jgraph/drawio",
-              "Installed-Size": "352494",
+              "Installed-Size": "357858",
               "License": "GPL-3.0-only",
               "Maintainer": "draw.io <desktop@draw.io>",
               "Package": "draw.io",
@@ -473,30 +473,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "draw.io <desktop@draw.io>",
-              "Version": "32.6.10"
+              "Version": "32.7.4"
             },
-            "filename": "draw.io_32.6.10_amd64.deb",
-            "md5": "2b772b1fd4b90437972d323ba8e15afa",
-            "sha1": "185505fd321e82f6a2d62281b21243a297c1876e",
-            "sha256": "fc96faafe68cb4e06c0b7116779891592b20fce2cde7907adec504f23c5af83c",
-            "sha512": "fca80a5129a7f9c7b56b74869e66f5ce89c99dddecbea4d97d79240f05db4f6231e2bca0e6e86e9005a7ebd12d845f801b1b0caf15667390df82808d44cfcea5",
-            "size": 122104752,
-            "upstream_version": "v32.6.10",
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v32.6.10/drawio-amd64-32.6.10.deb"
+            "filename": "draw.io_32.7.4_amd64.deb",
+            "md5": "1d704a08ea16ee126e4a7db930ecb8dc",
+            "sha1": "cbc652b7ccaa81d9e192ae13b57a811d29b4c610",
+            "sha256": "ffd8c110f1df8cde26a7fbd801212bd8381d257879f424a2191ec4cc491aa50b",
+            "sha512": "46321baef5800118dea6c06faf945db7c33bb57c5290589856828147f5d9c11a471a9c823186887b8ef8126f6c565d7198cd730f51bf64b0b6bfd98b37d64423",
+            "size": 124860732,
+            "upstream_version": "v32.7.4",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v32.7.4/drawio-amd64-32.7.4.deb"
           },
-          "resolved_at": "2026-11-05T09:33:05+00:00",
+          "resolved_at": "2026-11-18T10:15:01+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "drawio-arm64-32.6.10.deb",
+            "asset_name": "drawio-arm64-32.7.4.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n  draw.io desktop",
               "Homepage": "https://github.com/jgraph/drawio",
-              "Installed-Size": "357109",
+              "Installed-Size": "362449",
               "License": "GPL-3.0-only",
               "Maintainer": "draw.io <desktop@draw.io>",
               "Package": "draw.io",
@@ -504,18 +504,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "draw.io <desktop@draw.io>",
-              "Version": "32.6.10"
+              "Version": "32.7.4"
             },
-            "filename": "draw.io_32.6.10_arm64.deb",
-            "md5": "f11c329003f0e4b4a027cf24d2711f84",
-            "sha1": "924e96ac7b93bfd482eb6524fab30917cce499f7",
-            "sha256": "3cd0b69b31f9113f09df43f47f149e78f1a109d628282ae713e13d0e5d320800",
-            "sha512": "c9e86c9fab4c13d5021e04f43a9588eb129de3b77aac3da44c8b5f50e0d35fa2fa9b561ca02a6af65545ecf43373d5297cb090a55c7faac615d6cf11a842467d",
-            "size": 117186256,
-            "upstream_version": "v32.6.10",
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v32.6.10/drawio-arm64-32.6.10.deb"
+            "filename": "draw.io_32.7.4_arm64.deb",
+            "md5": "551b524ed146feddc68a23ab62336422",
+            "sha1": "fd8d31696296c9a8783f728cf6eaa839eb06be3a",
+            "sha256": "562fe7e0e108342a60019cb3fbd8500b8ba3a3e532cb34b6ac63e5a7a98e998f",
+            "sha512": "93671b08ccc9b59f5dcc5c6b48ef7faa10dc686e6fbde97aab4d531a9f1353e25433491f6bb3fa03feef772fbdaff5cb897d6e3d740d14f86b740459b63f141c",
+            "size": 120017360,
+            "upstream_version": "v32.7.4",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v32.7.4/drawio-arm64-32.7.4.deb"
           },
-          "resolved_at": "2026-11-05T09:33:07+00:00",
+          "resolved_at": "2026-11-18T10:15:05+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1027,59 +1027,59 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "gh_2.104.0_linux_amd64.deb",
+            "asset_name": "gh_2.105.0_linux_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "git",
               "Description": "GitHub\u2019s official command line tool.",
               "Homepage": "https://github.com/cli/cli",
-              "Installed-Size": "40545",
+              "Installed-Size": "40663",
               "License": "MIT",
               "Maintainer": "GitHub",
               "Package": "gh",
               "Priority": "optional",
               "Section": "",
-              "Version": "2.104.0"
+              "Version": "2.105.0"
             },
-            "filename": "gh_2.104.0_linux_amd64.deb",
-            "md5": "09c7d8a38d6e64a9d622c8bfc9f1ff0a",
-            "sha1": "7b808c6ca0c48f639140ecd8b82466cc11753e20",
-            "sha256": "f90d578cbc4c3b067dfc4a1a540cef41faef64eebfb280b548ab32455977a21f",
-            "sha512": "0d48d3c931ac422f24eef919795fe4b58026069ec572fe46e7cbcb0fd18515b41e03c78b8e832e81b8d2b1f8810d05a43e3898dd0c7284762b6b9f28411ff900",
-            "size": 15077566,
-            "upstream_version": "v2.104.0",
-            "url": "https://github.com/cli/cli/releases/download/v2.104.0/gh_2.104.0_linux_amd64.deb"
+            "filename": "gh_2.105.0_linux_amd64.deb",
+            "md5": "5daa4c71259698adf2f6e0f091183515",
+            "sha1": "36b38775e6d1d66f17f8faf4d3a0052a8776d640",
+            "sha256": "1dac939af3e84fb3861927c984b357531341be9403b889e4aa86e8822145a09d",
+            "sha512": "3fdeed77ce2bcc62fd75deb97b57a505d38b2d8a5b403b00d4ca200418b373254aaaed5c8ae515954f2b6245f769f196049736d67c494cb45daf2002d88a9279",
+            "size": 15121824,
+            "upstream_version": "v2.105.0",
+            "url": "https://github.com/cli/cli/releases/download/v2.105.0/gh_2.105.0_linux_amd64.deb"
           },
-          "resolved_at": "2026-11-13T09:36:51+00:00",
+          "resolved_at": "2026-11-18T10:15:03+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "gh_2.104.0_linux_arm64.deb",
+            "asset_name": "gh_2.105.0_linux_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "git",
               "Description": "GitHub\u2019s official command line tool.",
               "Homepage": "https://github.com/cli/cli",
-              "Installed-Size": "37673",
+              "Installed-Size": "37751",
               "License": "MIT",
               "Maintainer": "GitHub",
               "Package": "gh",
               "Priority": "optional",
               "Section": "",
-              "Version": "2.104.0"
+              "Version": "2.105.0"
             },
-            "filename": "gh_2.104.0_linux_arm64.deb",
-            "md5": "52a96fd7dd464a5dc2d1532fd67298a9",
-            "sha1": "b94ee2dacaf3522a29b772949575257815d02ee8",
-            "sha256": "95b0632a7e1b12761248b7266825b0eab0853cefb84a1e272d905acb6e436f6c",
-            "sha512": "7804578f1bb2652ad86d4540a090d4fa0429939d785ea5656cb9f298e89fe3559e46f17cfb88e3b743ad477ee5138f1c50a1a60b48cc5768cbd6bba1725285b7",
-            "size": 13705886,
-            "upstream_version": "v2.104.0",
-            "url": "https://github.com/cli/cli/releases/download/v2.104.0/gh_2.104.0_linux_arm64.deb"
+            "filename": "gh_2.105.0_linux_arm64.deb",
+            "md5": "4e170c6e20f4431d308f20592f263c55",
+            "sha1": "640aacec5003d6a05c92aea9dd9b074274020065",
+            "sha256": "d17e9b089ce0356679c9fa1898f3a7d38dccf943d529acaa94c24e8a4584e0ae",
+            "sha512": "02ba723ccc5c5e1490114ccb8109f165c8a9c97ca13fc7fa01bb3f1a33858c9a31ebbd1fdb6f352ad1753bedf935be8397171b8a7ddab6140d94a05a3b2d22f3",
+            "size": 13748300,
+            "upstream_version": "v2.105.0",
+            "url": "https://github.com/cli/cli/releases/download/v2.105.0/gh_2.105.0_linux_arm64.deb"
           },
-          "resolved_at": "2026-11-13T09:36:52+00:00",
+          "resolved_at": "2026-11-18T10:15:04+00:00",
           "source": "github",
           "update_policy": "track"
         }
