@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T10:15:17+00:00",
+  "generated_at": "2026-11-19T10:26:18+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -846,10 +846,10 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "FlClash-0.9.3-linux-amd64.deb",
+            "asset_name": "FlClash-dev-0.9.4-linux-amd64.deb",
             "control": {
               "Architecture": "amd64",
-              "Depends": "libayatana-appindicator3-1, libsecret-1-0",
+              "Depends": "libsecret-1-0",
               "Description": "A multi-platform proxy client based on ClashMeta, simple and easy to use, open-source and ad-free.",
               "Essential": "no",
               "Installed-Size": "6604",
@@ -857,27 +857,27 @@
               "Package": "FlClash",
               "Priority": "optional",
               "Section": "x11",
-              "Version": "0.9.3+2026110401"
+              "Version": "0.9.4+2026111907"
             },
-            "filename": "FlClash-0.9.3-linux-amd64.deb",
-            "md5": "3aa76f96388cc424507e417ab1f1bc0c",
-            "sha1": "cd5359e601eaccddda26d4645dac2d76663928c6",
-            "sha256": "4064254329bb39c6289c743e16e5726ae56b5853e86d9f88e0145e2af032351b",
-            "sha512": "5a2dfec2008952e5d9cf08d862d48a9269852b0412393395273eb7e9cd71b8a836a352c8d99012e351d89eb2dd83e202ec85ff7f7610a7f5bbaaf07e3fc75bc6",
-            "size": 40482184,
-            "upstream_version": "v0.9.3",
-            "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.3/FlClash-0.9.3-linux-amd64.deb"
+            "filename": "FlClash-dev-0.9.4-linux-amd64.deb",
+            "md5": "eefb52cb3c8c138967943c40419cd763",
+            "sha1": "600f6ac57af3a440cc45c0827d0e86a255e694e3",
+            "sha256": "72c6b892d7467aefdc67cd8a3b0515fa5a337e88d192d372cda1c21c9d24d47f",
+            "sha512": "0c46189ecc955a1d3fec07f6b387417bbc184f0a8ec738823d63b699c0066346c80d33a8e2cb41d90cdee74a2b076f40ed4c143e8fa2ab4114025a737708f6cd",
+            "size": 40854652,
+            "upstream_version": "v0.9.4",
+            "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.4/FlClash-dev-0.9.4-linux-amd64.deb"
           },
-          "resolved_at": "2026-11-04T09:22:18+00:00",
+          "resolved_at": "2026-11-19T10:26:00+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "FlClash-0.9.3-linux-arm64.deb",
+            "asset_name": "FlClash-dev-0.9.4-linux-arm64.deb",
             "control": {
               "Architecture": "arm64",
-              "Depends": "libayatana-appindicator3-1, libsecret-1-0",
+              "Depends": "libsecret-1-0",
               "Description": "A multi-platform proxy client based on ClashMeta, simple and easy to use, open-source and ad-free.",
               "Essential": "no",
               "Installed-Size": "6604",
@@ -885,18 +885,18 @@
               "Package": "FlClash",
               "Priority": "optional",
               "Section": "x11",
-              "Version": "0.9.3+2026110401"
+              "Version": "0.9.4+2026111907"
             },
-            "filename": "FlClash-0.9.3-linux-arm64.deb",
-            "md5": "00957e9619be804973c2e27b472f71fa",
-            "sha1": "6865417a44917e4dda6ae14b276892553c552db3",
-            "sha256": "86789e784786e7d53dce44858ff9bdcd8f430a3bd1366bc9d071bf68622be7a7",
-            "sha512": "103fe4ffca55eeab21e50947a3d8d73345c302a86eb7d144836dd416680562f2ff157bea8cdaba983e87b38c8e1a5f28b0f482804785cf89ce74dc69d54123cd",
-            "size": 36860748,
-            "upstream_version": "v0.9.3",
-            "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.3/FlClash-0.9.3-linux-arm64.deb"
+            "filename": "FlClash-dev-0.9.4-linux-arm64.deb",
+            "md5": "d597643dc1d2842d398cc0692a849833",
+            "sha1": "bc26428f50e6cca41001ab107aa4172bc7419685",
+            "sha256": "8882ca6e0c21784dacd52351ee457193e4b208d112a1e18143abc6c99a76ece7",
+            "sha512": "8e1752a722d5c42a052560b40115ffdbc0498ee2fc8a88e4291afdd52fdd9cab0356d02d288262c1f40946bfad9812e3ff52b82c4a2a9b878687b54352fc39f1",
+            "size": 37198700,
+            "upstream_version": "v0.9.4",
+            "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.4/FlClash-dev-0.9.4-linux-arm64.deb"
           },
-          "resolved_at": "2026-11-04T09:22:19+00:00",
+          "resolved_at": "2026-11-19T10:26:01+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1090,30 +1090,30 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "google-chrome-stable_157.0.8103.78-1_amd64.deb",
+            "asset_name": "google-chrome-stable_158.0.8127.36-1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "ca-certificates, fonts-liberation, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.25), libcairo2 (>= 1.14.0), libcups2 (>= 1.7.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.49.3), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.35), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libvulkan1, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxrandr2, wget, xdg-utils (>= 1.0.2)",
               "Description": "The web browser from Google\n Google Chrome is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier.",
-              "Installed-Size": "462190",
+              "Installed-Size": "469593",
               "Maintainer": "Chrome Linux Team <chromium-dev@chromium.org>",
               "Package": "google-chrome-stable",
               "Pre-Depends": "dpkg (>= 1.14.0)",
               "Priority": "optional",
               "Provides": "www-browser",
               "Section": "web",
-              "Version": "157.0.8103.78-1"
+              "Version": "158.0.8127.36-1"
             },
-            "filename": "google-chrome-stable_157.0.8103.78-1_amd64.deb",
-            "md5": "e5006117320f0c60dd3c84a51980cb25",
-            "sha1": "1cba7c56e7539bb791c30aab7d1c934a8e11e99e",
-            "sha256": "4d740636b5c96f687798602c5aad6a5a270f44dd02e48db0638ae77aa4867b1b",
-            "sha512": "b7609f7eda276e569133ba7047dee4bfcbf431fc90ed38fe7c7fbb1c18c8a6a8fd6614915ab6910974b26d9e24c44b2f3142c02927e88861779b429a67a77bea",
-            "size": 147497676,
-            "upstream_version": "157.0.8103.78",
-            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_157.0.8103.78-1_amd64.deb"
+            "filename": "google-chrome-stable_158.0.8127.36-1_amd64.deb",
+            "md5": "090a11a1c25a53650b3d60e236351bb8",
+            "sha1": "acd9ae7c5c39b11d4e3ac729bb82402384e23417",
+            "sha256": "4696bce00b128f385a870ba2eb6eede61698f22374ea0d8e09af8a1c6543d397",
+            "sha512": "7cb9b20453d94cd570f3c94fc846ff1a683ec3bae35186f37092ec36d4f047268698bfc2e82f3697e33bfe25d486e5ad087452699d121919bdad73860ee75ed4",
+            "size": 152702276,
+            "upstream_version": "158.0.8127.36",
+            "url": "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_158.0.8127.36-1_amd64.deb"
           },
-          "resolved_at": "2026-11-14T09:01:16+00:00",
+          "resolved_at": "2026-11-19T10:26:04+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -2009,14 +2009,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "code_1.146.0_amd64.deb",
+            "asset_name": "code_1.147.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.15), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "1111972",
+              "Installed-Size": "1121082",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2024,31 +2024,31 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.146.0-1794340865"
+              "Version": "1.147.0-1794903003"
             },
-            "filename": "code_1.146.0_amd64.deb",
-            "md5": "adb5de970452d4b45bb6286d411581cd",
-            "sha1": "63d04e99120eba84f3dcc6fa05e65d72ecfd6b61",
-            "sha256": "f83565f7f11a60b256807fe2216da8405f9728f193754959695242eecd148992",
-            "sha512": "4a57258fbafa7e12c69b56e5b8c95c21d02d838c320ba58a446f84cd3ced28957cb7ec57ccea4f86a7ea858196043337341a247db693b6ed9af57f108d8fac1b",
-            "size": 291523322,
-            "upstream_version": "1.146.0",
-            "url": "https://update.code.visualstudio.com/1.146.0/linux-deb-x64/stable"
+            "filename": "code_1.147.0_amd64.deb",
+            "md5": "6401f00576f24081ef5eb4c98981a650",
+            "sha1": "8f430296026f0cc96cc8733a7f551615f0b0f391",
+            "sha256": "749efcdf5008a8323d76773b836199cdecf708fdb993f0f0544d9475176837ab",
+            "sha512": "994f9955d41b0664bc2aaf3459ff0c5c54b398dd05ea76a52bc073c46ad48329ce790ff7ae8d0856ce53404878f41e072363005cf222486308138341a4d936a6",
+            "size": 294878630,
+            "upstream_version": "1.147.0",
+            "url": "https://update.code.visualstudio.com/1.147.0/linux-deb-x64/stable"
           },
-          "resolved_at": "2026-11-12T09:53:51+00:00",
+          "resolved_at": "2026-11-19T10:26:12+00:00",
           "source": "aur",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "code_1.146.0_arm64.deb",
+            "asset_name": "code_1.147.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "visual-studio-code",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.17), libc6 (>= 2.25), libc6 (>= 2.28), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.30), libnss3 (>= 3.26), libpango-1.0-0 (>= 1.14.0), libstdc++6 (>= 4.1.1), libstdc++6 (>= 5), libstdc++6 (>= 5.2), libstdc++6 (>= 6), libstdc++6 (>= 9), libudev1 (>= 183), libx11-6, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2, xdg-utils (>= 1.0.2)",
               "Description": "Code editing. Redefined.\n Visual Studio Code is a new choice of tool that combines the simplicity of\n a code editor with what developers need for the core edit-build-debug cycle.\n See https://code.visualstudio.com/docs/setup/linux for installation\n instructions and FAQ.",
               "Homepage": "https://code.visualstudio.com/",
-              "Installed-Size": "1031445",
+              "Installed-Size": "1038610",
               "Maintainer": "Microsoft Corporation <vscode-linux@microsoft.com>",
               "Package": "code",
               "Priority": "optional",
@@ -2056,18 +2056,18 @@
               "Recommends": "libvulkan1, bubblewrap, socat",
               "Replaces": "visual-studio-code",
               "Section": "devel",
-              "Version": "1.146.0-1794340783"
+              "Version": "1.147.0-1794902973"
             },
-            "filename": "code_1.146.0_arm64.deb",
-            "md5": "6f0f1795ebd4a83f5a480496dad97848",
-            "sha1": "0a92e9b5d5d93eee05ad3912518cb997e9952eb0",
-            "sha256": "ae7c714ee9c80bd98323e53cdf211d3c9249a83f34d78b8fd6cfbc143ba2424f",
-            "sha512": "c3f47bb9269ee0394ca88da760ebbfbb2ed29ef9be3785d792140d3daa4ec0ea70db27d50e847f4387a16c8c471d21bf105bcbe03a78b3a483deab1a58e746d5",
-            "size": 262905366,
-            "upstream_version": "1.146.0",
-            "url": "https://update.code.visualstudio.com/1.146.0/linux-deb-arm64/stable"
+            "filename": "code_1.147.0_arm64.deb",
+            "md5": "b479e583b0c0170ba348822c510f45e4",
+            "sha1": "b3be0ee617465dc94c3b8c12a85b9e59b907b416",
+            "sha256": "13b65c06a51f573db750878fa671cd89701b5f628e73d5309b7b0c2884814101",
+            "sha512": "247e97e7f135fd124bd94879f0caceb677fe899ff5816b3e307234c5cc5e2d24d1f54bd66c4aa7944908797218e8f8aa748bd2db28475581dd4e25a79efb9fa9",
+            "size": 266619874,
+            "upstream_version": "1.147.0",
+            "url": "https://update.code.visualstudio.com/1.147.0/linux-deb-arm64/stable"
           },
-          "resolved_at": "2026-11-12T09:53:59+00:00",
+          "resolved_at": "2026-11-19T10:26:18+00:00",
           "source": "aur",
           "update_policy": "track"
         }
