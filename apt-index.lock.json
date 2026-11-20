@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T10:26:18+00:00",
+  "generated_at": "2026-11-20T10:05:46+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -64,13 +64,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_6.3.2_amd64.deb",
+            "asset_name": "beekeeper-studio_6.3.3_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "1158661",
+              "Installed-Size": "1158268",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -78,30 +78,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "6.3.2"
+              "Version": "6.3.3"
             },
-            "filename": "beekeeper-studio_6.3.2_amd64.deb",
-            "md5": "399019d70ff1e9883b8c77e1f5bce77a",
-            "sha1": "3821f8d032fcb941896f320eb47d6ecc7f82b674",
-            "sha256": "26b719c71e5af2074e45dcfa30fd439579e8b236ec48f9a2f40e02353dc41628",
-            "sha512": "8ca5897448f7c02bee19175d3e02a7c132be2366e0b58ae20e653ca8fd2c91e8bcc33176252706e22e63e02eabc94a41a0b8f5ce3e4eaa932d0f0b032168bbff",
-            "size": 275088012,
-            "upstream_version": "v6.3.2",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.3.2/beekeeper-studio_6.3.2_amd64.deb"
+            "filename": "beekeeper-studio_6.3.3_amd64.deb",
+            "md5": "135816ac77763902795eb2900bcbbb94",
+            "sha1": "b793209bbeaf98a21eb50b4345503c97e5a7d5aa",
+            "sha256": "1541700120a26cb81c69a4570c9f73d2931555a48a409dc083bc51a1b6345455",
+            "sha512": "728f6d641b844920311977f3add7e31ab787941c6b75ae3401172c541f75b598c90af09a2ab0a0eeeea42d8074716b829d6753a36267debf911b2496e3f3f8e4",
+            "size": 274344460,
+            "upstream_version": "v6.3.3",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.3.3/beekeeper-studio_6.3.3_amd64.deb"
           },
-          "resolved_at": "2026-11-18T10:15:01+00:00",
+          "resolved_at": "2026-11-20T10:05:29+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "beekeeper-studio_6.3.2_arm64.deb",
+            "asset_name": "beekeeper-studio_6.3.3_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, gnupg",
               "Description": "\n  An easy-to use SQL query editor and database UI for Mac, Windows, and Linux",
               "Homepage": "https://github.com/beekeeper-studio/beekeeper-studio#readme",
-              "Installed-Size": "1156369",
+              "Installed-Size": "1155976",
               "License": "unknown",
               "Maintainer": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
               "Package": "beekeeper-studio",
@@ -109,18 +109,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "Beekeeper Studio Team <matthew@rathbonelabs.com>",
-              "Version": "6.3.2"
+              "Version": "6.3.3"
             },
-            "filename": "beekeeper-studio_6.3.2_arm64.deb",
-            "md5": "84e5345f311dc9f5bc87119768d5e565",
-            "sha1": "0df124728046e51b041fa2fd66efffefdde4d200",
-            "sha256": "36b6241c13d0f21e626d7ccfd919676f0784fe565c89be3a5590ce2ac68c227c",
-            "sha512": "2b31b4f3a9c639bd97b9f3b4bc8a03f36083d0b9149e1ce602ff725cc0990b6a31017338f684e7097171f8c7fff109ed7d2513c89cd016e2693b1c26004aad5e",
-            "size": 267748396,
-            "upstream_version": "v6.3.2",
-            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.3.2/beekeeper-studio_6.3.2_arm64.deb"
+            "filename": "beekeeper-studio_6.3.3_arm64.deb",
+            "md5": "b854ef8f9da66f606509ac22873bd484",
+            "sha1": "f8d377a9b161c309bf57f913b0dd830735deb787",
+            "sha256": "54422a4be3c81ce7b3bde7ed7b1a0a32fdc318329001599a4f9eda5892a7a12e",
+            "sha512": "ab49979f0d5837259fbcddda73b4cc2b24ef5b5c7d1ea0349ceda8f4481d135ef5e5875761124027fe24bf57f0bad88678220699d4573f43f707b4a7eb11fb43",
+            "size": 266961104,
+            "upstream_version": "v6.3.3",
+            "url": "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.3.3/beekeeper-studio_6.3.3_arm64.deb"
           },
-          "resolved_at": "2026-11-18T10:15:06+00:00",
+          "resolved_at": "2026-11-20T10:05:36+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.30.14_amd64.deb",
+            "asset_name": "cursor_3.31.11_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0) | libglib2.0-0t64 (>= 2.12.0), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "1025172",
+              "Installed-Size": "1022545",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.30.14-1794552202"
+              "Version": "3.31.11-1795070917"
             },
-            "filename": "cursor_3.30.14_amd64.deb",
-            "md5": "27c7f464e7c8ea4be18ec928bba671bb",
-            "sha1": "f9c53227c5abc181ea2fbec1ac98db5abc209aad",
-            "sha256": "c8003e009f96a6e4fd7185f7016c66d7e36e03d8fa2e2394197511907bcd8226",
-            "sha512": "e6521ef9b4695a6da52187e3f2c155698bf989b57b71bb0860514c08d82e67780e28ea6f3be0d2055af1c7d8d5ecaa6c456b96feacefe98c1585d4075968d230",
-            "size": 228316960,
-            "upstream_version": "3.30.14",
-            "url": "https://downloads.cursor.com/production/5f54c8173e5552412beb40702adac16275677fa0/linux/x64/deb/amd64/deb/cursor_3.30.14_amd64.deb"
+            "filename": "cursor_3.31.11_amd64.deb",
+            "md5": "c5b62781586c949d1bc8e92708a30254",
+            "sha1": "ca05c7cbfd3f4282ba6638b353317673b89ac69a",
+            "sha256": "93329fcde15232e8b4b42486d989a74b467bbadb6a3b75591f53f2b22c17a5a5",
+            "sha512": "8659c7ac765bd4e166c26b95906583966120d6f4903721dfa8ea5d0d35966e0a876aabb35f515b74487e56ff17531dab2cefc93f157f0c3390ad0ed384282f2d",
+            "size": 230845844,
+            "upstream_version": "3.31.11",
+            "url": "https://downloads.cursor.com/production/52fdf018932f1335bc6dd36acc5e33d30759192e/linux/x64/deb/amd64/deb/cursor_3.31.11_amd64.deb"
           },
-          "resolved_at": "2026-11-14T09:01:15+00:00",
+          "resolved_at": "2026-11-20T10:05:34+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1410,14 +1410,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "Motrix_2.4.3_amd64.deb",
+            "asset_name": "Motrix_2.4.5_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "motrix-turbo",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Full-featured download manager\n  Motrix is a full-featured download manager that supports HTTP, FTP, BitTorrent and Magnet downloads.",
               "Homepage": "https://motrix.app",
-              "Installed-Size": "328070",
+              "Installed-Size": "328123",
               "License": "MIT",
               "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
               "Package": "motrix",
@@ -1427,31 +1427,31 @@
               "Replaces": "motrix-turbo",
               "Section": "default",
               "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
-              "Version": "2.4.3"
+              "Version": "2.4.5"
             },
-            "filename": "motrix_2.4.3_amd64.deb",
-            "md5": "350f2ab8e6d96d9e52d0aa4b39947743",
-            "sha1": "7ec6d1e53571f6f7812fb7679ec15768e2c29237",
-            "sha256": "b7b4fff6bf8c79f05f2f98e7a27d7c2bbc0472b8de6be38e03ceeb969944aafd",
-            "sha512": "31ce6507f835f2a5ccbeddd0d10d9fbe2775d36f8a2af48ed62066481dbb35dfbc3af8abbd94b85fb4abeea1578131882a9b2ca09b6fd2668a54b32b568d53c4",
-            "size": 112522096,
-            "upstream_version": "v2.4.3",
-            "url": "https://github.com/agalwood/Motrix/releases/download/v2.4.3/Motrix_2.4.3_amd64.deb"
+            "filename": "motrix_2.4.5_amd64.deb",
+            "md5": "26af167561cbb48c10de6272d6af1336",
+            "sha1": "9f3e7f307bfffb7c1377358db5992887e05d8da0",
+            "sha256": "c47e77932f277230a7cd416533bde8889bc5f28c7a72ac9d4396d35dee118d7f",
+            "sha512": "defa7d5f008f10f857018ba8f2660f138e0fb5dd13b54c4a9d18ffe11011458c897d77d1d941111c1bbbe9610be4dedfd6f8bb735066fbd6c0d1f82dc37c3923",
+            "size": 112540968,
+            "upstream_version": "v2.4.5",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v2.4.5/Motrix_2.4.5_amd64.deb"
           },
-          "resolved_at": "2026-11-17T10:47:25+00:00",
+          "resolved_at": "2026-11-20T10:05:37+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "Motrix_2.4.3_arm64.deb",
+            "asset_name": "Motrix_2.4.5_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "motrix-turbo",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Full-featured download manager\n  Motrix is a full-featured download manager that supports HTTP, FTP, BitTorrent and Magnet downloads.",
               "Homepage": "https://motrix.app",
-              "Installed-Size": "332246",
+              "Installed-Size": "332299",
               "License": "MIT",
               "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
               "Package": "motrix",
@@ -1461,18 +1461,18 @@
               "Replaces": "motrix-turbo",
               "Section": "default",
               "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
-              "Version": "2.4.3"
+              "Version": "2.4.5"
             },
-            "filename": "motrix_2.4.3_arm64.deb",
-            "md5": "817ef97968de51ee2ce643f34eae986b",
-            "sha1": "51c7b06ec69237b2059f800e28d26c1262db077f",
-            "sha256": "d8721c752d67498503c744efd83e9b605ed33a1e482df5f6ecb7596a8f47f535",
-            "sha512": "2d0513343256d30b201b7d66a2fbf2ab77441145a644bf13b43e3e223daf9ee9cf54c0c111f4c1e2a5bada1a11e2e74210290ff804690c8e9d9e6e6be8052082",
-            "size": 107617324,
-            "upstream_version": "v2.4.3",
-            "url": "https://github.com/agalwood/Motrix/releases/download/v2.4.3/Motrix_2.4.3_arm64.deb"
+            "filename": "motrix_2.4.5_arm64.deb",
+            "md5": "b93b380d0b6764495bbe91d7c5ede2c0",
+            "sha1": "35f47e56b6993320d930f74e31dfaf525da7856a",
+            "sha256": "914b8949a99029cad4b08c9966ec7a8779fd833c97f3b1df20a018cbe110cc34",
+            "sha512": "d5f65302cdefd5fe047ef91486c7bef73c0394e80050bc92781645833910fe4d9b094dff03f96f09362a0e8b0a6e7035cae25500b9d6474831ef81c511caf872",
+            "size": 107635796,
+            "upstream_version": "v2.4.5",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v2.4.5/Motrix_2.4.5_arm64.deb"
           },
-          "resolved_at": "2026-11-17T10:47:27+00:00",
+          "resolved_at": "2026-11-20T10:05:40+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1745,7 +1745,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "slack-desktop-4.53.287-amd64.deb",
+            "asset_name": "slack-desktop-4.53.292-amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libappindicator3-1, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, kde-cli-tools | kde-runtime | trash-cli | libglib2.0-bin | gvfs-bin, apt-transport-https",
@@ -1757,18 +1757,18 @@
               "Recommends": "pulseaudio | libasound2",
               "Section": "misc",
               "Suggests": "gir1.2-gnomekeyring-1.0, libgnome-keyring0, lsb-release",
-              "Version": "4.53.287"
+              "Version": "4.53.292"
             },
-            "filename": "slack-desktop-4.53.287-amd64.deb",
-            "md5": "f748a627acb986eab215b56c8a9ef3ff",
-            "sha1": "94489516071737acd6c9edd3ee73af8663d94246",
-            "sha256": "c2057f221e41275b7eadc5b658edc00289466b6fb55c912c5894831f6900f969",
-            "sha512": "f0e349308f8294dafca6adba25c3feee62625f2b5aa0665f4b3af9c5b661cb1ef01209f26ed57891e81ece7fa7295469259778f2e1678c25a2939f3d1e927a90",
-            "size": 97157874,
-            "upstream_version": "4.53.287",
-            "url": "https://downloads.slack-edge.com/desktop-releases/linux/x64/4.53.287/slack-desktop-4.53.287-amd64.deb"
+            "filename": "slack-desktop-4.53.292-amd64.deb",
+            "md5": "8c01c9eb18f714ae8464a4fae38fbb58",
+            "sha1": "e4b0e4705133390869f7991f104a03234b3bd22e",
+            "sha256": "c6316a7d15ebc17527a287f88aa27bed89869b15f32c5abe610475c134c910fd",
+            "sha512": "cf4469d56eccec30b4b914868b7aa63445e6bd263e031c12c6a7393b53ac2e6cb399e6dd896680701fddbff887b0050088b7dbaa03bb7ae5f9ba13f7c15ceb23",
+            "size": 97046174,
+            "upstream_version": "4.53.292",
+            "url": "https://downloads.slack-edge.com/desktop-releases/linux/x64/4.53.292/slack-desktop-4.53.292-amd64.deb"
           },
-          "resolved_at": "2026-11-13T09:36:56+00:00",
+          "resolved_at": "2026-11-20T10:05:37+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -1879,13 +1879,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "teams-for-linux_2.32.0_amd64.deb",
+            "asset_name": "teams-for-linux_2.32.1_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, libgbm1, libasound2t64 | libasound2",
               "Description": "Teams for Linux\n  Unofficial Microsoft Teams client for Linux using Electron. It uses the Web App and wraps it as a standalone application using Electron.",
               "Homepage": "https://github.com/IsmaelMartinez/teams-for-linux",
-              "Installed-Size": "321356",
+              "Installed-Size": "311948",
               "License": "GPL-3.0-or-later",
               "Maintainer": "Ismael Martinez <ismaelmartinez@gmail.com>",
               "Package": "teams-for-linux",
@@ -1893,30 +1893,30 @@
               "Recommends": "libappindicator3-1, fido2-tools",
               "Section": "net",
               "Vendor": "Ismael Martinez <ismaelmartinez@gmail.com>",
-              "Version": "2.32.0"
+              "Version": "2.32.1"
             },
-            "filename": "teams-for-linux_2.32.0_amd64.deb",
-            "md5": "a8c7181aaf8260690d73bec41f9839ab",
-            "sha1": "2ea1b8e34de251d5d7f4e11b2fed73cd393f4156",
-            "sha256": "7f996071b363d964148e066cf9fe68dd03443f1841376e35cd4a39c35f7c4ff4",
-            "sha512": "e93cc256f6765d297b0c7ab658825b84f2c745d3dbf5a01d8f3320ed8e9eb25c24e7a824d2b6e19db05025f78d5b4e8a8de7e20eff02914addcfc87a66c4df22",
-            "size": 115780968,
-            "upstream_version": "v2.32.0",
-            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.32.0/teams-for-linux_2.32.0_amd64.deb"
+            "filename": "teams-for-linux_2.32.1_amd64.deb",
+            "md5": "67876fe1558270e634a325e51e815126",
+            "sha1": "d1c92168cc17c8a47a16f94856ec1829e1bf2b96",
+            "sha256": "93b2cc3aae4fc8f5ecc521a4cd6c59409a8aff17ae7ab0d9289c9a6fb08a9aaf",
+            "sha512": "fed985f35db2c68a2a72c6d4ac21968acca413b0aa4d6314577c3e97da30a84d3cb6475954358d525a05d90f1922971b5822517e315a8d8c5dfb78e8f6decfcc",
+            "size": 117283372,
+            "upstream_version": "v2.32.1",
+            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.32.1/teams-for-linux_2.32.1_amd64.deb"
           },
-          "resolved_at": "2026-11-16T09:50:10+00:00",
+          "resolved_at": "2026-11-20T10:05:41+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "teams-for-linux_2.32.0_arm64.deb",
+            "asset_name": "teams-for-linux_2.32.1_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, libgbm1, libasound2t64 | libasound2",
               "Description": "Teams for Linux\n  Unofficial Microsoft Teams client for Linux using Electron. It uses the Web App and wraps it as a standalone application using Electron.",
               "Homepage": "https://github.com/IsmaelMartinez/teams-for-linux",
-              "Installed-Size": "326107",
+              "Installed-Size": "316938",
               "License": "GPL-3.0-or-later",
               "Maintainer": "Ismael Martinez <ismaelmartinez@gmail.com>",
               "Package": "teams-for-linux",
@@ -1924,18 +1924,18 @@
               "Recommends": "libappindicator3-1, fido2-tools",
               "Section": "net",
               "Vendor": "Ismael Martinez <ismaelmartinez@gmail.com>",
-              "Version": "2.32.0"
+              "Version": "2.32.1"
             },
-            "filename": "teams-for-linux_2.32.0_arm64.deb",
-            "md5": "837ae6d8028f3ff61b7faff0e764027b",
-            "sha1": "c1c9fae8dd430154e5597424e996b576b590bfe2",
-            "sha256": "0bd04c93f4427566fd0022dee920017ea9bdc14fb85ed91e8bdd7cdb5146f69f",
-            "sha512": "6d4e0afd440412e11b0fee79301c43f38da1f006270557fc6f110fabf5da09a795ec8781c0204aedbd9a7935ad502ff09f4ff607d77cfc1528315a6fac3612f7",
-            "size": 110825924,
-            "upstream_version": "v2.32.0",
-            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.32.0/teams-for-linux_2.32.0_arm64.deb"
+            "filename": "teams-for-linux_2.32.1_arm64.deb",
+            "md5": "8a6ab305cb18bb17e0a6852c47f5d18c",
+            "sha1": "235b2475717b24a1bde40cff06785697016f087a",
+            "sha256": "ce6238951f383d0fc71795a704c6e8c7f29a06e4af5809391064efd72cb5f8cb",
+            "sha512": "3d5287c299f00881b6c6673a15d00a69cb49621ade506f0b483a561f60190f410ee7348853013895bf5aca2c919a9ce2ef590f09db624a880dfc14d45b855987",
+            "size": 112291604,
+            "upstream_version": "v2.32.1",
+            "url": "https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v2.32.1/teams-for-linux_2.32.1_arm64.deb"
           },
-          "resolved_at": "2026-11-16T09:50:11+00:00",
+          "resolved_at": "2026-11-20T10:05:43+00:00",
           "source": "github",
           "update_policy": "track"
         }
