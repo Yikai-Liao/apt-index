@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T10:05:46+00:00",
+  "generated_at": "2026-11-21T09:54:23+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.31.11_amd64.deb",
+            "asset_name": "cursor_3.31.15_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0) | libglib2.0-0t64 (>= 2.12.0), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "1022545",
+              "Installed-Size": "1023429",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.31.11-1795070917"
+              "Version": "3.31.15-1795203124"
             },
-            "filename": "cursor_3.31.11_amd64.deb",
-            "md5": "c5b62781586c949d1bc8e92708a30254",
-            "sha1": "ca05c7cbfd3f4282ba6638b353317673b89ac69a",
-            "sha256": "93329fcde15232e8b4b42486d989a74b467bbadb6a3b75591f53f2b22c17a5a5",
-            "sha512": "8659c7ac765bd4e166c26b95906583966120d6f4903721dfa8ea5d0d35966e0a876aabb35f515b74487e56ff17531dab2cefc93f157f0c3390ad0ed384282f2d",
-            "size": 230845844,
-            "upstream_version": "3.31.11",
-            "url": "https://downloads.cursor.com/production/52fdf018932f1335bc6dd36acc5e33d30759192e/linux/x64/deb/amd64/deb/cursor_3.31.11_amd64.deb"
+            "filename": "cursor_3.31.15_amd64.deb",
+            "md5": "b80bf0dff081cc58ef921fdcc3901493",
+            "sha1": "406473fb5e78eb055b8bd7e51788ca1acdb19a11",
+            "sha256": "714fa5c3739740060e5b909f62290c69446aff2cecd4d07c732ba278b0a1bd9a",
+            "sha512": "595c47410b64f419b9c446e5feca373380d3b26d073ecf41f7cdec4b61b769a3ca22228a3f517461b4b13526ff46c9ff0974b7f224e2a67c6dfe4c106fe1aadb",
+            "size": 231587408,
+            "upstream_version": "3.31.15",
+            "url": "https://downloads.cursor.com/production/3eb8c13390837371c7c2f2013dc57fdbc802c753/linux/x64/deb/amd64/deb/cursor_3.31.15_amd64.deb"
           },
-          "resolved_at": "2026-11-20T10:05:34+00:00",
+          "resolved_at": "2026-11-21T09:54:12+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -846,7 +846,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "FlClash-dev-0.9.4-linux-amd64.deb",
+            "asset_name": "FlClash-0.9.4-linux-amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libsecret-1-0",
@@ -859,22 +859,22 @@
               "Section": "x11",
               "Version": "0.9.4+2026111907"
             },
-            "filename": "FlClash-dev-0.9.4-linux-amd64.deb",
+            "filename": "FlClash-0.9.4-linux-amd64.deb",
             "md5": "eefb52cb3c8c138967943c40419cd763",
             "sha1": "600f6ac57af3a440cc45c0827d0e86a255e694e3",
             "sha256": "72c6b892d7467aefdc67cd8a3b0515fa5a337e88d192d372cda1c21c9d24d47f",
             "sha512": "0c46189ecc955a1d3fec07f6b387417bbc184f0a8ec738823d63b699c0066346c80d33a8e2cb41d90cdee74a2b076f40ed4c143e8fa2ab4114025a737708f6cd",
             "size": 40854652,
             "upstream_version": "v0.9.4",
-            "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.4/FlClash-dev-0.9.4-linux-amd64.deb"
+            "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.4/FlClash-0.9.4-linux-amd64.deb"
           },
-          "resolved_at": "2026-11-19T10:26:00+00:00",
+          "resolved_at": "2026-11-21T09:54:07+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "FlClash-dev-0.9.4-linux-arm64.deb",
+            "asset_name": "FlClash-0.9.4-linux-arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libsecret-1-0",
@@ -887,16 +887,16 @@
               "Section": "x11",
               "Version": "0.9.4+2026111907"
             },
-            "filename": "FlClash-dev-0.9.4-linux-arm64.deb",
+            "filename": "FlClash-0.9.4-linux-arm64.deb",
             "md5": "d597643dc1d2842d398cc0692a849833",
             "sha1": "bc26428f50e6cca41001ab107aa4172bc7419685",
             "sha256": "8882ca6e0c21784dacd52351ee457193e4b208d112a1e18143abc6c99a76ece7",
             "sha512": "8e1752a722d5c42a052560b40115ffdbc0498ee2fc8a88e4291afdd52fdd9cab0356d02d288262c1f40946bfad9812e3ff52b82c4a2a9b878687b54352fc39f1",
             "size": 37198700,
             "upstream_version": "v0.9.4",
-            "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.4/FlClash-dev-0.9.4-linux-arm64.deb"
+            "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.4/FlClash-0.9.4-linux-arm64.deb"
           },
-          "resolved_at": "2026-11-19T10:26:01+00:00",
+          "resolved_at": "2026-11-21T09:54:09+00:00",
           "source": "github",
           "update_policy": "track"
         }
