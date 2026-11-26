@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T11:23:23+00:00",
+  "generated_at": "2026-11-26T10:59:38+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -411,15 +411,15 @@
               "Version": "1.10.4-alpha-1"
             },
             "filename": "deadbeef-static_1.10.4~alpha-1_amd64.deb",
-            "md5": "964040d54402fc8d33d42184ae71fced",
-            "sha1": "99b5c5664000cfa60ff81ff3ab6e9a62feb43a80",
-            "sha256": "6b23ad52694dfc66c1bc6e436958382b23e939b5e56ac16e37797c103ce930e1",
-            "sha512": "ea9e9eb53497d0603ac9a564e0757c21e6cecd6dec9c89fb1cc81fbec28360f2f08ea5cf237e85aca2fdae9b5622c8581c4a78e21e52cec4e251e313c9e504bd",
-            "size": 13232926,
+            "md5": "7a47fef9281b4c883032c3267737c588",
+            "sha1": "04b8b219cdee1e9bd626b44116c52cffc44c9ab0",
+            "sha256": "b3b22c51a871b62efdb1919dab195b2a0fc089bac1e7a3441eddf2e662d150c1",
+            "sha512": "54aa9a7531dcdae50d1df5cf607dae5afb6ce420b34a93090621bf460e35efef157c56df95b8d3a24a7b05ff34f3da6f8f90a11d8bc29cd4da02beafad040942",
+            "size": 13234282,
             "upstream_version": "deadbeef-static_1.10.4~alpha-1_amd64.deb",
             "url": "https://sourceforge.net/projects/deadbeef/files/Builds/master/linux/deadbeef-static_1.10.4~alpha-1_amd64.deb/download"
           },
-          "resolved_at": "2026-11-24T12:36:15+00:00",
+          "resolved_at": "2026-11-26T10:58:58+00:00",
           "source": "sourceforge",
           "update_policy": "track"
         },
@@ -431,7 +431,7 @@
               "Depends": "libasound2 (>> 1.0.16), libc6 (>= 2.7-1), libcairo2 (>= 1.2.4), libgcc1 (>= 1:4.1.1), libglib2.0-0 (>= 2.16.0), libgtk2.0-0 (>= 2.12.0), libx11-6",
               "Description": "The Ultimate Music Player\n DeaDBeeF (as in 0xDEADBEEF) is a cross-platform audio player\n .\n Features:\n .\n  * mp3, ogg vorbis, flac, ape, wv, wav\n  * ID3v1, ID3v2.2, ID3v2.3, ID3v2.4, APEv2, xing/info tags support\n  * character set detection for non-unicode ID3 tags - supports cp1251\n    and iso8859-1\n  * unicode tags are fully supported as well (both utf8 and ucs2)\n  * cuesheet support for mp3, ogg, flac, ape\n  * autodetection of utf8/cp1251/iso8859-1 charsets in cuesheets\n  * sid and some popular chiptune formats like nsf\n  * tracker modules like mod, s3m, it, xm, etc\n  * HVSC song length database support for sid\n  * gtk2 interface with custom highly speed/memory optimized widgets\n  * no GNOME or KDE dependencies - just gtk2 and several small libraries\n  * minimize to tray, with scrollwheel volume control\n  * drag and drop, both inside of playlist, and from filemanagers and such\n  * control playback from command line (allows global hotkeys using xbindkeys)\n  * seeking works in all supported formats\n  * plugin support; ships with several standard plugins, such as global hotkeys\n    and last.fm scrobbler; sdk is included\n  * duration calculation is as precise as possible for vbr mp3\n    files (with and without xing/info tags)",
               "Homepage": "http://deadbeef.sourceforge.net/",
-              "Installed-Size": "30594",
+              "Installed-Size": "30603",
               "Maintainer": "Oleksiy Yakovenko <waker@users.sf.net>",
               "Package": "deadbeef-static",
               "Priority": "optional",
@@ -440,15 +440,15 @@
               "Version": "1.10.4-alpha-1"
             },
             "filename": "deadbeef-static_1.10.4~alpha-1_arm64.deb",
-            "md5": "5f45d30b12abbebb56c04b317d46e7d0",
-            "sha1": "e282464b9935cd9b51c964b1aecf83b6c8d67a01",
-            "sha256": "687bcf55e875cbadf15aab9316d70bfa23ef941718ad8916910beae691ad1ae3",
-            "sha512": "572b0d4dd0a38bc4683234955dab9d118e709b1df097542d2331587ac923e789ea908fb3a97dae2d6320914a2c41065d39fe4ef3748b7408d792baf2ecee0145",
-            "size": 12774780,
+            "md5": "f21eb1a77dae0ab11b5edac4c55397b1",
+            "sha1": "52df3a0ed468887fc7e609c587096a4460595c46",
+            "sha256": "543d3140eec8aad8944673d907a1d0c43f1d17285974f3bd10f2aae458618472",
+            "sha512": "a79e9ec1540f7dde28c220b562d1fd0c1fc913faf9e0939c6b83cba050f69f20d424764706b46722cb8ca9c3ee6bc1b1a50b9d50703846326431b2a70f260a2f",
+            "size": 12776560,
             "upstream_version": "deadbeef-static_1.10.4~alpha-1_arm64.deb",
             "url": "https://sourceforge.net/projects/deadbeef/files/Builds/master/linux/deadbeef-static_1.10.4~alpha-1_arm64.deb/download"
           },
-          "resolved_at": "2026-11-24T12:38:23+00:00",
+          "resolved_at": "2026-11-26T10:59:38+00:00",
           "source": "sourceforge",
           "update_policy": "track"
         }
@@ -846,7 +846,7 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "FlClash-0.9.4-linux-amd64.deb",
+            "asset_name": "FlClash-0.9.5-linux-amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libsecret-1-0",
@@ -857,24 +857,24 @@
               "Package": "FlClash",
               "Priority": "optional",
               "Section": "x11",
-              "Version": "0.9.4+2026111907"
+              "Version": "0.9.5+2026112607"
             },
-            "filename": "FlClash-0.9.4-linux-amd64.deb",
-            "md5": "eefb52cb3c8c138967943c40419cd763",
-            "sha1": "600f6ac57af3a440cc45c0827d0e86a255e694e3",
-            "sha256": "72c6b892d7467aefdc67cd8a3b0515fa5a337e88d192d372cda1c21c9d24d47f",
-            "sha512": "0c46189ecc955a1d3fec07f6b387417bbc184f0a8ec738823d63b699c0066346c80d33a8e2cb41d90cdee74a2b076f40ed4c143e8fa2ab4114025a737708f6cd",
-            "size": 40854652,
-            "upstream_version": "v0.9.4",
-            "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.4/FlClash-0.9.4-linux-amd64.deb"
+            "filename": "FlClash-0.9.5-linux-amd64.deb",
+            "md5": "1320cb4b4e61af4df8062c4e7fb2bf6d",
+            "sha1": "e293c68589acc4422d8c2f82a92532de92540d23",
+            "sha256": "360fee8e12d3434d199e773fa3494d064695bbb6b66f3d10bec503017323ffd8",
+            "sha512": "a9720394ca411aa7f9cff8fd95f37feda9390b7b6597fc4a35e2454cafff780a0cab2174b762f66368c43aeb6db78d6729e2d551fd7502757ed99154522c1355",
+            "size": 41080148,
+            "upstream_version": "v0.9.5",
+            "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.5/FlClash-0.9.5-linux-amd64.deb"
           },
-          "resolved_at": "2026-11-21T09:54:07+00:00",
+          "resolved_at": "2026-11-26T10:58:29+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "FlClash-0.9.4-linux-arm64.deb",
+            "asset_name": "FlClash-0.9.5-linux-arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libsecret-1-0",
@@ -885,18 +885,18 @@
               "Package": "FlClash",
               "Priority": "optional",
               "Section": "x11",
-              "Version": "0.9.4+2026111907"
+              "Version": "0.9.5+2026112607"
             },
-            "filename": "FlClash-0.9.4-linux-arm64.deb",
-            "md5": "d597643dc1d2842d398cc0692a849833",
-            "sha1": "bc26428f50e6cca41001ab107aa4172bc7419685",
-            "sha256": "8882ca6e0c21784dacd52351ee457193e4b208d112a1e18143abc6c99a76ece7",
-            "sha512": "8e1752a722d5c42a052560b40115ffdbc0498ee2fc8a88e4291afdd52fdd9cab0356d02d288262c1f40946bfad9812e3ff52b82c4a2a9b878687b54352fc39f1",
-            "size": 37198700,
-            "upstream_version": "v0.9.4",
-            "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.4/FlClash-0.9.4-linux-arm64.deb"
+            "filename": "FlClash-0.9.5-linux-arm64.deb",
+            "md5": "93bd6fa8a7286b2d9159f45a7c28ddca",
+            "sha1": "3f5c0f1cddbe275b5f885982d899d2f1b1b32371",
+            "sha256": "dbdd83d85d150d44fbed8ce1eb946e9974dcb5d0b84ead3ad4fe61646dc3b30f",
+            "sha512": "d2458fa91e266600778667eb80066f6e10bb6df92297d937b8a11706f7383781036da380ed5d266c010a964b13c685365d57cb88fdb11f99fe7ef055ecd27e80",
+            "size": 37388940,
+            "upstream_version": "v0.9.5",
+            "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.5/FlClash-0.9.5-linux-arm64.deb"
           },
-          "resolved_at": "2026-11-21T09:54:09+00:00",
+          "resolved_at": "2026-11-26T10:58:30+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1027,59 +1027,59 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "gh_2.105.0_linux_amd64.deb",
+            "asset_name": "gh_2.106.0_linux_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "git",
               "Description": "GitHub\u2019s official command line tool.",
               "Homepage": "https://github.com/cli/cli",
-              "Installed-Size": "40663",
+              "Installed-Size": "40844",
               "License": "MIT",
               "Maintainer": "GitHub",
               "Package": "gh",
               "Priority": "optional",
               "Section": "",
-              "Version": "2.105.0"
+              "Version": "2.106.0"
             },
-            "filename": "gh_2.105.0_linux_amd64.deb",
-            "md5": "5daa4c71259698adf2f6e0f091183515",
-            "sha1": "36b38775e6d1d66f17f8faf4d3a0052a8776d640",
-            "sha256": "1dac939af3e84fb3861927c984b357531341be9403b889e4aa86e8822145a09d",
-            "sha512": "3fdeed77ce2bcc62fd75deb97b57a505d38b2d8a5b403b00d4ca200418b373254aaaed5c8ae515954f2b6245f769f196049736d67c494cb45daf2002d88a9279",
-            "size": 15121824,
-            "upstream_version": "v2.105.0",
-            "url": "https://github.com/cli/cli/releases/download/v2.105.0/gh_2.105.0_linux_amd64.deb"
+            "filename": "gh_2.106.0_linux_amd64.deb",
+            "md5": "0f4f424072af836fdcb40c0e7e7c544d",
+            "sha1": "ff37636c0fbc3768b245cd954a51e3439b1d93dd",
+            "sha256": "d76d387b8fe7619b9b7bfdf40883fa2b38f6e80cf773a3f4b1fcd5e8070ab346",
+            "sha512": "e6d7d384c68978164a5dc206ef57f8023146357dfa99075df4bf95f034c5c87f4827a6c791259f0b78bc48d381ebafa824a24948c6344894e89f787211a0867f",
+            "size": 15175598,
+            "upstream_version": "v2.106.0",
+            "url": "https://github.com/cli/cli/releases/download/v2.106.0/gh_2.106.0_linux_amd64.deb"
           },
-          "resolved_at": "2026-11-18T10:15:03+00:00",
+          "resolved_at": "2026-11-26T10:58:30+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "gh_2.105.0_linux_arm64.deb",
+            "asset_name": "gh_2.106.0_linux_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "git",
               "Description": "GitHub\u2019s official command line tool.",
               "Homepage": "https://github.com/cli/cli",
-              "Installed-Size": "37751",
+              "Installed-Size": "38008",
               "License": "MIT",
               "Maintainer": "GitHub",
               "Package": "gh",
               "Priority": "optional",
               "Section": "",
-              "Version": "2.105.0"
+              "Version": "2.106.0"
             },
-            "filename": "gh_2.105.0_linux_arm64.deb",
-            "md5": "4e170c6e20f4431d308f20592f263c55",
-            "sha1": "640aacec5003d6a05c92aea9dd9b074274020065",
-            "sha256": "d17e9b089ce0356679c9fa1898f3a7d38dccf943d529acaa94c24e8a4584e0ae",
-            "sha512": "02ba723ccc5c5e1490114ccb8109f165c8a9c97ca13fc7fa01bb3f1a33858c9a31ebbd1fdb6f352ad1753bedf935be8397171b8a7ddab6140d94a05a3b2d22f3",
-            "size": 13748300,
-            "upstream_version": "v2.105.0",
-            "url": "https://github.com/cli/cli/releases/download/v2.105.0/gh_2.105.0_linux_arm64.deb"
+            "filename": "gh_2.106.0_linux_arm64.deb",
+            "md5": "799d9dcb0bcc799ddfbe55f9fc27bf9a",
+            "sha1": "c0cb8f141e3faceb4a82c6d3afcd216b8677cfb0",
+            "sha256": "8951c515bd53f48b5b98803441d88673651beac96cebbc07a04c3311867148e5",
+            "sha512": "077f33f057c9d2aea0e0665c7a9ede37b10afeec12bca7e0924b12b34a75e579eb70a26dcab683e4875504f51c55efb03dd67e2c047b27ab2b5d5b5538961706",
+            "size": 13798804,
+            "upstream_version": "v2.106.0",
+            "url": "https://github.com/cli/cli/releases/download/v2.106.0/gh_2.106.0_linux_arm64.deb"
           },
-          "resolved_at": "2026-11-18T10:15:04+00:00",
+          "resolved_at": "2026-11-26T10:58:30+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -2078,13 +2078,13 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "VutronMusic-4.0.0_linux_amd64.deb",
+            "asset_name": "VutronMusic-4.1.0_linux_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n .",
               "Homepage": "https://github.com/stark81",
-              "Installed-Size": "554978",
+              "Installed-Size": "550790",
               "License": "MIT",
               "Maintainer": "stark81 <qq2995734001@gmail.com>",
               "Package": "vutronmusic",
@@ -2092,30 +2092,30 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "stark81 <qq2995734001@gmail.com>",
-              "Version": "4.0.0"
+              "Version": "4.1.0"
             },
-            "filename": "vutronmusic_4.0.0_amd64.deb",
-            "md5": "11d1341b105ac4ce8c534b84cba4d10d",
-            "sha1": "820220ed6fbbe3c04b9ff4a2e76aed4852c29a47",
-            "sha256": "c215e89e6c2706ef71513f3f5b7fb6df72aa55d775eda8b34d5eb11e6beda8f6",
-            "sha512": "728a042d85632b8ff6ba5f877586c87ee90a4484a6d8e0be2378ac13189c1308718c324ad2c4d985d5d10fbefc0601de5bd6539f79c6b30fd0dd58082fda196b",
-            "size": 164044324,
-            "upstream_version": "v4.0.0",
-            "url": "https://github.com/stark81/VutronMusic/releases/download/v4.0.0/VutronMusic-4.0.0_linux_amd64.deb"
+            "filename": "vutronmusic_4.1.0_amd64.deb",
+            "md5": "83ef8385a241035730bcd18a8d5e388b",
+            "sha1": "faddca5026a144aa29723f92ec08a64005f07282",
+            "sha256": "3eab6e6ab9f7eda8ea757b9c1eb637f59d128adaebb72a3b500dd26ce9d459fa",
+            "sha512": "d290ddc494ff7e78b46ca60135df68962d9c22c2b4b393842a81e5b4f7ae90dc2e49dbbe6b7b76fbcc7c88f9faed66c2ddb1280eaef16464ba3b92d7de3ec569",
+            "size": 164905308,
+            "upstream_version": "v4.1.0",
+            "url": "https://github.com/stark81/VutronMusic/releases/download/v4.1.0/VutronMusic-4.1.0_linux_amd64.deb"
           },
-          "resolved_at": "2026-11-16T09:50:13+00:00",
+          "resolved_at": "2026-11-26T10:58:39+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "VutronMusic-4.0.0_linux_arm64.deb",
+            "asset_name": "VutronMusic-4.1.0_linux_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "\n .",
               "Homepage": "https://github.com/stark81",
-              "Installed-Size": "559673",
+              "Installed-Size": "555484",
               "License": "MIT",
               "Maintainer": "stark81 <qq2995734001@gmail.com>",
               "Package": "vutronmusic",
@@ -2123,18 +2123,18 @@
               "Recommends": "libappindicator3-1",
               "Section": "default",
               "Vendor": "stark81 <qq2995734001@gmail.com>",
-              "Version": "4.0.0"
+              "Version": "4.1.0"
             },
-            "filename": "vutronmusic_4.0.0_arm64.deb",
-            "md5": "c386f4ce2ebbc0cb7b07c1dd6ecdd1b9",
-            "sha1": "9f358ecedf54263cc0aeb2c3ad7a25c89e053e96",
-            "sha256": "312ae2e09c9a2f61ab362715e4d972e0e1fc195bec57263576169537d2617444",
-            "sha512": "97a26fdbac59108b84d14b89ac1ff203aa87aa6e42390bc7dd44d86878d0a0071ecd21b65575253c177e85d4f794cbbeeaa3093e78d097b715aa18124662178c",
-            "size": 158350572,
-            "upstream_version": "v4.0.0",
-            "url": "https://github.com/stark81/VutronMusic/releases/download/v4.0.0/VutronMusic-4.0.0_linux_arm64.deb"
+            "filename": "vutronmusic_4.1.0_arm64.deb",
+            "md5": "598625664e4d36c314aff8d3412130a3",
+            "sha1": "6f7520e920d2f99f346cf1c4ccbbd2afbf9e552d",
+            "sha256": "7919964570b57b94793f71b8bb656148668b92933b882d8788e4a030bb77c918",
+            "sha512": "b0dacd6aebf445d47562547213be6baa6d090ce3a9d14d85ecbc82ac9a3c5debde87d58973a78eb78a66b2fefa42ee123afbf9e9551d04b821c62bfb12e3c35e",
+            "size": 159114776,
+            "upstream_version": "v4.1.0",
+            "url": "https://github.com/stark81/VutronMusic/releases/download/v4.1.0/VutronMusic-4.1.0_linux_arm64.deb"
           },
-          "resolved_at": "2026-11-16T09:50:16+00:00",
+          "resolved_at": "2026-11-26T10:58:41+00:00",
           "source": "github",
           "update_policy": "track"
         }
