@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T10:59:38+00:00",
+  "generated_at": "2026-11-27T10:56:43+00:00",
   "packages": {
     "bat": {
       "architectures": {
@@ -359,14 +359,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "cursor_3.32.4_amd64.deb",
+            "asset_name": "cursor_3.32.10_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "cursor",
               "Depends": "ca-certificates, libasound2 (>= 1.0.17) | libasound2t64 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3) | libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0 (>= 2.11.90) | libatk1.0-0t64 (>= 2.11.90), libatspi2.0-0 (>= 2.9.90) | libatspi2.0-0t64 (>= 2.9.90), libc6 (>= 2.16), libc6 (>= 2.17), libc6 (>= 2.2.5), libc6 (>= 2.25), libc6 (>= 2.28), libc6 (>= 2.4), libcairo2 (>= 1.6.0) | libcairo2t64 (>= 1.6.0), libcups2 (>= 1.6.0) | libcups2t64 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14) | libdbus-1-3t64 (>= 1.9.14), libexpat1 (>= 2.1~beta3) | libexpat1t64 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2) | libgbm1t64 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.12.0) | libglib2.0-0t64 (>= 2.12.0), libglib2.0-0 (>= 2.39.4) | libglib2.0-0t64 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10), libgtk-3-0 (>= 3.9.10) | libgtk-3-0t64 (>= 3.9.10) | libgtk-4-1 | libgtk-4-1t64, libnspr4 (>= 2:4.9-2~) | libnspr4t64 (>= 2:4.9-2~), libnss3 (>= 2:3.30) | libnss3t64 (>= 2:3.30), libnss3 (>= 3.26) | libnss3t64 (>= 3.26), libpango-1.0-0 (>= 1.14.0) | libpango-1.0-0t64 (>= 1.14.0), libudev1 (>= 183), libx11-6 | libx11-6t64, libx11-6 (>= 2:1.4.99.1) | libx11-6t64 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2) | libxcb1t64 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1) | libxcomposite1t64 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1) | libxdamage1t64 (>= 1:1.1), libxext6 | libxext6t64, libxfixes3 | libxfixes3t64, libxkbcommon0 (>= 0.5.0) | libxkbcommon0t64 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0) | libxkbfile1t64 (>= 1:1.1.0), libxrandr2 | libxrandr2t64, xdg-utils (>= 1.0.2)",
               "Description": "The AI Code Editor.",
               "Homepage": "https://cursor.com",
-              "Installed-Size": "1015358",
+              "Installed-Size": "1015669",
               "Maintainer": "Cursor <hi@cursor.com>",
               "Package": "cursor",
               "Priority": "optional",
@@ -374,18 +374,18 @@
               "Recommends": "libvulkan1",
               "Replaces": "cursor",
               "Section": "devel",
-              "Version": "3.32.4-1795502857"
+              "Version": "3.32.10-1795672801"
             },
-            "filename": "cursor_3.32.4_amd64.deb",
-            "md5": "04f81b566a4b9de762874b533ea28a72",
-            "sha1": "27cff5d4c237b4b25aecc2a2f00291c941b77bd6",
-            "sha256": "c9c6579b4917c41a142a51a903dee7c81d6ab19b8b8f63916513361e6f019266",
-            "sha512": "9487462e6965b9ef41f2ea2ea360f484fb8a1c24961e10ea0f2c85fa763ea3f9f2163eabda3f814c0a7563b7dae44ab1fb8a1bd3e2f199a949e64afe8a5930ca",
-            "size": 230561828,
-            "upstream_version": "3.32.4",
-            "url": "https://downloads.cursor.com/production/0925c4b8226c56947c43f0b555fb98e187a7e029/linux/x64/deb/amd64/deb/cursor_3.32.4_amd64.deb"
+            "filename": "cursor_3.32.10_amd64.deb",
+            "md5": "b18d685a953aad6811f7a4d7233b79ce",
+            "sha1": "a1599a27f573be84513a0afc6ec6e6a8f223b852",
+            "sha256": "61d621ffcbdb007efa43df8075d2ff70a77fb74af585dbc2bb8f8158f6ccee4e",
+            "sha512": "c9f7a3b01a4112dfe2d6518245dd132c60182e895cbfa52827d3ab8210a06e900f1fadfa57e9c983fefa3b7cf76c9d61b3caa5ffd0bfe76707b2f8fd466f3a40",
+            "size": 230676408,
+            "upstream_version": "3.32.10",
+            "url": "https://downloads.cursor.com/production/0d3b96e46ce65af82ed74bc6f14883b33e1a0597/linux/x64/deb/amd64/deb/cursor_3.32.10_amd64.deb"
           },
-          "resolved_at": "2026-11-25T11:23:05+00:00",
+          "resolved_at": "2026-11-27T10:56:30+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -866,9 +866,9 @@
             "sha512": "a9720394ca411aa7f9cff8fd95f37feda9390b7b6597fc4a35e2454cafff780a0cab2174b762f66368c43aeb6db78d6729e2d551fd7502757ed99154522c1355",
             "size": 41080148,
             "upstream_version": "v0.9.5",
-            "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.5/FlClash-0.9.5-linux-amd64.deb"
+            "url": "https://github.com/Vialibrex/FlClash/releases/download/v0.9.5/FlClash-0.9.5-linux-amd64.deb"
           },
-          "resolved_at": "2026-11-26T10:58:29+00:00",
+          "resolved_at": "2026-11-27T10:56:28+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -894,9 +894,9 @@
             "sha512": "d2458fa91e266600778667eb80066f6e10bb6df92297d937b8a11706f7383781036da380ed5d266c010a964b13c685365d57cb88fdb11f99fe7ef055ecd27e80",
             "size": 37388940,
             "upstream_version": "v0.9.5",
-            "url": "https://github.com/chen08209/FlClash/releases/download/v0.9.5/FlClash-0.9.5-linux-arm64.deb"
+            "url": "https://github.com/Vialibrex/FlClash/releases/download/v0.9.5/FlClash-0.9.5-linux-arm64.deb"
           },
-          "resolved_at": "2026-11-26T10:58:30+00:00",
+          "resolved_at": "2026-11-27T10:56:29+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1410,14 +1410,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "Motrix_2.4.5_amd64.deb",
+            "asset_name": "Motrix_2.4.7_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "motrix-turbo",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Full-featured download manager\n  Motrix is a full-featured download manager that supports HTTP, FTP, BitTorrent and Magnet downloads.",
               "Homepage": "https://motrix.app",
-              "Installed-Size": "328123",
+              "Installed-Size": "327972",
               "License": "MIT",
               "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
               "Package": "motrix",
@@ -1427,31 +1427,31 @@
               "Replaces": "motrix-turbo",
               "Section": "default",
               "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
-              "Version": "2.4.5"
+              "Version": "2.4.7"
             },
-            "filename": "motrix_2.4.5_amd64.deb",
-            "md5": "26af167561cbb48c10de6272d6af1336",
-            "sha1": "9f3e7f307bfffb7c1377358db5992887e05d8da0",
-            "sha256": "c47e77932f277230a7cd416533bde8889bc5f28c7a72ac9d4396d35dee118d7f",
-            "sha512": "defa7d5f008f10f857018ba8f2660f138e0fb5dd13b54c4a9d18ffe11011458c897d77d1d941111c1bbbe9610be4dedfd6f8bb735066fbd6c0d1f82dc37c3923",
-            "size": 112540968,
-            "upstream_version": "v2.4.5",
-            "url": "https://github.com/agalwood/Motrix/releases/download/v2.4.5/Motrix_2.4.5_amd64.deb"
+            "filename": "motrix_2.4.7_amd64.deb",
+            "md5": "bbb34b049a05e830e074994b5d6177f7",
+            "sha1": "8a90b8f6fff00061f9babbdb3ccf24339365ff93",
+            "sha256": "d787efb4438a6e2e060929a5b6cd7696eef810d8cb159afe3cd5a79a119fcdb0",
+            "sha512": "5c92d3369f062f62f00890c2a63d388a2f2d5549fdddcf1df1c43f818c6d4b377a2cdd2f8586aef22f9ec790bcbca25dc0c86908ec746b3d9f495614eb4f8522",
+            "size": 112468496,
+            "upstream_version": "v2.4.7",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v2.4.7/Motrix_2.4.7_amd64.deb"
           },
-          "resolved_at": "2026-11-20T10:05:37+00:00",
+          "resolved_at": "2026-11-27T10:56:32+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "Motrix_2.4.5_arm64.deb",
+            "asset_name": "Motrix_2.4.7_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "motrix-turbo",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Full-featured download manager\n  Motrix is a full-featured download manager that supports HTTP, FTP, BitTorrent and Magnet downloads.",
               "Homepage": "https://motrix.app",
-              "Installed-Size": "332299",
+              "Installed-Size": "331960",
               "License": "MIT",
               "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
               "Package": "motrix",
@@ -1461,18 +1461,18 @@
               "Replaces": "motrix-turbo",
               "Section": "default",
               "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
-              "Version": "2.4.5"
+              "Version": "2.4.7"
             },
-            "filename": "motrix_2.4.5_arm64.deb",
-            "md5": "b93b380d0b6764495bbe91d7c5ede2c0",
-            "sha1": "35f47e56b6993320d930f74e31dfaf525da7856a",
-            "sha256": "914b8949a99029cad4b08c9966ec7a8779fd833c97f3b1df20a018cbe110cc34",
-            "sha512": "d5f65302cdefd5fe047ef91486c7bef73c0394e80050bc92781645833910fe4d9b094dff03f96f09362a0e8b0a6e7035cae25500b9d6474831ef81c511caf872",
-            "size": 107635796,
-            "upstream_version": "v2.4.5",
-            "url": "https://github.com/agalwood/Motrix/releases/download/v2.4.5/Motrix_2.4.5_arm64.deb"
+            "filename": "motrix_2.4.7_arm64.deb",
+            "md5": "4f2396f98779b14a294e14b7a8580070",
+            "sha1": "c0d48c8bcd474f6beeb235e089746a108d218d11",
+            "sha256": "81826848ff2637336e028d1ef9fe636de49fabe62651984b11f7781dba03dcf0",
+            "sha512": "226793c45cbb68837e405956b6c9a82f50ac0f6453a2930eaa78300041dde7b5d1e35f1a80f6ff9ec46f86762e2144ca62529ce0487f09b4e4355a733cfbb32a",
+            "size": 107574528,
+            "upstream_version": "v2.4.7",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v2.4.7/Motrix_2.4.7_arm64.deb"
           },
-          "resolved_at": "2026-11-20T10:05:40+00:00",
+          "resolved_at": "2026-11-27T10:56:34+00:00",
           "source": "github",
           "update_policy": "track"
         }
