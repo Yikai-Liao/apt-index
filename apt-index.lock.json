@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-27T10:56:43+00:00",
+  "generated_at": "2026-11-28T10:32:01+00:00",
   "packages": {
     "bat": {
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "bat_0.26.1_amd64.deb",
+            "asset_name": "bat_0.27.0_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "bat-musl",
@@ -16,23 +16,24 @@
               "Priority": "optional",
               "Provides": "bat",
               "Section": "utils",
-              "Version": "0.26.1"
+              "Version": "0.27.0"
             },
-            "filename": "bat_0.26.1_amd64.deb",
-            "md5": "03b9305cca73527a683c5bb6c67a9788",
-            "sha1": "a83665d81c2ff50c2fa5018e2543be67b67ece9f",
-            "sha256": "ad59954aa1540e526f97267f60557ea5ef4c7dcf91a0811254134537cb353a3c",
-            "size": 3037592,
-            "upstream_version": "v0.26.1",
-            "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat_0.26.1_amd64.deb"
+            "filename": "bat_0.27.0_amd64.deb",
+            "md5": "26ce2c8fe497a49a276acffcb55bf609",
+            "sha1": "fa047375768545c3353ebd48c9bc761e53a68c79",
+            "sha256": "cbcdec9f7a1fa051a2ff931a6db3219cc714717eb0b316368baecda34df824ab",
+            "sha512": "3d9ccad35c799c0bbab6f4f100c3c36bf1d17fa8e7ecdb92d66bd5f8e1d03a22479a960e12313a22b867ea1dc3a75b60cafbaef10398c6fbd88d4f6ecf5bb044",
+            "size": 3323424,
+            "upstream_version": "v0.27.0",
+            "url": "https://github.com/sharkdp/bat/releases/download/v0.27.0/bat_0.27.0_amd64.deb"
           },
-          "resolved_at": "2026-06-14T17:15:01+00:00",
+          "resolved_at": "2026-11-28T10:31:42+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "bat_0.26.1_arm64.deb",
+            "asset_name": "bat_0.27.0_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "bat-musl",
@@ -43,17 +44,18 @@
               "Priority": "optional",
               "Provides": "bat",
               "Section": "utils",
-              "Version": "0.26.1"
+              "Version": "0.27.0"
             },
-            "filename": "bat_0.26.1_arm64.deb",
-            "md5": "f45743c81770dabff2abd8c263e5759f",
-            "sha1": "7729dc4d8dab58934b08aede000cd39945169d53",
-            "sha256": "4a70c3f6236f2c621bd68357257e21b78c9497de4de1e803301ec0209f168653",
-            "size": 2862796,
-            "upstream_version": "v0.26.1",
-            "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat_0.26.1_arm64.deb"
+            "filename": "bat_0.27.0_arm64.deb",
+            "md5": "5e4b89319dd0223447f07f86480bdfc3",
+            "sha1": "f3d3f1676f9d236354b7f7bd47deb88bba5c68b4",
+            "sha256": "84d4bd0939bea5c9d7d7ffc85074ea44fdadb81ac15963c82a341cbebeb8ae9a",
+            "sha512": "af1182a611a6d63e8538614cde68ad23dfbd3a8e7d106137b759fa985d4df9e9b43d981e971040c48f7ac004a60779b54123f8d72f60fcdafc5f4ef1f5482b5a",
+            "size": 3200880,
+            "upstream_version": "v0.27.0",
+            "url": "https://github.com/sharkdp/bat/releases/download/v0.27.0/bat_0.27.0_arm64.deb"
           },
-          "resolved_at": "2026-06-14T17:15:01+00:00",
+          "resolved_at": "2026-11-28T10:31:43+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -559,10 +561,10 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "ente-auth-v4.4.25-x86_64.deb",
+            "asset_name": "ente-auth-v4.4.27-x86_64.deb",
             "control": {
               "Architecture": "amd64",
-              "Depends": "libcurl4, libsqlite3-0, libsodium23, libsecret-1-0, policykit-1 | polkitd, libayatana-appindicator3-1, gir1.2-ayatanaappindicator3-0.1, libayatana-ido3-0.4-0",
+              "Depends": "libcurl4, libsqlite3-0, libsecret-1-0, policykit-1 | polkitd, libayatana-appindicator3-1, gir1.2-ayatanaappindicator3-0.1, libayatana-ido3-0.4-0",
               "Description": "ente two-factor authenticator",
               "Essential": "no",
               "Installed-Size": "36000",
@@ -570,18 +572,18 @@
               "Package": "enteauth",
               "Priority": "optional",
               "Section": "x11",
-              "Version": "4.4.25"
+              "Version": "4.4.27"
             },
-            "filename": "enteauth_4.4.25_amd64.deb",
-            "md5": "e97e4841b40d41066805641212fa2f1a",
-            "sha1": "00bc95727f13f19f675f5ac738885399623a713d",
-            "sha256": "00ff315f040ee69dd1100d74ecf4ddf0fabd246c796d17c6170dc84172ca38af",
-            "sha512": "be4f9d05c06e12fbdfacc7b51ca7229921d43cfb9dad7cb8e75d9e1bd4ad1cd107a124b640bcc4592984303d27cd361d84fcc10a7c154c3b3b0d9d9f636ccb35",
-            "size": 24145980,
-            "upstream_version": "4.4.25",
-            "url": "https://github.com/ente-io/ente/releases/download/auth-v4.4.25/ente-auth-v4.4.25-x86_64.deb"
+            "filename": "enteauth_4.4.27_amd64.deb",
+            "md5": "2b8b7adfda010027b8ab4fed00c21631",
+            "sha1": "9d9b3b5e842490abbb7fd585a31233c229da460d",
+            "sha256": "252800cc91404de982a00b6174a8f79da3380754c7aba482544329f4d90edde2",
+            "sha512": "8fe94b850b4d6a650e63dfc8f8538239e805e7be11deee3bc736961e9fcbc9f3a50280271a715739a1ed1a994ee4a6060a5c6b2b92891cd5c95db2dcda61fdf4",
+            "size": 21991602,
+            "upstream_version": "4.4.27",
+            "url": "https://github.com/ente/ente/releases/download/auth-v4.4.27/ente-auth-v4.4.27-x86_64.deb"
           },
-          "resolved_at": "2026-10-15T07:29:55+00:00",
+          "resolved_at": "2026-11-28T10:31:46+00:00",
           "source": "aur",
           "update_policy": "track"
         }
@@ -598,23 +600,23 @@
               "Depends": "libc6 (>= 2.35)",
               "Description": "Fast neofetch-like system information tool\n fastfetch is a neofetch-like tool for fetching system information and displaying them in a pretty way. It is written mostly in C to achieve much better performance.",
               "Homepage": "https://github.com/fastfetch-cli/fastfetch",
-              "Installed-Size": "4542",
+              "Installed-Size": "4558",
               "Maintainer": "Carter Li <zhangsongcui@live.cn>",
               "Package": "fastfetch",
               "Priority": "optional",
               "Section": "devel",
-              "Version": "2.71.0"
+              "Version": "2.72.0"
             },
             "filename": "fastfetch-linux-amd64.deb",
-            "md5": "f41e52ed90c0c99303e1de6bfdc594f1",
-            "sha1": "b70a7b0c5702bfe79a48a25b177b6a4c178bcffc",
-            "sha256": "6dc0b71c03e58f9f981a6b3c62b4fa3fb30b9d5ee9fa783302c91ea4c2a3600e",
-            "sha512": "9e70d4497d8a62bf92e8fb7949eded27bde2ca62e9292da2851f0aeb89e71468ac08a2b431bf30c34c2ebe469973c6c304c2a674e55b6358fe20d40deba778c9",
-            "size": 1512482,
-            "upstream_version": "2.71.0",
-            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.71.0/fastfetch-linux-amd64.deb"
+            "md5": "d4d6b65bf095c3e41bbc0e26494c416a",
+            "sha1": "429de0042acd98a977d578b319d81c198c335eac",
+            "sha256": "ed2680d98c2cf32e4f923c957ae5f825077b6e92f45c124d3447d4173086b6ce",
+            "sha512": "2e8eeb0d4448c7433cd229b933344d5a805adafae62fac05a293fca750b94626913a83ed26dbfaff8091d060e1da22e3f0f40d05a5bb7661b91af4a89afb2815",
+            "size": 1518822,
+            "upstream_version": "2.72.0",
+            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.72.0/fastfetch-linux-amd64.deb"
           },
-          "resolved_at": "2026-11-07T08:51:08+00:00",
+          "resolved_at": "2026-11-28T10:31:44+00:00",
           "source": "github",
           "update_policy": "track"
         },
@@ -626,23 +628,23 @@
               "Depends": "libc6 (>= 2.35)",
               "Description": "Fast neofetch-like system information tool\n fastfetch is a neofetch-like tool for fetching system information and displaying them in a pretty way. It is written mostly in C to achieve much better performance.",
               "Homepage": "https://github.com/fastfetch-cli/fastfetch",
-              "Installed-Size": "4349",
+              "Installed-Size": "4365",
               "Maintainer": "Carter Li <zhangsongcui@live.cn>",
               "Package": "fastfetch",
               "Priority": "optional",
               "Section": "devel",
-              "Version": "2.71.0"
+              "Version": "2.72.0"
             },
-            "filename": "fastfetch_2.71.0_arm64.deb",
-            "md5": "96db22ad18b71869c464afaf28dcb67d",
-            "sha1": "3363b50608cb644a84d63d8696244f9c68c27d74",
-            "sha256": "ee894a030fb6fecc5151ebe83ce55c9c72966fd1c708ee6be23af448c0a5f149",
-            "sha512": "8c819de1a8e6efc6bd3168c4c7aaf5f6dd93e3fa2979519416ad8fe6f3060135367a5fc1f07858b4ddfcfe7e7dd19f42811acee62ea4c00d9a4238e4cd8d8b98",
-            "size": 1539938,
-            "upstream_version": "2.71.0",
-            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.71.0/fastfetch-linux-aarch64.deb"
+            "filename": "fastfetch_2.72.0_arm64.deb",
+            "md5": "68e483c8b02c4d0c461dd8408437a267",
+            "sha1": "3fa09b61a9e69e9e1ced784fec4e1b70c454e3bf",
+            "sha256": "b47def2577558128e13a0d3c9785d398fa40aca6939f054c8c95aa8d4f4e589d",
+            "sha512": "fdc64782d5a03c89130b9a8fdedef2ecc3a6c21c1b4f5cd0046d42921006c70adc28c4be4a7c17e9d63849086813f744fffb912381978dcb773112b152aa3b7a",
+            "size": 1546532,
+            "upstream_version": "2.72.0",
+            "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.72.0/fastfetch-linux-aarch64.deb"
           },
-          "resolved_at": "2026-11-07T08:51:08+00:00",
+          "resolved_at": "2026-11-28T10:31:45+00:00",
           "source": "github",
           "update_policy": "track"
         }
@@ -1410,14 +1412,14 @@
       "architectures": {
         "amd64": {
           "artifact": {
-            "asset_name": "Motrix_2.4.7_amd64.deb",
+            "asset_name": "Motrix_2.4.8_amd64.deb",
             "control": {
               "Architecture": "amd64",
               "Conflicts": "motrix-turbo",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Full-featured download manager\n  Motrix is a full-featured download manager that supports HTTP, FTP, BitTorrent and Magnet downloads.",
               "Homepage": "https://motrix.app",
-              "Installed-Size": "327972",
+              "Installed-Size": "327976",
               "License": "MIT",
               "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
               "Package": "motrix",
@@ -1427,31 +1429,31 @@
               "Replaces": "motrix-turbo",
               "Section": "default",
               "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
-              "Version": "2.4.7"
+              "Version": "2.4.8"
             },
-            "filename": "motrix_2.4.7_amd64.deb",
-            "md5": "bbb34b049a05e830e074994b5d6177f7",
-            "sha1": "8a90b8f6fff00061f9babbdb3ccf24339365ff93",
-            "sha256": "d787efb4438a6e2e060929a5b6cd7696eef810d8cb159afe3cd5a79a119fcdb0",
-            "sha512": "5c92d3369f062f62f00890c2a63d388a2f2d5549fdddcf1df1c43f818c6d4b377a2cdd2f8586aef22f9ec790bcbca25dc0c86908ec746b3d9f495614eb4f8522",
-            "size": 112468496,
-            "upstream_version": "v2.4.7",
-            "url": "https://github.com/agalwood/Motrix/releases/download/v2.4.7/Motrix_2.4.7_amd64.deb"
+            "filename": "motrix_2.4.8_amd64.deb",
+            "md5": "bfd1f7abb9eb700ed2b68628d4d2807f",
+            "sha1": "1d08b3b8eca410bd6a2d5d53849c569aa77c2136",
+            "sha256": "a0e876f70de677c78d728ec9d089f6339ffd8c7e6286c6a28ee31cc97ea9beb1",
+            "sha512": "da07d090c741a3800a642716930e0dc8cae0286770866cff8611652c16a10bdc68efab3982bf71d8011c8c056881628eef4c3dbd87c6b85b09df39f8c9e2740a",
+            "size": 112694532,
+            "upstream_version": "v2.4.8",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v2.4.8/Motrix_2.4.8_amd64.deb"
           },
-          "resolved_at": "2026-11-27T10:56:32+00:00",
+          "resolved_at": "2026-11-28T10:31:49+00:00",
           "source": "github",
           "update_policy": "track"
         },
         "arm64": {
           "artifact": {
-            "asset_name": "Motrix_2.4.7_arm64.deb",
+            "asset_name": "Motrix_2.4.8_arm64.deb",
             "control": {
               "Architecture": "arm64",
               "Conflicts": "motrix-turbo",
               "Depends": "libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0",
               "Description": "Full-featured download manager\n  Motrix is a full-featured download manager that supports HTTP, FTP, BitTorrent and Magnet downloads.",
               "Homepage": "https://motrix.app",
-              "Installed-Size": "331960",
+              "Installed-Size": "331964",
               "License": "MIT",
               "Maintainer": "Dr_rOot <agalwood.net@gmail.com>",
               "Package": "motrix",
@@ -1461,18 +1463,18 @@
               "Replaces": "motrix-turbo",
               "Section": "default",
               "Vendor": "Dr_rOot <agalwood.net@gmail.com>",
-              "Version": "2.4.7"
+              "Version": "2.4.8"
             },
-            "filename": "motrix_2.4.7_arm64.deb",
-            "md5": "4f2396f98779b14a294e14b7a8580070",
-            "sha1": "c0d48c8bcd474f6beeb235e089746a108d218d11",
-            "sha256": "81826848ff2637336e028d1ef9fe636de49fabe62651984b11f7781dba03dcf0",
-            "sha512": "226793c45cbb68837e405956b6c9a82f50ac0f6453a2930eaa78300041dde7b5d1e35f1a80f6ff9ec46f86762e2144ca62529ce0487f09b4e4355a733cfbb32a",
-            "size": 107574528,
-            "upstream_version": "v2.4.7",
-            "url": "https://github.com/agalwood/Motrix/releases/download/v2.4.7/Motrix_2.4.7_arm64.deb"
+            "filename": "motrix_2.4.8_arm64.deb",
+            "md5": "5f1c8a3686cc8c99b83d32e768282385",
+            "sha1": "c7b276812e9f9c0f77f09ae8eb63967fa7e34070",
+            "sha256": "8e4e0e44661c93d214435266b45d4d3368b40e18c0efd258c49fd965805bca21",
+            "sha512": "535e87b04bffcc79f5d2e721216297f0fcf4cb5b6ccd62ce46a680b01ca80a64abec0b617841dd11f043e1daa4455a679eebb0f91b311604c6e0a09985f7f527",
+            "size": 107607368,
+            "upstream_version": "v2.4.8",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v2.4.8/Motrix_2.4.8_arm64.deb"
           },
-          "resolved_at": "2026-11-27T10:56:34+00:00",
+          "resolved_at": "2026-11-28T10:31:51+00:00",
           "source": "github",
           "update_policy": "track"
         }
